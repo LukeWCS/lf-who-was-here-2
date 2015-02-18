@@ -1,0 +1,16 @@
+services:
+    bb3mobi.washere.helper:
+        class: bb3mobi\washere\core\who_was_here
+        arguments:
+            - @template
+            - @config
+            - @user
+            - @auth
+            - @dbal.conn
+            - %core.table_prefix%
+    bb3mobi.washere.listener:
+        class: bb3mobi\washere\event\listener
+        arguments:
+            - @bb3mobi.washere.helper
+        tags:
+            - { name: event.listener }
