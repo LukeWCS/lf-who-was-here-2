@@ -1,0 +1,31 @@
+{
+    "name": "bb3mobi/washere",
+    "type": "phpbb-extension",
+    "description": "Nv who was here.",
+    "homepage": "http://bb3.mobi",
+    "keywords": ["online", "statistic", "whois", "users"],
+    "version": "1.0.0",
+    "time": "2015-01-24",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Joas Schilling [nickvergessen]",
+            "homepage": "http://www.flying-bits.org/",
+            "role": "Developer"
+        },
+        {
+            "name": "Anvar",
+            "homepage": "http://apwa.ru",
+            "role": "Converting to extension"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "extra": {
+        "display-name": "Nv who was here",
+        "soft-require": {
+        "phpbb/phpbb": "3.1.*@dev"
+        }
+    }
+}
