@@ -76,5 +76,3 @@ class acp_wwh
 	}
 
 }
-
-?>
