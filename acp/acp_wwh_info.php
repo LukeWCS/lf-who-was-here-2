@@ -32,5 +32,3 @@ class acp_wwh_info
 		);
 	}
 }
-
-?>
