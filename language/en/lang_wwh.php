@@ -68,5 +68,3 @@ $lang = array_merge($lang, array(
 	'WHO_WAS_HERE_RECORD'			=> 'Most users ever online was <strong>%1$s</strong> on %2$s',
 	'WHO_WAS_HERE_RECORD_TIME'		=> 'Most users ever online was <strong>%1$s</strong> between %2$s and %3$s',
 ));
-
-?>
