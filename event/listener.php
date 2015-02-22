@@ -43,5 +43,3 @@ class listener implements EventSubscriberInterface
 		$this->helper->display();
 	}
 }
-
-?>
