@@ -30,7 +30,7 @@ class v_1_2_1 extends \phpbb\db\migration\migration
 		'add_tables' => array(
 				$this->table_prefix . 'wwh' => array(
 					'COLUMNS'		=> array(
-						'wwh_id'			=> array('UINT', NULL, 'auto_increment'),
+						'wwh_id'			=> array('UINT', null, 'auto_increment'),
 						'user_id'			=> array('UINT', 0),
 						'username'			=> array('VCHAR', ''),
 						'username_clean'	=> array('VCHAR', ''),
