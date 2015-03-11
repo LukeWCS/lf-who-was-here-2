@@ -69,5 +69,3 @@ $lang = array_merge($lang, array(
 	'WHO_WAS_HERE_RECORD'			=> 'De meeste gebruikers tegelijkertijd online ooit was <strong>%1$s</strong> op %2$s',
 	'WHO_WAS_HERE_RECORD_TIME'		=> 'De meeste gebruikers tegelijkertijd online ooit was <strong>%1$s</strong> tussen %2$s en %3$s',
 ));
-
-?>
