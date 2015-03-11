@@ -3,7 +3,6 @@
     "type": "phpbb-extension",
     "description": "Nv who was here.",
     "homepage": "http://bb3.mobi",
-    "keywords": ["online", "statistic", "whois", "users"],
     "version": "1.0.0",
     "time": "2015-01-24",
     "license": "GPL-2.0",
@@ -22,13 +21,13 @@
     "require": {
         "php": ">=5.3.3"
     },
+    "require-dev": {
+      "phpbb/epv": "dev-master"
+   },
     "extra": {
         "display-name": "Nv who was here",
         "soft-require": {
         "phpbb/phpbb": "3.1.*@dev"
         }
     },
-    "require-dev": {
-      "phpbb/epv": "dev-master"
-   }
 }
