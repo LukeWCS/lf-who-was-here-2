@@ -67,5 +67,3 @@ $lang = array_merge($lang, array(
 	'WHO_WAS_HERE_RECORD'			=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die am %2$s online waren.',
 	'WHO_WAS_HERE_RECORD_TIME'		=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die zwischen %2$s und %3$s online waren.',
 ));
-
-?>
