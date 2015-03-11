@@ -487,3 +487,4 @@ class who_was_here
 		}
 	}
 }
+
