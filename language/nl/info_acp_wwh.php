@@ -80,5 +80,3 @@ $lang = array_merge($lang, array(
 	'UNINSTALL_WWH_MOD'			=> 'Verwijder "Wie Was Hier?" EXT',
 	'UNINSTALL_WWH_MOD_CONFIRM'	=> 'Weet je zeker dat je de "Wie Was Hier?" extensie wilt verwijderen?',
 ));
-
-?>
