@@ -23,11 +23,11 @@
     },
     "require-dev": {
       "phpbb/epv": "dev-master"
-   },
+    },
     "extra": {
         "display-name": "Nv who was here",
         "soft-require": {
         "phpbb/phpbb": "3.1.*@dev"
         }
-    },
+    }
 }
