@@ -11,6 +11,7 @@
 * @ignore
 */
 namespace bb3mobi\washere\acp;
+
 /**
 * @package module_install
 */
