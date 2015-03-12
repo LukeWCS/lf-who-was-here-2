@@ -10,12 +10,8 @@
 * @package phpBB3.1
 * @copyright Anvar (c) 2015 bb3.mobi
 */
-namespace bb3mobi\washere\core;
 
-if (!defined('IN_PHPBB'))
-{
-	exit;
-}
+namespace bb3mobi\washere\core;
 
 class who_was_here
 {
