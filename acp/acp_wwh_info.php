@@ -7,14 +7,8 @@
 *
 */
 
-/**
-* @ignore
-*/
 namespace bb3mobi\washere\acp;
 
-/**
-* @package module_install
-*/
 class acp_wwh_info
 {
 	function module()
@@ -25,9 +19,9 @@ class acp_wwh_info
 			'version'	=> '1.0.0',
 			'modes'		=> array(
 				'config_wwh'	=> array(
-				'title'		=> 'WWH_CONFIG',
-				'auth'		=> 'ext_bb3mobi/washere && acl_a_board',
-				'cat'		=> array('ACP_BOARD_CONFIGURATION'),
+					'title' => 'WWH_CONFIG',
+					'auth' => 'ext_bb3mobi/washere && acl_a_board',
+					'cat' => array('ACP_BOARD_CONFIGURATION')
 				),
 			),
 		);
