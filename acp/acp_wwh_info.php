@@ -12,16 +12,16 @@ namespace bb3mobi\washere\acp;
 class acp_wwh_info
 {
 	function module()
-	{		
+	{
 		return array(
 			'filename'	=> '\bb3mobi\washere\acp\acp_wwh',
 			'title'		=> 'WWH_TITLE',
 			'version'	=> '1.0.0',
 			'modes'		=> array(
 				'config_wwh'	=> array(
-					'title' => 'WWH_CONFIG',
-					'auth' => 'ext_bb3mobi/washere && acl_a_board',
-					'cat' => array('ACP_BOARD_CONFIGURATION')
+					'title'	=> 'WWH_CONFIG',
+					'auth'	=> 'ext_bb3mobi/washere && acl_a_board',
+					'cat'	=> array('ACP_BOARD_CONFIGURATION')
 				),
 			),
 		);
