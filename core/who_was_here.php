@@ -314,13 +314,14 @@ class who_was_here
 		$timestamp = time();
 		if ($this->config['wwh_version'])
 		{
-			/*self::$prune_timestamp = gmmktime(0, 0, 0, gmdate('m', $timestamp), gmdate('d', $timestamp), gmdate('Y', $timestamp));
+			/* OLD function
+			self::$prune_timestamp = gmmktime(0, 0, 0, gmdate('m', $timestamp), gmdate('d', $timestamp), gmdate('Y', $timestamp));
 			self::$prune_timestamp -= ($this->config['board_timezone'] * 3600);
 			self::$prune_timestamp -= ($this->config['board_dst'] * 3600);*/
 
-			// Fix phpBB3.1.2 && LavIgor
-			self::$prune_timestamp = $this->user->get_timestamp_from_format('Y-m-d H:i:s', date('Y', $timestamp).'-'.date('m', $timestamp).'-'.date('d', $timestamp).' 00:00:00', $this->config['board_timezone']);
-
+			// Correct Time Zone. https://www.phpbb.com/community/viewtopic.php?f=456&t=2297986&start=30#p14022491 
+			$timezone = new \DateTimeZone($this->config['board_timezone']);
+			self::$prune_timestamp = $this->user->get_timestamp_from_format('Y-m-d H:i:s', date('Y', $timestamp) . '-' . date('m', $timestamp) . '-' . date('d', $timestamp) . ' 00:00:00', $timezone);
 			self::$prune_timestamp = (self::$prune_timestamp < $timestamp - 86400) ? self::$prune_timestamp + 86400 : ((self::$prune_timestamp > $timestamp) ? self::$prune_timestamp - 86400 : self::$prune_timestamp);
 		}
 		else
