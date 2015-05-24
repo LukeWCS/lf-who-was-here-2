@@ -27,32 +27,32 @@ else if (!isset($phpbb_root_path))
 
 $lang = array_merge($lang, array(
 	'WWH_CONFIG'				=> 'Einstellungen',
-	'WWH_TITLE'					=> 'Wer War Da?',
+	'WWH_TITLE'				=> 'Wer War Da?',
 
 	'WWH_DISP_SET'				=> 'Anzeige Einstellungen',
 	'WWH_DISP_BOTS'				=> 'Zeige Bots',
 	'WWH_DISP_BOTS_EXP'			=> 'Einige Benutzer werden sich fragen was Bots sind und sie fürchten.',
 	'WWH_DISP_GUESTS'			=> 'Zeige Gäste',
-	'WWH_DISP_GUESTS_EXP'		=> 'Zeige die Anzahl der Gäste',
+	'WWH_DISP_GUESTS_EXP'			=> 'Zeige die Anzahl der Gäste',
 	'WWH_DISP_HIDDEN'			=> 'Zeige unsichtbare Benutzer',
-	'WWH_DISP_HIDDEN_EXP'		=> 'Zeige die Anzahl der unsichtbaren Benutzer (benötigt Berechtigung)',
+	'WWH_DISP_HIDDEN_EXP'			=> 'Zeige die Anzahl der unsichtbaren Benutzer (benötigt Berechtigung)',
 	'WWH_DISP_TIME'				=> 'Zeige Zeit',
-	'WWH_DISP_TIME_FORMAT'		=> 'Zeit-Format',
+	'WWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
 	'WWH_DISP_HOVER'			=> 'Anzeige bei überfahren',
 	'WWH_DISP_TIME_EXP'			=> 'Allen Benutzern zeigen oder niemandem. Keine speziellen Funktionen für Administratoren.',
-	'WWH_DISP_IP'				=> 'Zeige die Besucher-IP',
+	'WWH_DISP_IP'				=> 'Zeige die Benutzer-IP',
 	'WWH_DISP_IP_EXP'			=> 'Nur für Benutzer mit administrativen Rechten, wie bei viewonline.php.',
 
 	'WWH_INSTALLED'				=> '"Wer war da?" Erweiterung v%s installiert.',
 
 	'WWH_RECORD'				=> 'Besucherrekord',
 	'WWH_RECORD_EXP'			=> 'Zeige und speichere den Besucherrekord',
-	'WWH_RECORD_TIMESTAMP'		=> 'Datums-Format für den Besucherrekord',
-	'WWH_RESET'					=> 'Besucherrekord zurücksetzen',
+	'WWH_RECORD_TIMESTAMP'			=> 'Datums-Format für den Besucherrekord',
+	'WWH_RESET'				=> 'Besucherrekord zurücksetzen',
 	'WWH_RESET_EXP'				=> 'Setzt Zeit und Zähler für den Aktivitäten-Rekord zurück.',
 	'WWH_RESET_TRUE'			=> 'Wenn du diese Seite speicherst,\nwird der Rekord zurückgesetzt.',
 
-	'WWH_SAVED_SETTINGS'		=> 'Wer War Da: Einstellungen gespeichert.',
+	'WWH_SAVED_SETTINGS'			=> 'Wer War Da: Einstellungen gespeichert.',
 	'WWH_SORT_BY'				=> 'Sortiere Benutzer nach',
 	'WWH_SORT_BY_EXP'			=> 'In welcher Reihenfolge sollen die Benutzer angezeigt werden?',
 	'WWH_SORT_BY_0'				=> 'Benutzername A -> Z',
@@ -73,11 +73,11 @@ $lang = array_merge($lang, array(
 	'WWH_VERSION2_EXP3'			=> 'Sekunden',
 
 
-	'WWH_MOD'					=> '"Who was here?" Erweiterung',
+	'WWH_MOD'				=> '"Who was here?" Erweiterung',
 	'INSTALL_WWH_MOD'			=> '"Who was here?" Erweiterung installieren',
-	'INSTALL_WWH_MOD_CONFIRM'	=> 'Bist du sicher, dass du die "Who was here?" Erweiterung installieren möchtest?',
+	'INSTALL_WWH_MOD_CONFIRM'		=> 'Bist du sicher, dass du die "Who was here?" Erweiterung installieren möchtest?',
 	'UPDATE_WWH_MOD'			=> '"Who was here?" Erweiterung aktualisieren',
-	'UPDATE_WWH_MOD_CONFIRM'	=> 'Bist du sicher, dass du die "Who was here?" Erweiterung aktualisieren möchtest?',
+	'UPDATE_WWH_MOD_CONFIRM'		=> 'Bist du sicher, dass du die "Who was here?" Erweiterung aktualisieren möchtest?',
 	'UNINSTALL_WWH_MOD'			=> '"Who was here?" Erweiterung deinstallieren',
-	'UNINSTALL_WWH_MOD_CONFIRM'	=> 'Bist du sicher, dass du die "Who was here?" Erweiterung deinstallieren möchtest?',
+	'UNINSTALL_WWH_MOD_CONFIRM'		=> 'Bist du sicher, dass du die "Who was here?" Erweiterung deinstallieren möchtest?',
 ));

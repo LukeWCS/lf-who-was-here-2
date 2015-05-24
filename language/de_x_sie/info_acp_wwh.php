@@ -40,7 +40,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
 	'WWH_DISP_HOVER'			=> 'Anzeige bei überfahren',
 	'WWH_DISP_TIME_EXP'			=> 'Allen Benutzern zeigen oder niemandem. Keine speziellen Funktionen für Administratoren.',
-	'WWH_DISP_IP'				=> 'Zeige die Besucher-IP',
+	'WWH_DISP_IP'				=> 'Zeige die Benutzer-IP',
 	'WWH_DISP_IP_EXP'			=> 'Nur für Benutzer mit administrativen Rechten, wie bei viewonline.php.',
 
 	'WWH_INSTALLED'				=> '"Wer war da?" Erweiterung v%s installiert.',
