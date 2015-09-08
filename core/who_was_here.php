@@ -299,7 +299,7 @@ class who_was_here
 		//self::log();
 
 		$this->template->assign_vars(array(
-			'WHO_WAS_HERE_LIST'		=> $this->user->lang['USERS'] . ': ' . $users_list,
+			'WHO_WAS_HERE_LIST'		=> $this->user->lang['USERS'] . $this->user->lang['COLON'] . ' ' . $users_list,
 			'WHO_WAS_HERE_TOTAL'	=> self::get_total_users_string($this->config['wwh_disp_hidden'], $this->config['wwh_disp_bots'], $this->config['wwh_disp_guests']),
 			'WHO_WAS_HERE_EXP'		=> self::get_explanation_string($this->config['wwh_version']),
 			'WHO_WAS_HERE_RECORD'	=> self::get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
