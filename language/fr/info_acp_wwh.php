@@ -57,9 +57,9 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_HIDDEN'			=> 'Afficher les utilisateurs invisibles',
 	'WWH_DISP_HIDDEN_EXP'		=> 'Permet d’afficher les utilisateurs invisibles dans le compteur. Des permissions adéquates sont nécessaires.',
 	'WWH_DISP_TIME'				=> 'Afficher l’heure',
-	'WWH_DISP_TIME_FORMAT'		=> 'Format de l’heure',
-	'WWH_DISP_HOVER'			=> 'Afficher au survol de la souris',
-	'WWH_DISP_TIME_EXP'			=> 'Permet d’afficher l’heure de visite pour tous les utilisateurs ou pour personne. Les administrateurs n’ont pas d’avantage supplémentaire.',
+	'WWH_DISP_TIME_FORMAT'		=> 'Format de la date',
+	'WWH_DISP_HOVER'			=> 'Au survol de la souris',
+	'WWH_DISP_TIME_EXP'			=> 'Permet d’afficher la date et l’heure de visite pour tous les utilisateurs. Les administrateurs n’ont pas d’avantage supplémentaire.',
 	'WWH_DISP_IP'				=> 'Afficher l’adresse IP de l’utilisateur',
 	'WWH_DISP_IP_EXP'			=> 'Permet aux administrateurs de voir l’adresse IP de l’utilisateur.',
 
