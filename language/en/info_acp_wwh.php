@@ -1,10 +1,15 @@
 <?php
 /**
 *
-* @package - NV "who was here?"
-* @copyright (c) nickvergessen - http://www.flying-bits.org/
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* Nv who was here extension for the phpBB Forum Software package.
 *
+* @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+*/
+
+/**
+* DO NOT CHANGE
 */
 if (!defined('IN_PHPBB'))
 {
@@ -22,6 +27,22 @@ else if (!isset($phpbb_root_path))
 {
 	$phpbb_root_path = './';
 }
+
+// DEVELOPERS PLEASE NOTE
+//
+// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
+//
+// Placeholders can now contain order information, e.g. instead of
+// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
+// translators to re-order the output of data while ensuring it remains correct
+//
+// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
+// equally where a string contains only two placeholders which are used to wrap text
+// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+//
+// Some characters you may want to copy&paste:
+// ’ « » “ ” …
+//
 
 $lang = array_merge($lang, array(
 	'WWH_CONFIG'				=> 'Configurate "Who was here?"',
@@ -41,8 +62,6 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_IP'				=> 'Show user-ip',
 	'WWH_DISP_IP_EXP'			=> 'Just for the users with administrative permissions, like on the viewonline.php',
 
-	'WWH_INSTALLED'				=> 'Installed "Who was here?" Extension v%s',
-
 	'WWH_RECORD'				=> 'Record',
 	'WWH_RECORD_EXP'			=> 'Display and save record',
 	'WWH_RECORD_TIMESTAMP'		=> 'Dateformat for the record',
@@ -61,21 +80,10 @@ $lang = array_merge($lang, array(
 	'WWH_SORT_BY_4'				=> 'User-ID ascending',
 	'WWH_SORT_BY_5'				=> 'User-ID descending',
 
-	'WWH_UPDATE_NEED'			=> 'Update the "Who was here?" Extension. Therefor run the <a style="font-weight: bold;" href="' . $phpbb_root_path . 'install/index.php">install/index.php</a>.<br />If you did this, you should delete the install/ directory.',
+	'WWH_UPDATE_NEED'			=> 'Update the "Who was here?" Extension. Therefor run the <a style="font-weight: bold;" href="https://github.com/bb3mobi/who-was-here/archive/master.zip">Download</a>.<br />If you did this, you should disable the extension, upload the new files/directories and re-activate the extension.',
 
 	'WWH_VERSION'				=> 'Displaying users of ...',
 	'WWH_VERSION_EXP'			=> 'Displaying users of today, or of the period set in the next option.',
 	'WWH_VERSION1'				=> 'Today',
 	'WWH_VERSION2'				=> 'Period of time',
-	'WWH_VERSION2_EXP'			=> 'type 0, if you want to display the users of the last 24h',
-	'WWH_VERSION2_EXP2'			=> 'disabled, if you have choosen "today"',
-	'WWH_VERSION2_EXP3'			=> 'seconds',
-
-	'WWH_MOD'					=> '"Who was here?" Extension',
-	'INSTALL_WWH_MOD'			=> 'Install "Who was here?" Extension',
-	'INSTALL_WWH_MOD_CONFIRM'	=> 'Are you sure you want to install the "Who was here?" Extension?',
-	'UPDATE_WWH_MOD'			=> 'Update "Who was here?" Extension',
-	'UPDATE_WWH_MOD_CONFIRM'	=> 'Are you sure you want to update the "Who was here?" Extension?',
-	'UNINSTALL_WWH_MOD'			=> 'Uninstall "Who was here?" Extension',
-	'UNINSTALL_WWH_MOD_CONFIRM'	=> 'Are you sure you want to uninstall the "Who was here?" Extension?',
 ));
