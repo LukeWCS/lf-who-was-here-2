@@ -17,7 +17,7 @@ class v_1_2_1 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return isset($this->config['exlinks_version']) && version_compare($this->config['exlinks_version'], '1.2.1', '>=');
+		return isset($this->config['wwh_mod_version']) && version_compare($this->config['wwh_mod_version'], '1.2.1', '>=');
 	}
 
 	static public function depends_on()
@@ -78,7 +78,7 @@ class v_1_2_1 extends \phpbb\db\migration\migration
 			array('config.add', array('wwh_disp_time_format', 'G:i')),
 
 			// Current version
-			array('config.add', array('exlinks_version', '1.2.1')),
+			array('config.add', array('wwh_mod_version', '1.2.1')),
 
 			// Add ACP modules
 			array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'WWH_TITLE')),
