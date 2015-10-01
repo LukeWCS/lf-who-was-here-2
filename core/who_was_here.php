@@ -15,25 +15,8 @@ namespace bb3mobi\washere\core;
 
 class who_was_here
 {
-	const SORT_ASC = 0;
-	const SORT_USERNAME_ASC = 0;
-	const SORT_USERNAME_DESC = 1;
-	const SORT_LASTPAGE_ASC = 2;
-	const SORT_LASTPAGE_DESC = 3;
-	const SORT_USERID_ASC = 4;
-	const SORT_USERID_DESC = 5;
 
 	static private $prune_timestamp = 0;
-
-	static private $count_total = 0;
-	static private $count_reg = 0;
-	static private $count_hidden = 0;
-	static private $count_bot = 0;
-	static private $count_guests = 0;
-
-	static private $ids_reg = array();
-	static private $ids_hidden = array();
-	static private $ids_bot = array();
 
 	/** @var \phpbb\template\template */
 	protected $template;
@@ -187,15 +170,26 @@ class who_was_here
 	{
 		$this->user->add_lang_ext('bb3mobi/washere', 'lang_wwh');
 
-		if (!self::prune())
+		if (!$this->prune())
 		{
 			// Error while purging the list, database is missing :-O
 			$this->user->add_lang_ext('bb3mobi/washere', 'info_acp_wwh');
 			return;
 		}
 
-		$this->count_guests = $this->count_bot = $this->count_reg = $this->count_hidden = $this->count_total = 0;
-		$wwh_username_colour = $wwh_username = $wwh_username_full = $users_list = '';
+		/* Default count total or ids */
+		$count = array(
+			'count_guests'	=> 0,
+			'count_bot'		=> 0,
+			'count_reg'		=> 0,
+			'count_hidden'	=> 0,
+			'count_total'	=> 0,
+			'ids_reg'		=> array(),
+			'ids_hidden'	=> array(),
+			'ids_bot'		=> array(),
+		);
+
+		$wwh_username_colour = $wwh_username = $wwh_username_full = $users_list = $bots_list = '';
 
 		/* Load cache who_was_here */
 		if (($view_state = $this->cache->get("_who_was_here")) === false)
@@ -203,8 +197,6 @@ class who_was_here
 			$view_state = $this->view_state();
 			$this->cache->put("_who_was_here", $view_state, 60*$this->config['load_online_time']);
 		}
-
-		$bots_list = '';
 
 		foreach ($view_state as $row)
 		{
@@ -236,24 +228,24 @@ class who_was_here
 			// At the end let's count them =)
 			if ($row['user_id'] == ANONYMOUS)
 			{
-				$this->count_guests++;
+				$count['count_guests']++;
 			}
 			else if ($row['user_type'] == USER_IGNORE)
 			{
-				$this->count_bot++;
-				$this->ids_bot[] = (int) $row['user_id'];
+				$count['count_bot']++;
+				$count['ids_bot'][] = (int) $row['user_id'];
 			}
 			else if ($row['viewonline'] == 1)
 			{
-				$this->count_reg++;
-				$this->ids_reg[] = (int) $row['user_id'];
+				$count['count_reg']++;
+				$count['ids_reg'][] = (int) $row['user_id'];
 			}
 			else
 			{
-				$this->count_hidden++;
-				$this->ids_hidden[] = (int) $row['user_id'];
+				$count['count_hidden']++;
+				$count['ids_hidden'][] = (int) $row['user_id'];
 			}
-			$this->count_total++;
+			$count['count_total']++;
 		}
 
 		$users_list = utf8_substr($users_list, utf8_strlen($this->user->lang['COMMA_SEPARATOR']));
@@ -270,31 +262,31 @@ class who_was_here
 
 		if (!$this->config['wwh_disp_bots'])
 		{
-			$this->count_total -= $this->count_bot;
+			$count['count_total'] -= $count['count_bot'];
 		}
 		if (!$this->config['wwh_disp_guests'])
 		{
-			$this->count_total -= $this->count_guests;
+			$count['count_total'] -= $count['count_guests'];
 		}
 		if (!$this->config['wwh_disp_hidden'])
 		{
-			$this->count_total -= $this->count_hidden;
+			$count['count_total'] -= $count['count_hidden'];
 		}
 
 		// Need to update the record?
-		if ($this->config['wwh_record_ips'] < $this->count_total)
+		if ($this->config['wwh_record_ips'] < $count['count_total'])
 		{
-			$this->config->set('wwh_record_ips', $this->count_total, true);
+			$this->config->set('wwh_record_ips', $count['count_total'], true);
 			$this->config->set('wwh_record_time', time(), true);
 		}
 
 		// Disabled, see comment on the method it $this.
-		//$this->log();
+		//$this->log($count);
 
 		$this->template->assign_vars(array(
 			'WHO_WAS_HERE_LIST'		=> $this->user->lang['USERS'] . $this->user->lang['COLON'] . ' ' . $users_list,
 			'WHO_WAS_HERE_BOTS'		=> ($bots_list ? $this->user->lang['G_BOTS'] . $this->user->lang['COLON'] . ' ' . $bots_list : ''),
-			'WHO_WAS_HERE_TOTAL'	=> $this->get_total_users_string($this->config['wwh_disp_hidden'], $this->config['wwh_disp_bots'], $this->config['wwh_disp_guests']),
+			'WHO_WAS_HERE_TOTAL'	=> $this->get_total_users_string($count),
 			'WHO_WAS_HERE_EXP'		=> $this->get_explanation_string($this->config['wwh_version']),
 			'WHO_WAS_HERE_RECORD'	=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
 		));
@@ -351,7 +343,7 @@ class who_was_here
 	* Logs the daily stats.
 	* NOTE: Currently not active, as there might be law conflicts in some states.
 	*/
-	public function log()
+	public function log($count)
 	{
 		if (!$this->config['wwh_version'])
 		{
@@ -359,22 +351,22 @@ class who_was_here
 			return;
 		}
 
-		$log_data = array(
-			'guest_users'		=> $this->count_guests,
-			'hidden_users'		=> $this->count_hidden,
-			'registered_users'	=> $this->count_reg,
-			'bots'				=> $this->count_bot,
-			'hidden_users_list'		=> implode(', ', $this->ids_hidden),
-			'registered_users_list'	=> implode(', ', $this->ids_reg),
-			'bots_list'				=> implode(', ', $this->ids_bot),
-			'start_time'		=> $this->prune_timestamp,
-			'end_time'			=> $this->prune_timestamp + 86400,
-		);
-
-		$www_log_hash = $this->count_guests . '-' . $this->count_hidden . '-' . $this->count_reg . '-' . $this->count_bot;
+		$www_log_hash = $count['count_guests'] . '-' . $count['count_hidden'] . '-' . $count['count_reg'] . '-' . $count['count_bot'];
 
 		if ((time() > $this->config['wwh_log_endtime']) || ($this->config['wwh_log_hash'] != $www_log_hash))
 		{
+			$log_data = array(
+				'guest_users'		=> $count['count_guests'],
+				'hidden_users'		=> $count['count_hidden'],
+				'registered_users'	=> $count['count_reg'],
+				'bots'				=> $count['count_bot'],
+				'hidden_users_list'		=> implode(', ', $count['ids_hidden']),
+				'registered_users_list'	=> implode(', ', $count['ids_reg']),
+				'bots_list'				=> implode(', ', $count['ids_bot']),
+				'start_time'		=> $this->prune_timestamp,
+				'end_time'			=> $this->prune_timestamp + 86400,
+			);
+
 			if ($this->config['wwh_log_endtime'] > time())
 			{
 				$sql = 'UPDATE ' . self::table('wwh_logs') . ' 
@@ -399,21 +391,21 @@ class who_was_here
 	{
 		switch ($this->config['wwh_sort_by'])
 		{
-			case self::SORT_USERNAME_ASC:
-			case self::SORT_USERNAME_DESC:
+			case 0:
+			case 1:
 				$sql_order_by = 'username_clean';
 			break;
-			case self::SORT_USERID_ASC:
-			case self::SORT_USERID_DESC:
+			case 4:
+			case 5:
 				$sql_order_by = 'user_id';
 			break;
-			case self::SORT_LASTPAGE_ASC:
-			case self::SORT_LASTPAGE_DESC:
+			case 2:
+			case 3:
 			default:
 				$sql_order_by = 'wwh_lastpage';
 			break;
 		}
-		$sql_ordering = (($this->config['wwh_sort_by'] % 2) == self::SORT_ASC) ? 'ASC' : 'DESC';
+		$sql_ordering = (($this->config['wwh_sort_by'] % 2) == 0) ? 'ASC' : 'DESC';
 
 		// Let's try another method, to deny duplicate appearance of usernames.
 		$user_id_ary = array();
@@ -439,7 +431,7 @@ class who_was_here
 				{
 					$user_id_ary[] = $row['user_id'];
 				}
-				$statrow[$row['user_id']] = $row;
+				$statrow[] = $row;
 			}
 		}
 		$this->db->sql_freeresult($result);
@@ -503,21 +495,22 @@ class who_was_here
 	* Returns the Total string for the online list:
 	* Demo:	In total there was 1 user online :: 1 registered, 0 hidden, 0 bots and 0 guests
 	*/
-	private function get_total_users_string($display_hidden, $display_bots, $display_guests)
+	private function get_total_users_string($count)
 	{
-		$total_users_string = $this->user->lang('WHO_WAS_HERE_TOTAL', $this->count_total);
-		$total_users_string .= $this->user->lang('WHO_WAS_HERE_REG_USERS', $this->count_reg);
-		if ($display_hidden)
+		$total_users_string = $this->user->lang('WHO_WAS_HERE_TOTAL', $count['count_total']);
+		$total_users_string .= $this->user->lang('WHO_WAS_HERE_REG_USERS', $count['count_reg']);
+
+		if ($this->config['wwh_disp_hidden'])
 		{
-			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_HIDDEN', $this->count_hidden);
+			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_HIDDEN', $count['count_hidden']);
 		}
-		if ($display_bots)
+		if ($this->config['wwh_disp_bots'])
 		{
-			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_BOTS', $this->count_bot);
+			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_BOTS', $count['count_bot']);
 		}
-		if ($display_guests)
+		if ($this->config['wwh_disp_guests'])
 		{
-			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_GUESTS', $this->count_guests);
+			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_GUESTS', $count['count_guests']);
 		}
 
 		switch (substr_count($total_users_string, '%s'))
