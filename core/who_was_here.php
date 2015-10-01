@@ -15,9 +15,6 @@ namespace bb3mobi\washere\core;
 
 class who_was_here
 {
-
-	static private $prune_timestamp = 0;
-
 	/** @var \phpbb\template\template */
 	protected $template;
 
@@ -280,9 +277,6 @@ class who_was_here
 			$this->config->set('wwh_record_time', time(), true);
 		}
 
-		// Disabled, see comment on the method it $this.
-		//$this->log($count);
-
 		$this->template->assign_vars(array(
 			'WHO_WAS_HERE_LIST'		=> $this->user->lang['USERS'] . $this->user->lang['COLON'] . ' ' . $users_list,
 			'WHO_WAS_HERE_BOTS'		=> ($bots_list ? $this->user->lang['G_BOTS'] . $this->user->lang['COLON'] . ' ' . $bots_list : ''),
@@ -301,25 +295,25 @@ class who_was_here
 		if ($this->config['wwh_version'])
 		{
 			/* OLD function
-			$this->prune_timestamp = gmmktime(0, 0, 0, gmdate('m', $timestamp), gmdate('d', $timestamp), gmdate('Y', $timestamp));
-			$this->prune_timestamp -= ($this->config['board_timezone'] * 3600);
-			$this->prune_timestamp -= ($this->config['board_dst'] * 3600);*/
+			$prune_timestamp = gmmktime(0, 0, 0, gmdate('m', $timestamp), gmdate('d', $timestamp), gmdate('Y', $timestamp));
+			$prune_timestamp -= ($this->config['board_timezone'] * 3600);
+			$prune_timestamp -= ($this->config['board_dst'] * 3600);*/
 
 			// Correct Time Zone. https://www.phpbb.com/community/viewtopic.php?f=456&t=2297986&start=30#p14022491
 			$timezone = new \DateTimeZone($this->config['board_timezone']);
-			$this->prune_timestamp = $this->user->get_timestamp_from_format('Y-m-d H:i:s', date('Y', $timestamp) . '-' . date('m', $timestamp) . '-' . date('d', $timestamp) . ' 00:00:00', $timezone);
-			$this->prune_timestamp = ($this->prune_timestamp < $timestamp - 86400) ? $this->prune_timestamp + 86400 : (($this->prune_timestamp > $timestamp) ? $this->prune_timestamp - 86400 : $this->prune_timestamp);
+			$prune_timestamp = $this->user->get_timestamp_from_format('Y-m-d H:i:s', date('Y', $timestamp) . '-' . date('m', $timestamp) . '-' . date('d', $timestamp) . ' 00:00:00', $timezone);
+			$prune_timestamp = ($prune_timestamp < $timestamp - 86400) ? $prune_timestamp + 86400 : (($prune_timestamp > $timestamp) ? $prune_timestamp - 86400 : $prune_timestamp);
 		}
 		else
 		{
-			$this->prune_timestamp = $timestamp - ((3600 * $this->config['wwh_del_time_h']) + (60 * $this->config['wwh_del_time_m']) + $this->config['wwh_del_time_s']);
+			$prune_timestamp = $timestamp - ((3600 * $this->config['wwh_del_time_h']) + (60 * $this->config['wwh_del_time_m']) + $this->config['wwh_del_time_s']);
 		}
 
-		if ((!isset($this->config['wwh_last_clean']) || ($this->config['wwh_last_clean'] != $this->prune_timestamp)) || !$this->config['wwh_version'])
+		if ((!isset($this->config['wwh_last_clean']) || ($this->config['wwh_last_clean'] != $prune_timestamp)) || !$this->config['wwh_version'])
 		{
 			$this->db->sql_return_on_error(true);
 			$sql = 'DELETE FROM ' . WWH_TABLE . '
-				WHERE wwh_lastpage <= ' . $this->prune_timestamp;
+				WHERE wwh_lastpage <= ' . $prune_timestamp;
 			$result = $this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
@@ -331,57 +325,12 @@ class who_was_here
 
 			if ($this->config['wwh_version'])
 			{
-				$this->config->set('wwh_last_clean', $this->prune_timestamp);
+				$this->config->set('wwh_last_clean', $prune_timestamp);
 			}
 		}
 
 		// Purging was not needed or done succesfully...
 		return true;
-	}
-
-	/**
-	* Logs the daily stats.
-	* NOTE: Currently not active, as there might be law conflicts in some states.
-	*/
-	public function log($count)
-	{
-		if (!$this->config['wwh_version'])
-		{
-			// Logging not allowed for this mode.
-			return;
-		}
-
-		$www_log_hash = $count['count_guests'] . '-' . $count['count_hidden'] . '-' . $count['count_reg'] . '-' . $count['count_bot'];
-
-		if ((time() > $this->config['wwh_log_endtime']) || ($this->config['wwh_log_hash'] != $www_log_hash))
-		{
-			$log_data = array(
-				'guest_users'		=> $count['count_guests'],
-				'hidden_users'		=> $count['count_hidden'],
-				'registered_users'	=> $count['count_reg'],
-				'bots'				=> $count['count_bot'],
-				'hidden_users_list'		=> implode(', ', $count['ids_hidden']),
-				'registered_users_list'	=> implode(', ', $count['ids_reg']),
-				'bots_list'				=> implode(', ', $count['ids_bot']),
-				'start_time'		=> $this->prune_timestamp,
-				'end_time'			=> $this->prune_timestamp + 86400,
-			);
-
-			if ($this->config['wwh_log_endtime'] > time())
-			{
-				$sql = 'UPDATE ' . self::table('wwh_logs') . ' 
-					SET ' . $this->db->sql_build_array('UPDATE', $log_data) . '
-					WHERE log_id = ' . (int) $this->config['wwh_current_log_id'];
-				$this->db->sql_query($sql);
-			}
-			else
-			{
-				$this->db->sql_query('INSERT INTO ' . self::table('wwh_logs') . ' ' . $this->db->sql_build_array('INSERT', $log_data));
-				$this->config->set('wwh_current_log_id', (int) $this->db->sql_nextid());
-				$this->config->set('wwh_log_endtime', $log_data['end_time']);
-			}
-			$this->config->set('wwh_log_hash', $www_log_hash);
-		}
 	}
 
 	/**
