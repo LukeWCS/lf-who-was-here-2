@@ -65,6 +65,10 @@ class who_was_here
 	{
 		if ($this->user->data['user_id'] != ANONYMOUS)
 		{
+			if (!$this->config['wwh_disp_bots'] && $this->user->data['user_type'] == USER_IGNORE)
+			{
+				return;
+			}
 			$wwh_data = array(
 				'user_id'			=> $this->user->data['user_id'],
 				'user_ip'			=> $this->user->ip,
@@ -126,6 +130,10 @@ class who_was_here
 		}
 		else
 		{
+			if (!$this->config['wwh_disp_guests'])
+			{
+				return;
+			}
 			$this->db->sql_return_on_error(true);
 			$sql = 'SELECT user_id
 				FROM ' . WWH_TABLE . "

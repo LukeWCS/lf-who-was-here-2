@@ -12,7 +12,7 @@ namespace bb3mobi\washere\acp;
 /**
 * @package acp
 */
-class acp_wwh
+class acp_wwh_module
 {
 	var $u_action;
 

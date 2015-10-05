@@ -83,7 +83,7 @@ class v_1_2_1 extends \phpbb\db\migration\migration
 			// Add ACP modules
 			array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'WWH_TITLE')),
 			array('module.add', array('acp', 'WWH_TITLE', array(
-				'module_basename'	=> '\bb3mobi\washere\acp\acp_wwh',
+				'module_basename'	=> '\bb3mobi\washere\acp\acp_wwh_module',
 				'module_langname'	=> 'WWH_CONFIG',
 				'module_mode'		=> 'overview',
 				'module_auth'		=> 'ext_bb3mobi/washere && acl_a_board',
