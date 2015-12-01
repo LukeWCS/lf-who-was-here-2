@@ -1,13 +1,17 @@
 <?php
 /**
 *
-* @package - NV "who was here?"
-* @copyright (c) nickvergessen - http://www.flying-bits.org/
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* Nv who was here extension for the phpBB Forum Software package.
 *
-* Deutsche Übersetzung von: <unbekannt>, Luke (www.wcsaga.org)
+* @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+* Deutsche Übersetzung für >=1.2.2 von: <unbekannt>, Luke (www.wcsaga.org)
 */
 
+/**
+* DO NOT CHANGE
+*/
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -17,10 +21,27 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
+// DEVELOPERS PLEASE NOTE
+//
+// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
+//
+// Placeholders can now contain order information, e.g. instead of
+// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
+// translators to re-order the output of data while ensuring it remains correct
+//
+// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
+// equally where a string contains only two placeholders which are used to wrap text
+// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+//
+// Some characters you may want to copy&paste:
+// ’ « » “ ” …
+//
+
 $lang = array_merge($lang, array(
+// for the normal sites
 	'WHO_WAS_HERE'				=> 'Wer war da?',
 	'WHO_WAS_HERE_LATEST1'			=> 'zuletzt um',
-	'WHO_WAS_HERE_LATEST2'			=> ' Uhr',
+	'WHO_WAS_HERE_LATEST2'			=> '',//' Uhr'
 
 	'WHO_WAS_HERE_TOTAL'		=> array(
 		0				=> 'Insgesamt waren <strong>0</strong> Besucher online :: ',
@@ -28,14 +49,14 @@ $lang = array_merge($lang, array(
 		2				=> 'Insgesamt waren <strong>%d</strong> Besucher online :: ',
 	),
 	'WHO_WAS_HERE_REG_USERS'	=> array(
-		0				=> '0 registrierte',
-		1				=> '%d registrierter',
-		2				=> '%d registrierte',
+		0				=> '0 sichtbare Mitglieder',
+		1				=> '%d sichtbares Mitglied',
+		2				=> '%d sichtbare Mitglieder',
 	),
 	'WHO_WAS_HERE_HIDDEN'		=> array(
-		0				=> '0 unsichtbare',
-		1				=> '%d unsichtbarer',
-		2				=> '%d unsichtbare',
+		0				=> '0 unsichtbare Mitglieder',
+		1				=> '%d unsichtbares Mitglied',
+		2				=> '%d unsichtbare Mitglieder',
 	),
 	'WHO_WAS_HERE_BOTS'		=> array(
 		0				=> '0 Bots',
