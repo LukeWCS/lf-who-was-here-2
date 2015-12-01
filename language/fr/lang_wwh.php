@@ -2,6 +2,7 @@
 /**
 *
 * Nv who was here extension for the phpBB Forum Software package.
+* French translation by tomberaid (http://www.worshiprom.com) & Galixte (http://www.galixte.com)
 *
 * @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru>
 * @license GNU General Public License, version 2 (GPL-2.0)
@@ -38,54 +39,54 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 // for the normal sites
-	'WHO_WAS_HERE'					=> 'Who was here?',
-	'WHO_WAS_HERE_LATEST1'			=> 'last at',
+	'WHO_WAS_HERE'					=> 'Qui est venu ?',
+	'WHO_WAS_HERE_LATEST1'			=> 'Dernière visite :',
 	'WHO_WAS_HERE_LATEST2'			=> '',//used for parts like o'clock in the timedisplay (last at vw:xy "o'clock")
 
 	'WHO_WAS_HERE_TOTAL'			=> array(
-		0		=> 'In total there were <strong>0</strong> users online :: ',
-		1		=> 'In total there was <strong>%d</strong> user online :: ',
-		2		=> 'In total there were <strong>%d</strong> users online :: ',
+		0		=> 'Au total il y a eu <strong>0</strong> utilisateur en ligne :: ',
+		1		=> 'Au total il y a eu <strong>%d</strong> utilisateur en ligne :: ',
+		2		=> 'Au total il y a eu <strong>%d</strong> utilisateurs en ligne :: ',
 	),
 	'WHO_WAS_HERE_REG_USERS'		=> array(
-		0		=> '0 registered',
-		1		=> '%d registered',
-		2		=> '%d registered',
+		0		=> '0 enregistré',
+		1		=> '%d enregistré',
+		2		=> '%d enregistrés',
 	),
 	'WHO_WAS_HERE_HIDDEN'			=> array(
-		0		=> '0 hidden',
-		1		=> '%d hidden',
-		2		=> '%d hidden',
+		0		=> '0 invisible',
+		1		=> '%d invisible',
+		2		=> '%d invisibles',
 	),
 	'WHO_WAS_HERE_BOTS'				=> array(
-		0		=> '0 bots',
-		1		=> '%d bot',
-		2		=> '%d bots',
+		0		=> '0 robot',
+		1		=> '%d robot',
+		2		=> '%d robots',
 	),
 	'WHO_WAS_HERE_GUESTS'			=> array(
-		0		=> '0 guests',
-		1		=> '%d guest',
-		2		=> '%d guests',
+		0		=> '0 invité',
+		1		=> '%d invité',
+		2		=> '%d invités',
 	),
 
-	'WHO_WAS_HERE_WORD'				=> ' and',
-	'WHO_WAS_HERE_EXP'				=> 'based on users active today',
-	'WHO_WAS_HERE_EXP_TIME'			=> 'based on users active over the past ',
+	'WHO_WAS_HERE_WORD'				=> ' et',
+	'WHO_WAS_HERE_EXP'				=> 'd’après le nombre d’utilisateurs actifs d’aujourd’hui',
+	'WHO_WAS_HERE_EXP_TIME'			=> 'd’après le nombre d’utilisateurs actifs ',
 	'WWH_HOURS'						=> array(
 		0		=> '',
-		1		=> '%%s %1$s hour',
-		2		=> '%%s %1$s hours',
+		1		=> 'de la dernière %%s %1$s heure',
+		2		=> 'des %%s %1$s dernières heures',
 	),
 	'WWH_MINUTES'					=> array(
 		0		=> '',
-		1		=> '%%s %1$s minute',
-		2		=> '%%s %1$s minutes',
+		1		=> 'de la dernière %%s %1$s minute',
+		2		=> 'des %%s %1$s dernières minutes',
 	),
 	'WWH_SECONDS'					=> array(
 		0		=> '',
-		1		=> '%%s %1$s second',
-		2		=> '%%s %1$s seconds',
+		1		=> 'de la dernière %%s %1$s seconde',
+		2		=> 'des dernières %%s %1$s secondes',
 	),
-	'WHO_WAS_HERE_RECORD'			=> 'Most users ever online was <strong>%1$s</strong> on %2$s',
-	'WHO_WAS_HERE_RECORD_TIME'		=> 'Most users ever online was <strong>%1$s</strong> between %2$s and %3$s',
+	'WHO_WAS_HERE_RECORD'			=> 'Le record du nombre d’utilisateurs en ligne était de <strong>%1$s</strong>, le %2$s',
+	'WHO_WAS_HERE_RECORD_TIME'		=> 'Le record du nombre d’utilisateurs en ligne était de <strong>%1$s</strong>, entre %2$s et %3$s',
 ));

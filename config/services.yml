@@ -6,6 +6,7 @@ services:
             - @config
             - @user
             - @auth
+            - @cache.driver
             - @dbal.conn
             - %core.table_prefix%
     bb3mobi.washere.listener:

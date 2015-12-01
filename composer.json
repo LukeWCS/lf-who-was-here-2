@@ -1,9 +1,9 @@
 {
     "name": "bb3mobi/washere",
     "type": "phpbb-extension",
-    "description": "Nv who was here.",
+    "description": "Nv who was here?",
     "homepage": "http://bb3.mobi",
-    "version": "1.0.0",
+    "version": "1.2.2",
     "time": "2015-01-24",
     "license": "GPL-2.0",
     "authors": [
@@ -14,7 +14,7 @@
         },
         {
             "name": "Anvar",
-            "homepage": "http://apwa.ru",
+            "homepage": "http://phpbbguru.net",
             "role": "Converting to extension"
         }
     ],

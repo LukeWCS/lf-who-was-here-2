@@ -12,20 +12,19 @@ namespace bb3mobi\washere\acp;
 /**
 * @package acp
 */
-class acp_wwh
+class acp_wwh_module
 {
 	var $u_action;
 
 	function main($id, $mode)
 	{
-		global $db, $user, $auth, $template, $cache;
-		global $config, $phpbb_root_path, $phpbb_admin_path, $phpEx;
+		global $user, $config, $request, $template;
 
 		add_form_key('wwh');
 		$user->add_lang('ucp');
 		$this->tpl_name = 'acp_wwh';
 		$this->page_title = $user->lang['WWH_TITLE'];
-		$submit = (isset($_POST['submit'])) ? true : false;
+		$submit = $request->is_set_post('submit');
 
 		if ($submit)
 		{
@@ -34,24 +33,24 @@ class acp_wwh
 				trigger_error('FORM_INVALID');
 			}
 
-			set_config('wwh_disp_bots', request_var('wwh_disp_bots', 0));
-			set_config('wwh_disp_guests', request_var('wwh_disp_guests', 0));
-			set_config('wwh_disp_hidden', request_var('wwh_disp_hidden', 0));
-			set_config('wwh_disp_time', request_var('wwh_disp_time', 0));
-			set_config('wwh_disp_time_format', request_var('wwh_disp_time_format', 'H:i'));
-			set_config('wwh_disp_ip', request_var('wwh_disp_ip', 0));
-			set_config('wwh_version', request_var('wwh_version', 0));
-			set_config('wwh_del_time_h', request_var('wwh_del_time_h', 0));
-			set_config('wwh_del_time_m', request_var('wwh_del_time_m', 0));
-			set_config('wwh_del_time_s', request_var('wwh_del_time_s', 0));
-			set_config('wwh_sort_by', request_var('wwh_sort_by', 0));
-			set_config('wwh_record', request_var('wwh_record', 0));
-			set_config('wwh_record_timestamp', request_var('wwh_record_timestamp', 'D j. M Y'));
-			if (request_var('wwh_reset', 0) > 0)
+			$config->set('wwh_disp_bots', $request->variable('wwh_disp_bots', 0));
+			$config->set('wwh_disp_guests', $request->variable('wwh_disp_guests', 0));
+			$config->set('wwh_disp_hidden', $request->variable('wwh_disp_hidden', 0));
+			$config->set('wwh_disp_time', $request->variable('wwh_disp_time', 0));
+			$config->set('wwh_disp_time_format', $request->variable('wwh_disp_time_format', 'H:i'));
+			$config->set('wwh_disp_ip', $request->variable('wwh_disp_ip', 0));
+			$config->set('wwh_version', $request->variable('wwh_version', 0));
+			$config->set('wwh_del_time_h', $request->variable('wwh_del_time_h', 0));
+			$config->set('wwh_del_time_m', $request->variable('wwh_del_time_m', 0));
+			$config->set('wwh_del_time_s', $request->variable('wwh_del_time_s', 0));
+			$config->set('wwh_sort_by', $request->variable('wwh_sort_by', 0));
+			$config->set('wwh_record', $request->variable('wwh_record', 0));
+			$config->set('wwh_record_timestamp', $request->variable('wwh_record_timestamp', 'D j. M Y'));
+			if ($request->variable('wwh_reset', 0) > 0)
 			{
-				set_config('wwh_record_ips', 1);
-				set_config('wwh_record_time', time());
-				set_config('wwh_reset_time', time());
+				$config->set('wwh_record_ips', 1);
+				$config->set('wwh_record_time', time());
+				$config->set('wwh_reset_time', time());
 			}
 			trigger_error($user->lang['WWH_SAVED_SETTINGS'] . adm_back_link($this->u_action));
 		}

@@ -3,15 +3,16 @@
 <a name="maincontent"></a>
 
 <h1>{L_WWH_TITLE}</h1>
-<p>{WWH_MOD_VERSION}</p>
+<p>{WWH_MOD_VERSION} {L_WWH_UPDATE_NEED}</p>
 
 <form method="post" action="{U_ACTION}">
 	<fieldset>
 		<legend>{L_WWH_DISP_SET}</legend>
 		<dl>
 			<dt><label for="wwh_disp_bots">{L_WWH_DISP_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_disp_bots" value="1" <!-- IF WWH_DISP_BOTS -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
-				<input type="radio" class="radio" name="wwh_disp_bots" value="0" <!-- IF not WWH_DISP_BOTS -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+			<dd><input type="radio" class="radio" name="wwh_disp_bots" value="1" <!-- IF WWH_DISP_BOTS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="wwh_disp_bots" value="0" <!-- IF WWH_DISP_BOTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}
+				<input type="radio" class="radio" name="wwh_disp_bots" value="2" <!-- IF WWH_DISP_BOTS == 2 -->checked="checked"<!-- ENDIF --> /> {L_WWH_DISP_BOTS_STRING}</dd>
 		</dl>
 		<dl>
 			<dt><label for="wwh_disp_guests">{L_WWH_DISP_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_GUESTS_EXP}</span></dt>
