@@ -76,4 +76,5 @@ $lang = array_merge($lang, array(
 	'WWH_VERSION_EXP'			=> 'Afficher les utilisateurs du jour (à partir de minuit et selon le fuseau horaire du forum) ou suivant la période de temps définie dans l’option ci-dessous.',
 	'WWH_VERSION1'				=> 'Aujourd’hui',
 	'WWH_VERSION2'				=> 'Période de temps',
+	'WWH_INSTALLED' 			=> 'Version installée : %s',
 ));
