@@ -1,10 +1,15 @@
 <?php
 /**
 *
-* @package - NV "who was here?"
-* @copyright (c) nickvergessen - http://www.flying-bits.org/
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* Nv who was here extension for the phpBB Forum Software package.
 *
+* @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+*/
+
+/**
+* DO NOT CHANGE
 */
 if (!defined('IN_PHPBB'))
 {
@@ -15,15 +20,31 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
+// DEVELOPERS PLEASE NOTE
+//
+// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
+//
+// Placeholders can now contain order information, e.g. instead of
+// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
+// translators to re-order the output of data while ensuring it remains correct
+//
+// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
+// equally where a string contains only two placeholders which are used to wrap text
+// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+//
+// Some characters you may want to copy&paste:
+// ’ « » “ ” …
+//
+
 $lang = array_merge($lang, array(
 // for the normal sites
-	'WHO_WAS_HERE'					=> 'Chi è stato quì ?',
+	'WHO_WAS_HERE'					=> 'Chi è stato qui ?',
 	'WHO_WAS_HERE_LATEST1'			=> 'Alle',
 	'WHO_WAS_HERE_LATEST2'			=> '',//used for parts like o'clock in the timedisplay (last at vw:xy "o'clock")
 
 	'WHO_WAS_HERE_TOTAL'			=> array(
 		0		=> 'In totale ci sono stati <strong>0</strong> Utenti collegati : ',
-		1		=> 'In totale c\'è stato <strong>%d</strong> Utente collegato : ',
+		1		=> 'In totale c’è stato <strong>%d</strong> Utente collegato : ',
 		2		=> 'In totale ci sono stati <strong>%d</strong> Utenti collegati : ',
 	),
 	'WHO_WAS_HERE_REG_USERS'		=> array(
