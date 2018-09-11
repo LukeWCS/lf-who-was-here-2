@@ -75,4 +75,5 @@ $lang = array_merge($lang, array(
 	'WWH_VERSION_EXP'			=> 'Displaying users of today, or of the period set in the next option.',
 	'WWH_VERSION1'				=> 'Today',
 	'WWH_VERSION2'				=> 'Period of time',
+	'WWH_INSTALLED' 			=> 'Installed version : %s',
 ));
