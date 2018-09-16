@@ -10,6 +10,10 @@
 * @package phpBB3.1
 * @copyright Anvar (c) 2015 bb3.mobi
 */
+/**
+* @package phpBB3.2
+* @copyright LukeWCS (c) 2018 wcsaga.org
+*/
 
 namespace bb3mobi\washere\core;
 
@@ -81,7 +85,7 @@ class who_was_here
 			);
 
 			$this->db->sql_return_on_error(true);
-			$sql = 'UPDATE ' . WWH_TABLE . ' 
+			$sql = 'UPDATE ' . WWH_TABLE . '
 				SET ' . $this->db->sql_build_array('UPDATE', $wwh_data) . '
 				WHERE user_id = ' . (int) $this->user->data['user_id'] . "
 					OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
@@ -174,6 +178,8 @@ class who_was_here
 	public function display()
 	{
 		$this->user->add_lang_ext('bb3mobi/washere', 'lang_wwh');
+		$wwh_disp_users = (($this->config['wwh_disp_for_guests'] == 0) && ($this->user->data['user_id'] != ANONYMOUS) && empty($this->user->data['is_bot'])) || ($this->config['wwh_disp_for_guests'] == 1);
+		$wwh_disp_bots = ($this->config['wwh_disp_bots_only_admin'] == 1) && $this->auth->acl_get('a_') || ($this->config['wwh_disp_bots_only_admin'] == 0);
 
 		if (!$this->prune())
 		{
@@ -213,7 +219,7 @@ class who_was_here
 
 			if ($row['viewonline'] || ($row['user_type'] == USER_IGNORE))
 			{
-				if (($row['user_id'] != ANONYMOUS) && ($this->config['wwh_disp_bots'] || ($row['user_type'] != USER_IGNORE)))
+				if (($row['user_id'] != ANONYMOUS) && ($this->config['wwh_disp_bots'] && $wwh_disp_bots || ($row['user_type'] != USER_IGNORE)))
 				{
 					if ($this->config['wwh_disp_bots'] == 2 && $row['user_type'] == USER_IGNORE)
 					{
@@ -286,11 +292,12 @@ class who_was_here
 		}
 
 		$this->template->assign_vars(array(
-			'WHO_WAS_HERE_LIST'		=> $this->user->lang['USERS'] . $this->user->lang['COLON'] . ' ' . $users_list,
-			'WHO_WAS_HERE_BOTS'		=> ($bots_list ? $this->user->lang['G_BOTS'] . $this->user->lang['COLON'] . ' ' . $bots_list : ''),
-			'WHO_WAS_HERE_TOTAL'	=> $this->get_total_users_string($count),
-			'WHO_WAS_HERE_EXP'		=> $this->get_explanation_string($this->config['wwh_version']),
-			'WHO_WAS_HERE_RECORD'	=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
+			'WHO_WAS_HERE_LIST'			=> ($wwh_disp_users ? $this->user->lang['WHO_WAS_HERE_USERS_TEXT'] . $this->user->lang['COLON'] . ' ' . $users_list : ''),
+			'WHO_WAS_HERE_BOTS'			=> ($wwh_disp_users && $bots_list ? $this->user->lang['WHO_WAS_HERE_BOTS_TEXT'] . $this->user->lang['COLON'] . ' ' . $bots_list : ''),
+			'WHO_WAS_HERE_TOTAL'		=> $this->get_total_users_string($count),
+			'WHO_WAS_HERE_EXP'			=> $this->get_explanation_string($this->config['wwh_version']),
+			'WHO_WAS_HERE_RECORD'		=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
+			'WHO_WAS_HERE_POS'			=> (($this->config['wwh_disp_template_pos'] == 1) ? 1 : 0),
 		));
 	}
 

@@ -2,32 +2,42 @@
 <!-- $Id: acp_wwh.html 61 2007-12-17 20:15:23Z nickvergessen $ -->
 <a name="maincontent"></a>
 
-<h1>{L_WWH_TITLE}</h1>
+<h1>{L_WWH_CONFIG_TITLE}</h1>
 <p>{WWH_MOD_VERSION} {L_WWH_UPDATE_NEED}</p>
 
 <form method="post" action="{U_ACTION}">
 	<fieldset>
 		<legend>{L_WWH_DISP_SET}</legend>
 		<dl>
+			<dt><label for="wwh_disp_for_guests">{L_WWH_DISP_FOR_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_FOR_GUESTS_EXP}</span></dt>
+			<dd><input type="radio" class="radio" name="wwh_disp_for_guests" value="1" <!-- IF WWH_DISP_FOR_GUESTS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="wwh_disp_for_guests" value="0" <!-- IF WWH_DISP_FOR_GUESTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
 			<dt><label for="wwh_disp_bots">{L_WWH_DISP_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_disp_bots" value="1" <!-- IF WWH_DISP_BOTS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
-				<input type="radio" class="radio" name="wwh_disp_bots" value="0" <!-- IF WWH_DISP_BOTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}
+			<dd><input type="radio" class="radio" name="wwh_disp_bots" value="1" <!-- IF WWH_DISP_BOTS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="wwh_disp_bots" value="0" <!-- IF WWH_DISP_BOTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO} &nbsp;
 				<input type="radio" class="radio" name="wwh_disp_bots" value="2" <!-- IF WWH_DISP_BOTS == 2 -->checked="checked"<!-- ENDIF --> /> {L_WWH_DISP_BOTS_STRING}</dd>
 		</dl>
 		<dl>
+			<dt><label for="wwh_disp_bots_only_admin">{L_WWH_DISP_BOTS_ONLY_ADMIN}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_ONLY_ADMIN_EXP}</span></dt>
+			<dd><input type="radio" class="radio" name="wwh_disp_bots_only_admin" value="1" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="wwh_disp_bots_only_admin" value="0" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
 			<dt><label for="wwh_disp_guests">{L_WWH_DISP_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_GUESTS_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_disp_guests" value="1" <!-- IF WWH_DISP_GUESTS -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+			<dd><input type="radio" class="radio" name="wwh_disp_guests" value="1" <!-- IF WWH_DISP_GUESTS -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
 				<input type="radio" class="radio" name="wwh_disp_guests" value="0" <!-- IF not WWH_DISP_GUESTS -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
 		<dl>
 			<dt><label for="wwh_disp_hidden">{L_WWH_DISP_HIDDEN}{L_COLON}</label><br /><span>{L_WWH_DISP_HIDDEN_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_disp_hidden" value="1" <!-- IF WWH_DISP_HIDDEN -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+			<dd><input type="radio" class="radio" name="wwh_disp_hidden" value="1" <!-- IF WWH_DISP_HIDDEN -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
 				<input type="radio" class="radio" name="wwh_disp_hidden" value="0" <!-- IF not WWH_DISP_HIDDEN -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
 		<dl>
 			<dt><label for="wwh_disp_time">{L_WWH_DISP_TIME}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_disp_time" value="1" <!-- IF WWH_DISP_TIME == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
-				<input type="radio" class="radio" name="wwh_disp_time" value="0" <!-- IF WWH_DISP_TIME == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}
+			<dd><input type="radio" class="radio" name="wwh_disp_time" value="1" <!-- IF WWH_DISP_TIME == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="wwh_disp_time" value="0" <!-- IF WWH_DISP_TIME == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO} &nbsp;
 				<input type="radio" class="radio" name="wwh_disp_time" value="2" <!-- IF WWH_DISP_TIME == 2 -->checked="checked"<!-- ENDIF --> /> {L_WWH_DISP_HOVER}</dd>
 		</dl>
 		<dl>
@@ -36,8 +46,15 @@
 		</dl>
 		<dl>
 			<dt><label for="wwh_disp_ip">{L_WWH_DISP_IP}{L_COLON}</label><br /><span>{L_WWH_DISP_IP_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_disp_ip" value="1" <!-- IF WWH_DISP_IP -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+			<dd><input type="radio" class="radio" name="wwh_disp_ip" value="1" <!-- IF WWH_DISP_IP -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
 				<input type="radio" class="radio" name="wwh_disp_ip" value="0" <!-- IF not WWH_DISP_IP -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
+			<dt><label for="wwh_disp_template_pos">{L_WWH_DISP_TEMPLATE_POS}{L_COLON}</label><br /><span>{L_WWH_DISP_TEMPLATE_POS_EXP}</span></dt>
+			<dd><select name="wwh_disp_template_pos">
+					<option value="0" <!-- IF WWH_DISP_TEMPLATE_POS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS1}</option>
+					<option value="1" <!-- IF WWH_DISP_TEMPLATE_POS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS2}</option>
+				</select></dd>
 		</dl>
 	</fieldset>
 	<fieldset>
@@ -67,7 +84,7 @@
 		</dl>
 		<dl>
 			<dt><label for="wwh_record">{L_WWH_RECORD}{L_COLON}</label><br /><span>{L_WWH_RECORD_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_record" value="1" <!-- IF WWH_RECORD -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+			<dd><input type="radio" class="radio" name="wwh_record" value="1" <!-- IF WWH_RECORD -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
 				<input type="radio" class="radio" name="wwh_record" value="0" <!-- IF not WWH_RECORD -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
 		<dl>
@@ -78,7 +95,7 @@
 	<fieldset>
 		<dl>
 			<dt><label for="wwh_reset">{L_WWH_RESET}{L_COLON}</label><br /><span>{L_WWH_RESET_EXP}</span></dt>
-			<dd><input type="radio" class="radio" name="wwh_reset" value="1" onclick="alert('{L_WWH_RESET_TRUE}');" /> {L_YES} &nbsp; 
+			<dd><input type="radio" class="radio" name="wwh_reset" value="1" onclick="alert('{L_WWH_RESET_TRUE}');" /> {L_YES} &nbsp;
 				<input type="radio" class="radio" name="wwh_reset" value="0" checked="checked" /> {L_NO}</dd>
 		</dl>
 	</fieldset>
