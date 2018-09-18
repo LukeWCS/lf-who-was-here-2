@@ -328,7 +328,7 @@ class who_was_here
 		{
 			$this->db->sql_return_on_error(true);
 			$sql = 'DELETE FROM ' . WWH_TABLE . '
-				WHERE wwh_lastpage <= ' . $prune_timestamp;
+				WHERE wwh_lastpage <= ' . (int)$prune_timestamp;
 			$result = $this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 

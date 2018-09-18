@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de
-* Lang_ver     : 1.3.0
+* Lang_ver     : 1.3.1
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -65,8 +65,8 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_IP_EXP'				=> 'Nur für Benutzer mit administrativen Rechten, wie bei viewonline.php.',
 	'WWH_DISP_TEMPLATE_POS'			=> 'Position der Anzeige',
 	'WWH_DISP_TEMPLATE_POS_EXP'		=> 'Legt fest, ob die WWH Anzeige im Online/Statistik-Bereich oben oder unten positioniert werden soll.',
-	'WWH_DISP_TEMPLATE_POS1'		=> 'Oben',
-	'WWH_DISP_TEMPLATE_POS2'		=> 'Unten',
+	'WWH_DISP_TEMPLATE_POS_0'		=> 'Oben',
+	'WWH_DISP_TEMPLATE_POS_1'		=> 'Unten',
 	'WWH_RECORD'					=> 'Besucherrekord',
 	'WWH_RECORD_EXP'				=> 'Zeige und speichere den Besucherrekord',
 	'WWH_RECORD_TIMESTAMP'			=> 'Datums-Format für den Besucherrekord',
