@@ -2,7 +2,7 @@
 Extension phpBB3.2 - LF who was here?
 
 # Installation:
-* Copy the folder `bb3mobi/` with subfolders and files of the repository to `ext/` 
+* Copy the entire folder `bb3mobi/` with all subfolders and files to `ext/` 
 * Navigate in the ACP to Customise -> Extension Management.
 * Click Enable for "LF who was here".
 

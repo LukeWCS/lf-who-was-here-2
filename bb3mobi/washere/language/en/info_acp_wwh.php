@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
-* Lang_ver     : 1.3.0
+* Lang_ver     : 1.3.1
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -42,7 +42,7 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” …
 $lang = array_merge($lang, array(
-	'WWH_CONFIG'					=> 'Configurate "Who was here?"',
+	'WWH_CONFIG'					=> 'Settings',
 	'WWH_TITLE'						=> 'Who was here?',
 	'WWH_CONFIG_TITLE'				=> 'Who was here? (LF who was here)',
 	'WWH_DISP_SET'					=> 'Display settings',
@@ -65,8 +65,8 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_IP_EXP'				=> 'Just for the users with administrative permissions, like on the viewonline.php',
 	'WWH_DISP_TEMPLATE_POS'			=> 'Position of the display',
 	'WWH_DISP_TEMPLATE_POS_EXP'		=> 'Determines whether the WWH display should be in the Online/Statistics area at the top or bottom.',
-	'WWH_DISP_TEMPLATE_POS1'		=> 'Above',
-	'WWH_DISP_TEMPLATE_POS2'		=> 'Below',
+	'WWH_DISP_TEMPLATE_POS_0'		=> 'Above',
+	'WWH_DISP_TEMPLATE_POS_1'		=> 'Below',
 	'WWH_RECORD'					=> 'Record',
 	'WWH_RECORD_EXP'				=> 'Display and save record',
 	'WWH_RECORD_TIMESTAMP'			=> 'Dateformat for the record',
