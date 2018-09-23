@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de_x_sie
-* Lang_ver     : 1.3.1
+* Lang_ver     : 1.3.2
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -37,9 +37,9 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
-
 // Some characters you may want to copy&paste:
 // ’ « » “ ” …
+//
 $lang = array_merge($lang, array(
 // for the normal sites
 	'WHO_WAS_HERE'				=> 'Wer war da?',

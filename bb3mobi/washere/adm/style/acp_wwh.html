@@ -2,16 +2,24 @@
 <!-- $Id: acp_wwh.html 61 2007-12-17 20:15:23Z nickvergessen $ -->
 <a name="maincontent"></a>
 
-<h1>{L_WWH_CONFIG_TITLE}</h1>
+<h1>{WWH_CONFIG_TITLE}</h1>
 <p>{WWH_MOD_VERSION} {L_WWH_UPDATE_NEED}</p>
 
 <form method="post" action="{U_ACTION}">
 	<fieldset>
 		<legend>{L_WWH_DISP_SET}</legend>
-		<dl>
+		<!-- <dl>
 			<dt><label for="wwh_disp_for_guests">{L_WWH_DISP_FOR_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_FOR_GUESTS_EXP}</span></dt>
 			<dd><input type="radio" class="radio" name="wwh_disp_for_guests" value="1" <!-- IF WWH_DISP_FOR_GUESTS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
 				<input type="radio" class="radio" name="wwh_disp_for_guests" value="0" <!-- IF WWH_DISP_FOR_GUESTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl> -->
+		<dl>
+			<dt><label for="wwh_disp_for_guests">{L_WWH_DISP_FOR_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_FOR_GUESTS_EXP}</span></dt>
+			<dd><select name="wwh_disp_for_guests">
+					<option value="1" <!-- IF WWH_DISP_FOR_GUESTS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_FOR_GUESTS_1}</option>
+					<option value="0" <!-- IF WWH_DISP_FOR_GUESTS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_FOR_GUESTS_0}</option>
+					<option value="2" <!-- IF WWH_DISP_FOR_GUESTS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_FOR_GUESTS_2}</option>
+				</select></dd>
 		</dl>
 		<dl>
 			<dt><label for="wwh_disp_bots">{L_WWH_DISP_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_EXP}</span></dt>
@@ -41,6 +49,12 @@
 				<input type="radio" class="radio" name="wwh_disp_time" value="2" <!-- IF WWH_DISP_TIME == 2 -->checked="checked"<!-- ENDIF --> /> {L_WWH_DISP_HOVER}</dd>
 		</dl>
 		<dl>
+			<dt><label for="wwh_disp_time_bots">{L_WWH_DISP_TIME_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_EXP}</span></dt>
+			<dd><input type="radio" class="radio" name="wwh_disp_time_bots" value="1" <!-- IF WWH_DISP_TIME_BOTS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp;
+				<input type="radio" class="radio" name="wwh_disp_time_bots" value="0" <!-- IF WWH_DISP_TIME_BOTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO} &nbsp;
+				<input type="radio" class="radio" name="wwh_disp_time_bots" value="2" <!-- IF WWH_DISP_TIME_BOTS == 2 -->checked="checked"<!-- ENDIF --> /> {L_WWH_DISP_HOVER}</dd>
+		</dl>
+		<dl>
 			<dt><label for="wwh_disp_time_format">{L_WWH_DISP_TIME_FORMAT}{L_COLON}</label><br /><span>{L_BOARD_DATE_FORMAT_EXPLAIN}</span></dt>
 			<dd><input type="text" name="wwh_disp_time_format" size="12" value="{WWH_DISP_TIME_FORMAT}" /></dd>
 		</dl>
@@ -53,12 +67,13 @@
 			<dt><label for="wwh_disp_template_pos">{L_WWH_DISP_TEMPLATE_POS}{L_COLON}</label><br /><span>{L_WWH_DISP_TEMPLATE_POS_EXP}</span></dt>
 			<dd><select name="wwh_disp_template_pos">
 					<option value="0" <!-- IF WWH_DISP_TEMPLATE_POS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS_0}</option>
+					<option value="2" <!-- IF WWH_DISP_TEMPLATE_POS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS_2}</option>
 					<option value="1" <!-- IF WWH_DISP_TEMPLATE_POS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS_1}</option>
 				</select></dd>
 		</dl>
 	</fieldset>
 	<fieldset>
-		<legend>{L_WWH_DISP_SET}</legend>
+		<legend>{L_WWH_DISP_SET2}</legend>
 		<dl>
 			<dt><label for="wwh_version">{L_WWH_VERSION}{L_COLON}</label><br /><span>{L_WWH_VERSION_EXP}</span></dt>
 			<dd><select name="wwh_version">
@@ -72,7 +87,7 @@
 			<dd><input type="text" name="wwh_del_time_s" size="6" value="{WWH_DEL_TIME_S}" /> {L_SECONDS}</dd>
 		</dl>
 		<dl>
-			<dt><label for="wwh_sort_by">{L_WWH_SORT_BY}{L_COLON}</label><br /><span>{L_WWH_SORT_BY_EXP}</span></dt>
+			<dt><label for="wwh_sort_by">{L_WWH_SORT_BY}{L_COLON}</label><br /><span>{WWH_SORT_BY_EXP}</span></dt>
 			<dd><select name="wwh_sort_by">
 					<option value="0" <!-- IF WWH_SORT_BY == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_0}</option>
 					<option value="1" <!-- IF WWH_SORT_BY == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_1}</option>
