@@ -1,0 +1,57 @@
+
+### Changelog 1.3.2 (2018-09-23)
+
+* Die neue Funktion von 1.3.0 mit der die Anzeige der Benutzerliste für Gäste unterdrückt werden kann, wurde so erweitert, das die WWH Anzeige auch komplett ausgeschaltet werden kann. Gäste bekommen also nichts mehr von WWH zu sehen.
+  * Dementsprechend die Einstellung "Zeige die Benutzerliste auch Gästen:" im ACP umbenannt und statt Checkboxen eine Auswahlliste eingebaut, mit den Punkten "Alles", "Statistik" und "Nichts".
+  * In den Sprachdateien für "Anzeige für Gäste:" entsprechende Variablen hinzugefügt und bestehende geändert.
+* Die Funktion zur Anzeige des letzten Aktivität-Zeitpunkts kann nun Benutzer und Bots getrennt behandeln. So ist es z.B. möglich, die Zeit bei Benutzern direkt anzuzeigen und die Zeit bei Bots nur bei überfahren.
+  * Entsprechend gibt es im ACP Modul statt "Zeige Zeit:" jetzt die Einstellungen "Zeige die Zeit von Benutzern:" sowie "Zeige die Zeit von Bots:".
+  * In den Sprachdateien für "Zeige die Zeit von Bots:" entsprechende Variablen hinzugefügt.
+* Im ACP Modul die Auswahlliste der Einstellung "Position der Anzeige:" um eine dritte Option erweitert, mit der die WWH Ausgabe optional auch vor den Geburtstagen positioniert werden kann. Dadurch kann erreicht werden, das "Wer war da?" unmittelbar unter "Wer ist online?" angezeigt wird. Dazu wird ein Event benutzt, der sich ausserhalb von DIV Containern befindet, wodurch die Modularität gewahrt bleibt.
+  * Entsprechend eine dritte Template-Datei hinzugefügt.
+* Der Anzeige-Name ist nicht länger Bestandteil der Sprachdateien, sondern fest eingebaut im Core. Dadurch werden versehentliche Übersetzungen vermieden.
+  * In den Sprachdateien wird dieser Anzeige-Name bei der betreffenden Variable dynamisch über `%s` eingefügt.
+* Im ACP Modul haben beide Einstellungs-Bereiche nun individuelle Überschriften.
+  * In den Sprachdateien entsprechend für "Anzeige Einstellungen" eine weitere Variable hinzugefügt.
+* Im ACP Modul gibt es nun für die Einstellung "Sortiere Benutzer nach:" einen Hinweis der darüber informiert, das eine Änderung dieser Einstellung erst für die nächste Aktualisierung in x Minuten gilt. Dabei wird x direkt aus der "Server-Konfiguration" bezogen: "Server-Last" > "Zeitspanne für die Online-Anzeige:".
+  * Entsprechend die bestehende Variable in den Sprachdateien um diesen Hinweis ergänzt. Die Anzahl Minuten wird dabei über `%s` dynamisch eingefügt.
+* Weitere Dateibereinigung vorgenommen: 4 x index.html entfernt.
+* Ab dieser Version ist die Versionsprüfung im ACP eingerichtet. Alle Zugriffe finden diesbezüglich auf GitHub und über HTTPS statt.
+* Template-Änderungen: Ja
+  * Neu: `index_body_birthday_block_before.html`
+  * Geändert: -
+  * Gelöscht: -
+
+### Changelog 1.3.1 (2018-09-18)
+
+* Ausser Englisch und Deutsch alle anderen Sprachpakete entfernt, da diese im Vergleich zum englischen Sprachpaket teils gravierende Unterschiede bei den Variablen-Namen, bei der Anzahl der Variablen und der Dateistruktur selbst aufweisen. Das deutet auf mehrere unterschiedliche Versionsstände hin.
+* Style Anpassungen für "bb3-mobi" entfernt, da diese mit Sicherheit nicht mehr dem aktuellen Stand des Styles entsprechen.
+* Die Prüfung durch EPV (Extension Pre Validator) ergab bei Version 1.3.0 insgesamt 2 schwere Fehler, 1 Fehler und 119 Warnungen.
+  * 2 schwere Fehler waren auf die Datei `services.yml` bezogen, da diese aufgrund des Alters nicht mehr dem aktuellen Syntax-Stand entsprach. Behoben.
+  * 1 Fehler wurde versursacht da im GitHub Repository nicht die erwartete Ordnerstruktur `bb3mobi/washere/` vorhanden war. Behoben.
+  * 117 Warnungen kamen von den besagten veralteten Sprachdateien wegen stark unterschiedlicher Versionsstände. 2 weitere Warnungen betrafen eine mögliche Sicherheitslücke bezüglich "SQL injection" und die für EPV unbekannte Datei `.editorconfig`. Behoben, bis auf `.editorconfig`, da diese Datei nichts mit phpBB zu tun hat und darum die Warnung diesbezüglich ignoriert werden kann.
+* Im ACP Modul die Variablen-Namen für die Template-Positionen geändert. Ebenso in den Sprachdateien.
+* Template-Änderungen: Nein
+
+### Changelog 1.3.0 (2018-09-16)
+
+* 2 neue Sprach-Variablen für "Benutzer" und "Bots" hinzugefügt und im Core entsprechend referenziert, damit diese unabhängig von den Sprachpaketen des Forums angepasst werden können. Das war insofern notwendig, da WWH 1.2.2 "Benutzer" statt "Mitglieder" angezeigt hat und dies in den Sprachdateien von WWH nicht geändert werden konnte.
+* Eine Funktion eingebaut, mit der optional die komplette Benutzerliste (also Benutzer und Bots) für Gäste und Bots unterdrückt werden kann. Somit kann erreicht werden, das sich "Wer war da?" identisch zu "Wer ist online?" von phpBB 3.2 verhält, diese Informationen also nur noch angemeldeten Benutzern zur Verfügung stehen. Per Standard verhält sich diese Funktion wie WWH 1.2.2, die Benutzerliste wird Gästen also angezeigt.
+  * Im ACP Modul die Einstellungen um den Punkt "Zeige die Benutzerliste auch Gästen:" erweitert, mit dem die oben genannte Funktion aktiviert/deaktiviert werden kann.
+  * In den Sprachdateien für "Zeige die Benutzerliste auch Gästen:" entsprechende Variablen hinzugefügt.
+* In der Migration entsprechende Ergänzungen vorgenommen, damit ein direktes Update des original WWH auf meinen Fork möglich wird und die nötigen Anpassungen (neue Datenbank Einträge) automatisch vorgenommen werden.
+* Im ACP Modul bei den Einstellungen einen Link zum zugehörigen Thema auf phpbb.de eingefügt. Den ursprünglichen Link zum Support-Thema auf bb3.mobi dahinter gesetzt.
+* Eine weitere Sprach-Variable hinzugefügt und im ACP Modul entsprechend referenziert, damit der Titel der Einstellungen-Seite unabhängig vom Titel der Navigation definiert werden kann. Das ermöglicht es, in Klammern den tatsächlichen Anzeige-Name der Erweiterung darzustellen, damit diese im Bereich "Erweiterungen verwalten" zweifelsfrei zugeordnet werden kann, unabhängig vom jeweiligen Sprachpaket.
+* Anzeige-Name von "Nv who was here" auf "LF who was here" geändert.
+* Statt dem Namen der Erweiterung steht bei der Beschreibung in der Erweiterungs-Verwaltung nun genau das, was man hier eigentlich auch erwarten würde, also eine kurze Beschreibung.
+* Kosmetische Korrekturen im ACP Modul und in den Sprachdateien vorgenommen.
+* Eine Funktion eingebaut, mit der optional die Anzeige der Bot-Namen für Administratoren beschränkt werden kann. Per Standard verhält sich diese Funktion wie WWH 1.2.2, die Bot-Namen werden also allen angezeigt, sofern die Anzeige der Bots nicht generell deaktiviert wurde.
+  * Im ACP Modul die Einstellungen um den Punkt "Zeige Bot-Namen nur Administratoren:" erweitert, mit dem die oben genannte Funktion aktiviert/deaktiviert werden kann.
+  * In den Sprachdateien für "Zeige Bot-Namen nur Administratoren:" entsprechende Variablen hinzugefügt.
+* Eine weitere Funktion eingebaut, mit der die Position der WWH Ausgabe geändert werden kann, ohne die zuständige Template-Datei umbenennen zu müssen. Per Standard verhält sich diese Funktion wie WWH 1.2.2, die Ausgabe der WWH Daten erfolgt im Online/Statistik-Bereich also oben.
+  * Im ACP Modul die Einstellungen um den Punkt "Position der Anzeige:" erweitert, mit dem die oben genannte Funktion gesteuert werden kann.
+  * In den Sprachdateien für "Position der Anzeige:" entsprechende Variablen hinzugefügt.
+* Template-Änderungen: Ja
+  * Neu: `index_body_stat_blocks_after.html`
+  * Geändert: `index_body_stat_blocks_before.html`
+  * Gelöscht: -

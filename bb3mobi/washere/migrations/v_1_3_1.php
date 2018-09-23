@@ -32,15 +32,9 @@ class v_1_3_1 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return array(
+			// Add configs
 			// Current version
-			array('if', array(
-				(isset($this->config['wwh_mod_version'])),
-				array('config.update', array('wwh_mod_version', '1.3.1')),
-			)),
-			array('if', array(
-				(!isset($this->config['wwh_mod_version'])),
-				array('config.add', array('wwh_mod_version', '1.3.1')),
-			)),
+			array('config.update', array('wwh_mod_version', '1.3.1')),
 		);
 	}
 }

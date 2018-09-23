@@ -1,0 +1,4 @@
+/.editorconfig export-ignore
+/.gitattributes export-ignore
+/lf-who-was-here_changelog.txt export-ignore
+/lf-who-was-here_version.json export-ignore

@@ -48,7 +48,15 @@ class who_was_here
 	* @access public
 	*/
 
-	public function __construct(\phpbb\template\template $template, \phpbb\config\config $config, \phpbb\user $user, \phpbb\auth\auth $auth, \phpbb\cache\driver\driver_interface $cache, \phpbb\db\driver\driver_interface $db, $table_prefix)
+	public function __construct(
+		\phpbb\template\template $template, 
+		\phpbb\config\config $config, 
+		\phpbb\user $user, 
+		\phpbb\auth\auth $auth, 
+		\phpbb\cache\driver\driver_interface $cache, 
+		\phpbb\db\driver\driver_interface $db, 
+		$table_prefix
+	)
 	{
 		if (!defined('WWH_TABLE'))
 		{
@@ -178,8 +186,8 @@ class who_was_here
 	public function display()
 	{
 		$this->user->add_lang_ext('bb3mobi/washere', 'lang_wwh');
-		$wwh_disp_users = (($this->config['wwh_disp_for_guests'] == 0) && ($this->user->data['user_id'] != ANONYMOUS) && empty($this->user->data['is_bot'])) || ($this->config['wwh_disp_for_guests'] == 1);
-		$wwh_disp_bots = ($this->config['wwh_disp_bots_only_admin'] == 1) && $this->auth->acl_get('a_') || ($this->config['wwh_disp_bots_only_admin'] == 0);
+		$wwh_disp_users = (($this->config['wwh_disp_for_guests'] == 0 || $this->config['wwh_disp_for_guests'] == 2) && ($this->user->data['user_id'] != ANONYMOUS) && empty($this->user->data['is_bot'])) || ($this->config['wwh_disp_for_guests'] == 1);
+		$wwh_disp_bots = (($this->config['wwh_disp_bots_only_admin'] == 1) && $this->auth->acl_get('a_')) || ($this->config['wwh_disp_bots_only_admin'] == 0);
 
 		if (!$this->prune())
 		{
@@ -206,16 +214,28 @@ class who_was_here
 		if (($view_state = $this->cache->get("_who_was_here")) === false)
 		{
 			$view_state = $this->view_state();
-			$this->cache->put("_who_was_here", $view_state, 60*$this->config['load_online_time']);
+			$this->cache->put("_who_was_here", $view_state, 60 * $this->config['load_online_time']);
 		}
 
 		foreach ($view_state as $row)
 		{
 			$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
-			$hover_time = (($this->config['wwh_disp_time'] == '2') ? $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] : '' );
-			$hover_ip = ($this->auth->acl_get('a_') && $this->config['wwh_disp_ip']) ? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] : '';
-			$hover_info = (($hover_time || $hover_ip) ? ' title="' . $hover_time . (($hover_time && $hover_ip) ? ' | ' : '') . $hover_ip . '"' : '');
-			$disp_time = (($this->config['wwh_disp_time'] == '1') ? '&nbsp;(' . $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')' : '' );
+			$hover_time = (
+				(($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
+				? $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] 
+				: '');
+			$hover_ip = (
+				($this->auth->acl_get('a_') && $this->config['wwh_disp_ip']) 
+				? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] 
+				: '');
+			$hover_info = (
+				($hover_time || $hover_ip) 
+				? ' title="' . $hover_time . (($hover_time && $hover_ip) ? ' | ' : '') . $hover_ip . '"' 
+				: '');
+			$disp_time = (
+				(($this->config['wwh_disp_time'] == 1 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 1 && $row['user_type'] == USER_IGNORE))
+				? '&nbsp;(' . $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')' 
+				: '' );
 
 			if ($row['viewonline'] || ($row['user_type'] == USER_IGNORE))
 			{
@@ -294,10 +314,10 @@ class who_was_here
 		$this->template->assign_vars(array(
 			'WHO_WAS_HERE_LIST'			=> ($wwh_disp_users ? $this->user->lang['WHO_WAS_HERE_USERS_TEXT'] . $this->user->lang['COLON'] . ' ' . $users_list : ''),
 			'WHO_WAS_HERE_BOTS'			=> ($wwh_disp_users && $bots_list ? $this->user->lang['WHO_WAS_HERE_BOTS_TEXT'] . $this->user->lang['COLON'] . ' ' . $bots_list : ''),
-			'WHO_WAS_HERE_TOTAL'		=> $this->get_total_users_string($count),
+			'WHO_WAS_HERE_TOTAL'		=> (($this->config['wwh_disp_for_guests'] != 2 || $wwh_disp_users) ? $this->get_total_users_string($count) : ''),
 			'WHO_WAS_HERE_EXP'			=> $this->get_explanation_string($this->config['wwh_version']),
 			'WHO_WAS_HERE_RECORD'		=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
-			'WHO_WAS_HERE_POS'			=> (($this->config['wwh_disp_template_pos'] == 1) ? 1 : 0),
+			'WHO_WAS_HERE_POS'			=> $this->config['wwh_disp_template_pos'],
 		));
 	}
 
