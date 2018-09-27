@@ -7,7 +7,7 @@
 * Die Funktion zur Anzeige des letzten Aktivität-Zeitpunkts kann nun Benutzer und Bots getrennt behandeln. So ist es z.B. möglich, die Zeit bei Benutzern direkt anzuzeigen und die Zeit bei Bots nur bei überfahren.
   * Entsprechend gibt es im ACP Modul statt "Zeige Zeit:" jetzt die Einstellungen "Zeige die Zeit von Benutzern:" sowie "Zeige die Zeit von Bots:".
   * In den Sprachdateien für "Zeige die Zeit von Bots:" entsprechende Variablen hinzugefügt.
-* Im ACP Modul die Auswahlliste der Einstellung "Position der Anzeige:" um eine dritte Option erweitert, mit der die WWH Ausgabe optional auch vor den Geburtstagen positioniert werden kann. Dadurch kann erreicht werden, das "Wer war da?" unmittelbar unter "Wer ist online?" angezeigt wird. Dazu wird ein Event benutzt, der sich ausserhalb von DIV Containern befindet, wodurch die Modularität gewahrt bleibt.
+* Im ACP Modul die Auswahlliste der Einstellung "Position der Anzeige:" um eine dritte Option erweitert, mit der die WWH Ausgabe optional auch vor den Geburtstagen positioniert werden kann. Dadurch kann erreicht werden, das "Wer war da?" unmittelbar unter "Wer ist online?" angezeigt wird. Dazu wird ein Event benutzt der sich ausserhalb von DIV Containern befindet, wodurch die Modularität gewahrt bleibt.
   * Entsprechend eine dritte Template-Datei hinzugefügt.
 * Der Anzeige-Name ist nicht länger Bestandteil der Sprachdateien, sondern fest eingebaut im Core. Dadurch werden versehentliche Übersetzungen vermieden.
   * In den Sprachdateien wird dieser Anzeige-Name bei der betreffenden Variable dynamisch über `%s` eingefügt.
@@ -30,7 +30,8 @@
   * 2 schwere Fehler waren auf die Datei `services.yml` bezogen, da diese aufgrund des Alters nicht mehr dem aktuellen Syntax-Stand entsprach. Behoben.
   * 1 Fehler wurde versursacht da im GitHub Repository nicht die erwartete Ordnerstruktur `bb3mobi/washere/` vorhanden war. Behoben.
   * 117 Warnungen kamen von den besagten veralteten Sprachdateien wegen stark unterschiedlicher Versionsstände. 2 weitere Warnungen betrafen eine mögliche Sicherheitslücke bezüglich "SQL injection" und die für EPV unbekannte Datei `.editorconfig`. Behoben, bis auf `.editorconfig`, da diese Datei nichts mit phpBB zu tun hat und darum die Warnung diesbezüglich ignoriert werden kann.
-* Im ACP Modul die Variablen-Namen für die Template-Positionen geändert. Ebenso in den Sprachdateien.
+* Im ACP Modul die Variablen-Namen für die Template-Positionen geändert.
+  * Ebenso in den Sprachdateien.
 * Template-Änderungen: Nein
 
 ### Changelog 1.3.0 (2018-09-16)
@@ -48,7 +49,7 @@
 * Eine Funktion eingebaut, mit der optional die Anzeige der Bot-Namen für Administratoren beschränkt werden kann. Per Standard verhält sich diese Funktion wie WWH 1.2.2, die Bot-Namen werden also allen angezeigt, sofern die Anzeige der Bots nicht generell deaktiviert wurde.
   * Im ACP Modul die Einstellungen um den Punkt "Zeige Bot-Namen nur Administratoren:" erweitert, mit dem die oben genannte Funktion aktiviert/deaktiviert werden kann.
   * In den Sprachdateien für "Zeige Bot-Namen nur Administratoren:" entsprechende Variablen hinzugefügt.
-* Eine weitere Funktion eingebaut, mit der die Position der WWH Ausgabe geändert werden kann, ohne die zuständige Template-Datei umbenennen zu müssen. Per Standard verhält sich diese Funktion wie WWH 1.2.2, die Ausgabe der WWH Daten erfolgt im Online/Statistik-Bereich also oben.
+* Eine weitere Funktion eingebaut, mit der die Position der WWH Ausgabe geändert werden kann ohne die zuständige Template-Datei umbenennen zu müssen. Per Standard verhält sich diese Funktion wie WWH 1.2.2, die Ausgabe der WWH Daten erfolgt im Online/Statistik-Bereich also oben.
   * Im ACP Modul die Einstellungen um den Punkt "Position der Anzeige:" erweitert, mit dem die oben genannte Funktion gesteuert werden kann.
   * In den Sprachdateien für "Position der Anzeige:" entsprechende Variablen hinzugefügt.
 * Template-Änderungen: Ja
