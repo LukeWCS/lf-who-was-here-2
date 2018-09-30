@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de_x_sie
-* Lang_ver     : 1.3.2
+* Lang_ver     : 1.3.3
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 	'WWH_INSTALLED' 				=> 'Installierte Version: %s',
 	'WWH_UPDATE_NEED'				=> '(Fork: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a> Original: <a href="http://bb3.mobi/forum/viewtopic.php?t=66">BB3 Support</a>)',
 	// config section 1
-	'WWH_DISP_SET'					=> 'Anzeige Einstellungen 1',
+	'WWH_SECTION_DISP_1'			=> 'Anzeige Einstellungen 1',
 	'WWH_DISP_FOR_GUESTS'			=> 'Anzeige für Gäste',
 	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Legt fest, was Gäste sehen können. “Alles” zeigt die Statistik und die Benutzer. “Statistik” entsprechend nur die anonymen Zahlen und “Nichts” schaltet die WWH Anzeige komplett aus.',
 	'WWH_DISP_FOR_GUESTS_1'			=> 'Alles',
@@ -78,7 +78,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TEMPLATE_POS_2'		=> 'Vor Geburtstage',
 	'WWH_DISP_TEMPLATE_POS_1'		=> 'Unten',
 	// config section 2
-	'WWH_DISP_SET2'					=> 'Anzeige Einstellungen 2',
+	'WWH_SECTION_DISP_2'			=> 'Anzeige Einstellungen 2',
 	'WWH_VERSION'					=> 'Anzeige der Besucher von ...',
 	'WWH_VERSION_EXP'				=> 'Anzeige der Besucher von heute (Seit 00:00 Forum Zeitzone), oder des Zeitraums der bei der nächsten Einstellung festgelegt wird.',
 	'WWH_VERSION1'					=> 'Heute',
@@ -95,6 +95,7 @@ $lang = array_merge($lang, array(
 	'WWH_RECORD_EXP'				=> 'Zeige und speichere den Besucherrekord',
 	'WWH_RECORD_TIMESTAMP'			=> 'Datums-Format für den Besucherrekord',
 	// config section 3	
+	'WWH_SECTION_OTHERS'			=> 'Sonstiges',
 	'WWH_RESET'						=> 'Besucherrekord zurücksetzen',
 	'WWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Aktivitäten-Rekord zurück.',
 	// config misc

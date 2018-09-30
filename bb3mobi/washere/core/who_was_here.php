@@ -223,19 +223,23 @@ class who_was_here
 			$hover_time = (
 				(($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
 				? $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] 
-				: '');
+				: ''
+			);
 			$hover_ip = (
 				($this->auth->acl_get('a_') && $this->config['wwh_disp_ip']) 
 				? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] 
-				: '');
+				: ''
+			);
 			$hover_info = (
 				($hover_time || $hover_ip) 
 				? ' title="' . $hover_time . (($hover_time && $hover_ip) ? ' | ' : '') . $hover_ip . '"' 
-				: '');
+				: ''
+			);
 			$disp_time = (
 				(($this->config['wwh_disp_time'] == 1 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 1 && $row['user_type'] == USER_IGNORE))
 				? '&nbsp;(' . $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')' 
-				: '' );
+				: ''
+			);
 
 			if ($row['viewonline'] || ($row['user_type'] == USER_IGNORE))
 			{

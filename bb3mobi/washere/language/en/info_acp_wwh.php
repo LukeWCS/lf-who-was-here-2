@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
-* Lang_ver     : 1.3.2
+* Lang_ver     : 1.3.3
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 	'WWH_INSTALLED' 				=> 'Installed version: %s',
 	'WWH_UPDATE_NEED'				=> '(Fork: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Topic on phpbb.de</a> Original: <a href="http://bb3.mobi/forum/viewtopic.php?t=66">BB3 Support</a>)',
 	// config section 1
-	'WWH_DISP_SET'					=> 'Display settings 1',
+	'WWH_SECTION_DISP_1'			=> 'Display settings 1',
 	'WWH_DISP_FOR_GUESTS'			=> 'Display for guests',
 	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Determines what guests can see. “Everything” shows the statistics and the users. “Statistics” only the anonymous numbers and “Nothing” turns off the WWH display completely.',
 	'WWH_DISP_FOR_GUESTS_1'			=> 'Everything',
@@ -78,7 +78,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TEMPLATE_POS_2'		=> 'Before birthdays',
 	'WWH_DISP_TEMPLATE_POS_1'		=> 'Bottom',
 	// config section 2
-	'WWH_DISP_SET2'					=> 'Display settings 2',
+	'WWH_SECTION_DISP_2'			=> 'Display settings 2',
 	'WWH_VERSION'					=> 'Displaying users of ...',
 	'WWH_VERSION_EXP'				=> 'Displaying users of today, or of the period set in the next option.',
 	'WWH_VERSION1'					=> 'Today',
@@ -95,6 +95,7 @@ $lang = array_merge($lang, array(
 	'WWH_RECORD_EXP'				=> 'Display and save record',
 	'WWH_RECORD_TIMESTAMP'			=> 'Dateformat for the record',
 	// config section 3	
+	'WWH_SECTION_OTHERS'			=> 'Others',
 	'WWH_RESET'						=> 'Reset record',
 	'WWH_RESET_EXP'					=> 'Resets the time and counter of the who-was-here record.',
 	// config misc

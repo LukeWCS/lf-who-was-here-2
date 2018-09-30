@@ -1,8 +1,15 @@
+### Changelog 1.3.3 (2018--)
+
+* Im ACP Modul können Optionsfelder (Ja/Nein/...) jetzt auch über ihre Bezeichnungen angeklickt werden, wie dies allgemein üblich ist.
+* Im ACP Modul die Variablennamen der Überschriften der Einstellungs-Bereiche geändert.
+  * Entsprechend in den Sprachdateien angepasst.
+* Der dritte Einstellungs-Bereich hat nun ebenfalls eine Überschrift.
+  * Entsprechend in den Sprachdateien eine neue Variable für "Sonstiges" hinzugefügt.
 
 ### Changelog 1.3.2 (2018-09-23)
 
 * Die neue Funktion von 1.3.0 mit der die Anzeige der Benutzerliste für Gäste unterdrückt werden kann, wurde so erweitert, das die WWH Anzeige auch komplett ausgeschaltet werden kann. Gäste bekommen also nichts mehr von WWH zu sehen.
-  * Dementsprechend die Einstellung "Zeige die Benutzerliste auch Gästen:" im ACP umbenannt und statt Checkboxen eine Auswahlliste eingebaut, mit den Punkten "Alles", "Statistik" und "Nichts".
+  * Dementsprechend die Einstellung "Zeige die Benutzerliste auch Gästen:" im ACP umbenannt und statt Optionsfelder (Ja/Nein) eine Auswahlliste eingebaut, mit den Punkten "Alles", "Statistik" und "Nichts".
   * In den Sprachdateien für "Anzeige für Gäste:" entsprechende Variablen hinzugefügt und bestehende geändert.
 * Die Funktion zur Anzeige des letzten Aktivität-Zeitpunkts kann nun Benutzer und Bots getrennt behandeln. So ist es z.B. möglich, die Zeit bei Benutzern direkt anzuzeigen und die Zeit bei Bots nur bei überfahren.
   * Entsprechend gibt es im ACP Modul statt "Zeige Zeit:" jetzt die Einstellungen "Zeige die Zeit von Benutzern:" sowie "Zeige die Zeit von Bots:".
