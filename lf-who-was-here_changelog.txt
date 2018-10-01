@@ -12,6 +12,9 @@
   * In den Sprachdateien 3 weitere Variablen für "Einstellungen zurücksetzen:" hinzugefügt.
 * Die Einstellung "Position der Anzeige:" in den zweiten Einstellungs-Bereich verschoben, da sie hier besser passt.
 * In den Sprachdateien bei mehreren Variablen Korrekturen vorgenommen.
+* Seit WWH 1.2.2 war das Intervall der Aktualisierung (cache time) direkt vom Wert "Zeitspanne für die Online-Anzeige:" von phpBB abhängig. Das Intervall kann nun unabhängig davon eingestellt werden. Als Untergrenze gilt 1 Minute und als Obergrenze gilt der besagte Wert von phpBB.
+  * Entsprechend im ACP ein Textfeld hinzugefügt, das auf einen gültigen Wert mit den genannten Grenzen prüft.
+  * In den Sprachdateien für "Intervall der Aktualisierung:" 2 neue Variablen hinzugefügt.
 
 ### Changelog 1.3.2 (2018-09-23)
 

@@ -214,7 +214,7 @@ class who_was_here
 		if (($view_state = $this->cache->get("_who_was_here")) === false)
 		{
 			$view_state = $this->view_state();
-			$this->cache->put("_who_was_here", $view_state, 60 * $this->config['load_online_time']);
+			$this->cache->put("_who_was_here", $view_state, 60 * $this->config['wwh_cache_time']);
 		}
 
 		foreach ($view_state as $row)
@@ -512,5 +512,12 @@ class who_was_here
 			default:
 				return $total_users_string;
 		}
+	}
+	
+	private function min_max_int($value, $min, $max)
+	{
+		if ((int)$value < $min) $value = $min;
+		if ((int)$value > $max) $value = $max;
+		return $value;
 	}
 }

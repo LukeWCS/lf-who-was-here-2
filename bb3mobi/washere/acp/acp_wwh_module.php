@@ -42,14 +42,15 @@ class acp_wwh_module
 			$config->set('wwh_disp_time_bots', $request->variable('wwh_disp_time_bots', 0));
 			$config->set('wwh_disp_time_format', $request->variable('wwh_disp_time_format', 'H:i'));
 			$config->set('wwh_disp_ip', $request->variable('wwh_disp_ip', 0));
-			$config->set('wwh_disp_template_pos', $request->variable('wwh_disp_template_pos', 0));
 			$config->set('wwh_version', $request->variable('wwh_version', 0));
 			$config->set('wwh_del_time_h', $request->variable('wwh_del_time_h', 0));
 			$config->set('wwh_del_time_m', $request->variable('wwh_del_time_m', 0));
 			$config->set('wwh_del_time_s', $request->variable('wwh_del_time_s', 0));
 			$config->set('wwh_sort_by', $request->variable('wwh_sort_by', 0));
+			$config->set('wwh_cache_time', $request->variable('wwh_cache_time', 0));
 			$config->set('wwh_record', $request->variable('wwh_record', 0));
 			$config->set('wwh_record_timestamp', $request->variable('wwh_record_timestamp', 'D j. M Y'));
+			$config->set('wwh_disp_template_pos', $request->variable('wwh_disp_template_pos', 0));
 			if ($request->variable('wwh_reset', 0) > 0)
 			{
 				$config->set('wwh_record_ips', 1);
@@ -71,15 +72,17 @@ class acp_wwh_module
 			'WWH_DISP_TIME_BOTS'		=> $config['wwh_disp_time_bots'],
 			'WWH_DISP_TIME_FORMAT'		=> $config['wwh_disp_time_format'],
 			'WWH_DISP_IP'				=> $config['wwh_disp_ip'],
-			'WWH_DISP_TEMPLATE_POS'		=> $config['wwh_disp_template_pos'],
 			'WWH_VERSION'				=> $config['wwh_version'],
 			'WWH_DEL_TIME_H'			=> $config['wwh_del_time_h'],
 			'WWH_DEL_TIME_M'			=> $config['wwh_del_time_m'],
 			'WWH_DEL_TIME_S'			=> $config['wwh_del_time_s'],
 			'WWH_SORT_BY'				=> $config['wwh_sort_by'],
-			'WWH_SORT_BY_EXP'			=> sprintf($user->lang['WWH_SORT_BY_EXP'], $config['load_online_time']),
+			'WWH_SORT_BY_EXP'			=> sprintf($user->lang['WWH_SORT_BY_EXP'], $config['wwh_cache_time']),
+			'WWH_CACHE_TIME'			=> $config['wwh_cache_time'],
+			'WWH_CACHE_TIME_MAX'		=> ((int)$config['load_online_time'] >= 1) ? $config['load_online_time'] : '1',
 			'WWH_RECORD'				=> $config['wwh_record'],
 			'WWH_RECORD_TIMESTAMP'		=> $config['wwh_record_timestamp'],
+			'WWH_DISP_TEMPLATE_POS'		=> $config['wwh_disp_template_pos'],
 			'U_ACTION'					=> $this->u_action,
 		));
 	}
