@@ -11,6 +11,7 @@
   * Dafür einen weiteren Abschnitt samt Erklärung und Schaltfläche hinzugefügt.
   * In den Sprachdateien 3 weitere Variablen für "Einstellungen zurücksetzen:" hinzugefügt.
 * Die Einstellung "Position der Anzeige:" in den zweiten Einstellungs-Bereich verschoben, da sie hier besser passt.
+* In den Sprachdateien bei mehreren Variablen Korrekturen vorgenommen.
 
 ### Changelog 1.3.2 (2018-09-23)
 
