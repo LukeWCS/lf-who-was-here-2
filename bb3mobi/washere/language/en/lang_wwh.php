@@ -42,10 +42,10 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, array(
 // for the normal sites
-	'WHO_WAS_HERE'				=> 'Who was here?',
+	'WHO_WAS_HERE'				=> 'Who was here',
 	'WHO_WAS_HERE_LATEST1'		=> 'last at',
 	'WHO_WAS_HERE_LATEST2'		=> '',//used for parts like o'clock in the timedisplay (last at vw:xy "o'clock")
-	'WHO_WAS_HERE_USERS_TEXT'	=> 'Users',
+	'WHO_WAS_HERE_USERS_TEXT'	=> 'Registered users',
 	'WHO_WAS_HERE_BOTS_TEXT'	=> 'Bots',
 
 	'WHO_WAS_HERE_TOTAL'	=> array(

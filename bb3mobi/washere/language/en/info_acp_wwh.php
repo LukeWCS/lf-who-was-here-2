@@ -75,7 +75,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TIME_BOTS'			=> 'Show time of bots',
 	'WWH_DISP_TIME_FORMAT'			=> 'Timeformat',
 	'WWH_DISP_IP'					=> 'Show user-ip',
-	'WWH_DISP_IP_EXP'				=> 'Just for the users with administrative permissions, like on the viewonline.php.',
+	'WWH_DISP_IP_EXP'				=> 'Just for the users with administrative permissions, as with “Who is online”.',
 	// config section 2
 	'WWH_SECTION_DISP_2'			=> 'Display settings 2',
 	'WWH_VERSION'					=> 'Displaying users of ...',
