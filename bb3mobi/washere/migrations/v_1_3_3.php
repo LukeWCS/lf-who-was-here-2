@@ -34,7 +34,7 @@ class v_1_3_3 extends \phpbb\db\migration\migration
 		return array(
 			// Add configs
 			array('config.add', array('wwh_cache_time', ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : '1')),
-			array('config.add', array('wwh_use_online_time', '1'),
+			array('config.add', array('wwh_use_online_time', '1')),
 			// Current version
 			array('config.update', array('wwh_mod_version', '1.3.3')),
 		);
