@@ -74,6 +74,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TIME_0'				=> 'Nein',
 	'WWH_DISP_TIME_BOTS'			=> 'Zeige die Zeit von Bots',
 	'WWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
+	'WWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP Funktion <a href="http://www.php.net/date">date()</a>.',
 	'WWH_DISP_IP'					=> 'Zeige die Benutzer-IP',
 	'WWH_DISP_IP_EXP'				=> 'Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.',
 	// config section 2
