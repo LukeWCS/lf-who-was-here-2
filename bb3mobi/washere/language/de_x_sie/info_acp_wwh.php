@@ -106,11 +106,11 @@ $lang = array_merge($lang, array(
 	// config section 3	
 	'WWH_SECTION_OTHERS'			=> 'Sonstiges',
 	'WWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
-	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installations-Standard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
+	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installations-Standard von WWH zurück, ohne die Seite zu speichern. Die Schaltfläche funktioniert also genauso wie “Zurücksetzen”. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Standard',
 	'WWH_RESET'						=> 'Besucherrekord zurücksetzen',
 	'WWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Aktivitäten-Rekord zurück.',
-	// config misc
-	'WWH_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen gespeichert.',
+	// config messages
+	'WWH_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'WWH_RESET_TRUE'				=> 'Wenn Sie diese Seite speichern,\nwird der Rekord zurückgesetzt.', // \n is the beginning of a new line
 ));

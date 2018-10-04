@@ -41,10 +41,10 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” …
 //
 $lang = array_merge($lang, array(
-// for the normal sites
+	// board index page
 	'WHO_WAS_HERE'				=> 'Wer war da?',
 	'WHO_WAS_HERE_LATEST1'		=> 'zuletzt:',
-	'WHO_WAS_HERE_LATEST2'		=> '',//used for parts like o'clock in the timedisplay (last at vw:xy "o'clock")
+	'WHO_WAS_HERE_LATEST2'		=> '', //used for parts like o'clock in the timedisplay (last at vw:xy "o'clock")
 	'WHO_WAS_HERE_USERS_TEXT'	=> 'Mitglieder',
 	'WHO_WAS_HERE_BOTS_TEXT'	=> 'Bots',
 

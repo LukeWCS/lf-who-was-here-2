@@ -106,11 +106,11 @@ $lang = array_merge($lang, array(
 	// config section 3	
 	'WWH_SECTION_OTHERS'			=> 'Others',
 	'WWH_DEFAULTS'					=> 'Reset settings',
-	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset record”)',
+	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH without saving the page. The button works the same way as “Reset”. (Does not affect “Reset record”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Defaults',
 	'WWH_RESET'						=> 'Reset record',
 	'WWH_RESET_EXP'					=> 'Resets the time and counter of the who-was-here record.',
-	// config misc
+	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'WWH_RESET_TRUE'				=> 'If you submit this form,\nthe record will be reseted.', // \n is the beginning of a new line
 ));
