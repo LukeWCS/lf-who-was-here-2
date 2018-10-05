@@ -20,7 +20,8 @@
   * In den Sprachdateien für "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" 2 neue Variablen hinzugefügt.
 * Im ACP Modul gibt es bei den Erklärungen die das Datum-Format betreffen, in den offiziellen deutschen Sprachpaketen von phpBB noch einen Fehler. Darum statt der Board-eigenen Variable `L_BOARD_DATE_FORMAT_EXPLAIN` eine eigene eingebaut.
   * Entsprechend in den Sprachdateien 1 neue Variable hinzugefügt.
-* Die Anforderungen in `composer.json` basierend auf Kirk's Tests mit phpBB 3.1.12 auf phpBB 3.1 und PHP 5.3.3 reduziert.
+* Die Anforderungen für phpBB und PHP in `composer.json` basierend auf Kirk's Test mit phpBB 3.1.12 reduziert.
+* Template-Änderungen: Nein
 
 ### Changelog 1.3.2 (2018-09-23)
 
