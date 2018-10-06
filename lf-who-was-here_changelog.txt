@@ -1,10 +1,11 @@
-### Changelog 1.3.3 (2018-10-)
+### Changelog 1.3.3 (2018-10-06)
 
 * Im ACP Modul können Optionsfelder (Ja/Nein) jetzt auch über ihre Bezeichnungen angeklickt werden, wie dies allgemein üblich ist.
 * Im ACP Modul die Variablennamen der Überschriften geändert.
   * Entsprechend in den Sprachdateien angepasst.
 * Der dritte Einstellungs-Bereich hat nun ebenfalls eine Überschrift.
   * Entsprechend in den Sprachdateien eine neue Variable für "Sonstiges" hinzugefügt.
+* In `acp_wwh.html` einen deaktivierten veralteten Block entfernt, der noch von 1.3.1 stammte.
 * Alle Optionsfelder mit mehr als Ja/Nein konsequent auf Auswahlliste umgestellt. Das betrifft "Zeige Bots:", "Zeige die Zeit von Benutzern:" und "Zeige die Zeit von Bots:".
   * Entsprechend in den Sprachdateien pro Einstellung je 2 zusätzliche Variablen hinzugefügt und 1 geändert. Texte zu einer Auswahlliste passend geändert.
 * Eine neue Funktion im ACP Modul erlaubt das zurücksetzen aller Einstellungen auf den Installations-Standard von WWH 1.2.2, welcher auch Standard für "LF who was here" ist.
@@ -21,6 +22,7 @@
 * Im ACP Modul gibt es bei den Erklärungen die das Datum-Format betreffen, in den offiziellen deutschen Sprachpaketen von phpBB noch einen Fehler. Darum statt der Board-eigenen Variable `L_BOARD_DATE_FORMAT_EXPLAIN` eine eigene eingebaut.
   * Entsprechend in den Sprachdateien 1 neue Variable hinzugefügt.
 * Die Anforderungen für phpBB und PHP in `composer.json` basierend auf Kirk's Test mit phpBB 3.1.12 reduziert.
+* Das ACP Modul nach Prüfung durch den W3C Validator überarbeitet.
 * Template-Änderungen: Nein
 
 ### Changelog 1.3.2 (2018-09-23)

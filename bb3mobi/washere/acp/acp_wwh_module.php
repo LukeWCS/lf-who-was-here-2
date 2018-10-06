@@ -93,5 +93,4 @@ class acp_wwh_module
 			'U_ACTION'					=> $this->u_action,
 		));
 	}
-
 }
