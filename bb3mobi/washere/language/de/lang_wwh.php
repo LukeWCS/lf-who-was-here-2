@@ -45,8 +45,8 @@ $lang = array_merge($lang, array(
 	'WHO_WAS_HERE'				=> 'Wer war da?',
 	'WHO_WAS_HERE_LATEST1'		=> 'zuletzt:',
 	'WHO_WAS_HERE_LATEST2'		=> '', //used for parts like o'clock in the timedisplay (last at vw:xy "o'clock")
-	'WHO_WAS_HERE_USERS_TEXT'	=> 'Mitglieder',
-	'WHO_WAS_HERE_BOTS_TEXT'	=> 'Bots',
+	'WHO_WAS_HERE_USERS_TEXT'	=> 'Mitglieder%s',
+	'WHO_WAS_HERE_BOTS_TEXT'	=> 'Bots%s',
 
 	'WHO_WAS_HERE_TOTAL'	=> array(
 		0						=> 'Insgesamt waren <strong>0</strong> Besucher online :: ',
