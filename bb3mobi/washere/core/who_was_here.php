@@ -326,12 +326,12 @@ class who_was_here
 		
 		$wwh_button_users = (
 			($this->config['wwh_disp_time'] == 2 || ($this->config['wwh_disp_bots'] == 1 && $this->config['wwh_disp_time_bots'] == 2))
-			? '<button id="wwh_button_show_time_users" style="border: none; background-color: inherit; outline: none; cursor: pointer;" onclick="wwh_show_hide_time(0)">&nbsp;<span id="wwh_icon_show_time_users" class="icon fa-clock-o" style="opacity: 0.5;"></span></button>'
+			? '<button class="wwh_button_show_time_users" style="border: none; background-color: transparent; outline: none;" onclick="wwh_show_hide_time(0)">&nbsp;<span class="icon fa-clock-o wwh_icon_show_time_users" style="opacity: 0.5;"></span></button>'
 			: ''
 		);
 		$wwh_button_bots = (
 			($this->config['wwh_disp_time_bots'] == 2)
-			? '<button id="wwh_button_show_time_bots" style="border: none; background-color: inherit; outline: none; cursor: pointer;" onclick="wwh_show_hide_time(1)">&nbsp;<span id="wwh_icon_show_time_bots" class="icon fa-clock-o" style="opacity: 0.5;"></span></button>'
+			? '<button class="wwh_button_show_time_bots" style="border: none; background-color: transparent; outline: none;" onclick="wwh_show_hide_time(1)">&nbsp;<span class="icon fa-clock-o wwh_icon_show_time_bots" style="opacity: 0.5;"></span></button>'
 			: ''
 		);
 
