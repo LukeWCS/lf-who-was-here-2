@@ -52,6 +52,7 @@ class acp_wwh_module
 			$config->set('wwh_record', $request->variable('wwh_record', 0));
 			$config->set('wwh_record_timestamp', $request->variable('wwh_record_timestamp', 'D j. M Y'));
 			$config->set('wwh_disp_template_pos', $request->variable('wwh_disp_template_pos', 0));
+			$config->set('wwh_api_mode', $request->variable('wwh_api_mode', 0));
 			if ($request->variable('wwh_reset', 0) > 0)
 			{
 				$config->set('wwh_record_ips', 1);
@@ -90,6 +91,7 @@ class acp_wwh_module
 			'WWH_RECORD'				=> $config['wwh_record'],
 			'WWH_RECORD_TIMESTAMP'		=> $config['wwh_record_timestamp'],
 			'WWH_DISP_TEMPLATE_POS'		=> $config['wwh_disp_template_pos'],
+			'WWH_API_MODE'				=> $config['wwh_api_mode'],
 			'U_ACTION'					=> $this->u_action,
 		));
 	}

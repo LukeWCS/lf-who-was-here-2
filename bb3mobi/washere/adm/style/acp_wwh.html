@@ -162,6 +162,13 @@
 	<fieldset>
 		<legend>{L_WWH_SECTION_OTHERS}</legend>
 		<dl>
+			<dt><label>{L_WWH_API_MODE}{L_COLON}</label><br /><span>{L_WWH_API_MODE_EXP}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_1" value="1" <!-- IF WWH_API_MODE -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_0" value="0" <!-- IF not WWH_API_MODE -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
 			<dt><label>{L_WWH_DEFAULTS}{L_COLON}</label><br /><span>{L_WWH_DEFAULTS_EXP}</span></dt>
 			<dd>
 				<input class="button2" type="button" id="wwh_defaults" name="wwh_defaults" value="{L_WWH_DEFAULTS_BUTTON}" onclick="wwh_set_defaults()" />
@@ -204,6 +211,7 @@ function wwh_set_defaults() {
 	document.getElementById("wwh_record_1").checked = true;
 	document.getElementById("wwh_record_timestamp").value = "D j. M Y";
 	document.getElementById("wwh_disp_template_pos_0").selected = true;
+	document.getElementById("wwh_api_mode_0").checked = true;
 }
 </script>
 

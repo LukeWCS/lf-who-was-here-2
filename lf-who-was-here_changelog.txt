@@ -1,14 +1,14 @@
 ### Changelog 1.3.4 (2018--)
 
-* Bei der Einstellung "Zeige die Zeit von ...:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol) eingeblendet, mit dem auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wäre. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde.
+* Bei der Einstellung "Zeige die Zeit von ...:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol aus "Awesome Font") eingeblendet, mit dem auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wäre. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
-
-
-
-
+  * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein "Awesome Font" gibt.
+* Eine neue Funktion erlaubt es, die Anzeige von WWH abschalten zu können, so das nur die Template Variablen erzeugt werden. Diese Funktion ist gedacht für andere Erweiterungen oder spezielle Styles die bereits WWH selber darstellen. Damit ist es z.B. auch möglich die Anzeige auf das Portal zu begrenzen und WWH im Forum abzuschalten.
+  * Entsprechend im ACP eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann.
+  * In den Sprachdateien für "API-Modus:" 2 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
-  * Hinweis für Erweiertungs-Autoren: Die neue Template Variable `WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
+  * Hinweis für Erweiterungs-Autoren: Die neue Template Bedingung `&& !WHO_WAS_HERE_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -

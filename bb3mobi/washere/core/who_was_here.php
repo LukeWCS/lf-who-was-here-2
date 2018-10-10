@@ -188,6 +188,7 @@ class who_was_here
 		$this->user->add_lang_ext('bb3mobi/washere', 'lang_wwh');
 		$wwh_disp_users = (($this->config['wwh_disp_for_guests'] == 0 || $this->config['wwh_disp_for_guests'] == 2) && ($this->user->data['user_id'] != ANONYMOUS) && empty($this->user->data['is_bot'])) || ($this->config['wwh_disp_for_guests'] == 1);
 		$wwh_disp_bots = (($this->config['wwh_disp_bots_only_admin'] == 1) && $this->auth->acl_get('a_')) || ($this->config['wwh_disp_bots_only_admin'] == 0);
+		$phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
 
 		if (!$this->prune())
 		{
@@ -244,7 +245,6 @@ class who_was_here
 				? '&nbsp;(' . $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')' 
 				: ''
 			);
-			
 			if (($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
 			{
 				$disp_time = '<span class="wwh_time_' . (($row['user_type'] != USER_IGNORE || $this->config['wwh_disp_bots'] == 1) ? 'users': 'bots') . '" style="display: none">' . $disp_time . '</span>';
@@ -324,14 +324,24 @@ class who_was_here
 			$this->config->set('wwh_record_time', time(), true);
 		}
 		
+		$wwh_caption_users = (
+			($phpbb32)
+			? '&nbsp;<span class="wwh_show_time_caption_users icon fa-clock-o" style="opacity: 0.5;"></span>'
+			: '&nbsp;<span class="wwh_show_time_caption_users" style="opacity: 0.5;">(' . $this->user->lang['WHO_WAS_HERE_SHOW_TIME'] . ')</span>'
+		);
 		$wwh_button_users = (
 			($this->config['wwh_disp_time'] == 2 || ($this->config['wwh_disp_bots'] == 1 && $this->config['wwh_disp_time_bots'] == 2))
-			? '<button class="wwh_button_show_time_users" style="border: none; background-color: transparent; outline: none;" onclick="wwh_show_hide_time(0)">&nbsp;<span class="icon fa-clock-o wwh_icon_show_time_users" style="opacity: 0.5;"></span></button>'
+			? '<button class="wwh_show_time_button_users" style="border: none; background-color: transparent; outline: none; padding: 0;" onclick="wwh_show_hide_time(0)">' . $wwh_caption_users . '</button>'
 			: ''
+		);
+		$wwh_caption_bots = (
+			($phpbb32)
+			? '&nbsp;<span class="wwh_show_time_caption_bots icon fa-clock-o" style="opacity: 0.5;"></span>'
+			: '&nbsp;<span class="wwh_show_time_caption_bots" style="opacity: 0.5;">(' . $this->user->lang['WHO_WAS_HERE_SHOW_TIME'] . ')</span>'
 		);
 		$wwh_button_bots = (
 			($this->config['wwh_disp_time_bots'] == 2)
-			? '<button class="wwh_button_show_time_bots" style="border: none; background-color: transparent; outline: none;" onclick="wwh_show_hide_time(1)">&nbsp;<span class="icon fa-clock-o wwh_icon_show_time_bots" style="opacity: 0.5;"></span></button>'
+			? '<button class="wwh_show_time_button_bots" style="border: none; background-color: transparent; outline: none; none; padding: 0;" onclick="wwh_show_hide_time(1)">' . $wwh_caption_bots . '</button>'
 			: ''
 		);
 
@@ -342,6 +352,7 @@ class who_was_here
 			'WHO_WAS_HERE_EXP'			=> $this->get_explanation_string($this->config['wwh_version']),
 			'WHO_WAS_HERE_RECORD'		=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
 			'WHO_WAS_HERE_POS'			=> $this->config['wwh_disp_template_pos'],
+			'WHO_WAS_HERE_API_MODE'		=> $this->config['wwh_api_mode'],
 		));
 	}
 
