@@ -4,10 +4,10 @@
 <h1>{WWH_CONFIG_TITLE}</h1>
 <p>{WWH_MOD_VERSION} {L_WWH_UPDATE_NEED}</p>
 
-<form method="post" action="{U_ACTION}">
+<form id="wwh_form" method="post" action="{U_ACTION}">
 	<fieldset>
 		<legend>{L_WWH_SECTION_DISP_1}</legend>
-		<dl>
+		<dl id="wwh_opt_disp_for_guests">
 			<dt><label>{L_WWH_DISP_FOR_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_FOR_GUESTS_EXP}</span></dt>
 			<dd>
 				<select name="wwh_disp_for_guests">
@@ -17,64 +17,64 @@
 				</select>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_bots">
 			<dt><label>{L_WWH_DISP_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_EXP}</span></dt>
 			<dd>
-				<select name="wwh_disp_bots">
+				<select name="wwh_disp_bots" onchange="wwh_set_controls_state()">
 					<option id="wwh_disp_bots_1" value="1" <!-- IF WWH_DISP_BOTS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_BOTS_1}</option>
 					<option id="wwh_disp_bots_2" value="2" <!-- IF WWH_DISP_BOTS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_BOTS_2}</option>
 					<option id="wwh_disp_bots_0" value="0" <!-- IF WWH_DISP_BOTS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_BOTS_0}</option>
 				</select>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_bots_only_admin">
 			<dt><label>{L_WWH_DISP_BOTS_ONLY_ADMIN}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_ONLY_ADMIN_EXP}</span></dt>
 			<dd>
 				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_1" value="1" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
 				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_0" value="0" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_guests">
 			<dt><label>{L_WWH_DISP_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_GUESTS_EXP}</span></dt>
 			<dd>
 				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_1" value="1" <!-- IF WWH_DISP_GUESTS -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
 				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_0" value="0" <!-- IF not WWH_DISP_GUESTS -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_hidden">
 			<dt><label>{L_WWH_DISP_HIDDEN}{L_COLON}</label><br /><span>{L_WWH_DISP_HIDDEN_EXP}</span></dt>
 			<dd>
 				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_1" value="1" <!-- IF WWH_DISP_HIDDEN -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
 				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_0" value="0" <!-- IF not WWH_DISP_HIDDEN -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_time">
 			<dt><label>{L_WWH_DISP_TIME}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_EXP}</span></dt>
 			<dd>
-				<select name="wwh_disp_time">
+				<select name="wwh_disp_time" onchange="wwh_set_controls_state()">
 					<option id="wwh_disp_time_1" value="1" <!-- IF WWH_DISP_TIME == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_1}</option>
 					<option id="wwh_disp_time_2" value="2" <!-- IF WWH_DISP_TIME == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_2}</option>
 					<option id="wwh_disp_time_0" value="0" <!-- IF WWH_DISP_TIME == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_0}</option>
 				</select>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_time_bots">
 			<dt><label>{L_WWH_DISP_TIME_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_EXP}</span></dt>
 			<dd>
-				<select name="wwh_disp_time_bots">
+				<select name="wwh_disp_time_bots" onchange="wwh_set_controls_state()">
 					<option id="wwh_disp_time_bots_1" value="1" <!-- IF WWH_DISP_TIME_BOTS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_1}</option>
 					<option id="wwh_disp_time_bots_2" value="2" <!-- IF WWH_DISP_TIME_BOTS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_2}</option>
 					<option id="wwh_disp_time_bots_0" value="0" <!-- IF WWH_DISP_TIME_BOTS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_0}</option>
 				</select>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_time_format">
 			<dt><label>{L_WWH_DISP_TIME_FORMAT}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_FORMAT_EXP}</span></dt>
 			<dd>
 				<input type="text" name="wwh_disp_time_format" id="wwh_disp_time_format" size="12" value="{WWH_DISP_TIME_FORMAT}" />
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_ip">
 			<dt><label>{L_WWH_DISP_IP}{L_COLON}</label><br /><span>{L_WWH_DISP_IP_EXP}</span></dt>
 			<dd>
 				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_1" value="1" <!-- IF WWH_DISP_IP -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
@@ -85,16 +85,16 @@
 
 	<fieldset>
 		<legend>{L_WWH_SECTION_DISP_2}</legend>
-		<dl>
+		<dl id="wwh_opt_version">
 			<dt><label>{L_WWH_VERSION}{L_COLON}</label><br /><span>{L_WWH_VERSION_EXP}</span></dt>
 			<dd>
-				<select name="wwh_version">
+				<select name="wwh_version" onchange="wwh_set_controls_state()">
 					<option id="wwh_version_1" value="1" <!-- IF WWH_VERSION -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION1}</option>
 					<option id="wwh_version_0" value="0" <!-- IF not WWH_VERSION -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION2}</option>
 				</select>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_del_time">
 			<dt><label>{L_WWH_VERSION2}{L_COLON}</label></dt>
 			<dd>
 				<input type="text" name="wwh_del_time_h" id="wwh_del_time_h" size="6" value="{WWH_DEL_TIME_H}" /> {L_HOURS}
@@ -106,7 +106,7 @@
 				<input type="text" name="wwh_del_time_s" id="wwh_del_time_s" size="6" value="{WWH_DEL_TIME_S}" /> {L_SECONDS}
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_sort_by">
 			<dt><label>{L_WWH_SORT_BY}{L_COLON}</label><br /><span>{WWH_SORT_BY_EXP}</span></dt>
 			<dd>
 				<select name="wwh_sort_by">
@@ -119,35 +119,33 @@
 				</select>
 			</dd>
 		</dl>
-
-		<dl>
+		<dl id="wwh_opt_use_online_time">
 			<dt><label>{L_WWH_USE_ONLINE_TIME}{L_COLON}</label><br /><span>{L_WWH_USE_ONLINE_TIME_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" <!-- IF WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" <!-- IF not WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" onchange="wwh_set_controls_state()" value="1" <!-- IF WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" onchange="wwh_set_controls_state()" value="0" <!-- IF not WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-
-		<dl>
+		<dl id="wwh_opt_cache_time">
 			<dt><label>{L_WWH_CACHE_TIME}{L_COLON}</label><br /><span>{L_WWH_CACHE_TIME_EXP}</span></dt>
 			<dd>
 				<input type="number" name="wwh_cache_time" id="wwh_cache_time" min="1" max="{WWH_CACHE_TIME_MAX}" value="{WWH_CACHE_TIME}" /> {L_MINUTES}
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_record">
 			<dt><label>{L_WWH_RECORD}{L_COLON}</label><br /><span>{L_WWH_RECORD_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" value="1" <!-- IF WWH_RECORD -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" value="0" <!-- IF not WWH_RECORD -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" onchange="wwh_set_controls_state()" value="1" <!-- IF WWH_RECORD -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" onchange="wwh_set_controls_state()" value="0" <!-- IF not WWH_RECORD -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_record_timestamp">
 			<dt><label>{L_WWH_RECORD_TIMESTAMP}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_FORMAT_EXP}</span></dt>
 			<dd>
 				<input type="text" name="wwh_record_timestamp" id="wwh_record_timestamp" size="12" value="{WWH_RECORD_TIMESTAMP}" />
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_disp_template_pos">
 			<dt><label>{L_WWH_DISP_TEMPLATE_POS}{L_COLON}</label><br /><span>{L_WWH_DISP_TEMPLATE_POS_EXP}</span></dt>
 			<dd>
 				<select name="wwh_disp_template_pos">
@@ -161,20 +159,20 @@
 
 	<fieldset>
 		<legend>{L_WWH_SECTION_OTHERS}</legend>
-		<dl>
+		<dl id="wwh_opt_api_mode">
 			<dt><label>{L_WWH_API_MODE}{L_COLON}</label><br /><span>{L_WWH_API_MODE_EXP}</span></dt>
 			<dd>
 				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_1" value="1" <!-- IF WWH_API_MODE -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
 				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_0" value="0" <!-- IF not WWH_API_MODE -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_defaults">
 			<dt><label>{L_WWH_DEFAULTS}{L_COLON}</label><br /><span>{L_WWH_DEFAULTS_EXP}</span></dt>
 			<dd>
 				<input class="button2" type="button" id="wwh_defaults" name="wwh_defaults" value="{L_WWH_DEFAULTS_BUTTON}" onclick="wwh_set_defaults()" />
 			</dd>
 		</dl>
-		<dl>
+		<dl id="wwh_opt_reset">
 			<dt><label>{L_WWH_RESET}{L_COLON}</label><br /><span>{L_WWH_RESET_EXP}</span></dt>
 			<dd>
 				<label><input type="radio" class="radio" name="wwh_reset" value="1" onclick="alert('{L_WWH_RESET_TRUE}');" /> {L_YES}</label>
@@ -185,12 +183,24 @@
 
 	<p class="submit-buttons">
 		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
-		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		<input class="button2" type="button" id="wwh_reset" name="wwh_reset" value="{L_RESET}" onclick="wwh_button_reset()" />
 	</p>
 {S_FORM_TOKEN}
 </form>
 
 <script>
+window.onload = wwh_set_controls_state();
+
+function wwh_set_controls_state() {
+	const enabled = "1.0";
+	const disabled = "0.35";
+	document.getElementById("wwh_opt_disp_bots_only_admin").style.opacity = ((!document.getElementById("wwh_disp_bots_0").selected) ? enabled : disabled);
+	document.getElementById("wwh_opt_disp_time_bots").style.opacity = ((!document.getElementById("wwh_disp_bots_0").selected) ? enabled : disabled);
+	document.getElementById("wwh_opt_disp_time_format").style.opacity = ((!document.getElementById("wwh_disp_time_0").selected || (!document.getElementById("wwh_disp_time_bots_0").selected && !document.getElementById("wwh_disp_bots_0").selected)) ? enabled : disabled);
+	document.getElementById("wwh_opt_del_time").style.opacity = ((document.getElementById("wwh_version_0").selected) ? enabled : disabled);
+	document.getElementById("wwh_opt_cache_time").style.opacity = ((document.getElementById("wwh_use_online_time_0").checked) ? enabled : disabled);
+	document.getElementById("wwh_opt_record_timestamp").style.opacity = ((document.getElementById("wwh_record_1").checked) ? enabled : disabled);
+}
 function wwh_set_defaults() {
 	document.getElementById("wwh_disp_for_guests_1").selected = true;
 	document.getElementById("wwh_disp_bots_1").selected = true;
@@ -212,6 +222,11 @@ function wwh_set_defaults() {
 	document.getElementById("wwh_record_timestamp").value = "D j. M Y";
 	document.getElementById("wwh_disp_template_pos_0").selected = true;
 	document.getElementById("wwh_api_mode_0").checked = true;
+	wwh_set_controls_state();
+}
+function wwh_button_reset() {
+	document.getElementById("wwh_form").reset();
+	wwh_set_controls_state();
 }
 </script>
 

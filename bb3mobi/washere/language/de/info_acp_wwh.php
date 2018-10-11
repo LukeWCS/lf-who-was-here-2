@@ -106,7 +106,7 @@ $lang = array_merge($lang, array(
 	// config section 3	
 	'WWH_SECTION_OTHERS'			=> 'Sonstiges',
 	'WWH_API_MODE'					=> 'API-Modus',
-	'WWH_API_MODE_EXP'				=> 'Wenn aktiviert, dann wird die Anzeige von WWH abgeschaltet und es werden lediglich die Template Variablen erzeugt. Gedacht ist dieser Modus für Fälle, in denen die WWH-Anzeige bereits durch andere Erweiterungen dargestellt wird.',
+	'WWH_API_MODE_EXP'				=> 'Wenn aktiviert, dann wird die Anzeige von WWH abgeschaltet und es werden lediglich die Template Variablen erzeugt. Dieser Modus ist für Situationen gedacht, bei denen die WWH-Anzeige bereits durch andere Erweiterungen dargestellt wird.',
 	'WWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
 	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installations-Standard von WWH zurück, ohne die Seite zu speichern. Die Schaltfläche funktioniert also genauso wie “Zurücksetzen”. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Standard',

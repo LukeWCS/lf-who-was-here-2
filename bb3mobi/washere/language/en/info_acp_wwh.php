@@ -106,7 +106,7 @@ $lang = array_merge($lang, array(
 	// config section 3	
 	'WWH_SECTION_OTHERS'			=> 'Others',
 	'WWH_API_MODE'					=> 'API-Mode',
-	'WWH_API_MODE_EXP'				=> 'If activated, the display of WWH will be turned off and only the template variables will be generated. This mode is intended for cases in which the WWH display is already represented by other extensions.',
+	'WWH_API_MODE_EXP'				=> 'If activated, the display of WWH will be turned off and only the template variables will be generated. This mode is intended for situations where the WWH display is already displayed by other extensions.',
 	'WWH_DEFAULTS'					=> 'Reset settings',
 	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH without saving the page. The button works the same way as “Reset”. (Does not affect “Reset record”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Defaults',
