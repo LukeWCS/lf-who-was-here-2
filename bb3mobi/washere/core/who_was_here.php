@@ -331,7 +331,7 @@ class who_was_here
 		);
 		$wwh_button_users = (
 			($this->config['wwh_disp_time'] == 2 || ($this->config['wwh_disp_bots'] == 1 && $this->config['wwh_disp_time_bots'] == 2))
-			? '<button class="wwh_show_time_button_users" style="border: none; background-color: transparent; outline: none; padding: 0;" onclick="wwh_show_hide_time(0)">' . $wwh_caption_users . '</button>'
+			? '<button class="wwh_show_time_button_users" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="wwh_show_hide_time(0)">' . $wwh_caption_users . '</button>'
 			: ''
 		);
 		$wwh_caption_bots = (
@@ -341,7 +341,7 @@ class who_was_here
 		);
 		$wwh_button_bots = (
 			($this->config['wwh_disp_time_bots'] == 2)
-			? '<button class="wwh_show_time_button_bots" style="border: none; background-color: transparent; outline: none; none; padding: 0;" onclick="wwh_show_hide_time(1)">' . $wwh_caption_bots . '</button>'
+			? '<button class="wwh_show_time_button_bots" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="wwh_show_hide_time(1)">' . $wwh_caption_bots . '</button>'
 			: ''
 		);
 

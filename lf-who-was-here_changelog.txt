@@ -1,13 +1,14 @@
 ### Changelog 1.3.4 (2018-10-)
 
-* Bei der Einstellung "Zeige die Zeit von ...:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol aus "Awesome Font") eingeblendet, mit dem auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde.
+* Bei der Einstellung "Zeige die Zeit von ...:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol vom Awesome-Font) eingeblendet, mit dem auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
-  * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein "Awesome Font" gibt. (Hinweis von Kirk)
+  * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. (Hinweis von Kirk)
 * Eine neue Funktion erlaubt es, die Anzeige von WWH abschalten zu können, so das nur die Template Variablen erzeugt werden. Diese Funktion ist gedacht für andere Erweiterungen oder spezielle Styles die bereits WWH selber darstellen. Damit ist es z.B. auch möglich, die Anzeige auf das Portal zu begrenzen und WWH im Forum abzuschalten.
-  * Entsprechend im ACP eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann.
+  * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann.
   * In den Sprachdateien für "API-Modus:" 2 neue Variablen hinzugefügt.
-* Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Diese Methode nutze ich auch im beruflichen Umfeld bei kommerziellen Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
+* Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei kommerziellen Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
+* Fix: Bei der Deinstallation von NV-WWH (und auch bei LF-WWH) wurde `wwh_last_clean` bislang nicht aus der Datenbank entfernt, da diese Variable in den Migrationsdateien von NV-WWH 1.2.2 nicht berücksichtigt war.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die neue Template Bedingung `&& !WHO_WAS_HERE_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -

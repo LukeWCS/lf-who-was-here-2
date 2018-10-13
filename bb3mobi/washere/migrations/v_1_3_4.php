@@ -38,4 +38,11 @@ class v_1_3_4 extends \phpbb\db\migration\migration
 			array('config.update', array('wwh_mod_version', '1.3.4')),
 		);
 	}
+
+	public function revert_data()
+	{
+		return(array(
+			array('config.remove', array('wwh_last_clean')),
+		));
+	} 
 }
