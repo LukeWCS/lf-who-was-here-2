@@ -10,6 +10,10 @@
 * @package phpBB3.1
 * @copyright Anvar (c) 2015 bb3.mobi
 */
+/**
+* @package phpBB3.2
+* @copyright LukeWCS (c) 2018 wcsaga.org
+*/
 
 namespace bb3mobi\washere\event;
 
@@ -19,27 +23,42 @@ class listener implements EventSubscriberInterface
 {
 	/** @bb3mobi.washere.helper */
 	protected $helper;
+	protected $config;
 
-	public function __construct($helper)
+	public function __construct(
+		$helper,
+		\phpbb\config\config $config
+	)
 	{
 		$this->helper = $helper;
+		$this->config = $config;
 	}
 
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.page_header_after'		=> 'display_online_list',
-			'core.index_modify_page_title'	=> 'phpbb_mods_who_was_here',
+			'core.page_header_after'		=> 'wwh_update_table',
+			'core.index_modify_page_title'	=> 'wwh_display',
+			'core.permissions'				=> 'wwh_activate_permissions',
 		);
 	}
 
-	public function display_online_list($event)
+	public function wwh_update_table($event)
 	{
 		$this->helper->update_session();
 	}
 
-	public function phpbb_mods_who_was_here($event)
+	public function wwh_display($event)
 	{
 		$this->helper->display();
+	}
+
+	public function wwh_activate_permissions($event)
+	{
+		if (!$this->config['wwh_use_permissions']) return;
+		$permissions = $event['permissions'];
+		$permissions['u_wwh_show_users'] = array('lang' => 'ACL_U_WWH_SHOW_USERS', 'cat' => 'profile');
+		$permissions['u_wwh_show_stats'] = array('lang' => 'ACL_U_WWH_SHOW_STATS', 'cat' => 'profile');
+		$event['permissions'] = $permissions;
 	}
 }

@@ -6,8 +6,8 @@
 * @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru> - 2018 LukeWCS <https://www.wcsaga.org>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
-* Lang_iso     : de
-* Lang_ver     : 1.3.3
+* Lang_iso     : de_x_sie
+* Lang_ver     : 1.4.0
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -69,7 +69,7 @@ $lang = array_merge($lang, array(
 		1						=> '%d Bot',
 		2						=> '%d Bots',
 	),
-	'WHO_WAS_HERE_GUESTS'		=> array(
+	'WHO_WAS_HERE_GUESTS'	=> array(
 		0						=> '0 Gäste',
 		1						=> '%d Gast',
 		2						=> '%d Gäste',
@@ -78,7 +78,7 @@ $lang = array_merge($lang, array(
 	'WHO_WAS_HERE_WORD'			=> ' und',
 	'WHO_WAS_HERE_EXP'			=> 'basierend auf den heutigen Besuchern',
 	'WHO_WAS_HERE_EXP_TIME'		=> 'basierend auf den Besuchern der letzten ',
-	'WWH_HOURS'				=> array(
+		'WWH_HOURS'			=> array(
 		0						=> '',
 		1						=> '%%s %1$s Stunde',
 		2						=> '%%s %1$s Stunden',

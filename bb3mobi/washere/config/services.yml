@@ -13,5 +13,6 @@ services:
         class: bb3mobi\washere\event\listener
         arguments:
             - '@bb3mobi.washere.helper'
+            - '@config'
         tags:
             - { name: event.listener }

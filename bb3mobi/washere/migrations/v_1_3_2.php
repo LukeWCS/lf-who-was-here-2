@@ -34,7 +34,7 @@ class v_1_3_2 extends \phpbb\db\migration\migration
 		return array(
 			// Add configs
 			array('config.add', array('wwh_disp_time_bots', '1')),
-			// Current version
+			// Set current version
 			array('config.update', array('wwh_mod_version', '1.3.2')),
 		);
 	}

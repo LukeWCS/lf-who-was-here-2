@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de
-* Lang_ver     : 1.3.3
+* Lang_ver     : 1.4.0
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -50,9 +50,13 @@ $lang = array_merge($lang, array(
 	'WWH_INSTALLED' 				=> 'Installierte Version: %s',
 	'WWH_UPDATE_NEED'				=> '(Fork: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a> Original: <a href="http://bb3.mobi/forum/viewtopic.php?t=66">BB3 Support</a>)',
 	// config section 1
+	'WWH_SECTION_PERMISSIONS'		=> 'Berechtigungen',
+	'WWH_USE_PERMISSIONS'			=> 'Benutze das Berechtigungssystem von phpBB',
+	'WWH_USE_PERMISSIONS_EXP'		=> 'Ermöglicht es für jede Benutzergruppe getrennt festlegen zu können, in welchem Umfang die Anzeige erfolgen soll. Die Rechte können wie folgt festgelegt werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
+	// config section 2
 	'WWH_SECTION_DISP_1'			=> 'Anzeige Einstellungen 1',
-	'WWH_DISP_FOR_GUESTS'			=> 'Anzeige für Gäste',
-	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Legt fest, was Gäste sehen können. “Alles” zeigt die Statistik und die Benutzer. “Statistik” entsprechend nur die anonymen Zahlen und “Nichts” schaltet die WWH Anzeige komplett aus.',
+	'WWH_DISP_FOR_GUESTS'			=> 'Anzeige für Gäste und Bots',
+	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Legt fest, was Gäste und Bots sehen können. “Alles” zeigt die Statistik und die Benutzer. “Statistik” entsprechend nur die anonymen Zahlen und “Nichts” schaltet die WWH Anzeige komplett aus.',
 	'WWH_DISP_FOR_GUESTS_1'			=> 'Alles',
 	'WWH_DISP_FOR_GUESTS_0'			=> 'Statistik',
 	'WWH_DISP_FOR_GUESTS_2'			=> 'Nichts',
@@ -62,7 +66,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_BOTS_2'				=> 'In einer eigenen Zeile',
 	'WWH_DISP_BOTS_0'				=> 'Nein',
 	'WWH_DISP_BOTS_ONLY_ADMIN'		=> 'Zeige die Bot-Namen nur Administratoren',
-	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Die Namen der Bots werden nur Administratoren angezeigt. (Nicht relevant wenn “Zeige Bots” auf “Nein” gesetzt ist)',
+	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Die Namen der Bots werden nur Administratoren angezeigt.',
 	'WWH_DISP_GUESTS'				=> 'Zeige Gäste',
 	'WWH_DISP_GUESTS_EXP'			=> 'Die Anzahl der Gäste wird angezeigt.',
 	'WWH_DISP_HIDDEN'				=> 'Zeige unsichtbare Benutzer',
@@ -77,7 +81,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP Funktion <a href="http://www.php.net/date">date()</a>.',
 	'WWH_DISP_IP'					=> 'Zeige die Benutzer-IP',
 	'WWH_DISP_IP_EXP'				=> 'Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.',
-	// config section 2
+	// config section 3
 	'WWH_SECTION_DISP_2'			=> 'Anzeige Einstellungen 2',
 	'WWH_VERSION'					=> 'Anzeige der Besucher von ...',
 	'WWH_VERSION_EXP'				=> 'Anzeige der Besucher von heute (Seit 00:00 Forum Zeitzone), oder des Zeitraums der bei der nächsten Einstellung festgelegt wird.',
@@ -92,9 +96,9 @@ $lang = array_merge($lang, array(
 	'WWH_SORT_BY_4'					=> 'Benutzer-ID aufsteigend',
 	'WWH_SORT_BY_5'					=> 'Benutzer-ID absteigend',
 	'WWH_USE_ONLINE_TIME'			=> 'Aktualisiere mit der Zeitspanne für die Online-Anzeige',
-	'WWH_USE_ONLINE_TIME_EXP'		=> 'Wenn aktiviert, wird für das Intervall der Aktualisierung die Einstellung “ALLGEMEIN » Serverlast » Zeitspanne für die Online-Anzeige” verwendet. Das entspricht dem Standardverhalten von WWH.',
+	'WWH_USE_ONLINE_TIME_EXP'		=> 'Wenn aktiviert, wird für das Intervall der Aktualisierung die Einstellung “ALLGEMEIN » SERVER-KONFIGURATION » Serverlast » Allgemeine Einstellungen » Zeitspanne für die Online-Anzeige” verwendet. Das entspricht dem Standardverhalten von WWH.',
 	'WWH_CACHE_TIME'				=> 'Intervall der Aktualisierung',
-	'WWH_CACHE_TIME_EXP'			=> 'Das Intervall bestimmt, wie oft die Anzeige der Statistik und Benutzerliste aktualisiert wird. (Nicht relevant wenn “Aktualisiere mit der Zeitspanne für die Online-Anzeige” auf “Ja” gesetzt ist)',
+	'WWH_CACHE_TIME_EXP'			=> 'Das Intervall bestimmt, wie oft die Anzeige der Statistik und Benutzerliste aktualisiert wird.',
 	'WWH_RECORD'					=> 'Besucherrekord',
 	'WWH_RECORD_EXP'				=> 'Zeige und speichere den Besucherrekord',
 	'WWH_RECORD_TIMESTAMP'			=> 'Datums-Format für den Besucherrekord',
@@ -103,12 +107,12 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TEMPLATE_POS_0'		=> 'Oben',
 	'WWH_DISP_TEMPLATE_POS_2'		=> 'Vor Geburtstage',
 	'WWH_DISP_TEMPLATE_POS_1'		=> 'Unten',
-	// config section 3	
+	// config section 4	
 	'WWH_SECTION_OTHERS'			=> 'Sonstiges',
 	'WWH_API_MODE'					=> 'API-Modus',
 	'WWH_API_MODE_EXP'				=> 'Wenn aktiviert, dann wird die Anzeige von WWH abgeschaltet und es werden lediglich die Template Variablen erzeugt. Dieser Modus ist für Situationen gedacht, bei denen die WWH-Anzeige bereits durch andere Erweiterungen dargestellt wird.',
 	'WWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
-	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installations-Standard von WWH zurück, ohne die Seite zu speichern. Die Schaltfläche funktioniert also genauso wie “Zurücksetzen”. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
+	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installations-Standard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Standard',
 	'WWH_RESET'						=> 'Besucherrekord zurücksetzen',
 	'WWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Aktivitäten-Rekord zurück.',

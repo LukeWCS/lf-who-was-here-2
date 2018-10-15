@@ -6,7 +6,14 @@
 
 <form id="wwh_form" method="post" action="{U_ACTION}">
 	<fieldset>
-		<legend>{L_WWH_SECTION_DISP_1}</legend>
+		<legend>{L_WWH_SECTION_PERMISSIONS}</legend>
+		<dl id="wwh_opt_use_permissions">
+			<dt><label>{L_WWH_USE_PERMISSIONS}{L_COLON}</label><br /><span>{L_WWH_USE_PERMISSIONS_EXP}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_PERMISSIONS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_0" value="0" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_PERMISSIONS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
 		<dl id="wwh_opt_disp_for_guests">
 			<dt><label>{L_WWH_DISP_FOR_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_FOR_GUESTS_EXP}</span></dt>
 			<dd>
@@ -17,6 +24,10 @@
 				</select>
 			</dd>
 		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{L_WWH_SECTION_DISP_1}</legend>
 		<dl id="wwh_opt_disp_bots">
 			<dt><label>{L_WWH_DISP_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_EXP}</span></dt>
 			<dd>
@@ -122,8 +133,8 @@
 		<dl id="wwh_opt_use_online_time">
 			<dt><label>{L_WWH_USE_ONLINE_TIME}{L_COLON}</label><br /><span>{L_WWH_USE_ONLINE_TIME_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" onchange="wwh_set_controls_state()" value="1" <!-- IF WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" onchange="wwh_set_controls_state()" value="0" <!-- IF not WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" onchange="wwh_set_controls_state()" <!-- IF not WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_cache_time">
@@ -135,8 +146,8 @@
 		<dl id="wwh_opt_record">
 			<dt><label>{L_WWH_RECORD}{L_COLON}</label><br /><span>{L_WWH_RECORD_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" onchange="wwh_set_controls_state()" value="1" <!-- IF WWH_RECORD -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" onchange="wwh_set_controls_state()" value="0" <!-- IF not WWH_RECORD -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_RECORD -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" value="0" onchange="wwh_set_controls_state()" <!-- IF not WWH_RECORD -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_record_timestamp">
@@ -194,6 +205,7 @@ window.onload = wwh_set_controls_state();
 function wwh_set_controls_state() {
 	const enabled = "1.0";
 	const disabled = "0.35";
+	document.getElementById("wwh_opt_disp_for_guests").style.opacity = ((!document.getElementById("wwh_use_permissions_1").checked) ? enabled : disabled);
 	document.getElementById("wwh_opt_disp_bots_only_admin").style.opacity = ((!document.getElementById("wwh_disp_bots_0").selected) ? enabled : disabled);
 	document.getElementById("wwh_opt_disp_time_bots").style.opacity = ((!document.getElementById("wwh_disp_bots_0").selected) ? enabled : disabled);
 	document.getElementById("wwh_opt_disp_time_format").style.opacity = ((!document.getElementById("wwh_disp_time_0").selected || (!document.getElementById("wwh_disp_time_bots_0").selected && !document.getElementById("wwh_disp_bots_0").selected)) ? enabled : disabled);
@@ -202,7 +214,8 @@ function wwh_set_controls_state() {
 	document.getElementById("wwh_opt_record_timestamp").style.opacity = ((document.getElementById("wwh_record_1").checked) ? enabled : disabled);
 }
 function wwh_set_defaults() {
-	document.getElementById("wwh_disp_for_guests_1").selected = true;
+	document.getElementById("wwh_use_permissions_0").checked = true;
+	document.getElementById("wwh_disp_for_guests_0").selected = true;
 	document.getElementById("wwh_disp_bots_1").selected = true;
 	document.getElementById("wwh_disp_bots_only_admin_0").checked = true;
 	document.getElementById("wwh_disp_guests_1").checked = true;

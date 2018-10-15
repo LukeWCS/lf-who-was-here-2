@@ -33,6 +33,7 @@ class acp_wwh_module
 				trigger_error('FORM_INVALID');
 			}
 
+			$config->set('wwh_use_permissions', $request->variable('wwh_use_permissions', 0));
 			$config->set('wwh_disp_for_guests', $request->variable('wwh_disp_for_guests', 0));
 			$config->set('wwh_disp_bots', $request->variable('wwh_disp_bots', 0));
 			$config->set('wwh_disp_bots_only_admin', $request->variable('wwh_disp_bots_only_admin', 0));
@@ -70,6 +71,7 @@ class acp_wwh_module
 		$template->assign_vars(array(
 			'WWH_MOD_VERSION'			=> sprintf($user->lang['WWH_INSTALLED'], $config['wwh_mod_version']),
 			'WWH_CONFIG_TITLE'			=> sprintf($user->lang['WWH_CONFIG_TITLE'], 'LF who was here'),
+			'WWH_USE_PERMISSIONS'		=> $config['wwh_use_permissions'],
 			'WWH_DISP_FOR_GUESTS'		=> $config['wwh_disp_for_guests'],
 			'WWH_DISP_BOTS'				=> $config['wwh_disp_bots'],
 			'WWH_DISP_BOTS_ONLY_ADMIN'	=> $config['wwh_disp_bots_only_admin'],

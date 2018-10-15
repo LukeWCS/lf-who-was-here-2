@@ -33,7 +33,7 @@ class v_1_3_1 extends \phpbb\db\migration\migration
 	{
 		return array(
 			// Add configs
-			// Current version
+			// Set current version
 			array('config.update', array('wwh_mod_version', '1.3.1')),
 		);
 	}

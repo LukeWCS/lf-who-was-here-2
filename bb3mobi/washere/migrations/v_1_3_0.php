@@ -33,10 +33,10 @@ class v_1_3_0 extends \phpbb\db\migration\migration
 	{
 		return array(
 			// Add configs
-			array('config.add', array('wwh_disp_for_guests', '1')),
+			array('config.add', array('wwh_disp_for_guests', '0')),
 			array('config.add', array('wwh_disp_bots_only_admin', '0')),
 			array('config.add', array('wwh_disp_template_pos', '0')),
-			// Current version
+			// Set current version
 			array('config.update', array('wwh_mod_version', '1.3.0')),
 		);
 	}

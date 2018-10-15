@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
-* Lang_ver     : 1.3.3
+* Lang_ver     : 1.4.0
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -50,9 +50,13 @@ $lang = array_merge($lang, array(
 	'WWH_INSTALLED' 				=> 'Installed version: %s',
 	'WWH_UPDATE_NEED'				=> '(Fork: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Topic on phpbb.de</a> Original: <a href="http://bb3.mobi/forum/viewtopic.php?t=66">BB3 Support</a>)',
 	// config section 1
+	'WWH_SECTION_PERMISSIONS'		=> 'Permissions',
+	'WWH_USE_PERMISSIONS'			=> 'Use the permission system of phpBB',
+	'WWH_USE_PERMISSIONS_EXP'		=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: "PERMISSIONS" » Group permissions » [user group] » User permissions » Advanced Permissions » Profile".',
+	// config section 2
 	'WWH_SECTION_DISP_1'			=> 'Display settings 1',
-	'WWH_DISP_FOR_GUESTS'			=> 'Display for guests',
-	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Determines what guests can see. “Everything” shows the statistics and the users. “Statistics” only the anonymous numbers and “Nothing” turns off the WWH display completely.',
+	'WWH_DISP_FOR_GUESTS'			=> 'Display for guests and bots',
+	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Determines what guests and bots can see. “Everything” shows the statistics and the users. “Statistics” only the anonymous numbers and “Nothing” turns off the WWH display completely.',
 	'WWH_DISP_FOR_GUESTS_1'			=> 'Everything',
 	'WWH_DISP_FOR_GUESTS_0'			=> 'Statistics',
 	'WWH_DISP_FOR_GUESTS_2'			=> 'Nothing',
@@ -62,7 +66,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_BOTS_2'				=> 'On a separate line',
 	'WWH_DISP_BOTS_0'				=> 'No',
 	'WWH_DISP_BOTS_ONLY_ADMIN'		=> 'Show the bot names only to administrators',
-	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Display of the bot names is only available to administrators. (Not relevant if “Show bots” is set to “No”)',
+	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Display of the bot names is only available to administrators.',
 	'WWH_DISP_GUESTS'				=> 'Show guests',
 	'WWH_DISP_GUESTS_EXP'			=> 'The number of guests is displayed.',
 	'WWH_DISP_HIDDEN'				=> 'Show invisible users',
@@ -77,7 +81,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
 	'WWH_DISP_IP'					=> 'Show user-ip',
 	'WWH_DISP_IP_EXP'				=> 'Just for the users with administrative permissions, as with “Who is online”.',
-	// config section 2
+	// config section 3
 	'WWH_SECTION_DISP_2'			=> 'Display settings 2',
 	'WWH_VERSION'					=> 'Displaying users of ...',
 	'WWH_VERSION_EXP'				=> 'Displaying users of today, or of the period set in the next option.',
@@ -94,7 +98,7 @@ $lang = array_merge($lang, array(
 	'WWH_USE_ONLINE_TIME'			=> 'Update with the view online time span',
 	'WWH_USE_ONLINE_TIME_EXP'		=> 'When enabled, the refresh interval is set to “GENERAL » Load settings » View online time span”. This corresponds to the standard behavior of WWH.',
 	'WWH_CACHE_TIME'				=> 'Interval of the update',
-	'WWH_CACHE_TIME_EXP'			=> 'The interval determines how often the display of the statistics and user list is updated. (Not relevant if “Update with the view online time span” is set to “Yes”)',
+	'WWH_CACHE_TIME_EXP'			=> 'The interval determines how often the display of the statistics and user list is updated.',
 	'WWH_RECORD'					=> 'Record',
 	'WWH_RECORD_EXP'				=> 'Display and save record',
 	'WWH_RECORD_TIMESTAMP'			=> 'Dateformat for the record',
@@ -103,12 +107,12 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TEMPLATE_POS_0'		=> 'Top',
 	'WWH_DISP_TEMPLATE_POS_2'		=> 'Before birthdays',
 	'WWH_DISP_TEMPLATE_POS_1'		=> 'Bottom',
-	// config section 3	
+	// config section 4
 	'WWH_SECTION_OTHERS'			=> 'Others',
 	'WWH_API_MODE'					=> 'API-Mode',
 	'WWH_API_MODE_EXP'				=> 'If activated, the display of WWH will be turned off and only the template variables will be generated. This mode is intended for situations where the WWH display is already displayed by other extensions.',
 	'WWH_DEFAULTS'					=> 'Reset settings',
-	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH without saving the page. The button works the same way as “Reset”. (Does not affect “Reset record”)',
+	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset record”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Defaults',
 	'WWH_RESET'						=> 'Reset record',
 	'WWH_RESET_EXP'					=> 'Resets the time and counter of the who-was-here record.',
