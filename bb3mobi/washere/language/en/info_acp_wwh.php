@@ -56,8 +56,8 @@ $lang = array_merge($lang, array(
 	// config section 2
 	'WWH_SECTION_DISP_1'			=> 'Display settings 1',
 	'WWH_DISP_FOR_GUESTS'			=> 'Display for guests and bots',
-	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Determines what guests and bots can see. “Everything” shows the statistics and the users. “Statistics” only the anonymous numbers and “Nothing” turns off the WWH display completely.',
-	'WWH_DISP_FOR_GUESTS_1'			=> 'Everything',
+	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Determines what guests and bots can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for guests.',
+	'WWH_DISP_FOR_GUESTS_1'			=> 'Members and statistics',
 	'WWH_DISP_FOR_GUESTS_0'			=> 'Statistics',
 	'WWH_DISP_FOR_GUESTS_2'			=> 'Nothing',
 	'WWH_DISP_BOTS'					=> 'Show bots',

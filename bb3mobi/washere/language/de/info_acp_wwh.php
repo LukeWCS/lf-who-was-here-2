@@ -52,11 +52,11 @@ $lang = array_merge($lang, array(
 	// config section 1
 	'WWH_SECTION_PERMISSIONS'		=> 'Berechtigungen',
 	'WWH_USE_PERMISSIONS'			=> 'Benutze das Berechtigungssystem von phpBB',
-	'WWH_USE_PERMISSIONS_EXP'		=> 'Ermöglicht es für jede Benutzergruppe getrennt festlegen zu können, in welchem Umfang die Anzeige erfolgen soll. Die Rechte können wie folgt festgelegt werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
+	'WWH_USE_PERMISSIONS_EXP'		=> 'Ermöglicht es für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
 	// config section 2
 	'WWH_SECTION_DISP_1'			=> 'Anzeige Einstellungen 1',
 	'WWH_DISP_FOR_GUESTS'			=> 'Anzeige für Gäste und Bots',
-	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Legt fest, was Gäste und Bots sehen können. “Alles” zeigt die Statistik und die Benutzer. “Statistik” entsprechend nur die anonymen Zahlen und “Nichts” schaltet die WWH Anzeige komplett aus.',
+	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Legt fest, was Gäste und Bots sehen können. “Statistik” zeigt nur die anonymen Zahlen und “Nichts” schaltet die WWH Anzeige für Gäste komplett aus.',
 	'WWH_DISP_FOR_GUESTS_1'			=> 'Alles',
 	'WWH_DISP_FOR_GUESTS_0'			=> 'Statistik',
 	'WWH_DISP_FOR_GUESTS_2'			=> 'Nichts',

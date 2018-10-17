@@ -43,5 +43,5 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, array(
 	'ACL_U_WWH_SHOW_STATS'	=> 'Wer war da: Kann Statistik sehen',
-	'ACL_U_WWH_SHOW_USERS'	=> 'Wer war da: Kann Mitglieder (und Statistik) sehen',
+	'ACL_U_WWH_SHOW_USERS'	=> 'Wer war da: Kann Mitglieder und Statistik sehen',
 ));

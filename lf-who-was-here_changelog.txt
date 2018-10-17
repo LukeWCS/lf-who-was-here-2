@@ -1,27 +1,31 @@
 ### Changelog 1.4.0 (2018-10-)
 
-* Bei der Einstellung "Zeige die Zeit von ...:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol vom Awesome-Font) eingeblendet, mit dem auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
+* Bei der Einstellung "Zeige die Zeit von Benutzern/Bots:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol aus Awesome-Font) eingeblendet, mit dem auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
   * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. (Hinweis von Kirk)
 * Eine neue Funktion erlaubt es, die Anzeige von WWH abschalten zu können, so das nur die Template Variablen erzeugt werden. Diese Funktion ist gedacht für andere Erweiterungen oder spezielle Styles die bereits WWH selber darstellen. Damit ist es z.B. auch möglich, die Anzeige auf das Portal zu begrenzen und WWH im Forum abzuschalten.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann.
   * In den Sprachdateien für "API-Modus:" 2 neue Variablen hinzugefügt.
-* Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei kommerziellen Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
-  * Dementsprechend in den Sprachdateien alle Erklärungen mit "Nicht relevant bei..." entfernt, da diese nicht länger benötigt werden.
+* Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
+  * Dementsprechend in den Sprachdateien alle Erklärungen mit "Nicht relevant wenn ..." entfernt.
 * Fix: Bei der Deinstallation von NV-WWH (und somit auch bei LF-WWH) wurde `wwh_last_clean` bislang nicht aus der Datenbank entfernt, da diese Variable in den Migrationsdateien von NV-WWH nicht berücksichtigt war.
-* Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die WWH-Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste (und Bots) regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. (Wunsch von Jonson, Vorschläge von Kirk und chris1278)
+* Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste (und Bots) regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. (Wunsch von Jonson, Vorschläge von Kirk und chris1278)
   * Entsprechend für "Benutze das Berechtigungssystem von phpBB:" 2 neue Variablen in den Sprachdateien hinzugefügt. 
-  * Rechte per Migrationsdatei hinzugefügt. Dabei gelten folgende Standardvorgaben:
-    * Administratoren: Mitglieder und Statistik
-    * Globale Moderatoren: Mitglieder und Statistik
-    * Registrierte Benutzer: Mitglieder und Statistik
-    * Gäste: Statistik
+  * Rechte per Migrationsdatei hinzugefügt:
+    * Wer war da: Kann Statistik sehen
+    * Wer war da: Kann Mitglieder und Statistik sehen
+  * Für die Rechte gelten folgende Standardvorgaben:
+    * Administratoren: Kann Mitglieder und Statistik sehen
+    * Globale Moderatoren: Kann Mitglieder und Statistik sehen
+    * Registrierte Benutzer: Kann Mitglieder und Statistik sehen
+    * Gäste: Kann Statistik sehen
   * Neue Sprachdatei für die Rechte hinzugefügt.
 * Für das Berechtigungssystem einen neuen Abschnitt im ACP Modul eingefügt.
   * In den Sprachdateien entsprechend eine Variable für "Berechtigungen" hinzugefügt.
-  * Die Einstellung "Anzeige für Gäste:" in diesen neuen Bereich verschoben.
-* Bei einer Neuinstallation von LF-WWH gilt für die Einstellung "Anzeige für Gäste und Bots:" nun "Statistik" als neuer Standard, passend zu phpBB 3.2.
+  * Die Einstellung "Anzeige für Gäste und Bots:" in diesen neuen Bereich verschoben.
+* Erklärung und Auswahlliste der Einstellung "Anzeige für Gäste und Bots:" an die Texte der Rechte angepasst.
+* Bei einer Neuinstallation von LF-WWH gilt für die Einstellung "Anzeige für Gäste und Bots:" nun "Statistik" als neuer Standard, passend zu "Wer ist online?" von phpBB 3.2.
   * Das gilt ebenso für die Schaltfläche "Standard" von "Einstellungen zurücksetzen:".
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die neue Template Bedingung `&& !WHO_WAS_HERE_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
