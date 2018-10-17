@@ -353,8 +353,8 @@ class who_was_here
 		else
 			$wwh_total_permission = $wwh_disp_users || $this->config['wwh_disp_for_guests'] != 2;
 		$this->template->assign_vars(array(
-			'WHO_WAS_HERE_LIST'			=> ($wwh_disp_users ? sprintf($this->user->lang['WHO_WAS_HERE_USERS_TEXT'], $wwh_button_users) . $this->user->lang['COLON'] . ' ' . $users_list : ''),
-			'WHO_WAS_HERE_BOTS'			=> ($wwh_disp_users && $bots_list ? sprintf($this->user->lang['WHO_WAS_HERE_BOTS_TEXT'], $wwh_button_bots) . $this->user->lang['COLON'] . ' ' . $bots_list : ''),
+			'WHO_WAS_HERE_LIST'			=> ($wwh_disp_users ? sprintf($this->user->lang['WHO_WAS_HERE_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
+			'WHO_WAS_HERE_BOTS'			=> ($wwh_disp_users && $bots_list ? sprintf($this->user->lang['WHO_WAS_HERE_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
 			'WHO_WAS_HERE_TOTAL'		=> (($wwh_total_permission) ? $this->get_total_users_string($count) : ''),
 			'WHO_WAS_HERE_EXP'			=> $this->get_explanation_string($this->config['wwh_version']),
 			'WHO_WAS_HERE_RECORD'		=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
