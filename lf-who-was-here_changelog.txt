@@ -15,11 +15,20 @@
   * Rechte per Migrationsdatei hinzugefügt:
     * Wer war da: Kann Statistik sehen
     * Wer war da: Kann Mitglieder und Statistik sehen
-  * Für die Rechte gelten folgende Standardvorgaben:
-    * Administratoren: Kann Mitglieder und Statistik sehen
-    * Globale Moderatoren: Kann Mitglieder und Statistik sehen
-    * Registrierte Benutzer: Kann Mitglieder und Statistik sehen
-    * Gäste: Kann Statistik sehen
+  * Für die Gruppen-Rechte gelten dabei folgende Standardvorgaben:
+    * Administratoren: Kann Mitglieder und Statistik sehen = Ja
+    * Globale Moderatoren: Kann Mitglieder und Statistik sehen = Ja
+    * Registrierte Benutzer: Kann Statistik sehen = Ja
+    * Registrierte Benutzer: Kann Mitglieder und Statistik sehen = Ja
+    * Kürzlich registrierte Benutzer: Kann Mitglieder und Statistik sehen = Nie
+    * Gäste: Kann Statistik sehen = Ja
+  * Für die Benutzer-Rollen gelten dabei folgende Standardvorgaben:
+    * Standard-Funktionalität: Kann Mitglieder und Statistik sehen = Ja
+    * Eingeschränkte Funktionalität: Kann Mitglieder und Statistik sehen = Ja
+    * Volle Funktionalität: Kann Mitglieder und Statistik sehen = Ja
+    * Keine Privaten Nachrichten: Kann Mitglieder und Statistik sehen = Ja
+    * Kein Avatar: Kann Mitglieder und Statistik sehen = Ja
+    * Funktionalitäten für neu registrierte Benutzer:  Kann Mitglieder und Statistik sehen = Nie
   * Neue Sprachdatei für die Rechte hinzugefügt.
 * Für das Berechtigungssystem einen neuen Abschnitt im ACP Modul eingefügt.
   * In den Sprachdateien entsprechend eine Variable für "Berechtigungen" hinzugefügt.
