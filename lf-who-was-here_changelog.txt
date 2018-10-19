@@ -10,7 +10,7 @@
 * Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
   * Dementsprechend in den Sprachdateien alle Erklärungen mit "Nicht relevant wenn ..." entfernt.
 * Fix: Bei der Deinstallation von NV-WWH (und somit auch bei LF-WWH) wurde `wwh_last_clean` bislang nicht aus der Datenbank entfernt, da diese Variable in den Migrationsdateien von NV-WWH nicht berücksichtigt war.
-* Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste (und Bots) regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. (Wunsch von Jonson, Vorschläge von Kirk und chris1278)
+* Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. (Wunsch von Jonson, Vorschläge von Kirk und chris1278)
   * Entsprechend für "Benutze das Berechtigungssystem von phpBB:" 2 neue Variablen in den Sprachdateien hinzugefügt. 
   * Rechte per Migrationsdatei hinzugefügt:
     * Wer war da: Kann Statistik sehen
@@ -32,10 +32,12 @@
   * Neue Sprachdatei für die Rechte hinzugefügt.
 * Für das Berechtigungssystem einen neuen Abschnitt im ACP Modul eingefügt.
   * In den Sprachdateien entsprechend eine Variable für "Berechtigungen" hinzugefügt.
-  * Die Einstellung "Anzeige für Gäste und Bots:" in diesen neuen Bereich verschoben.
-* Erklärung und Auswahlliste der Einstellung "Anzeige für Gäste und Bots:" an die Texte der Rechte angepasst.
-* Bei einer Neuinstallation von LF-WWH gilt für die Einstellung "Anzeige für Gäste und Bots:" nun "Statistik" als neuer Standard, passend zu "Wer ist online?" von phpBB 3.2.
-  * Das gilt ebenso für die Schaltfläche "Standard" von "Einstellungen zurücksetzen:".
+* In Bezug auf das Berechtigungssystem einige Änderungen bei "Anzeige für Gäste:" vorgenommen:
+  * Die Einstellung in den neuen Bereich "Berechtigungen" verschoben.
+  * Erklärung und Auswahlliste an die Texte der Rechte des Berechtigungssystems angepasst.
+  * Bei deaktiviertem Berechtigungssystem sind Bots jetzt komplett ausgeschlossen. Diese Gruppe kann also weder die Benutzerliste noch die Statistik "sehen".
+  * Bei einer Neuinstallation von LF-WWH gilt nun "Statistik" als neuer Standard, passend zu "Wer ist online?" von phpBB 3.2.
+    * Das gilt ebenso für die Schaltfläche "Standard" von "Einstellungen zurücksetzen:".
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die neue Template Bedingung `&& !WHO_WAS_HERE_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -

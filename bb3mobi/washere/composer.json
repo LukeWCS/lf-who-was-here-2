@@ -1,44 +1,41 @@
 {
-    "name": "bb3mobi/washere",
-    "type": "phpbb-extension",
-    "description": "Shows a visitor statistic of the current day or a freely selectable period. It lists both visitors and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.",
-    "homepage": "https://www.phpbb.de/community/viewtopic.php?f=149&t=241976",
-    "version": "1.4.0-dev",
-    "time": "2018-10-15",
-    "license": "GPL-2.0",
-    "authors": [
-        {
-            "name": "Joas Schilling [nickvergessen]",
-            "homepage": "http://www.flying-bits.org/",
-            "role": "Developer"
-        },
-        {
-            "name": "Anvar",
-            "homepage": "http://phpbbguru.net",
-            "role": "Converting to extension"
-        },
-        {
-            "name": "LukeWCS",
-            "homepage": "https://www.wcsaga.org",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.3"
-    },
-    "require-dev": {
-      "phpbb/epv": "dev-master"
-    },
-    "extra": {
-        "display-name": "LF who was here",
-        "soft-require": {
-        "phpbb/phpbb": ">=3.1.12"
-        },
+	"name": "bb3mobi/washere",
+	"type": "phpbb-extension",
+	"description": "Shows a visitor statistic of the current day or a freely selectable period. It lists both visitors and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.",
+	"homepage": "https://www.phpbb.de/community/viewtopic.php?f=149&t=241976",
+	"version": "1.4.0-dev",
+	"time": "2018-10-18",
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Joas Schilling [nickvergessen]",
+			"homepage": "http://www.flying-bits.org/",
+			"role": "Developer"
+		},
+		{
+			"name": "Anvar",
+			"homepage": "http://phpbbguru.net",
+			"role": "Converting to extension"
+		},
+		{
+			"name": "LukeWCS",
+			"homepage": "https://www.wcsaga.org",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"extra": {
+		"display-name": "LF who was here",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.12"
+		},
 		"version-check": {
 			"host": "raw.githubusercontent.com",
 			"directory": "/LukeWCS/lf-who-was-here/master",
 			"filename": "lf-who-was-here_version.json",
 			"ssl": true
 		}
-    }
+	}
 }

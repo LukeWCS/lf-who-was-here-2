@@ -55,8 +55,8 @@ $lang = array_merge($lang, array(
 	'WWH_USE_PERMISSIONS_EXP'		=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: "PERMISSIONS" » Group permissions » [user group] » User permissions » Advanced Permissions » Profile".',
 	// config section 2
 	'WWH_SECTION_DISP_1'			=> 'Display settings 1',
-	'WWH_DISP_FOR_GUESTS'			=> 'Display for guests and bots',
-	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Determines what guests and bots can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for guests.',
+	'WWH_DISP_FOR_GUESTS'			=> 'Display for guests',
+	'WWH_DISP_FOR_GUESTS_EXP'		=> 'Determines what guests can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for guests.',
 	'WWH_DISP_FOR_GUESTS_1'			=> 'Members and statistics',
 	'WWH_DISP_FOR_GUESTS_0'			=> 'Statistics',
 	'WWH_DISP_FOR_GUESTS_2'			=> 'Nothing',
