@@ -1,4 +1,4 @@
-### Changelog 1.4.0 (2018-10-)
+### Changelog 1.4.0 (2018-10-20)
 
 * Bei der Einstellung "Zeige die Zeit von Benutzern/Bots:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.

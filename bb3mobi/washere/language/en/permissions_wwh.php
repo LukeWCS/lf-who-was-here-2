@@ -6,7 +6,7 @@
 * @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru> - 2018 LukeWCS <https://www.wcsaga.org>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
-* Lang_iso     : de_x_sie
+* Lang_iso     : en
 * Lang_ver     : 1.4.0
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
