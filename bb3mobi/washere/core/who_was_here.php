@@ -250,7 +250,7 @@ class who_was_here
 			);
 			if (($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
 			{
-				$disp_time = '<span class="wwh_time_' . (($row['user_type'] != USER_IGNORE || $this->config['wwh_disp_bots'] == 1) ? 'users': 'bots') . '" style="display: none">' . $disp_time . '</span>';
+				$disp_time = '<span class="wwh_time_' . (($row['user_type'] != USER_IGNORE || $this->config['wwh_disp_bots'] == 1) ? 'users': 'bots') . '" style="display: none;">' . $disp_time . '</span>';
 			}
 
 			if ($row['viewonline'] || ($row['user_type'] == USER_IGNORE))

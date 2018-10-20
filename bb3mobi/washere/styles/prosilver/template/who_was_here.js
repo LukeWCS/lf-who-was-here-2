@@ -1,6 +1,5 @@
 var wwh_show_time_users;
 var wwh_show_time_bots;
-
 function wwh_show_hide_time(group) {
 	var i = 0;
 	if (group == 0) {
