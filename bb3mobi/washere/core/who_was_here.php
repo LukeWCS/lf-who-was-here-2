@@ -192,6 +192,7 @@ class who_was_here
 			$wwh_disp_users = (($this->user->data['user_id'] != ANONYMOUS) || ($this->config['wwh_disp_for_guests'] == 1)) && empty($this->user->data['is_bot']);
 		$wwh_disp_bots = (($this->config['wwh_disp_bots_only_admin'] == 1) && $this->auth->acl_get('a_')) || ($this->config['wwh_disp_bots_only_admin'] == 0);
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
+		$no_online_users = false;
 
 		if (!$this->prune())
 		{
@@ -230,7 +231,7 @@ class who_was_here
 			$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
 			$hover_time = (
 				(($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
-				? $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] 
+				? $this->user->lang['WHO_WAS_HERE_LATEST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] 
 				: ''
 			);
 			$hover_ip = (
@@ -245,7 +246,7 @@ class who_was_here
 			);
 			$disp_time = (
 				(($this->config['wwh_disp_time'] >0 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] >0 && $row['user_type'] == USER_IGNORE))
-				? '&nbsp;(' . $this->user->lang['WHO_WAS_HERE_LATEST1'] . '&nbsp;' . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')' 
+				? '&nbsp;(' . $this->user->lang['WHO_WAS_HERE_LATEST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')' 
 				: ''
 			);
 			if (($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
@@ -300,6 +301,7 @@ class who_was_here
 		{
 			// User list is empty.
 			$users_list = $this->user->lang['NO_ONLINE_USERS'];
+			$no_online_users = true;
 		}
 
 		if ($this->config['wwh_disp_bots'] == 2)
@@ -333,7 +335,7 @@ class who_was_here
 			: '&nbsp;<span class="wwh_show_time_caption_users" style="opacity: 0.5;">(' . $this->user->lang['WHO_WAS_HERE_SHOW_TIME'] . ')</span>'
 		);
 		$wwh_button_users = (
-			($this->config['wwh_disp_time'] == 2 || ($this->config['wwh_disp_bots'] == 1 && $this->config['wwh_disp_time_bots'] == 2))
+			(($this->config['wwh_disp_time'] == 2 || ($this->config['wwh_disp_bots'] == 1 && $this->config['wwh_disp_time_bots'] == 2)) && !$no_online_users)
 			? '<button class="wwh_show_time_button_users" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="wwh_show_hide_time(0)">' . $wwh_caption_users . '</button>'
 			: ''
 		);

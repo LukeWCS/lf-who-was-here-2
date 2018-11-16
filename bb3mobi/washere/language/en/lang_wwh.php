@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
-* Lang_ver     : 1.4.0
+* Lang_ver     : 1.4.1
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -43,8 +43,8 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	// board index page
 	'WHO_WAS_HERE'				=> 'Who was here',
-	'WHO_WAS_HERE_LATEST1'		=> 'last at',
-	'WHO_WAS_HERE_LATEST2'		=> '', //used for parts like o'clock in the timedisplay (last at vw:xy "o'clock")
+	'WHO_WAS_HERE_LATEST1'		=> '', //old: 'last:&nbsp;'
+	'WHO_WAS_HERE_LATEST2'		=> '', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
 	'WHO_WAS_HERE_USERS_TEXT'	=> 'Registered users%s:',
 	'WHO_WAS_HERE_BOTS_TEXT'	=> 'Bots%s:',
 	'WHO_WAS_HERE_SHOW_TIME'	=> 'show time',

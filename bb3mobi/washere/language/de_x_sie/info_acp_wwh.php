@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de_x_sie
-* Lang_ver     : 1.4.0
+* Lang_ver     : 1.4.1
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -66,7 +66,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_BOTS_2'				=> 'In einer eigenen Zeile',
 	'WWH_DISP_BOTS_0'				=> 'Nein',
 	'WWH_DISP_BOTS_ONLY_ADMIN'		=> 'Zeige die Bot-Namen nur Administratoren',
-	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Die Namen der Bots werden nur Administratoren angezeigt.',
+	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Nur Administratoren können die Namen der Bots sehen. Die Anzahl der Bots wird weiterhin allen angezeigt.',
 	'WWH_DISP_GUESTS'				=> 'Zeige Gäste',
 	'WWH_DISP_GUESTS_EXP'			=> 'Die Anzahl der Gäste wird angezeigt.',
 	'WWH_DISP_HIDDEN'				=> 'Zeige unsichtbare Benutzer',
@@ -100,7 +100,7 @@ $lang = array_merge($lang, array(
 	'WWH_CACHE_TIME'				=> 'Intervall der Aktualisierung',
 	'WWH_CACHE_TIME_EXP'			=> 'Das Intervall bestimmt, wie oft die Anzeige der Statistik und Benutzerliste aktualisiert wird.',
 	'WWH_RECORD'					=> 'Besucherrekord',
-	'WWH_RECORD_EXP'				=> 'Zeige und speichere den Besucherrekord',
+	'WWH_RECORD_EXP'				=> 'Zeige und speichere den Besucherrekord.',
 	'WWH_RECORD_TIMESTAMP'			=> 'Datums-Format für den Besucherrekord',
 	'WWH_DISP_TEMPLATE_POS'			=> 'Position der Anzeige',
 	'WWH_DISP_TEMPLATE_POS_EXP'		=> 'Legt fest, wo die WWH Anzeige im Online/Statistik-Bereich positioniert werden soll. “Oben” ist die Position über diesem Bereich und “Unten” entsprechend die Position darunter.',

@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
-* Lang_ver     : 1.4.0
+* Lang_ver     : 1.4.1
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -66,7 +66,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_BOTS_2'				=> 'On a separate line',
 	'WWH_DISP_BOTS_0'				=> 'No',
 	'WWH_DISP_BOTS_ONLY_ADMIN'		=> 'Show the bot names only to administrators',
-	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Display of the bot names is only available to administrators.',
+	'WWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Only administrators can see the names of the bots. The number of bots will continue to be displayed to everyone.',
 	'WWH_DISP_GUESTS'				=> 'Show guests',
 	'WWH_DISP_GUESTS_EXP'			=> 'The number of guests is displayed.',
 	'WWH_DISP_HIDDEN'				=> 'Show invisible users',
@@ -100,7 +100,7 @@ $lang = array_merge($lang, array(
 	'WWH_CACHE_TIME'				=> 'Interval of the update',
 	'WWH_CACHE_TIME_EXP'			=> 'The interval determines how often the display of the statistics and user list is updated.',
 	'WWH_RECORD'					=> 'Record',
-	'WWH_RECORD_EXP'				=> 'Display and save record',
+	'WWH_RECORD_EXP'				=> 'Show and save the visitor record.',
 	'WWH_RECORD_TIMESTAMP'			=> 'Dateformat for the record',
 	'WWH_DISP_TEMPLATE_POS'			=> 'Position of the display',
 	'WWH_DISP_TEMPLATE_POS_EXP'		=> 'Determines where to place the WWH display in the Online/Statistic section. “Up” is the position above this section and “Down” is the position below.',
@@ -115,7 +115,7 @@ $lang = array_merge($lang, array(
 	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset record”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Defaults',
 	'WWH_RESET'						=> 'Reset record',
-	'WWH_RESET_EXP'					=> 'Resets the time and counter of the who-was-here record.',
+	'WWH_RESET_EXP'					=> 'Resets time and counter for activity record.',
 	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'WWH_RESET_TRUE'				=> 'If you submit this form,\nthe record will be reseted.', // \n is the beginning of a new line
