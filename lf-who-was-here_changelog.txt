@@ -1,9 +1,9 @@
 ### Changelog 1.4.1 (2018-11-)
 
-* Da bei WWH die Zeitangaben ohnehin in der Vergangenheit liegen, ist der Text "zuletzt:" überflüssig und bläht vor allem in grösseren Foren die Benutzerliste unnötig auf, sofern die Zeiten eingeblendet werden. Darum die Handhabung der Sprachvariable so geändert, das diese auch komplett leer sein kann.
-  * Dementsprechend in den Sprachdateien den besagten Text entfernt. Die betreffende Sprachvariable ist nach wie vor vorhanden und wird unterstützt, sie hat jetzt nur keinen Inhalt mehr.
+* Da bei WWH die Zeitangaben ohnehin in der Vergangenheit liegen, ist der Text "zuletzt:" überflüssig. Dieser repetitive Text bläht vor allem in grösseren Foren die Benutzerliste unnötig auf, sofern die Zeiten angezeigt werden. Darum die Handhabung der Sprachvariable so geändert, das diese auch komplett leer sein kann.
+  * Dementsprechend in den Sprachdateien den besagten Text entfernt. Die betreffende Sprachvariable ist nach wie vor vorhanden und wird unterstützt, sie hat per Standard nur keinen Inhalt mehr.
 * In den Sprachdateien kleinere Korrekturen vorgenommen.
-* Fix: Wenn im Kontext die Einstellung "Bei überfahren" greift, jedoch aktuell kein Benutzer oder Bot als Besucher in der WWH Tabelle registriert ist und demnach in der Benutzerliste "0 Mitglieder" angezeigt wird, dann wurde trotzdem die Schaltfläche zur Anzeige der Zeiten eingeblendet.
+* Fix: Wenn bei aktivierter Einstellung "Bei überfahren" aktuell kein Benutzer oder Bot als Besucher in der WWH Tabelle registriert war und demnach in der Benutzerliste "0 Mitglieder" stand, dann wurde trotzdem die Schaltfläche zur Anzeige der Zeiten erzeugt. Nicht direkt ein Fehler, aber unschön.
 * Template-Änderungen: Nein
 
 ### Changelog 1.4.0 (2018-10-20)
