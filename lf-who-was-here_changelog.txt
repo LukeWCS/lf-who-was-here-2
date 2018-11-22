@@ -1,4 +1,4 @@
-### Changelog 1.4.1 (2018-11-)
+### Changelog 1.4.1 (2018-11-22)
 
 * Da bei WWH die Zeitangaben ohnehin in der Vergangenheit liegen, ist der Text "zuletzt:" überflüssig. Dieser repetitive Text bläht vor allem in grösseren Foren die Benutzerliste unnötig auf, sofern die Zeiten angezeigt werden. Darum die Handhabung der Sprachvariable so geändert, das diese auch komplett leer sein kann.
   * Dementsprechend in den Sprachdateien den besagten Text entfernt. Die betreffende Sprachvariable ist nach wie vor vorhanden und wird unterstützt, sie hat per Standard nur keinen Inhalt mehr.

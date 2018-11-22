@@ -52,7 +52,7 @@ $lang = array_merge($lang, array(
 	// config section 1
 	'WWH_SECTION_PERMISSIONS'		=> 'Berechtigungen',
 	'WWH_USE_PERMISSIONS'			=> 'Benutze das Berechtigungssystem von phpBB',
-	'WWH_USE_PERMISSIONS_EXP'		=> 'Ermöglicht es für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
+	'WWH_USE_PERMISSIONS_EXP'		=> 'Ermöglicht es, für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
 	// config section 2
 	'WWH_SECTION_DISP_1'			=> 'Anzeige Einstellungen 1',
 	'WWH_DISP_FOR_GUESTS'			=> 'Anzeige für Gäste',
