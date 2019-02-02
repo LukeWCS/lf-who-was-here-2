@@ -48,7 +48,7 @@ $lang = array_merge($lang, array(
 	// config head
 	'WWH_CONFIG_TITLE'				=> 'Who was here? (%s)',
 	'WWH_INSTALLED' 				=> 'Installed version: %s',
-	'WWH_UPDATE_NEED'				=> '(Fork: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Topic on phpbb.de</a> Original: <a href="http://bb3.mobi/forum/viewtopic.php?t=66">BB3 Support</a>)',
+	'WWH_UPDATE_NEED'				=> '(Fork: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Topic on phpbb.de</a> / Original: <a href="http://bb3.mobi/forum/viewtopic.php?t=66">BB3 Support</a>)',
 	// config section 1
 	'WWH_SECTION_PERMISSIONS'		=> 'Permissions',
 	'WWH_USE_PERMISSIONS'			=> 'Use the permission system of phpBB',
@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_HIDDEN'				=> 'Show invisible users',
 	'WWH_DISP_HIDDEN_EXP'			=> 'Invisible users are also displayed in the user list. (Permission necessary)',
 	'WWH_DISP_TIME'					=> 'Show time of users',
-	'WWH_DISP_TIME_EXP'				=> '“On hover” also displays a time symbol with which the times can also be displayed directly. Helpful for smartphones and tablet PCs. (All user see it or none, no special function for Admins.)',
+	'WWH_DISP_TIME_EXP'				=> '“On hover” also displays a time symbol with which the times can also be displayed directly. Helpful for smartphones and tablet computers. (All user see it or none, no special function for Admins.)',
 	'WWH_DISP_TIME_1'				=> 'Behind the name',
 	'WWH_DISP_TIME_2'				=> 'On hover',
 	'WWH_DISP_TIME_0'				=> 'No',

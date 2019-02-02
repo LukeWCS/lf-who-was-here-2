@@ -1,3 +1,9 @@
+### Changelog 1.4.2 (2019-02-)
+
+* Korrekturen in den Sprachdateien vorgenommen.
+* Bei der Einstellung "Zeige die Zeit von..." > "Bei überfahren" hat die Schaltfläche zur Anzeige der Zeiten jetzt einen Tooltip. Der Text wird dabei von der Sprachvariable `WHO_WAS_HERE_SHOW_TIME` bezogen.
+* Template-Änderungen: Nein
+
 ### Changelog 1.4.1 (2018-11-22)
 
 * Da bei WWH die Zeitangaben ohnehin in der Vergangenheit liegen, ist der Text "zuletzt:" überflüssig. Dieser repetitive Text bläht vor allem in grösseren Foren die Benutzerliste unnötig auf, sofern die Zeiten angezeigt werden. Darum die Handhabung der Sprachvariable so geändert, das diese auch komplett leer sein kann.
@@ -8,7 +14,7 @@
 
 ### Changelog 1.4.0 (2018-10-20)
 
-* Bei der Einstellung "Zeige die Zeit von Benutzern/Bots:" > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeit-Symbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
+* Bei der Einstellung "Zeige die Zeit von..." > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeitsymbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet-PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
   * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. (Hinweis von Kirk)
