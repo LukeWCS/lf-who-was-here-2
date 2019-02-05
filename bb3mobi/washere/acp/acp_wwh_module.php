@@ -48,11 +48,11 @@ class acp_wwh_module
 			$config->set('wwh_del_time_m', $request->variable('wwh_del_time_m', 0));
 			$config->set('wwh_del_time_s', $request->variable('wwh_del_time_s', 0));
 			$config->set('wwh_sort_by', $request->variable('wwh_sort_by', 0));
-			$config->set('wwh_use_online_time', $request->variable('wwh_use_online_time', 0));
-			$config->set('wwh_cache_time', $request->variable('wwh_cache_time', 0));
 			$config->set('wwh_record', $request->variable('wwh_record', 0));
 			$config->set('wwh_record_timestamp', $request->variable('wwh_record_timestamp', 'D j. M Y'));
 			$config->set('wwh_disp_template_pos', $request->variable('wwh_disp_template_pos', 0));
+			$config->set('wwh_use_online_time', $request->variable('wwh_use_online_time', 0));
+			$config->set('wwh_cache_time', $request->variable('wwh_cache_time', 0));
 			$config->set('wwh_api_mode', $request->variable('wwh_api_mode', 0));
 			if ($request->variable('wwh_reset', 0) > 0)
 			{
@@ -87,12 +87,12 @@ class acp_wwh_module
 			'WWH_DEL_TIME_S'			=> $config['wwh_del_time_s'],
 			'WWH_SORT_BY'				=> $config['wwh_sort_by'],
 			'WWH_SORT_BY_EXP'			=> sprintf($user->lang['WWH_SORT_BY_EXP'], ($config['wwh_use_online_time']) ? $config['load_online_time'] : $config['wwh_cache_time']),
-			'WWH_USE_ONLINE_TIME'		=> $config['wwh_use_online_time'],
-			'WWH_CACHE_TIME'			=> $config['wwh_cache_time'],
-			'WWH_CACHE_TIME_MAX'		=> ($config['load_online_time'] >= 1) ? $config['load_online_time'] : '1',
 			'WWH_RECORD'				=> $config['wwh_record'],
 			'WWH_RECORD_TIMESTAMP'		=> $config['wwh_record_timestamp'],
 			'WWH_DISP_TEMPLATE_POS'		=> $config['wwh_disp_template_pos'],
+			'WWH_USE_ONLINE_TIME'		=> $config['wwh_use_online_time'],
+			'WWH_CACHE_TIME'			=> $config['wwh_cache_time'],
+			'WWH_CACHE_TIME_MAX'		=> ($config['load_online_time'] >= 1) ? $config['load_online_time'] : '1',
 			'WWH_API_MODE'				=> $config['wwh_api_mode'],
 			'U_ACTION'					=> $this->u_action,
 		));

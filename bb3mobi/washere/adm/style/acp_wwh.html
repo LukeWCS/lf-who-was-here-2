@@ -130,19 +130,6 @@
 				</select>
 			</dd>
 		</dl>
-		<dl id="wwh_opt_use_online_time">
-			<dt><label>{L_WWH_USE_ONLINE_TIME}{L_COLON}</label><br /><span>{L_WWH_USE_ONLINE_TIME_EXP}</span></dt>
-			<dd>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" onchange="wwh_set_controls_state()" <!-- IF not WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
-			</dd>
-		</dl>
-		<dl id="wwh_opt_cache_time">
-			<dt><label>{L_WWH_CACHE_TIME}{L_COLON}</label><br /><span>{L_WWH_CACHE_TIME_EXP}</span></dt>
-			<dd>
-				<input type="number" name="wwh_cache_time" id="wwh_cache_time" min="1" max="{WWH_CACHE_TIME_MAX}" value="{WWH_CACHE_TIME}" /> {L_MINUTES}
-			</dd>
-		</dl>
 		<dl id="wwh_opt_record">
 			<dt><label>{L_WWH_RECORD}{L_COLON}</label><br /><span>{L_WWH_RECORD_EXP}</span></dt>
 			<dd>
@@ -170,6 +157,19 @@
 
 	<fieldset>
 		<legend>{L_WWH_SECTION_OTHERS}</legend>
+		<dl id="wwh_opt_use_online_time">
+			<dt><label>{L_WWH_USE_ONLINE_TIME}{L_COLON}</label><br /><span>{L_WWH_USE_ONLINE_TIME_EXP}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" onchange="wwh_set_controls_state()" <!-- IF not WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			</dd>
+		</dl>
+		<dl id="wwh_opt_cache_time">
+			<dt><label>{L_WWH_CACHE_TIME}{L_COLON}</label><br /><span>{L_WWH_CACHE_TIME_EXP}</span></dt>
+			<dd>
+				<input type="number" name="wwh_cache_time" id="wwh_cache_time" min="1" max="{WWH_CACHE_TIME_MAX}" value="{WWH_CACHE_TIME}" /> {L_MINUTES}
+			</dd>
+		</dl>
 		<dl id="wwh_opt_api_mode">
 			<dt><label>{L_WWH_API_MODE}{L_COLON}</label><br /><span>{L_WWH_API_MODE_EXP}</span></dt>
 			<dd>
@@ -229,11 +229,11 @@ function wwh_set_defaults() {
 	document.getElementById("wwh_del_time_m").value = "0";
 	document.getElementById("wwh_del_time_s").value = "0";
 	document.getElementById("wwh_sort_by_3").selected = true;
-	document.getElementById("wwh_use_online_time_1").checked = true;
-	document.getElementById("wwh_cache_time").value = "{WWH_CACHE_TIME_MAX}";
 	document.getElementById("wwh_record_1").checked = true;
 	document.getElementById("wwh_record_timestamp").value = "D j. M Y";
 	document.getElementById("wwh_disp_template_pos_0").selected = true;
+	document.getElementById("wwh_use_online_time_1").checked = true;
+	document.getElementById("wwh_cache_time").value = "{WWH_CACHE_TIME_MAX}";
 	document.getElementById("wwh_api_mode_0").checked = true;
 	wwh_set_controls_state();
 }
