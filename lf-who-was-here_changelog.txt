@@ -3,6 +3,8 @@
 * Korrekturen und kleinere Änderungen in den Sprachdateien des ACP Moduls vorgenommen.
 * Bei phpBB 3.2 und der Einstellung "Zeige die Zeit von..." > "Bei überfahren" hat die Schaltfläche zur Anzeige der Zeiten jetzt einen Tooltip. Der Text wird dabei von der Sprachvariable `WHO_WAS_HERE_SHOW_TIME` bezogen. Bei phpBB 3.1 ändert sich nichts.
 * Im ACP Modul die Einstellungen "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" und "Intervall der Aktualisierung:" in den Bereich "Sonstiges" verschoben.
+* Fix: Bei einer bestimmten (theoretischen) Kombination der Einstellungen von phpBB und WWH konnte das Intervall der Aktualisierung mit 0 Minuten definiert werden, wodurch effektiv der Cache umgangen wurde. Das wird jetzt abgefangen und auf ein Minimum von 1 Minute korrigiert.
+* Im HTML-Teil des ACP Moduls alle Optionsfelder (Ja/Nein) auf eine einheitliche Logik gebracht mit Abfrage auf 0/1 anstelle auf false/true, passend zu den Abfragen der Auswahllisten.
 * Template-Änderungen: Nein
 
 ### Changelog 1.4.1 (2018-11-22)

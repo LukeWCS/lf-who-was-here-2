@@ -106,7 +106,7 @@ $lang = array_merge($lang, array(
 	// config section 4	
 	'WWH_SECTION_OTHERS'			=> 'Sonstiges',
 	'WWH_USE_ONLINE_TIME'			=> 'Aktualisiere mit der Zeitspanne für die Online-Anzeige',
-	'WWH_USE_ONLINE_TIME_EXP'		=> 'Wenn aktiviert, wird für das Intervall der Aktualisierung die Einstellung “ALLGEMEIN » SERVER-KONFIGURATION » Serverlast » Allgemeine Einstellungen » Zeitspanne für die Online-Anzeige” verwendet. Das entspricht dem Standardverhalten von WWH.',
+	'WWH_USE_ONLINE_TIME_EXP'		=> 'Wenn aktiviert, wird für das Intervall der Aktualisierung die folgende Einstellung verwendet: “ALLGEMEIN » SERVER-KONFIGURATION » Serverlast » Allgemeine Einstellungen » Zeitspanne für die Online-Anzeige”. Das entspricht dem Standardverhalten von WWH.',
 	'WWH_CACHE_TIME'				=> 'Intervall der Aktualisierung',
 	'WWH_CACHE_TIME_EXP'			=> 'Das Intervall bestimmt, wie oft die Anzeige der Statistik und Benutzerliste aktualisiert wird.',
 	'WWH_API_MODE'					=> 'API-Modus',

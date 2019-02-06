@@ -10,7 +10,7 @@
 		<dl id="wwh_opt_use_permissions">
 			<dt><label>{L_WWH_USE_PERMISSIONS}{L_COLON}</label><br /><span>{L_WWH_USE_PERMISSIONS_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_PERMISSIONS == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_PERMISSIONS == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
 				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_0" value="0" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_PERMISSIONS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
@@ -41,22 +41,22 @@
 		<dl id="wwh_opt_disp_bots_only_admin">
 			<dt><label>{L_WWH_DISP_BOTS_ONLY_ADMIN}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_ONLY_ADMIN_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_1" value="1" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 1 -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_1" value="1" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
 				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_0" value="0" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_guests">
 			<dt><label>{L_WWH_DISP_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_GUESTS_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_1" value="1" <!-- IF WWH_DISP_GUESTS -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_0" value="0" <!-- IF not WWH_DISP_GUESTS -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_1" value="1" <!-- IF WWH_DISP_GUESTS == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_0" value="0" <!-- IF WWH_DISP_GUESTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_hidden">
 			<dt><label>{L_WWH_DISP_HIDDEN}{L_COLON}</label><br /><span>{L_WWH_DISP_HIDDEN_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_1" value="1" <!-- IF WWH_DISP_HIDDEN -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_0" value="0" <!-- IF not WWH_DISP_HIDDEN -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_1" value="1" <!-- IF WWH_DISP_HIDDEN == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_0" value="0" <!-- IF WWH_DISP_HIDDEN == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_time">
@@ -88,8 +88,8 @@
 		<dl id="wwh_opt_disp_ip">
 			<dt><label>{L_WWH_DISP_IP}{L_COLON}</label><br /><span>{L_WWH_DISP_IP_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_1" value="1" <!-- IF WWH_DISP_IP -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_0" value="0" <!-- IF not WWH_DISP_IP -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_1" value="1" <!-- IF WWH_DISP_IP == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_0" value="0" <!-- IF WWH_DISP_IP == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 	</fieldset>
@@ -100,8 +100,8 @@
 			<dt><label>{L_WWH_VERSION}{L_COLON}</label><br /><span>{L_WWH_VERSION_EXP}</span></dt>
 			<dd>
 				<select name="wwh_version" onchange="wwh_set_controls_state()">
-					<option id="wwh_version_1" value="1" <!-- IF WWH_VERSION -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION1}</option>
-					<option id="wwh_version_0" value="0" <!-- IF not WWH_VERSION -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION2}</option>
+					<option id="wwh_version_1" value="1" <!-- IF WWH_VERSION == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION1}</option>
+					<option id="wwh_version_0" value="0" <!-- IF WWH_VERSION == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION2}</option>
 				</select>
 			</dd>
 		</dl>
@@ -133,8 +133,8 @@
 		<dl id="wwh_opt_record">
 			<dt><label>{L_WWH_RECORD}{L_COLON}</label><br /><span>{L_WWH_RECORD_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_RECORD -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" value="0" onchange="wwh_set_controls_state()" <!-- IF not WWH_RECORD -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_RECORD == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" value="0" onchange="wwh_set_controls_state()" <!-- IF WWH_RECORD == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_record_timestamp">
@@ -160,8 +160,8 @@
 		<dl id="wwh_opt_use_online_time">
 			<dt><label>{L_WWH_USE_ONLINE_TIME}{L_COLON}</label><br /><span>{L_WWH_USE_ONLINE_TIME_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" onchange="wwh_set_controls_state()" <!-- IF not WWH_USE_ONLINE_TIME -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_cache_time">
@@ -173,8 +173,8 @@
 		<dl id="wwh_opt_api_mode">
 			<dt><label>{L_WWH_API_MODE}{L_COLON}</label><br /><span>{L_WWH_API_MODE_EXP}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_1" value="1" <!-- IF WWH_API_MODE -->checked="checked"<!-- ENDIF -->/> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_0" value="0" <!-- IF not WWH_API_MODE -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_1" value="1" <!-- IF WWH_API_MODE == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_0" value="0" <!-- IF WWH_API_MODE == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_defaults">
