@@ -1,4 +1,4 @@
-### Changelog 1.4.2 (2019-02-)
+### Changelog 1.4.2 (2019-02-08)
 
 * Korrekturen und kleinere Änderungen in den Sprachdateien des ACP Moduls vorgenommen.
 * Bei phpBB 3.2 und der Einstellung "Zeige die Zeit von..." > "Bei überfahren" hat die Schaltfläche zur Anzeige der Zeiten jetzt einen Tooltip. Der Text wird dabei von der Sprachvariable `WHO_WAS_HERE_SHOW_TIME` bezogen. Bei phpBB 3.1 ändert sich nichts.

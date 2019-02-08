@@ -63,10 +63,10 @@ class acp_wwh_module
 			trigger_error($user->lang['WWH_SAVED_SETTINGS'] . adm_back_link($this->u_action));
 		}
 
-		$load_online_time_tmp = (($config['load_online_time'] >= 1) ? $config['load_online_time'] : 1);
-		if ($config['wwh_cache_time'] > $load_online_time_tmp)
+		$load_online_time = (($config['load_online_time'] >= 1) ? $config['load_online_time'] : 1);
+		if ($config['wwh_cache_time'] > $load_online_time)
 		{
-			$config->set('wwh_cache_time', $load_online_time_tmp);
+			$config->set('wwh_cache_time', $load_online_time);
 		}
 
 		$template->assign_vars(array(
@@ -87,13 +87,13 @@ class acp_wwh_module
 			'WWH_DEL_TIME_M'			=> $config['wwh_del_time_m'],
 			'WWH_DEL_TIME_S'			=> $config['wwh_del_time_s'],
 			'WWH_SORT_BY'				=> $config['wwh_sort_by'],
-			'WWH_SORT_BY_EXP'			=> sprintf($user->lang['WWH_SORT_BY_EXP'], ($config['wwh_use_online_time']) ? $load_online_time_tmp : $config['wwh_cache_time']),
+			'WWH_SORT_BY_EXP'			=> sprintf($user->lang['WWH_SORT_BY_EXP'], ($config['wwh_use_online_time']) ? $load_online_time : $config['wwh_cache_time']),
 			'WWH_RECORD'				=> $config['wwh_record'],
 			'WWH_RECORD_TIMESTAMP'		=> $config['wwh_record_timestamp'],
 			'WWH_DISP_TEMPLATE_POS'		=> $config['wwh_disp_template_pos'],
 			'WWH_USE_ONLINE_TIME'		=> $config['wwh_use_online_time'],
 			'WWH_CACHE_TIME'			=> $config['wwh_cache_time'],
-			'WWH_CACHE_TIME_MAX'		=> ($config['load_online_time'] >= 1) ? $config['load_online_time'] : '1',
+			'WWH_CACHE_TIME_MAX'		=> $load_online_time,
 			'WWH_API_MODE'				=> $config['wwh_api_mode'],
 			'U_ACTION'					=> $this->u_action,
 		));

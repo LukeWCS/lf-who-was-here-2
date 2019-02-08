@@ -217,15 +217,15 @@ class who_was_here
 		$wwh_username_colour = $wwh_username = $wwh_username_full = $users_list = $bots_list = '';
 
 		/* Load cache who_was_here */
-		$load_online_time_tmp = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1);
-		if ($this->config['wwh_cache_time'] > $load_online_time_tmp)
+		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1);
+		if ($this->config['wwh_cache_time'] > $load_online_time)
 		{
-			$this->config->set('wwh_cache_time', $load_online_time_tmp);
+			$this->config->set('wwh_cache_time', $load_online_time);
 		}
 		if (($view_state = $this->cache->get("_who_was_here")) === false)
 		{
 			$view_state = $this->view_state();
-			$this->cache->put("_who_was_here", $view_state, 60 * (($this->config['wwh_use_online_time']) ? $load_online_time_tmp : $this->config['wwh_cache_time']));
+			$this->cache->put("_who_was_here", $view_state, 60 * (($this->config['wwh_use_online_time']) ? $load_online_time : $this->config['wwh_cache_time']));
 		}
 
 		foreach ($view_state as $row)
