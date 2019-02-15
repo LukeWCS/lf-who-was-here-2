@@ -1,6 +1,9 @@
 ### Changelog 1.4.3 (2019--)
 
 * Alle HTML Templates (ACP Modul, Template Events) von phpBB-Syntax auf TWIG-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
+* Eine neue Funktion ermöglicht die Bereinigung der WWH-Tabelle bezüglich gelöschter Benutzerkonten. Somit können gelöschte Benutzer noch vor Ablauf des eingestellten Zeitraums aus der Ansicht entfernt werden. Dabei erfolgt ein Abgleich der WWH-Tabelle mit der USERS-Tabelle und anschliessend wird gezielt der WWH-Teil des Caches gelöscht, damit die Anzeige sofort aktualisiert werden kann. (Wunsch von Kirk)
+  * Entsprechend im ACP Modul eine neue (temporär gültige) Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann.
+  * In den Sprachdateien für "WWH-Tabelle bereinigen:" 3 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
   * Neu: -
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`

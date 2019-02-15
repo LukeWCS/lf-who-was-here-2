@@ -112,11 +112,14 @@ $lang = array_merge($lang, array(
 	'WWH_API_MODE'					=> 'API-Mode',
 	'WWH_API_MODE_EXP'				=> 'If activated, the display of WWH will be turned off and only the template variables will be generated. This mode is intended for situations where the WWH display is already displayed by other extensions (e.g. “Stat Block”).',
 	'WWH_DEFAULTS'					=> 'Reset settings',
-	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset record”)',
+	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Clean WWH table” and “Reset record”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Defaults',
+	'WWH_CLEARUP'					=> 'Clean WWH table',
+	'WWH_CLEARUP_EXP'				=> 'Helpful if user accounts have been deleted. This feature matches the current users of the WWH table with the users of phpBB and removes deleted users. Subsequently, the WWH cache is deleted.',
 	'WWH_RESET'						=> 'Reset record',
 	'WWH_RESET_EXP'					=> 'Resets time and counter for activity record.',
 	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
-	'WWH_RESET_TRUE'				=> 'If you submit this form,\nthe record will be reseted.', // \n is the beginning of a new line
+	'WWH_CLEARUP_RESULT'			=> '%s users were removed from the WWH table and the WWH cache was deleted.',
+	'WWH_RESET_TRUE'				=> 'If you submit this form, the record will be reseted.', // \n is the beginning of a new line
 ));

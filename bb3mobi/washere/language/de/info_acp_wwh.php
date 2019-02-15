@@ -112,11 +112,14 @@ $lang = array_merge($lang, array(
 	'WWH_API_MODE'					=> 'API-Modus',
 	'WWH_API_MODE_EXP'				=> 'Wenn aktiviert, dann wird die Anzeige von WWH abgeschaltet und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Situationen gedacht, bei denen die WWH-Anzeige bereits durch andere Erweiterungen (z.B. “Stat Block”) dargestellt wird.',
 	'WWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
-	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
+	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard von WWH zurück. (Hat keine Auswirkung auf “WWH-Tabelle bereinigen” und “Besucherrekord zurücksetzen”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Standard',
+	'WWH_CLEARUP'					=> 'WWH-Tabelle bereinigen',
+	'WWH_CLEARUP_EXP'				=> 'Hilfreich wenn Benutzerkonten gelöscht wurden. Mit dieser Funktion werden die aktuellen Benutzer der WWH-Tabelle mit den Benutzern von phpBB abgeglichen und gelöschte Benutzer entfernt. Anschliessend wird der WWH-Cache gelöscht.',
 	'WWH_RESET'						=> 'Besucherrekord zurücksetzen',
 	'WWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Aktivitäten-Rekord zurück.',
 	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'WWH_RESET_TRUE'				=> 'Wenn du diese Seite speicherst,\nwird der Rekord zurückgesetzt.', // \n is the beginning of a new line
+	'WWH_CLEARUP_RESULT'			=> 'Es wurden %s Benutzer aus der WWH-Tabelle entfernt und der WWH-Cache gelöscht.',
+	'WWH_RESET_TRUE'				=> 'Wenn du diese Seite speicherst, wird der Rekord zurückgesetzt.', // \n is the beginning of a new line
 ));

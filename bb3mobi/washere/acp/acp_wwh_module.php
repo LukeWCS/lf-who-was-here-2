@@ -19,7 +19,15 @@ class acp_wwh_module
 	function main($id, $mode)
 	{
 		global $user, $config, $request, $template;
+		global $db, $cache, $table_prefix;
 
+		$this->db = $db;
+		$this->cache = $cache;
+		if (!defined('WWH_TABLE'))
+		{
+			define('WWH_TABLE', $table_prefix . 'wwh');
+		}
+	
 		add_form_key('wwh');
 		$user->add_lang('ucp');
 		$this->tpl_name = 'acp_wwh';
@@ -60,7 +68,41 @@ class acp_wwh_module
 				$config->set('wwh_record_time', time());
 				$config->set('wwh_reset_time', time());
 			}
-			trigger_error($user->lang['WWH_SAVED_SETTINGS'] . adm_back_link($this->u_action));
+			
+			$clearup_result = '';
+			if ($request->variable('wwh_clearup', 0) > 0)
+			{
+				$sql = 'SELECT user_id, username, user_type
+					FROM  ' . WWH_TABLE; // . '
+					//ORDER BY user_id ASC';
+				$wwh_result = $this->db->sql_query($sql);			
+				$deleted_count = 0;
+				$deleted_userlist = '';
+				while ($row = $this->db->sql_fetchrow($wwh_result))
+				{
+					if ($row['user_id'] != ANONYMOUS)
+					{
+						$sql = 'SELECT 1 as found
+							FROM  ' . USERS_TABLE . '
+							WHERE user_id = ' . $row['user_id'];
+						$users_result = $this->db->sql_query($sql);
+						$found = (int) $this->db->sql_fetchfield('found');
+						//echo $row['user_id'].":".$row['username'].":".$row['user_type']." (" . $found . ")<br>";
+						if (!$found)
+						{
+							if ($deleted_userlist == '') $deleted_userlist = '<br>';
+							$sql = 'DELETE FROM ' . WWH_TABLE . '
+								WHERE user_id = ' . (int) $row['user_id'];
+							$this->db->sql_query($sql);
+							$deleted_count++;
+							$deleted_userlist .= '<br>' . $deleted_count . ':&nbsp;' . $row['username'];
+						}
+					}
+				}			
+				$this->cache->destroy("_who_was_here");	
+				$clearup_result = '<br><br>' . sprintf($user->lang['WWH_CLEARUP_RESULT'], $deleted_count) . $deleted_userlist;
+			}			
+			trigger_error($user->lang['WWH_SAVED_SETTINGS'] . $clearup_result . adm_back_link($this->u_action));
 		}
 
 		$load_online_time = (($config['load_online_time'] >= 1) ? $config['load_online_time'] : 1);

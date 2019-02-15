@@ -183,6 +183,13 @@
 				<input class="button2" type="button" id="wwh_defaults" name="wwh_defaults" value="{{ lang('WWH_DEFAULTS_BUTTON') }}" onclick="wwh_set_defaults()" />
 			</dd>
 		</dl>
+		<dl id="wwh_opt_clearup">
+			<dt><label>{{ lang('WWH_CLEARUP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_CLEARUP_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="wwh_clearup" value="1" /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_clearup" value="0" checked="checked" /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
 		<dl id="wwh_opt_reset">
 			<dt><label>{{ lang('WWH_RESET') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_RESET_EXP') }}</span></dt>
 			<dd>
