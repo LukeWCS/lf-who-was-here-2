@@ -1,202 +1,202 @@
-<!-- INCLUDE overall_header.html -->
+{% INCLUDE 'overall_header.html' %}
 <a name="maincontent"></a>
 
-<h1>{WWH_CONFIG_TITLE}</h1>
-<p>{WWH_MOD_VERSION} {L_WWH_UPDATE_NEED}</p>
+<h1>{{ WWH_CONFIG_TITLE }}</h1>
+<p>{{ WWH_MOD_VERSION }} {{ lang('WWH_UPDATE_NEED') }}</p>
 
-<form id="wwh_form" method="post" action="{U_ACTION}">
+<form id="wwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
-		<legend>{L_WWH_SECTION_PERMISSIONS}</legend>
+		<legend>{{ lang('WWH_SECTION_PERMISSIONS') }}</legend>
 		<dl id="wwh_opt_use_permissions">
-			<dt><label>{L_WWH_USE_PERMISSIONS}{L_COLON}</label><br /><span>{L_WWH_USE_PERMISSIONS_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_USE_PERMISSIONS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_USE_PERMISSIONS_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_PERMISSIONS == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_0" value="0" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_PERMISSIONS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_1" value="1" onchange="wwh_set_controls_state()" {% if WWH_USE_PERMISSIONS == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_use_permissions" id="wwh_use_permissions_0" value="0" onchange="wwh_set_controls_state()" {% if WWH_USE_PERMISSIONS == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_for_guests">
-			<dt><label>{L_WWH_DISP_FOR_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_FOR_GUESTS_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_FOR_GUESTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_FOR_GUESTS_EXP') }}</span></dt>
 			<dd>
 				<select name="wwh_disp_for_guests">
-					<option id="wwh_disp_for_guests_1" value="1" <!-- IF WWH_DISP_FOR_GUESTS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_FOR_GUESTS_1}</option>
-					<option id="wwh_disp_for_guests_0" value="0" <!-- IF WWH_DISP_FOR_GUESTS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_FOR_GUESTS_0}</option>
-					<option id="wwh_disp_for_guests_2" value="2" <!-- IF WWH_DISP_FOR_GUESTS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_FOR_GUESTS_2}</option>
+					<option id="wwh_disp_for_guests_1" value="1" {% if WWH_DISP_FOR_GUESTS == 1 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_FOR_GUESTS_1') }}</option>
+					<option id="wwh_disp_for_guests_0" value="0" {% if WWH_DISP_FOR_GUESTS == 0 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_FOR_GUESTS_0') }}</option>
+					<option id="wwh_disp_for_guests_2" value="2" {% if WWH_DISP_FOR_GUESTS == 2 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_FOR_GUESTS_2') }}</option>
 				</select>
 			</dd>
 		</dl>
 	</fieldset>
 
 	<fieldset>
-		<legend>{L_WWH_SECTION_DISP_1}</legend>
+		<legend>{{ lang('WWH_SECTION_DISP_1') }}</legend>
 		<dl id="wwh_opt_disp_bots">
-			<dt><label>{L_WWH_DISP_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_BOTS_EXP') }}</span></dt>
 			<dd>
 				<select name="wwh_disp_bots" onchange="wwh_set_controls_state()">
-					<option id="wwh_disp_bots_1" value="1" <!-- IF WWH_DISP_BOTS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_BOTS_1}</option>
-					<option id="wwh_disp_bots_2" value="2" <!-- IF WWH_DISP_BOTS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_BOTS_2}</option>
-					<option id="wwh_disp_bots_0" value="0" <!-- IF WWH_DISP_BOTS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_BOTS_0}</option>
+					<option id="wwh_disp_bots_1" value="1" {% if WWH_DISP_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_BOTS_1') }}</option>
+					<option id="wwh_disp_bots_2" value="2" {% if WWH_DISP_BOTS == 2 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_BOTS_2') }}</option>
+					<option id="wwh_disp_bots_0" value="0" {% if WWH_DISP_BOTS == 0 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_BOTS_0') }}</option>
 				</select>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_bots_only_admin">
-			<dt><label>{L_WWH_DISP_BOTS_ONLY_ADMIN}{L_COLON}</label><br /><span>{L_WWH_DISP_BOTS_ONLY_ADMIN_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_BOTS_ONLY_ADMIN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_BOTS_ONLY_ADMIN_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_1" value="1" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_0" value="0" <!-- IF WWH_DISP_BOTS_ONLY_ADMIN == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_1" value="1" {% if WWH_DISP_BOTS_ONLY_ADMIN == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_bots_only_admin" id="wwh_disp_bots_only_admin_0" value="0" {% if WWH_DISP_BOTS_ONLY_ADMIN == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_guests">
-			<dt><label>{L_WWH_DISP_GUESTS}{L_COLON}</label><br /><span>{L_WWH_DISP_GUESTS_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_GUESTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_GUESTS_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_1" value="1" <!-- IF WWH_DISP_GUESTS == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_0" value="0" <!-- IF WWH_DISP_GUESTS == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_1" value="1" {% if WWH_DISP_GUESTS == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_guests" id="wwh_disp_guests_0" value="0" {% if WWH_DISP_GUESTS == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_hidden">
-			<dt><label>{L_WWH_DISP_HIDDEN}{L_COLON}</label><br /><span>{L_WWH_DISP_HIDDEN_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_HIDDEN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_HIDDEN_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_1" value="1" <!-- IF WWH_DISP_HIDDEN == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_0" value="0" <!-- IF WWH_DISP_HIDDEN == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_1" value="1" {% if WWH_DISP_HIDDEN == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_hidden" id="wwh_disp_hidden_0" value="0" {% if WWH_DISP_HIDDEN == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_time">
-			<dt><label>{L_WWH_DISP_TIME}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_TIME_EXP') }}</span></dt>
 			<dd>
 				<select name="wwh_disp_time" onchange="wwh_set_controls_state()">
-					<option id="wwh_disp_time_1" value="1" <!-- IF WWH_DISP_TIME == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_1}</option>
-					<option id="wwh_disp_time_2" value="2" <!-- IF WWH_DISP_TIME == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_2}</option>
-					<option id="wwh_disp_time_0" value="0" <!-- IF WWH_DISP_TIME == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_0}</option>
+					<option id="wwh_disp_time_1" value="1" {% if WWH_DISP_TIME == 1 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TIME_1') }}</option>
+					<option id="wwh_disp_time_2" value="2" {% if WWH_DISP_TIME == 2 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TIME_2') }}</option>
+					<option id="wwh_disp_time_0" value="0" {% if WWH_DISP_TIME == 0 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TIME_0') }}</option>
 				</select>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_time_bots">
-			<dt><label>{L_WWH_DISP_TIME_BOTS}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_TIME_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_TIME_EXP') }}</span></dt>
 			<dd>
 				<select name="wwh_disp_time_bots" onchange="wwh_set_controls_state()">
-					<option id="wwh_disp_time_bots_1" value="1" <!-- IF WWH_DISP_TIME_BOTS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_1}</option>
-					<option id="wwh_disp_time_bots_2" value="2" <!-- IF WWH_DISP_TIME_BOTS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_2}</option>
-					<option id="wwh_disp_time_bots_0" value="0" <!-- IF WWH_DISP_TIME_BOTS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TIME_0}</option>
+					<option id="wwh_disp_time_bots_1" value="1" {% if WWH_DISP_TIME_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TIME_1') }}</option>
+					<option id="wwh_disp_time_bots_2" value="2" {% if WWH_DISP_TIME_BOTS == 2 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TIME_2') }}</option>
+					<option id="wwh_disp_time_bots_0" value="0" {% if WWH_DISP_TIME_BOTS == 0 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TIME_0') }}</option>
 				</select>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_time_format">
-			<dt><label>{L_WWH_DISP_TIME_FORMAT}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_FORMAT_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_TIME_FORMAT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_TIME_FORMAT_EXP') }}</span></dt>
 			<dd>
-				<input type="text" name="wwh_disp_time_format" id="wwh_disp_time_format" size="12" value="{WWH_DISP_TIME_FORMAT}" />
+				<input type="text" name="wwh_disp_time_format" id="wwh_disp_time_format" size="12" value="{{ WWH_DISP_TIME_FORMAT }}" />
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_ip">
-			<dt><label>{L_WWH_DISP_IP}{L_COLON}</label><br /><span>{L_WWH_DISP_IP_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_IP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_IP_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_1" value="1" <!-- IF WWH_DISP_IP == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_0" value="0" <!-- IF WWH_DISP_IP == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_1" value="1" {% if WWH_DISP_IP == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_ip" id="wwh_disp_ip_0" value="0" {% if WWH_DISP_IP == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 	</fieldset>
 
 	<fieldset>
-		<legend>{L_WWH_SECTION_DISP_2}</legend>
+		<legend>{{ lang('WWH_SECTION_DISP_2') }}</legend>
 		<dl id="wwh_opt_version">
-			<dt><label>{L_WWH_VERSION}{L_COLON}</label><br /><span>{L_WWH_VERSION_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_VERSION') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_VERSION_EXP') }}</span></dt>
 			<dd>
 				<select name="wwh_version" onchange="wwh_set_controls_state()">
-					<option id="wwh_version_1" value="1" <!-- IF WWH_VERSION == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION1}</option>
-					<option id="wwh_version_0" value="0" <!-- IF WWH_VERSION == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_VERSION2}</option>
+					<option id="wwh_version_1" value="1" {% if WWH_VERSION == 1 %}selected="selected"{% endif %}>{{ lang('WWH_VERSION1') }}</option>
+					<option id="wwh_version_0" value="0" {% if WWH_VERSION == 0 %}selected="selected"{% endif %}>{{ lang('WWH_VERSION2') }}</option>
 				</select>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_del_time">
-			<dt><label>{L_WWH_VERSION2}{L_COLON}</label></dt>
+			<dt><label>{{ lang('WWH_VERSION2') }}{{ lang('COLON') }}</label></dt>
 			<dd>
-				<input type="text" name="wwh_del_time_h" id="wwh_del_time_h" size="6" value="{WWH_DEL_TIME_H}" /> {L_HOURS}
+				<input type="text" name="wwh_del_time_h" id="wwh_del_time_h" size="6" value="{{ WWH_DEL_TIME_H }}" /> {{ lang('HOURS') }}
 			</dd>
 			<dd>
-				<input type="text" name="wwh_del_time_m" id="wwh_del_time_m" size="6" value="{WWH_DEL_TIME_M}" /> {L_MINUTES}
+				<input type="text" name="wwh_del_time_m" id="wwh_del_time_m" size="6" value="{{ WWH_DEL_TIME_M }}" /> {{ lang('MINUTES') }}
 			</dd>
 			<dd>
-				<input type="text" name="wwh_del_time_s" id="wwh_del_time_s" size="6" value="{WWH_DEL_TIME_S}" /> {L_SECONDS}
+				<input type="text" name="wwh_del_time_s" id="wwh_del_time_s" size="6" value="{{ WWH_DEL_TIME_S }}" /> {{ lang('SECONDS') }}
 			</dd>
 		</dl>
 		<dl id="wwh_opt_sort_by">
-			<dt><label>{L_WWH_SORT_BY}{L_COLON}</label><br /><span>{WWH_SORT_BY_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_SORT_BY') }}{{ lang('COLON') }}</label><br /><span>{{ WWH_SORT_BY_EXP }}</span></dt>
 			<dd>
 				<select name="wwh_sort_by">
-					<option id="wwh_sort_by_0" value="0" <!-- IF WWH_SORT_BY == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_0}</option>
-					<option id="wwh_sort_by_1" value="1" <!-- IF WWH_SORT_BY == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_1}</option>
-					<option id="wwh_sort_by_2" value="2" <!-- IF WWH_SORT_BY == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_2}</option>
-					<option id="wwh_sort_by_3" value="3" <!-- IF WWH_SORT_BY == 3 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_3}</option>
-					<option id="wwh_sort_by_4" value="4" <!-- IF WWH_SORT_BY == 4 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_4}</option>
-					<option id="wwh_sort_by_5" value="5" <!-- IF WWH_SORT_BY == 5 -->selected="selected"<!-- ENDIF -->>{L_WWH_SORT_BY_5}</option>
+					<option id="wwh_sort_by_0" value="0" {% if WWH_SORT_BY == 0 %}selected="selected"{% endif %}>{{ lang('WWH_SORT_BY_0') }}</option>
+					<option id="wwh_sort_by_1" value="1" {% if WWH_SORT_BY == 1 %}selected="selected"{% endif %}>{{ lang('WWH_SORT_BY_1') }}</option>
+					<option id="wwh_sort_by_2" value="2" {% if WWH_SORT_BY == 2 %}selected="selected"{% endif %}>{{ lang('WWH_SORT_BY_2') }}</option>
+					<option id="wwh_sort_by_3" value="3" {% if WWH_SORT_BY == 3 %}selected="selected"{% endif %}>{{ lang('WWH_SORT_BY_3') }}</option>
+					<option id="wwh_sort_by_4" value="4" {% if WWH_SORT_BY == 4 %}selected="selected"{% endif %}>{{ lang('WWH_SORT_BY_4') }}</option>
+					<option id="wwh_sort_by_5" value="5" {% if WWH_SORT_BY == 5 %}selected="selected"{% endif %}>{{ lang('WWH_SORT_BY_5') }}</option>
 				</select>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_record">
-			<dt><label>{L_WWH_RECORD}{L_COLON}</label><br /><span>{L_WWH_RECORD_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_RECORD') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_RECORD_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_RECORD == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" value="0" onchange="wwh_set_controls_state()" <!-- IF WWH_RECORD == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_1" value="1" onchange="wwh_set_controls_state()" {% if WWH_RECORD == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_record" id="wwh_record_0" value="0" onchange="wwh_set_controls_state()" {% if WWH_RECORD == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_record_timestamp">
-			<dt><label>{L_WWH_RECORD_TIMESTAMP}{L_COLON}</label><br /><span>{L_WWH_DISP_TIME_FORMAT_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_RECORD_TIMESTAMP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_TIME_FORMAT_EXP') }}</span></dt>
 			<dd>
-				<input type="text" name="wwh_record_timestamp" id="wwh_record_timestamp" size="12" value="{WWH_RECORD_TIMESTAMP}" />
+				<input type="text" name="wwh_record_timestamp" id="wwh_record_timestamp" size="12" value="{{ WWH_RECORD_TIMESTAMP }}" />
 			</dd>
 		</dl>
 		<dl id="wwh_opt_disp_template_pos">
-			<dt><label>{L_WWH_DISP_TEMPLATE_POS}{L_COLON}</label><br /><span>{L_WWH_DISP_TEMPLATE_POS_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DISP_TEMPLATE_POS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_TEMPLATE_POS_EXP') }}</span></dt>
 			<dd>
 				<select name="wwh_disp_template_pos">
-					<option id="wwh_disp_template_pos_0" value="0" <!-- IF WWH_DISP_TEMPLATE_POS == 0 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS_0}</option>
-					<option id="wwh_disp_template_pos_2" value="2" <!-- IF WWH_DISP_TEMPLATE_POS == 2 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS_2}</option>
-					<option id="wwh_disp_template_pos_1" value="1" <!-- IF WWH_DISP_TEMPLATE_POS == 1 -->selected="selected"<!-- ENDIF -->>{L_WWH_DISP_TEMPLATE_POS_1}</option>
+					<option id="wwh_disp_template_pos_0" value="0" {% if WWH_DISP_TEMPLATE_POS == 0 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TEMPLATE_POS_0') }}</option>
+					<option id="wwh_disp_template_pos_2" value="2" {% if WWH_DISP_TEMPLATE_POS == 2 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TEMPLATE_POS_2') }}</option>
+					<option id="wwh_disp_template_pos_1" value="1" {% if WWH_DISP_TEMPLATE_POS == 1 %}selected="selected"{% endif %}>{{ lang('WWH_DISP_TEMPLATE_POS_1') }}</option>
 				</select>
 			</dd>
 		</dl>
 	</fieldset>
 
 	<fieldset>
-		<legend>{L_WWH_SECTION_OTHERS}</legend>
+		<legend>{{ lang('WWH_SECTION_OTHERS') }}</legend>
 		<dl id="wwh_opt_use_online_time">
-			<dt><label>{L_WWH_USE_ONLINE_TIME}{L_COLON}</label><br /><span>{L_WWH_USE_ONLINE_TIME_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_USE_ONLINE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_USE_ONLINE_TIME_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" onchange="wwh_set_controls_state()" <!-- IF WWH_USE_ONLINE_TIME == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_1" value="1" onchange="wwh_set_controls_state()" {% if WWH_USE_ONLINE_TIME == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_use_online_time" id="wwh_use_online_time_0" value="0" onchange="wwh_set_controls_state()" {% if WWH_USE_ONLINE_TIME == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_cache_time">
-			<dt><label>{L_WWH_CACHE_TIME}{L_COLON}</label><br /><span>{L_WWH_CACHE_TIME_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_CACHE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_CACHE_TIME_EXP') }}</span></dt>
 			<dd>
-				<input type="number" name="wwh_cache_time" id="wwh_cache_time" min="1" max="{WWH_CACHE_TIME_MAX}" value="{WWH_CACHE_TIME}" /> {L_MINUTES}
+				<input type="number" name="wwh_cache_time" id="wwh_cache_time" min="1" max="{{ WWH_CACHE_TIME_MAX }}" value="{{ WWH_CACHE_TIME }}" /> {{ lang('MINUTES') }}
 			</dd>
 		</dl>
 		<dl id="wwh_opt_api_mode">
-			<dt><label>{L_WWH_API_MODE}{L_COLON}</label><br /><span>{L_WWH_API_MODE_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_API_MODE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_API_MODE_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_1" value="1" <!-- IF WWH_API_MODE == 1 -->checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_0" value="0" <!-- IF WWH_API_MODE == 0 -->checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_1" value="1" {% if WWH_API_MODE == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_0" value="0" {% if WWH_API_MODE == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_defaults">
-			<dt><label>{L_WWH_DEFAULTS}{L_COLON}</label><br /><span>{L_WWH_DEFAULTS_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_DEFAULTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DEFAULTS_EXP') }}</span></dt>
 			<dd>
-				<input class="button2" type="button" id="wwh_defaults" name="wwh_defaults" value="{L_WWH_DEFAULTS_BUTTON}" onclick="wwh_set_defaults()" />
+				<input class="button2" type="button" id="wwh_defaults" name="wwh_defaults" value="{{ lang('WWH_DEFAULTS_BUTTON') }}" onclick="wwh_set_defaults()" />
 			</dd>
 		</dl>
 		<dl id="wwh_opt_reset">
-			<dt><label>{L_WWH_RESET}{L_COLON}</label><br /><span>{L_WWH_RESET_EXP}</span></dt>
+			<dt><label>{{ lang('WWH_RESET') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_RESET_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="wwh_reset" value="1" onclick="alert('{L_WWH_RESET_TRUE}');" /> {L_YES}</label>
-				<label><input type="radio" class="radio" name="wwh_reset" value="0" checked="checked" /> {L_NO}</label>
+				<label><input type="radio" class="radio" name="wwh_reset" value="1" onclick="alert('{{ lang('WWH_RESET_TRUE') }}');" /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_reset" value="0" checked="checked" /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 	</fieldset>
 
 	<p class="submit-buttons">
-		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
-		<input class="button2" type="button" id="wwh_reset" name="wwh_reset" value="{L_RESET}" onclick="wwh_button_reset()" />
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+		<input class="button2" type="button" id="wwh_reset" name="wwh_reset" value="{{ lang('RESET') }}" onclick="wwh_button_reset()" />
 	</p>
-{S_FORM_TOKEN}
+{{ S_FORM_TOKEN }}
 </form>
 
 <script>
@@ -233,7 +233,7 @@ function wwh_set_defaults() {
 	document.getElementById("wwh_record_timestamp").value = "D j. M Y";
 	document.getElementById("wwh_disp_template_pos_0").selected = true;
 	document.getElementById("wwh_use_online_time_1").checked = true;
-	document.getElementById("wwh_cache_time").value = "{WWH_CACHE_TIME_MAX}";
+	document.getElementById("wwh_cache_time").value = "{{ WWH_CACHE_TIME_MAX }}";
 	document.getElementById("wwh_api_mode_0").checked = true;
 	wwh_set_controls_state();
 }
@@ -243,4 +243,4 @@ function wwh_button_reset() {
 }
 </script>
 
-<!-- INCLUDE overall_footer.html -->
+{% INCLUDE 'overall_footer.html' %}

@@ -1,3 +1,11 @@
+### Changelog 1.4.3 (2019--)
+
+* Alle HTML Templates (ACP Modul, Template Events) von phpBB-Syntax auf TWIG-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
+* Template-Änderungen: Ja 
+  * Neu: -
+  * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
+  * Gelöscht: -
+
 ### Changelog 1.4.2 (2019-02-08)
 
 * Korrekturen und kleinere Änderungen in den Sprachdateien des ACP Moduls vorgenommen.

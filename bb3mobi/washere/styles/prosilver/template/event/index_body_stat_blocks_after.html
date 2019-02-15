@@ -1,9 +1,9 @@
-<!-- IF WHO_WAS_HERE_TOTAL && WHO_WAS_HERE_POS == 1 && !WHO_WAS_HERE_API_MODE -->
+{% if WHO_WAS_HERE_TOTAL && WHO_WAS_HERE_POS == 1 && !WHO_WAS_HERE_API_MODE %}
 <div class="stat-block online-list">
-	<h3>{L_WHO_WAS_HERE}</h3>
-	<p>{WHO_WAS_HERE_TOTAL} ({WHO_WAS_HERE_EXP})<br />{WHO_WAS_HERE_RECORD}
-	<!-- IF WHO_WAS_HERE_LIST --><br />{WHO_WAS_HERE_LIST}<!-- ENDIF -->
-	<!-- IF WHO_WAS_HERE_BOTS --><br />{WHO_WAS_HERE_BOTS}<!-- ENDIF --></p>
+	<h3>{{ lang('WHO_WAS_HERE') }}</h3>
+	<p>{{ WHO_WAS_HERE_TOTAL }} ({{ WHO_WAS_HERE_EXP }})<br />{{ WHO_WAS_HERE_RECORD }}
+	{% if WHO_WAS_HERE_LIST %}<br />{{ WHO_WAS_HERE_LIST }}{% endif %}
+	{% if WHO_WAS_HERE_BOTS %}<br />{{ WHO_WAS_HERE_BOTS }}{% endif %}</p>
 </div>
-<!-- INCLUDEJS @bb3mobi_washere/who_was_here.js -->
-<!-- ENDIF -->
+{% INCLUDEJS '@bb3mobi_washere/who_was_here.js' %}
+{% endif %}
