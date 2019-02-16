@@ -111,13 +111,15 @@ $lang = array_merge($lang, array(
 	'WWH_CACHE_TIME_EXP'			=> 'Das Intervall bestimmt, wie oft die Anzeige der Statistik und Benutzerliste aktualisiert wird.',
 	'WWH_API_MODE'					=> 'API-Modus',
 	'WWH_API_MODE_EXP'				=> 'Wenn aktiviert, dann wird die Anzeige von WWH abgeschaltet und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Situationen gedacht, bei denen die WWH-Anzeige bereits durch andere Erweiterungen (z.B. “Stat Block”) dargestellt wird.',
+	'WWH_CLEAR_UP'					=> 'Bei gelöschten Benutzern automatisch bereinigen',
+	'WWH_CLEAR_UP_EXP'				=> 'Wenn Benutzerkonten gelöscht werden, dann wird auch sofort die Tabelle und Anzeige von WWH bereinigt.',
+	// config section 5
 	'WWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
 	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Standard',
-	'WWH_CLEAR_UP'					=> 'Bei gelöschten Benutzern automatisch bereinigen',
-	'WWH_CLEAR_UP_EXP'				=> 'Wenn Benutzerkonten gelöscht werden, dann wird auch sofort die Tabelle und Anzeige von WWH bereinigt.',
+	'WWH_SECTION_RESET'				=> 'Zurücksetzen',
 	'WWH_RESET'						=> 'Besucherrekord zurücksetzen',
-	'WWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Aktivitäten-Rekord zurück.',
+	'WWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
 	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'WWH_RESET_TRUE'				=> 'Wenn du diese Seite speicherst, wird der Rekord zurückgesetzt.', // \n is the beginning of a new line

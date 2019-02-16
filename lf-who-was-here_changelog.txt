@@ -4,6 +4,9 @@
 * Eine neue Funktion ermöglicht die automatische Bereinigung der WWH-Tabelle und des WWH-Caches, wenn Benutzerkonten gelöscht werden. Somit können gelöschte Benutzer noch vor Ablauf des eingestellten Zeitraums aus der Ansicht entfernt werden. (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion bei Bedarf deaktiviert werden kann. Per Standard ist sie aktiviert.
   * In den Sprachdateien für "Bei gelöschten Benutzern automatisch bereinigen:" 2 neue Variablen hinzugefügt.
+* Im ACP Modul einen neuen Abschnitt eingefügt.
+  * In den Sprachdateien für "Zurücksetzen" 1 neue Variable hinzugefügt.
+  * Die Punkte "Einstellungen zurücksetzen:" und "Besucherrekord zurücksetzen:" in den neuen Abschnitt verschoben.
 * Template-Änderungen: Ja 
   * Neu: -
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`

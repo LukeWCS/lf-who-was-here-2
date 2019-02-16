@@ -111,13 +111,15 @@ $lang = array_merge($lang, array(
 	'WWH_CACHE_TIME_EXP'			=> 'The interval determines how often the display of the statistics and user list is updated.',
 	'WWH_API_MODE'					=> 'API-Mode',
 	'WWH_API_MODE_EXP'				=> 'If activated, the display of WWH will be turned off and only the template variables will be generated. This mode is intended for situations where the WWH display is already displayed by other extensions (e.g. “Stat Block”).',
+	'WWH_CLEAR_UP'					=> 'Automatically clean up deleted users',
+	'WWH_CLEAR_UP_EXP'				=> 'If user accounts are deleted, the table and display of WWH are also immediately cleared.',
+	// config section 5
+	'WWH_SECTION_RESET'				=> 'Reset',
 	'WWH_DEFAULTS'					=> 'Reset settings',
 	'WWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset record”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Defaults',
-	'WWH_CLEAR_UP'					=> 'Automatically clean up deleted users',
-	'WWH_CLEAR_UP_EXP'				=> 'If user accounts are deleted, the table and display of WWH are also immediately cleared.',
-	'WWH_RESET'						=> 'Reset record',
-	'WWH_RESET_EXP'					=> 'Resets time and counter for activity record.',
+	'WWH_RESET'						=> 'Reset visitor record',
+	'WWH_RESET_EXP'					=> 'Resets time and counter for the visitor record.',
 	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'WWH_RESET_TRUE'				=> 'If you submit this form, the record will be reseted.', // \n is the beginning of a new line
