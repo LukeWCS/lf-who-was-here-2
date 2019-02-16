@@ -14,5 +14,8 @@ services:
         arguments:
             - '@bb3mobi.washere.helper'
             - '@config'
+            - '@cache.driver'
+            - '@dbal.conn'
+            - '%core.table_prefix%'
         tags:
             - { name: event.listener }

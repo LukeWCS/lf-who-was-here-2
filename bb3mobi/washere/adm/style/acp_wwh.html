@@ -177,17 +177,17 @@
 				<label><input type="radio" class="radio" name="wwh_api_mode" id="wwh_api_mode_0" value="0" {% if WWH_API_MODE == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
+		<dl id="wwh_opt_clear_up">
+			<dt><label>{{ lang('WWH_CLEAR_UP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_CLEAR_UP_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="wwh_clear_up" id="wwh_clear_up_1" value="1" {% if WWH_CLEAR_UP == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_clear_up" id="wwh_clear_up_0" value="0" {% if WWH_CLEAR_UP == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
 		<dl id="wwh_opt_defaults">
 			<dt><label>{{ lang('WWH_DEFAULTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DEFAULTS_EXP') }}</span></dt>
 			<dd>
 				<input class="button2" type="button" id="wwh_defaults" name="wwh_defaults" value="{{ lang('WWH_DEFAULTS_BUTTON') }}" onclick="wwh_set_defaults()" />
-			</dd>
-		</dl>
-		<dl id="wwh_opt_clearup">
-			<dt><label>{{ lang('WWH_CLEARUP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_CLEARUP_EXP') }}</span></dt>
-			<dd>
-				<label><input type="radio" class="radio" name="wwh_clearup" value="1" /> {{ lang('YES') }}</label>
-				<label><input type="radio" class="radio" name="wwh_clearup" value="0" checked="checked" /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="wwh_opt_reset">
@@ -242,6 +242,7 @@ function wwh_set_defaults() {
 	document.getElementById("wwh_use_online_time_1").checked = true;
 	document.getElementById("wwh_cache_time").value = "{{ WWH_CACHE_TIME_MAX }}";
 	document.getElementById("wwh_api_mode_0").checked = true;
+	document.getElementById("wwh_clear_up_1").checked = true;
 	wwh_set_controls_state();
 }
 function wwh_button_reset() {
