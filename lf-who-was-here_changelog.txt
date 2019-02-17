@@ -1,7 +1,7 @@
 ### Changelog 1.4.3 (2019--)
 
 * Alle HTML Templates (ACP Modul, Events) von phpBB-Syntax auf TWIG-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
-* Eine neue Funktion ermöglicht die automatische Bereinigung der WWH-Tabelle und des WWH-Caches, wenn Benutzerkonten gelöscht werden. Somit können gelöschte Benutzer noch vor Ablauf des eingestellten Zeitraums aus der Ansicht entfernt werden. (Wunsch von Kirk)
+* Eine neue Funktion ermöglicht eine automatische Bereinigung der WWH-Tabelle und des WWH-Caches wenn Benutzerkonten gelöscht wurden. Somit werden gelöschte Benutzer noch vor Ablauf des eingestellten Zeitraums (Heute oder beliebiger Zeitraum) aus der Ansicht entfernt. (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion bei Bedarf deaktiviert werden kann. Per Standard ist sie aktiviert.
   * In den Sprachdateien für "Bei gelöschten Benutzern automatisch bereinigen:" 2 neue Variablen hinzugefügt.
 * Im ACP Modul einen neuen Abschnitt eingefügt.

@@ -24,48 +24,37 @@ class listener implements EventSubscriberInterface
 	/** @bb3mobi.washere.helper */
 	protected $helper;
 	protected $config;
-	protected $cache;
-	protected $db;
 
 	public function __construct(
 		$helper,
-		\phpbb\config\config $config,
-		\phpbb\cache\driver\driver_interface $cache, 
-		\phpbb\db\driver\driver_interface $db, 
-		$table_prefix
+		\phpbb\config\config $config
 	)
 	{
-		if (!defined('WWH_TABLE'))
-		{
-			define('WWH_TABLE', $table_prefix . 'wwh');
-		}
 		$this->helper = $helper;
 		$this->config = $config;
-		$this->cache = $cache;
-		$this->db = $db;
 	}
 
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.page_header_after'		=> 'wwh_update_table',
-			'core.index_modify_page_title'	=> 'wwh_display',
-			'core.permissions'				=> 'wwh_activate_permissions',
-			'core.delete_user_after'		=> 'wwh_clear_up',
+			'core.page_header_after'		=> 'update_session',
+			'core.index_modify_page_title'	=> 'display',
+			'core.permissions'				=> 'add_permissions',
+			'core.delete_user_after'		=> 'clear_up',
 		);
 	}
 
-	public function wwh_update_table($event)
+	public function update_session($event)
 	{
 		$this->helper->update_session();
 	}
 
-	public function wwh_display($event)
+	public function display($event)
 	{
 		$this->helper->display();
 	}
 
-	public function wwh_activate_permissions($event)
+	public function add_permissions($event)
 	{
 		if (!$this->config['wwh_use_permissions']) return;
 		$permissions = $event['permissions'];
@@ -74,30 +63,8 @@ class listener implements EventSubscriberInterface
 		$event['permissions'] = $permissions;
 	}
 
-	public function wwh_clear_up($event)
+	public function clear_up($event)
 	{
-		if (!$this->config['wwh_clear_up']) return;
-		$clear_cache = false;
-		$user_ids_ary = $event['user_ids'];
-		foreach ($user_ids_ary as $user_id)
-		{
-			$sql = 'SELECT 1 as found
-				FROM  ' . WWH_TABLE . '
-				WHERE user_id = ' . (int) $user_id;
-			$result = $this->db->sql_query($sql);
-			$found = (int) $this->db->sql_fetchfield('found');
-			if ($found)
-			{
-				$sql = 'DELETE FROM ' . WWH_TABLE . '
-					WHERE user_id = ' . (int) $user_id;
-				$result = $this->db->sql_query($sql);
-				//echo $user_id . " ...deleted <br>";
-				$clear_cache = true;
-			}			
-		}
-		if ($clear_cache) 
-		{
-			$this->cache->destroy("_who_was_here");
-		}
+		$this->helper->clear_up($event['user_ids']);
 	}
 }

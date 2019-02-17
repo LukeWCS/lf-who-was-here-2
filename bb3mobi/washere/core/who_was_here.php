@@ -71,7 +71,7 @@ class who_was_here
 	}
 
 	/**
-	* Update the users session in the table.
+	* Update the users session in the table. (Anvar)
 	*/
 	public function update_session()
 	{
@@ -181,7 +181,7 @@ class who_was_here
 	}
 
 	/**
-	* Fetching the user-list and putting the stuff into the template.
+	* Fetching the user-list and putting the stuff into the template. (Anvar)
 	*/
 	public function display()
 	{
@@ -369,7 +369,7 @@ class who_was_here
 	}
 
 	/**
-	* Deletes the users from the list, whose visit is to old.
+	* Deletes the users from the list, whose visit is to old. (Anvar)
 	*/
 	public function prune()
 	{
@@ -416,7 +416,38 @@ class who_was_here
 	}
 
 	/**
-	* Returns the users array
+	* Cleans up the table and cache when user accounts have been deleted. (LukeWCS)
+	*/
+	public function clear_up($user_ids_ary)
+	{
+		if (!$this->config['wwh_clear_up']) return;
+		$delete_cache = false;
+		
+		foreach ($user_ids_ary as $user_id)
+		{
+			$sql = 'SELECT 1 as found
+				FROM  ' . WWH_TABLE . '
+				WHERE user_id = ' . (int) $user_id;
+			$result = $this->db->sql_query($sql);
+			$found = (int) $this->db->sql_fetchfield('found');
+			if ($found)
+			{
+				$sql = 'DELETE FROM ' . WWH_TABLE . '
+					WHERE user_id = ' . (int) $user_id;
+				$result = $this->db->sql_query($sql);
+				//echo $user_id . " ...deleted <br>";
+				$delete_cache = true;
+			}			
+		}
+		
+		if ($delete_cache) 
+		{
+			$this->cache->destroy("_who_was_here");
+		}
+	}
+
+	/**
+	* Returns the users array (Anvar)
 	*/
 	private function view_state()
 	{
@@ -471,7 +502,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns the Explanation string for the online list:
+	* Returns the Explanation string for the online list: (Anvar)
 	* Demo:	based on users active today
 	*		based on users active over the past 30 minutes
 	*/
@@ -501,7 +532,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns the Record string for the online list:
+	* Returns the Record string for the online list: (Anvar)
 	* Demo:	Most users ever online was 1 on Mon 7. Sep 2009
 	*		Most users ever online was 1 between Mon 7. Sep 2009 and Tue 8. Sep 2009
 	*/
@@ -523,7 +554,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns the Total string for the online list:
+	* Returns the Total string for the online list: (Anvar)
 	* Demo:	In total there was 1 user online :: 1 registered, 0 hidden, 0 bots and 0 guests
 	*/
 	private function get_total_users_string($count)
