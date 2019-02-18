@@ -8,19 +8,19 @@
 	"license": "GPL-2.0",
 	"authors": [
 		{
-			"name": "Joas Schilling [nickvergessen]",
-			"homepage": "http://www.flying-bits.org/",
-			"role": "Developer"
+			"name": "LukeWCS",
+			"homepage": "https://www.wcsaga.org",
+			"role": "Developer (adapting for 3.2 and improvements)"
 		},
 		{
 			"name": "Anvar",
 			"homepage": "http://phpbbguru.net",
-			"role": "Converting to extension"
+			"role": "Former developer (converting to 3.1 extension)"
 		},
 		{
-			"name": "LukeWCS",
-			"homepage": "https://www.wcsaga.org",
-			"role": "Developer"
+			"name": "Joas Schilling [nickvergessen]",
+			"homepage": "http://www.flying-bits.org/",
+			"role": "Original MOD author"
 		}
 	],
 	"require": {

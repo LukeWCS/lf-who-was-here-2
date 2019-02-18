@@ -416,11 +416,14 @@ class who_was_here
 	}
 
 	/**
-	* Cleans up the table and cache when user accounts have been deleted. (LukeWCS)
+	* Cleans up the table and delete the cache when user accounts have been deleted. (LukeWCS)
 	*/
 	public function clear_up($user_ids_ary)
 	{
-		if (!$this->config['wwh_clear_up']) return;
+		if (!$this->config['wwh_clear_up'])
+		{
+			return;
+		}
 		$delete_cache = false;
 		
 		foreach ($user_ids_ary as $user_id)

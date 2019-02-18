@@ -18,7 +18,8 @@ class acp_wwh_module
 
 	function main($id, $mode)
 	{
-		global $user, $config, $request, $template;
+		global $user, $config, $request, $template, $cache;
+		$this->cache = $cache;
 	
 		add_form_key('wwh');
 		$user->add_lang('ucp');
@@ -32,7 +33,7 @@ class acp_wwh_module
 			{
 				trigger_error('FORM_INVALID');
 			}
-
+			$delete_cache = (int) ($request->variable('wwh_sort_by', 0) != $config['wwh_sort_by']);
 			$config->set('wwh_use_permissions', $request->variable('wwh_use_permissions', 0));
 			$config->set('wwh_disp_for_guests', $request->variable('wwh_disp_for_guests', 0));
 			$config->set('wwh_disp_bots', $request->variable('wwh_disp_bots', 0));
@@ -61,6 +62,10 @@ class acp_wwh_module
 				$config->set('wwh_record_time', time());
 				$config->set('wwh_reset_time', time());
 			}
+			if ($delete_cache) 
+			{
+				$this->cache->destroy("_who_was_here");
+			}
 			trigger_error($user->lang['WWH_SAVED_SETTINGS'] . adm_back_link($this->u_action));
 		}
 
@@ -88,7 +93,6 @@ class acp_wwh_module
 			'WWH_DEL_TIME_M'			=> $config['wwh_del_time_m'],
 			'WWH_DEL_TIME_S'			=> $config['wwh_del_time_s'],
 			'WWH_SORT_BY'				=> $config['wwh_sort_by'],
-			'WWH_SORT_BY_EXP'			=> sprintf($user->lang['WWH_SORT_BY_EXP'], ($config['wwh_use_online_time']) ? $load_online_time : $config['wwh_cache_time']),
 			'WWH_RECORD'				=> $config['wwh_record'],
 			'WWH_RECORD_TIMESTAMP'		=> $config['wwh_record_timestamp'],
 			'WWH_DISP_TEMPLATE_POS'		=> $config['wwh_disp_template_pos'],

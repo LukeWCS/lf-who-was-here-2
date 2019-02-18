@@ -7,6 +7,8 @@
 * Im ACP Modul einen neuen Abschnitt eingefügt.
   * In den Sprachdateien für "Zurücksetzen" 1 neue Variable hinzugefügt.
   * Die Punkte "Einstellungen zurücksetzen:" und "Besucherrekord zurücksetzen:" in den neuen Abschnitt verschoben.
+* Die Einstellung "Sortiere Benutzer nach:" wirkt sich jetzt sofort aus, nicht erst bei der nächsten Aktualisierung (abgelaufene Cache-Dauer). Diese Änderung basiert auf der Erfahrung mit der Bereinigungsfunktion für gelöschte Benutzer.
+  * Dementsprechend in den Sprachdateien den Hinweis entfernt, der darüber informiert hat, das eine Änderung dieser Einstellung erst für die nächste Aktualisierung gilt. (Siehe 1.3.2)
 * Template-Änderungen: Ja 
   * Neu: -
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
