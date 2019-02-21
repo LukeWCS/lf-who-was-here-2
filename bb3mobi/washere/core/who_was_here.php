@@ -71,7 +71,7 @@ class who_was_here
 	}
 
 	/**
-	* Update the users session in the table. (Anvar)
+	* Update the users session in the table.
 	*/
 	public function update_session()
 	{
@@ -181,7 +181,7 @@ class who_was_here
 	}
 
 	/**
-	* Fetching the user-list and putting the stuff into the template. (Anvar)
+	* Fetching the user-list and putting the stuff into the template.
 	*/
 	public function display()
 	{
@@ -233,22 +233,22 @@ class who_was_here
 			$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
 			$hover_time = (
 				(($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
-				? $this->user->lang['WHO_WAS_HERE_LATEST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] 
+				? $this->user->lang['WWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WWH_LAST2']
 				: ''
 			);
 			$hover_ip = (
-				($this->auth->acl_get('a_') && $this->config['wwh_disp_ip']) 
-				? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] 
+				($this->auth->acl_get('a_') && $this->config['wwh_disp_ip'])
+				? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip']
 				: ''
 			);
 			$hover_info = (
-				($hover_time || $hover_ip) 
-				? ' title="' . $hover_time . (($hover_time && $hover_ip) ? ' | ' : '') . $hover_ip . '"' 
+				($hover_time) 
+				? ' title="' . $hover_time . (($hover_ip) ? ' | ' : '') . $hover_ip . '"'
 				: ''
 			);
 			$disp_time = (
-				(($this->config['wwh_disp_time'] >0 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] >0 && $row['user_type'] == USER_IGNORE))
-				? '&nbsp;(' . $this->user->lang['WHO_WAS_HERE_LATEST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WHO_WAS_HERE_LATEST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')' 
+				(($this->config['wwh_disp_time'] > 0 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] > 0 && $row['user_type'] == USER_IGNORE))
+				? '&nbsp;(' . $this->user->lang['WWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['wwh_disp_time_format']) . $this->user->lang['WWH_LAST2'] . (($hover_ip) ? ' | ' . $hover_ip : '' ) . ')'
 				: ''
 			);
 			if (($this->config['wwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['wwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
@@ -333,8 +333,8 @@ class who_was_here
 		
 		$wwh_caption_users = (
 			($is_min_phpbb32)
-			? '&nbsp;<span class="wwh_show_time_caption_users icon fa-clock-o" title="' . $this->user->lang['WHO_WAS_HERE_SHOW_TIME'] . '" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="wwh_show_time_caption_users" style="opacity: 0.5;">(' . $this->user->lang['WHO_WAS_HERE_SHOW_TIME'] . ')</span>'
+			? '&nbsp;<span class="wwh_show_time_caption_users icon fa-clock-o" title="' . $this->user->lang['WWH_SHOW_TIME'] . '" style="opacity: 0.5;"></span>'
+			: '&nbsp;<span class="wwh_show_time_caption_users" style="opacity: 0.5;">(' . $this->user->lang['WWH_SHOW_TIME'] . ')</span>'
 		);
 		$wwh_button_users = (
 			(($this->config['wwh_disp_time'] == 2 || ($this->config['wwh_disp_bots'] == 1 && $this->config['wwh_disp_time_bots'] == 2)) && !$no_online_users)
@@ -343,8 +343,8 @@ class who_was_here
 		);
 		$wwh_caption_bots = (
 			($is_min_phpbb32)
-			? '&nbsp;<span class="wwh_show_time_caption_bots icon fa-clock-o" title="' . $this->user->lang['WHO_WAS_HERE_SHOW_TIME'] . '" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="wwh_show_time_caption_bots" style="opacity: 0.5;">(' . $this->user->lang['WHO_WAS_HERE_SHOW_TIME'] . ')</span>'
+			? '&nbsp;<span class="wwh_show_time_caption_bots icon fa-clock-o" title="' . $this->user->lang['WWH_SHOW_TIME'] . '" style="opacity: 0.5;"></span>'
+			: '&nbsp;<span class="wwh_show_time_caption_bots" style="opacity: 0.5;">(' . $this->user->lang['WWH_SHOW_TIME'] . ')</span>'
 		);
 		$wwh_button_bots = (
 			($this->config['wwh_disp_time_bots'] == 2)
@@ -358,18 +358,18 @@ class who_was_here
 			: ($wwh_disp_users || $this->config['wwh_disp_for_guests'] != 2) && empty($this->user->data['is_bot'])
 		);
 		$this->template->assign_vars(array(
-			'WHO_WAS_HERE_LIST'			=> ($wwh_disp_users ? sprintf($this->user->lang['WHO_WAS_HERE_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
-			'WHO_WAS_HERE_BOTS'			=> ($wwh_disp_users && $bots_list ? sprintf($this->user->lang['WHO_WAS_HERE_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
-			'WHO_WAS_HERE_TOTAL'		=> (($wwh_total_permission) ? $this->get_total_users_string($count) : ''),
-			'WHO_WAS_HERE_EXP'			=> $this->get_explanation_string($this->config['wwh_version']),
-			'WHO_WAS_HERE_RECORD'		=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
-			'WHO_WAS_HERE_POS'			=> $this->config['wwh_disp_template_pos'],
-			'WHO_WAS_HERE_API_MODE'		=> $this->config['wwh_api_mode'],
+			'WWH_LIST'			=> ($wwh_disp_users ? sprintf($this->user->lang['WWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
+			'WWH_BOTS'			=> ($wwh_disp_users && $bots_list ? sprintf($this->user->lang['WWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
+			'WWH_TOTAL'			=> (($wwh_total_permission) ? $this->get_total_users_string($count) : ''),
+			'WWH_EXP'			=> $this->get_explanation_string($this->config['wwh_version']),
+			'WWH_RECORD'		=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
+			'WWH_POS'			=> $this->config['wwh_disp_template_pos'],
+			'WWH_API_MODE'		=> $this->config['wwh_api_mode'],
 		));
 	}
 
 	/**
-	* Deletes the users from the list, whose visit is to old. (Anvar)
+	* Deletes the users from the list, whose visit is to old.
 	*/
 	public function prune()
 	{
@@ -450,7 +450,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns the users array (Anvar)
+	* Returns the users array
 	*/
 	private function view_state()
 	{
@@ -505,7 +505,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns the Explanation string for the online list: (Anvar)
+	* Returns the Explanation string for the online list:
 	* Demo:	based on users active today
 	*		based on users active over the past 30 minutes
 	*/
@@ -513,11 +513,11 @@ class who_was_here
 	{
 		if ($mode)
 		{
-			return $this->user->lang['WHO_WAS_HERE_EXP'];
+			return $this->user->lang['WWH_EXP'];
 		}
 		else
 		{
-			$explanation = $this->user->lang['WHO_WAS_HERE_EXP_TIME'];
+			$explanation = $this->user->lang['WWH_EXP_TIME'];
 			$explanation .= $this->user->lang('WWH_HOURS', (int) $this->config['wwh_del_time_h']);
 			$explanation .= $this->user->lang('WWH_MINUTES', (int) $this->config['wwh_del_time_m']);
 			$explanation .= $this->user->lang('WWH_SECONDS', (int) $this->config['wwh_del_time_s']);
@@ -525,9 +525,9 @@ class who_was_here
 			switch (substr_count($explanation, '%s'))
 			{
 				case 3:
-					return sprintf($explanation, '', $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['WHO_WAS_HERE_WORD']);
+					return sprintf($explanation, '', $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['WWH_WORD']);
 				case 2:
-					return sprintf($explanation, '', $this->user->lang['WHO_WAS_HERE_WORD']);
+					return sprintf($explanation, '', $this->user->lang['WWH_WORD']);
 				default:
 					return sprintf($explanation, '');
 			}
@@ -535,7 +535,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns the Record string for the online list: (Anvar)
+	* Returns the Record string for the online list:
 	* Demo:	Most users ever online was 1 on Mon 7. Sep 2009
 	*		Most users ever online was 1 between Mon 7. Sep 2009 and Tue 8. Sep 2009
 	*/
@@ -547,45 +547,45 @@ class who_was_here
 		}
 		if ($mode)
 		{
-			return sprintf($this->user->lang['WHO_WAS_HERE_RECORD'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp'])) . '<br />';
+			return sprintf($this->user->lang['WWH_RECORD'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp'])) . '<br />';
 		}
 		else
 		{
 			$this->config['wwh_record_time2'] = $this->config['wwh_record_time'] - (3600 * $this->config['wwh_del_time_h']) - (60 * $this->config['wwh_del_time_m']) - $this->config['wwh_del_time_s'];
-			return sprintf($this->user->lang['WHO_WAS_HERE_RECORD_TIME'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time2'], $this->config['wwh_record_timestamp']), $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp'])) . '<br />';
+			return sprintf($this->user->lang['WWH_RECORD_TIME'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time2'], $this->config['wwh_record_timestamp']), $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp'])) . '<br />';
 		}
 	}
 
 	/**
-	* Returns the Total string for the online list: (Anvar)
+	* Returns the Total string for the online list:
 	* Demo:	In total there was 1 user online :: 1 registered, 0 hidden, 0 bots and 0 guests
 	*/
 	private function get_total_users_string($count)
 	{
-		$total_users_string = $this->user->lang('WHO_WAS_HERE_TOTAL', $count['count_total']);
-		$total_users_string .= $this->user->lang('WHO_WAS_HERE_REG_USERS', $count['count_reg']);
+		$total_users_string = $this->user->lang('WWH_TOTAL', $count['count_total']);
+		$total_users_string .= $this->user->lang('WWH_REG_USERS', $count['count_reg']);
 
 		if ($this->config['wwh_disp_hidden'])
 		{
-			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_HIDDEN', $count['count_hidden']);
+			$total_users_string .= '%s ' . $this->user->lang('WWH_HIDDEN', $count['count_hidden']);
 		}
 		if ($this->config['wwh_disp_bots'])
 		{
-			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_BOTS', $count['count_bot']);
+			$total_users_string .= '%s ' . $this->user->lang('WWH_BOTS', $count['count_bot']);
 		}
 		if ($this->config['wwh_disp_guests'])
 		{
-			$total_users_string .= '%s ' . $this->user->lang('WHO_WAS_HERE_GUESTS', $count['count_guests']);
+			$total_users_string .= '%s ' . $this->user->lang('WWH_GUESTS', $count['count_guests']);
 		}
 
 		switch (substr_count($total_users_string, '%s'))
 		{
 			case 3:
-				return sprintf($total_users_string, $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['WHO_WAS_HERE_WORD']);
+				return sprintf($total_users_string, $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['WWH_WORD']);
 			case 2:
-				return sprintf($total_users_string, $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['WHO_WAS_HERE_WORD']);
+				return sprintf($total_users_string, $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['WWH_WORD']);
 			case 1:
-				return sprintf($total_users_string, $this->user->lang['WHO_WAS_HERE_WORD']);
+				return sprintf($total_users_string, $this->user->lang['WWH_WORD']);
 			default:
 				return $total_users_string;
 		}

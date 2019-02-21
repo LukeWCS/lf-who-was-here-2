@@ -220,6 +220,7 @@ function wwh_set_controls_state() {
 	document.getElementById("wwh_opt_disp_bots_only_admin").style.opacity = ((!document.getElementById("wwh_disp_bots_0").selected) ? enabled : disabled);
 	document.getElementById("wwh_opt_disp_time_bots").style.opacity = ((!document.getElementById("wwh_disp_bots_0").selected) ? enabled : disabled);
 	document.getElementById("wwh_opt_disp_time_format").style.opacity = ((!document.getElementById("wwh_disp_time_0").selected || (!document.getElementById("wwh_disp_time_bots_0").selected && !document.getElementById("wwh_disp_bots_0").selected)) ? enabled : disabled);
+	document.getElementById("wwh_opt_disp_ip").style.opacity = ((!document.getElementById("wwh_disp_time_0").selected || (!document.getElementById("wwh_disp_time_bots_0").selected && !document.getElementById("wwh_disp_bots_0").selected)) ? enabled : disabled);
 	document.getElementById("wwh_opt_del_time").style.opacity = ((document.getElementById("wwh_version_0").selected) ? enabled : disabled);
 	document.getElementById("wwh_opt_cache_time").style.opacity = ((document.getElementById("wwh_use_online_time_0").checked) ? enabled : disabled);
 	document.getElementById("wwh_opt_record_timestamp").style.opacity = ((document.getElementById("wwh_record_1").checked) ? enabled : disabled);

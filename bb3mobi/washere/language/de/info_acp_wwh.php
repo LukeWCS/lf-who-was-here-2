@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de
-* Lang_ver     : 1.4.2
+* Lang_ver     : 1.4.3
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -80,7 +80,7 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
 	'WWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>.',
 	'WWH_DISP_IP'					=> 'Zeige die Benutzer-IP',
-	'WWH_DISP_IP_EXP'				=> 'Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.',
+	'WWH_DISP_IP_EXP'				=> 'Die IP wird hinter der Zeit angezeigt. (Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.)',
 	// config section 3
 	'WWH_SECTION_DISP_2'			=> 'Anzeige Einstellungen 2',
 	'WWH_VERSION'					=> 'Anzeige der Besucher von ...',
@@ -106,21 +106,21 @@ $lang = array_merge($lang, array(
 	// config section 4	
 	'WWH_SECTION_OTHERS'			=> 'Sonstiges',
 	'WWH_USE_ONLINE_TIME'			=> 'Aktualisiere mit der Zeitspanne für die Online-Anzeige',
-	'WWH_USE_ONLINE_TIME_EXP'		=> 'Wenn aktiviert, wird für das Intervall der Aktualisierung die folgende Einstellung verwendet: “ALLGEMEIN » SERVER-KONFIGURATION » Serverlast » Allgemeine Einstellungen » Zeitspanne für die Online-Anzeige”. Das entspricht dem Standardverhalten von WWH.',
+	'WWH_USE_ONLINE_TIME_EXP'		=> 'Wenn aktiviert, dann wird für das Intervall der Aktualisierung die folgende Einstellung verwendet: “ALLGEMEIN » SERVER-KONFIGURATION » Serverlast » Allgemeine Einstellungen » Zeitspanne für die Online-Anzeige”. Das entspricht dem Standardverhalten von WWH.',
 	'WWH_CACHE_TIME'				=> 'Intervall der Aktualisierung',
 	'WWH_CACHE_TIME_EXP'			=> 'Das Intervall bestimmt, wie oft die Anzeige der Statistik und Benutzerliste aktualisiert wird.',
 	'WWH_API_MODE'					=> 'API-Modus',
-	'WWH_API_MODE_EXP'				=> 'Wenn aktiviert, dann wird die Anzeige von WWH abgeschaltet und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Situationen gedacht, bei denen die WWH-Anzeige bereits durch andere Erweiterungen (z.B. “Stat Block”) dargestellt wird.',
+	'WWH_API_MODE_EXP'				=> 'Damit wird die Anzeige von WWH deaktiviert und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Foren gedacht, bei denen WWH bereits durch andere Erweiterungen (z.B. “Stat Block”) dargestellt wird.',
 	'WWH_CLEAR_UP'					=> 'Bei gelöschten Benutzern automatisch bereinigen',
 	'WWH_CLEAR_UP_EXP'				=> 'Wenn Benutzerkonten gelöscht werden, dann wird auch sofort die Tabelle und Anzeige von WWH bereinigt.',
 	// config section 5
+	'WWH_SECTION_RESET'				=> 'Zurücksetzen',
 	'WWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
 	'WWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
 	'WWH_DEFAULTS_BUTTON'			=> 'Standard',
-	'WWH_SECTION_RESET'				=> 'Zurücksetzen',
 	'WWH_RESET'						=> 'Besucherrekord zurücksetzen',
 	'WWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
 	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'WWH_RESET_TRUE'				=> 'Wenn du diese Seite speicherst, wird der Rekord zurückgesetzt.', // \n is the beginning of a new line
+	'WWH_RESET_TRUE'				=> 'Wer war da: Wenn du diese Seite speicherst, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
 ));

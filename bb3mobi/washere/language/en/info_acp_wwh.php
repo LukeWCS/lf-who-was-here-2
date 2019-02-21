@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
-* Lang_ver     : 1.4.2
+* Lang_ver     : 1.4.3
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -79,8 +79,8 @@ $lang = array_merge($lang, array(
 	'WWH_DISP_TIME_BOTS'			=> 'Show time of bots',
 	'WWH_DISP_TIME_FORMAT'			=> 'Timeformat',
 	'WWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
-	'WWH_DISP_IP'					=> 'Show user-ip',
-	'WWH_DISP_IP_EXP'				=> 'Just for the users with administrative permissions, as with “Who is online”.',
+	'WWH_DISP_IP'					=> 'Show user IP',
+	'WWH_DISP_IP_EXP'				=> 'The IP is displayed behind the time. (Just for the users with administrative permissions, as with “Who is online”.)',
 	// config section 3
 	'WWH_SECTION_DISP_2'			=> 'Display settings 2',
 	'WWH_VERSION'					=> 'Displaying users of ...',
@@ -106,11 +106,11 @@ $lang = array_merge($lang, array(
 	// config section 4
 	'WWH_SECTION_OTHERS'			=> 'Others',
 	'WWH_USE_ONLINE_TIME'			=> 'Update with the view online time span',
-	'WWH_USE_ONLINE_TIME_EXP'		=> 'When enabled, the refresh interval is set to “GENERAL » Load settings » View online time span”. This corresponds to the standard behavior of WWH.',
+	'WWH_USE_ONLINE_TIME_EXP'		=> 'When enabled, the following setting is used for the update interval: “GENERAL » SERVER CONFIGURATION » Load settings » General settings » View online time span”. This corresponds to the standard behavior of WWH.',
 	'WWH_CACHE_TIME'				=> 'Interval of the update',
 	'WWH_CACHE_TIME_EXP'			=> 'The interval determines how often the display of the statistics and user list is updated.',
-	'WWH_API_MODE'					=> 'API-Mode',
-	'WWH_API_MODE_EXP'				=> 'If activated, the display of WWH will be turned off and only the template variables will be generated. This mode is intended for situations where the WWH display is already displayed by other extensions (e.g. “Stat Block”).',
+	'WWH_API_MODE'					=> 'API mode',
+	'WWH_API_MODE_EXP'				=> 'This deactivates the display of WWH and only creates the template variables. This mode is for forums where WWH is already represented by other extensions (such as "Stat Block").',
 	'WWH_CLEAR_UP'					=> 'Automatically clean up deleted users',
 	'WWH_CLEAR_UP_EXP'				=> 'If user accounts are deleted, the table and display of WWH are also immediately cleared.',
 	// config section 5
@@ -122,5 +122,5 @@ $lang = array_merge($lang, array(
 	'WWH_RESET_EXP'					=> 'Resets time and counter for the visitor record.',
 	// config messages
 	'WWH_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
-	'WWH_RESET_TRUE'				=> 'If you submit this form, the record will be reseted.', // \n is the beginning of a new line
+	'WWH_RESET_TRUE'				=> 'Who was here: If you submit this form, the visitor record will be reseted.', // \n is the beginning of a new line
 ));

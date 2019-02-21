@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de
-* Lang_ver     : 1.4.2
+* Lang_ver     : 1.4.3
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
@@ -42,57 +42,57 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, array(
 	// board index page
-	'WHO_WAS_HERE'				=> 'Wer war da?',
-	'WHO_WAS_HERE_LATEST1'		=> '', //old: 'zuletzt:&nbsp;'
-	'WHO_WAS_HERE_LATEST2'		=> '', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
-	'WHO_WAS_HERE_USERS_TEXT'	=> 'Mitglieder%s:',
-	'WHO_WAS_HERE_BOTS_TEXT'	=> 'Bots%s:',
-	'WHO_WAS_HERE_SHOW_TIME'	=> 'zeige Zeit',
+	'WWH_TITLE'					=> 'Wer war da?',
+	'WWH_LAST1'					=> '', //old: 'zuletzt:&nbsp;'
+	'WWH_LAST2'					=> '', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
+	'WWH_USERS_TEXT'			=> 'Mitglieder%s:',
+	'WWH_BOTS_TEXT'				=> 'Bots%s:',
+	'WWH_SHOW_TIME'				=> 'zeige Zeit',
 
-	'WHO_WAS_HERE_TOTAL'	=> array(
+	'WWH_TOTAL' => array(
 		0						=> 'Insgesamt waren <strong>0</strong> Besucher online :: ',
 		1						=> 'Insgesamt war <strong>%d</strong> Besucher online :: ',
 		2						=> 'Insgesamt waren <strong>%d</strong> Besucher online :: ',
 	),
-	'WHO_WAS_HERE_REG_USERS'=> array(
+	'WWH_REG_USERS' => array(
 		0						=> '0 sichtbare Mitglieder',
 		1						=> '%d sichtbares Mitglied',
 		2						=> '%d sichtbare Mitglieder',
 	),
-	'WHO_WAS_HERE_HIDDEN'	=> array(
+	'WWH_HIDDEN' => array(
 		0						=> '0 unsichtbare Mitglieder',
 		1						=> '%d unsichtbares Mitglied',
 		2						=> '%d unsichtbare Mitglieder',
 	),
-	'WHO_WAS_HERE_BOTS'		=> array(
+	'WWH_BOTS' => array(
 		0						=> '0 Bots',
 		1						=> '%d Bot',
 		2						=> '%d Bots',
 	),
-	'WHO_WAS_HERE_GUESTS'	=> array(
+	'WWH_GUESTS' => array(
 		0						=> '0 Gäste',
 		1						=> '%d Gast',
 		2						=> '%d Gäste',
 	),
 
-	'WHO_WAS_HERE_WORD'			=> ' und',
-	'WHO_WAS_HERE_EXP'			=> 'basierend auf den heutigen Besuchern',
-	'WHO_WAS_HERE_EXP_TIME'		=> 'basierend auf den Besuchern der letzten ',
-	'WWH_HOURS'				=> array(
+	'WWH_WORD'					=> ' und',
+	'WWH_EXP'					=> 'basierend auf den heutigen Besuchern',
+	'WWH_EXP_TIME'				=> 'basierend auf den Besuchern der letzten ',
+	'WWH_HOURS' => array(
 		0						=> '',
 		1						=> '%%s %1$s Stunde',
 		2						=> '%%s %1$s Stunden',
 	),
-	'WWH_MINUTES'			=> array(
+	'WWH_MINUTES' => array(
 		0						=> '',
 		1						=> '%%s %1$s Minute',
 		2						=> '%%s %1$s Minuten',
 	),
-	'WWH_SECONDS'			=> array(
+	'WWH_SECONDS' => array(
 		0						=> '',
 		1						=> '%%s %1$s Sekunde',
 		2						=> '%%s %1$s Sekunden',
 	),
-	'WHO_WAS_HERE_RECORD'		=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die am %2$s online waren.',
-	'WHO_WAS_HERE_RECORD_TIME'	=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die zwischen %2$s und %3$s online waren.',
+	'WWH_RECORD'				=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die am %2$s online waren.',
+	'WWH_RECORD_TIME'			=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die zwischen %2$s und %3$s online waren.',
 ));

@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
-* Lang_ver     : 1.4.2
+* Lang_ver     : 1.4.3
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
 *
