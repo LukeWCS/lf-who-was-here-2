@@ -17,11 +17,11 @@
 
 namespace bb3mobi\washere\migrations;
 
-class v_1_4_3 extends \phpbb\db\migration\migration
+class v_1_5_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return isset($this->config['wwh_mod_version']) && version_compare($this->config['wwh_mod_version'], '1.4.3', '>=');
+		return isset($this->config['wwh_mod_version']) && version_compare($this->config['wwh_mod_version'], '1.5.0', '>=');
 	}
 
 	static public function depends_on()
@@ -38,7 +38,7 @@ class v_1_4_3 extends \phpbb\db\migration\migration
 			// Set permissions
 			// Set permission roles
 			// Set current version
-			array('config.update', array('wwh_mod_version', '1.4.3')),
+			array('config.update', array('wwh_mod_version', '1.5.0')),
 		);
 	}
 
