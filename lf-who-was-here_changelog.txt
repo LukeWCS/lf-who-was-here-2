@@ -1,4 +1,4 @@
-### Changelog 1.4.3 (2019--)
+### Changelog 1.5.0 (2019--)
 
 * Alle HTML Templates (ACP Modul, Events) von phpBB-Syntax auf TWIG-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
 * Eine neue Funktion ermöglicht eine automatische Bereinigung der WWH-Tabelle und des WWH-Caches wenn Benutzerkonten gelöscht wurden. Damit werden gelöschte Benutzer sofort aus der Ansicht entfernt, nicht erst bei Ablauf des eingestellten Zeitraums (Heute oder beliebiger Zeitraum). (Wunsch von Kirk)
@@ -15,7 +15,16 @@
   * Texte bezüglich "Zeige die Benutzer-IP:" angepasst.
 * In `lang_wwh.php` wurde als Variablen-Präfix sowohl "WHO_WAS_HERE_" als auch "WWH_" verwendet. Konsequent auf "WWH_" geändert.
   * Entsprechend Core-Skript und Template-Events angepasst.
+* Angepasste Templates für folgende Styles hinzugefügt. Die jeweils getestete Style-Version steht in Klammern.
+  * Absolution (3.2.3)
+  * AcidTech (3.2.5)
+  * BlackBoard (3.2.5)
+  * Blackfog (3.2.5)
+  * Flat Style (3.2.5)
+  * HexagonReborn (3.2.4)
+  * Rock'n Roll (3.2.5)
 * Template-Änderungen: Ja 
+  * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -
