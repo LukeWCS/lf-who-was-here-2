@@ -1,0 +1,11 @@
+{% if WWH_TOTAL && WWH_POS == 1 && !WWH_API_MODE %}
+<div class="stat-block online-list" style="padding: 20px; height: 100%;">
+	<h3>{{ lang('WWH_TITLE') }}</h3>
+	<p>
+		{{ WWH_TOTAL }} ({{ WWH_EXP }})<br />{{ WWH_RECORD }}
+		{% if WWH_LIST %}<br />{{ WWH_LIST }}{% endif %}
+		{% if WWH_BOTS %}<br />{{ WWH_BOTS }}{% endif %}
+	</p>
+</div>
+{% INCLUDEJS '@bb3mobi_washere/who_was_here.js' %}
+{% endif %}
