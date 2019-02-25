@@ -547,12 +547,12 @@ class who_was_here
 		}
 		if ($mode)
 		{
-			return sprintf($this->user->lang['WWH_RECORD'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp'])) . '<br />';
+			return sprintf($this->user->lang['WWH_RECORD'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp']));
 		}
 		else
 		{
 			$this->config['wwh_record_time2'] = $this->config['wwh_record_time'] - (3600 * $this->config['wwh_del_time_h']) - (60 * $this->config['wwh_del_time_m']) - $this->config['wwh_del_time_s'];
-			return sprintf($this->user->lang['WWH_RECORD_TIME'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time2'], $this->config['wwh_record_timestamp']), $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp'])) . '<br />';
+			return sprintf($this->user->lang['WWH_RECORD_TIME'], $this->config['wwh_record_ips'], $this->user->format_date($this->config['wwh_record_time2'], $this->config['wwh_record_timestamp']), $this->user->format_date($this->config['wwh_record_time'], $this->config['wwh_record_timestamp']));
 		}
 	}
 

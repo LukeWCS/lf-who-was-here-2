@@ -13,16 +13,20 @@
 * Bisher wurde die IP unnötigerweise auch dann als Tooltip angezeigt, wenn Zeit und IP bereits hinter dem Namen angezeigt wurden. Die Anzeige der IP im Tooltip ist jetzt davon abhängig, ob im Kontext die Zeit als Tooltip angezeigt wird.
   * Entsprechend die Abblend-Funktion angepasst.
   * Texte bezüglich "Zeige die Benutzer-IP:" angepasst.
-* In `lang_wwh.php` wurde als Variablen-Präfix sowohl "WHO_WAS_HERE_" als auch "WWH_" verwendet. Konsequent auf "WWH_" geändert.
-  * Entsprechend Core-Skript und Template-Events angepasst.
-* Angepasste Templates für folgende Styles hinzugefügt. Die jeweils getestete Style-Version steht in Klammern.
-  * Absolution (3.2.3)
-  * AcidTech (3.2.5)
-  * BlackBoard (3.2.5)
-  * Blackfog (3.2.5)
-  * Flat Style (3.2.5)
-  * HexagonReborn (3.2.4)
-  * Rock'n Roll (3.2.5)
+* Als Variablen-Präfix wurde sowohl "WHO_WAS_HERE_" als auch "WWH_" verwendet. Konsequent auf "WWH_" geändert.
+  * Core-Skript, Sprachdateien und Event-Templates angepasst.
+* Angepasste Templates für folgende Styles hinzugefügt. In Klammern ist die interne Style-Version angegeben.
+  * Absolution 3.2.3 (3.2.3)
+  * AcidTech 3.2.5 (3.2.5)
+  * BlackBoard 3.2.5 (3.2.0)
+  * Blackfog 3.2.5 (3.2.5)
+  * CleanSilver 3.2.5 (1.0.2) - Hinweis: Die Einstellung "Position der Anzeige:" muss entweder auf "Oben" oder "Unten" gesetzt werden. Bei "Vor Geburtstage" erfolgt keine Anzeige, da diese sonst das Layout im Stats-Block stören würde.
+  * Flat Style 3.2.5 (1.0.7)
+  * HexagonReborn 3.2.4 (3.1.2)
+  * Orange_BBEs 3.2.5 (2.0.6)
+  * Rock'n Roll 3.2.5 (2.0.4)
+* Eine Inkonsistenz bei der Generierung der Template-Variablen behoben. Der Inhalt der Variable `WWH_RECORD` wurde mit abschliessendem `<br />` generiert, was aber korrekterweise per Template erzeugt werden sollte, wie bei den Variablen `WWH_LIST` und `WWH_BOTS`. Dementsprechend wird die Variable jetzt ohne dieses HTML-Tag generiert, wodurch das Verhalten aller Variablen konsistent ist und auch mehr Kontrolle in den Templates bietet.
+  * Alle Event-Templates an das neue Verhalten angepasst.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -
