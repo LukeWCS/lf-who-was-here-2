@@ -1,29 +1,32 @@
 ### Changelog 1.5.0 (2019--)
 
-* Alle HTML Templates (ACP Modul, Events) von phpBB-Syntax auf TWIG-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
+**Hinweis: Wer "B3P Who was here Modul" (von Kirk) und/oder "Brücke zwischen Wwh Ext und Statblock EXT" (von chris1278) im Einsatz hat, der sollte mit dem Update von LF-WWH warten, bis die Autoren ihre jeweiligen Erweiterungen ebenfalls aktualisiert haben, da die alten Versionen inkompatibel zu dieser Version von LF-WWH sind.**
+
+* Alle HTML Templates (ACP Modul und Events) von phpBB-Syntax auf TWIG-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
 * Eine neue Funktion ermöglicht eine automatische Bereinigung der WWH-Tabelle und des WWH-Caches wenn Benutzerkonten gelöscht wurden. Damit werden gelöschte Benutzer sofort aus der Ansicht entfernt, nicht erst bei Ablauf des eingestellten Zeitraums (Heute oder beliebiger Zeitraum). (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion bei Bedarf deaktiviert werden kann. Per Standard ist sie aktiviert.
   * In den Sprachdateien für "Bei gelöschten Benutzern automatisch bereinigen:" 2 neue Variablen hinzugefügt.
 * Im ACP Modul einen neuen Abschnitt eingefügt.
   * In den Sprachdateien für "Zurücksetzen" 1 neue Variable hinzugefügt.
   * Die Punkte "Einstellungen zurücksetzen:" und "Besucherrekord zurücksetzen:" in den neuen Abschnitt verschoben.
-* Eine Änderung der Einstellung "Sortiere Benutzer nach:" wirkt sich jetzt sofort aus, nicht erst bei der nächsten Aktualisierung (abgelaufene Cache-Dauer). Das wird erreicht durch direktes löschen des WWH-Caches. Diese Änderung basiert auf der Erfahrung mit der Bereinigungsfunktion für gelöschte Benutzer.
+* Eine Änderung der Einstellung "Sortiere Benutzer nach:" wirkt sich jetzt sofort aus, nicht erst bei der nächsten Aktualisierung (abgelaufene Cache-Dauer). Das wird erreicht durch direktes löschen des WWH-Caches, sofern die Einstellung geändert wurde. Dadurch wird automatisch eine neue MySQL-Abfrage ausgeführt und die Anzeige aktualisiert. Diese Änderung basiert auf der Erfahrung mit der Bereinigungsfunktion für gelöschte Benutzer.
   * Dementsprechend in den Sprachdateien den Hinweis entfernt, der darüber informiert hat, das eine Änderung dieser Einstellung erst für die nächste Aktualisierung gilt. (Siehe 1.3.2)
 * Korrekturen und kleinere Änderungen in den Sprachdateien des ACP Moduls vorgenommen.
 * Bisher wurde die IP unnötigerweise auch dann als Tooltip angezeigt, wenn Zeit und IP bereits hinter dem Namen angezeigt wurden. Die Anzeige der IP im Tooltip ist jetzt davon abhängig, ob im Kontext die Zeit als Tooltip angezeigt wird.
-  * Entsprechend die Abblend-Funktion angepasst.
-  * Texte bezüglich "Zeige die Benutzer-IP:" angepasst.
-* Als Variablen-Präfix wurde sowohl "WHO_WAS_HERE_" als auch "WWH_" verwendet. Konsequent auf "WWH_" geändert.
+  * Entsprechend im ACP Modul die Abblend-Funktion an die neue Regel angepasst.
+  * Texte in den Sprachdateien bezüglich "Zeige die Benutzer-IP:" angepasst.
+* Als Variablen-Präfix wurde sowohl "WHO_WAS_HERE_" als auch "WWH_" verwendet. Konsequent auf "WWH_" umgestellt.
   * Core-Skript, Sprachdateien und Event-Templates angepasst.
 * Angepasste Templates für folgende Styles hinzugefügt. In Klammern ist die interne Style-Version angegeben.
   * Absolution 3.2.3 (3.2.3)
   * AcidTech 3.2.5 (3.2.5)
   * BlackBoard 3.2.5 (3.2.0)
   * Blackfog 3.2.5 (3.2.5)
-  * CleanSilver 3.2.5 (1.0.2) - Hinweis: Die Einstellung "Position der Anzeige:" muss entweder auf "Oben" oder "Unten" gesetzt werden. Bei "Vor Geburtstage" erfolgt keine Anzeige, da diese sonst das Layout im Stats-Block stören würde.
+  * CleanSilver 3.2.5 (1.0.2) - Hinweis: Die Einstellung "Position der Anzeige:" muss entweder auf "Oben" oder "Unten" gesetzt werden. Bei "Vor Geburtstage" wird dagegen die Anzeige unterdrückt, da diese sonst das Layout im Stats-Block stören würde.
   * Flat Style 3.2.5 (1.0.7)
   * HexagonReborn 3.2.4 (3.1.2)
   * Orange_BBEs 3.2.5 (2.0.6)
+  * rain_forest 3.2.4 (1.1.3)
   * Rock'n Roll 3.2.5 (2.0.4)
 * Eine Inkonsistenz bei der Generierung der Template-Variablen behoben. Der Inhalt der Variable `WWH_RECORD` wurde mit abschliessendem `<br />` generiert, was aber korrekterweise per Template erzeugt werden sollte, wie bei den Variablen `WWH_LIST` und `WWH_BOTS`. Dementsprechend wird die Variable jetzt ohne dieses HTML-Tag generiert, wodurch das Verhalten aller Variablen konsistent ist und auch mehr Kontrolle in den Templates bietet.
   * Alle Event-Templates an das neue Verhalten angepasst.
@@ -111,7 +114,7 @@
   * In den Sprachdateien 3 weitere Variablen für "Einstellungen zurücksetzen:" hinzugefügt.
 * Die Einstellung "Position der Anzeige:" in den zweiten Einstellungs-Bereich verschoben, da sie hier besser passt.
 * In den Sprachdateien bei mehreren Variablen Korrekturen vorgenommen.
-* Seit WWH 1.2.2 war das Intervall der Aktualisierung (cache time) direkt vom Wert "Zeitspanne für die Online-Anzeige:" von phpBB abhängig. Das Intervall kann nun unabhängig davon eingestellt werden. Als Untergrenze gilt 1 Minute und als Obergrenze gilt immer der genannte Wert "Zeitspanne für die Online-Anzeige:". (Vorschlag von chris1278)
+* Seit WWH 1.2.2 war das Intervall der Aktualisierung (cache time) direkt vom Wert "Zeitspanne für die Online-Anzeige:" von phpBB abhängig. Das Intervall kann nun unabhängig davon eingestellt werden. Als Untergrenze gilt 1 Minute und als Obergrenze gilt immer der genannte Wert "Zeitspanne für die Online-Anzeige:". (Wunsch von chris1278)
   * Entsprechend im ACP ein Textfeld hinzugefügt, das auf einen gültigen Wert mit den genannten Grenzen prüft.
   * In den Sprachdateien für "Intervall der Aktualisierung:" 2 neue Variablen hinzugefügt.
 * Eine zusätzliche Funktion bezüglich der Aktualisierung erlaubt die Wahl zwischen dem bisherigen Standardverhalten von WWH und der neuen Eingabemöglichkeit für das Intervall. (Vorschlag von Kirk)
