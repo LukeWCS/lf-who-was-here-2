@@ -17,7 +17,7 @@
   * Texte in den Sprachdateien bezüglich "Zeige die Benutzer-IP:" angepasst.
 * Als Variablen-Präfix wurde sowohl "WHO_WAS_HERE_" als auch "WWH_" verwendet. Konsequent auf "WWH_" umgestellt.
   * Core-Skript, Sprachdateien und Event-Templates angepasst.
-* Angepasste Templates für folgende Styles hinzugefügt. In Klammern ist die interne Style-Version angegeben.
+* Angepasste Templates für verschiedene Styles hinzugefügt. Dabei wurde die Style-Vererbung genutzt, das heisst jede Anpassung enthält nur die Änderungen gegenüber "prosilver". In Klammern ist die interne Style-Version angegeben.
   * Absolution 3.2.3 (3.2.3)
   * AcidTech 3.2.5 (3.2.5)
   * BlackBoard 3.2.5 (3.2.0)
@@ -30,6 +30,9 @@
   * Rock'n Roll 3.2.5 (2.0.4)
 * Eine Inkonsistenz bei der Generierung der Template-Variablen behoben. Der Inhalt der Variable `WWH_RECORD` wurde mit abschliessendem `<br />` generiert, was aber korrekterweise per Template erzeugt werden sollte, wie bei den Variablen `WWH_LIST` und `WWH_BOTS`. Dementsprechend wird die Variable jetzt ohne dieses HTML-Tag generiert, wodurch das Verhalten aller Variablen konsistent ist und auch mehr Kontrolle in den Templates bietet.
   * Alle Event-Templates an das neue Verhalten angepasst.
+* Eine neue Template-Funktion erlaubt die Anzeige aller Template-Positionen gleichzeitig. Diese Funktion dient nur zu Testzwecken. Zum Beispiel um WWH an einen neuen Style anpassen zu können, ohne mühselig jede Position einzeln testen zu müssen.
+  * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann. Diese befindet sich im Abschnitt "Sonstiges".
+  * In den Sprachdateien für "Zeige alle Template-Positionen gleichzeitig:" 2 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -

@@ -113,6 +113,8 @@ $lang = array_merge($lang, array(
 	'WWH_API_MODE_EXP'				=> 'Damit wird die Anzeige von WWH deaktiviert und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Foren gedacht, bei denen WWH bereits durch andere Erweiterungen (z.B. “Stat Block”) dargestellt wird.',
 	'WWH_CLEAR_UP'					=> 'Bei gelöschten Benutzern automatisch bereinigen',
 	'WWH_CLEAR_UP_EXP'				=> 'Wenn Benutzerkonten gelöscht werden, dann wird auch sofort die Tabelle und Anzeige von WWH bereinigt.',
+	'WWH_DISP_TEMPLATE_POS_ALL'		=> 'Zeige alle Template-Positionen gleichzeitig',	
+	'WWH_DISP_TEMPLATE_POS_ALL_EXP'	=> 'WWH wird auf allen Positionen gleichzeitig angezeigt. Das dient nur zum Testen und sollte im Normalbetrieb deaktiviert sein.',
 	// config section 5
 	'WWH_SECTION_RESET'				=> 'Zurücksetzen',
 	'WWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',

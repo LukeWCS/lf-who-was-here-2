@@ -184,6 +184,13 @@
 				<label><input type="radio" class="radio" name="wwh_clear_up" id="wwh_clear_up_0" value="0" {% if WWH_CLEAR_UP == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
+		<dl id="wwh_opt_disp_template_pos_all">
+			<dt><label>{{ lang('WWH_DISP_TEMPLATE_POS_ALL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('WWH_DISP_TEMPLATE_POS_ALL_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="wwh_disp_template_pos_all" id="wwh_disp_template_pos_all_1" value="1" onchange="wwh_set_controls_state()" {% if WWH_DISP_TEMPLATE_POS_ALL == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="wwh_disp_template_pos_all" id="wwh_disp_template_pos_all_0" value="0" onchange="wwh_set_controls_state()" {% if WWH_DISP_TEMPLATE_POS_ALL == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
 	</fieldset>
 
 	<fieldset>
@@ -222,8 +229,9 @@ function wwh_set_controls_state() {
 	document.getElementById("wwh_opt_disp_time_format").style.opacity = ((!document.getElementById("wwh_disp_time_0").selected || (!document.getElementById("wwh_disp_time_bots_0").selected && !document.getElementById("wwh_disp_bots_0").selected)) ? enabled : disabled);
 	document.getElementById("wwh_opt_disp_ip").style.opacity = ((!document.getElementById("wwh_disp_time_0").selected || (!document.getElementById("wwh_disp_time_bots_0").selected && !document.getElementById("wwh_disp_bots_0").selected)) ? enabled : disabled);
 	document.getElementById("wwh_opt_del_time").style.opacity = ((document.getElementById("wwh_version_0").selected) ? enabled : disabled);
-	document.getElementById("wwh_opt_cache_time").style.opacity = ((document.getElementById("wwh_use_online_time_0").checked) ? enabled : disabled);
 	document.getElementById("wwh_opt_record_timestamp").style.opacity = ((document.getElementById("wwh_record_1").checked) ? enabled : disabled);
+	document.getElementById("wwh_opt_cache_time").style.opacity = ((document.getElementById("wwh_use_online_time_0").checked) ? enabled : disabled);
+	document.getElementById("wwh_opt_disp_template_pos").style.opacity = ((document.getElementById("wwh_disp_template_pos_all_0").checked) ? enabled : disabled);
 }
 function wwh_set_defaults() {
 	document.getElementById("wwh_use_permissions_0").checked = true;
@@ -248,6 +256,7 @@ function wwh_set_defaults() {
 	document.getElementById("wwh_cache_time").value = "{{ WWH_CACHE_TIME_MAX }}";
 	document.getElementById("wwh_api_mode_0").checked = true;
 	document.getElementById("wwh_clear_up_1").checked = true;
+	document.getElementById("wwh_disp_template_pos_all_0").checked = true;
 	wwh_set_controls_state();
 }
 function wwh_button_reset() {

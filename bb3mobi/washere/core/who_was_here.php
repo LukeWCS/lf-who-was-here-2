@@ -189,9 +189,9 @@ class who_was_here
 		$wwh_disp_users = (
 			($this->config['wwh_use_permissions'])
 			? $this->auth->acl_gets('u_wwh_show_users')
-			: (($this->user->data['user_id'] != ANONYMOUS) || ($this->config['wwh_disp_for_guests'] == 1)) && empty($this->user->data['is_bot'])
+			: ($this->user->data['user_id'] != ANONYMOUS || $this->config['wwh_disp_for_guests'] == 1) && empty($this->user->data['is_bot'])
 		);
-		$wwh_disp_bots = (($this->config['wwh_disp_bots_only_admin'] == 1) && $this->auth->acl_get('a_')) || ($this->config['wwh_disp_bots_only_admin'] == 0);
+		$wwh_disp_bots = ($this->config['wwh_disp_bots_only_admin'] == 1 && $this->auth->acl_get('a_')) || $this->config['wwh_disp_bots_only_admin'] == 0;
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
 		$no_online_users = false;
 
@@ -217,7 +217,7 @@ class who_was_here
 		$wwh_username_colour = $wwh_username = $wwh_username_full = $users_list = $bots_list = '';
 
 		/* Load cache who_was_here */
-		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1);
+		$load_online_time = ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1;
 		if ($this->config['wwh_cache_time'] > $load_online_time)
 		{
 			$this->config->set('wwh_cache_time', $load_online_time);
@@ -358,12 +358,13 @@ class who_was_here
 			: ($wwh_disp_users || $this->config['wwh_disp_for_guests'] != 2) && empty($this->user->data['is_bot'])
 		);
 		$this->template->assign_vars(array(
-			'WWH_LIST'			=> ($wwh_disp_users ? sprintf($this->user->lang['WWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
-			'WWH_BOTS'			=> ($wwh_disp_users && $bots_list ? sprintf($this->user->lang['WWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
+			'WWH_LIST'			=> (($wwh_disp_users) ? sprintf($this->user->lang['WWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
+			'WWH_BOTS'			=> (($wwh_disp_users && $bots_list) ? sprintf($this->user->lang['WWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
 			'WWH_TOTAL'			=> (($wwh_total_permission) ? $this->get_total_users_string($count) : ''),
 			'WWH_EXP'			=> $this->get_explanation_string($this->config['wwh_version']),
 			'WWH_RECORD'		=> $this->get_record_string($this->config['wwh_record'], $this->config['wwh_version']),
 			'WWH_POS'			=> $this->config['wwh_disp_template_pos'],
+			'WWH_POS_ALL'		=> $this->config['wwh_disp_template_pos_all'],
 			'WWH_API_MODE'		=> $this->config['wwh_api_mode'],
 		));
 	}

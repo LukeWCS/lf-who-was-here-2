@@ -34,6 +34,7 @@ class v_1_5_0 extends \phpbb\db\migration\migration
 		return array(
 			// Add configs
 			array('config.add', array('wwh_clear_up', '1')),
+			array('config.add', array('wwh_disp_template_pos_all', '0')),
 			// Add permissions
 			// Set permissions
 			// Set permission roles

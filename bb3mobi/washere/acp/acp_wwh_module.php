@@ -56,6 +56,7 @@ class acp_wwh_module
 			$config->set('wwh_cache_time', $request->variable('wwh_cache_time', 0));
 			$config->set('wwh_api_mode', $request->variable('wwh_api_mode', 0));
 			$config->set('wwh_clear_up', $request->variable('wwh_clear_up', 0));
+			$config->set('wwh_disp_template_pos_all', $request->variable('wwh_disp_template_pos_all', 0));
 			if ($request->variable('wwh_reset', 0) > 0)
 			{
 				$config->set('wwh_record_ips', 1);
@@ -101,6 +102,7 @@ class acp_wwh_module
 			'WWH_CACHE_TIME_MAX'		=> $load_online_time,
 			'WWH_API_MODE'				=> $config['wwh_api_mode'],
 			'WWH_CLEAR_UP'				=> $config['wwh_clear_up'],
+			'WWH_DISP_TEMPLATE_POS_ALL'	=> $config['wwh_disp_template_pos_all'],
 			'U_ACTION'					=> $this->u_action,
 		));
 	}
