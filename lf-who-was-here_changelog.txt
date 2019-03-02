@@ -35,6 +35,7 @@
   * In den Sprachdateien für "Zeige alle Template-Positionen gleichzeitig:" 2 neue Variablen hinzugefügt.
 * Im ACP Modul den Link zu Anvar's WWH-Thema auf bb3.mobi entfernt, da sich die Diskussion dort auf das inzwischen veraltete NV-WWH bezieht.
   * Die zugehörige Sprachvariable `WWH_UPDATE_NEED` in `WWH_MOD_SUPPORT` umbenannt.
+* In `composer.json` bei `homepage` statt dem phpbb.de-Forenthema die GitHub Adresse hinterlegt, da dies eher einer Homepage entspricht.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -
