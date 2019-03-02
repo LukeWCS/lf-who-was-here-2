@@ -48,7 +48,7 @@ $lang = array_merge($lang, array(
 	// config head
 	'WWH_CONFIG_TITLE'				=> 'Wer war da? (%s)',
 	'WWH_INSTALLED' 				=> 'Installierte Version: %s',
-	'WWH_UPDATE_NEED'				=> '(Fork: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a> / Original: <a href="http://bb3.mobi/forum/viewtopic.php?t=66">BB3 Support</a>)',
+	'WWH_MOD_SUPPORT'				=> '(Diskussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a>)',
 	// config section 1
 	'WWH_SECTION_PERMISSIONS'		=> 'Berechtigungen',
 	'WWH_USE_PERMISSIONS'			=> 'Benutze das Berechtigungssystem von phpBB',

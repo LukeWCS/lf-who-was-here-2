@@ -16,7 +16,6 @@ class acp_wwh_info
 		return array(
 			'filename'	=> '\bb3mobi\washere\acp\acp_wwh_module',
 			'title'		=> 'WWH_TITLE',
-			'version'	=> '1.0.0',
 			'modes'		=> array(
 				'config_wwh'	=> array(
 					'title'	=> 'WWH_CONFIG',

@@ -1,9 +1,9 @@
-### Changelog 1.5.0 (2019--)
+### Changelog 1.5.0 (2019-03-)
 
 **Hinweis: Wer "B3P Who was here Modul" (von Kirk) und/oder "Brücke zwischen Wwh Ext und Statblock EXT" (von chris1278) im Einsatz hat, der sollte mit dem Update von LF-WWH warten, bis die Autoren ihre jeweiligen Erweiterungen ebenfalls aktualisiert haben, da die alten Versionen inkompatibel zu dieser Version von LF-WWH sind.**
 
 * Alle HTML Templates (ACP Modul und Events) von phpBB-Syntax auf TWIG-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
-* Eine neue Funktion ermöglicht eine automatische Bereinigung der WWH-Tabelle und des WWH-Caches wenn Benutzerkonten gelöscht wurden. Damit werden gelöschte Benutzer sofort aus der Ansicht entfernt, nicht erst bei Ablauf des eingestellten Zeitraums (Heute oder beliebiger Zeitraum). (Wunsch von Kirk)
+* Eine neue Funktion ermöglicht eine automatische Bereinigung der WWH-Tabelle und des WWH-Caches wenn Benutzerkonten gelöscht wurden. Damit werden gelöschte Benutzer sofort aus der Ansicht entfernt, nicht erst nach Ablauf des eingestellten Zeitraums (Heute oder beliebiger Zeitraum). (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion bei Bedarf deaktiviert werden kann. Per Standard ist sie aktiviert.
   * In den Sprachdateien für "Bei gelöschten Benutzern automatisch bereinigen:" 2 neue Variablen hinzugefügt.
 * Im ACP Modul einen neuen Abschnitt eingefügt.
@@ -33,6 +33,8 @@
 * Eine neue Template-Funktion erlaubt die Anzeige aller Template-Positionen gleichzeitig. Diese Funktion dient nur zu Testzwecken. Zum Beispiel um WWH an einen neuen Style anpassen zu können, ohne mühselig jede Position einzeln testen zu müssen.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann. Diese befindet sich im Abschnitt "Sonstiges".
   * In den Sprachdateien für "Zeige alle Template-Positionen gleichzeitig:" 2 neue Variablen hinzugefügt.
+* Im ACP Modul den Link zu Anvar's WWH-Thema auf bb3.mobi entfernt, da die Diskussion dort nichts mit LF-WWH zu tun hat und sich nur auf das inzwischen veraltete NV-WWH bezieht.
+  * Die dazugehörige Sprachvariable `WWH_UPDATE_NEED` in `WWH_MOD_SUPPORT` umbenannt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -
