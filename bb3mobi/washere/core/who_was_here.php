@@ -439,7 +439,6 @@ class who_was_here
 				$sql = 'DELETE FROM ' . WWH_TABLE . '
 					WHERE user_id = ' . (int) $user_id;
 				$result = $this->db->sql_query($sql);
-				//echo $user_id . " ...deleted <br>";
 				$delete_cache = true;
 			}			
 		}
