@@ -31,30 +31,32 @@ class v_1_4_0 extends \phpbb\db\migration\migration
 
 	public function update_data()
 	{
-		return array(
-			// Add configs
-			array('config.add', array('wwh_api_mode', '0')),
-			array('config.add', array('wwh_use_permissions', '0')),
-			// Add permissions
-			array('permission.add', array('u_wwh_show_stats')),
-			array('permission.add', array('u_wwh_show_users')),
-			// Set permissions
-			array('permission.permission_set', array('ADMINISTRATORS', 'u_wwh_show_users', 'group')),
-			array('permission.permission_set', array('GLOBAL_MODERATORS', 'u_wwh_show_users', 'group')),
-			array('permission.permission_set', array('REGISTERED', 'u_wwh_show_stats', 'group')),
-			array('permission.permission_set', array('REGISTERED', 'u_wwh_show_users', 'group')),
-			array('permission.permission_set', array('NEWLY_REGISTERED', 'u_wwh_show_users', 'group', false)),
-			array('permission.permission_set', array('GUESTS', 'u_wwh_show_stats', 'group')),
-			// Set permission roles
-			array('permission.permission_set', array('ROLE_USER_STANDARD', 'u_wwh_show_users', 'role')),
-			array('permission.permission_set', array('ROLE_USER_LIMITED', 'u_wwh_show_users', 'role')),
-			array('permission.permission_set', array('ROLE_USER_FULL', 'u_wwh_show_users', 'role')),
-			array('permission.permission_set', array('ROLE_USER_NOPM', 'u_wwh_show_users', 'role')),
-			array('permission.permission_set', array('ROLE_USER_NOAVATAR', 'u_wwh_show_users', 'role')),
-			array('permission.permission_set', array('ROLE_USER_NEW_MEMBER', 'u_wwh_show_users', 'role', false)),
-			// Set current version
-			array('config.update', array('wwh_mod_version', '1.4.0')),
-		);
+		$data = array();
+		
+		// Add configs
+		$data[] = array('config.add', array('wwh_api_mode', '0'));
+		$data[] = array('config.add', array('wwh_use_permissions', '0'));
+		// Add permissions
+		$data[] = array('permission.add', array('u_wwh_show_stats'));
+		$data[] = array('permission.add', array('u_wwh_show_users'));
+		// Set permissions
+		$data[] = array('permission.permission_set', array('ADMINISTRATORS', 'u_wwh_show_users', 'group'));
+		$data[] = array('permission.permission_set', array('GLOBAL_MODERATORS', 'u_wwh_show_users', 'group'));
+		$data[] = array('permission.permission_set', array('REGISTERED', 'u_wwh_show_stats', 'group'));
+		$data[] = array('permission.permission_set', array('REGISTERED', 'u_wwh_show_users', 'group'));
+		$data[] = array('permission.permission_set', array('NEWLY_REGISTERED', 'u_wwh_show_users', 'group', false));
+		$data[] = array('permission.permission_set', array('GUESTS', 'u_wwh_show_stats', 'group'));
+		// Set permission roles
+		if ($this->role_exists('ROLE_USER_STANDARD'))	$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD', 'u_wwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_LIMITED'))	$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED', 'u_wwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_FULL'))		$data[] = array('permission.permission_set', array('ROLE_USER_FULL', 'u_wwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_NOPM'))		$data[] = array('permission.permission_set', array('ROLE_USER_NOPM', 'u_wwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_NOAVATAR'))	$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR', 'u_wwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_NEW_MEMBER'))	$data[] = array('permission.permission_set', array('ROLE_USER_NEW_MEMBER', 'u_wwh_show_users', 'role', false));
+		// Set current version
+		$data[] = array('config.update', array('wwh_mod_version', '1.4.0'));
+		
+		return $data;
 	}
 
 	public function revert_data()
@@ -67,4 +69,15 @@ class v_1_4_0 extends \phpbb\db\migration\migration
 			array('permission.remove', array('u_wwh_show_stats')),
 		));
 	} 
+
+	private function role_exists($role)
+	{
+		$sql = 'SELECT role_id
+				FROM ' . ACL_ROLES_TABLE . "
+				WHERE role_name = '" . $this->db->sql_escape($role) . "'";
+		$result = $this->db->sql_query_limit($sql, 1);
+		$role_id = $this->db->sql_fetchfield('role_id');
+		$this->db->sql_freeresult($result);
+		return $role_id;
+	}
 }

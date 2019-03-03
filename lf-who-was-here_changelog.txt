@@ -1,3 +1,8 @@
+### Changelog 1.5.1 (2019-03-03)
+
+* Fix: Bei der Erstinstallation von LF-WWH kann die Migration beim Update-Schritt 1.4.0 fehlschlagen, wenn vom Admin eine der sechs Standard Benutzer-Rollen gelöscht wurde. Eine entsprechende Meldung wäre in diesem Fall z.B. "Die Berechtigungs-Rolle „ROLE_USER_NOAVATAR“ existiert unerwarteterweise nicht.". Dementsprechend wird jetzt in der Migration von 1.4.0 bei jeder Benutzer-Rolle geprüft, ob sie vorhanden ist. Wenn eine Rolle fehlt, wird sie korrekt übersprungen. Realisiert mit der Funktion `role_exists()` von combuster. (Meldung von Dr.Death)
+* Template-Änderungen: Nein
+
 ### Changelog 1.5.0 (2019-03-02)
 
 **Hinweis: Wer "B3P Who was here Modul" (von Kirk) und/oder "Brücke zwischen Wwh Ext und Statblock EXT" (von chris1278) im Einsatz hat, der sollte mit dem Update von LF-WWH warten, bis die Autoren ihre jeweiligen Erweiterungen ebenfalls aktualisiert haben, da deren alten Versionen inkompatibel mit dieser Version von LF-WWH sind.**
