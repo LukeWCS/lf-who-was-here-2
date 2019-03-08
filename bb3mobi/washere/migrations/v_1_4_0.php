@@ -78,6 +78,7 @@ class v_1_4_0 extends \phpbb\db\migration\migration
 		$result = $this->db->sql_query_limit($sql, 1);
 		$role_id = $this->db->sql_fetchfield('role_id');
 		$this->db->sql_freeresult($result);
+
 		return $role_id;
 	}
 }

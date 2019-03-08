@@ -94,10 +94,10 @@ class who_was_here
 
 			$this->db->sql_return_on_error(true);
 			$sql = 'UPDATE ' . WWH_TABLE . '
-				SET ' . $this->db->sql_build_array('UPDATE', $wwh_data) . '
-				WHERE user_id = ' . (int) $this->user->data['user_id'] . "
+					SET ' . $this->db->sql_build_array('UPDATE', $wwh_data) . '
+					WHERE user_id = ' . (int) $this->user->data['user_id'] . "
 					OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
-						AND user_id = " . ANONYMOUS . ')';
+					AND user_id = " . ANONYMOUS . ')';
 			$result = $this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
@@ -114,9 +114,9 @@ class who_was_here
 				{
 					// Found multiple matches, so we delete them and just add one
 					$sql = 'DELETE FROM ' . WWH_TABLE . '
-						WHERE user_id = ' . (int) $this->user->data['user_id'] . "
+							WHERE user_id = ' . (int) $this->user->data['user_id'] . "
 							OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
-								AND user_id = " . ANONYMOUS . ')';
+							AND user_id = " . ANONYMOUS . ')';
 					$this->db->sql_query($sql);
 					$this->db->sql_query('INSERT INTO ' . WWH_TABLE . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
 				}
@@ -125,10 +125,10 @@ class who_was_here
 				{
 					// No entry updated. Either the user is not listed yet, or has opened two links in the same time
 					$sql = 'SELECT 1 as found
-						FROM ' . WWH_TABLE . '
-						WHERE user_id = ' . (int) $this->user->data['user_id'] . "
+							FROM ' . WWH_TABLE . '
+							WHERE user_id = ' . (int) $this->user->data['user_id'] . "
 							OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
-								AND user_id = " . ANONYMOUS . ')';
+							AND user_id = " . ANONYMOUS . ')';
 					$result = $this->db->sql_query($sql);
 					$found = (int) $this->db->sql_fetchfield('found');
 					$this->db->sql_freeresult($result);
@@ -148,8 +148,8 @@ class who_was_here
 			}
 			$this->db->sql_return_on_error(true);
 			$sql = 'SELECT user_id
-				FROM ' . WWH_TABLE . "
-				WHERE user_ip = '" . $this->db->sql_escape($this->user->ip) . "'";
+					FROM ' . WWH_TABLE . "
+					WHERE user_ip = '" . $this->db->sql_escape($this->user->ip) . "'";
 			$result = $this->db->sql_query_limit($sql, 1);
 			$this->db->sql_return_on_error(false);
 
@@ -396,7 +396,7 @@ class who_was_here
 		{
 			$this->db->sql_return_on_error(true);
 			$sql = 'DELETE FROM ' . WWH_TABLE . '
-				WHERE wwh_lastpage <= ' . (int)$prune_timestamp;
+					WHERE wwh_lastpage <= ' . (int)$prune_timestamp;
 			$result = $this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
@@ -430,14 +430,14 @@ class who_was_here
 		foreach ($user_ids_ary as $user_id)
 		{
 			$sql = 'SELECT 1 as found
-				FROM  ' . WWH_TABLE . '
-				WHERE user_id = ' . (int) $user_id;
+					FROM  ' . WWH_TABLE . '
+					WHERE user_id = ' . (int) $user_id;
 			$result = $this->db->sql_query($sql);
 			$found = (int) $this->db->sql_fetchfield('found');
 			if ($found)
 			{
 				$sql = 'DELETE FROM ' . WWH_TABLE . '
-					WHERE user_id = ' . (int) $user_id;
+						WHERE user_id = ' . (int) $user_id;
 				$result = $this->db->sql_query($sql);
 				$delete_cache = true;
 			}			
@@ -476,8 +476,8 @@ class who_was_here
 		$user_id_ary = array();
 
 		$sql = 'SELECT user_id, username, username_clean, user_colour, user_type, viewonline, wwh_lastpage, user_ip
-			FROM  ' . WWH_TABLE . "
-			ORDER BY $sql_order_by $sql_ordering";
+				FROM  ' . WWH_TABLE . "
+				ORDER BY $sql_order_by $sql_ordering";
 		$result = $this->db->sql_query($sql);
 
 		$statrow = array();
