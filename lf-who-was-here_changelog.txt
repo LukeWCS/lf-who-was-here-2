@@ -1,3 +1,20 @@
+### Changelog 2.0.0 (2019--)
+
+* Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Das betrifft die nachfolgend aufgeführten Bereiche.
+  * Ordner der Erweiterung.
+  * Alle Pfadangaben innerhalb der Dateien.
+  * Konfigurationsvariablen, diese haben ein eigenes Präfix und manche wurden komplett umbenannt.
+  * Tabelle der Besucher.
+  * Rechtesystem.
+  * Template-Variablen.
+  * Sprach-Variablen.
+* Automatische Datenübernahme von NV-WWH (beliebige Version) und LF-WWH 1.x (beliebige Version). Dazu muss die alte Version zunächst installiert bleiben, damit bei der Installation von LF-WWH 2.x die Daten importiert werden können. Dies geschieht automatisch, sobald LF-WWH 2.x das erste Mal aktiviert wird. Dabei wird die komplette Konfiguration inklusive Besucherrekord übernommen, sowie die aktuelle Besucher-Tabelle. Nicht übernommen werden die Rechte, diese müssen nach der Installation ggf. angepasst werden, sofern das vollständige Rechtesystem von phpBB genutzt wurde. Wurde nur das vereinfachte Rechtesystem von LF-WWH genutzt, kann dieser Schritt entfallen.
+* Template-Änderungen: Ja 
+  * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
+  * Neu: -
+  * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
+  * Gelöscht: -
+
 ### Changelog 1.5.1 (2019-03-03)
 
 * Fix: Bei der Erstinstallation von LF-WWH kann die Migration beim Update-Schritt 1.4.0 fehlschlagen, wenn vom Admin eine der sechs Standard Benutzer-Rollen gelöscht wurde. Eine entsprechende Meldung wäre in diesem Fall z.B. "Die Berechtigungs-Rolle „ROLE_USER_NOAVATAR“ existiert unerwarteterweise nicht.". Dementsprechend wird jetzt in der Migration von 1.4.0 bei jeder Benutzer-Rolle geprüft, ob sie vorhanden ist. Wenn eine Rolle fehlt, wird sie korrekt übersprungen. Realisiert mit der Funktion `role_exists()` von combuster. (Meldung von Dr.Death)

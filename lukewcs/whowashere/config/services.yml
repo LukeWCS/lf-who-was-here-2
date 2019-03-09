@@ -1,0 +1,18 @@
+services:
+    lukewcs.whowashere.helper:
+        class: lukewcs\whowashere\core\who_was_here
+        arguments:
+            - '@template'
+            - '@config'
+            - '@user'
+            - '@auth'
+            - '@cache.driver'
+            - '@dbal.conn'
+            - '%core.table_prefix%'
+    lukewcs.whowashere.listener:
+        class: lukewcs\whowashere\event\listener
+        arguments:
+            - '@lukewcs.whowashere.helper'
+            - '@config'
+        tags:
+            - { name: event.listener }

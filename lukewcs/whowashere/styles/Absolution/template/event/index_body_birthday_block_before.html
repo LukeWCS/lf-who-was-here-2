@@ -1,0 +1,6 @@
+{% if LFWWH_TOTAL && (LFWWH_POS == 2 || LFWWH_POS_ALL) && !LFWWH_API_MODE %}
+<li class="row">
+{% INCLUDE '@lukewcs_whowashere/who_was_here.html' %}
+</li>
+{% INCLUDEJS '@lukewcs_whowashere/who_was_here.js' %}
+{% endif %}

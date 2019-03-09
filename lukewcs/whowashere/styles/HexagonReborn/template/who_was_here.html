@@ -1,0 +1,9 @@
+<div class="stat-block online-list">
+	<h3><i class="icon fa-user fa-fw cat" aria-hidden="true"></i>{{ lang('LFWWH_TITLE') }}</h3>
+	<p>
+		{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
+		{% if LFWWH_RECORD %}{{ LFWWH_RECORD }}<br />{% endif %}
+		{% if LFWWH_LIST %}<br />{{ LFWWH_LIST }}{% endif %}
+		{% if LFWWH_BOTS %}<br />{{ LFWWH_BOTS }}{% endif %}
+	</p>
+</div>

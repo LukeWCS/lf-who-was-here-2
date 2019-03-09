@@ -1,0 +1,41 @@
+{
+	"name": "lukewcs/whowashere",
+	"type": "phpbb-extension",
+	"description": "Shows a visitor statistic of the current day or a freely selectable period. It lists both visitors and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.",
+	"homepage": "https://github.com/LukeWCS/lf-who-was-here",
+	"version": "2.0.0-dev",
+	"time": "2019-03-09",
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "LukeWCS",
+			"homepage": "https://www.wcsaga.org",
+			"role": "Developer (adapting for 3.2 and improvements)"
+		},
+		{
+			"name": "Anvar",
+			"homepage": "http://phpbbguru.net",
+			"role": "Former developer (converting to 3.1 extension)"
+		},
+		{
+			"name": "Joas Schilling [nickvergessen]",
+			"homepage": "http://www.flying-bits.org/",
+			"role": "Original MOD author"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"extra": {
+		"display-name": "LF who was here (Gen 4)",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.11"
+		},
+		"version-check": {
+			"host": "raw.githubusercontent.com",
+			"directory": "/LukeWCS/lf-who-was-here/master",
+			"filename": "lf-who-was-here_version.json",
+			"ssl": true
+		}
+	}
+}

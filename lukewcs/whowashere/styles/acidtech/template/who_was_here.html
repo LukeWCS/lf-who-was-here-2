@@ -1,0 +1,11 @@
+<div class="cat-head">
+	<span>{{ lang('LFWWH_TITLE') }}</span>
+</div>
+<div class="stat-block online-list">
+	<p>
+		{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
+		{% if LFWWH_RECORD %}{{ LFWWH_RECORD }}<br />{% endif %}
+		{% if LFWWH_LIST %}<br />{{ LFWWH_LIST }}{% endif %}
+		{% if LFWWH_BOTS %}<br />{{ LFWWH_BOTS }}{% endif %}
+	</p>
+</div>
