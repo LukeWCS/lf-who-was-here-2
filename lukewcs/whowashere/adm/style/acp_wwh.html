@@ -1,8 +1,8 @@
 {% INCLUDE 'overall_header.html' %}
 <a name="maincontent"></a>
 
-<h1>{{ LFWWH_CONFIG_TITLE }}</h1>
-<p>{{ LFWWH_MOD_VERSION }} {{ lang('LFWWH_MOD_SUPPORT') }}</p>
+<h1>{{ LFWWH_CONFIG_TITLE_TEXT }}</h1>
+<p>{{ LFWWH_INSTALLED_TEXT }}</p>
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
@@ -105,16 +105,16 @@
 				</select>
 			</dd>
 		</dl>
-		<dl id="lfwwh_opt_del_time">
+		<dl id="lfwwh_opt_period_of_time">
 			<dt><label>{{ lang('LFWWH_TIME_MODE_2') }}{{ lang('COLON') }}</label></dt>
 			<dd>
-				<input type="text" name="lfwwh_del_time_h" id="lfwwh_del_time_h" size="6" value="{{ LFWWH_DEL_TIME_H }}" /> {{ lang('HOURS') }}
+				<input type="text" name="lfwwh_period_of_time_h" id="lfwwh_period_of_time_h" size="6" value="{{ LFWWH_PERIOD_OF_TIME_H }}" /> {{ lang('HOURS') }}
 			</dd>
 			<dd>
-				<input type="text" name="lfwwh_del_time_m" id="lfwwh_del_time_m" size="6" value="{{ LFWWH_DEL_TIME_M }}" /> {{ lang('MINUTES') }}
+				<input type="text" name="lfwwh_period_of_time_m" id="lfwwh_period_of_time_m" size="6" value="{{ LFWWH_PERIOD_OF_TIME_M }}" /> {{ lang('MINUTES') }}
 			</dd>
 			<dd>
-				<input type="text" name="lfwwh_del_time_s" id="lfwwh_del_time_s" size="6" value="{{ LFWWH_DEL_TIME_S }}" /> {{ lang('SECONDS') }}
+				<input type="text" name="lfwwh_period_of_time_s" id="lfwwh_period_of_time_s" size="6" value="{{ LFWWH_PERIOD_OF_TIME_S }}" /> {{ lang('SECONDS') }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_sort_by">
@@ -228,7 +228,7 @@ function lfwwh_set_controls_state() {
 	document.getElementById("lfwwh_opt_disp_time_bots").style.opacity = ((!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled);
 	document.getElementById("lfwwh_opt_disp_time_format").style.opacity = ((!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled);
 	document.getElementById("lfwwh_opt_disp_ip").style.opacity = ((!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_del_time").style.opacity = ((document.getElementById("lfwwh_time_mode_0").selected) ? enabled : disabled);
+	document.getElementById("lfwwh_opt_period_of_time").style.opacity = ((document.getElementById("lfwwh_time_mode_0").selected) ? enabled : disabled);
 	document.getElementById("lfwwh_opt_record_time_format").style.opacity = ((document.getElementById("lfwwh_record_1").checked) ? enabled : disabled);
 	document.getElementById("lfwwh_opt_cache_time").style.opacity = ((document.getElementById("lfwwh_use_online_time_0").checked) ? enabled : disabled);
 	document.getElementById("lfwwh_opt_disp_template_pos").style.opacity = ((document.getElementById("lfwwh_disp_template_pos_all_0").checked) ? enabled : disabled);
@@ -245,9 +245,9 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_disp_time_format").value = "G:i";
 	document.getElementById("lfwwh_disp_ip_1").checked = true;
 	document.getElementById("lfwwh_time_mode_1").selected = true;
-	document.getElementById("lfwwh_del_time_h").value = "24";
-	document.getElementById("lfwwh_del_time_m").value = "0";
-	document.getElementById("lfwwh_del_time_s").value = "0";
+	document.getElementById("lfwwh_period_of_time_h").value = "24";
+	document.getElementById("lfwwh_period_of_time_m").value = "0";
+	document.getElementById("lfwwh_period_of_time_s").value = "0";
 	document.getElementById("lfwwh_sort_by_3").selected = true;
 	document.getElementById("lfwwh_record_1").checked = true;
 	document.getElementById("lfwwh_record_time_format").value = "D j. M Y";

@@ -46,9 +46,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_NAV_TITLE'					=> 'Who was here? (Gen 4)',
 	'LFWWH_NAV_CONFIG'					=> 'Settings',
 	// config head
-	'LFWWH_CONFIG_TITLE'				=> 'Who was here? (%s)',
-	'LFWWH_INSTALLED' 					=> 'Installed version: %s',
-	'LFWWH_MOD_SUPPORT'					=> '(Discussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Topic on phpbb.de</a>)',
+	'LFWWH_CONFIG_TITLE'				=> 'Who was here? [%s]',
+	'LFWWH_INSTALLED' 					=> 'Installed version: %s &bull; Discussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Topic on phpbb.de</a>',
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
 	'LFWWH_USE_PERMISSIONS'				=> 'Use the permission system of phpBB',
@@ -122,7 +121,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_DEFAULTS_BUTTON'				=> 'Defaults',
 	'LFWWH_RESET'						=> 'Reset visitor record',
 	'LFWWH_RESET_EXP'					=> 'Resets time and counter for the visitor record.',
-	// config messages
+	// messages
 	'LFWWH_SAVED_SETTINGS'				=> 'Who was here: Configuration updated successfully.',
 	'LFWWH_RESET_TRUE'					=> 'Who was here: If you submit this form, the visitor record will be reseted.', // \n is the beginning of a new line
+	'LFWWH_CLEANED_UP'					=> 'Who was here: Display has been cleaned up.',
 ));

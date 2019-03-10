@@ -10,7 +10,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return isset($this->config['lfwwh_mod_version']) && version_compare($this->config['lfwwh_mod_version'], '2.0.0', '>=');
+		return isset($this->config['lfwwh_ext_version']) && version_compare($this->config['lfwwh_ext_version'], '2.0.0', '>=');
 	}
 
 	static public function depends_on()
@@ -27,9 +27,9 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_api_mode'				, (isset($this->config['wwh_api_mode']))				? $this->config['wwh_api_mode']					: '0'));
 		$data[] = array('config.add', array('lfwwh_cache_time'				, (isset($this->config['wwh_cache_time']))				? $this->config['wwh_cache_time']				: $load_online_time));
 		$data[] = array('config.add', array('lfwwh_clear_up'				, (isset($this->config['wwh_clear_up']))				? $this->config['wwh_clear_up']					: '1'));
-		$data[] = array('config.add', array('lfwwh_del_time_h'				, (isset($this->config['wwh_del_time_h']))				? $this->config['wwh_del_time_h']				: '24'));
-		$data[] = array('config.add', array('lfwwh_del_time_m'				, (isset($this->config['wwh_del_time_m']))				? $this->config['wwh_del_time_m']				: '0'));
-		$data[] = array('config.add', array('lfwwh_del_time_s'				, (isset($this->config['wwh_del_time_s']))				? $this->config['wwh_del_time_s']				: '0'));
+		$data[] = array('config.add', array('lfwwh_period_of_time_h'		, (isset($this->config['wwh_del_time_h']))				? $this->config['wwh_del_time_h']				: '24'));
+		$data[] = array('config.add', array('lfwwh_period_of_time_m'		, (isset($this->config['wwh_del_time_m']))				? $this->config['wwh_del_time_m']				: '0'));
+		$data[] = array('config.add', array('lfwwh_period_of_time_s'		, (isset($this->config['wwh_del_time_s']))				? $this->config['wwh_del_time_s']				: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_bots'				, (isset($this->config['wwh_disp_bots']))				? $this->config['wwh_disp_bots']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_bots_only_admin'	, (isset($this->config['wwh_disp_bots_only_admin']))	? $this->config['wwh_disp_bots_only_admin']		: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_for_guests'			, (isset($this->config['wwh_disp_for_guests']))			? $this->config['wwh_disp_for_guests']			: '0'));
@@ -79,7 +79,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 			'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',
 		)));
 		// Set current version
-		$data[] = array('config.add', array('lfwwh_mod_version'				, '2.0.0'));
+		$data[] = array('config.add', array('lfwwh_ext_version'				, '2.0.0'));
 		
 		return $data;
 	}

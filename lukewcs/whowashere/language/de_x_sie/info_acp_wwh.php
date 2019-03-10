@@ -46,9 +46,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_NAV_TITLE'					=> 'Wer war da? (Gen 4)',
 	'LFWWH_NAV_CONFIG'					=> 'Einstellungen',
 	// config head
-	'LFWWH_CONFIG_TITLE'				=> 'Wer war da? (%s)',
-	'LFWWH_INSTALLED' 					=> 'Installierte Version: %s',
-	'LFWWH_MOD_SUPPORT'					=> '(Diskussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a>)',
+	'LFWWH_CONFIG_TITLE'				=> 'Wer war da? [%s]',
+	'LFWWH_INSTALLED' 					=> 'Installierte Version: %s &bull; Diskussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a>',
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Berechtigungen',
 	'LFWWH_USE_PERMISSIONS'				=> 'Benutze das Berechtigungssystem von phpBB',
@@ -122,7 +121,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_DEFAULTS_BUTTON'				=> 'Standard',
 	'LFWWH_RESET'						=> 'Besucherrekord zurücksetzen',
 	'LFWWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
-	// config messages
+	// messages
 	'LFWWH_SAVED_SETTINGS'				=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'LFWWH_RESET_TRUE'					=> 'Wer war da: Wenn Sie diese Seite speichern, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
+	'LFWWH_CLEANED_UP'					=> 'Wer war da: Anzeige wurde bereinigt.',
 ));

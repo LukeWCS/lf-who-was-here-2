@@ -389,7 +389,7 @@ class who_was_here
 		}
 		else
 		{
-			$prune_timestamp = $timestamp - ((3600 * $this->config['lfwwh_del_time_h']) + (60 * $this->config['lfwwh_del_time_m']) + $this->config['lfwwh_del_time_s']);
+			$prune_timestamp = $timestamp - ((3600 * $this->config['lfwwh_period_of_time_h']) + (60 * $this->config['lfwwh_period_of_time_m']) + $this->config['lfwwh_period_of_time_s']);
 		}
 
 		if ((!isset($this->config['lfwwh_last_clean']) || ($this->config['lfwwh_last_clean'] != $prune_timestamp)) || !$this->config['lfwwh_time_of_period_mode'])
@@ -425,7 +425,7 @@ class who_was_here
 		{
 			return;
 		}
-		$delete_cache = false;
+		$user_deleted = false;
 		
 		foreach ($user_ids_ary as $user_id)
 		{
@@ -439,13 +439,18 @@ class who_was_here
 				$sql = 'DELETE FROM ' . LFWWH_TABLE . '
 						WHERE user_id = ' . (int) $user_id;
 				$result = $this->db->sql_query($sql);
-				$delete_cache = true;
+				$user_deleted = true;
 			}			
 		}
 		
-		if ($delete_cache) 
+		if ($user_deleted) 
 		{
 			$this->cache->destroy("_lf_who_was_here");
+			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_wwh');
+			$lang = $this->user->lang;
+		 	if (isset($lang['USER_DELETED']))			$lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
+			if (isset($lang['USER_DELETE_SUCCESS'])) 	$lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
+			$this->user->lang = $lang;
 		}
 	}
 
@@ -518,9 +523,9 @@ class who_was_here
 		else
 		{
 			$explanation = $this->user->lang['LFWWH_EXP_TIME'];
-			$explanation .= $this->user->lang('LFWWH_HOURS', (int) $this->config['lfwwh_del_time_h']);
-			$explanation .= $this->user->lang('LFWWH_MINUTES', (int) $this->config['lfwwh_del_time_m']);
-			$explanation .= $this->user->lang('LFWWH_SECONDS', (int) $this->config['lfwwh_del_time_s']);
+			$explanation .= $this->user->lang('LFWWH_HOURS', (int) $this->config['lfwwh_period_of_time_h']);
+			$explanation .= $this->user->lang('LFWWH_MINUTES', (int) $this->config['lfwwh_period_of_time_m']);
+			$explanation .= $this->user->lang('LFWWH_SECONDS', (int) $this->config['lfwwh_period_of_time_s']);
 
 			switch (substr_count($explanation, '%s'))
 			{
@@ -551,7 +556,7 @@ class who_was_here
 		}
 		else
 		{
-			$this->config['lfwwh_record_time2'] = $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_del_time_h']) - (60 * $this->config['lfwwh_del_time_m']) - $this->config['lfwwh_del_time_s'];
+			$this->config['lfwwh_record_time2'] = $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
 			return sprintf($this->user->lang['LFWWH_RECORD_TIME'], $this->config['lfwwh_record_ips'], $this->user->format_date($this->config['lfwwh_record_time2'], $this->config['lfwwh_record_time_format']), $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
 		}
 	}

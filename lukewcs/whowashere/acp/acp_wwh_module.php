@@ -45,9 +45,9 @@ class acp_wwh_module
 			$config->set('lfwwh_disp_time_format'		, $request->variable('lfwwh_disp_time_format', 'H:i'));
 			$config->set('lfwwh_disp_ip'				, $request->variable('lfwwh_disp_ip', 0));
 			$config->set('lfwwh_time_mode'				, $request->variable('lfwwh_time_mode', 0));
-			$config->set('lfwwh_del_time_h'				, $request->variable('lfwwh_del_time_h', 0));
-			$config->set('lfwwh_del_time_m'				, $request->variable('lfwwh_del_time_m', 0));
-			$config->set('lfwwh_del_time_s'				, $request->variable('lfwwh_del_time_s', 0));
+			$config->set('lfwwh_period_of_time_h'		, $request->variable('lfwwh_period_of_time_h', 0));
+			$config->set('lfwwh_period_of_time_m'		, $request->variable('lfwwh_period_of_time_m', 0));
+			$config->set('lfwwh_period_of_time_s'		, $request->variable('lfwwh_period_of_time_s', 0));
 			$config->set('lfwwh_sort_by'				, $request->variable('lfwwh_sort_by', 0));
 			$config->set('lfwwh_record'					, $request->variable('lfwwh_record', 0));
 			$config->set('lfwwh_record_time_format'		, $request->variable('lfwwh_record_time_format', 'D j. M Y'));
@@ -67,7 +67,7 @@ class acp_wwh_module
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}
-			trigger_error($user->lang['WWH_SAVED_SETTINGS'] . adm_back_link($this->u_action));
+			trigger_error($user->lang['LFWWH_SAVED_SETTINGS'] . adm_back_link($this->u_action));
 		}
 
 		$load_online_time = (($config['load_online_time'] >= 1) ? $config['load_online_time'] : 1);
@@ -77,8 +77,8 @@ class acp_wwh_module
 		}
 
 		$template->assign_vars(array(
-			'LFWWH_MOD_VERSION'				=> sprintf($user->lang['LFWWH_INSTALLED'], $config['lfwwh_mod_version']),
-			'LFWWH_CONFIG_TITLE'			=> sprintf($user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here'),
+			'LFWWH_INSTALLED_TEXT'			=> sprintf($user->lang['LFWWH_INSTALLED'], $config['lfwwh_ext_version']),
+			'LFWWH_CONFIG_TITLE_TEXT'		=> sprintf($user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here (Gen 4)'),
 			'LFWWH_USE_PERMISSIONS'			=> $config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $config['lfwwh_disp_for_guests'],
 			'LFWWH_DISP_BOTS'				=> $config['lfwwh_disp_bots'],
@@ -90,9 +90,9 @@ class acp_wwh_module
 			'LFWWH_DISP_TIME_FORMAT'		=> $config['lfwwh_disp_time_format'],
 			'LFWWH_DISP_IP'					=> $config['lfwwh_disp_ip'],
 			'LFWWH_TIME_MODE'				=> $config['lfwwh_time_mode'],
-			'LFWWH_DEL_TIME_H'				=> $config['lfwwh_del_time_h'],
-			'LFWWH_DEL_TIME_M'				=> $config['lfwwh_del_time_m'],
-			'LFWWH_DEL_TIME_S'				=> $config['lfwwh_del_time_s'],
+			'LFWWH_PERIOD_OF_TIME_H'		=> $config['lfwwh_period_of_time_h'],
+			'LFWWH_PERIOD_OF_TIME_M'		=> $config['lfwwh_period_of_time_m'],
+			'LFWWH_PERIOD_OF_TIME_S'		=> $config['lfwwh_period_of_time_s'],
 			'LFWWH_SORT_BY'					=> $config['lfwwh_sort_by'],
 			'LFWWH_RECORD'					=> $config['lfwwh_record'],
 			'LFWWH_RECORD_TIME_FORMAT'		=> $config['lfwwh_record_time_format'],

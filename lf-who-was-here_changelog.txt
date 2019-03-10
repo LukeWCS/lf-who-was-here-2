@@ -1,14 +1,27 @@
 ### Changelog 2.0.0 (2019--)
 
+
+* B2: 
+  * Fix: WWH_SAVED_SETTINGS (Kirk)
+  * Weitere Konfigurationsvariablen umbenannt. Darum muss B1 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Die Bereingungs-Benachrichtigung eingebaut. @Kirk: Da wäre ein Test in 3.1.12 sinnvoll.
+  * Die Informationszeile im ACP Modul über die Sprachdatei frei gestaltbar gemacht.
+* B1:
+  * Initial Release
+
+
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Das betrifft die nachfolgend aufgeführten Bereiche.
   * Ordner der Erweiterung.
   * Alle Pfadangaben innerhalb der Dateien.
-  * Konfigurationsvariablen, diese haben ein eigenes Präfix und manche wurden komplett umbenannt.
+  * Konfigurationsvariablen.
   * Tabelle der Besucher.
   * Rechtesystem.
   * Template-Variablen.
   * Sprach-Variablen.
 * Automatische Datenübernahme von NV-WWH (beliebige Version) und LF-WWH 1.x (beliebige Version). Dazu muss die alte Version zunächst installiert bleiben, damit bei der Installation von LF-WWH 2.x die Daten importiert werden können. Dies geschieht automatisch, sobald LF-WWH 2.x das erste Mal aktiviert wird. Dabei wird die komplette Konfiguration inklusive Besucherrekord übernommen, sowie die aktuelle Besucher-Tabelle. Nicht übernommen werden die Rechte, diese müssen nach der Installation ggf. angepasst werden, sofern das vollständige Rechtesystem von phpBB genutzt wurde. Wurde nur das vereinfachte Rechtesystem von LF-WWH genutzt, kann dieser Schritt entfallen.
+* Wenn Benutzerkonten gelöscht werden und infolgedessen eine Bereinigung der WWH-Tabelle und der WWH-Anzeige nötig wird, dann wird innerhalb der Lösch-Bestätigung von phpBB zusätzlich eine Benachrichtigung von LF-WWH angezeigt, das die WWH-Anzeige bereinigt wurde. Diese Meldung erscheint nur dann, wenn die Bereinigung auch aktiviert ist (Standard) und wenn auch tatsächlich bereingt wurde.
+* Im ACP-Modul kann nun die Informationszeile für die Version und für den Link in den Sprachdateien frei gestaltet werden.
+  * Dementsprechend in den Sprachdateien die Variable `LFWWH_INSTALLED` angepasst und `LFWWH_MOD_SUPPORT` entfernt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
   * Neu: -
