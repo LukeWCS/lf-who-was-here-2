@@ -1,11 +1,13 @@
 ### Changelog 2.0.0 (2019--)
 
-
+* B3: 
+  * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
+  * Im ACP-Modul eine weitere Template Variable umbenannt.
 * B2: 
-  * Fix: WWH_SAVED_SETTINGS (Kirk)
+  * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Kirk)
   * Weitere Konfigurationsvariablen umbenannt. Darum muss B1 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Die Bereingungs-Benachrichtigung eingebaut. @Kirk: Da wäre ein Test in 3.1.12 sinnvoll.
-  * Die Informationszeile im ACP Modul über die Sprachdatei frei gestaltbar gemacht.
+  * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
 * B1:
   * Initial Release
 

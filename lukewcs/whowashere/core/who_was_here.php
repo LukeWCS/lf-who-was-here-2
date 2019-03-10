@@ -361,8 +361,8 @@ class who_was_here
 			'LFWWH_LIST'		=> (($wwh_disp_users) ? sprintf($this->user->lang['LFWWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
 			'LFWWH_BOTS'		=> (($wwh_disp_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
 			'LFWWH_TOTAL'		=> (($wwh_total_permission) ? $this->get_total_users_string($count) : ''),
-			'LFWWH_EXP'			=> $this->get_explanation_string($this->config['lfwwh_time_of_period_mode']),
-			'LFWWH_RECORD'		=> $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_of_period_mode']),
+			'LFWWH_EXP'			=> $this->get_explanation_string($this->config['lfwwh_time_mode']),
+			'LFWWH_RECORD'		=> $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']),
 			'LFWWH_POS'			=> $this->config['lfwwh_disp_template_pos'],
 			'LFWWH_POS_ALL'		=> $this->config['lfwwh_disp_template_pos_all'],
 			'LFWWH_API_MODE'	=> $this->config['lfwwh_api_mode'],
@@ -375,7 +375,7 @@ class who_was_here
 	public function prune()
 	{
 		$timestamp = time();
-		if ($this->config['lfwwh_time_of_period_mode'])
+		if ($this->config['lfwwh_time_mode'])
 		{
 			/* OLD function
 			$prune_timestamp = gmmktime(0, 0, 0, gmdate('m', $timestamp), gmdate('d', $timestamp), gmdate('Y', $timestamp));
@@ -392,7 +392,7 @@ class who_was_here
 			$prune_timestamp = $timestamp - ((3600 * $this->config['lfwwh_period_of_time_h']) + (60 * $this->config['lfwwh_period_of_time_m']) + $this->config['lfwwh_period_of_time_s']);
 		}
 
-		if ((!isset($this->config['lfwwh_last_clean']) || ($this->config['lfwwh_last_clean'] != $prune_timestamp)) || !$this->config['lfwwh_time_of_period_mode'])
+		if ((!isset($this->config['lfwwh_last_clean']) || ($this->config['lfwwh_last_clean'] != $prune_timestamp)) || !$this->config['lfwwh_time_mode'])
 		{
 			$this->db->sql_return_on_error(true);
 			$sql = 'DELETE FROM ' . LFWWH_TABLE . '
@@ -406,7 +406,7 @@ class who_was_here
 				return false;
 			}
 
-			if ($this->config['lfwwh_time_of_period_mode'])
+			if ($this->config['lfwwh_time_mode'])
 			{
 				$this->config->set('lfwwh_last_clean', $prune_timestamp);
 			}

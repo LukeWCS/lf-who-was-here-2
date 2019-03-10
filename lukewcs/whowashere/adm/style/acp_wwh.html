@@ -101,12 +101,12 @@
 			<dd>
 				<select name="lfwwh_time_mode" onchange="lfwwh_set_controls_state()">
 					<option id="lfwwh_time_mode_1" value="1" {% if LFWWH_TIME_MODE == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_TIME_MODE_1') }}</option>
-					<option id="lfwwh_time_mode_0" value="0" {% if LFWWH_TIME_MODE == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_TIME_MODE_2') }}</option>
+					<option id="lfwwh_time_mode_0" value="0" {% if LFWWH_TIME_MODE == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_TIME_MODE_0') }}</option>
 				</select>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_period_of_time">
-			<dt><label>{{ lang('LFWWH_TIME_MODE_2') }}{{ lang('COLON') }}</label></dt>
+			<dt><label>{{ lang('LFWWH_TIME_MODE_0') }}{{ lang('COLON') }}</label></dt>
 			<dd>
 				<input type="text" name="lfwwh_period_of_time_h" id="lfwwh_period_of_time_h" size="6" value="{{ LFWWH_PERIOD_OF_TIME_H }}" /> {{ lang('HOURS') }}
 			</dd>
