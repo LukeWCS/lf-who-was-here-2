@@ -119,10 +119,11 @@ $lang = array_merge($lang, array(
 	'LFWWH_DEFAULTS'					=> 'Reset settings',
 	'LFWWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset record”)',
 	'LFWWH_DEFAULTS_BUTTON'				=> 'Defaults',
-	'LFWWH_RESET'						=> 'Reset visitor record',
-	'LFWWH_RESET_EXP'					=> 'Resets time and counter for the visitor record.',
+	'LFWWH_RECORD_RESET'				=> 'Reset visitor record',
+	'LFWWH_RECORD_RESET_EXP'			=> 'Resets time and counter for the visitor record.',
+	'LFWWH_RECORD_RESET_TIME_HINT'		=> '(Reset on: %s)',
 	// messages
 	'LFWWH_SAVED_SETTINGS'				=> 'Who was here: Configuration updated successfully.',
-	'LFWWH_RESET_TRUE'					=> 'Who was here: If you submit this form, the visitor record will be reseted.', // \n is the beginning of a new line
+	'LFWWH_CONFIRM_RECORD_RESET'		=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.', // \n is the beginning of a new line
 	'LFWWH_CLEANED_UP'					=> 'Who was here: Display has been cleaned up.',
 ));

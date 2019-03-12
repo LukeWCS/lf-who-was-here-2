@@ -47,7 +47,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_record_ips'				, (isset($this->config['wwh_record_ips']))				? $this->config['wwh_record_ips']				: '1'), true);
 		$data[] = array('config.add', array('lfwwh_record_time'				, (isset($this->config['wwh_record_time']))				? $this->config['wwh_record_time']				: time()), true);
 		$data[] = array('config.add', array('lfwwh_record_time_format'		, (isset($this->config['wwh_record_timestamp']))		? $this->config['wwh_record_timestamp']			: 'D j. M Y'));
-		$data[] = array('config.add', array('lfwwh_reset_time'				, (isset($this->config['wwh_reset_time']))				? $this->config['wwh_reset_time']				: '1'));
+		$data[] = array('config.add', array('lfwwh_record_reset_time'		, (isset($this->config['wwh_reset_time']))				? $this->config['wwh_reset_time']				: '1'));
 		$data[] = array('config.add', array('lfwwh_sort_by'					, (isset($this->config['wwh_sort_by']))					? $this->config['wwh_sort_by']					: '3'));
 		$data[] = array('config.add', array('lfwwh_use_online_time'			, (isset($this->config['wwh_use_online_time']))			? $this->config['wwh_use_online_time']			: '1'));
 		$data[] = array('config.add', array('lfwwh_use_permissions'			, (isset($this->config['wwh_use_permissions']))			? $this->config['wwh_use_permissions']			: '0'));

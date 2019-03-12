@@ -119,10 +119,11 @@ $lang = array_merge($lang, array(
 	'LFWWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
 	'LFWWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
 	'LFWWH_DEFAULTS_BUTTON'				=> 'Standard',
-	'LFWWH_RESET'						=> 'Besucherrekord zurücksetzen',
-	'LFWWH_RESET_EXP'					=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
+	'LFWWH_RECORD_RESET'				=> 'Besucherrekord zurücksetzen',
+	'LFWWH_RECORD_RESET_EXP'			=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
+	'LFWWH_RECORD_RESET_TIME_HINT'		=> '(Zurückgesetzt am: %s)',
 	// messages
 	'LFWWH_SAVED_SETTINGS'				=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'LFWWH_RESET_TRUE'					=> 'Wer war da: Wenn Sie diese Seite speichern, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
+	'LFWWH_CONFIRM_RECORD_RESET'		=> 'Wer war da: Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
 	'LFWWH_CLEANED_UP'					=> 'Wer war da: Anzeige wurde bereinigt.',
 ));

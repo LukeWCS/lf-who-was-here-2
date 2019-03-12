@@ -201,18 +201,19 @@
 				<input class="button2" type="button" id="lfwwh_defaults" name="lfwwh_defaults" value="{{ lang('LFWWH_DEFAULTS_BUTTON') }}" onclick="lfwwh_set_defaults()" />
 			</dd>
 		</dl>
-		<dl id="lfwwh_opt_reset">
-			<dt><label>{{ lang('LFWWH_RESET') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_RESET_EXP') }}</span></dt>
+		<dl id="lfwwh_opt_record_reset">
+			<dt><label>{{ lang('LFWWH_RECORD_RESET') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_RECORD_RESET_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="lfwwh_reset" value="1" onclick="alert('{{ lang('LFWWH_RESET_TRUE') }}');" /> {{ lang('YES') }}</label>
-				<label><input type="radio" class="radio" name="lfwwh_reset" value="0" checked="checked" /> {{ lang('NO') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_record_reset" id="lfwwh_record_reset_1" value="1" onchange="lfwwh_confirm_record_reset()" /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_record_reset" id="lfwwh_record_reset_0" value="0" checked="checked" /> {{ lang('NO') }}</label>
+				{{ LFWWH_RECORD_RESET_TIME_TEXT }}
 			</dd>
 		</dl>
 	</fieldset>
 
 	<p class="submit-buttons">
 		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
-		<input class="button2" type="button" id="form_reset" name="form_reset" value="{{ lang('RESET') }}" onclick="lfwwh_button_reset()" />
+		<input class="button2" type="button" id="form_reset" name="form_reset" value="{{ lang('RESET') }}" onclick="lfwwh_custom_form_reset()" />
 	</p>
 {{ S_FORM_TOKEN }}
 </form>
@@ -223,15 +224,16 @@ window.onload = lfwwh_set_controls_state();
 function lfwwh_set_controls_state() {
 	const enabled = "1.0";
 	const disabled = "0.35";
-	document.getElementById("lfwwh_opt_disp_for_guests").style.opacity = ((!document.getElementById("lfwwh_use_permissions_1").checked) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_disp_bots_only_admin").style.opacity = ((!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_disp_time_bots").style.opacity = ((!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_disp_time_format").style.opacity = ((!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_disp_ip").style.opacity = ((!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_period_of_time").style.opacity = ((document.getElementById("lfwwh_time_mode_0").selected) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_record_time_format").style.opacity = ((document.getElementById("lfwwh_record_1").checked) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_cache_time").style.opacity = ((document.getElementById("lfwwh_use_online_time_0").checked) ? enabled : disabled);
-	document.getElementById("lfwwh_opt_disp_template_pos").style.opacity = ((document.getElementById("lfwwh_disp_template_pos_all_0").checked) ? enabled : disabled);
+
+	document.getElementById("lfwwh_opt_disp_for_guests").style.opacity = (!document.getElementById("lfwwh_use_permissions_1").checked) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_disp_bots_only_admin").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_disp_time_bots").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_disp_time_format").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_disp_ip").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_period_of_time").style.opacity = (document.getElementById("lfwwh_time_mode_0").selected) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_record_time_format").style.opacity = (document.getElementById("lfwwh_record_1").checked) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_cache_time").style.opacity = (document.getElementById("lfwwh_use_online_time_0").checked) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_disp_template_pos").style.opacity = (document.getElementById("lfwwh_disp_template_pos_all_0").checked) ? enabled : disabled;
 }
 function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_use_permissions_0").checked = true;
@@ -259,7 +261,14 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_disp_template_pos_all_0").checked = true;
 	lfwwh_set_controls_state();
 }
-function lfwwh_button_reset() {
+function lfwwh_confirm_record_reset() {
+	var reset_confirm = confirm('{{ lang('LFWWH_CONFIRM_RECORD_RESET') }}');
+
+	if (!reset_confirm)	{
+		document.getElementById("lfwwh_record_reset_0").checked = true;
+	}
+}
+function lfwwh_custom_form_reset() {
 	document.getElementById("lfwwh_form").reset();
 	lfwwh_set_controls_state();
 }

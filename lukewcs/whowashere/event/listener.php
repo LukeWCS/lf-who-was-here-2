@@ -56,7 +56,10 @@ class listener implements EventSubscriberInterface
 
 	public function add_permissions($event)
 	{
-		if (!$this->config['lfwwh_use_permissions']) return;
+		if (!$this->config['lfwwh_use_permissions'])
+		{
+			return;
+		}
 		$permissions = $event['permissions'];
 		$permissions['u_lfwwh_show_users'] = array('lang' => 'ACL_U_LFWWH_SHOW_USERS', 'cat' => 'profile');
 		$permissions['u_lfwwh_show_stats'] = array('lang' => 'ACL_U_LFWWH_SHOW_STATS', 'cat' => 'profile');

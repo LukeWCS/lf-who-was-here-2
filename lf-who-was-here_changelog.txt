@@ -1,31 +1,46 @@
 ### Changelog 2.0.0 (2019--)
 
+
+#### developers build changelog
+* B4:
+  * Weitere Konfigurationsvariablen umbenannt. Darum muss zuerst B3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Das Unterscheidungsmerkmal "(Gen 4)" an allen Stellen im ACP entfernt wo es überflüssig ist, sprich wo eine Versionsnummer sichtbar ist.
+  * Javascript Bestätigung bei `lfwwh_record_reset` von alert() auf confirm() umgestellt mit zurücksetzen des Schalters bei `Cancel`. Event bei "Ja" von `onclick` auf `onchange` umgestellt.
+  * Hinweis für `lfwwh_record_reset_time` eingebaut.
 * B3: 
-  * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
+  * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Konfigurationsvariable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
   * Im ACP-Modul eine weitere Template Variable umbenannt.
 * B2: 
+  * Weitere Konfigurationsvariablen umbenannt. Darum muss zuerst B1 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Kirk)
-  * Weitere Konfigurationsvariablen umbenannt. Darum muss B1 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Die Bereingungs-Benachrichtigung eingebaut. @Kirk: Da wäre ein Test in 3.1.12 sinnvoll.
   * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
 * B1:
-  * Initial Release
+  * Initial Release, kompletter Umbau auf `lukewcs/whowashere`.
 
 
-* Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Das betrifft die nachfolgend aufgeführten Bereiche.
+* Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung.
-  * Alle Pfadangaben innerhalb der Dateien.
-  * Konfigurationsvariablen.
-  * Tabelle der Besucher.
-  * Rechtesystem.
+  * Alle Pfadangaben innerhalb der Dateien (.php, .html, .yml, .json).
+  * Konfigurationsvariablen in der Datenbank.
+  * Tabelle der Besucher in der Datenbank.
+  * Rechte.
   * Template-Variablen.
   * Sprach-Variablen.
-* Automatische Datenübernahme von NV-WWH (beliebige Version) und LF-WWH 1.x (beliebige Version). Dazu muss die alte Version zunächst installiert bleiben, damit bei der Installation von LF-WWH 2.x die Daten importiert werden können. Dies geschieht automatisch, sobald LF-WWH 2.x das erste Mal aktiviert wird. Dabei wird die komplette Konfiguration inklusive Besucherrekord übernommen, sowie die aktuelle Besucher-Tabelle. Nicht übernommen werden die Rechte, diese müssen nach der Installation ggf. angepasst werden, sofern das vollständige Rechtesystem von phpBB genutzt wurde. Wurde nur das vereinfachte Rechtesystem von LF-WWH genutzt, kann dieser Schritt entfallen.
-* Wenn Benutzerkonten gelöscht werden und infolgedessen eine Bereinigung der WWH-Tabelle und der WWH-Anzeige nötig wird, dann wird innerhalb der Lösch-Bestätigung von phpBB zusätzlich eine Benachrichtigung von LF-WWH angezeigt, das die WWH-Anzeige bereinigt wurde. Diese Meldung erscheint nur dann, wenn die Bereinigung auch aktiviert ist (Standard) und wenn auch tatsächlich bereingt wurde.
-* Im ACP-Modul kann nun die Informationszeile für die Version und für den Link in den Sprachdateien frei gestaltet werden.
-  * Dementsprechend in den Sprachdateien die Variable `LFWWH_INSTALLED` angepasst und `LFWWH_MOD_SUPPORT` entfernt.
+* Automatische Datenübernahme von NV-WWH (beliebige Version) und LF-WWH 1.x (beliebige Version):
+  * Dazu muss die alte WWH-Erweiterung zunächst installiert bleiben, damit bei der Installation von LF-WWH 2.x die Daten importiert werden können. Dies geschieht automatisch, sobald LF-WWH 2.x das erste Mal aktiviert wird. Dabei wird die komplette Konfiguration inklusive Besucherrekord übernommen, sowie die aktuelle Besucher-Tabelle. Die alte Erweiterung darf dabei auch aktiviert bleiben, das ist technisch vorgesehen und legitim.
+  * Die Rechte werden dabei jedoch nicht übernommen, diese müssen nach der Installation also ggf. angepasst werden, sofern das vollständige Rechtesystem von phpBB genutzt wurde. Wurde nur das vereinfachte Rechtesystem von LF-WWH genutzt ("Anzeige für Gäste:"), kann dieser Schritt entfallen.
+  * Diese Datenübernahme hat auch den Vorteil, das damit selbst eine defekte Installation von NV-WWH quasi-aktualisiert werden kann, weil dabei nur die Daten übernommen werden, aber keine Ordner- und Datei-Strukturen.
+* Wenn Benutzerkonten gelöscht werden und infolgedessen eine Bereinigung der WWH-Tabelle und der WWH-Anzeige nötig wird, dann wird jetzt innerhalb der Lösch-Bestätigung (die von phpBB angezeigt wird) zusätzlich eine Benachrichtigung von LF-WWH eingefügt, das die WWH-Anzeige bereinigt wurde. Diese Benachrichtigung erscheint nur dann, wenn die Bereinigung auch aktiviert ist (Standard) und wenn auch tatsächlich bereinigt werden musste.
+* ACP-Modul:
+  * Die Informationszeile für die Version und für den Link kann jetzt in den Sprachdateien frei gestaltet werden.
+    * Dementsprechend in den Sprachdateien die Variable `LFWWH_INSTALLED` angepasst und `LFWWH_MOD_SUPPORT` entfernt.
+  * Bei "Besucherrekord zurücksetzen -> Ja" wird jetzt nicht nur eine Nachricht angezeigt, das beim Speichern der Rekord zurückgesetzt wird, sondern zusätzlich eine Rückfrage ausgeführt. Dadurch wird eine zweistufige Bestätigung erreicht. Wird diese Rückfrage mit "Abbrechen" bestätigt, wird der Reset-Schalter wieder auf "Nein" zurückgestellt.
+    * Entsprechend in den Sprachdateien den bisherigen Text der Nachricht angepasst.
+    * Das Optionsfeld "Ja" reagiert nicht länger auf mehrmaliges Klicken. Dadurch wird die Nachricht auch nur einmal angezeigt, solange der Schalter nicht auf "Nein" zurückgestellt wird.
+  * Schon seit dem Ur-WWH (NV who was here? für phpBB 3.0) wurde beim Zurücksetzen des Besucherrekords das Datum des Resets in die Datenbank gespeichert, jedoch nie angezeigt oder sonstwie ausgewertet. Dieses Datum wird jetzt bei "Besucherrekord zurücksetzen" hinter "Ja/Nein" angezeigt, sofern ein Reset stattgefunden hat.
 * Template-Änderungen: Ja 
-  * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
+  * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -
@@ -75,7 +90,7 @@
 * In `composer.json` bei `homepage` statt dem phpbb.de-Forenthema die GitHub Adresse hinterlegt, da dies eher einer Homepage entspricht.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
-  * Neu: -
+  * Neu: `who_was_here.html`
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -
 

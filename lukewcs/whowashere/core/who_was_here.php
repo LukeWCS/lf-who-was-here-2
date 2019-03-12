@@ -448,8 +448,14 @@ class who_was_here
 			$this->cache->destroy("_lf_who_was_here");
 			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_wwh');
 			$lang = $this->user->lang;
-		 	if (isset($lang['USER_DELETED']))			$lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
-			if (isset($lang['USER_DELETE_SUCCESS'])) 	$lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
+		 	if (isset($lang['USER_DELETED']))
+		 	{
+		 		$lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
+		 	}
+			if (isset($lang['USER_DELETE_SUCCESS']))
+			{
+				$lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
+			}
 			$this->user->lang = $lang;
 		}
 	}

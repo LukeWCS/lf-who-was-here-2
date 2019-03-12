@@ -57,11 +57,11 @@ class acp_wwh_module
 			$config->set('lfwwh_api_mode'				, $request->variable('lfwwh_api_mode', 0));
 			$config->set('lfwwh_clear_up'				, $request->variable('lfwwh_clear_up', 0));
 			$config->set('lfwwh_disp_template_pos_all'	, $request->variable('lfwwh_disp_template_pos_all', 0));
-			if ($request->variable('lfwwh_reset', 0) > 0)
+			if ($request->variable('lfwwh_record_reset', 0) > 0)
 			{
 				$config->set('lfwwh_record_ips', 1);
 				$config->set('lfwwh_record_time', time());
-				$config->set('lfwwh_reset_time', time());
+				$config->set('lfwwh_record_reset_time', time());
 			}
 			if ($delete_cache) 
 			{
@@ -78,7 +78,7 @@ class acp_wwh_module
 
 		$template->assign_vars(array(
 			'LFWWH_INSTALLED_TEXT'			=> sprintf($user->lang['LFWWH_INSTALLED'], $config['lfwwh_ext_version']),
-			'LFWWH_CONFIG_TITLE_TEXT'		=> sprintf($user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here (Gen 4)'),
+			'LFWWH_CONFIG_TITLE_TEXT'		=> sprintf($user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here'),
 			'LFWWH_USE_PERMISSIONS'			=> $config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $config['lfwwh_disp_for_guests'],
 			'LFWWH_DISP_BOTS'				=> $config['lfwwh_disp_bots'],
@@ -103,6 +103,7 @@ class acp_wwh_module
 			'LFWWH_API_MODE'				=> $config['lfwwh_api_mode'],
 			'LFWWH_CLEAR_UP'				=> $config['lfwwh_clear_up'],
 			'LFWWH_DISP_TEMPLATE_POS_ALL'	=> $config['lfwwh_disp_template_pos_all'],
+			'LFWWH_RECORD_RESET_TIME_TEXT'	=> ($config['lfwwh_record_reset_time'] != 1) ? sprintf($user->lang['LFWWH_RECORD_RESET_TIME_HINT'], $user->format_date($config['lfwwh_record_reset_time'])) : '',
 			'U_ACTION'						=> $this->u_action,
 		));
 	}
