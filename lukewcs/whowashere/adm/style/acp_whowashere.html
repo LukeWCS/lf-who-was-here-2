@@ -198,7 +198,7 @@
 		<dl id="lfwwh_opt_defaults">
 			<dt><label>{{ lang('LFWWH_DEFAULTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DEFAULTS_EXP') }}</span></dt>
 			<dd>
-				<input class="button2" type="button" id="lfwwh_defaults" name="lfwwh_defaults" value="{{ lang('LFWWH_DEFAULTS_BUTTON') }}" onclick="lfwwh_set_defaults()" />
+				<input class="button2" type="button" id="lfwwh_defaults" name="lfwwh_defaults" value="{{ lang('LFWWH_BUTTON_DEFAULTS') }}" onclick="lfwwh_set_defaults()" />
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_record_reset">
@@ -262,7 +262,7 @@ function lfwwh_set_defaults() {
 	lfwwh_set_controls_state();
 }
 function lfwwh_confirm_record_reset() {
-	var reset_confirm = confirm('{{ lang('LFWWH_CONFIRM_RECORD_RESET') }}');
+	var reset_confirm = confirm('{{ lang('LFWWH_MSG_CONFIRM_RECORD_RESET') }}');
 
 	if (!reset_confirm)	{
 		document.getElementById("lfwwh_record_reset_0").checked = true;

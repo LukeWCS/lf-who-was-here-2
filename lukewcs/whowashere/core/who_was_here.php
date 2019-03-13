@@ -185,7 +185,7 @@ class who_was_here
 	*/
 	public function display()
 	{
-		$this->user->add_lang_ext('lukewcs/whowashere', 'lang_wwh');
+		$this->user->add_lang_ext('lukewcs/whowashere', 'whowashere');
 		$wwh_disp_users = (
 			($this->config['lfwwh_use_permissions'])
 			? $this->auth->acl_gets('u_lfwwh_show_users')
@@ -198,7 +198,7 @@ class who_was_here
 		if (!$this->prune())
 		{
 			// Error while purging the list, database is missing :-O
-			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_wwh');
+			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_whowashere');
 			return;
 		}
 
@@ -446,15 +446,15 @@ class who_was_here
 		if ($user_deleted) 
 		{
 			$this->cache->destroy("_lf_who_was_here");
-			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_wwh');
+			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_whowashere');
 			$lang = $this->user->lang;
 		 	if (isset($lang['USER_DELETED']))
 		 	{
-		 		$lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
+		 		$lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
 		 	}
 			if (isset($lang['USER_DELETE_SUCCESS']))
 			{
-				$lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_CLEANED_UP'];
+				$lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
 			}
 			$this->user->lang = $lang;
 		}

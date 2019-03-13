@@ -43,7 +43,7 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, array(
 	// navigation
-	'LFWWH_NAV_TITLE'					=> 'Who was here? (Gen 4)',
+	'LFWWH_NAV_TITLE'					=> 'Who was here? (2.x)',
 	'LFWWH_NAV_CONFIG'					=> 'Settings',
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here? [%s]',
@@ -118,12 +118,12 @@ $lang = array_merge($lang, array(
 	'LFWWH_SECTION_RESET'				=> 'Reset',
 	'LFWWH_DEFAULTS'					=> 'Reset settings',
 	'LFWWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset record”)',
-	'LFWWH_DEFAULTS_BUTTON'				=> 'Defaults',
+	'LFWWH_BUTTON_DEFAULTS'				=> 'Defaults',
 	'LFWWH_RECORD_RESET'				=> 'Reset visitor record',
 	'LFWWH_RECORD_RESET_EXP'			=> 'Resets time and counter for the visitor record.',
 	'LFWWH_RECORD_RESET_TIME_HINT'		=> '(Reset on: %s)',
 	// messages
-	'LFWWH_SAVED_SETTINGS'				=> 'Who was here: Configuration updated successfully.',
-	'LFWWH_CONFIRM_RECORD_RESET'		=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.', // \n is the beginning of a new line
-	'LFWWH_CLEANED_UP'					=> 'Who was here: Display has been cleaned up.',
+	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.', // \n is the beginning of a new line
+	'LFWWH_MSG_CLEANED_UP'				=> 'Who was here: Display has been cleaned up.',
 ));

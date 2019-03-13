@@ -27,7 +27,7 @@
 		"php": ">=5.3.3"
 	},
 	"extra": {
-		"display-name": "LF who was here",
+		"display-name": "LF who was here (2.x)",
 		"soft-require": {
 			"phpbb/phpbb": ">=3.1.11"
 		},

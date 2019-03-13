@@ -2,6 +2,14 @@
 
 
 #### developers build changelog
+* B5:
+  * B4 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Alle Sprachdateien umbenannt.
+  * Alle Dateien des ACP-Moduls umbenannt.
+  * Migration geändert.
+  * In `acp_whowashere_module.php` konsequent `$this` verwendet.
+  * Das Unterscheidungsmerkmal auf (2.x) geändert und konsequent überall verwendet.
+  * Weitere Sprachvariablen umbenannt.   
 * B4:
   * Weitere Konfigurationsvariablen umbenannt. Darum muss zuerst B3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Das Unterscheidungsmerkmal "(Gen 4)" an allen Stellen im ACP entfernt wo es überflüssig ist, sprich wo eine Versionsnummer sichtbar ist.
@@ -33,12 +41,14 @@
   * Diese Datenübernahme hat auch den Vorteil, das damit selbst eine defekte Installation von NV-WWH quasi-aktualisiert werden kann, weil dabei nur die Daten übernommen werden, aber keine Ordner- und Datei-Strukturen.
 * Wenn Benutzerkonten gelöscht werden und infolgedessen eine Bereinigung der WWH-Tabelle und der WWH-Anzeige nötig wird, dann wird jetzt innerhalb der Lösch-Bestätigung (die von phpBB angezeigt wird) zusätzlich eine Benachrichtigung von LF-WWH eingefügt, das die WWH-Anzeige bereinigt wurde. Diese Benachrichtigung erscheint nur dann, wenn die Bereinigung auch aktiviert ist (Standard) und wenn auch tatsächlich bereinigt werden musste.
 * ACP-Modul:
+  * Der Seitentitel (Browser) hat jetzt den Zusatz " - Einstellungen".
   * Die Informationszeile für die Version und für den Link kann jetzt in den Sprachdateien frei gestaltet werden.
     * Dementsprechend in den Sprachdateien die Variable `LFWWH_INSTALLED` angepasst und `LFWWH_MOD_SUPPORT` entfernt.
   * Bei "Besucherrekord zurücksetzen -> Ja" wird jetzt nicht nur eine Nachricht angezeigt, das beim Speichern der Rekord zurückgesetzt wird, sondern zusätzlich eine Rückfrage ausgeführt. Dadurch wird eine zweistufige Bestätigung erreicht. Wird diese Rückfrage mit "Abbrechen" bestätigt, wird der Reset-Schalter wieder auf "Nein" zurückgestellt.
     * Entsprechend in den Sprachdateien den bisherigen Text der Nachricht angepasst.
     * Das Optionsfeld "Ja" reagiert nicht länger auf mehrmaliges Klicken. Dadurch wird die Nachricht auch nur einmal angezeigt, solange der Schalter nicht auf "Nein" zurückgestellt wird.
   * Schon seit dem Ur-WWH (NV who was here? für phpBB 3.0) wurde beim Zurücksetzen des Besucherrekords das Datum des Resets in die Datenbank gespeichert, jedoch nie angezeigt oder sonstwie ausgewertet. Dieses Datum wird jetzt bei "Besucherrekord zurücksetzen" hinter "Ja/Nein" angezeigt, sofern ein Reset stattgefunden hat.
+    * In den Sprachdateien für "Zurückgesetzt am:" 1 neue Variable hinzugefügt.  
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -

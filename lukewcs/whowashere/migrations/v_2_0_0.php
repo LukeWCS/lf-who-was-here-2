@@ -73,7 +73,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		// Add ACP modules
 		$data[] = array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'LFWWH_NAV_TITLE'));
 		$data[] = array('module.add', array('acp', 'LFWWH_NAV_TITLE', array(
-			'module_basename'	=> '\lukewcs\whowashere\acp\acp_wwh_module',
+			'module_basename'	=> '\lukewcs\whowashere\acp\acp_whowashere_module',
 			'module_langname'	=> 'LFWWH_NAV_CONFIG',
 			'module_mode'		=> 'overview',
 			'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',

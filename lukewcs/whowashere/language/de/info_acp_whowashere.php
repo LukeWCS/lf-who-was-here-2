@@ -6,7 +6,7 @@
 * @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru> - 2018 LukeWCS <https://www.wcsaga.org>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
-* Lang_iso     : de_x_sie
+* Lang_iso     : de
 * Lang_ver     : 2.0.0
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
@@ -43,7 +43,7 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, array(
 	// navigation
-	'LFWWH_NAV_TITLE'					=> 'Wer war da? (Gen 4)',
+	'LFWWH_NAV_TITLE'					=> 'Wer war da? (2.x)',
 	'LFWWH_NAV_CONFIG'					=> 'Einstellungen',
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Wer war da? [%s]',
@@ -118,12 +118,12 @@ $lang = array_merge($lang, array(
 	'LFWWH_SECTION_RESET'				=> 'Zurücksetzen',
 	'LFWWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
 	'LFWWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
-	'LFWWH_DEFAULTS_BUTTON'				=> 'Standard',
+	'LFWWH_BUTTON_DEFAULTS'				=> 'Standard',
 	'LFWWH_RECORD_RESET'				=> 'Besucherrekord zurücksetzen',
 	'LFWWH_RECORD_RESET_EXP'			=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
 	'LFWWH_RECORD_RESET_TIME_HINT'		=> '(Zurückgesetzt am: %s)',
 	// messages
-	'LFWWH_SAVED_SETTINGS'				=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'LFWWH_CONFIRM_RECORD_RESET'		=> 'Wer war da: Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
-	'LFWWH_CLEANED_UP'					=> 'Wer war da: Anzeige wurde bereinigt.',
+	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
+	'LFWWH_MSG_CLEANED_UP'				=> 'Wer war da: Anzeige wurde bereinigt.',
 ));

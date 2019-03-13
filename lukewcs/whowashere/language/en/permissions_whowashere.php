@@ -42,6 +42,6 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” …
 //
 $lang = array_merge($lang, array(
-	'ACL_U_LFWWH_SHOW_STATS'	=> 'Who was here (Gen 4): Can view statistics',
-	'ACL_U_LFWWH_SHOW_USERS'	=> 'Who was here (Gen 4): Can view members and statistics',
+	'ACL_U_LFWWH_SHOW_STATS'	=> 'Who was here (2.x): Can view statistics',
+	'ACL_U_LFWWH_SHOW_USERS'	=> 'Who was here (2.x): Can view members and statistics',
 ));
