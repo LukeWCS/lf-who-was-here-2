@@ -57,6 +57,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Anzeige für Gäste',
 	'LFWWH_DISP_FOR_GUESTS_EXP'			=> 'Legt fest, was Gäste sehen können. “Statistik” zeigt nur die anonymen Zahlen und “Nichts” schaltet die WWH-Anzeige für Gäste komplett aus.',
 	'LFWWH_DISP_FOR_GUESTS_1'			=> 'Mitglieder und Statistik',
+	'LFWWH_DISP_FOR_GUESTS_3'			=> 'Mitglieder',
 	'LFWWH_DISP_FOR_GUESTS_0'			=> 'Statistik',
 	'LFWWH_DISP_FOR_GUESTS_2'			=> 'Nichts',
 	'LFWWH_DISP_BOTS'					=> 'Zeige Bots',

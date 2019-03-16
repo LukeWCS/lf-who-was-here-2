@@ -2,6 +2,14 @@
 
 
 #### developers build changelog
+* B6:
+  * B5 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Erweiterte Rechte geändert: "Mitglieder und Statistik" -> "Mitglieder".
+  * Einfache Rechte geändert: Neue Option "Mitglieder" für Gäste-Anzeige.
+  * Migration geändert: Standards für Rechte und Rollen angepasst.
+  * In den Templates ist `LFWWH_POS_ALL` nicht länger notwendig, da die aktive Position jetzt über Bit-Wert festgelegt und per Bit-Operator abgefragt wird.
+  * Twig Syntax in allen Templates geändert: wegen Rechte und wegen `<br>`.
+  * ACP- und Rechte-Sprachdateien geändert.
 * B5:
   * B4 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Alle Sprachdateien umbenannt.
@@ -49,6 +57,15 @@
     * Das Optionsfeld "Ja" reagiert nicht länger auf mehrmaliges Klicken. Dadurch wird die Nachricht auch nur einmal angezeigt, solange der Schalter nicht auf "Nein" zurückgestellt wird.
   * Schon seit dem Ur-WWH (NV who was here? für phpBB 3.0) wurde beim Zurücksetzen des Besucherrekords das Datum des Resets in die Datenbank gespeichert, jedoch nie angezeigt oder sonstwie ausgewertet. Dieses Datum wird jetzt bei "Besucherrekord zurücksetzen" hinter "Ja/Nein" angezeigt, sofern ein Reset stattgefunden hat.
     * In den Sprachdateien für "Zurückgesetzt am:" 1 neue Variable hinzugefügt.  
+* Die Rechte wurden geändert:
+  * Das bisherige Recht "Kann Mitglieder und Statistik sehen" wurde in "Kann Mitglieder sehen" geändert. Wenn eine Gruppe also sowohl die Statistik als auch die Mitglieder-Liste sehen soll, dann müssen jetzt auch beide Rechte gesetzt sein.
+  * Im ACP-Modul dementsprechend für das einfache Rechtesystem die neue Option "Mitglieder" hinzugefügt.
+  * Installationsstandard für die standard Gruppen und Benutzer-Rollen entsprechend angepasst.
+  * In den Sprachdateien 1 Variable hinzugefügt und 3 geändert.
+* Die Templates wurden erneut überarbeitet:
+  * Notwendige Änderungen bezüglich der geänderten Rechte vorgenommen.
+  * Twig Logik bezüglich dem Einfügen von `<br />` geändert.
+  * Twig Logik bezüglich dem Schalter "Zeige alle Template-Positionen gleichzeitig:" so geändert, das die bisherige Template-Variable `LFWWH_POS_ALL` entfallen kann. Das wird jetzt über Bit-Werte in der Variable `LFWWH_POS` geregelt und im Template per Bit-Operator abgefragt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -

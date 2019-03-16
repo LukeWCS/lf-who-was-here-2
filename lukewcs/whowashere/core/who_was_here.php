@@ -186,10 +186,10 @@ class who_was_here
 	public function display()
 	{
 		$this->user->add_lang_ext('lukewcs/whowashere', 'whowashere');
-		$wwh_disp_users = (
+		$wwh_users_permission = (
 			($this->config['lfwwh_use_permissions'])
 			? $this->auth->acl_gets('u_lfwwh_show_users')
-			: ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 1) && empty($this->user->data['is_bot'])
+			: ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 1 || $this->config['lfwwh_disp_for_guests'] == 3) && empty($this->user->data['is_bot'])
 		);
 		$wwh_disp_bots = ($this->config['lfwwh_disp_bots_only_admin'] == 1 && $this->auth->acl_get('a_')) || $this->config['lfwwh_disp_bots_only_admin'] == 0;
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
@@ -354,17 +354,17 @@ class who_was_here
 
 		$wwh_total_permission = (
 			($this->config['lfwwh_use_permissions'])
-			? $this->auth->acl_gets('u_lfwwh_show_users') || $this->auth->acl_gets('u_lfwwh_show_stats')
-			: ($wwh_disp_users || $this->config['lfwwh_disp_for_guests'] != 2) && empty($this->user->data['is_bot'])
+			? $this->auth->acl_gets('u_lfwwh_show_stats')
+			: ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 0 || $this->config['lfwwh_disp_for_guests'] == 1) && empty($this->user->data['is_bot'])
 		);
 		$this->template->assign_vars(array(
-			'LFWWH_LIST'		=> (($wwh_disp_users) ? sprintf($this->user->lang['LFWWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
-			'LFWWH_BOTS'		=> (($wwh_disp_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
+			'LFWWH_LIST'		=> (($wwh_users_permission) ? sprintf($this->user->lang['LFWWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
+			'LFWWH_BOTS'		=> (($wwh_users_permission && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
 			'LFWWH_TOTAL'		=> (($wwh_total_permission) ? $this->get_total_users_string($count) : ''),
 			'LFWWH_EXP'			=> $this->get_explanation_string($this->config['lfwwh_time_mode']),
 			'LFWWH_RECORD'		=> $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']),
-			'LFWWH_POS'			=> $this->config['lfwwh_disp_template_pos'],
-			'LFWWH_POS_ALL'		=> $this->config['lfwwh_disp_template_pos_all'],
+			'LFWWH_POS'			=> (($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos']),
+//			'LFWWH_POS_ALL'		=> $this->config['lfwwh_disp_template_pos_all'],
 			'LFWWH_API_MODE'	=> $this->config['lfwwh_api_mode'],
 		));
 	}

@@ -33,7 +33,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_disp_bots'				, (isset($this->config['wwh_disp_bots']))				? $this->config['wwh_disp_bots']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_bots_only_admin'	, (isset($this->config['wwh_disp_bots_only_admin']))	? $this->config['wwh_disp_bots_only_admin']		: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_for_guests'			, (isset($this->config['wwh_disp_for_guests']))			? $this->config['wwh_disp_for_guests']			: '0'));
-		$data[] = array('config.add', array('lfwwh_disp_guests'				, (isset($this->config['wwh_disp_guests']))				? $this->config['wwh_disp_guests']				: '1'));
+		$data[] = array('config.add', array('lfwwh_disp_guests'				, (isset($this->config['wwh_disp_guests']))				? $this->config['wwh_disp_guests']				: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_hidden'				, (isset($this->config['wwh_disp_hidden']))				? $this->config['wwh_disp_hidden']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_ip'					, (isset($this->config['wwh_disp_ip']))					? $this->config['wwh_disp_ip']					: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_template_pos'		, (isset($this->config['wwh_disp_template_pos']))		? $this->config['wwh_disp_template_pos']		: '0'));
@@ -55,17 +55,24 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('permission.add', array('u_lfwwh_show_stats'));
 		$data[] = array('permission.add', array('u_lfwwh_show_users'));
 		// Set permissions
+		$data[] = array('permission.permission_set', array('ADMINISTRATORS'		, 'u_lfwwh_show_stats', 'group'));
 		$data[] = array('permission.permission_set', array('ADMINISTRATORS'		, 'u_lfwwh_show_users', 'group'));
+		$data[] = array('permission.permission_set', array('GLOBAL_MODERATORS'	, 'u_lfwwh_show_stats', 'group'));
 		$data[] = array('permission.permission_set', array('GLOBAL_MODERATORS'	, 'u_lfwwh_show_users', 'group'));
 		$data[] = array('permission.permission_set', array('REGISTERED'			, 'u_lfwwh_show_stats', 'group'));
 		$data[] = array('permission.permission_set', array('REGISTERED'			, 'u_lfwwh_show_users', 'group'));
-		$data[] = array('permission.permission_set', array('NEWLY_REGISTERED'	, 'u_lfwwh_show_users', 'group', false));
 		$data[] = array('permission.permission_set', array('GUESTS'				, 'u_lfwwh_show_stats', 'group'));
+		$data[] = array('permission.permission_set', array('NEWLY_REGISTERED'	, 'u_lfwwh_show_users', 'group', false));
 		// Set permission roles
+		if ($this->role_exists('ROLE_USER_STANDARD'))	$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role'));
 		if ($this->role_exists('ROLE_USER_STANDARD'))	$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_LIMITED'))	$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_stats', 'role'));
 		if ($this->role_exists('ROLE_USER_LIMITED'))	$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_FULL'))		$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_stats', 'role'));
 		if ($this->role_exists('ROLE_USER_FULL'))		$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_NOPM'))		$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_stats', 'role'));
 		if ($this->role_exists('ROLE_USER_NOPM'))		$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_users', 'role'));
+		if ($this->role_exists('ROLE_USER_NOAVATAR'))	$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_stats', 'role'));
 		if ($this->role_exists('ROLE_USER_NOAVATAR'))	$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_users', 'role'));
 		if ($this->role_exists('ROLE_USER_NEW_MEMBER'))	$data[] = array('permission.permission_set', array('ROLE_USER_NEW_MEMBER'	, 'u_lfwwh_show_users', 'role', false));
 		// Custom functions

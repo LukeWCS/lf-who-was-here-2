@@ -1,9 +1,12 @@
 <div class="stat-block online-list">
 	<h6>{{ lang('LFWWH_TITLE') }}</h6>
 	<p>
-		{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
-		{% if LFWWH_RECORD %}{{ LFWWH_RECORD }}<br />{% endif %}
-		{% if LFWWH_LIST %}<br />{{ LFWWH_LIST }}{% endif %}
-		{% if LFWWH_BOTS %}<br />{{ LFWWH_BOTS }}{% endif %}
+		{% if LFWWH_TOTAL %}
+			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
+			{% if LFWWH_RECORD %}{{ LFWWH_RECORD }}<br />{% endif %}
+			{{ (LFWWH_LIST || LFWWH_BOTS) ? '<br />' }}
+		{% endif %}
+		{% if LFWWH_LIST %}{{ LFWWH_LIST }}<br />{% endif %}
+		{% if LFWWH_BOTS %}{{ LFWWH_BOTS }}<br />{% endif %}
 	</p>
 </div>

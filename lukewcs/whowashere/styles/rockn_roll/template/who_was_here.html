@@ -17,10 +17,13 @@
 					<div class="list-inner2">
 						<dl class="row-item" style="background-image: url({T_THEME_PATH}/images/member.gif); background-repeat: no-repeat; padding-left: 50px;">
 							<p>
-								<i class="fa fa-sign-in"></i> {{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
-								{% if LFWWH_RECORD %}<i class="fa fa-tachometer"></i> {{ LFWWH_RECORD }}<br />{% endif %}
-								{% if LFWWH_LIST %}<br /><i class="fa fa-group"></i> {{ LFWWH_LIST }}{% endif %}
-								{% if LFWWH_BOTS %}<br /><i class="fa fa-cogs"></i> {{ LFWWH_BOTS }}{% endif %}
+								{% if LFWWH_TOTAL %}
+									<i class="fa fa-sign-in"></i> {{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
+									{% if LFWWH_RECORD %}<i class="fa fa-tachometer"></i> {{ LFWWH_RECORD }}<br />{% endif %}
+									{{ (LFWWH_LIST || LFWWH_BOTS) ? '<br />' }}
+								{% endif %}
+								{% if LFWWH_LIST %}<i class="fa fa-group"></i> {{ LFWWH_LIST }}<br />{% endif %}
+								{% if LFWWH_BOTS %}<i class="fa fa-cogs"></i> {{ LFWWH_BOTS }}<br />{% endif %}
 							</p>
 						</dl>
 					</div>
