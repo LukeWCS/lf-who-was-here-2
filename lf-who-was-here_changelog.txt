@@ -2,6 +2,13 @@
 
 
 #### developers build changelog
+* B7:
+  * B6 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Vorschlag von Kirk eingebaut bez. Cache Deaktivierung.
+  * Neuer Schalter im ACP-Modul.
+  * Neuer Abschnitt im ACP-Modul, Optionen verschoben.
+  * Sprachdateien geändert.
+  * Migration geändert: Neue Konfig-Variable LFWWH_USE_CACHE.
 * B6:
   * B5 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Erweiterte Rechte geändert: "Mitglieder und Statistik" -> "Mitglieder".
@@ -66,6 +73,10 @@
   * Notwendige Änderungen bezüglich der geänderten Rechte vorgenommen.
   * Twig Logik bezüglich dem Einfügen von `<br />` geändert.
   * Twig Logik bezüglich dem Schalter "Zeige alle Template-Positionen gleichzeitig:" so geändert, das die bisherige Template-Variable `LFWWH_POS_ALL` entfallen kann. Das wird jetzt über Bit-Werte in der Variable `LFWWH_POS` geregelt und im Template per Bit-Operator abgefragt.
+* Ein neuer Schalter erlaubt die komplette Deaktivierung des Caches. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Datenverkehr geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen! (Wunsch von Kirk)
+* Im ACP Modul einen neuen Abschnitt eingefügt.
+  * In den Sprachdateien für "Serverlast" 1 neue Variable hinzugefügt.
+  * Die Punkte "Cache für die Besuchertabelle verwenden:", "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" und "Intervall der Aktualisierung:" in den neuen Abschnitt verschoben.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -

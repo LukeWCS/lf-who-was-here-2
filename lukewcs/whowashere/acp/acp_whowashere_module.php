@@ -64,18 +64,19 @@ class acp_whowashere_module
 			$this->config->set('lfwwh_record'					, $this->request->variable('lfwwh_record', 0));
 			$this->config->set('lfwwh_record_time_format'		, $this->request->variable('lfwwh_record_time_format', 'D j. M Y'));
 			$this->config->set('lfwwh_disp_template_pos'		, $this->request->variable('lfwwh_disp_template_pos', 0));
-			$this->config->set('lfwwh_use_online_time'			, $this->request->variable('lfwwh_use_online_time', 0));
-			$this->config->set('lfwwh_cache_time'				, $this->request->variable('lfwwh_cache_time', 0));
 			$this->config->set('lfwwh_api_mode'					, $this->request->variable('lfwwh_api_mode', 0));
 			$this->config->set('lfwwh_clear_up'					, $this->request->variable('lfwwh_clear_up', 0));
 			$this->config->set('lfwwh_disp_template_pos_all'	, $this->request->variable('lfwwh_disp_template_pos_all', 0));
+			$this->config->set('lfwwh_use_cache'				, $this->request->variable('lfwwh_use_cache', 0));
+			$this->config->set('lfwwh_use_online_time'			, $this->request->variable('lfwwh_use_online_time', 0));
+			$this->config->set('lfwwh_cache_time'				, $this->request->variable('lfwwh_cache_time', 0));
 			if ($this->request->variable('lfwwh_record_reset'	, 0) > 0)
 			{
 				$this->config->set('lfwwh_record_ips', 1);
 				$this->config->set('lfwwh_record_time', time());
 				$this->config->set('lfwwh_record_reset_time', time());
 			}
-			if ($delete_cache) 
+			if ($delete_cache && $this->config['lfwwh_use_cache']) 
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}
@@ -108,12 +109,13 @@ class acp_whowashere_module
 			'LFWWH_RECORD'					=> $this->config['lfwwh_record'],
 			'LFWWH_RECORD_TIME_FORMAT'		=> $this->config['lfwwh_record_time_format'],
 			'LFWWH_DISP_TEMPLATE_POS'		=> $this->config['lfwwh_disp_template_pos'],
-			'LFWWH_USE_ONLINE_TIME'			=> $this->config['lfwwh_use_online_time'],
-			'LFWWH_CACHE_TIME'				=> $this->config['lfwwh_cache_time'],
-			'LFWWH_CACHE_TIME_MAX'			=> $load_online_time,
 			'LFWWH_API_MODE'				=> $this->config['lfwwh_api_mode'],
 			'LFWWH_CLEAR_UP'				=> $this->config['lfwwh_clear_up'],
 			'LFWWH_DISP_TEMPLATE_POS_ALL'	=> $this->config['lfwwh_disp_template_pos_all'],
+			'LFWWH_USE_CACHE'				=> $this->config['lfwwh_use_cache'],
+			'LFWWH_USE_ONLINE_TIME'			=> $this->config['lfwwh_use_online_time'],
+			'LFWWH_CACHE_TIME'				=> $this->config['lfwwh_cache_time'],
+			'LFWWH_CACHE_TIME_MAX'			=> $load_online_time,
 			'LFWWH_RECORD_RESET_TIME_TEXT'	=> ($this->config['lfwwh_record_reset_time'] != 1) ? sprintf($this->user->lang['LFWWH_RECORD_RESET_TIME_HINT'], $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
 			'U_ACTION'						=> $this->u_action,
 		));

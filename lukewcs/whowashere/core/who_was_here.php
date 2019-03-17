@@ -217,15 +217,22 @@ class who_was_here
 		$wwh_username_colour = $wwh_username = $wwh_username_full = $users_list = $bots_list = '';
 
 		/* Load cache who_was_here */
-		$load_online_time = ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1;
-		if ($this->config['lfwwh_cache_time'] > $load_online_time)
+		if ($this->config['lfwwh_use_cache'])
 		{
-			$this->config->set('lfwwh_cache_time', $load_online_time);
+			$load_online_time = ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1;
+			if ($this->config['lfwwh_cache_time'] > $load_online_time)
+			{
+				$this->config->set('lfwwh_cache_time', $load_online_time);
+			}
+			if (($view_state = $this->cache->get("_lf_who_was_here")) === false)
+			{
+				$view_state = $this->view_state();
+				$this->cache->put("_lf_who_was_here", $view_state, 60 * (($this->config['lfwwh_use_online_time']) ? $load_online_time : $this->config['lfwwh_cache_time']));
+			}
 		}
-		if (($view_state = $this->cache->get("_lf_who_was_here")) === false)
+		else
 		{
 			$view_state = $this->view_state();
-			$this->cache->put("_lf_who_was_here", $view_state, 60 * (($this->config['lfwwh_use_online_time']) ? $load_online_time : $this->config['lfwwh_cache_time']));
 		}
 
 		foreach ($view_state as $row)
@@ -421,7 +428,7 @@ class who_was_here
 	*/
 	public function clear_up($user_ids_ary)
 	{
-		if (!$this->config['lfwwh_clear_up'])
+		if (!$this->config['lfwwh_clear_up'] || !$this->config['lfwwh_use_cache'])
 		{
 			return;
 		}

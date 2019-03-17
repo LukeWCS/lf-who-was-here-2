@@ -158,19 +158,6 @@
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_OTHERS') }}</legend>
-		<dl id="lfwwh_opt_use_online_time">
-			<dt><label>{{ lang('LFWWH_USE_ONLINE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_USE_ONLINE_TIME_EXP') }}</span></dt>
-			<dd>
-				<label><input type="radio" class="radio" name="lfwwh_use_online_time" id="lfwwh_use_online_time_1" value="1" onchange="lfwwh_set_controls_state()" {% if LFWWH_USE_ONLINE_TIME == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
-				<label><input type="radio" class="radio" name="lfwwh_use_online_time" id="lfwwh_use_online_time_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_USE_ONLINE_TIME == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
-			</dd>
-		</dl>
-		<dl id="lfwwh_opt_cache_time">
-			<dt><label>{{ lang('LFWWH_CACHE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_CACHE_TIME_EXP') }}</span></dt>
-			<dd>
-				<input type="number" name="lfwwh_cache_time" id="lfwwh_cache_time" min="1" max="{{ LFWWH_CACHE_TIME_MAX }}" value="{{ LFWWH_CACHE_TIME }}" /> {{ lang('MINUTES') }}
-			</dd>
-		</dl>
 		<dl id="lfwwh_opt_api_mode">
 			<dt><label>{{ lang('LFWWH_API_MODE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_API_MODE_EXP') }}</span></dt>
 			<dd>
@@ -190,6 +177,30 @@
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_disp_template_pos_all" id="lfwwh_disp_template_pos_all_1" value="1" onchange="lfwwh_set_controls_state()" {% if LFWWH_DISP_TEMPLATE_POS_ALL == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_disp_template_pos_all" id="lfwwh_disp_template_pos_all_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_DISP_TEMPLATE_POS_ALL == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{{ lang('LFWWH_SECTION_LOAD_SETTINGS') }}</legend>
+		<dl id="lfwwh_opt_use_cache">
+			<dt><label>{{ lang('LFWWH_USE_CACHE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_USE_CACHE_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="lfwwh_use_cache" id="lfwwh_use_cache_1" value="1" onchange="lfwwh_set_controls_state()" {% if LFWWH_USE_CACHE == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_use_cache" id="lfwwh_use_cache_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_USE_CACHE == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
+		<dl id="lfwwh_opt_use_online_time">
+			<dt><label>{{ lang('LFWWH_USE_ONLINE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_USE_ONLINE_TIME_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="lfwwh_use_online_time" id="lfwwh_use_online_time_1" value="1" onchange="lfwwh_set_controls_state()" {% if LFWWH_USE_ONLINE_TIME == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_use_online_time" id="lfwwh_use_online_time_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_USE_ONLINE_TIME == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
+		<dl id="lfwwh_opt_cache_time">
+			<dt><label>{{ lang('LFWWH_CACHE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_CACHE_TIME_EXP') }}</span></dt>
+			<dd>
+				<input type="number" name="lfwwh_cache_time" id="lfwwh_cache_time" min="1" max="{{ LFWWH_CACHE_TIME_MAX }}" value="{{ LFWWH_CACHE_TIME }}" /> {{ lang('MINUTES') }}
 			</dd>
 		</dl>
 	</fieldset>
@@ -233,8 +244,9 @@ function lfwwh_set_controls_state() {
 	document.getElementById("lfwwh_opt_disp_ip").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_period_of_time").style.opacity = (document.getElementById("lfwwh_time_mode_0").selected) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_record_time_format").style.opacity = (document.getElementById("lfwwh_record_1").checked) ? enabled : disabled;
-	document.getElementById("lfwwh_opt_cache_time").style.opacity = (document.getElementById("lfwwh_use_online_time_0").checked) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_disp_template_pos").style.opacity = (document.getElementById("lfwwh_disp_template_pos_all_0").checked) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_use_online_time").style.opacity = (document.getElementById("lfwwh_use_cache_1").checked) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_cache_time").style.opacity = (document.getElementById("lfwwh_use_cache_1").checked && document.getElementById("lfwwh_use_online_time_0").checked) ? enabled : disabled;
 }
 function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_use_permissions_0").checked = true;
@@ -255,11 +267,12 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_record_1").checked = true;
 	document.getElementById("lfwwh_record_time_format").value = "D j. M Y";
 	document.getElementById("lfwwh_disp_template_pos_0").selected = true;
-	document.getElementById("lfwwh_use_online_time_1").checked = true;
-	document.getElementById("lfwwh_cache_time").value = "{{ LFWWH_CACHE_TIME_MAX }}";
 	document.getElementById("lfwwh_api_mode_0").checked = true;
 	document.getElementById("lfwwh_clear_up_1").checked = true;
 	document.getElementById("lfwwh_disp_template_pos_all_0").checked = true;
+	document.getElementById("lfwwh_use_cache_1").checked = true;
+	document.getElementById("lfwwh_use_online_time_1").checked = true;
+	document.getElementById("lfwwh_cache_time").value = "{{ LFWWH_CACHE_TIME_MAX }}";
 	lfwwh_set_controls_state();
 }
 function lfwwh_confirm_record_reset() {

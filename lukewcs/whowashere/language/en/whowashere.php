@@ -44,7 +44,7 @@ $lang = array_merge($lang, array(
 	// board index page
 	'LFWWH_TITLE'				=> 'Who was here',
 	'LFWWH_LAST1'				=> '', //old: 'last:&nbsp;'
-	'LFWWH_LAST2'				=> '', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
+	'LFWWH_LAST2'				=> '', //used for parts like "o'clock" in the time display (last at hh:mm o'clock)
 	'LFWWH_USERS_TEXT'			=> 'Registered users%s:',
 	'LFWWH_BOTS_TEXT'			=> 'Bots%s:',
 	'LFWWH_SHOW_TIME'			=> 'show time',
