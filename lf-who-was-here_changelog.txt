@@ -2,6 +2,9 @@
 
 
 #### developers build changelog
+* B8:
+  * Fix: Bei deaktiviertem Cache wurde die automatische Bereinigung nicht mehr durchgeführt. (Kirk)
+  * Alle Style-Anpassungen ausser "prosilver" entfernt.
 * B7:
   * B6 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Vorschlag von Kirk eingebaut bez. Cache Deaktivierung.

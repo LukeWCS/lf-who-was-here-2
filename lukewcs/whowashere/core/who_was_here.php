@@ -428,7 +428,7 @@ class who_was_here
 	*/
 	public function clear_up($user_ids_ary)
 	{
-		if (!$this->config['lfwwh_clear_up'] || !$this->config['lfwwh_use_cache'])
+		if (!$this->config['lfwwh_clear_up'])
 		{
 			return;
 		}
@@ -452,7 +452,10 @@ class who_was_here
 		
 		if ($user_deleted) 
 		{
-			$this->cache->destroy("_lf_who_was_here");
+			if ($this->config['lfwwh_use_cache'])
+			{
+				$this->cache->destroy("_lf_who_was_here");	
+			}
 			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_whowashere');
 			$lang = $this->user->lang;
 		 	if (isset($lang['USER_DELETED']))
