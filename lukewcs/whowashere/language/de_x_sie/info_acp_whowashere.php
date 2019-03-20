@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_HIDDEN'					=> 'Zeige unsichtbare Benutzer',
 	'LFWWH_DISP_HIDDEN_EXP'				=> 'In der Benutzerliste werden auch unsichtbare Benutzer angezeigt. (Benötigt Berechtigung, wie bei “Wer ist online?”.)',
 	'LFWWH_DISP_TIME'					=> 'Zeige die Zeit von Benutzern',
-	'LFWWH_DISP_TIME_EXP'				=> '“Bei überfahren” zeigt zusätzlich ein Zeitsymbol an, mit dem die Zeiten auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Allen Benutzern zeigen oder niemandem, keine spezielle Funktion für Administratoren.)',
+	'LFWWH_DISP_TIME_EXP'				=> '“Bei überfahren” zeigt zusätzlich ein Info-Symbol an, mit dem die Zeiten auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Allen Benutzern zeigen oder niemandem, keine spezielle Funktion für Administratoren.)',
 	'LFWWH_DISP_TIME_1'					=> 'Hinter dem Namen',
 	'LFWWH_DISP_TIME_2'					=> 'Bei überfahren',
 	'LFWWH_DISP_TIME_0'					=> 'Nein',
@@ -80,7 +80,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_IP'						=> 'Zeige die Benutzer-IP',
-	'LFWWH_DISP_IP_EXP'					=> 'Die IP wird hinter der Zeit angezeigt. (Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.)',
+	'LFWWH_DISP_IP_EXP'					=> 'Die IP wird entweder hinter dem Namen oder bei überfahren angezeigt. (Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.)',
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Anzeige Einstellungen 2',
 	'LFWWH_TIME_MODE'					=> 'Anzeige der Besucher von ...',
@@ -114,7 +114,7 @@ $lang = array_merge($lang, array(
 	// config section 5
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Serverlast',
 	'LFWWH_USE_CACHE'					=> 'Cache für die Besuchertabelle verwenden',
-	'LFWWH_USE_CACHE_EXP'				=> 'Bei aktiviertem Cache wird auf die zwischengespeicherte Tabelle zurückgegriffen, wenn der Forenindex aufgerufen wird. Dadurch werden neue Besucher erst nach einer gewissen Verzögerung angezeigt. Ist der Cache deaktiviert, dann wird bei jedem Aufruf des Forenindexes eine neue MySQL Abfrage ausgeführt, was bei grösseren Foren zu Performance-Problemen führen kann.',
+	'LFWWH_USE_CACHE_EXP'				=> 'Bei aktiviertem Cache wird auf die zwischengespeicherte Tabelle zurückgegriffen, wenn der Forenindex aufgerufen wird. Dadurch werden neue Besucher erst nach einer gewissen Verzögerung angezeigt. Bei deaktiviertem Cache wird bei jedem Aufruf des Forenindexes eine neue MySQL Abfrage ausgeführt, was bei grossen Foren zu Performance-Problemen führen kann.',
 	'LFWWH_USE_ONLINE_TIME'				=> 'Aktualisiere mit der Zeitspanne für die Online-Anzeige',
 	'LFWWH_USE_ONLINE_TIME_EXP'			=> 'Wenn aktiviert, dann wird für das Intervall der Aktualisierung die folgende Einstellung verwendet: “ALLGEMEIN » SERVER-KONFIGURATION » Serverlast » Allgemeine Einstellungen » Zeitspanne für die Online-Anzeige”. Das entspricht dem Standardverhalten von WWH.',
 	'LFWWH_CACHE_TIME'					=> 'Intervall der Aktualisierung',

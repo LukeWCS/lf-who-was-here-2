@@ -89,8 +89,11 @@
 		<dl id="lfwwh_opt_disp_ip">
 			<dt><label>{{ lang('LFWWH_DISP_IP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_IP_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="lfwwh_disp_ip" id="lfwwh_disp_ip_1" value="1" {% if LFWWH_DISP_IP == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
-				<label><input type="radio" class="radio" name="lfwwh_disp_ip" id="lfwwh_disp_ip_0" value="0" {% if LFWWH_DISP_IP == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+				<select name="lfwwh_disp_ip" onchange="lfwwh_set_controls_state()">
+					<option id="lfwwh_disp_ip_1" value="1" {% if LFWWH_DISP_IP == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_1') }}</option>
+					<option id="lfwwh_disp_ip_2" value="2" {% if LFWWH_DISP_IP == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_2') }}</option>
+					<option id="lfwwh_disp_ip_0" value="0" {% if LFWWH_DISP_IP == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_0') }}</option>
+				</select>
 			</dd>
 		</dl>
 	</fieldset>
@@ -241,7 +244,7 @@ function lfwwh_set_controls_state() {
 	document.getElementById("lfwwh_opt_disp_bots_only_admin").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_disp_time_bots").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_disp_time_format").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled;
-	document.getElementById("lfwwh_opt_disp_ip").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled;
+	//document.getElementById("lfwwh_opt_disp_ip").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_period_of_time").style.opacity = (document.getElementById("lfwwh_time_mode_0").selected) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_record_time_format").style.opacity = (document.getElementById("lfwwh_record_1").checked) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_disp_template_pos").style.opacity = (document.getElementById("lfwwh_disp_template_pos_all_0").checked) ? enabled : disabled;
@@ -258,7 +261,7 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_disp_time_1").selected = true;
 	document.getElementById("lfwwh_disp_time_bots_1").selected = true;
 	document.getElementById("lfwwh_disp_time_format").value = "G:i";
-	document.getElementById("lfwwh_disp_ip_1").checked = true;
+	document.getElementById("lfwwh_disp_ip_1").selected = true;
 	document.getElementById("lfwwh_time_mode_1").selected = true;
 	document.getElementById("lfwwh_period_of_time_h").value = "24";
 	document.getElementById("lfwwh_period_of_time_m").value = "0";

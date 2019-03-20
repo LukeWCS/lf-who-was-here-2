@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_HIDDEN'					=> 'Show invisible users',
 	'LFWWH_DISP_HIDDEN_EXP'				=> 'Invisible users are also displayed in the user list. (Permission necessary, as with “Who is online”.)',
 	'LFWWH_DISP_TIME'					=> 'Show time of users',
-	'LFWWH_DISP_TIME_EXP'				=> '“On hover” also displays a time symbol with which the times can also be displayed directly. Helpful for smartphones and tablet computers. (All user see it or none, no special function for Admins.)',
+	'LFWWH_DISP_TIME_EXP'				=> '“On hover” also displays a info symbol with which the times can also be displayed directly. Helpful for smartphones and tablet computers. (All user see it or none, no special function for Admins.)',
 	'LFWWH_DISP_TIME_1'					=> 'Behind the name',
 	'LFWWH_DISP_TIME_2'					=> 'On hover',
 	'LFWWH_DISP_TIME_0'					=> 'No',
@@ -80,7 +80,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Time format',
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_IP'						=> 'Show user IP',
-	'LFWWH_DISP_IP_EXP'					=> 'The IP is displayed behind the time. (Just for the users with administrative permissions, as with “Who is online”.)',
+	'LFWWH_DISP_IP_EXP'					=> 'The IP is displayed behind the name or on hover. (Just for the users with administrative permissions, as with “Who is online”.)',
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Display settings 2',
 	'LFWWH_TIME_MODE'					=> 'Displaying users of ...',
@@ -114,7 +114,7 @@ $lang = array_merge($lang, array(
 	// config section 5
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Load settings',
 	'LFWWH_USE_CACHE'					=> 'Use cache for the visitor table',
-	'LFWWH_USE_CACHE_EXP'				=> 'When the cache is enabled, the cached table is used when the forums index is called. As a result, new visitors are displayed only after a certain delay. If the cache is deactivated, a new MySQL query is executed each time the forum index is called, which can lead to performance problems on larger forums.',
+	'LFWWH_USE_CACHE_EXP'				=> 'When the cache is enabled, the cached table is used when the forums index is called. As a result, new visitors are displayed only after a certain delay. If the cache is deactivated, a new MySQL query is executed each time the forum index is called, which can lead to performance problems in large forums.',
 	'LFWWH_USE_ONLINE_TIME'				=> 'Update with the view online time span',
 	'LFWWH_USE_ONLINE_TIME_EXP'			=> 'When enabled, the following setting is used for the update interval: “GENERAL » SERVER CONFIGURATION » Load settings » General settings » View online time span”. This corresponds to the standard behaviour of WWH.',
 	'LFWWH_CACHE_TIME'					=> 'Interval of the update',
