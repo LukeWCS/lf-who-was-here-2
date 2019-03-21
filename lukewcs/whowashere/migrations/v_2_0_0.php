@@ -44,8 +44,8 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_last_clean'				, (isset($this->config['wwh_last_clean']))				? $this->config['wwh_last_clean']				: '0'));
 		$data[] = array('config.add', array('lfwwh_time_mode'				, (isset($this->config['wwh_version']))					? $this->config['wwh_version']					: '1'));
 		$data[] = array('config.add', array('lfwwh_record'					, (isset($this->config['wwh_record']))					? $this->config['wwh_record']					: '1'));
-		$data[] = array('config.add', array('lfwwh_record_ips'				, (isset($this->config['wwh_record_ips']))				? $this->config['wwh_record_ips']				: '1'), true);
-		$data[] = array('config.add', array('lfwwh_record_time'				, (isset($this->config['wwh_record_time']))				? $this->config['wwh_record_time']				: time()), true);
+		$data[] = array('config.add', array('lfwwh_record_ips'				, (isset($this->config['wwh_record_ips']))				? $this->config['wwh_record_ips']				: '1', true));
+		$data[] = array('config.add', array('lfwwh_record_time'				, (isset($this->config['wwh_record_time']))				? $this->config['wwh_record_time']				: time(), true));
 		$data[] = array('config.add', array('lfwwh_record_time_format'		, (isset($this->config['wwh_record_timestamp']))		? $this->config['wwh_record_timestamp']			: 'D j. M Y'));
 		$data[] = array('config.add', array('lfwwh_record_reset_time'		, (isset($this->config['wwh_reset_time']))				? $this->config['wwh_reset_time']				: '1'));
 		$data[] = array('config.add', array('lfwwh_sort_by'					, (isset($this->config['wwh_sort_by']))					? $this->config['wwh_sort_by']					: '3'));
@@ -114,11 +114,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		}
 		
 		if ($this->db_tools->sql_table_exists(WWH_TABLE) && $this->db_tools->sql_table_exists(LFWWH_TABLE)) 
-		{//echo 'import_wwh_table'.'<br>';
-/* 			$sql = 'DELETE FROM ' . LFWWH_TABLE;
-			$result = $this->db->sql_query($sql); */
-/* 			$sql = 'INSERT INTO ' . LFWWH_TABLE . ' 
-					SELECT * FROM ' . WWH_TABLE; */
+		{
 			$sql = 'INSERT INTO ' . LFWWH_TABLE . ' (user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage)
 					SELECT user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage 
 					FROM ' . WWH_TABLE;

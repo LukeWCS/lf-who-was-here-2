@@ -54,7 +54,7 @@ class acp_whowashere_module
 			$this->config->set('lfwwh_disp_hidden'				, $this->request->variable('lfwwh_disp_hidden', 0));
 			$this->config->set('lfwwh_disp_time'				, $this->request->variable('lfwwh_disp_time', 0));
 			$this->config->set('lfwwh_disp_time_bots'			, $this->request->variable('lfwwh_disp_time_bots', 0));
-			$this->config->set('lfwwh_disp_time_format'			, $this->request->variable('lfwwh_disp_time_format', 'H:i'));
+			$this->config->set('lfwwh_disp_time_format'			, $this->request->variable('lfwwh_disp_time_format', ''));
 			$this->config->set('lfwwh_disp_ip'					, $this->request->variable('lfwwh_disp_ip', 0));
 			$this->config->set('lfwwh_time_mode'				, $this->request->variable('lfwwh_time_mode', 0));
 			$this->config->set('lfwwh_period_of_time_h'			, $this->request->variable('lfwwh_period_of_time_h', 0));
@@ -62,7 +62,7 @@ class acp_whowashere_module
 			$this->config->set('lfwwh_period_of_time_s'			, $this->request->variable('lfwwh_period_of_time_s', 0));
 			$this->config->set('lfwwh_sort_by'					, $this->request->variable('lfwwh_sort_by', 0));
 			$this->config->set('lfwwh_record'					, $this->request->variable('lfwwh_record', 0));
-			$this->config->set('lfwwh_record_time_format'		, $this->request->variable('lfwwh_record_time_format', 'D j. M Y'));
+			$this->config->set('lfwwh_record_time_format'		, $this->request->variable('lfwwh_record_time_format', ''));
 			$this->config->set('lfwwh_disp_template_pos'		, $this->request->variable('lfwwh_disp_template_pos', 0));
 			$this->config->set('lfwwh_api_mode'					, $this->request->variable('lfwwh_api_mode', 0));
 			$this->config->set('lfwwh_clear_up'					, $this->request->variable('lfwwh_clear_up', 0));

@@ -186,12 +186,12 @@ class who_was_here
 	public function display()
 	{
 		$this->user->add_lang_ext('lukewcs/whowashere', 'whowashere');
-		$wwh_users_permission = (
+		$wwh_disp_users_permission = 
 			($this->config['lfwwh_use_permissions'])
 			? $this->auth->acl_gets('u_lfwwh_show_users')
 			: ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 1 || $this->config['lfwwh_disp_for_guests'] == 3) && empty($this->user->data['is_bot'])
-		);
-		$wwh_disp_bots = ($this->config['lfwwh_disp_bots_only_admin'] == 1 && $this->auth->acl_get('a_')) || $this->config['lfwwh_disp_bots_only_admin'] == 0;
+		;
+		$wwh_disp_bots_permission = ($this->config['lfwwh_disp_bots_only_admin'] == 1 && $this->auth->acl_get('a_')) || $this->config['lfwwh_disp_bots_only_admin'] == 0;
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
 		$no_online_users = false;
 
@@ -238,96 +238,6 @@ class who_was_here
 		foreach ($view_state as $row)
 		{
 			$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
-			
-			//v1 - IF: 1 TERNARY: 7 LINES: 24
-			// $hover_time = (
-				// (($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
-				// ? $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2']
-				// : ''
-			// );
-			// $hover_ip = (
-				// ($this->auth->acl_get('a_') && $this->config['lfwwh_disp_ip'])
-				// ? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip']
-				// : ''
-			// );
-			// $hover_info = (
-				// ($hover_time || ($hover_ip && $this->config['lfwwh_disp_ip'] == 2)) 
-				// ? ' title="' . $hover_time . (($hover_time && $hover_ip) ? ' | ' : '') . $hover_ip . '"'
-				// : ''
-			// );
-			// $disp_info = (
-				// (($this->config['lfwwh_disp_time'] > 0 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_time_bots'] > 0 && $row['user_type'] == USER_IGNORE))
-				// ? '&nbsp;(' . $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'] . (($hover_ip && $this->config['lfwwh_disp_ip'] == 1) ? ' | ' . $hover_ip : '' ) . ')'
-				// : ''
-			// );
-			// if (($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE))
-			// {
-				// $disp_info = '<span class="lfwwh_time_' . (($row['user_type'] != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'users': 'bots') . '" style="display: none;">' . $disp_info . '</span>';
-			// }
-
-			
-			//v2 - IF: 10 TERNARY: 11 LINES: 59
-			// $time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
-			// $ip = (($this->auth->acl_get('a_') && $this->config['lfwwh_disp_ip']) ? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] : '');
-			// $hover_info = '';
-			// $show_time_hover = ($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE);
-			// $show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == 2;
-			// if ($show_time_hover || $show_ip_hover)
-			// {
-				// if ($show_time_hover)
-				// {
-					// $hover_info .= $time;
-				// }
-				// if ($show_ip_hover)
-				// {
-					// $hover_info .=  (($hover_info) ? ' | ' : '') . $ip;
-				// }
-				// if ($hover_info)
-				// {
-					// $hover_info = ' title="' . $hover_info . '"';
-				// }
-			// }
-			// $disp_info = '';
-			// $show_time_disp = ($this->config['lfwwh_disp_time'] > 0 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_time_bots'] > 0 && $row['user_type'] == USER_IGNORE);
-			// $show_time_disp_1 = ($this->config['lfwwh_disp_time'] == 1 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_time_bots'] == 1 && $row['user_type'] == USER_IGNORE);
-			// $show_ip_disp = $ip && $this->config['lfwwh_disp_ip'] > 0;
-			// $show_ip_disp_1 = $ip && $this->config['lfwwh_disp_ip'] == 1;
-			// if ($show_time_disp || $show_ip_disp)
-			// {
-				// if ($show_time_hover && $show_ip_hover)
-				// {
-					// $disp_info .= $this->get_hidden_span($row['user_type'], '&nbsp;(' . $time . ' | ' . $ip . ')');
-				// }	
-				// else
-				// {
-					// $disp_info .= (($show_time_disp_1 || $show_ip_disp_1) ? '&nbsp;(' : '');
-					// if ($show_time_disp)
-					// {
-						// if (($show_time_hover) )
-						// {
-							// $disp_info .= $this->get_hidden_span($row['user_type'], ((!$show_time_disp_1 && !$show_ip_disp_1) ? '&nbsp;(' : '') . $time . (($show_ip_disp) ? ' | ': '') . ((!$show_time_disp_1 && !$show_ip_disp_1) ? ')' : ''));
-						// }
-						// else
-						// {
-							// $disp_info .= $time . (($show_ip_disp_1) ? ' | ': '');
-						// }
-					// }
-					// if ($show_ip_disp)
-					// {
-						// if ($show_ip_hover)
-						// {
-							// $disp_info .= $this->get_hidden_span($row['user_type'], ((!$show_time_disp_1 && !$show_ip_disp_1) ? '&nbsp;(' : '') . (($show_time_disp_1) ? ' | ': '') . $ip . ((!$show_time_disp_1 && !$show_ip_disp_1) ? ')' : ''));
-						// }
-						// else
-						// {
-							// $disp_info .=  $ip;
-						// }
-					// }
-					// $disp_info .= (($show_time_disp_1 || $show_ip_disp_1) ? ')' : '');
-				// }
-			// }				
-				
-			//v3 - IF: 9 TERNARY: 0 LINES: 48
 			$time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
 			$ip = (($this->auth->acl_get('a_') && $this->config['lfwwh_disp_ip']) ? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] : '');
 			$disp_info = '';
@@ -338,39 +248,39 @@ class who_was_here
 			$show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == 2;
 			if ($show_time_disp || $show_ip_disp || $show_time_hover || $show_ip_hover)
 			{
-				if ($show_time_disp && !$show_ip_disp && !$show_time_hover && !$show_ip_hover)
+				if ($show_time_disp && !$show_time_hover && !$show_ip_disp && !$show_ip_hover)
 				{
 					$disp_info = '&nbsp;(' . $time . ')';
 				}
-				else if (!$show_time_disp && $show_ip_disp && !$show_time_hover && !$show_ip_hover)
+				else if (!$show_time_disp && !$show_time_hover && $show_ip_disp && !$show_ip_hover)
 				{
 					$disp_info = '&nbsp;(' . $ip . ')';
 				}
-				else if ($show_time_disp && $show_ip_disp && !$show_time_hover && !$show_ip_hover)
+				else if ($show_time_disp && !$show_time_hover && $show_ip_disp && !$show_ip_hover)
 				{
 					$disp_info = '&nbsp;(' . $time . ' | ' . $ip . ')';
 				}
-				else if (!$show_time_disp && !$show_ip_disp && $show_time_hover && !$show_ip_hover)
+				else if (!$show_time_disp && $show_time_hover && !$show_ip_disp && !$show_ip_hover)
 				{
 					$disp_info = $this->get_hidden_span($row['user_type'], '&nbsp;(' . $time . ')');
 					$hover_info = ' title="' . $time . '"';
 				}
-				else if (!$show_time_disp && !$show_ip_disp && !$show_time_hover && $show_ip_hover)
+				else if (!$show_time_disp && !$show_time_hover && !$show_ip_disp && $show_ip_hover)
 				{
 					$disp_info = $this->get_hidden_span($row['user_type'], '&nbsp;(' . $ip . ')');
 					$hover_info = ' title="' . $ip . '"';
 				}
-				else if (!$show_time_disp && !$show_ip_disp && $show_time_hover && $show_ip_hover)
+				else if (!$show_time_disp && $show_time_hover && !$show_ip_disp && $show_ip_hover)
 				{
 					$disp_info = $this->get_hidden_span($row['user_type'], '&nbsp;(' . $time . ' | ' . $ip . ')');
 					$hover_info = ' title="' . $time . ' | ' . $ip . '"';
 				}
-				else if ($show_time_disp && !$show_ip_disp && !$show_time_hover && $show_ip_hover)
+				else if ($show_time_disp && !$show_time_hover && !$show_ip_disp && $show_ip_hover)
 				{
 					$disp_info = '&nbsp;(' . $time . $this->get_hidden_span($row['user_type'], ' | ' . $ip ). ')';
 					$hover_info = ' title="' . $ip . '"';
 				}
-				else if (!$show_time_disp && $show_ip_disp && $show_time_hover && !$show_ip_hover)
+				else if (!$show_time_disp && $show_time_hover && $show_ip_disp && !$show_ip_hover)
 				{
 					$disp_info = '&nbsp;(' . $this->get_hidden_span($row['user_type'], $time . ' | ') . $ip . ')';
 					$hover_info = ' title="' . $time . '"';
@@ -380,7 +290,7 @@ class who_was_here
 
 			if ($row['viewonline'] || ($row['user_type'] == USER_IGNORE))
 			{
-				if (($row['user_id'] != ANONYMOUS) && ($this->config['lfwwh_disp_bots'] && $wwh_disp_bots || ($row['user_type'] != USER_IGNORE)))
+				if (($row['user_id'] != ANONYMOUS) && ($this->config['lfwwh_disp_bots'] && $wwh_disp_bots_permission || ($row['user_type'] != USER_IGNORE)))
 				{
 					if ($this->config['lfwwh_disp_bots'] == 2 && $row['user_type'] == USER_IGNORE)
 					{
@@ -453,40 +363,39 @@ class who_was_here
 			$this->config->set('lfwwh_record_time', time(), true);
 		}
 		
-		$wwh_caption_users = (
+		$wwh_caption_users = 
 			($is_min_phpbb32)
 			? '&nbsp;<span class="lfwwh_show_time_caption_users icon fa-info-circle" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="opacity: 0.5;"></span>'
 			: '&nbsp;<span class="lfwwh_show_time_caption_users" style="opacity: 0.5;">(' . $this->user->lang['LFWWH_SHOW_INFO'] . ')</span>'
-		);
-		$wwh_button_users = (
+		;
+		$wwh_button_users = 
 			(($this->config['lfwwh_disp_time'] == 2 || ($this->config['lfwwh_disp_bots'] == 1 && $this->config['lfwwh_disp_time_bots'] == 2) || ($ip && $this->config['lfwwh_disp_ip'] == 2)) && !$no_online_users)
 			? '<button class="lfwwh_show_time_button_users" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_time(0)">' . $wwh_caption_users . '</button>'
 			: ''
-		);
-		$wwh_caption_bots = (
+		;
+		$wwh_caption_bots = 
 			($is_min_phpbb32)
 			? '&nbsp;<span class="lfwwh_show_time_caption_bots icon fa-info-circle" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="opacity: 0.5;"></span>'
 			: '&nbsp;<span class="lfwwh_show_time_caption_bots" style="opacity: 0.5;">(' . $this->user->lang['LFWWH_SHOW_INFO'] . ')</span>'
-		);
-		$wwh_button_bots = (
+		;
+		$wwh_button_bots = 
 			(($this->config['lfwwh_disp_time_bots'] == 2 || ($ip && $this->config['lfwwh_disp_ip'] == 2)) && !$no_online_users)
 			? '<button class="lfwwh_show_time_button_bots" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_time(1)">' . $wwh_caption_bots . '</button>'
 			: ''
-		);
+		;
 
-		$wwh_total_permission = (
+		$wwh_disp_total_permission = (
 			($this->config['lfwwh_use_permissions'])
 			? $this->auth->acl_gets('u_lfwwh_show_stats')
 			: ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 0 || $this->config['lfwwh_disp_for_guests'] == 1) && empty($this->user->data['is_bot'])
 		);
 		$this->template->assign_vars(array(
-			'LFWWH_LIST'		=> (($wwh_users_permission) ? sprintf($this->user->lang['LFWWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
-			'LFWWH_BOTS'		=> (($wwh_users_permission && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
-			'LFWWH_TOTAL'		=> (($wwh_total_permission) ? $this->get_total_users_string($count) : ''),
+			'LFWWH_LIST'		=> (($wwh_disp_users_permission) ? sprintf($this->user->lang['LFWWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
+			'LFWWH_BOTS'		=> (($wwh_disp_users_permission && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
+			'LFWWH_TOTAL'		=> (($wwh_disp_total_permission) ? $this->get_total_users_string($count) : ''),
 			'LFWWH_EXP'			=> $this->get_explanation_string($this->config['lfwwh_time_mode']),
 			'LFWWH_RECORD'		=> $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']),
 			'LFWWH_POS'			=> (($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos']),
-//			'LFWWH_POS_ALL'		=> $this->config['lfwwh_disp_template_pos_all'],
 			'LFWWH_API_MODE'	=> $this->config['lfwwh_api_mode'],
 		));
 	}

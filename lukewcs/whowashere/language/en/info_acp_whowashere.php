@@ -47,7 +47,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_NAV_CONFIG'					=> 'Settings',
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here? [%s]',
-	'LFWWH_INSTALLED' 					=> 'Installed version: %s &bull; Discussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Topic on phpbb.de</a>',
+	'LFWWH_INSTALLED' 					=> 'Installed version: %s &bull; Discussion: <a href="https://www.phpbb.com/community/viewtopic.php?f=456&t=2506381">Topic on phpbb.de</a>',
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
 	'LFWWH_USE_PERMISSIONS'				=> 'Use the permission system of phpBB',
@@ -80,7 +80,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Time format',
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_IP'						=> 'Show user IP',
-	'LFWWH_DISP_IP_EXP'					=> 'The IP is displayed behind the name or on hover. (Just for the users with administrative permissions, as with “Who is online”.)',
+	'LFWWH_DISP_IP_EXP'					=> '“On hover” also displays a info symbol with which the IPs can also be displayed directly. Helpful for smartphones and tablet computers. (Just for the users with administrative permissions, as with “Who is online”.)',
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Display settings 2',
 	'LFWWH_TIME_MODE'					=> 'Displaying users of ...',

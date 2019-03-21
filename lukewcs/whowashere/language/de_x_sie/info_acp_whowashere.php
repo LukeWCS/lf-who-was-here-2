@@ -80,7 +80,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_IP'						=> 'Zeige die Benutzer-IP',
-	'LFWWH_DISP_IP_EXP'					=> 'Die IP wird entweder hinter dem Namen oder bei überfahren angezeigt. (Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.)',
+	'LFWWH_DISP_IP_EXP'					=> '“Bei überfahren” zeigt zusätzlich ein Info-Symbol an, mit dem die IPs auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.)',
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Anzeige Einstellungen 2',
 	'LFWWH_TIME_MODE'					=> 'Anzeige der Besucher von ...',
