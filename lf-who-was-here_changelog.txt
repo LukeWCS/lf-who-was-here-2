@@ -2,14 +2,17 @@
 
 
 #### developers build changelog
+* B11:
+  * Fix: Die Info Schaltfläche wurde in einer bestimmten Situation angezeigt, obwohl sie nicht benötigt wurde.
+  * Code für die Anzeige von Zeit und IP optimiert. Diese ignoriert jetzt Gäste, wodurch etliche unnötige Abfragen entfallen.
 * B10:
   * B9 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Fix: Kleinen Fehler in der Migration behoben: bei `lfwwh_record_ips` und `lfwwh_record_time` wurde `is_dynamic` nicht gesetzt.
+  * Fix: Migration: bei `lfwwh_record_ips` und `lfwwh_record_time` wurde `is_dynamic` nicht gesetzt.
   * Sprachdateien geändert.
   * Code bereinigt.
 * B9:
   * Wunsch von Wolkenbruch eingebaut bez. IP-Mouse-Over.
-  * Den Code für die Anzeige von Zeit und IP komplett neu geschrieben.
+  * Den Code für die Generierung der Anzeige von Zeit und IP komplett neu geschrieben.
   * Schalter "Zeige die Benutzer-IP:" auf Auswahlliste umgestellt.
   * Abblend-Funktion angepasst.
   * Funktion für "Standard" angepasst.
@@ -102,6 +105,7 @@
 * WWH-Anzeige:
   * Für die Schaltfläche zur Anzeige von Zeit und/oder IP wird nicht mehr das Zeit-Symbol verwendet, sondern das Info-Symbol.
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
+* Fix: Wenn bei der Einstellungs-Kombination "Zeige Bots:" > "Mit den Benutzern" und "Zeige die Zeit von Bots:" > "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -
