@@ -193,7 +193,6 @@ class who_was_here
 		;
 		$wwh_disp_bots_permission = ($this->config['lfwwh_disp_bots_only_admin'] == 1 && $this->auth->acl_get('a_')) || $this->config['lfwwh_disp_bots_only_admin'] == 0;
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
-		// $no_online_users = false;
 		$show_button_users = false;
 		$show_button_bots = false;
 
@@ -239,9 +238,9 @@ class who_was_here
 
 		foreach ($view_state as $row)
 		{
-			$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
 			if ($row['user_id'] != ANONYMOUS)
 			{
+				$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
 				$time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
 				$ip = (($this->auth->acl_get('a_') && $this->config['lfwwh_disp_ip']) ? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] : '');
 				$disp_info = '';
@@ -250,6 +249,7 @@ class who_was_here
 				$show_ip_disp = $ip && $this->config['lfwwh_disp_ip'] == 1;
 				$show_time_hover = ($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] > 0 && $this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE);
 				$show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == 2;
+
 				if (($show_time_disp || $show_ip_disp || $show_time_hover || $show_ip_hover))
 				{
 					if ($show_time_disp && !$show_time_hover && !$show_ip_disp && !$show_ip_hover)
@@ -289,13 +289,19 @@ class who_was_here
 						$disp_info = '&nbsp;(' . $this->get_hidden_span($row['user_type'], $time . ' | ') . $ip . ')';
 						$hover_info = ' title="' . $time . '"';
 					}
-					if (!$show_button_users && (($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] == 1 && $this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE) || $show_ip_hover) && $hover_info)
+					if (!$show_button_users) 
 					{
-						$show_button_users = true;
+						if ((($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] == 1 && $this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE) || $show_ip_hover) && $hover_info)
+						{
+							$show_button_users = true;
+						}
 					}
-					if (!$show_button_bots && $this->config['lfwwh_disp_bots'] == 2 && ($this->config['lfwwh_disp_time_bots'] == 2 || $show_ip_hover) && $hover_info)
+					if (!$show_button_bots)
 					{
-						$show_button_bots = true;
+						if ($this->config['lfwwh_disp_bots'] == 2 && ($this->config['lfwwh_disp_time_bots'] == 2 || $show_ip_hover) && $row['user_type'] == USER_IGNORE && $hover_info)
+						{
+							$show_button_bots = true;
+						}
 					}
 				}
 			}
@@ -347,7 +353,6 @@ class who_was_here
 		{
 			// User list is empty.
 			$users_list = $this->user->lang['NO_ONLINE_USERS'];
-			// $no_online_users = true;
 		}
 
 		if ($this->config['lfwwh_disp_bots'] == 2)
@@ -377,32 +382,30 @@ class who_was_here
 		
 		$wwh_caption_users = 
 			($is_min_phpbb32)
-			? '&nbsp;<span class="lfwwh_show_time_caption_users icon fa-info-circle" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="opacity: 0.5;"></span>'
+			? '&nbsp;<span class="lfwwh_show_time_caption_users icon fa-info-circle" style="opacity: 0.5;"></span>'
 			: '&nbsp;<span class="lfwwh_show_time_caption_users" style="opacity: 0.5;">(' . $this->user->lang['LFWWH_SHOW_INFO'] . ')</span>'
 		;
 		$wwh_button_users = 
-			// (($this->config['lfwwh_disp_time'] == 2 || ($this->config['lfwwh_disp_bots'] == 1 && $this->config['lfwwh_disp_time_bots'] == 2) || ($ip && $this->config['lfwwh_disp_ip'] == 2)) && !$no_online_users)
 			($show_button_users)
-			? '<button class="lfwwh_show_time_button_users" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_time(0)">' . $wwh_caption_users . '</button>'
+			? '<button class="lfwwh_show_time_button_users" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_time(0)">' . $wwh_caption_users . '</button>'
 			: ''
 		;
 		$wwh_caption_bots = 
 			($is_min_phpbb32)
-			? '&nbsp;<span class="lfwwh_show_time_caption_bots icon fa-info-circle" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="opacity: 0.5;"></span>'
+			? '&nbsp;<span class="lfwwh_show_time_caption_bots icon fa-info-circle" style="opacity: 0.5;"></span>'
 			: '&nbsp;<span class="lfwwh_show_time_caption_bots" style="opacity: 0.5;">(' . $this->user->lang['LFWWH_SHOW_INFO'] . ')</span>'
 		;
 		$wwh_button_bots = 
-			// (($this->config['lfwwh_disp_time_bots'] == 2 || ($ip && $this->config['lfwwh_disp_ip'] == 2)) && !$no_online_users)
 			($show_button_bots)
-			? '<button class="lfwwh_show_time_button_bots" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_time(1)">' . $wwh_caption_bots . '</button>'
+			? '<button class="lfwwh_show_time_button_bots" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_time(1)">' . $wwh_caption_bots . '</button>'
 			: ''
 		;
 
-		$wwh_disp_total_permission = (
+		$wwh_disp_total_permission = 
 			($this->config['lfwwh_use_permissions'])
 			? $this->auth->acl_gets('u_lfwwh_show_stats')
 			: ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 0 || $this->config['lfwwh_disp_for_guests'] == 1) && empty($this->user->data['is_bot'])
-		);
+		;
 		$this->template->assign_vars(array(
 			'LFWWH_LIST'		=> (($wwh_disp_users_permission) ? sprintf($this->user->lang['LFWWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
 			'LFWWH_BOTS'		=> (($wwh_disp_users_permission && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),

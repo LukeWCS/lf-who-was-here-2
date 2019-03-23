@@ -2,6 +2,10 @@
 
 
 #### developers build changelog
+* B12:
+  * Logik für die Anzeige der Info Schaltfläche weiter verbessert.
+  * Fix: Tooltip der Info Schaltfläche bei Firefox. (Kirk)
+  * Code bereinigt.
 * B11:
   * Fix: Die Info Schaltfläche wurde in einer bestimmten Situation angezeigt, obwohl sie nicht benötigt wurde.
   * Code für die Anzeige von Zeit und IP optimiert. Diese ignoriert jetzt Gäste, wodurch etliche unnötige Abfragen entfallen.
@@ -106,6 +110,7 @@
   * Für die Schaltfläche zur Anzeige von Zeit und/oder IP wird nicht mehr das Zeit-Symbol verwendet, sondern das Info-Symbol.
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
 * Fix: Wenn bei der Einstellungs-Kombination "Zeige Bots:" > "Mit den Benutzern" und "Zeige die Zeit von Bots:" > "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
+* Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -
