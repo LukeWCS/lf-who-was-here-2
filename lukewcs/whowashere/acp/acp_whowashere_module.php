@@ -46,6 +46,7 @@ class acp_whowashere_module
 				trigger_error('FORM_INVALID');
 			}
 			$delete_cache = ($this->request->variable('lfwwh_sort_by', 0) != $this->config['lfwwh_sort_by']);
+			$this->config->set('lfwwh_admin_mode'				, $this->request->variable('lfwwh_admin_mode', 0));
 			$this->config->set('lfwwh_use_permissions'			, $this->request->variable('lfwwh_use_permissions', 0));
 			$this->config->set('lfwwh_disp_for_guests'			, $this->request->variable('lfwwh_disp_for_guests', 0));
 			$this->config->set('lfwwh_disp_bots'				, $this->request->variable('lfwwh_disp_bots', 0));
@@ -91,6 +92,7 @@ class acp_whowashere_module
 		$this->template->assign_vars(array(
 			'LFWWH_CONFIG_TITLE_TEXT'		=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here (2.x)'),
 			'LFWWH_INSTALLED_TEXT'			=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_ext_version']),
+			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],
 			'LFWWH_DISP_BOTS'				=> $this->config['lfwwh_disp_bots'],

@@ -2,9 +2,14 @@
 
 
 #### developers build changelog
+* B13:
+  * Fix: Bei Erstinstallation wurden Gäste nicht angezeigt, da in B6 der Standardwert versehentlich von 1 auf 0 geändert wurde.
+  * Die CSS Klassennamen geändert (gekürzt).
+  * Admin Modus eingebaut.
+  * Code bez. Rechte verbessert und Rechte-Zuweisungen im Code an einer Stelle zusammengefasst.
 * B12:
   * Logik für die Anzeige der Info Schaltfläche weiter verbessert.
-  * Fix: Tooltip der Info Schaltfläche bei Firefox. (Kirk)
+  * Fix: Tooltip der Info Schaltfläche bei Firefox. (Meldung Kirk)
   * Code bereinigt.
 * B11:
   * Fix: Die Info Schaltfläche wurde in einer bestimmten Situation angezeigt, obwohl sie nicht benötigt wurde.
@@ -22,7 +27,7 @@
   * Funktion für "Standard" angepasst.
   * Sprachdateien geändert.
 * B8:
-  * Fix: Bei deaktiviertem Cache wurde die automatische Bereinigung nicht mehr durchgeführt. (Kirk)
+  * Fix: Bei deaktiviertem Cache wurde die automatische Bereinigung nicht mehr durchgeführt. (Meldung Kirk)
   * Alle Style-Anpassungen ausser "prosilver" entfernt.
 * B7:
   * B6 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
@@ -57,7 +62,7 @@
   * Im ACP-Modul eine weitere Template Variable umbenannt.
 * B2: 
   * Weitere Konfigurations-Variablen umbenannt. Darum muss zuerst B1 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Kirk)
+  * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Meldung Kirk)
   * Die Bereinigungs-Benachrichtigung eingebaut. @Kirk: Da wäre ein Test in 3.1.12 sinnvoll.
   * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
 * B1:
@@ -90,9 +95,9 @@
     * In den Sprachdateien für "Serverlast" 1 neue Variable hinzugefügt.
     * Die Punkte "Cache für die Besuchertabelle verwenden:", "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" und "Intervall der Aktualisierung:" in den neuen Abschnitt verschoben.
 * Die Rechte wurden geändert:
-  * Das bisherige Recht "Kann Mitglieder und Statistik sehen" wurde in "Kann Mitglieder sehen" geändert. Wenn eine Gruppe also sowohl die Statistik als auch die Mitglieder-Liste sehen soll, dann müssen jetzt auch beide Rechte gesetzt sein.
+  * Das bisherige Recht "Kann Mitglieder und Statistik sehen" wurde in "Kann Mitglieder sehen" geändert. Wenn eine Gruppe also sowohl die Statistik als auch die Mitglieder-Liste sehen soll, dann müssen jetzt auch beide Rechte gesetzt sein. So ist es jetzt auch möglich, z.B. nur die  Mitglieder-Liste anzuzeigen.
   * Im ACP-Modul dementsprechend für das einfache Rechtesystem die neue Option "Mitglieder" hinzugefügt.
-  * Installationsstandard für die standard Gruppen und Benutzer-Rollen entsprechend angepasst.
+  * Installationsstandard für die Standard Gruppen und Benutzer-Rollen entsprechend angepasst.
   * In den Sprachdateien 1 Variable hinzugefügt und 3 geändert.
 * Die Templates wurden erneut überarbeitet:
   * Notwendige Änderungen bezüglich der geänderten Rechte vorgenommen.
@@ -103,14 +108,17 @@
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der der Cache bei Bedarf deaktiviert werden kann. Per Standard ist er aktiviert.
   * In den Sprachdateien für "Cache für die Besuchertabelle verwenden:" 2 neue Variablen hinzugefügt.
 * Die Anzeige der IP ist nicht mehr an die Anzeige der Zeit gekoppelt, sondern kann jetzt völlig unabhängig (wie die Anzeige der Zeit) eingestellt werden. (basiert auf einem Wunsch von Wolkenbruch)
-  * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als Mouse Over) im Core-Skript von Grund auf neu geschrieben.
+  * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als Mouse Over) im Core-Skript von Grund auf neu geschrieben und optimiert.
   * Der Schalter "Zeige die Benutzer-IP:" hat jetzt nicht mehr die Optionsfelder "Ja/Nein" als Auswahlmöglichkeit, sondern eine Auswahlliste mit den gleichen 3 Optionen wie bei "Zeige die Zeit...".
   * Sprach-Variable entsprechend angepasst.
 * WWH-Anzeige:
   * Für die Schaltfläche zur Anzeige von Zeit und/oder IP wird nicht mehr das Zeit-Symbol verwendet, sondern das Info-Symbol.
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
-* Fix: Wenn bei der Einstellungs-Kombination "Zeige Bots:" > "Mit den Benutzern" und "Zeige die Zeit von Bots:" > "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
+* Fix: Wenn bei der Einstellungskombination "Zeige Bots:" > "Mit den Benutzern" und "Zeige die Zeit von Bots:" > "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
 * Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
+* Der neue Administrator-Modus erlaubt es, das nur Administratoren WWH sehen können. Dabei werden die anderen Berechtigungssysteme ausser Kraft gesetzt. Das ist z.B. hilfreich, wenn man Änderungen an den Einstellungen oder Rechten vornehmen und testen will, ohne das WWH währenddessen für andere Benutzergruppen sichtbar ist.
+  * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt.
+  * In den Sprachdateien für "Administrator-Modus:" 2 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -

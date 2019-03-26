@@ -50,6 +50,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_INSTALLED' 					=> 'Installierte Version: %s &bull; Diskussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a>',
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Berechtigungen',
+	'LFWWH_ADMIN_MODE'					=> 'Administrator-Modus',
+	'LFWWH_ADMIN_MODE_EXP'				=> 'Dieser Modus setzt alle Berechtigungssysteme ausser Kraft und nur Administratoren können die WWH-Anzeige sehen. Hilfreich wenn WWH kurzfristig für alle anderen Benutzergruppen gesperrt werden soll.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Benutze das Berechtigungssystem von phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Ermöglicht es, für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
 	// config section 2

@@ -24,6 +24,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		
 		$data = array();
 		// Add configs
+		$data[] = array('config.add', array('lfwwh_admin_mode'				, '0'));
 		$data[] = array('config.add', array('lfwwh_api_mode'				, (isset($this->config['wwh_api_mode']))				? $this->config['wwh_api_mode']					: '0'));
 		$data[] = array('config.add', array('lfwwh_cache_time'				, (isset($this->config['wwh_cache_time']))				? $this->config['wwh_cache_time']				: $load_online_time));
 		$data[] = array('config.add', array('lfwwh_clear_up'				, (isset($this->config['wwh_clear_up']))				? $this->config['wwh_clear_up']					: '1'));
@@ -33,7 +34,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_disp_bots'				, (isset($this->config['wwh_disp_bots']))				? $this->config['wwh_disp_bots']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_bots_only_admin'	, (isset($this->config['wwh_disp_bots_only_admin']))	? $this->config['wwh_disp_bots_only_admin']		: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_for_guests'			, (isset($this->config['wwh_disp_for_guests']))			? $this->config['wwh_disp_for_guests']			: '0'));
-		$data[] = array('config.add', array('lfwwh_disp_guests'				, (isset($this->config['wwh_disp_guests']))				? $this->config['wwh_disp_guests']				: '0'));
+		$data[] = array('config.add', array('lfwwh_disp_guests'				, (isset($this->config['wwh_disp_guests']))				? $this->config['wwh_disp_guests']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_hidden'				, (isset($this->config['wwh_disp_hidden']))				? $this->config['wwh_disp_hidden']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_ip'					, (isset($this->config['wwh_disp_ip']))					? $this->config['wwh_disp_ip']					: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_template_pos'		, (isset($this->config['wwh_disp_template_pos']))		? $this->config['wwh_disp_template_pos']		: '0'));
@@ -104,20 +105,20 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 	
 	public function import_wwh_table()
 	{	
-		if (!defined('WWH_TABLE'))
-		{
-			define('WWH_TABLE', $this->table_prefix . 'wwh');
-		}
-		if (!defined('LFWWH_TABLE'))
-		{
-			define('LFWWH_TABLE', $this->table_prefix . 'lfwwh');
-		}
+		// if (!defined('WWH_TABLE'))
+		// {
+			// define('WWH_TABLE', $this->table_prefix . 'wwh');
+		// }
+		// if (!defined('LFWWH_TABLE'))
+		// {
+			// define('LFWWH_TABLE', $this->table_prefix . 'lfwwh');
+		// }
 		
-		if ($this->db_tools->sql_table_exists(WWH_TABLE) && $this->db_tools->sql_table_exists(LFWWH_TABLE)) 
+		if ($this->db_tools->sql_table_exists($this->table_prefix . 'wwh') && $this->db_tools->sql_table_exists($this->table_prefix . 'lfwwh')) 
 		{
-			$sql = 'INSERT INTO ' . LFWWH_TABLE . ' (user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage)
+			$sql = 'INSERT INTO ' . $this->table_prefix . 'lfwwh' . ' (user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage)
 					SELECT user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage 
-					FROM ' . WWH_TABLE;
+					FROM ' . $this->table_prefix . 'wwh';
 			$result = $this->db->sql_query($sql);	
 		}
 	}

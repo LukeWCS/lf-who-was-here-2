@@ -7,6 +7,13 @@
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_PERMISSIONS') }}</legend>
+		<dl id="lfwwh_opt_admin_mode">
+			<dt><label>{{ lang('LFWWH_ADMIN_MODE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_ADMIN_MODE_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="lfwwh_admin_mode" id="lfwwh_admin_mode_1" value="1" onchange="lfwwh_set_controls_state()" {% if LFWWH_ADMIN_MODE == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_admin_mode" id="lfwwh_admin_mode_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_ADMIN_MODE == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
 		<dl id="lfwwh_opt_use_permissions">
 			<dt><label>{{ lang('LFWWH_USE_PERMISSIONS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_USE_PERMISSIONS_EXP') }}</span></dt>
 			<dd>
@@ -240,7 +247,8 @@ function lfwwh_set_controls_state() {
 	const enabled = "1.0";
 	const disabled = "0.35";
 
-	document.getElementById("lfwwh_opt_disp_for_guests").style.opacity = (!document.getElementById("lfwwh_use_permissions_1").checked) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_use_permissions").style.opacity = (document.getElementById("lfwwh_admin_mode_0").checked) ? enabled : disabled;
+	document.getElementById("lfwwh_opt_disp_for_guests").style.opacity = (document.getElementById("lfwwh_use_permissions_0").checked && document.getElementById("lfwwh_admin_mode_0").checked) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_disp_bots_only_admin").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_disp_time_bots").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_disp_time_format").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabled : disabled;
@@ -251,6 +259,7 @@ function lfwwh_set_controls_state() {
 	document.getElementById("lfwwh_opt_cache_time").style.opacity = (document.getElementById("lfwwh_use_cache_1").checked && document.getElementById("lfwwh_use_online_time_0").checked) ? enabled : disabled;
 }
 function lfwwh_set_defaults() {
+	document.getElementById("lfwwh_admin_mode_0").checked = true;
 	document.getElementById("lfwwh_use_permissions_0").checked = true;
 	document.getElementById("lfwwh_disp_for_guests_0").selected = true;
 	document.getElementById("lfwwh_disp_bots_1").selected = true;

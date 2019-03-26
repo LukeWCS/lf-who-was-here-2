@@ -76,9 +76,9 @@ $lang = array_merge($lang, array(
 		2						=> '%d Gäste',
 	),
 
-	'LFWWH_WORD'					=> ' und',
+	'LFWWH_WORD'				=> ' und',
 	'LFWWH_EXP'					=> 'basierend auf den heutigen Besuchern',
-	'LFWWH_EXP_TIME'				=> 'basierend auf den Besuchern der letzten ',
+	'LFWWH_EXP_TIME'			=> 'basierend auf den Besuchern der letzten ',
 	'LFWWH_HOURS' => array(
 		0						=> '',
 		1						=> '%%s %1$s Stunde',
