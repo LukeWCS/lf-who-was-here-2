@@ -2,6 +2,12 @@
 
 
 #### developers build changelog
+* B14:
+  * Kleine Änderung in englischer Sprachdatei.
+  * Kleine Änderung im Core Skript.
+  * `.editorconfig` geändert.
+  * `.gitattributes` geändert.
+  * `README.md` geändert.
 * B13:
   * Fix: Bei Erstinstallation wurden Gäste nicht angezeigt, da in B6 der Standardwert versehentlich von 1 auf 0 geändert wurde.
   * Die CSS Klassennamen geändert (gekürzt).

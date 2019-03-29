@@ -271,7 +271,7 @@ class who_was_here
 			{
 				$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
 				$time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
-				// $ip = (($this->config['lfwwh_disp_ip'] && $this->auth->acl_get('a_')) ? $this->user->lang['IP'] . ':&nbsp;' . $row['user_ip'] : '');
+				// $ip = (($this->config['lfwwh_disp_ip'] && $this->auth->acl_get('a_')) ? $this->user->lang['IP'] . ': ' . $row['user_ip'] : '');
 				$ip = (($wwh_disp_permission_ip) ? $this->user->lang['IP'] . ': ' . $row['user_ip'] : '');
 				$disp_info = '';
 				$hover_info = '';
@@ -280,7 +280,7 @@ class who_was_here
 				$show_time_hover = ($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] > 0 && $this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE);
 				$show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == 2;
 
-				if (($show_time_disp || $show_ip_disp || $show_time_hover || $show_ip_hover))
+				if ($show_time_disp || $show_ip_disp || $show_time_hover || $show_ip_hover)
 				{
 					if ($show_time_disp && !$show_time_hover && !$show_ip_disp && !$show_ip_hover)
 					{
