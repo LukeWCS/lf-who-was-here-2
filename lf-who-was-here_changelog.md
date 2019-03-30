@@ -1,82 +1,8 @@
+
 ### Changelog 2.0.0 (2019--)
 
-
-#### developers build changelog
-* B14:
-  * Kleine Änderung in englischer Sprachdatei.
-  * Kleine Änderung im Core Skript.
-  * `.editorconfig` geändert.
-  * `.gitattributes` geändert.
-  * `README.md` geändert.
-* B13:
-  * Fix: Bei Erstinstallation wurden Gäste nicht angezeigt, da in B6 der Standardwert versehentlich von 1 auf 0 geändert wurde.
-  * Die CSS Klassennamen geändert (gekürzt).
-  * Admin Modus eingebaut.
-  * Code bez. Rechte verbessert und Rechte-Zuweisungen im Code an einer Stelle zusammengefasst.
-* B12:
-  * Logik für die Anzeige der Info Schaltfläche weiter verbessert.
-  * Fix: Tooltip der Info Schaltfläche bei Firefox. (Meldung Kirk)
-  * Code bereinigt.
-* B11:
-  * Fix: Die Info Schaltfläche wurde in einer bestimmten Situation angezeigt, obwohl sie nicht benötigt wurde.
-  * Code für die Anzeige von Zeit und IP optimiert. Diese ignoriert jetzt Gäste, wodurch etliche unnötige Abfragen entfallen.
-* B10:
-  * B9 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Fix: Migration: bei `lfwwh_record_ips` und `lfwwh_record_time` wurde `is_dynamic` nicht gesetzt.
-  * Sprachdateien geändert.
-  * Code bereinigt.
-* B9:
-  * Wunsch von Wolkenbruch eingebaut bez. IP-Mouse-Over.
-  * Den Code für die Generierung der Anzeige von Zeit und IP komplett neu geschrieben.
-  * Schalter "Zeige die Benutzer-IP:" auf Auswahlliste umgestellt.
-  * Abblend-Funktion angepasst.
-  * Funktion für "Standard" angepasst.
-  * Sprachdateien geändert.
-* B8:
-  * Fix: Bei deaktiviertem Cache wurde die automatische Bereinigung nicht mehr durchgeführt. (Meldung Kirk)
-  * Alle Style-Anpassungen ausser "prosilver" entfernt.
-* B7:
-  * B6 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Vorschlag von Kirk eingebaut bez. Cache Deaktivierung.
-  * Neuer Schalter im ACP-Modul.
-  * Neuer Abschnitt im ACP-Modul, Optionen verschoben.
-  * Sprachdateien geändert.
-  * Migration geändert: Neue Konfig-Variable LFWWH_USE_CACHE.
-* B6:
-  * B5 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Erweiterte Rechte geändert: "Mitglieder und Statistik" -> "Mitglieder".
-  * Einfache Rechte geändert: Neue Option "Mitglieder" für Gäste-Anzeige.
-  * Migration geändert: Standards für Rechte und Rollen angepasst.
-  * In den Templates ist `LFWWH_POS_ALL` nicht länger notwendig, da die aktive Position jetzt über Bit-Wert festgelegt und per Bit-Operator abgefragt wird.
-  * Twig Syntax in allen Templates geändert: wegen Rechte und wegen `<br>`.
-  * ACP- und Rechte-Sprachdateien geändert.
-* B5:
-  * B4 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Alle Sprachdateien umbenannt.
-  * Alle Dateien des ACP-Moduls umbenannt.
-  * Migration geändert.
-  * In `acp_whowashere_module.php` konsequent `$this` verwendet.
-  * Das Unterscheidungsmerkmal auf (2.x) geändert und konsequent überall verwendet.
-  * Weitere Sprachvariablen umbenannt.   
-* B4:
-  * Weitere Konfigurations-Variablen umbenannt. Darum muss zuerst B3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Das Unterscheidungsmerkmal "(Gen 4)" an allen Stellen im ACP entfernt wo es überflüssig ist, sprich wo eine Versionsnummer sichtbar ist.
-  * Javascript Bestätigung bei `lfwwh_record_reset` von alert() auf confirm() umgestellt mit zurücksetzen des Schalters bei `Cancel`. Event bei "Ja" von `onclick` auf `onchange` umgestellt.
-  * Hinweis für `lfwwh_record_reset_time` eingebaut.
-* B3: 
-  * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Konfigurations-Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
-  * Im ACP-Modul eine weitere Template Variable umbenannt.
-* B2: 
-  * Weitere Konfigurations-Variablen umbenannt. Darum muss zuerst B1 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Meldung Kirk)
-  * Die Bereinigungs-Benachrichtigung eingebaut. @Kirk: Da wäre ein Test in 3.1.12 sinnvoll.
-  * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
-* B1:
-  * Initial Release, kompletter Umbau auf `lukewcs/whowashere`.
-
-
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
-  * Ordner der Erweiterung.
+  * Ordner der Erweiterung ("lukewcs\whowashere").
   * Alle Pfadangaben innerhalb der Dateien (.php, .html, .yml, .json).
   * Konfigurations-Variablen in der Datenbank.
   * Tabelle der Besucher in der Datenbank.
@@ -86,7 +12,7 @@
 * Automatische Datenübernahme von NV-WWH (beliebige Version) und LF-WWH 1.x (beliebige Version):
   * Dazu muss die alte WWH-Erweiterung zunächst installiert bleiben, damit bei der Installation von LF-WWH 2.x die Daten importiert werden können. Dies geschieht automatisch, sobald LF-WWH 2.x das erste Mal aktiviert wird. Dabei wird die komplette Konfiguration inklusive Besucherrekord übernommen, sowie die aktuelle Besucher-Tabelle. Die alte Erweiterung darf dabei auch aktiviert bleiben, das ist technisch vorgesehen und legitim.
   * Die Rechte werden dabei jedoch nicht übernommen, diese müssen nach der Installation also ggf. angepasst werden, sofern das vollständige Rechtesystem von phpBB genutzt wurde. Wurde nur das vereinfachte Rechtesystem von LF-WWH genutzt ("Anzeige für Gäste:"), kann dieser Schritt entfallen.
-  * Diese Datenübernahme hat auch den Vorteil, das damit selbst eine defekte Installation von NV-WWH quasi-aktualisiert werden kann, weil dabei nur die Daten übernommen werden, aber keine Ordner- und Datei-Strukturen.
+  * Die Datenübernahme hat auch den Vorteil, das damit selbst eine defekte Installation von NV-WWH quasi-aktualisiert werden kann, weil dabei nur die Daten übernommen werden, aber keine Ordner- und Datei-Strukturen.
 * Wenn Benutzerkonten gelöscht werden und infolgedessen eine Bereinigung der WWH-Tabelle und der WWH-Anzeige nötig wird, dann wird jetzt innerhalb der Lösch-Bestätigung (die von phpBB angezeigt wird) zusätzlich eine Benachrichtigung von LF-WWH eingefügt, das die WWH-Anzeige bereinigt wurde. Diese Benachrichtigung erscheint nur dann, wenn die Bereinigung auch aktiviert ist (Standard) und wenn auch tatsächlich bereinigt werden musste.
 * ACP-Modul:
   * Der Seitentitel (Browser) hat jetzt den Zusatz " - Einstellungen".
@@ -95,7 +21,7 @@
   * Bei "Besucherrekord zurücksetzen -> Ja" wird jetzt nicht nur eine Nachricht angezeigt, das beim Speichern der Rekord zurückgesetzt wird, sondern zusätzlich eine Rückfrage ausgeführt. Wird diese Rückfrage mit "Abbrechen" bestätigt, wird der Reset-Schalter wieder auf "Nein" zurückgestellt.
     * Entsprechend in den Sprachdateien den bisherigen Text der Nachricht angepasst.
     * Das Optionsfeld "Ja" reagiert nicht länger auf mehrmaliges Klicken. Dadurch wird die Nachricht auch nur einmal angezeigt, solange der Schalter nicht auf "Nein" zurückgestellt wird.
-  * Schon seit dem Ur-WWH (NV who was here? für phpBB 3.0) wurde beim Zurücksetzen des Besucherrekords das Datum des Resets in die Datenbank gespeichert, jedoch nie angezeigt oder sonstwie ausgewertet. Dieses Datum wird jetzt bei "Besucherrekord zurücksetzen" hinter "Ja/Nein" angezeigt, sofern ein Reset stattgefunden hat.
+  * Schon seit dem Ur-WWH ("NV who was here?" für phpBB 3.0) wurde beim Zurücksetzen des Besucherrekords das Datum des Resets in die Datenbank gespeichert, jedoch nie angezeigt oder sonst wie ausgewertet. Dieses Datum wird jetzt bei "Besucherrekord zurücksetzen" hinter "Ja/Nein" angezeigt, sofern ein Reset stattgefunden hat.
     * In den Sprachdateien für "Zurückgesetzt am:" 1 neue Variable hinzugefügt.  
   * Einen neuen Abschnitt eingefügt.
     * In den Sprachdateien für "Serverlast" 1 neue Variable hinzugefügt.
@@ -109,12 +35,13 @@
   * Notwendige Änderungen bezüglich der geänderten Rechte vorgenommen.
   * Twig Logik bezüglich dem Einfügen von `<br />` geändert.
   * Twig Logik bezüglich dem Schalter "Zeige alle Template-Positionen gleichzeitig:" so geändert, das die bisherige Template-Variable `LFWWH_POS_ALL` entfallen kann. Das wird jetzt über Bit-Werte in der Variable `LFWWH_POS` geregelt und im Template per Bit-Operator abgefragt.
+  * Ein `INCLUDEJS` erfolgt nur noch einmal. Das ist relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder beim Einsatz von Erweiterungen die WWH per Template Variablen einbinden, wie z.B. "Brücke zwischen “LF who was here” und “Stat BLock”".
 * Alle Style-Anpassungen ausser "prosilver" wieder entfernt. Die bisherigen 10 Anpassungen für phpBB 3.2 sind als gesondertes Archiv für LF-WWH 2.0.0 verfügbar, werden jedoch bei zukünftigen Updates nicht mehr berücksichtigt.
-* Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Datenverkehr geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen! (Wunsch von Kirk)
+* Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Datenverkehr geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen. (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der der Cache bei Bedarf deaktiviert werden kann. Per Standard ist er aktiviert.
   * In den Sprachdateien für "Cache für die Besuchertabelle verwenden:" 2 neue Variablen hinzugefügt.
 * Die Anzeige der IP ist nicht mehr an die Anzeige der Zeit gekoppelt, sondern kann jetzt völlig unabhängig (wie die Anzeige der Zeit) eingestellt werden. (basiert auf einem Wunsch von Wolkenbruch)
-  * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als Mouse Over) im Core-Skript von Grund auf neu geschrieben und optimiert.
+  * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als mouseover) im Core-Skript von Grund auf neu geschrieben und optimiert.
   * Der Schalter "Zeige die Benutzer-IP:" hat jetzt nicht mehr die Optionsfelder "Ja/Nein" als Auswahlmöglichkeit, sondern eine Auswahlliste mit den gleichen 3 Optionen wie bei "Zeige die Zeit...".
   * Sprach-Variable entsprechend angepasst.
 * WWH-Anzeige:
@@ -122,7 +49,7 @@
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
 * Fix: Wenn bei der Einstellungskombination "Zeige Bots:" > "Mit den Benutzern" und "Zeige die Zeit von Bots:" > "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
 * Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
-* Der neue Administrator-Modus erlaubt es, das nur Administratoren WWH sehen können. Dabei werden die anderen Berechtigungssysteme ausser Kraft gesetzt. Das ist z.B. hilfreich, wenn man Änderungen an den Einstellungen oder Rechten vornehmen und testen will, ohne das WWH währenddessen für andere Benutzergruppen sichtbar ist.
+* Der neue Administrator-Modus erlaubt es, das nur Benutzer mit administrativen Rechten WWH sehen können. Dabei werden die anderen Berechtigungssysteme ausser Kraft gesetzt. Das ist z.B. hilfreich, wenn man Änderungen an den Einstellungen oder Rechten vornehmen und testen will, ohne das WWH währenddessen für alle sichtbar ist.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt.
   * In den Sprachdateien für "Administrator-Modus:" 2 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
@@ -199,7 +126,7 @@
 
 ### Changelog 1.4.0 (2018-10-20)
 
-* Bei der Einstellung "Zeige die Zeit von..." > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeitsymbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet-PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouse over" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
+* Bei der Einstellung "Zeige die Zeit von..." > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeitsymbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet-PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouseover" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
   * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. (Hinweis von Kirk)

@@ -1,18 +1,13 @@
 <?php
 /**
+* 
+* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
-* @package - NV "who was here?"
-* @copyright (c) nickvergessen - http://www.flying-bits.org/
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @copyright (c) 2019, LukeWCS, https://www.wcsaga.org/
+* @copyright (c) 2015, Anvar, http://bb3.mobi/
+* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
-*/
-/**
-* @package phpBB3.1
-* @copyright Anvar (c) 2015 bb3.mobi
-*/
-/**
-* @package phpBB3.2
-* @copyright LukeWCS (c) 2018 wcsaga.org
 */
 
 namespace lukewcs\whowashere\core;
@@ -210,16 +205,6 @@ class who_was_here
 		$wwh_disp_permission_bots = ($this->config['lfwwh_disp_bots_only_admin'] && $this->auth->acl_get('a_')) || $this->config['lfwwh_disp_bots_only_admin'] == 0;
 		$wwh_disp_permission_ip = $this->config['lfwwh_disp_ip'] && $this->auth->acl_get('a_');
 		$wwh_disp_permission_hidden = $this->config['lfwwh_disp_hidden'] && $this->auth->acl_get('u_viewonline');
-		// $wwh_disp_permission_users = 
-			// ($this->config['lfwwh_use_permissions'])
-			// ? $this->auth->acl_gets('u_lfwwh_show_users')
-			// : ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 1 || $this->config['lfwwh_disp_for_guests'] == 3) && empty($this->user->data['is_bot'])
-		// ;
-		// $wwh_disp_permission_total = 
-			// ($this->config['lfwwh_use_permissions'])
-			// ? $this->auth->acl_gets('u_lfwwh_show_stats')
-			// : ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 0 || $this->config['lfwwh_disp_for_guests'] == 1) && empty($this->user->data['is_bot'])
-		// ;
 		
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
 		$show_button_users = false;
@@ -271,7 +256,6 @@ class who_was_here
 			{
 				$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
 				$time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
-				// $ip = (($this->config['lfwwh_disp_ip'] && $this->auth->acl_get('a_')) ? $this->user->lang['IP'] . ': ' . $row['user_ip'] : '');
 				$ip = (($wwh_disp_permission_ip) ? $this->user->lang['IP'] . ': ' . $row['user_ip'] : '');
 				$disp_info = '';
 				$hover_info = '';
@@ -490,7 +474,7 @@ class who_was_here
 	}
 
 	/**
-	* Cleans up the table and delete the cache when user accounts have been deleted. (LukeWCS)
+	* Cleans up the table and delete the cache and insert a notification when user accounts have been deleted. (LukeWCS)
 	*/
 	public function clear_up($user_ids_ary)
 	{

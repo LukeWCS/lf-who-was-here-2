@@ -1,9 +1,11 @@
 <?php
 /**
+* 
+* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
-* Nv who was here extension for the phpBB Forum Software package.
-*
-* @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru> - 2018 LukeWCS <https://www.wcsaga.org>
+* @copyright (c) 2019, LukeWCS, https://www.wcsaga.org/
+* @copyright (c) 2015, Anvar, http://bb3.mobi/
+* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : en
@@ -45,15 +47,18 @@ $lang = array_merge($lang, array(
 	// navigation
 	'LFWWH_NAV_TITLE'					=> 'Who was here? (2.x)',
 	'LFWWH_NAV_CONFIG'					=> 'Settings',
+
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here? [%s]',
 	'LFWWH_INSTALLED' 					=> 'Installed version: %s &bull; Discussion: <a href="https://www.phpbb.com/community/viewtopic.php?f=456&t=2506381">Topic on phpbb.de</a>',
+
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
 	'LFWWH_ADMIN_MODE'					=> 'Administrator mode',
-	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only administrators can see the WWH display. Helpful if WWH should be blocked for all other user groups at short notice.',
+	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only users with administrative rights can see the WWH screen. Helpful if WWH should not be visible to others at short notice.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Use the permission system of phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: "PERMISSIONS" » Group permissions » [user group] » User permissions » Advanced Permissions » Profile".',
+
 	// config section 2
 	'LFWWH_SECTION_DISP_1'				=> 'Display settings 1',
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Display for guests',
@@ -67,8 +72,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_BOTS_1'					=> 'With the users',
 	'LFWWH_DISP_BOTS_2'					=> 'On a separate line',
 	'LFWWH_DISP_BOTS_0'					=> 'No',
-	'LFWWH_DISP_BOTS_ONLY_ADMIN'		=> 'Show the bot names only to administrators',
-	'LFWWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Only administrators can see the names of the bots. The number of bots will continue to be displayed to everyone.',
+	'LFWWH_DISP_BOTS_ONLY_ADMIN'		=> 'Show the bot names only with administrative rights',
+	'LFWWH_DISP_BOTS_ONLY_ADMIN_EXP'	=> 'Only users with administrative rights can see the names of the bots. The number of bots will continue to be displayed to everyone.',
 	'LFWWH_DISP_GUESTS'					=> 'Show guests',
 	'LFWWH_DISP_GUESTS_EXP'				=> 'The number of guests is displayed.',
 	'LFWWH_DISP_HIDDEN'					=> 'Show invisible users',
@@ -83,6 +88,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_IP'						=> 'Show user IP',
 	'LFWWH_DISP_IP_EXP'					=> '“On hover” also displays a info symbol with which the IPs can also be displayed directly. Helpful for smartphones and tablet computers. (Just for the users with administrative permissions, as with “Who is online”.)',
+
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Display settings 2',
 	'LFWWH_TIME_MODE'					=> 'Displaying users of ...',
@@ -105,6 +111,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TEMPLATE_POS_0'			=> 'Top',
 	'LFWWH_DISP_TEMPLATE_POS_2'			=> 'Before birthdays',
 	'LFWWH_DISP_TEMPLATE_POS_1'			=> 'Bottom',
+
 	// config section 4
 	'LFWWH_SECTION_OTHERS'				=> 'Others',
 	'LFWWH_API_MODE'					=> 'API mode',
@@ -113,6 +120,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_CLEAR_UP_EXP'				=> 'If user accounts are deleted, the table and display of WWH are also immediately cleared.',
 	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Show all template positions at the same time',	
 	'LFWWH_DISP_TEMPLATE_POS_ALL_EXP'	=> 'WWH is displayed on all positions at the same time. This is only for testing and should be disabled during normal operation.',
+
 	// config section 5
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Load settings',
 	'LFWWH_USE_CACHE'					=> 'Use cache for the visitor table',
@@ -121,6 +129,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_USE_ONLINE_TIME_EXP'			=> 'When enabled, the following setting is used for the update interval: “GENERAL » SERVER CONFIGURATION » Load settings » General settings » View online time span”. This corresponds to the standard behaviour of WWH.',
 	'LFWWH_CACHE_TIME'					=> 'Interval of the update',
 	'LFWWH_CACHE_TIME_EXP'				=> 'The interval determines how often the display of the statistics and user list is updated.',
+
 	// config section 6
 	'LFWWH_SECTION_RESET'				=> 'Reset',
 	'LFWWH_DEFAULTS'					=> 'Reset settings',
@@ -129,6 +138,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_RECORD_RESET'				=> 'Reset visitor record',
 	'LFWWH_RECORD_RESET_EXP'			=> 'Resets time and counter for the visitor record.',
 	'LFWWH_RECORD_RESET_TIME_HINT'		=> '(Reset on: %s)',
+
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.', // \n is the beginning of a new line

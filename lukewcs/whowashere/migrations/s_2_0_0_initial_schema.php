@@ -1,7 +1,13 @@
 <?php
 /**
-* @package phpBB3.2
-* @copyright LukeWCS (c) 2019 wcsaga.org
+* 
+* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
+*
+* @copyright (c) 2019, LukeWCS, https://www.wcsaga.org/
+* @copyright (c) 2015, Anvar, http://bb3.mobi/
+* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
 */
 
 namespace lukewcs\whowashere\migrations;

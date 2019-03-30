@@ -1,18 +1,13 @@
 <?php
 /**
+* 
+* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
-* @package - NV "who was here?"
-* @copyright (c) nickvergessen - http://www.flying-bits.org/
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @copyright (c) 2019, LukeWCS, https://www.wcsaga.org/
+* @copyright (c) 2015, Anvar, http://bb3.mobi/
+* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
-*/
-/**
-* @package phpBB3.1
-* @copyright Anvar (c) 2015 bb3.mobi
-*/
-/**
-* @package phpBB3.2
-* @copyright LukeWCS (c) 2018 wcsaga.org
 */
 
 namespace lukewcs\whowashere\event;

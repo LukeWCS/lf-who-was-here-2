@@ -1,9 +1,11 @@
 <?php
 /**
+* 
+* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
-* Nv who was here extension for the phpBB Forum Software package.
-*
-* @copyright (c) 2013 nickvergessen <http://www.flying-bits.org> - 2015 Anvar <http://apwa.ru> - 2018 LukeWCS <https://www.wcsaga.org>
+* @copyright (c) 2019, LukeWCS, https://www.wcsaga.org/
+* @copyright (c) 2015, Anvar, http://bb3.mobi/
+* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de_x_sie
@@ -20,6 +22,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -41,7 +44,6 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” …
 //
 $lang = array_merge($lang, array(
-	// board index page
 	'LFWWH_TITLE'				=> 'Wer war da?',
 	'LFWWH_LAST1'				=> '', //old: 'zuletzt:&nbsp;'
 	'LFWWH_LAST2'				=> '', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
