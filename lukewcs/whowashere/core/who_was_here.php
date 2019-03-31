@@ -3,8 +3,8 @@
 * 
 * LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2019, LukeWCS, https://www.wcsaga.org/
-* @copyright (c) 2015, Anvar, http://bb3.mobi/
+* @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
+* @copyright (c) 2015, Anvar, http://phpbbguru.net
 * @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
@@ -53,10 +53,6 @@ class who_was_here
 		$table_prefix
 	)
 	{
-		// if (!defined('LFWWH_TABLE'))
-		// {
-			// define('LFWWH_TABLE', $table_prefix . 'lfwwh');
-		// }
 		$this->template = $template;
 		$this->config = $config;
 		$this->user = $user;

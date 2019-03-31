@@ -1,6 +1,8 @@
 
 ### Builds 2.0.0 (2019--)
-
+* B16:
+  * Autoreninfo in allen Dateien geändert.
+  * `composer.json` geändert.
 * B15:
   * Autoreninfo in allen Dateien auf ein einheitliches Format gebracht und überall dort eingefügt, wo es noch fehlte. Als Muster diente dazu "phpBB Skeleton Extension".
   * Templates: INCLUDEJS ist jetzt an eine Bedingung geknüpft und wird dadurch nur einmal ausgeführt. Relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder bei der Ext "Bridge".
@@ -8,6 +10,7 @@
   * Code bereinigt in Hinsicht auf die Veröffentlichung des 2.0 Zweiges.
   * Build Changelog vom normalen Changelog abgetrennt.
   * Build Changelog und normales Changelog werden ab jetzt mit dem Suffix .md (Markdown) geführt, wodurch diese Dateien bei GitHub direkt interpretiert werden. Das Format entsprach ja bereits Markdown.
+  * `composer.json` aktualisiert und Update-Prüfung auf den 2.0 Zweig umgestellt.
 * B14:
   * Kleine Änderung in englischer Sprachdatei.
   * Kleine Änderung im Core Skript.
