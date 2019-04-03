@@ -55,7 +55,7 @@ $lang = array_merge($lang, array(
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Berechtigungen',
 	'LFWWH_ADMIN_MODE'					=> 'Administrator-Modus',
-	'LFWWH_ADMIN_MODE_EXP'				=> 'Dieser Modus setzt alle Berechtigungssysteme ausser Kraft und nur Benutzer mit administrativen Rechten können die WWH-Anzeige sehen. Hilfreich wenn WWH kurzfristig für andere nicht sichtbar sein soll.',
+	'LFWWH_ADMIN_MODE_EXP'				=> 'Dieser Modus setzt alle Berechtigungssysteme außer Kraft und nur Benutzer mit administrativen Rechten können die WWH-Anzeige sehen. Hilfreich wenn WWH kurzfristig für andere nicht sichtbar sein soll.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Benutze das Berechtigungssystem von phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Ermöglicht es, für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
 
@@ -124,7 +124,7 @@ $lang = array_merge($lang, array(
 	// config section 5
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Serverlast',
 	'LFWWH_USE_CACHE'					=> 'Cache für die Besuchertabelle verwenden',
-	'LFWWH_USE_CACHE_EXP'				=> 'Bei aktiviertem Cache wird auf die zwischengespeicherte Tabelle zurückgegriffen, wenn der Forenindex aufgerufen wird. Dadurch werden neue Besucher erst nach einer gewissen Verzögerung angezeigt. Bei deaktiviertem Cache wird bei jedem Aufruf des Forenindexes eine neue MySQL Abfrage ausgeführt, was bei grossen Foren zu Performance-Problemen führen kann.',
+	'LFWWH_USE_CACHE_EXP'				=> 'Bei aktiviertem Cache wird auf die zwischengespeicherte Tabelle zurückgegriffen, wenn der Forenindex aufgerufen wird. Dadurch werden neue Besucher erst nach einer gewissen Verzögerung angezeigt. Bei deaktiviertem Cache wird bei jedem Aufruf des Forenindexes eine neue MySQL Abfrage ausgeführt, was bei großen Foren zu Performance-Problemen führen kann.',
 	'LFWWH_USE_ONLINE_TIME'				=> 'Aktualisiere mit der Zeitspanne für die Online-Anzeige',
 	'LFWWH_USE_ONLINE_TIME_EXP'			=> 'Wenn aktiviert, dann wird für das Intervall der Aktualisierung die folgende Einstellung verwendet: “ALLGEMEIN » SERVER-KONFIGURATION » Serverlast » Allgemeine Einstellungen » Zeitspanne für die Online-Anzeige”. Das entspricht dem Standardverhalten von WWH.',
 	'LFWWH_CACHE_TIME'					=> 'Intervall der Aktualisierung',

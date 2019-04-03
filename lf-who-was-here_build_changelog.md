@@ -1,5 +1,11 @@
 
 ### Builds 2.0.0 (2019--)
+* B17:
+  * Kleinere Korrekturen in den deutschen Sprachdateien.
+  * `README.md` geändert.
+  * `LICENSE.md` geändert. Lizenz von "phpBB Skeleton Extension" übernommen.
+  * `composer.json` geändert. Versionsprüfung erfolgt jetzt auf das neue GH Repository "lf-who-was-here-2".
+  * Unsichtbare Benutzer können sich jetzt selbst in der Benutzerliste sehen.
 * B16:
   * Autoreninfo in allen Dateien geändert.
   * `composer.json` geändert.

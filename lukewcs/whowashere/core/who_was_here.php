@@ -330,7 +330,7 @@ class who_was_here
 					}
 				}
 			}
-			else if ($wwh_disp_permission_hidden)
+			else if ($wwh_disp_permission_hidden || $row['user_id'] == $this->user->data['user_id'])
 			{
 				$users_list .= $this->user->lang['COMMA_SEPARATOR'] . '<em' . $hover_info . '>' .$wwh_username_full . '</em>' . $disp_info;
 			}
@@ -517,7 +517,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns a string encapsulated in <span> tags for hidden text. (LukeWCS)
+	* Returns a string encapsulated in <span> tags for hidden text depending to the user type (user/bot). (LukeWCS)
 	*/
 	private function get_hidden_span($user_type, $text)
 	{

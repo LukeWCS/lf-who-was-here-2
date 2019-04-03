@@ -52,6 +52,7 @@
 * Der neue Administrator-Modus erlaubt es, das nur Benutzer mit administrativen Rechten WWH sehen können. Dabei werden die anderen Berechtigungssysteme ausser Kraft gesetzt. Das ist z.B. hilfreich, wenn man Änderungen an den Einstellungen oder Rechten vornehmen und testen will, ohne das WWH währenddessen für alle sichtbar ist.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt.
   * In den Sprachdateien für "Administrator-Modus:" 2 neue Variablen hinzugefügt.
+* Benutzer die das Merkmal "Unsichtbar" temporär (bei Anmeldung) oder dauerhaft (im Profil) aktiviert haben, können sich jetzt selber in der Benutzerliste der WWH-Anzeige sehen, wie das auch bei "Wer ist online?" der Fall ist.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -
