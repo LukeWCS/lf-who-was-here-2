@@ -69,8 +69,8 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('permission.permission_set', array('GLOBAL_MODERATORS'	, 'u_lfwwh_show_users', 'group'));
 		$data[] = array('permission.permission_set', array('REGISTERED'			, 'u_lfwwh_show_stats', 'group'));
 		$data[] = array('permission.permission_set', array('REGISTERED'			, 'u_lfwwh_show_users', 'group'));
-		$data[] = array('permission.permission_set', array('GUESTS'				, 'u_lfwwh_show_stats', 'group'));
 		$data[] = array('permission.permission_set', array('NEWLY_REGISTERED'	, 'u_lfwwh_show_users', 'group', false));
+		$data[] = array('permission.permission_set', array('GUESTS'				, 'u_lfwwh_show_stats', 'group'));
 		// Set permission roles
 		if ($this->role_exists('ROLE_USER_STANDARD'))	$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role'));
 		if ($this->role_exists('ROLE_USER_STANDARD'))	$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_users', 'role'));

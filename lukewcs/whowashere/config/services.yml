@@ -1,5 +1,5 @@
 services:
-    lukewcs.whowashere.helper:
+    lukewcs.whowashere.core_lfwwh:
         class: lukewcs\whowashere\core\who_was_here
         arguments:
             - '@template'
@@ -12,7 +12,7 @@ services:
     lukewcs.whowashere.listener:
         class: lukewcs\whowashere\event\listener
         arguments:
-            - '@lukewcs.whowashere.helper'
+            - '@lukewcs.whowashere.core_lfwwh'
             - '@config'
         tags:
             - { name: event.listener }

@@ -1,6 +1,9 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B19:
+  * Fix: Bei der Umbenennung der Sprachdateien in B18 wurde die Funktion `clear_up()` übersehen, wodurch beim Löschen eines Benutzers eine Fehlermeldung erschien.
+  * Aus dem Listener Skript die letzte noch vorhandene Funktion konsequent in das Core Skript verlagert.
 * B18:
   * B17 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * `lf-who-was-here_version.json` geändert.

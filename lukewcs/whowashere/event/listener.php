@@ -16,17 +16,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	/** @lukewcs.whowashere.helper */
-	protected $helper;
-	protected $config;
+	// @lukewcs.whowashere.core_lfwwh
+	protected $core_lfwwh;
 
 	public function __construct(
-		$helper,
-		\phpbb\config\config $config
+		$core_lfwwh
 	)
 	{
-		$this->helper = $helper;
-		$this->config = $config;
+		$this->core_lfwwh = $core_lfwwh;
 	}
 
 	static public function getSubscribedEvents()
@@ -41,28 +38,21 @@ class listener implements EventSubscriberInterface
 
 	public function update_session($event)
 	{
-		$this->helper->update_session();
+		$this->core_lfwwh->update_session();
 	}
 
 	public function display($event)
 	{
-		$this->helper->display();
+		$this->core_lfwwh->display();
 	}
 
 	public function add_permissions($event)
 	{
-		if (!$this->config['lfwwh_use_permissions'])
-		{
-			return;
-		}
-		$permissions = $event['permissions'];
-		$permissions['u_lfwwh_show_users'] = array('lang' => 'ACL_U_LFWWH_SHOW_USERS', 'cat' => 'profile');
-		$permissions['u_lfwwh_show_stats'] = array('lang' => 'ACL_U_LFWWH_SHOW_STATS', 'cat' => 'profile');
-		$event['permissions'] = $permissions;
+		$this->core_lfwwh->add_permissions($event);
 	}
 
 	public function clear_up($event)
 	{
-		$this->helper->clear_up($event['user_ids']);
+		$this->core_lfwwh->clear_up($event);
 	}
 }

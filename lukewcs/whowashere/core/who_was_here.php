@@ -472,12 +472,13 @@ class who_was_here
 	/**
 	* Cleans up the table and delete the cache and insert a notification when user accounts have been deleted. (LukeWCS)
 	*/
-	public function clear_up($user_ids_ary)
+	public function clear_up($event)
 	{
 		if (!$this->config['lfwwh_clear_up'])
 		{
 			return;
 		}
+		$user_ids_ary = $event['user_ids'];
 		$user_deleted = false;
 		
 		foreach ($user_ids_ary as $user_id)
@@ -502,7 +503,7 @@ class who_was_here
 			{
 				$this->cache->destroy("_lf_who_was_here");	
 			}
-			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_whowashere');
+			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_who_was_here');
 			$lang = $this->user->lang;
 		 	if (isset($lang['USER_DELETED']))
 		 	{
@@ -514,6 +515,21 @@ class who_was_here
 			}
 			$this->user->lang = $lang;
 		}
+	}
+
+	/**
+	* Adds permissions if the full rights system is active. (LukeWCS)
+	*/
+	public function add_permissions($event)
+	{
+		if (!$this->config['lfwwh_use_permissions'])
+		{
+			return;
+		}
+		$permissions = $event['permissions'];
+		$permissions['u_lfwwh_show_users'] = array('lang' => 'ACL_U_LFWWH_SHOW_USERS', 'cat' => 'profile');
+		$permissions['u_lfwwh_show_stats'] = array('lang' => 'ACL_U_LFWWH_SHOW_STATS', 'cat' => 'profile');
+		$event['permissions'] = $permissions;
 	}
 
 	/**
