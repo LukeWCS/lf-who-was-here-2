@@ -86,12 +86,19 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		// Custom functions
 		$data[] = array('custom', array(array($this, 'import_wwh_table')));
 		// Add ACP modules
-		$data[] = array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'LFWWH_NAV_TITLE'));
-		$data[] = array('module.add', array('acp', 'LFWWH_NAV_TITLE', array(
-			'module_basename'	=> '\lukewcs\whowashere\acp\acp_whowashere_module',
-			'module_langname'	=> 'LFWWH_NAV_CONFIG',
-			'module_mode'		=> 'overview',
-			'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',
+		$data[] = array('module.add', array(
+			'acp', 
+			'ACP_CAT_DOT_MODS', 
+			'LFWWH_NAV_TITLE'
+		));
+		$data[] = array('module.add', array(
+			'acp', 
+			'LFWWH_NAV_TITLE', 
+			array(
+				'module_basename'	=> '\lukewcs\whowashere\acp\acp_who_was_here_module',
+				'module_langname'	=> 'LFWWH_NAV_CONFIG',
+				'module_mode'		=> 'overview',
+				'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',
 		)));
 		// Set current version
 		$data[] = array('config.add', array('lfwwh_ext_version'				, '2.0.0'));
@@ -111,15 +118,6 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 	
 	public function import_wwh_table()
 	{	
-		// if (!defined('WWH_TABLE'))
-		// {
-			// define('WWH_TABLE', $this->table_prefix . 'wwh');
-		// }
-		// if (!defined('LFWWH_TABLE'))
-		// {
-			// define('LFWWH_TABLE', $this->table_prefix . 'lfwwh');
-		// }
-		
 		if ($this->db_tools->sql_table_exists($this->table_prefix . 'wwh') && $this->db_tools->sql_table_exists($this->table_prefix . 'lfwwh')) 
 		{
 			$sql = 'INSERT INTO ' . $this->table_prefix . 'lfwwh' . ' (user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage)

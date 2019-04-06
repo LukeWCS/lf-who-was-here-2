@@ -1,17 +1,9 @@
 {
-	"stable": {
-		"1.5": {
-			"current": "1.5.1",
-			"download": "",
-			"announcement": "https://github.com/LukeWCS/lf-who-was-here/releases",
-			"eol": null,
-			"security": false
-		}
-	},
 	"unstable": {
 		"2.0": {
 			"current": "2.0.0-beta1",
-			"announcement": "https://github.com/LukeWCS/lf-who-was-here/releases",
+			"download": "",
+			"announcement": "https://github.com/LukeWCS/lf-who-was-here-2/releases",
 			"eol": null,
 			"security": false
 		}

@@ -55,11 +55,9 @@ $lang = array_merge($lang, array(
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
 	'LFWWH_ADMIN_MODE'					=> 'Administrator mode',
-	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only users with administrative rights can see the WWH screen. Helpful if WWH should not be visible to others at short notice.',
+	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only users with administrative rights can see the WWH display. Helpful if WWH should not be visible to others at short notice.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Use the permission system of phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: "PERMISSIONS" » Group permissions » [user group] » User permissions » Advanced Permissions » Profile".',
-
-	// config section 2
 	'LFWWH_SECTION_DISP_1'				=> 'Display settings 1',
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Display for guests',
 	'LFWWH_DISP_FOR_GUESTS_EXP'			=> 'Determines what guests can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for guests.',
@@ -67,6 +65,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_FOR_GUESTS_3'			=> 'Members',
 	'LFWWH_DISP_FOR_GUESTS_0'			=> 'Statistics',
 	'LFWWH_DISP_FOR_GUESTS_2'			=> 'Nothing',
+
+	// config section 2
 	'LFWWH_DISP_BOTS'					=> 'Show bots',
 	'LFWWH_DISP_BOTS_EXP'				=> 'Some user might wonder what bots are and fear them.',
 	'LFWWH_DISP_BOTS_1'					=> 'With the users',
@@ -133,7 +133,7 @@ $lang = array_merge($lang, array(
 	// config section 6
 	'LFWWH_SECTION_RESET'				=> 'Reset',
 	'LFWWH_DEFAULTS'					=> 'Reset settings',
-	'LFWWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard of WWH. (Does not affect “Reset visitor record”)',
+	'LFWWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard. (Does not affect “Reset visitor record”)',
 	'LFWWH_BUTTON_DEFAULTS'				=> 'Defaults',
 	'LFWWH_RECORD_RESET'				=> 'Reset visitor record',
 	'LFWWH_RECORD_RESET_EXP'			=> 'Resets time and counter for the visitor record.',

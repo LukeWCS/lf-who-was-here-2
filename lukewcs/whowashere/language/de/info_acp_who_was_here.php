@@ -8,7 +8,7 @@
 * @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
-* Lang_iso     : de_x_sie
+* Lang_iso     : de
 * Lang_ver     : 2.0.0
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
@@ -58,8 +58,6 @@ $lang = array_merge($lang, array(
 	'LFWWH_ADMIN_MODE_EXP'				=> 'Dieser Modus setzt alle Berechtigungssysteme außer Kraft und nur Benutzer mit administrativen Rechten können die WWH-Anzeige sehen. Hilfreich wenn WWH kurzfristig für andere nicht sichtbar sein soll.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Benutze das Berechtigungssystem von phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Ermöglicht es, für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: “BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil”.',
-
-	// config section 2
 	'LFWWH_SECTION_DISP_1'				=> 'Anzeige Einstellungen 1',
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Anzeige für Gäste',
 	'LFWWH_DISP_FOR_GUESTS_EXP'			=> 'Legt fest, was Gäste sehen können. “Statistik” zeigt nur die anonymen Zahlen und “Nichts” schaltet die WWH-Anzeige für Gäste komplett aus.',
@@ -67,6 +65,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_FOR_GUESTS_3'			=> 'Mitglieder',
 	'LFWWH_DISP_FOR_GUESTS_0'			=> 'Statistik',
 	'LFWWH_DISP_FOR_GUESTS_2'			=> 'Nichts',
+
+	// config section 2
 	'LFWWH_DISP_BOTS'					=> 'Zeige Bots',
 	'LFWWH_DISP_BOTS_EXP'				=> 'Einige Benutzer werden sich fragen was Bots sind und sie fürchten.',
 	'LFWWH_DISP_BOTS_1'					=> 'Mit den Benutzern',
@@ -133,7 +133,7 @@ $lang = array_merge($lang, array(
 	// config section 6
 	'LFWWH_SECTION_RESET'				=> 'Zurücksetzen',
 	'LFWWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
-	'LFWWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard von WWH zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
+	'LFWWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard zurück. (Hat keine Auswirkung auf “Besucherrekord zurücksetzen”)',
 	'LFWWH_BUTTON_DEFAULTS'				=> 'Standard',
 	'LFWWH_RECORD_RESET'				=> 'Besucherrekord zurücksetzen',
 	'LFWWH_RECORD_RESET_EXP'			=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
@@ -141,6 +141,6 @@ $lang = array_merge($lang, array(
 
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
 	'LFWWH_MSG_CLEANED_UP'				=> 'Wer war da: Anzeige wurde bereinigt.',
 ));

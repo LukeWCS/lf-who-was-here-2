@@ -269,6 +269,7 @@ function lfwwh_set_controls_state() {
 	document.getElementById("lfwwh_opt_use_online_time").style.opacity = (document.getElementById("lfwwh_use_cache_1").checked) ? enabled : disabled;
 	document.getElementById("lfwwh_opt_cache_time").style.opacity = (document.getElementById("lfwwh_use_cache_1").checked && document.getElementById("lfwwh_use_online_time_0").checked) ? enabled : disabled;
 }
+
 function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_admin_mode_0").checked = true;
 	document.getElementById("lfwwh_use_permissions_0").checked = true;
@@ -297,6 +298,7 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_cache_time").value = "{{ LFWWH_CACHE_TIME_MAX }}";
 	lfwwh_set_controls_state();
 }
+
 function lfwwh_confirm_record_reset() {
 	var reset_confirm = confirm('{{ lang('LFWWH_MSG_CONFIRM_RECORD_RESET') }}');
 
@@ -304,6 +306,7 @@ function lfwwh_confirm_record_reset() {
 		document.getElementById("lfwwh_record_reset_0").checked = true;
 	}
 }
+
 function lfwwh_custom_form_reset() {
 	document.getElementById("lfwwh_form").reset();
 	lfwwh_set_controls_state();

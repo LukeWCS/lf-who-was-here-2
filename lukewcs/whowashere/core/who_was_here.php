@@ -177,9 +177,9 @@ class who_was_here
 	*/
 	public function display()
 	{
-		$this->user->add_lang_ext('lukewcs/whowashere', 'whowashere');
+		$this->user->add_lang_ext('lukewcs/whowashere', 'who_was_here');
 
-		/* Set display permission variables */
+		// Set display permission variables
 		if ($this->config['lfwwh_admin_mode'])
 		{
 			$wwh_disp_permission_total = $this->auth->acl_get('a_');
@@ -213,7 +213,7 @@ class who_was_here
 			return;
 		}
 
-		/* Default count total or ids */
+		// Default count total or ids
 		$count = array(
 			'count_guests'	=> 0,
 			'count_bot'		=> 0,
@@ -227,7 +227,7 @@ class who_was_here
 
 		$wwh_username_colour = $wwh_username = $wwh_username_full = $users_list = $bots_list = '';
 
-		/* Load cache who_was_here */
+		// Load cache who_was_here
 		if ($this->config['lfwwh_use_cache'])
 		{
 			$load_online_time = ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1;

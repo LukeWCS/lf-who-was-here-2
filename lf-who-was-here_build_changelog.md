@@ -1,5 +1,13 @@
 
 ### Builds 2.0.0 (2019--)
+
+* B18:
+  * B17 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * `lf-who-was-here_version.json` geändert.
+  * Kleinere Korrekturen in den Sprachdateien.
+  * Kleinere Code Änderungen, primär Formatierungen.
+  * Etliche Dateien umbenannt.
+  * Migration geändert: geänderte Dateinamen des ACP Moduls berücksichtigt.
 * B17:
   * Kleinere Korrekturen in den deutschen Sprachdateien.
   * `README.md` geändert.

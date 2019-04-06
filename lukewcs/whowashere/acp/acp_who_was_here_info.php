@@ -12,15 +12,15 @@
 
 namespace lukewcs\whowashere\acp;
 
-class acp_whowashere_info
+class acp_who_was_here_info
 {
-	function module()
+	public function module()
 	{
 		return array(
-			'filename'	=> '\lukewcs\whowashere\acp\acp_whowashere_module',
+			'filename'	=> '\lukewcs\whowashere\acp\acp_who_was_here_module',
 			'title'		=> 'LFWWH_NAV_TITLE',
 			'modes'		=> array(
-				'config_wwh'	=> array(
+				'settings'	=> array(
 					'title'	=> 'LFWWH_NAV_CONFIG',
 					'auth'	=> 'ext_lukewcs/whowashere && acl_a_board',
 					'cat'	=> array('ACP_BOARD_CONFIGURATION')

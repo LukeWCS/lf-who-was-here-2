@@ -15,11 +15,11 @@ namespace lukewcs\whowashere\acp;
 /**
 * @package acp
 */
-class acp_whowashere_module
+class acp_who_was_here_module
 {
 	var $u_action;
 
-	function main($id, $mode)
+	public function main($id, $mode)
 	{
 		global $user, $config, $request, $template, $cache;
 		$this->user = $user;
@@ -29,7 +29,7 @@ class acp_whowashere_module
 		$this->cache = $cache;
 	
 		add_form_key('lfwwh');
-		$this->tpl_name = 'acp_whowashere';
+		$this->tpl_name = 'acp_who_was_here';
 		$this->page_title = $this->user->lang['LFWWH_NAV_TITLE'] . ' - ' . $this->user->lang['LFWWH_NAV_CONFIG'];
 		$submit = $this->request->is_set_post('submit');
 
