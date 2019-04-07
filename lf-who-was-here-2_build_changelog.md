@@ -1,6 +1,9 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B20: (beta1)
+  * Dienstname erneut geändert `lukewcs.whowashere.core_lfwwh` -> `lukewcs.whowashere.core_who_was_here`.
+  * `README.md` geändert.
 * B19:
   * Fix: Bei der Umbenennung der Sprachdateien in B18 wurde die Funktion `clear_up()` übersehen, wodurch beim Löschen eines Benutzers eine Fehlermeldung erschien.
   * Aus dem Listener Skript die letzte noch vorhandene Funktion konsequent in das Core Skript verlagert.
@@ -11,6 +14,7 @@
   * Kleinere Code Änderungen, primär Formatierungen.
   * Etliche Dateien umbenannt.
   * Migration geändert: geänderte Dateinamen des ACP Moduls berücksichtigt.
+  * Dienstname geändert `lukewcs.whowashere.helper` -> `lukewcs.whowashere.core_lfwwh`.
 * B17:
   * Kleinere Korrekturen in den deutschen Sprachdateien.
   * `README.md` geändert.

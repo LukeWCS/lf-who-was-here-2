@@ -16,14 +16,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	// @lukewcs.whowashere.core_lfwwh
-	protected $core_lfwwh;
+	// @lukewcs.whowashere.core_who_was_here
+	protected $core_who_was_here;
 
 	public function __construct(
-		$core_lfwwh
+		$core_who_was_here
 	)
 	{
-		$this->core_lfwwh = $core_lfwwh;
+		$this->wwh =  $core_who_was_here;
 	}
 
 	static public function getSubscribedEvents()
@@ -38,21 +38,21 @@ class listener implements EventSubscriberInterface
 
 	public function update_session($event)
 	{
-		$this->core_lfwwh->update_session();
+		$this->wwh->update_session();
 	}
 
 	public function display($event)
 	{
-		$this->core_lfwwh->display();
+		$this->wwh->display();
 	}
 
 	public function add_permissions($event)
 	{
-		$this->core_lfwwh->add_permissions($event);
+		$this->wwh->add_permissions($event);
 	}
 
 	public function clear_up($event)
 	{
-		$this->core_lfwwh->clear_up($event);
+		$this->wwh->clear_up($event);
 	}
 }

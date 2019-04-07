@@ -1,5 +1,5 @@
 
-### Changelog 2.0.0 (2019--)
+### Changelog 2.0.0 Beta 1 (2019-04-07)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung ("lukewcs\whowashere").
@@ -47,7 +47,7 @@
 * WWH-Anzeige:
   * Für die Schaltfläche zur Anzeige von Zeit und/oder IP wird nicht mehr das Zeit-Symbol verwendet, sondern das Info-Symbol.
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
-* Fix: Wenn bei der Einstellungskombination "Zeige Bots:" > "Mit den Benutzern" und "Zeige die Zeit von Bots:" > "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
+* Fix: Wenn bei der Einstellungskombination "Zeige Bots: > Mit den Benutzern" und "Zeige die Zeit von Bots: > Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
 * Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
 * Der neue Administrator-Modus erlaubt es, das nur Benutzer mit administrativen Rechten WWH sehen können. Dabei werden die anderen Berechtigungssysteme ausser Kraft gesetzt. Das ist z.B. hilfreich, wenn man Änderungen an den Einstellungen oder Rechten vornehmen und testen will, ohne das WWH währenddessen für alle sichtbar ist.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt.

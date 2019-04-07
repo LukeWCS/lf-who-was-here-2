@@ -1,5 +1,5 @@
-# LF who was here
-Extension for phpBB3.2 - Shows a visitor statistic of the current day or a freely selectable period. It lists both members and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.
+# LF who was here (2.x)
+Extension for phpBB 3.2 - Shows a visitor statistic of the current day or a freely selectable period. It lists both members and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.
 
 ## Installation / Update
 1. Download and extract the Zip archive of the GitHub release.

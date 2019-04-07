@@ -2,6 +2,6 @@
 * text eol=lf
 /.editorconfig export-ignore
 /.gitattributes export-ignore
-/lf-who-was-here_build_changelog.md export-ignore
-/lf-who-was-here_changelog.md export-ignore
-/lf-who-was-here_version.json export-ignore
+/lf-who-was-here-2_build_changelog.md export-ignore
+/lf-who-was-here-2_changelog.md export-ignore
+/lf-who-was-here-2_version.json export-ignore

@@ -1,5 +1,11 @@
 services:
-    lukewcs.whowashere.core_lfwwh:
+    lukewcs.whowashere.listener:
+        class: lukewcs\whowashere\event\listener
+        arguments:
+            - '@lukewcs.whowashere.core_who_was_here'
+        tags:
+            - { name: event.listener }
+    lukewcs.whowashere.core_who_was_here:
         class: lukewcs\whowashere\core\who_was_here
         arguments:
             - '@template'
@@ -9,10 +15,3 @@ services:
             - '@cache.driver'
             - '@dbal.conn'
             - '%core.table_prefix%'
-    lukewcs.whowashere.listener:
-        class: lukewcs\whowashere\event\listener
-        arguments:
-            - '@lukewcs.whowashere.core_lfwwh'
-            - '@config'
-        tags:
-            - { name: event.listener }
