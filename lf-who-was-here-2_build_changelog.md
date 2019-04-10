@@ -1,7 +1,11 @@
 
 ### Builds 2.0.0 (2019--)
 
-* B20: (beta1)
+* B21:
+  * Sekundären CSS Klassennamen geändert.
+  * Button-CSS in eigene Datei ausgelagert.
+  * Im Javascript Teil waren noch einige alte Variablennamen vorhanden.
+* B20:
   * Dienstname erneut geändert `lukewcs.whowashere.core_lfwwh` -> `lukewcs.whowashere.core_who_was_here`.
   * `README.md` geändert.
 * B19:

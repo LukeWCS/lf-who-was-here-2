@@ -397,7 +397,7 @@ class who_was_here
 		;
 		$wwh_button_users = 
 			($show_button_users)
-			? '<button class="lfwwh_button_users" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_info(0)">' . $wwh_label_users . '</button>'
+			? '<button class="lfwwh_button_users" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" onclick="lfwwh_show_hide_info(0)">' . $wwh_label_users . '</button>'
 			: ''
 		;
 		$wwh_label_bots = 
@@ -407,7 +407,7 @@ class who_was_here
 		;
 		$wwh_button_bots = 
 			($show_button_bots)
-			? '<button class="lfwwh_button_bots" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" style="border: none; background-color: transparent; outline: none; padding: 0; cursor: pointer;" onclick="lfwwh_show_hide_info(1)">' . $wwh_label_bots . '</button>'
+			? '<button class="lfwwh_button_bots" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" onclick="lfwwh_show_hide_info(1)">' . $wwh_label_bots . '</button>'
 			: ''
 		;
 
@@ -470,7 +470,7 @@ class who_was_here
 	}
 
 	/**
-	* Cleans up the table and delete the cache and insert a notification when user accounts have been deleted. (LukeWCS)
+	* Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean-up was executed. (LukeWCS)
 	*/
 	public function clear_up($event)
 	{
@@ -533,14 +533,6 @@ class who_was_here
 	}
 
 	/**
-	* Returns a string encapsulated in <span> tags for hidden text depending to the user type (user/bot). (LukeWCS)
-	*/
-	private function get_hidden_span($user_type, $text)
-	{
-		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u': 'b') . '" style="display: none;">' . $text . '</span>';
-	}
-	
-	/**
 	* Returns the users array
 	*/
 	private function view_state()
@@ -595,6 +587,14 @@ class who_was_here
 		return $statrow;
 	}
 
+	/**
+	* Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot). (LukeWCS)
+	*/
+	private function get_hidden_span($user_type, $text)
+	{
+		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u': 'b') . '" style="display: none;">' . $text . '</span>';
+	}
+	
 	/**
 	* Returns the Explanation string for the online list:
 	* Demo:	based on users active today

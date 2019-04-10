@@ -1,5 +1,7 @@
 
-### Changelog 2.0.0 Beta 1 (2019-04-07)
+### Changelog 2.0.0
+
+#### Beta 1 (2019-04-10)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung ("lukewcs\whowashere").
@@ -35,7 +37,7 @@
   * Notwendige Änderungen bezüglich der geänderten Rechte vorgenommen.
   * Twig Logik bezüglich dem Einfügen von `<br />` geändert.
   * Twig Logik bezüglich dem Schalter "Zeige alle Template-Positionen gleichzeitig:" so geändert, das die bisherige Template-Variable `LFWWH_POS_ALL` entfallen kann. Das wird jetzt über Bit-Werte in der Variable `LFWWH_POS` geregelt und im Template per Bit-Operator abgefragt.
-  * Ein `INCLUDEJS` erfolgt nur noch einmal. Das ist relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder beim Einsatz von Erweiterungen die WWH per Template Variablen einbinden, wie z.B. "Brücke zwischen “LF who was here” und “Stat BLock”".
+  * Ein `INCLUDE` erfolgt nur noch einmal. Das ist relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder beim Einsatz von Erweiterungen die WWH per Template Variablen einbinden, wie z.B. "Brücke zwischen “LF who was here” und “Stat BLock”".
 * Alle Style-Anpassungen ausser "prosilver" wieder entfernt. Die bisherigen 10 Anpassungen für phpBB 3.2 sind als gesondertes Archiv für LF-WWH 2.0.0 verfügbar, werden jedoch bei zukünftigen Updates nicht mehr berücksichtigt.
 * Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Datenverkehr geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen. (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der der Cache bei Bedarf deaktiviert werden kann. Per Standard ist er aktiviert.
@@ -53,6 +55,9 @@
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt.
   * In den Sprachdateien für "Administrator-Modus:" 2 neue Variablen hinzugefügt.
 * Benutzer die das Merkmal "Unsichtbar" temporär (bei Anmeldung) oder dauerhaft (im Profil) aktiviert haben, können sich jetzt selber in der Benutzerliste der WWH-Anzeige sehen, wie das auch bei "Wer ist online?" der Fall ist.
+* CSS:
+  * Der bisherige sekundäre Klassenname `online-list` wurde in `whowashere-list` geändert, damit von Style Designer und Ext Coder der Bereich "Wer war da?" unabhängig vom Bereich "Wer ist online?" angesprochen werden kann.
+  * Das CSS für die Info-Buttons wurde vom Code in eine eigene CSS-Datei ausgelagert.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -

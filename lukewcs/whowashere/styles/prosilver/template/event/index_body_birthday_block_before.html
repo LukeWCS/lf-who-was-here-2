@@ -2,6 +2,7 @@
 	{% INCLUDE '@lukewcs_whowashere/who_was_here.html' %}
 	{% if !definition.INCLUDED_WHO_WAS_HERE %}
 		{% INCLUDEJS '@lukewcs_whowashere/who_was_here.js' %}
+		{% INCLUDECSS '@lukewcs_whowashere/who_was_here.css' %}
 		{% DEFINE INCLUDED_WHO_WAS_HERE = true %}
 	{% endif %}	
 {% endif %}

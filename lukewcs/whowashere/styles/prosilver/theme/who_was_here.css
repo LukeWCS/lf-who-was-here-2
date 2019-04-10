@@ -1,0 +1,7 @@
+button.lfwwh_button_users, button.lfwwh_button_bots {
+	border: none;
+	background-color: transparent;
+	outline: none;
+	padding: 0;
+	cursor: pointer;
+}
