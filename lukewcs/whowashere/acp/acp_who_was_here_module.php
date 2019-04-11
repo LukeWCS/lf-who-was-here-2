@@ -85,7 +85,7 @@ class acp_who_was_here_module
 		}
 		$this->template->assign_vars(array(
 			'LFWWH_CONFIG_TITLE_TEXT'		=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here (2.x)'),
-			'LFWWH_INSTALLED_TEXT'			=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_ext_version']),
+			'LFWWH_INSTALLED_TEXT'			=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_version']),
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],

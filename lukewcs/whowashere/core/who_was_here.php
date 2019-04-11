@@ -393,21 +393,21 @@ class who_was_here
 		$wwh_label_users = 
 			($is_min_phpbb32)
 			? '&nbsp;<span class="lfwwh_label_users icon fa-info-circle" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="lfwwh_label_users" style="opacity: 0.5;">(' . $this->user->lang['LFWWH_SHOW_INFO'] . ')</span>'
+			: '&nbsp;<span class="lfwwh_label_users" style="opacity: 0.5;">&#9432;</span>'
 		;
 		$wwh_button_users = 
 			($show_button_users)
-			? '<button class="lfwwh_button_users" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" onclick="lfwwh_show_hide_info(0)">' . $wwh_label_users . '</button>'
+			? '<button class="lfwwh_button_users" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(0)">' . $wwh_label_users . '</button>'
 			: ''
 		;
 		$wwh_label_bots = 
 			($is_min_phpbb32)
 			? '&nbsp;<span class="lfwwh_label_bots icon fa-info-circle" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="lfwwh_label_bots" style="opacity: 0.5;">(' . $this->user->lang['LFWWH_SHOW_INFO'] . ')</span>'
+			: '&nbsp;<span class="lfwwh_label_bots" style="opacity: 0.5;">&#9432;</span>'
 		;
 		$wwh_button_bots = 
 			($show_button_bots)
-			? '<button class="lfwwh_button_bots" title="' . $this->user->lang['LFWWH_SHOW_INFO_EXP'] . '" onclick="lfwwh_show_hide_info(1)">' . $wwh_label_bots . '</button>'
+			? '<button class="lfwwh_button_bots" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(1)">' . $wwh_label_bots . '</button>'
 			: ''
 		;
 

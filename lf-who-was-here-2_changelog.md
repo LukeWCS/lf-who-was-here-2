@@ -1,7 +1,7 @@
 
 ### Changelog 2.0.0
 
-#### Beta 1 (2019-04-10)
+#### Beta 1 (2019-04-11)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung ("lukewcs\whowashere").
@@ -39,16 +39,18 @@
   * Twig Logik bezüglich dem Schalter "Zeige alle Template-Positionen gleichzeitig:" so geändert, das die bisherige Template-Variable `LFWWH_POS_ALL` entfallen kann. Das wird jetzt über Bit-Werte in der Variable `LFWWH_POS` geregelt und im Template per Bit-Operator abgefragt.
   * Ein `INCLUDE` erfolgt nur noch einmal. Das ist relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder beim Einsatz von Erweiterungen die WWH per Template Variablen einbinden, wie z.B. "Brücke zwischen “LF who was here” und “Stat BLock”".
 * Alle Style-Anpassungen ausser "prosilver" wieder entfernt. Die bisherigen 10 Anpassungen für phpBB 3.2 sind als gesondertes Archiv für LF-WWH 2.0.0 verfügbar, werden jedoch bei zukünftigen Updates nicht mehr berücksichtigt.
-* Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Datenverkehr geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen. (Wunsch von Kirk)
+* Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Besucher geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen. (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der der Cache bei Bedarf deaktiviert werden kann. Per Standard ist er aktiviert.
   * In den Sprachdateien für "Cache für die Besuchertabelle verwenden:" 2 neue Variablen hinzugefügt.
 * Die Anzeige der IP ist nicht mehr an die Anzeige der Zeit gekoppelt, sondern kann jetzt völlig unabhängig (wie die Anzeige der Zeit) eingestellt werden. (basiert auf einem Wunsch von Wolkenbruch)
-  * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als mouseover) im Core-Skript von Grund auf neu geschrieben und optimiert.
+  * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als Tooltip) im Core-Skript von Grund auf neu geschrieben und optimiert.
   * Der Schalter "Zeige die Benutzer-IP:" hat jetzt nicht mehr die Optionsfelder "Ja/Nein" als Auswahlmöglichkeit, sondern eine Auswahlliste mit den gleichen 3 Optionen wie bei "Zeige die Zeit...".
   * Sprach-Variable entsprechend angepasst.
 * WWH-Anzeige:
   * Für die Schaltfläche zur Anzeige von Zeit und/oder IP wird nicht mehr das Zeit-Symbol verwendet, sondern das Info-Symbol.
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
+  * Die alternative Beschriftung der Schaltfläche für phpBB 3.1 wurde jetzt durch ein Unicode-Zeichen ersetzt, das genauso aussieht, wie das Info-Symbol vom Awesome-Font für phpBB 3.2.
+    * In den Sprachdateien die betreffende Variable entfernt.
 * Fix: Wenn bei der Einstellungskombination "Zeige Bots: > Mit den Benutzern" und "Zeige die Zeit von Bots: > Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
 * Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
 * Der neue Administrator-Modus erlaubt es, das nur Benutzer mit administrativen Rechten WWH sehen können. Dabei werden die anderen Berechtigungssysteme ausser Kraft gesetzt. Das ist z.B. hilfreich, wenn man Änderungen an den Einstellungen oder Rechten vornehmen und testen will, ohne das WWH währenddessen für alle sichtbar ist.

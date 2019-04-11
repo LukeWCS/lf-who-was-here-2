@@ -16,7 +16,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return isset($this->config['lfwwh_ext_version']) && version_compare($this->config['lfwwh_ext_version'], '2.0.0', '>=');
+		return isset($this->config['lfwwh_version']) && version_compare($this->config['lfwwh_version'], '2.0.0', '>=');
 	}
 
 	static public function depends_on()
@@ -101,7 +101,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 				'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',
 		)));
 		// Set current version
-		$data[] = array('config.add', array('lfwwh_ext_version'				, '2.0.0'));
+		$data[] = array('config.add', array('lfwwh_version'				, '2.0.0'));
 		
 		return $data;
 	}

@@ -49,8 +49,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_LAST2'				=> '', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
 	'LFWWH_USERS_TEXT'			=> 'Mitglieder%s:',
 	'LFWWH_BOTS_TEXT'			=> 'Bots%s:',
-	'LFWWH_SHOW_INFO'			=> 'Infos',
-	'LFWWH_SHOW_INFO_EXP'		=> 'Zeige ausgeblendete Infos',
+	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Infos',
 
 	'LFWWH_TOTAL' => array(
 		0						=> 'Insgesamt waren <strong>0</strong> Besucher online :: ',

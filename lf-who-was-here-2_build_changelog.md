@@ -1,6 +1,14 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B22:
+  * B21 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Den phpBB 3.1 Ersatztext für das Info-Symbol (Awesome-Font) durch ein Unicode-Zeichen ersetzt.
+  * `composer.json` aktualisiert
+  * CSS von `prosilver` nach `all` verschoben.
+  * 1 Sprachvariable umbenannt, 1 gelöscht.
+  * 1 Konfig-Variable umbenannt.
+  * Migration geändert.
 * B21:
   * Sekundären CSS Klassennamen geändert.
   * Button-CSS in eigene Datei ausgelagert.
@@ -93,16 +101,16 @@
   * Das Unterscheidungsmerkmal auf (2.x) geändert und konsequent überall verwendet.
   * Weitere Sprachvariablen umbenannt.   
 * B4:
-  * Weitere Konfigurations-Variablen umbenannt. Darum muss zuerst B3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Weitere Konfig-Variablen umbenannt. Darum muss zuerst B3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Das Unterscheidungsmerkmal "(Gen 4)" an allen Stellen im ACP entfernt wo es überflüssig ist, sprich wo eine Versionsnummer sichtbar ist.
   * Javascript Bestätigung bei `lfwwh_record_reset` von alert() auf confirm() umgestellt mit zurücksetzen des Schalters bei `Cancel`. Event bei "Ja" von `onclick` auf `onchange` umgestellt.
   * Hinweis für `lfwwh_record_reset_time` eingebaut.
 * B3: 
-  * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Konfigurations-Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
+  * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Konfig-Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
   * Im ACP-Modul eine weitere Template Variable umbenannt.
 * B2: 
   * B1 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Weitere Konfigurations-Variablen umbenannt.
+  * Weitere Konfig-Variablen umbenannt.
   * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Meldung Kirk)
   * Die Bereinigungs-Benachrichtigung eingebaut. @Kirk: Da wäre ein Test in 3.1.12 sinnvoll.
   * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
