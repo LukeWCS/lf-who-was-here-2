@@ -120,6 +120,8 @@ $lang = array_merge($lang, array(
 	'LFWWH_CLEAR_UP_EXP'				=> 'If user accounts are deleted, the table and display of WWH are also immediately cleared.',
 	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Show all template positions at the same time',	
 	'LFWWH_DISP_TEMPLATE_POS_ALL_EXP'	=> 'WWH is displayed on all positions at the same time. This is only for testing and should be disabled during normal operation.',
+	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Create hidden information',
+	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'If the display of the time or IP is set to “On hover”, this information is also hidden and a button is created, with which they can be displayed.',
 
 	// config section 5
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Load settings',

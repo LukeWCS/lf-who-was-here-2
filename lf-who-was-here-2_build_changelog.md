@@ -1,6 +1,13 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B23:
+  * B22 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
+  * Dienstname erneut geändert `lukewcs.whowashere.core_who_was_here` -> `lukewcs.whowashere.core`.
+  * Das Ausblenden von Infos kann jetzt deaktiviert werden.
+  * Neuer Schalter im ACP-Modul.
+  * Sprachdateien geändert.
+  * Migration geändert: Neue Konfig-Variable LFWWH_CREATE_HIDDEN_INFO.
 * B22:
   * B21 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Den phpBB 3.1 Ersatztext für das Info-Symbol (Awesome-Font) durch ein Unicode-Zeichen ersetzt.

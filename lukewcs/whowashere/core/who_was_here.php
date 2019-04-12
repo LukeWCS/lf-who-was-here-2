@@ -315,6 +315,10 @@ class who_was_here
 					}
 				}
 			}
+			if (!$this->config['lfwwh_create_hidden_info'])
+			{
+				$show_button_users = $show_button_bots = false;
+			}
 
 			if ($row['viewonline'] || ($row['user_type'] == USER_IGNORE))
 			{
@@ -592,6 +596,10 @@ class who_was_here
 	*/
 	private function get_hidden_span($user_type, $text)
 	{
+		if (!$this->config['lfwwh_create_hidden_info'])
+		{
+			return '';
+		}
 		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u': 'b') . '" style="display: none;">' . $text . '</span>';
 	}
 	

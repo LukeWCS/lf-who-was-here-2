@@ -2,10 +2,10 @@ services:
     lukewcs.whowashere.listener:
         class: lukewcs\whowashere\event\listener
         arguments:
-            - '@lukewcs.whowashere.core_who_was_here'
+            - '@lukewcs.whowashere.core'
         tags:
             - { name: event.listener }
-    lukewcs.whowashere.core_who_was_here:
+    lukewcs.whowashere.core:
         class: lukewcs\whowashere\core\who_was_here
         arguments:
             - '@template'

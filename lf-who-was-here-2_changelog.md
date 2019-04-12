@@ -1,7 +1,7 @@
 
 ### Changelog 2.0.0
 
-#### Beta 1 (2019-04-11)
+#### Beta 1 (2019-04-12)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung ("lukewcs\whowashere").
@@ -60,6 +60,9 @@
 * CSS:
   * Der bisherige sekundäre Klassenname `online-list` wurde in `whowashere-list` geändert, damit von Style Designer und Ext Coder der Bereich "Wer war da?" unabhängig vom Bereich "Wer ist online?" angesprochen werden kann.
   * Das CSS für die Info-Buttons wurde vom Code in eine eigene CSS-Datei ausgelagert.
+* Eine neue Einstellung erlaubt es nun, die Generierung der Info-Schaltfläche und der ausgeblendeten Informationen (Zeit, IP) komplett deaktivieren zu können.
+  * Im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion deaktiviert werden kann. Per Standard ist diese Funktion aktiviert.
+  * In den Sprachdateien für "Erzeuge ausgeblendete Informationen:" 2 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
   * Neu: -

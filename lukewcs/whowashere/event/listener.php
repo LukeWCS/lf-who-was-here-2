@@ -16,14 +16,14 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	// @lukewcs.whowashere.core_who_was_here
-	protected $core_who_was_here;
+	// @lukewcs.whowashere.core
+	protected $who_was_here_core;
 
 	public function __construct(
-		$core_who_was_here
+		$who_was_here_core
 	)
 	{
-		$this->wwh =  $core_who_was_here;
+		$this->wwh = $who_was_here_core;
 	}
 
 	static public function getSubscribedEvents()

@@ -62,6 +62,7 @@ class acp_who_was_here_module
 			$this->config->set('lfwwh_api_mode'					, $this->request->variable('lfwwh_api_mode', 0));
 			$this->config->set('lfwwh_clear_up'					, $this->request->variable('lfwwh_clear_up', 0));
 			$this->config->set('lfwwh_disp_template_pos_all'	, $this->request->variable('lfwwh_disp_template_pos_all', 0));
+			$this->config->set('lfwwh_create_hidden_info'		, $this->request->variable('lfwwh_create_hidden_info', 0));
 			$this->config->set('lfwwh_use_cache'				, $this->request->variable('lfwwh_use_cache', 0));
 			$this->config->set('lfwwh_use_online_time'			, $this->request->variable('lfwwh_use_online_time', 0));
 			$this->config->set('lfwwh_cache_time'				, $this->request->variable('lfwwh_cache_time', 0));
@@ -108,6 +109,7 @@ class acp_who_was_here_module
 			'LFWWH_API_MODE'				=> $this->config['lfwwh_api_mode'],
 			'LFWWH_CLEAR_UP'				=> $this->config['lfwwh_clear_up'],
 			'LFWWH_DISP_TEMPLATE_POS_ALL'	=> $this->config['lfwwh_disp_template_pos_all'],
+			'LFWWH_CREATE_HIDDEN_INFO'		=> $this->config['lfwwh_create_hidden_info'],
 			'LFWWH_USE_CACHE'				=> $this->config['lfwwh_use_cache'],
 			'LFWWH_USE_ONLINE_TIME'			=> $this->config['lfwwh_use_online_time'],
 			'LFWWH_CACHE_TIME'				=> $this->config['lfwwh_cache_time'],

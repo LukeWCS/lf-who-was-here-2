@@ -200,6 +200,13 @@
 				<label><input type="radio" class="radio" name="lfwwh_disp_template_pos_all" id="lfwwh_disp_template_pos_all_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_DISP_TEMPLATE_POS_ALL == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
+		<dl id="lfwwh_opt_create_hidden_info">
+			<dt><label>{{ lang('LFWWH_CREATE_HIDDEN_INFO') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_CREATE_HIDDEN_INFO_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_1" value="1" onchange="lfwwh_set_controls_state()" {% if LFWWH_CREATE_HIDDEN_INFO == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_CREATE_HIDDEN_INFO == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
 	</fieldset>
 
 	<fieldset>
@@ -293,6 +300,7 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_api_mode_0").checked = true;
 	document.getElementById("lfwwh_clear_up_1").checked = true;
 	document.getElementById("lfwwh_disp_template_pos_all_0").checked = true;
+	document.getElementById("lfwwh_create_hidden_info_1").checked = true;
 	document.getElementById("lfwwh_use_cache_1").checked = true;
 	document.getElementById("lfwwh_use_online_time_1").checked = true;
 	document.getElementById("lfwwh_cache_time").value = "{{ LFWWH_CACHE_TIME_MAX }}";

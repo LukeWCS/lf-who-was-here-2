@@ -34,6 +34,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_api_mode'				, (isset($this->config['wwh_api_mode']))				? $this->config['wwh_api_mode']					: '0'));
 		$data[] = array('config.add', array('lfwwh_cache_time'				, (isset($this->config['wwh_cache_time']))				? $this->config['wwh_cache_time']				: $load_online_time));
 		$data[] = array('config.add', array('lfwwh_clear_up'				, (isset($this->config['wwh_clear_up']))				? $this->config['wwh_clear_up']					: '1'));
+		$data[] = array('config.add', array('lfwwh_create_hidden_info'		, '1'));
 		$data[] = array('config.add', array('lfwwh_period_of_time_h'		, (isset($this->config['wwh_del_time_h']))				? $this->config['wwh_del_time_h']				: '24'));
 		$data[] = array('config.add', array('lfwwh_period_of_time_m'		, (isset($this->config['wwh_del_time_m']))				? $this->config['wwh_del_time_m']				: '0'));
 		$data[] = array('config.add', array('lfwwh_period_of_time_s'		, (isset($this->config['wwh_del_time_s']))				? $this->config['wwh_del_time_s']				: '0'));
