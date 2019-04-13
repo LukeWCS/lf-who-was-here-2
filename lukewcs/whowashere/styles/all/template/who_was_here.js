@@ -19,14 +19,14 @@ function lfwwh_show_hide_info(group) {
 		lfwwh_show_info_users = !lfwwh_show_info_users;
 		var user = document.getElementsByClassName('lfwwh_info_u');
 		var label = document.getElementsByClassName('lfwwh_label_users');
-		var style_display = ((lfwwh_show_info_users) ? "initial" : "none");
+		var style_display = ((lfwwh_show_info_users) ? "" : "none");
 		var style_opacity = ((lfwwh_show_info_users) ? "1.0" : "0.5");
 	}
 	if (group == 1) {
 		lfwwh_show_info_bots = !lfwwh_show_info_bots;
 		var user = document.getElementsByClassName('lfwwh_info_b');
 		var label = document.getElementsByClassName('lfwwh_label_bots');
-		var style_display = ((lfwwh_show_info_bots) ? "initial" : "none");
+		var style_display = ((lfwwh_show_info_bots) ? "" : "none");
 		var style_opacity = ((lfwwh_show_info_bots) ? "1.0" : "0.5");
 	}
 	for (i = 0; i < user.length; i ++) {

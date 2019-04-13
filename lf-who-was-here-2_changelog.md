@@ -1,7 +1,7 @@
 
 ### Changelog 2.0.0
 
-#### Beta 1 (2019-04-12)
+#### Beta 1 (2019-04-13)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung ("lukewcs\whowashere").
@@ -49,7 +49,7 @@
 * WWH-Anzeige:
   * Für die Schaltfläche zur Anzeige von Zeit und/oder IP wird nicht mehr das Zeit-Symbol verwendet, sondern das Info-Symbol.
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
-  * Die alternative Beschriftung der Schaltfläche für phpBB 3.1 wurde jetzt durch ein Unicode-Zeichen ersetzt, das genauso aussieht, wie das Info-Symbol vom Awesome-Font für phpBB 3.2.
+  * Die alternative Beschriftung der Schaltfläche für phpBB 3.1 wurde jetzt durch ein Unicode-Zeichen ersetzt, das ähnlich aussieht, wie das Info-Symbol vom Awesome-Font für phpBB 3.2.
     * In den Sprachdateien die betreffende Variable entfernt.
 * Fix: Wenn bei der Einstellungskombination "Zeige Bots: > Mit den Benutzern" und "Zeige die Zeit von Bots: > Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
 * Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
@@ -65,7 +65,7 @@
   * In den Sprachdateien für "Erzeuge ausgeblendete Informationen:" 2 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
-  * Neu: -
+  * Neu: `overall_header_head_append.html`, `who_was_here.css`
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -
 
@@ -177,7 +177,7 @@
     * Das gilt ebenso für die Schaltfläche "Standard" von "Einstellungen zurücksetzen:".
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die neue Template Bedingung `&& !WHO_WAS_HERE_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
-  * Neu: -
+  * Neu: `who_was_here.js`
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -
 

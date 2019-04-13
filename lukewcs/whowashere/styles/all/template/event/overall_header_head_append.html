@@ -1,0 +1,5 @@
+{% if (LFWWH_TOTAL || LFWWH_LIST || LFWWH_BOTS) && !LFWWH_API_MODE && !definition.INCLUDED_WHO_WAS_HERE %}
+	{% INCLUDEJS '@lukewcs_whowashere/who_was_here.js' %}
+	{% INCLUDECSS '@lukewcs_whowashere/who_was_here.css' %}
+	{% DEFINE INCLUDED_WHO_WAS_HERE = true %}
+{% endif %}

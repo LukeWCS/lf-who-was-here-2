@@ -397,7 +397,7 @@ class who_was_here
 		$wwh_label_users = 
 			($is_min_phpbb32)
 			? '&nbsp;<span class="lfwwh_label_users icon fa-info-circle" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="lfwwh_label_users" style="opacity: 0.5;">&#9432;</span>'
+			: '&nbsp;<span class="lfwwh_label_users" style="opacity: 0.5; line-height: 1.3em;">&#9432;</span>'
 		;
 		$wwh_button_users = 
 			($show_button_users)
@@ -407,7 +407,7 @@ class who_was_here
 		$wwh_label_bots = 
 			($is_min_phpbb32)
 			? '&nbsp;<span class="lfwwh_label_bots icon fa-info-circle" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="lfwwh_label_bots" style="opacity: 0.5;">&#9432;</span>'
+			: '&nbsp;<span class="lfwwh_label_bots" style="opacity: 0.5; line-height: 1.3em;">&#9432;</span>'
 		;
 		$wwh_button_bots = 
 			($show_button_bots)

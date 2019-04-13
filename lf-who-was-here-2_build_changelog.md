@@ -1,13 +1,18 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B24:
+  * `INCLUDEJS` und `INCLUDECSS` werden jetzt über `overall_header_head_append` im Style `all` ausgeführt. Nötig für phpBB 3.1.
+  * Fix: Bei IE11 und phpBB 3.1 wird das Info-Icon unten abgeschnitten dargestellt. (Meldung Kirk)
+  * Fix: Bei IE11 funktionierte das Einblenden nicht mehr. Grund war eine Änderung in B21.
+  * `README.md` geändert.
 * B23:
   * B22 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Dienstname erneut geändert `lukewcs.whowashere.core_who_was_here` -> `lukewcs.whowashere.core`.
   * Das Ausblenden von Infos kann jetzt deaktiviert werden.
   * Neuer Schalter im ACP-Modul.
   * Sprachdateien geändert.
-  * Migration geändert: Neue Konfig-Variable LFWWH_CREATE_HIDDEN_INFO.
+  * Migration geändert: Neue Konfig-Variable `LFWWH_CREATE_HIDDEN_INFO`.
 * B22:
   * B21 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Den phpBB 3.1 Ersatztext für das Info-Symbol (Awesome-Font) durch ein Unicode-Zeichen ersetzt.
