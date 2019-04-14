@@ -1,6 +1,10 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B25:
+  * ACP-Modul: Unnötiges `onchange` Ereignis bei `lfwwh_create_hidden_info` entfernt.
+  * ACP-Modul: Eingabefelder für Zeitraum (H, M, S) auf Zahlen umgestellt mit Unter/Obergrenze.
+  * Fix: Bei der Umbenennung der Sprachdateien in B18 wurde die Funktion `display()` übersehen.
 * B24:
   * `INCLUDEJS` und `INCLUDECSS` werden jetzt über `overall_header_head_append` im Style `all` ausgeführt. Nötig für phpBB 3.1.
   * Fix: Bei IE11 und phpBB 3.1 wird das Info-Icon unten abgeschnitten dargestellt. (Meldung Kirk)
@@ -37,7 +41,7 @@
   * Kleinere Korrekturen in den Sprachdateien.
   * Kleinere Code Änderungen, primär Formatierungen.
   * Etliche Dateien umbenannt.
-  * Migration geändert: geänderte Dateinamen des ACP Moduls berücksichtigt.
+  * Migration geändert: geänderte Dateinamen des ACP-Moduls berücksichtigt.
   * Dienstname geändert `lukewcs.whowashere.helper` -> `lukewcs.whowashere.core_lfwwh`.
 * B17:
   * Kleinere Korrekturen in den deutschen Sprachdateien.
@@ -51,7 +55,7 @@
 * B15:
   * Autoreninfo in allen Dateien auf ein einheitliches Format gebracht und überall dort eingefügt, wo es noch fehlte. Als Muster diente dazu "phpBB Skeleton Extension".
   * Templates: INCLUDEJS ist jetzt an eine Bedingung geknüpft und wird dadurch nur einmal ausgeführt. Relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder bei der Ext "Bridge".
-  * Mehrere Texte in den Sprachdateien für das ACP Modul geändert. Stichworte "Administrator" und "administrative Rechte".
+  * Mehrere Texte in den Sprachdateien für das ACP-Modul geändert. Stichworte "Administrator" und "administrative Rechte".
   * Code bereinigt in Hinsicht auf die Veröffentlichung des 2.0 Zweiges.
   * Build Changelog vom normalen Changelog abgetrennt.
   * Build Changelog und normales Changelog werden ab jetzt mit dem Suffix .md (Markdown) geführt, wodurch diese Dateien bei GitHub direkt interpretiert werden. Das Format entsprach ja bereits Markdown.

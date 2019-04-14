@@ -25,7 +25,7 @@ class s_2_0_0_initial_schema extends \phpbb\db\migration\migration
 	}
 
 	public function update_schema()
-	{//echo 'update_schema'.'<br>';
+	{
 		return array(
 			'add_tables' => array(
 				$this->table_prefix . 'lfwwh' => array(

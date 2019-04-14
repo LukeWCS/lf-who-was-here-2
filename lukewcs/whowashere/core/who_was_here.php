@@ -35,12 +35,14 @@ class who_was_here
 	/**
 	* Constructor
 	*
-	* @param \phpbb\template\template            $template          Template object
-	* @param \phpbb\config\config                $config            Config object
-	* @param \phpbb\user                         $user              User object
-	* @param \phpbb\db\driver\driver_interface   $db                Database object
-	* @return \lukewcs\whowashere\core\who_was_here
-	* @access public
+	* @param \phpbb\template\template				$template			Interface template class
+	* @param \phpbb\config\config					$config				Configuration container class
+	* @param \phpbb\user							$user				Base user class
+	* @param \phpbb\auth\auth						$auth				Permission/Auth class
+	* @param \phpbb\cache\driver\driver_interface	$cache				An interface that all cache drivers must implement
+	* @param \phpbb\db\driver\driver_interface		$db					Interface driver_interface
+	* @param string									$table_prefix		Tables prefix
+	*
 	*/
 
 	public function __construct(
@@ -209,7 +211,7 @@ class who_was_here
 		if (!$this->prune())
 		{
 			// Error while purging the list, database is missing :-O
-			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_whowashere');
+			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_who_was_here');
 			return;
 		}
 

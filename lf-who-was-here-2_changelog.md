@@ -1,7 +1,7 @@
 
 ### Changelog 2.0.0
 
-#### Beta 1 (2019-04-13)
+#### Beta 1 (2019-04-14)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung ("lukewcs\whowashere").
@@ -28,6 +28,7 @@
   * Einen neuen Abschnitt eingefügt.
     * In den Sprachdateien für "Serverlast" 1 neue Variable hinzugefügt.
     * Die Punkte "Cache für die Besuchertabelle verwenden:", "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" und "Intervall der Aktualisierung:" in den neuen Abschnitt verschoben.
+  * Bei "Zeitraum:" sind die Eingabefelder für Stunden, Minuten und Sekunden nicht länger für Text, sondern für Zahlen definiert. Diese werden jetzt ausserdem auf Untergrenze (0) und Obergrenze (99999) geprüft.
 * Die Rechte wurden geändert:
   * Das bisherige Recht "Kann Mitglieder und Statistik sehen" wurde in "Kann Mitglieder sehen" geändert. Wenn eine Gruppe also sowohl die Statistik als auch die Mitglieder-Liste sehen soll, dann müssen jetzt auch beide Rechte gesetzt sein. So ist es jetzt auch möglich, z.B. nur die  Mitglieder-Liste anzuzeigen.
   * Im ACP-Modul dementsprechend für das einfache Rechtesystem die neue Option "Mitglieder" hinzugefügt.

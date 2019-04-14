@@ -130,13 +130,13 @@
 		<dl id="lfwwh_opt_period_of_time">
 			<dt><label>{{ lang('LFWWH_TIME_MODE_0') }}{{ lang('COLON') }}</label></dt>
 			<dd>
-				<input type="text" name="lfwwh_period_of_time_h" id="lfwwh_period_of_time_h" size="6" value="{{ LFWWH_PERIOD_OF_TIME_H }}" /> {{ lang('HOURS') }}
+				<input type="number" name="lfwwh_period_of_time_h" id="lfwwh_period_of_time_h" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_H }}" /> {{ lang('HOURS') }}
 			</dd>
 			<dd>
-				<input type="text" name="lfwwh_period_of_time_m" id="lfwwh_period_of_time_m" size="6" value="{{ LFWWH_PERIOD_OF_TIME_M }}" /> {{ lang('MINUTES') }}
+				<input type="number" name="lfwwh_period_of_time_m" id="lfwwh_period_of_time_m" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_M }}" /> {{ lang('MINUTES') }}
 			</dd>
 			<dd>
-				<input type="text" name="lfwwh_period_of_time_s" id="lfwwh_period_of_time_s" size="6" value="{{ LFWWH_PERIOD_OF_TIME_S }}" /> {{ lang('SECONDS') }}
+				<input type="number" name="lfwwh_period_of_time_s" id="lfwwh_period_of_time_s" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_S }}" /> {{ lang('SECONDS') }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_sort_by">
@@ -203,8 +203,8 @@
 		<dl id="lfwwh_opt_create_hidden_info">
 			<dt><label>{{ lang('LFWWH_CREATE_HIDDEN_INFO') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_CREATE_HIDDEN_INFO_EXP') }}</span></dt>
 			<dd>
-				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_1" value="1" onchange="lfwwh_set_controls_state()" {% if LFWWH_CREATE_HIDDEN_INFO == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
-				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_0" value="0" onchange="lfwwh_set_controls_state()" {% if LFWWH_CREATE_HIDDEN_INFO == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_1" value="1" {% if LFWWH_CREATE_HIDDEN_INFO == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_0" value="0" {% if LFWWH_CREATE_HIDDEN_INFO == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 	</fieldset>
