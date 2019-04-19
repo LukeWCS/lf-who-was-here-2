@@ -12,8 +12,8 @@
 {% INCLUDE 'overall_header.html' %}
 <a name="maincontent"></a>
 
-<h1>{{ LFWWH_CONFIG_TITLE_TEXT }}</h1>
-<p>{{ LFWWH_INSTALLED_TEXT }}</p>
+<h1>{{ LFWWH_CONFIG_TITLE }}</h1>
+<p>{{ LFWWH_INSTALLED }}</p>
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
@@ -99,7 +99,7 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time_format">
-			<dt><label>{{ lang('LFWWH_DISP_TIME_FORMAT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TIME_FORMAT_EXP') }}</span></dt>
+			<dt><label>{{ lang('LFWWH_DISP_TIME_FORMAT') }}{{ lang('COLON') }}</label><br /><span>{{ LFWWH_DISP_TIME_FORMAT_EXP }}</span></dt>
 			<dd>
 				<input type="text" name="lfwwh_disp_time_format" id="lfwwh_disp_time_format" size="12" value="{{ LFWWH_DISP_TIME_FORMAT }}" />
 			</dd>
@@ -160,7 +160,7 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_record_time_format">
-			<dt><label>{{ lang('LFWWH_RECORD_TIME_FORMAT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TIME_FORMAT_EXP') }}</span></dt>
+			<dt><label>{{ lang('LFWWH_RECORD_TIME_FORMAT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_RECORD_TIME_FORMAT_EXP') }}</span></dt>
 			<dd>
 				<input type="text" name="lfwwh_record_time_format" id="lfwwh_record_time_format" size="12" value="{{ LFWWH_RECORD_TIME_FORMAT }}" />
 			</dd>
@@ -246,7 +246,7 @@
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_record_reset" id="lfwwh_record_reset_1" value="1" onchange="lfwwh_confirm_record_reset()" /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_record_reset" id="lfwwh_record_reset_0" value="0" checked="checked" /> {{ lang('NO') }}</label>
-				{{ LFWWH_RECORD_RESET_TIME_TEXT }}
+				{{ LFWWH_RECORD_RESET_TIME }}
 			</dd>
 		</dl>
 	</fieldset>
@@ -287,7 +287,7 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_disp_hidden_1").checked = true;
 	document.getElementById("lfwwh_disp_time_1").selected = true;
 	document.getElementById("lfwwh_disp_time_bots_1").selected = true;
-	document.getElementById("lfwwh_disp_time_format").value = "G:i";
+	document.getElementById("lfwwh_disp_time_format").value = "$1 G:i";
 	document.getElementById("lfwwh_disp_ip_1").selected = true;
 	document.getElementById("lfwwh_time_mode_1").selected = true;
 	document.getElementById("lfwwh_period_of_time_h").value = "24";

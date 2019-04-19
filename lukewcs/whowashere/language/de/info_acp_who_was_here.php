@@ -85,7 +85,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TIME_0'					=> 'Nein',
 	'LFWWH_DISP_TIME_BOTS'				=> 'Zeige die Zeit von Bots',
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
-	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>.',
+	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>. Spezielle Platzhalter: $1 = “%1$s”, $2 = “%2$s”.',
 	'LFWWH_DISP_IP'						=> 'Zeige die Benutzer-IP',
 	'LFWWH_DISP_IP_EXP'					=> '“Bei überfahren” zeigt zusätzlich ein Info-Symbol an, mit dem die IPs auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Nur für Benutzer mit administrativen Rechten, wie bei “Wer ist online?”.)',
 
@@ -106,6 +106,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_RECORD'						=> 'Besucherrekord',
 	'LFWWH_RECORD_EXP'					=> 'Zeige und speichere den Besucherrekord.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Datums-Format für den Besucherrekord',
+	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_TEMPLATE_POS'			=> 'Position der Anzeige',
 	'LFWWH_DISP_TEMPLATE_POS_EXP'		=> 'Legt fest, wo die WWH-Anzeige im Online/Statistik-Bereich positioniert werden soll. “Oben” ist die Position über diesem Bereich und “Unten” entsprechend die Position darunter.',
 	'LFWWH_DISP_TEMPLATE_POS_0'			=> 'Oben',

@@ -1,6 +1,22 @@
 
 ### Changelog 2.0.0
 
+#### Beta 2 (2019--)
+
+* Sprachdateien:
+  * Die Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` haben ab dieser Version wieder einen Standardinhalt.
+  * In `who_was_here.php` die Variable 'LFWWH_RECORD' in 'LFWWH_RECORD_DAY' umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
+  * Kleinere Korrekturen.
+  * Umbenennung einiger Variablen.
+* Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
+  * Im ACP-Modul wird entsprechend beim Erklärungstext für "Zeit-Format:" auf die Platzhalter `$1` und `$2` hingewiesen.
+    * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden können.
+	* Als Standard wird der Platzhalter `$1` bei "Zeit-Format:" eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft eine Neuinstallation von LFWWH und die Standard-Schaltfläche im ACP-Modul.
+* ACP-Modul:
+  * Die Einstellung "Datums-Format für den Besucherrekord:" hat jetzt einen eigenen Erklärungstext. Dieser wurde bisher von "Zeit-Format:" bezogen.
+    * Entsprechend in den Sprachdateien 1 neue Variable hinzugefügt.
+* Template-Änderungen: Nein
+
 #### Beta 1 (2019-04-14)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
@@ -60,7 +76,7 @@
 * Benutzer die das Merkmal "Unsichtbar" temporär (bei Anmeldung) oder dauerhaft (im Profil) aktiviert haben, können sich jetzt selber in der Benutzerliste der WWH-Anzeige sehen, wie das auch bei "Wer ist online?" der Fall ist.
 * CSS:
   * Der bisherige sekundäre Klassenname `online-list` wurde in `whowashere-list` geändert, damit von Style Designer und Ext Coder der Bereich "Wer war da?" unabhängig vom Bereich "Wer ist online?" angesprochen werden kann.
-  * Das CSS für die Info-Buttons wurde vom Code in eine eigene CSS-Datei ausgelagert.
+  * Das CSS für die Info-Schaltflächen wurde vom Code in eine eigene CSS-Datei ausgelagert.
 * Eine neue Einstellung erlaubt es nun, die Generierung der Info-Schaltfläche und der ausgeblendeten Informationen (Zeit, IP) komplett deaktivieren zu können.
   * Im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion deaktiviert werden kann. Per Standard ist diese Funktion aktiviert.
   * In den Sprachdateien für "Erzeuge ausgeblendete Informationen:" 2 neue Variablen hinzugefügt.

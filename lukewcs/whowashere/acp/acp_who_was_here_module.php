@@ -32,6 +32,7 @@ class acp_who_was_here_module
 		$this->tpl_name = 'acp_who_was_here';
 		$this->page_title = $this->user->lang['LFWWH_NAV_TITLE'] . ' - ' . $this->user->lang['LFWWH_NAV_CONFIG'];
 		$submit = $this->request->is_set_post('submit');
+		$this->user->add_lang_ext('lukewcs/whowashere', 'who_was_here');
 
 		if ($submit)
 		{
@@ -85,8 +86,8 @@ class acp_who_was_here_module
 			$this->config->set('lfwwh_cache_time', $load_online_time);
 		}
 		$this->template->assign_vars(array(
-			'LFWWH_CONFIG_TITLE_TEXT'		=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here (2.x)'),
-			'LFWWH_INSTALLED_TEXT'			=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_version']),
+			'LFWWH_CONFIG_TITLE'			=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here (2.x)'),
+			'LFWWH_INSTALLED'				=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_version']),
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],
@@ -97,6 +98,7 @@ class acp_who_was_here_module
 			'LFWWH_DISP_TIME'				=> $this->config['lfwwh_disp_time'],
 			'LFWWH_DISP_TIME_BOTS'			=> $this->config['lfwwh_disp_time_bots'],
 			'LFWWH_DISP_TIME_FORMAT'		=> $this->config['lfwwh_disp_time_format'],
+			'LFWWH_DISP_TIME_FORMAT_EXP'	=> sprintf($this->user->lang['LFWWH_DISP_TIME_FORMAT_EXP'], $this->user->lang['LFWWH_LAST1'], $this->user->lang['LFWWH_LAST2']),
 			'LFWWH_DISP_IP'					=> $this->config['lfwwh_disp_ip'],
 			'LFWWH_TIME_MODE'				=> $this->config['lfwwh_time_mode'],
 			'LFWWH_PERIOD_OF_TIME_H'		=> $this->config['lfwwh_period_of_time_h'],
@@ -114,7 +116,7 @@ class acp_who_was_here_module
 			'LFWWH_USE_ONLINE_TIME'			=> $this->config['lfwwh_use_online_time'],
 			'LFWWH_CACHE_TIME'				=> $this->config['lfwwh_cache_time'],
 			'LFWWH_CACHE_TIME_MAX'			=> $load_online_time,
-			'LFWWH_RECORD_RESET_TIME_TEXT'	=> ($this->config['lfwwh_record_reset_time'] != 1) ? sprintf($this->user->lang['LFWWH_RECORD_RESET_TIME_HINT'], $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
+			'LFWWH_RECORD_RESET_TIME'		=> ($this->config['lfwwh_record_reset_time'] != 1) ? sprintf($this->user->lang['LFWWH_RECORD_RESET_TIME_HINT'], $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
 			'U_ACTION'						=> $this->u_action,
 		));
 	}

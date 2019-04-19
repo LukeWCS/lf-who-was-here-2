@@ -45,10 +45,10 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, array(
 	'LFWWH_TITLE'				=> 'Who was here',
-	'LFWWH_LAST1'				=> '', //old: 'last:&nbsp;'
-	'LFWWH_LAST2'				=> '', //used for parts like "o'clock" in the time display (last at hh:mm o'clock)
-	'LFWWH_USERS_TEXT'			=> 'Registered users%s:',
-	'LFWWH_BOTS_TEXT'			=> 'Bots%s:',
+	'LFWWH_LAST1'				=> 'last at',
+	'LFWWH_LAST2'				=> 'o\'clock', //used for parts like "o'clock" in the time display (last at hh:mm o'clock)
+	'LFWWH_USERS_PREFIX'		=> 'Registered users%s:',
+	'LFWWH_BOTS_PREFIX'			=> 'Bots%s:',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Show hidden info',
 
 	'LFWWH_TOTAL' => array(
@@ -95,6 +95,6 @@ $lang = array_merge($lang, array(
 		1						=> '%%s %1$s second',
 		2						=> '%%s %1$s seconds',
 	),
-	'LFWWH_RECORD'				=> 'Most users ever online was <strong>%1$s</strong> on %2$s',
+	'LFWWH_RECORD_DAY'			=> 'Most users ever online was <strong>%1$s</strong> on %2$s',
 	'LFWWH_RECORD_TIME'			=> 'Most users ever online was <strong>%1$s</strong> between %2$s and %3$s',
 ));

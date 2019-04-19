@@ -1,7 +1,14 @@
 
 ### Builds 2.0.0 (2019--)
 
-* B25:
+* B26:
+  * Platzhalter $1 (`LFWWH_LAST1`) und $2 (`LFWWH_LAST2`) für Zeitformat eingebaut.
+  * Sprachdateien korrigiert.
+  * 3 Sprach-Variablen umbenannt.
+  * 1 Sprach-Variable hinzugefügt.
+  * Im ACP-Modul 3 Template Variablen umbenannt.
+  * Migration geändert: neuer Standard bei `lfwwh_disp_time_format`.
+* B25: (beta1)
   * ACP-Modul: Unnötiges `onchange` Ereignis bei `lfwwh_create_hidden_info` entfernt.
   * ACP-Modul: Eingabefelder für Zeitraum (H, M, S) auf Zahlen umgestellt mit Unter/Obergrenze.
   * Fix: Bei der Umbenennung der Sprachdateien in B18 wurde die Funktion `display()` übersehen.

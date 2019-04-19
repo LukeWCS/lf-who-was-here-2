@@ -48,7 +48,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_disp_template_pos_all'	, (isset($this->config['wwh_disp_template_pos_all']))	? $this->config['wwh_disp_template_pos_all']	: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_time'				, (isset($this->config['wwh_disp_time']))				? $this->config['wwh_disp_time']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_time_bots'			, (isset($this->config['wwh_disp_time_bots']))			? $this->config['wwh_disp_time_bots']			: '1'));
-		$data[] = array('config.add', array('lfwwh_disp_time_format'		, (isset($this->config['wwh_disp_time_format']))		? $this->config['wwh_disp_time_format']			: 'G:i'));
+		$data[] = array('config.add', array('lfwwh_disp_time_format'		, (isset($this->config['wwh_disp_time_format']))		? $this->config['wwh_disp_time_format']			: '$1 G:i'));
 		$data[] = array('config.add', array('lfwwh_last_clean'				, (isset($this->config['wwh_last_clean']))				? $this->config['wwh_last_clean']				: '0'));
 		$data[] = array('config.add', array('lfwwh_time_mode'				, (isset($this->config['wwh_version']))					? $this->config['wwh_version']					: '1'));
 		$data[] = array('config.add', array('lfwwh_record'					, (isset($this->config['wwh_record']))					? $this->config['wwh_record']					: '1'));

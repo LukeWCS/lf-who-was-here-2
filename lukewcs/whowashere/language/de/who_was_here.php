@@ -45,10 +45,10 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, array(
 	'LFWWH_TITLE'				=> 'Wer war da?',
-	'LFWWH_LAST1'				=> '', //old: 'zuletzt:&nbsp;'
-	'LFWWH_LAST2'				=> '', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
-	'LFWWH_USERS_TEXT'			=> 'Mitglieder%s:',
-	'LFWWH_BOTS_TEXT'			=> 'Bots%s:',
+	'LFWWH_LAST1'				=> 'zuletzt um',
+	'LFWWH_LAST2'				=> 'Uhr', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
+	'LFWWH_USERS_PREFIX'		=> 'Mitglieder%s:',
+	'LFWWH_BOTS_PREFIX'			=> 'Bots%s:',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Infos',
 
 	'LFWWH_TOTAL' => array(
@@ -95,6 +95,6 @@ $lang = array_merge($lang, array(
 		1						=> '%%s %1$s Sekunde',
 		2						=> '%%s %1$s Sekunden',
 	),
-	'LFWWH_RECORD'				=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die am %2$s online waren.',
+	'LFWWH_RECORD_DAY'			=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die am %2$s online waren.',
 	'LFWWH_RECORD_TIME'			=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die zwischen %2$s und %3$s online waren.',
 ));

@@ -253,7 +253,8 @@ class who_was_here
 			if ($row['user_id'] != ANONYMOUS)
 			{
 				$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
-				$time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
+				// $time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
+				$time = $this->get_formatted_time_string($row['wwh_lastpage']);
 				$ip = (($wwh_disp_permission_ip) ? $this->user->lang['IP'] . ': ' . $row['user_ip'] : '');
 				$disp_info = '';
 				$hover_info = '';
@@ -418,8 +419,8 @@ class who_was_here
 		;
 
 		$this->template->assign_vars(array(
-			'LFWWH_LIST'		=> (($wwh_disp_permission_users) ? sprintf($this->user->lang['LFWWH_USERS_TEXT'], $wwh_button_users) . ' ' . $users_list : ''),
-			'LFWWH_BOTS'		=> (($wwh_disp_permission_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_TEXT'], $wwh_button_bots) . ' ' . $bots_list : ''),
+			'LFWWH_LIST'		=> (($wwh_disp_permission_users) ? sprintf($this->user->lang['LFWWH_USERS_PREFIX'], $wwh_button_users) . ' ' . $users_list : ''),
+			'LFWWH_BOTS'		=> (($wwh_disp_permission_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_PREFIX'], $wwh_button_bots) . ' ' . $bots_list : ''),
 			'LFWWH_TOTAL'		=> (($wwh_disp_permission_total) ? $this->get_total_users_string($count) : ''),
 			'LFWWH_EXP'			=> $this->get_explanation_string($this->config['lfwwh_time_mode']),
 			'LFWWH_RECORD'		=> $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']),
@@ -604,6 +605,17 @@ class who_was_here
 		}
 		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u': 'b') . '" style="display: none;">' . $text . '</span>';
 	}
+
+	/**
+	* Returns a formated date string with replaced placeholders for LFWWH_LAST1 and LFWWH_LAST2. (LukeWCS)
+	*/
+	private function get_formatted_time_string($timestamp)
+	{
+		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
+		$text = str_replace('$1', $this->user->lang['LFWWH_LAST1'], $text);
+		$text = str_replace('$2', $this->user->lang['LFWWH_LAST2'], $text);
+		return $text;
+	}
 	
 	/**
 	* Returns the Explanation string for the online list:
@@ -648,7 +660,7 @@ class who_was_here
 		}
 		if ($mode)
 		{
-			return sprintf($this->user->lang['LFWWH_RECORD'], $this->config['lfwwh_record_ips'], $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
+			return sprintf($this->user->lang['LFWWH_RECORD_DAY'], $this->config['lfwwh_record_ips'], $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
 		}
 		else
 		{

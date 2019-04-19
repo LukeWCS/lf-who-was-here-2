@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here? [%s]',
-	'LFWWH_INSTALLED' 					=> 'Installed version: %s &bull; Discussion: <a href="https://www.phpbb.com/community/viewtopic.php?f=456&t=2506381">Topic on phpbb.de</a>',
+	'LFWWH_INSTALLED' 					=> 'Installed version: %s &bull; Discussion: <a href="https://www.phpbb.com/community/viewtopic.php?f=456&t=2506381">Topic on phpbb.com</a>',
 
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
@@ -85,7 +85,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TIME_0'					=> 'No',
 	'LFWWH_DISP_TIME_BOTS'				=> 'Show time of bots',
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Time format',
-	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
+	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>. Special placeholder: $1 = “%1$s”, $2 = “%2$s”.',
 	'LFWWH_DISP_IP'						=> 'Show user IP',
 	'LFWWH_DISP_IP_EXP'					=> '“On hover” also displays a info symbol with which the IPs can also be displayed directly. Helpful for smartphones and tablet computers. (Just for the users with administrative permissions, as with “Who is online”.)',
 
@@ -106,6 +106,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_RECORD'						=> 'Visitor record',
 	'LFWWH_RECORD_EXP'					=> 'Show and save the visitor record.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Date format for the visitor record',
+	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_TEMPLATE_POS'			=> 'Position of the display',
 	'LFWWH_DISP_TEMPLATE_POS_EXP'		=> 'Determines where to place the WWH display in the Online/Statistic section. “Top” is the position above this section and “Bottom” is the position below.',
 	'LFWWH_DISP_TEMPLATE_POS_0'			=> 'Top',
