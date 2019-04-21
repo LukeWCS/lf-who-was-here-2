@@ -47,6 +47,20 @@
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_1') }}</legend>
+		<dl id="lfwwh_opt_disp_reg_users">
+			<dt><label>{{ lang('LFWWH_DISP_REG_USERS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_REG_USERS_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="lfwwh_disp_reg_users" id="lfwwh_disp_reg_users_1" value="1" {% if LFWWH_DISP_REG_USERS == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_disp_reg_users" id="lfwwh_disp_reg_users_0" value="0" {% if LFWWH_DISP_REG_USERS == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
+		<dl id="lfwwh_opt_disp_hidden">
+			<dt><label>{{ lang('LFWWH_DISP_HIDDEN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_HIDDEN_EXP') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" name="lfwwh_disp_hidden" id="lfwwh_disp_hidden_1" value="1" {% if LFWWH_DISP_HIDDEN == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="lfwwh_disp_hidden" id="lfwwh_disp_hidden_0" value="0" {% if LFWWH_DISP_HIDDEN == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
+			</dd>
+		</dl>
 		<dl id="lfwwh_opt_disp_bots">
 			<dt><label>{{ lang('LFWWH_DISP_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_BOTS_EXP') }}</span></dt>
 			<dd>
@@ -69,13 +83,6 @@
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_disp_guests" id="lfwwh_disp_guests_1" value="1" {% if LFWWH_DISP_GUESTS == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_disp_guests" id="lfwwh_disp_guests_0" value="0" {% if LFWWH_DISP_GUESTS == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
-			</dd>
-		</dl>
-		<dl id="lfwwh_opt_disp_hidden">
-			<dt><label>{{ lang('LFWWH_DISP_HIDDEN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_HIDDEN_EXP') }}</span></dt>
-			<dd>
-				<label><input type="radio" class="radio" name="lfwwh_disp_hidden" id="lfwwh_disp_hidden_1" value="1" {% if LFWWH_DISP_HIDDEN == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
-				<label><input type="radio" class="radio" name="lfwwh_disp_hidden" id="lfwwh_disp_hidden_0" value="0" {% if LFWWH_DISP_HIDDEN == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time">
@@ -281,10 +288,11 @@ function lfwwh_set_defaults() {
 	document.getElementById("lfwwh_admin_mode_0").checked = true;
 	document.getElementById("lfwwh_use_permissions_0").checked = true;
 	document.getElementById("lfwwh_disp_for_guests_0").selected = true;
+	document.getElementById("lfwwh_disp_reg_users_1").checked = true;
+	document.getElementById("lfwwh_disp_hidden_1").checked = true;
 	document.getElementById("lfwwh_disp_bots_1").selected = true;
 	document.getElementById("lfwwh_disp_bots_only_admin_0").checked = true;
 	document.getElementById("lfwwh_disp_guests_1").checked = true;
-	document.getElementById("lfwwh_disp_hidden_1").checked = true;
 	document.getElementById("lfwwh_disp_time_1").selected = true;
 	document.getElementById("lfwwh_disp_time_bots_1").selected = true;
 	document.getElementById("lfwwh_disp_time_format").value = "$1 G:i";

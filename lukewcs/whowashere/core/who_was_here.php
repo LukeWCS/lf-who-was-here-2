@@ -377,6 +377,10 @@ class who_was_here
 			$bots_list = utf8_substr($bots_list, utf8_strlen($this->user->lang['COMMA_SEPARATOR']));
 		}
 
+		if (!$this->config['lfwwh_disp_hidden'])
+		{
+			$count['count_total'] -= $count['count_hidden'];
+		}
 		if (!$this->config['lfwwh_disp_bots'])
 		{
 			$count['count_total'] -= $count['count_bot'];
@@ -384,10 +388,6 @@ class who_was_here
 		if (!$this->config['lfwwh_disp_guests'])
 		{
 			$count['count_total'] -= $count['count_guests'];
-		}
-		if (!$this->config['lfwwh_disp_hidden'])
-		{
-			$count['count_total'] -= $count['count_hidden'];
 		}
 
 		// Need to update the record?
@@ -612,8 +612,8 @@ class who_was_here
 	private function get_formatted_time_string($timestamp)
 	{
 		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
-		$text = str_replace('$1', $this->user->lang['LFWWH_LAST1'], $text);
-		$text = str_replace('$2', $this->user->lang['LFWWH_LAST2'], $text);
+		$text = str_replace(array('$1', '$2', '$3'), array($this->user->lang['LFWWH_LAST1'], $this->user->lang['LFWWH_LAST2'], $this->user->lang['LFWWH_LAST3']), $text);
+		// $text = preg_replace_callback('/\$([1-3]{1})/', function($match_ary) { return $this->user->lang['LFWWH_LAST' . $match_ary[1]]; }, $text);
 		return $text;
 	}
 	
@@ -676,8 +676,10 @@ class who_was_here
 	private function get_total_users_string($count)
 	{
 		$total_users_string = $this->user->lang('LFWWH_TOTAL', $count['count_total']);
-		$total_users_string .= $this->user->lang('LFWWH_REG_USERS', $count['count_reg']);
-
+		if ($this->config['lfwwh_disp_reg_users'])
+		{
+			$total_users_string .= '%s ' . $this->user->lang('LFWWH_REG_USERS', $count['count_reg']);
+		}
 		if ($this->config['lfwwh_disp_hidden'])
 		{
 			$total_users_string .= '%s ' . $this->user->lang('LFWWH_HIDDEN', $count['count_hidden']);
@@ -693,12 +695,14 @@ class who_was_here
 
 		switch (substr_count($total_users_string, '%s'))
 		{
+			case 4:
+				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
 			case 3:
-				return sprintf($total_users_string, $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
+				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
 			case 2:
-				return sprintf($total_users_string, $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
+				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
 			case 1:
-				return sprintf($total_users_string, $this->user->lang['LFWWH_WORD']);
+				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR']);
 			default:
 				return $total_users_string;
 		}

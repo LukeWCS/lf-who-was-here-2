@@ -46,16 +46,18 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'LFWWH_TITLE'				=> 'Who was here',
 	'LFWWH_LAST1'				=> 'last at',
-	'LFWWH_LAST2'				=> 'o\'clock', //used for parts like "o'clock" in the time display (last at hh:mm o'clock)
+	'LFWWH_LAST2'				=> 'o\'clock',
+	'LFWWH_LAST3'				=> 'last on',
 	'LFWWH_USERS_PREFIX'		=> 'Registered users%s:',
 	'LFWWH_BOTS_PREFIX'			=> 'Bots%s:',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Show hidden info',
 
 	'LFWWH_TOTAL' => array(
-		0						=> 'In total there were <strong>0</strong> users online :: ',
-		1						=> 'In total there was <strong>%d</strong> user online :: ',
-		2						=> 'In total there were <strong>%d</strong> users online :: ',
+		0						=> 'In total there were <strong>0</strong> users online',
+		1						=> 'In total there was <strong>%d</strong> user online',
+		2						=> 'In total there were <strong>%d</strong> users online',
 	),
+	'LFWWH_TOTAL_SEPARATOR'		=> ' ::',
 	'LFWWH_REG_USERS' => array(
 		0						=> '0 registered',
 		1						=> '%d registered',
@@ -76,7 +78,6 @@ $lang = array_merge($lang, array(
 		1						=> '%d guest',
 		2						=> '%d guests',
 	),
-
 	'LFWWH_WORD'				=> ' and',
 	'LFWWH_EXP'					=> 'based on users active today',
 	'LFWWH_EXP_TIME'			=> 'based on users active over the past ',

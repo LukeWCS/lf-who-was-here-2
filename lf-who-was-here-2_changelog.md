@@ -3,18 +3,24 @@
 
 #### Beta 2 (2019--)
 
+* Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
+  * Zusätzlich gibt es die Sprach-Variable `LFWWH_LAST3` die mit `$3` angesprochen werden kann.
+  * Im ACP-Modul wird entsprechend bei "Zeit-Format:" im Erklärungstext auf die Platzhalter `$1` und `$2` hingewiesen.
+    * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden.
+  * Bei "Zeit-Format:" wird als Standard der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft eine Neuinstallation von LFWWH und die Standard-Schaltfläche im ACP-Modul.
 * Sprachdateien:
-  * Die Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` haben ab dieser Version wieder einen Standardinhalt.
+  * Die Sprach-Variable `LFWWH_LAST1` hat ab dieser Version wieder den ursprünglichen Standardinhalt und erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit nicht mehr generell verwendet werden, sondern bei Bedarf dynamisch einfügt werden können.
   * In `who_was_here.php` die Variable 'LFWWH_RECORD' in 'LFWWH_RECORD_DAY' umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
   * Kleinere Korrekturen.
   * Umbenennung einiger Variablen.
-* Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
-  * Im ACP-Modul wird entsprechend beim Erklärungstext für "Zeit-Format:" auf die Platzhalter `$1` und `$2` hingewiesen.
-    * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden können.
-	* Als Standard wird der Platzhalter `$1` bei "Zeit-Format:" eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft eine Neuinstallation von LFWWH und die Standard-Schaltfläche im ACP-Modul.
 * ACP-Modul:
-  * Die Einstellung "Datums-Format für den Besucherrekord:" hat jetzt einen eigenen Erklärungstext. Dieser wurde bisher von "Zeit-Format:" bezogen.
+  * Die Einstellung "Datums-Format für den Besucherrekord:" hat jetzt einen eigenen Erklärungstext. Dieser wurde bisher von "Zeit-Format:" bezogen, dessen Inhalt jetzt aber nicht mehr für beide Einstellung gültig ist.
     * Entsprechend in den Sprachdateien 1 neue Variable hinzugefügt.
+* Es ist jetzt möglich, in der Statistik-Zeile auch die Anzahl der sichtbaren Mitglieder abzuschalten, genau wie dies auch schon für unsichtbare Benutzer, Bots und Gäste möglich war. Somit ist jetzt konsequent jeder Teil ausser der Gesamtsumme abschaltbar. (Wunsch von stefan-franz)
+  * Im ACP Modul eine neue Einstellung hinzugefügt, mit der dies gesteuert werden kann. Per Standard ist das aktiviert, wie gehabt.
+  * In den Sprachdateien für "Zeige sichtbare Benutzer (Anzahl):" 2 neue Variablen hinzugefügt.
+  * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es nur um die Anzahl oder um Anzahl und Namen geht.
+  * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprach-Variable verlagert, damit dieses Trennzeichen gezielt gesteuert werden kann.
 * Template-Änderungen: Nein
 
 #### Beta 1 (2019-04-14)

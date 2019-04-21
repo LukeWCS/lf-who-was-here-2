@@ -44,6 +44,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_disp_guests'				, (isset($this->config['wwh_disp_guests']))				? $this->config['wwh_disp_guests']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_hidden'				, (isset($this->config['wwh_disp_hidden']))				? $this->config['wwh_disp_hidden']				: '1'));
 		$data[] = array('config.add', array('lfwwh_disp_ip'					, (isset($this->config['wwh_disp_ip']))					? $this->config['wwh_disp_ip']					: '1'));
+		$data[] = array('config.add', array('lfwwh_disp_reg_users'			, '1'));
 		$data[] = array('config.add', array('lfwwh_disp_template_pos'		, (isset($this->config['wwh_disp_template_pos']))		? $this->config['wwh_disp_template_pos']		: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_template_pos_all'	, (isset($this->config['wwh_disp_template_pos_all']))	? $this->config['wwh_disp_template_pos_all']	: '0'));
 		$data[] = array('config.add', array('lfwwh_disp_time'				, (isset($this->config['wwh_disp_time']))				? $this->config['wwh_disp_time']				: '1'));

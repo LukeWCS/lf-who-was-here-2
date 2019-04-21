@@ -46,16 +46,18 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'LFWWH_TITLE'				=> 'Wer war da?',
 	'LFWWH_LAST1'				=> 'zuletzt um',
-	'LFWWH_LAST2'				=> 'Uhr', //used for parts like "o'clock" in the timedisplay (last at hh:mm o'clock)
+	'LFWWH_LAST2'				=> 'Uhr',
+	'LFWWH_LAST3'				=> 'zuletzt am',
 	'LFWWH_USERS_PREFIX'		=> 'Mitglieder%s:',
 	'LFWWH_BOTS_PREFIX'			=> 'Bots%s:',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Infos',
 
 	'LFWWH_TOTAL' => array(
-		0						=> 'Insgesamt waren <strong>0</strong> Besucher online :: ',
-		1						=> 'Insgesamt war <strong>%d</strong> Besucher online :: ',
-		2						=> 'Insgesamt waren <strong>%d</strong> Besucher online :: ',
+		0						=> 'Insgesamt waren <strong>0</strong> Besucher online',
+		1						=> 'Insgesamt war <strong>%d</strong> Besucher online',
+		2						=> 'Insgesamt waren <strong>%d</strong> Besucher online',
 	),
+	'LFWWH_TOTAL_SEPARATOR'		=> ' ::',
 	'LFWWH_REG_USERS' => array(
 		0						=> '0 sichtbare Mitglieder',
 		1						=> '%d sichtbares Mitglied',
@@ -76,7 +78,6 @@ $lang = array_merge($lang, array(
 		1						=> '%d Gast',
 		2						=> '%d Gäste',
 	),
-
 	'LFWWH_WORD'				=> ' und',
 	'LFWWH_EXP'					=> 'basierend auf den heutigen Besuchern',
 	'LFWWH_EXP_TIME'			=> 'basierend auf den Besuchern der letzten ',

@@ -44,10 +44,11 @@ class acp_who_was_here_module
 			$this->config->set('lfwwh_admin_mode'				, $this->request->variable('lfwwh_admin_mode', 0));
 			$this->config->set('lfwwh_use_permissions'			, $this->request->variable('lfwwh_use_permissions', 0));
 			$this->config->set('lfwwh_disp_for_guests'			, $this->request->variable('lfwwh_disp_for_guests', 0));
+			$this->config->set('lfwwh_disp_reg_users'			, $this->request->variable('lfwwh_disp_reg_users', 0));
+			$this->config->set('lfwwh_disp_hidden'				, $this->request->variable('lfwwh_disp_hidden', 0));
 			$this->config->set('lfwwh_disp_bots'				, $this->request->variable('lfwwh_disp_bots', 0));
 			$this->config->set('lfwwh_disp_bots_only_admin'		, $this->request->variable('lfwwh_disp_bots_only_admin', 0));
 			$this->config->set('lfwwh_disp_guests'				, $this->request->variable('lfwwh_disp_guests', 0));
-			$this->config->set('lfwwh_disp_hidden'				, $this->request->variable('lfwwh_disp_hidden', 0));
 			$this->config->set('lfwwh_disp_time'				, $this->request->variable('lfwwh_disp_time', 0));
 			$this->config->set('lfwwh_disp_time_bots'			, $this->request->variable('lfwwh_disp_time_bots', 0));
 			$this->config->set('lfwwh_disp_time_format'			, $this->request->variable('lfwwh_disp_time_format', ''));
@@ -91,14 +92,15 @@ class acp_who_was_here_module
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],
+			'LFWWH_DISP_REG_USERS'			=> $this->config['lfwwh_disp_reg_users'],
+			'LFWWH_DISP_HIDDEN'				=> $this->config['lfwwh_disp_hidden'],
 			'LFWWH_DISP_BOTS'				=> $this->config['lfwwh_disp_bots'],
 			'LFWWH_DISP_BOTS_ONLY_ADMIN'	=> $this->config['lfwwh_disp_bots_only_admin'],
 			'LFWWH_DISP_GUESTS'				=> $this->config['lfwwh_disp_guests'],
-			'LFWWH_DISP_HIDDEN'				=> $this->config['lfwwh_disp_hidden'],
 			'LFWWH_DISP_TIME'				=> $this->config['lfwwh_disp_time'],
 			'LFWWH_DISP_TIME_BOTS'			=> $this->config['lfwwh_disp_time_bots'],
 			'LFWWH_DISP_TIME_FORMAT'		=> $this->config['lfwwh_disp_time_format'],
-			'LFWWH_DISP_TIME_FORMAT_EXP'	=> sprintf($this->user->lang['LFWWH_DISP_TIME_FORMAT_EXP'], $this->user->lang['LFWWH_LAST1'], $this->user->lang['LFWWH_LAST2']),
+			'LFWWH_DISP_TIME_FORMAT_EXP'	=> sprintf($this->user->lang['LFWWH_DISP_TIME_FORMAT_EXP'], $this->user->lang['LFWWH_LAST1'], $this->user->lang['LFWWH_LAST2'], $this->user->lang['LFWWH_LAST3']),
 			'LFWWH_DISP_IP'					=> $this->config['lfwwh_disp_ip'],
 			'LFWWH_TIME_MODE'				=> $this->config['lfwwh_time_mode'],
 			'LFWWH_PERIOD_OF_TIME_H'		=> $this->config['lfwwh_period_of_time_h'],

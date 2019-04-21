@@ -1,6 +1,11 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B27:
+  * Wunsch von stefan-franz bez. Schalter für Anzahl sichtbarer Benutzer eingebaut.
+  * 3 Sprach-Variablen hinzugefügt.
+  * Migration geändert: Neue Konfig-Variable `lfwwh_disp_reg_users`.
+  * Platzhalter $3 (`LFWWH_LAST3`) für Zeitformat eingebaut.
 * B26:
   * Platzhalter $1 (`LFWWH_LAST1`) und $2 (`LFWWH_LAST2`) für Zeitformat eingebaut.
   * Sprachdateien korrigiert.
@@ -23,7 +28,7 @@
   * Das Ausblenden von Infos kann jetzt deaktiviert werden.
   * Neuer Schalter im ACP-Modul.
   * Sprachdateien geändert.
-  * Migration geändert: Neue Konfig-Variable `LFWWH_CREATE_HIDDEN_INFO`.
+  * Migration geändert: Neue Konfig-Variable `lfwwh_create_hidden_info`.
 * B22:
   * B21 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Den phpBB 3.1 Ersatztext für das Info-Symbol (Awesome-Font) durch ein Unicode-Zeichen ersetzt.
@@ -78,6 +83,7 @@
   * Die CSS Klassennamen geändert (gekürzt).
   * Admin Modus eingebaut.
   * Code bez. Rechte verbessert und Rechte-Zuweisungen im Code an einer Stelle zusammengefasst.
+  * Migration geändert: Neue Konfig-Variable `lfwwh_admin_mode`.
 * B12:
   * Logik für die Anzeige der Info Schaltfläche weiter verbessert.
   * Fix: Tooltip der Info Schaltfläche bei Firefox. (Meldung Kirk)
@@ -106,7 +112,7 @@
   * Neuer Schalter im ACP-Modul.
   * Neuer Abschnitt im ACP-Modul, Optionen verschoben.
   * Sprachdateien geändert.
-  * Migration geändert: Neue Konfig-Variable LFWWH_USE_CACHE.
+  * Migration geändert: Neue Konfig-Variable `lfwwh_use_cache`.
 * B6:
   * B5 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Erweiterte Rechte geändert: "Mitglieder und Statistik" -> "Mitglieder".
