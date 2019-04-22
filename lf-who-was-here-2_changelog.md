@@ -9,7 +9,7 @@
     * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden.
   * Bei "Zeit-Format:" wird als Standard der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft eine Neuinstallation von LFWWH und die Standard-Schaltfläche im ACP-Modul.
 * Sprachdateien:
-  * Die Sprach-Variable `LFWWH_LAST1` hat ab dieser Version wieder den ursprünglichen Standardinhalt und erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit nicht mehr generell verwendet werden, sondern bei Bedarf dynamisch einfügt werden können.
+  * Die Sprach-Variable `LFWWH_LAST1` hat ab dieser Version wieder den ursprünglichen Standardinhalt und erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter einfügt werden können.
   * In `who_was_here.php` die Variable 'LFWWH_RECORD' in 'LFWWH_RECORD_DAY' umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
   * Kleinere Korrekturen.
   * Umbenennung einiger Variablen.
@@ -21,6 +21,11 @@
   * In den Sprachdateien für "Zeige sichtbare Benutzer (Anzahl):" 2 neue Variablen hinzugefügt.
   * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es nur um die Anzahl oder um Anzahl und Namen geht.
   * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprach-Variable verlagert, damit dieses Trennzeichen gezielt gesteuert werden kann.
+* Die Funktion die das HTML für die Info-Schaltfläche generiert, komplett neu gestaltet. (basiert auf einem Vorschlag von Kirk)
+  * Es wird kein Button mehr erzeugt, sondern lediglich ein `<span>` Container der auf das Maus-Event `onclick` reagiert. Dadurch entfiel auch die bisherige Verschachtelung von Button-Container und Label-Container.
+  * Dadurch entfallen ausserdem spezielle Style-Anpassungen, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
+  * Klassen-CSS hinzugefügt, mit dem verhindert wird, dass der angrenzende Text der "Schaltfläche" bei schnellem Mehrfachklick markiert wird.
+  * Das Javascript an diese Änderungen angepasst.
 * Template-Änderungen: Nein
 
 #### Beta 1 (2019-04-14)

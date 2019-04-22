@@ -205,8 +205,7 @@ class who_was_here
 		$wwh_disp_permission_hidden = $this->config['lfwwh_disp_hidden'] && $this->auth->acl_get('u_viewonline');
 		
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
-		$show_button_users = false;
-		$show_button_bots = false;
+		$show_button_users = $show_button_bots = false;
 
 		if (!$this->prune())
 		{
@@ -397,26 +396,41 @@ class who_was_here
 			$this->config->set('lfwwh_record_time', time(), true);
 		}
 		
-		$wwh_label_users = 
-			($is_min_phpbb32)
-			? '&nbsp;<span class="lfwwh_label_users icon fa-info-circle" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="lfwwh_label_users" style="opacity: 0.5; line-height: 1.3em;">&#9432;</span>'
-		;
-		$wwh_button_users = 
-			($show_button_users)
-			? '<button class="lfwwh_button_users" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(0)">' . $wwh_label_users . '</button>'
-			: ''
-		;
-		$wwh_label_bots = 
-			($is_min_phpbb32)
-			? '&nbsp;<span class="lfwwh_label_bots icon fa-info-circle" style="opacity: 0.5;"></span>'
-			: '&nbsp;<span class="lfwwh_label_bots" style="opacity: 0.5; line-height: 1.3em;">&#9432;</span>'
-		;
-		$wwh_button_bots = 
-			($show_button_bots)
-			? '<button class="lfwwh_button_bots" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(1)">' . $wwh_label_bots . '</button>'
-			: ''
-		;
+		// $wwh_label_users = 
+			// ($is_min_phpbb32)
+			// ? '&nbsp;<span class="lfwwh_label_users icon fa-info-circle" style="opacity: 0.5;"></span>'
+			// : '&nbsp;<span class="lfwwh_label_users" style="opacity: 0.5; line-height: 1.3em;">&#9432;</span>'
+		// ;
+		// $wwh_button_users = 
+			// ($show_button_users)
+			// ? '<button class="lfwwh_button_users" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(0)">' . $wwh_label_users . '</button>'
+			// : ''
+		// ;
+		// $wwh_label_bots = 
+			// ($is_min_phpbb32)
+			// ? '&nbsp;<span class="lfwwh_label_bots icon fa-info-circle" style="opacity: 0.5;"></span>'
+			// : '&nbsp;<span class="lfwwh_label_bots" style="opacity: 0.5; line-height: 1.3em;">&#9432;</span>'
+		// ;
+		// $wwh_button_bots = 
+			// ($show_button_bots)
+			// ? '<button class="lfwwh_button_bots" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(1)">' . $wwh_label_bots . '</button>'
+			// : ''
+		// ;
+		$wwh_button_users = $wwh_button_bots = '';
+		if ($show_button_users)
+		{
+			$wwh_button_users = ($is_min_phpbb32)
+				? '&nbsp;<span class="lfwwh_button_users icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(0)"></span>'
+				: '&nbsp;<span class="lfwwh_button_users" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(0)">&#9432;</span>'
+			;
+		}
+		if ($show_button_bots)
+		{
+			$wwh_button_bots = ($is_min_phpbb32)
+				? '&nbsp;<span class="lfwwh_button_bots icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(1)"></span>'
+				: '&nbsp;<span class="lfwwh_button_bots" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(1)">&#9432;</span>'
+			;
+		}
 
 		$this->template->assign_vars(array(
 			'LFWWH_LIST'		=> (($wwh_disp_permission_users) ? sprintf($this->user->lang['LFWWH_USERS_PREFIX'], $wwh_button_users) . ' ' . $users_list : ''),

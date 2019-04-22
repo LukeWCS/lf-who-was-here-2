@@ -1,6 +1,8 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B28:
+  * Vorschlag von Kirk bezüglich `<span>` statt `<button>` umgesetzt.
 * B27:
   * Wunsch von stefan-franz bez. Schalter für Anzahl sichtbarer Benutzer eingebaut.
   * 3 Sprach-Variablen hinzugefügt.

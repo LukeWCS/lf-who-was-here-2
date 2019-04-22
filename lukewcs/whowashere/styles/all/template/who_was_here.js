@@ -17,22 +17,22 @@ function lfwwh_show_hide_info(group) {
 
 	if (group == 0) {
 		lfwwh_show_info_users = !lfwwh_show_info_users;
-		var user = document.getElementsByClassName('lfwwh_info_u');
-		var label = document.getElementsByClassName('lfwwh_label_users');
-		var style_display = ((lfwwh_show_info_users) ? "" : "none");
-		var style_opacity = ((lfwwh_show_info_users) ? "1.0" : "0.5");
+		var user_ary = document.getElementsByClassName('lfwwh_info_u');
+		var button_ary = document.getElementsByClassName('lfwwh_button_users');
+		var style_display = ((lfwwh_show_info_users) ? '' : 'none');
+		var style_opacity = ((lfwwh_show_info_users) ? '1.0' : '0.5');
 	}
 	if (group == 1) {
 		lfwwh_show_info_bots = !lfwwh_show_info_bots;
-		var user = document.getElementsByClassName('lfwwh_info_b');
-		var label = document.getElementsByClassName('lfwwh_label_bots');
-		var style_display = ((lfwwh_show_info_bots) ? "" : "none");
-		var style_opacity = ((lfwwh_show_info_bots) ? "1.0" : "0.5");
+		var user_ary = document.getElementsByClassName('lfwwh_info_b');
+		var button_ary = document.getElementsByClassName('lfwwh_button_bots');
+		var style_display = ((lfwwh_show_info_bots) ? '' : 'none');
+		var style_opacity = ((lfwwh_show_info_bots) ? '1.0' : '0.5');
 	}
-	for (i = 0; i < user.length; i ++) {
-		user[i].style.display = style_display;
+	for (i = 0; i < user_ary.length; i ++) {
+		user_ary[i].style.display = style_display;
 	}
-	for (i = 0; i < label.length; i ++) {
-		label[i].style.opacity = style_opacity;
+	for (i = 0; i < button_ary.length; i ++) {
+		button_ary[i].style.opacity = style_opacity;
 	}
 }
