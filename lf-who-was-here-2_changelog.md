@@ -16,12 +16,12 @@
 * ACP-Modul:
   * Die Einstellung "Datums-Format für den Besucherrekord:" hat jetzt einen eigenen Erklärungstext. Dieser wurde bisher von "Zeit-Format:" bezogen, dessen Inhalt jetzt aber nicht mehr für beide Einstellung gültig ist.
     * Entsprechend in den Sprachdateien 1 neue Variable hinzugefügt.
-* Es ist jetzt möglich, in der Statistik-Zeile auch die Anzahl der sichtbaren Mitglieder abzuschalten, genau wie dies auch schon für unsichtbare Benutzer, Bots und Gäste möglich war. Somit ist jetzt konsequent jeder Teil ausser der Gesamtsumme abschaltbar. (Wunsch von stefan-franz)
+* Es ist jetzt möglich, in der Statistik-Zeile auch die Anzahl der sichtbaren Mitglieder abzuschalten, genau wie dies auch schon für unsichtbare Benutzer, Bots und Gäste möglich ist. Somit ist jetzt konsequent jeder Teil ausser der Gesamtsumme abschaltbar. (Wunsch von stefan-franz)
   * Im ACP Modul eine neue Einstellung hinzugefügt, mit der dies gesteuert werden kann. Per Standard ist das aktiviert, wie gehabt.
   * In den Sprachdateien für "Zeige sichtbare Benutzer (Anzahl):" 2 neue Variablen hinzugefügt.
-  * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es nur um die Anzahl oder um Anzahl und Namen geht.
-  * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprach-Variable verlagert, damit dieses Trennzeichen gezielt gesteuert werden kann.
-* Die Funktion die das HTML für die Info-Schaltfläche generiert, komplett neu gestaltet. (basiert auf einem Vorschlag von Kirk)
+  * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es um die Anzahl oder um Anzahl und Namen geht.
+  * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprach-Variable verlagert, damit dieser Trenner gezielt gesteuert werden kann.
+* Die Funktion die das HTML für die Info-Schaltflächen (Benutzer und Bots) generiert, komplett neu gestaltet. (basiert auf einem Vorschlag von Kirk)
   * Es wird kein Button mehr erzeugt, sondern lediglich ein `<span>` Container der auf das Maus-Event `onclick` reagiert. Dadurch entfiel auch die bisherige Verschachtelung von Button-Container und Label-Container.
   * Dadurch entfallen ausserdem spezielle Style-Anpassungen, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
   * Klassen-CSS hinzugefügt, mit dem verhindert wird, dass der angrenzende Text der "Schaltfläche" bei schnellem Mehrfachklick markiert wird.

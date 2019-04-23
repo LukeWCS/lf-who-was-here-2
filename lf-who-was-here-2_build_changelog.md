@@ -1,11 +1,18 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B29:
+  * Code bereinigt.
+  * CSS bereinigt.
+  * `README.md` geändert.
+  * `README_updating_a_developer_version.md` hinzugefügt.
 * B28:
   * Vorschlag von Kirk bezüglich `<span>` statt `<button>` umgesetzt.
+  * CSS geändert.
+  * JS geändert.
 * B27:
   * Wunsch von stefan-franz bez. Schalter für Anzahl sichtbarer Benutzer eingebaut.
-  * 3 Sprach-Variablen hinzugefügt.
+  * 4 Sprach-Variablen hinzugefügt.
   * Migration geändert: Neue Konfig-Variable `lfwwh_disp_reg_users`.
   * Platzhalter $3 (`LFWWH_LAST3`) für Zeitformat eingebaut.
 * B26:
