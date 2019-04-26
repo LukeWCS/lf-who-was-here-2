@@ -7,25 +7,28 @@
   * Zusätzlich gibt es die Sprach-Variable `LFWWH_LAST3` die mit `$3` angesprochen werden kann.
   * Im ACP-Modul wird entsprechend bei "Zeit-Format:" im Erklärungstext auf die Platzhalter `$1` und `$2` hingewiesen.
     * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden.
-  * Bei "Zeit-Format:" wird als Standard der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft eine Neuinstallation von LFWWH und die Standard-Schaltfläche im ACP-Modul.
+  * Bei "Zeit-Format:" wird jetzt bei einer Neuinstallation der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft auch die Standard-Schaltfläche im ACP-Modul.
 * Sprachdateien:
-  * Die Sprach-Variable `LFWWH_LAST1` hat ab dieser Version wieder den ursprünglichen Standardinhalt und erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter einfügt werden können.
+  * Die Sprach-Variable `LFWWH_LAST1` hat ab dieser Version wieder den ursprünglichen Standardinhalt und erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit ab dieser Version nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter einfügt werden können.
   * In `who_was_here.php` die Variable 'LFWWH_RECORD' in 'LFWWH_RECORD_DAY' umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
   * Kleinere Korrekturen.
   * Umbenennung einiger Variablen.
 * ACP-Modul:
-  * Die Einstellung "Datums-Format für den Besucherrekord:" hat jetzt einen eigenen Erklärungstext. Dieser wurde bisher von "Zeit-Format:" bezogen, dessen Inhalt jetzt aber nicht mehr für beide Einstellung gültig ist.
+  * Die Einstellung "Datums-Format für den Besucherrekord:" hat jetzt einen eigenen Erklärungstext. Dieser wurde bisher von "Zeit-Format:" bezogen, dessen Inhalt jedoch nicht mehr für beide Einstellungen gültig ist.
     * Entsprechend in den Sprachdateien 1 neue Variable hinzugefügt.
-* Es ist jetzt möglich, in der Statistik-Zeile auch die Anzahl der sichtbaren Mitglieder abzuschalten, genau wie dies auch schon für unsichtbare Benutzer, Bots und Gäste möglich ist. Somit ist jetzt konsequent jeder Teil ausser der Gesamtsumme abschaltbar. (Wunsch von stefan-franz)
-  * Im ACP Modul eine neue Einstellung hinzugefügt, mit der dies gesteuert werden kann. Per Standard ist das aktiviert, wie gehabt.
+* Es ist jetzt möglich, in der Statistik-Zeile auch die Anzahl der sichtbaren Mitglieder abzuschalten, genau wie dies auch schon für unsichtbare Benutzer, Bots und Gäste möglich war. Somit ist jetzt konsequent jeder Teil ausser der Gesamtsumme abschaltbar. (Wunsch von stefan-franz)
+  * Im ACP-Modul entsprechend eine neue Einstellung hinzugefügt, per Standard ist der Schalter aktiviert. Die Statistik-Zeile wird also wie gehabt komplett angezeigt.
   * In den Sprachdateien für "Zeige sichtbare Benutzer (Anzahl):" 2 neue Variablen hinzugefügt.
-  * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es um die Anzahl oder um Anzahl und Namen geht.
+  * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es nur um die Anzahl oder um Anzahl plus Namen geht.
   * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprach-Variable verlagert, damit dieser Trenner gezielt gesteuert werden kann.
-* Die Funktion die das HTML für die Info-Schaltflächen (Benutzer und Bots) generiert, komplett neu gestaltet. (basiert auf einem Vorschlag von Kirk)
-  * Es wird kein Button mehr erzeugt, sondern lediglich ein `<span>` Container der auf das Maus-Event `onclick` reagiert. Dadurch entfiel auch die bisherige Verschachtelung von Button-Container und Label-Container.
-  * Dadurch entfallen ausserdem spezielle Style-Anpassungen, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
-  * Klassen-CSS hinzugefügt, mit dem verhindert wird, dass der angrenzende Text der "Schaltfläche" bei schnellem Mehrfachklick markiert wird.
-  * Das Javascript an diese Änderungen angepasst.
+* Die Funktion die das HTML für die Info-Schaltflächen (Benutzer und Bots) generiert, komplett überarbeitet. (basiert auf einem Vorschlag von Kirk)
+  * Es wird kein Button mehr erzeugt, sondern lediglich ein `<span>` Container der auf das Maus-Event `onclick` reagiert. Dadurch entfiel auch die bisherige Verschachtelung eines Button-Containers und eines Label-Containers.
+  * Dadurch entfallen ausserdem spezielle Style-Anpassungen für `<button>`, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
+  * Dafür neues Klassen-CSS hinzugefügt, mit dem verhindert wird, dass der angrenzende Text der "Schaltfläche" bei schnellem Mehrfachklick markiert wird.
+  * Javascript an diese Änderungen angepasst.
+* Javascript: 
+  * Info-Schaltfläche: Globale Variablen und Funktion in einem Objekt zusammengefasst sowie Direktive `use strict` gesetzt.
+  * ACP-Modul: Funktionen in einem Objekt zusammengefasst sowie Direktive `use strict` gesetzt.
 * Template-Änderungen: Nein
 
 #### Beta 1 (2019-04-14)

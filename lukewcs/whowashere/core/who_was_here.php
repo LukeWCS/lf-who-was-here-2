@@ -252,7 +252,6 @@ class who_was_here
 			if ($row['user_id'] != ANONYMOUS)
 			{
 				$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
-				// $time = $this->user->lang['LFWWH_LAST1'] . $this->user->format_date($row['wwh_lastpage'], $this->config['lfwwh_disp_time_format']) . $this->user->lang['LFWWH_LAST2'];
 				$time = $this->get_formatted_time_string($row['wwh_lastpage']);
 				$ip = (($wwh_disp_permission_ip) ? $this->user->lang['IP'] . ': ' . $row['user_ip'] : '');
 				$disp_info = '';
@@ -400,15 +399,15 @@ class who_was_here
 		if ($show_button_users)
 		{
 			$wwh_button_users = ($is_min_phpbb32)
-				? '&nbsp;<span class="lfwwh_button_users icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(0)"></span>'
-				: '&nbsp;<span class="lfwwh_button_users" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(0)">&#9432;</span>'
+				? '&nbsp;<span class="lfwwh_button_users icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(0)"></span>'
+				: '&nbsp;<span class="lfwwh_button_users" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(0)">&#9432;</span>'
 			;
 		}
 		if ($show_button_bots)
 		{
 			$wwh_button_bots = ($is_min_phpbb32)
-				? '&nbsp;<span class="lfwwh_button_bots icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(1)"></span>'
-				: '&nbsp;<span class="lfwwh_button_bots" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_show_hide_info(1)">&#9432;</span>'
+				? '&nbsp;<span class="lfwwh_button_bots icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(1)"></span>'
+				: '&nbsp;<span class="lfwwh_button_bots" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(1)">&#9432;</span>'
 			;
 		}
 
@@ -607,7 +606,6 @@ class who_was_here
 	{
 		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
 		$text = str_replace(array('$1', '$2', '$3'), array($this->user->lang['LFWWH_LAST1'], $this->user->lang['LFWWH_LAST2'], $this->user->lang['LFWWH_LAST3']), $text);
-		// $text = preg_replace_callback('/\$([1-3]{1})/', function($match_ary) { return $this->user->lang['LFWWH_LAST' . $match_ary[1]]; }, $text);
 		return $text;
 	}
 	

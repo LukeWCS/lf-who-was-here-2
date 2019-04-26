@@ -1,6 +1,9 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B30:
+  * Code bereinigt.
+  * JS des Info-Buttons und des ACP-Moduls auf Objekte umgestellt. Direktive `use strict` gesetzt.
 * B29:
   * Code bereinigt.
   * CSS bereinigt.
