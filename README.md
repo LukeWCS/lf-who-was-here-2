@@ -4,7 +4,7 @@ Extension for phpBB 3.2 - Shows a visitor statistic of the current day or a free
 ## Installation / Update of LF-WWH 2.x
 1. Download and extract the Zip archive of the GitHub release.
 1. In the extension management disable "LF who was here (2.x)", if already existing.
-1. Delete the complete folder `whowashere/` inside `ext/lukewcs/`, if already existing.
+1. Delete the complete folder `whowashere/` inside `ext/lukewcs/` from phpBB, if already existing.
 1. Copy the folder `lukewcs/` from the Zip archive including all subfolders and files to `ext/` from phpBB (upload).
 1. In the extension management, enable "LF who was here (2.x)".
 
@@ -12,7 +12,7 @@ Extension for phpBB 3.2 - Shows a visitor statistic of the current day or a free
 1. Download and extract the Zip archive of the GitHub release.
 1. Copy the folder `lukewcs/` from the Zip archive including all subfolders and files to `ext/` from phpBB (upload).
 1. In the extension management, enable "LF who was here (2.x)". This will also automatically perform a data transfer.
-1. In the settings (ACP) and in the WWH display (forum index) check and compare whether the settings and all data (in particular the visitor record) were taken over correctly. If the upgrade was successful, the next step can be performed.
+1. Check and compare in the settings (ACP) and the WWH display (forum index), whether the settings and all data (in particular the visitor data record) have been transferred correctly. If the upgrade was successful, the next step can be performed.
 1. Affects only LFWWH 1x: As the permissions are not transferred during data transfer, they must be adjusted after the upgrade, provided that the phpBB full rights system has been used before. If only the simplified rights system ("Display for guests:") of LF-WWH was used before, this step can be omitted.
 1. Now the old WWH extension can be disabled and uninstalled ("Delete data").
 

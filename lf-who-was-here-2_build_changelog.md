@@ -1,6 +1,12 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B31: (beta2)
+  * JS des Info-Buttons und des ACP-Moduls auf "camelCase" formatiert.
+  * `README.md` geändert.
+  * `README_updating_a_developer_version.md` geändert.
+  * `composer.json` geändert.
+  * `lf-who-was-here_version.json` geändert.
 * B30:
   * Code bereinigt.
   * JS des Info-Buttons und des ACP-Moduls auf Objekte umgestellt. Direktive `use strict` gesetzt.
@@ -44,7 +50,7 @@
 * B22:
   * B21 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Den phpBB 3.1 Ersatztext für das Info-Symbol (Awesome-Font) durch ein Unicode-Zeichen ersetzt.
-  * `composer.json` aktualisiert
+  * `composer.json` aktualisiert.
   * CSS von `prosilver` nach `all` verschoben.
   * 1 Sprachvariable umbenannt, 1 gelöscht.
   * 1 Konfig-Variable umbenannt.

@@ -1,16 +1,16 @@
 
 ### Changelog 2.0.0
 
-#### Beta 2 (2019--)
+#### Beta 2 (2019-04-28)
 
 * Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
-  * Zusätzlich gibt es die Sprach-Variable `LFWWH_LAST3` die mit `$3` angesprochen werden kann.
-  * Im ACP-Modul wird entsprechend bei "Zeit-Format:" im Erklärungstext auf die Platzhalter `$1` und `$2` hingewiesen.
+  * Zusätzlich gibt es die Sprach-Variable `LFWWH_LAST3` für "zuletzt am" die mit `$3` angesprochen werden kann.
+  * Im ACP-Modul wird entsprechend bei "Zeit-Format:" im Erklärungstext auf die Platzhalter `$1`, $2` und $3` hingewiesen.
     * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden.
   * Bei "Zeit-Format:" wird jetzt bei einer Neuinstallation der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft auch die Standard-Schaltfläche im ACP-Modul.
 * Sprachdateien:
-  * Die Sprach-Variable `LFWWH_LAST1` hat ab dieser Version wieder den ursprünglichen Standardinhalt und erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit ab dieser Version nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter einfügt werden können.
-  * In `who_was_here.php` die Variable 'LFWWH_RECORD' in 'LFWWH_RECORD_DAY' umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
+  * Ab dieser Version hat die Sprach-Variable `LFWWH_LAST1` wieder den ursprünglichen Standardinhalt. Erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit ab dieser Version nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter eingefügt werden können.
+  * In `who_was_here.php` die Variable `LFWWH_RECORD` in `LFWWH_RECORD_DAY` umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
   * Kleinere Korrekturen.
   * Umbenennung einiger Variablen.
 * ACP-Modul:
@@ -24,7 +24,7 @@
 * Die Funktion die das HTML für die Info-Schaltflächen (Benutzer und Bots) generiert, komplett überarbeitet. (basiert auf einem Vorschlag von Kirk)
   * Es wird kein Button mehr erzeugt, sondern lediglich ein `<span>` Container der auf das Maus-Event `onclick` reagiert. Dadurch entfiel auch die bisherige Verschachtelung eines Button-Containers und eines Label-Containers.
   * Dadurch entfallen ausserdem spezielle Style-Anpassungen für `<button>`, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
-  * Dafür neues Klassen-CSS hinzugefügt, mit dem verhindert wird, dass der angrenzende Text der "Schaltfläche" bei schnellem Mehrfachklick markiert wird.
+  * Dafür neues Klassen-CSS hinzugefügt, mit dem verhindert wird, dass bei schnellem Mehrfachklick der angrenzende Text der "Schaltfläche" markiert wird.
   * Javascript an diese Änderungen angepasst.
 * Javascript: 
   * Info-Schaltfläche: Globale Variablen und Funktion in einem Objekt zusammengefasst sowie Direktive `use strict` gesetzt.

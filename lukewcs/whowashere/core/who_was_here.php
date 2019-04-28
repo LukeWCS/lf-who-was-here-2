@@ -257,11 +257,11 @@ class who_was_here
 				$disp_info = '';
 				$hover_info = '';
 				$show_time_disp = ($this->config['lfwwh_disp_time'] == 1 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] > 0 && $this->config['lfwwh_disp_time_bots'] == 1 && $row['user_type'] == USER_IGNORE);
-				$show_ip_disp = $ip && $this->config['lfwwh_disp_ip'] == 1;
 				$show_time_hover = ($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] > 0 && $this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE);
+				$show_ip_disp = $ip && $this->config['lfwwh_disp_ip'] == 1;
 				$show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == 2;
 
-				if ($show_time_disp || $show_ip_disp || $show_time_hover || $show_ip_hover)
+				if ($show_time_disp || $show_time_hover || $show_ip_disp || $show_ip_hover)
 				{
 					if ($show_time_disp && !$show_time_hover && !$show_ip_disp && !$show_ip_hover)
 					{
@@ -399,25 +399,25 @@ class who_was_here
 		if ($show_button_users)
 		{
 			$wwh_button_users = ($is_min_phpbb32)
-				? '&nbsp;<span class="lfwwh_button_users icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(0)"></span>'
-				: '&nbsp;<span class="lfwwh_button_users" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(0)">&#9432;</span>'
+				? '&nbsp;<span class="lfwwh_button_users icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwhIndex.ShowHide(0)"></span>'
+				: '&nbsp;<span class="lfwwh_button_users" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwhIndex.ShowHide(0)">&#9432;</span>'
 			;
 		}
 		if ($show_button_bots)
 		{
 			$wwh_button_bots = ($is_min_phpbb32)
-				? '&nbsp;<span class="lfwwh_button_bots icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(1)"></span>'
-				: '&nbsp;<span class="lfwwh_button_bots" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwh_index.showhide(1)">&#9432;</span>'
+				? '&nbsp;<span class="lfwwh_button_bots icon fa-info-circle" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwhIndex.ShowHide(1)"></span>'
+				: '&nbsp;<span class="lfwwh_button_bots" style="opacity: 0.5;" title="' . $this->user->lang['LFWWH_SHOW_INFO_TOOLTIP'] . '" onclick="lfwwhIndex.ShowHide(1)">&#9432;</span>'
 			;
 		}
 
 		$this->template->assign_vars(array(
-			'LFWWH_LIST'		=> (($wwh_disp_permission_users) ? sprintf($this->user->lang['LFWWH_USERS_PREFIX'], $wwh_button_users) . ' ' . $users_list : ''),
-			'LFWWH_BOTS'		=> (($wwh_disp_permission_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_PREFIX'], $wwh_button_bots) . ' ' . $bots_list : ''),
-			'LFWWH_TOTAL'		=> (($wwh_disp_permission_total) ? $this->get_total_users_string($count) : ''),
+			'LFWWH_LIST'		=> ($wwh_disp_permission_users) ? sprintf($this->user->lang['LFWWH_USERS_PREFIX'], $wwh_button_users) . ' ' . $users_list : '',
+			'LFWWH_BOTS'		=> ($wwh_disp_permission_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_PREFIX'], $wwh_button_bots) . ' ' . $bots_list : '',
+			'LFWWH_TOTAL'		=> ($wwh_disp_permission_total) ? $this->get_total_users_string($count) : '',
 			'LFWWH_EXP'			=> $this->get_explanation_string($this->config['lfwwh_time_mode']),
 			'LFWWH_RECORD'		=> $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']),
-			'LFWWH_POS'			=> (($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos']),
+			'LFWWH_POS'			=> ($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos'],
 			'LFWWH_API_MODE'	=> $this->config['lfwwh_api_mode'],
 		));
 	}
@@ -470,7 +470,7 @@ class who_was_here
 	}
 
 	/**
-	* Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean-up was executed. (LukeWCS)
+	* Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary. (LukeWCS)
 	*/
 	public function clear_up($event)
 	{
@@ -497,6 +497,7 @@ class who_was_here
 			}			
 		}
 		
+		// Delete LF-WWH's cache and insert the notification.
 		if ($user_deleted) 
 		{
 			if ($this->config['lfwwh_use_cache'])
@@ -600,7 +601,7 @@ class who_was_here
 	}
 
 	/**
-	* Returns a formated date string with replaced placeholders for LFWWH_LAST1 and LFWWH_LAST2. (LukeWCS)
+	* Returns a formated date string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
 	*/
 	private function get_formatted_time_string($timestamp)
 	{
