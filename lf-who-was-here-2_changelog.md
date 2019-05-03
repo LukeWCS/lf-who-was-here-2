@@ -1,13 +1,19 @@
 
 ### Changelog 2.0.0
 
+#### Beta 3 (2019--)
+
+* Fix: Wenn im Kontext das Recht "Kann Statistik sehen" fehlte, wurden trotzdem die Template-Variablen für den Zeitraum-Erklärungstext und den Rekord generiert. Das wurde zwar korrekt von den Abfragen im Template abgefangen, aber konsequenterweise werden jetzt auch diese Template-Variablen effektiv als "leer" generiert, wenn das erforderliche Recht fehlt.
+* Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten injiziert wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprachvariablen für die Dauer des Vorgangs geändert (erweitert) werden.
+* Template-Änderungen: Nein
+
 #### Beta 2 (2019-04-28)
 
 * Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
   * Zusätzlich gibt es die Sprach-Variable `LFWWH_LAST3` für "zuletzt am" die mit `$3` angesprochen werden kann.
   * Im ACP-Modul wird entsprechend bei "Zeit-Format:" im Erklärungstext auf die Platzhalter `$1`, $2` und $3` hingewiesen.
     * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden.
-  * Bei "Zeit-Format:" wird jetzt bei einer Neuinstallation der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft auch die Standard-Schaltfläche im ACP-Modul.
+  * Bei "Zeit-Format:" wird jetzt bei einer Neuinstallation der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft auch die Schaltfläche "Standard" im ACP-Modul.
 * Sprachdateien:
   * Ab dieser Version hat die Sprach-Variable `LFWWH_LAST1` wieder den ursprünglichen Standardinhalt. Erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit ab dieser Version nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter eingefügt werden können.
   * In `who_was_here.php` die Variable `LFWWH_RECORD` in `LFWWH_RECORD_DAY` umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
@@ -68,7 +74,7 @@
   * Notwendige Änderungen bezüglich der geänderten Rechte vorgenommen.
   * Twig Logik bezüglich dem Einfügen von `<br />` geändert.
   * Twig Logik bezüglich dem Schalter "Zeige alle Template-Positionen gleichzeitig:" so geändert, das die bisherige Template-Variable `LFWWH_POS_ALL` entfallen kann. Das wird jetzt über Bit-Werte in der Variable `LFWWH_POS` geregelt und im Template per Bit-Operator abgefragt.
-  * Ein `INCLUDE` erfolgt nur noch einmal. Das ist relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder beim Einsatz von Erweiterungen die WWH per Template Variablen einbinden, wie z.B. "Brücke zwischen “LF who was here” und “Stat BLock”".
+  * Ein `INCLUDE` erfolgt nur noch einmal. Das ist relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder beim Einsatz von Erweiterungen die WWH per Template-Variablen einbinden, wie z.B. "Brücke zwischen “LF who was here” und “Stat BLock”".
 * Alle Style-Anpassungen ausser "prosilver" wieder entfernt. Die bisherigen 10 Anpassungen für phpBB 3.2 sind als gesondertes Archiv für LF-WWH 2.0.0 verfügbar, werden jedoch bei zukünftigen Updates nicht mehr berücksichtigt.
 * Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Besucher geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen. (Wunsch von Kirk)
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der der Cache bei Bedarf deaktiviert werden kann. Per Standard ist er aktiviert.
@@ -172,7 +178,7 @@
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
   * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. (Hinweis von Kirk)
-* Eine neue Funktion erlaubt es, die Anzeige von WWH abschalten zu können, so das nur die Template Variablen erzeugt werden. Diese Funktion ist gedacht für andere Erweiterungen oder spezielle Styles die bereits WWH selber darstellen. Damit ist es z.B. auch möglich, die Anzeige auf das Portal zu begrenzen und WWH im Forum abzuschalten.
+* Eine neue Funktion erlaubt es, die Anzeige von WWH abschalten zu können, so das nur die Template-Variablen erzeugt werden. Diese Funktion ist gedacht für andere Erweiterungen oder spezielle Styles die bereits WWH selber darstellen. Damit ist es z.B. auch möglich, die Anzeige auf das Portal zu begrenzen und WWH im Forum abzuschalten.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann.
   * In den Sprachdateien für "API-Modus:" 2 neue Variablen hinzugefügt.
 * Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.

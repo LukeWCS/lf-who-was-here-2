@@ -1,6 +1,10 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B32:
+  * Fix: Bei fehlendem Statistik-Recht wurden trotzdem die Template-Variablen `LFWWH_EXP` und `LFWWH_RECORD` erzeugt.
+  * `composer.json` geändert, Mindestanforderung korrigiert.
+  * Methode zum Überschreiben der Sprachvariablen `USER_DELETED` und `USER_DELETE_SUCCESS` umgestellt auf eine Sprachdatei mit zusätzlichem Code.
 * B31: (beta2)
   * JS des Info-Buttons und des ACP-Moduls auf "camelCase" formatiert.
   * `README.md` geändert.
@@ -29,7 +33,7 @@
   * Sprachdateien korrigiert.
   * 3 Sprach-Variablen umbenannt.
   * 1 Sprach-Variable hinzugefügt.
-  * Im ACP-Modul 3 Template Variablen umbenannt.
+  * Im ACP-Modul 3 Template-Variablen umbenannt.
   * Migration geändert: neuer Standard bei `lfwwh_disp_time_format`.
 * B25: (beta1)
   * ACP-Modul: Unnötiges `onchange` Ereignis bei `lfwwh_create_hidden_info` entfernt.

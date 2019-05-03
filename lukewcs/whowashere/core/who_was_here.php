@@ -412,11 +412,11 @@ class who_was_here
 		}
 
 		$this->template->assign_vars(array(
+			'LFWWH_TOTAL'		=> ($wwh_disp_permission_total) ? $this->get_total_users_string($count) : '',
+			'LFWWH_EXP'			=> ($wwh_disp_permission_total) ? $this->get_explanation_string($this->config['lfwwh_time_mode']) : '',
+			'LFWWH_RECORD'		=> ($wwh_disp_permission_total) ? $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']) : '',
 			'LFWWH_LIST'		=> ($wwh_disp_permission_users) ? sprintf($this->user->lang['LFWWH_USERS_PREFIX'], $wwh_button_users) . ' ' . $users_list : '',
 			'LFWWH_BOTS'		=> ($wwh_disp_permission_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_PREFIX'], $wwh_button_bots) . ' ' . $bots_list : '',
-			'LFWWH_TOTAL'		=> ($wwh_disp_permission_total) ? $this->get_total_users_string($count) : '',
-			'LFWWH_EXP'			=> $this->get_explanation_string($this->config['lfwwh_time_mode']),
-			'LFWWH_RECORD'		=> $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']),
 			'LFWWH_POS'			=> ($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos'],
 			'LFWWH_API_MODE'	=> $this->config['lfwwh_api_mode'],
 		));
@@ -504,17 +504,18 @@ class who_was_here
 			{
 				$this->cache->destroy("_lf_who_was_here");	
 			}
-			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_who_was_here');
-			$lang = $this->user->lang;
-		 	if (isset($lang['USER_DELETED']))
-		 	{
-		 		$lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
-		 	}
-			if (isset($lang['USER_DELETE_SUCCESS']))
-			{
-				$lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
-			}
-			$this->user->lang = $lang;
+			// $this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_who_was_here');
+			// $lang = $this->user->lang;
+		 	// if (isset($lang['USER_DELETED']))
+		 	// {
+		 		// $lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
+		 	// }
+			// if (isset($lang['USER_DELETE_SUCCESS']))
+			// {
+				// $lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
+			// }
+			// $this->user->lang = $lang;
+			$this->user->add_lang_ext('lukewcs/whowashere', 'overwrite_who_was_here');
 		}
 	}
 
@@ -657,8 +658,8 @@ class who_was_here
 		}
 		else
 		{
-			$this->config['lfwwh_record_time2'] = $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
-			return sprintf($this->user->lang['LFWWH_RECORD_TIME'], $this->config['lfwwh_record_ips'], $this->user->format_date($this->config['lfwwh_record_time2'], $this->config['lfwwh_record_time_format']), $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
+			$record_time2 = $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
+			return sprintf($this->user->lang['LFWWH_RECORD_TIME'], $this->config['lfwwh_record_ips'], $this->user->format_date($record_time2, $this->config['lfwwh_record_time_format']), $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
 		}
 	}
 

@@ -147,5 +147,4 @@ $lang = array_merge($lang, array(
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
-	'LFWWH_MSG_CLEANED_UP'				=> 'Wer war da: Anzeige wurde bereinigt.',
 ));

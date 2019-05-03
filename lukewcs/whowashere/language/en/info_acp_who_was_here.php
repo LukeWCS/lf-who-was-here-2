@@ -147,5 +147,4 @@ $lang = array_merge($lang, array(
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.', // \n is the beginning of a new line
-	'LFWWH_MSG_CLEANED_UP'				=> 'Who was here: Display has been cleaned up.',
 ));
