@@ -43,6 +43,7 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” …
 //
+
 $lang = array_merge($lang, array(
 	'LFWWH_TITLE'				=> 'Who was here',
 	'LFWWH_LAST1'				=> 'last at',

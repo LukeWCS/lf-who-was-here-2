@@ -43,6 +43,7 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” …
 //
+
 $lang = array_merge($lang, array(
 	// navigation
 	'LFWWH_NAV_TITLE'					=> 'Wer war da? (2.x)',

@@ -46,6 +46,7 @@ $ud2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br
 // Some characters you may want to copy&paste:
 // ’ « » “ ” …
 //
+
 $lang = array_merge($lang, array(
 	'USER_DELETED'			=> $ud1 . 'Who was here: Display has been cleaned up.',
 	'USER_DELETE_SUCCESS'	=> $ud2 . 'Who was here: Display has been cleaned up.',

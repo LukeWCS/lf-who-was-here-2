@@ -1,10 +1,12 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B33:
+  * Rechte werden jetzt immer angezeigt und je nach Situation nur abgeblendet.
 * B32:
   * Fix: Bei fehlendem Statistik-Recht wurden trotzdem die Template-Variablen `LFWWH_EXP` und `LFWWH_RECORD` erzeugt.
   * `composer.json` geändert, Mindestanforderung korrigiert.
-  * Methode zum Überschreiben der Sprachvariablen `USER_DELETED` und `USER_DELETE_SUCCESS` umgestellt auf eine Sprachdatei mit zusätzlichem Code.
+  * Methode zum Überschreiben der Sprach-Variablen `USER_DELETED` und `USER_DELETE_SUCCESS` umgestellt auf eine Sprachdatei mit zusätzlichem Code.
 * B31: (beta2)
   * JS des Info-Buttons und des ACP-Moduls auf "camelCase" formatiert.
   * `README.md` geändert.

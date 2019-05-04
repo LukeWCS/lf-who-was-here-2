@@ -28,6 +28,13 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
+$t1 = $t2 = '';
+if (!$GLOBALS['config']['lfwwh_use_permissions'] || $GLOBALS['config']['lfwwh_admin_mode'])
+{
+	$t1 = '<span style="opacity: 0.5;">';
+	$t2 = '</span>';
+}
+
 // DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
@@ -43,7 +50,8 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” …
 //
+
 $lang = array_merge($lang, array(
-	'ACL_U_LFWWH_SHOW_STATS'	=> 'Wer war da (2.x): Kann Statistik sehen',
-	'ACL_U_LFWWH_SHOW_USERS'	=> 'Wer war da (2.x): Kann Mitglieder sehen',
+	'ACL_U_LFWWH_SHOW_STATS'	=> $t1 . 'Wer war da (2.x): Kann Statistik sehen' . $t2,
+	'ACL_U_LFWWH_SHOW_USERS'	=> $t1 . 'Wer war da (2.x): Kann Mitglieder sehen' . $t2,
 ));
