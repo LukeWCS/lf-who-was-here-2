@@ -1,8 +1,12 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B34:
+  * Sprachdatei `overwrite_who_was_here.php` umbenannt in `overwrite_phpbb_msg.php`.
+  * In den deutschen Sprachdateien die amerikanischen Anführungszeichen durch deutsche ersetzt.
+  * In allen Sprachdateien im Kommentarblock die deutschen Anführungszeichen hinzugefügt.
 * B33:
-  * Rechte werden jetzt immer angezeigt und je nach Situation nur abgeblendet.
+  * Gruppenrechte werden jetzt immer angezeigt und je nach Situation nur abgeblendet.
 * B32:
   * Fix: Bei fehlendem Statistik-Recht wurden trotzdem die Template-Variablen `LFWWH_EXP` und `LFWWH_RECORD` erzeugt.
   * `composer.json` geändert, Mindestanforderung korrigiert.

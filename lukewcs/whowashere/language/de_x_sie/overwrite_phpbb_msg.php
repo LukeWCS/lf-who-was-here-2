@@ -28,8 +28,8 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-$ud1 = isset($lang['USER_DELETED']) ? $lang['USER_DELETED'] . '<br /><br />' : '';
-$ud2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br /><br />' : '';
+$t1 = isset($lang['USER_DELETED']) ? $lang['USER_DELETED'] . '<br /><br />' : '';
+$t2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br /><br />' : '';
 
 // DEVELOPERS PLEASE NOTE
 //
@@ -44,10 +44,10 @@ $ud2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
 // Some characters you may want to copy&paste:
-// ’ « » “ ” …
+// ’ « » “ ” … „ “
 //
 
 $lang = array_merge($lang, array(
-	'USER_DELETED'			=> $ud1 . 'Wer war da: Anzeige wurde bereinigt.',
-	'USER_DELETE_SUCCESS'	=> $ud2 . 'Wer war da: Anzeige wurde bereinigt.',
+	'USER_DELETED'			=> $t1 . 'Wer war da: Anzeige wurde bereinigt.',
+	'USER_DELETE_SUCCESS'	=> $t2 . 'Wer war da: Anzeige wurde bereinigt.',
 ));

@@ -515,7 +515,7 @@ class who_was_here
 				// $lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
 			// }
 			// $this->user->lang = $lang;
-			$this->user->add_lang_ext('lukewcs/whowashere', 'overwrite_who_was_here');
+			$this->user->add_lang_ext('lukewcs/whowashere', 'overwrite_phpbb_msg');
 		}
 	}
 

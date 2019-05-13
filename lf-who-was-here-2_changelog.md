@@ -3,9 +3,10 @@
 
 #### Beta 3 (2019--)
 
-* Fix: Wenn im Kontext das Recht "Kann Statistik sehen" fehlte, wurden trotzdem die Template-Variablen für den Zeitraum-Erklärungstext und den Rekord generiert. Das wurde zwar korrekt von den Abfragen im Template abgefangen, aber konsequenterweise werden jetzt auch diese Template-Variablen effektiv als "leer" generiert, wenn das erforderliche Recht fehlt.
-* Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten injiziert wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprachvariablen für die Dauer des Vorgangs geändert (erweitert) werden.
+* Fix: Wenn im Kontext das Recht "Kann Statistik sehen" fehlte, wurden trotzdem die Template-Variablen für den Zeitraum-Erklärungstext und den Rekord generiert. Das wurde zwar von den Abfragen im Template abgefangen, aber konsequenterweise werden jetzt auch diese Template-Variablen effektiv als "leer" generiert, wenn das erforderliche Recht fehlt.
+* Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten eingefügt wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprach-Variablen für die Dauer des Vorgangs geändert (erweitert) werden.
 * Gemäss dem Konzept von LF-WWH, dass diejenigen Einstellungen abgeblendet werden, die aktuell keine Bedeutung haben, gelten die gleichen Regeln nun auch für die Gruppenrechte. Das heisst die Gruppenrechte werden nun immer angezeigt. Sie werden jedoch abgeblendet dargestellt, wenn sie aktuell keine Funktion haben. Das trifft zu, wenn entweder das phpBB Rechtesystem deaktiviert ist, oder der Administrator-Modus aktiviert ist. Damit wird ausserdem der bisherige Designfehler behoben, dass die Gruppenrechte auch dann angezeigt wurden, wenn sowohl das phpBB Rechtesystem als auch der Administrator-Modus aktiviert waren.
+* In den deutschen Sprachdateien des ACP-Moduls die amerikanischen Anführungszeichen durch deutsche ersetzt.
 * Template-Änderungen: Nein
 
 #### Beta 2 (2019-04-28)

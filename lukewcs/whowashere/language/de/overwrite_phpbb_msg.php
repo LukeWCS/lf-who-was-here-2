@@ -8,7 +8,7 @@
 * @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
-* Lang_iso     : en
+* Lang_iso     : de
 * Lang_ver     : 2.0.0
 * Lang_author  : LukeWCS
 * Lang_tab_size: 4
@@ -28,8 +28,8 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-$ud1 = isset($lang['USER_DELETED']) ? $lang['USER_DELETED'] . '<br /><br />' : '';
-$ud2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br /><br />' : '';
+$t1 = isset($lang['USER_DELETED']) ? $lang['USER_DELETED'] . '<br /><br />' : '';
+$t2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br /><br />' : '';
 
 // DEVELOPERS PLEASE NOTE
 //
@@ -44,10 +44,10 @@ $ud2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
 // Some characters you may want to copy&paste:
-// ’ « » “ ” …
+// ’ « » “ ” … „ “
 //
 
 $lang = array_merge($lang, array(
-	'USER_DELETED'			=> $ud1 . 'Who was here: Display has been cleaned up.',
-	'USER_DELETE_SUCCESS'	=> $ud2 . 'Who was here: Display has been cleaned up.',
+	'USER_DELETED'			=> $t1 . 'Wer war da: Anzeige wurde bereinigt.',
+	'USER_DELETE_SUCCESS'	=> $t2 . 'Wer war da: Anzeige wurde bereinigt.',
 ));
