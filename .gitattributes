@@ -1,7 +1,9 @@
 * text=auto
 * text eol=lf
-/.editorconfig export-ignore
-/.gitattributes export-ignore
-/lf-who-was-here-2_build_changelog.md export-ignore
-/lf-who-was-here-2_changelog.md export-ignore
-/lf-who-was-here-2_version.json export-ignore
+travis/ export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
+.travis.yml export-ignore
+lf-who-was-here-2_build_changelog.md export-ignore
+lf-who-was-here-2_changelog.md export-ignore
+lf-who-was-here-2_version.json export-ignore

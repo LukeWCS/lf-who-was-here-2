@@ -1,6 +1,6 @@
 <?php
 /**
-* 
+*
 * LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
@@ -46,12 +46,12 @@ class who_was_here
 	*/
 
 	public function __construct(
-		\phpbb\template\template $template, 
-		\phpbb\config\config $config, 
-		\phpbb\user $user, 
-		\phpbb\auth\auth $auth, 
-		\phpbb\cache\driver\driver_interface $cache, 
-		\phpbb\db\driver\driver_interface $db, 
+		\phpbb\template\template $template,
+		\phpbb\config\config $config,
+		\phpbb\user $user,
+		\phpbb\auth\auth $auth,
+		\phpbb\cache\driver\driver_interface $cache,
+		\phpbb\db\driver\driver_interface $db,
 		$table_prefix
 	)
 	{
@@ -203,7 +203,7 @@ class who_was_here
 		$wwh_disp_permission_bots = ($this->config['lfwwh_disp_bots_only_admin'] && $this->auth->acl_get('a_')) || $this->config['lfwwh_disp_bots_only_admin'] == 0;
 		$wwh_disp_permission_ip = $this->config['lfwwh_disp_ip'] && $this->auth->acl_get('a_');
 		$wwh_disp_permission_hidden = $this->config['lfwwh_disp_hidden'] && $this->auth->acl_get('u_viewonline');
-		
+
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
 		$show_button_users = $show_button_bots = false;
 
@@ -300,7 +300,7 @@ class who_was_here
 						$disp_info = ' (' . $this->get_hidden_span($row['user_type'], $time . ' | ') . $ip . ')';
 						$hover_info = ' title="' . $time . '"';
 					}
-					if (!$show_button_users) 
+					if (!$show_button_users)
 					{
 						if ((($this->config['lfwwh_disp_time'] == 2 && $row['user_type'] != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] == 1 && $this->config['lfwwh_disp_time_bots'] == 2 && $row['user_type'] == USER_IGNORE) || $show_ip_hover) && $hover_info)
 						{
@@ -394,7 +394,7 @@ class who_was_here
 			$this->config->set('lfwwh_record_ips', $count['count_total'], true);
 			$this->config->set('lfwwh_record_time', time(), true);
 		}
-		
+
 		$wwh_button_users = $wwh_button_bots = '';
 		if ($show_button_users)
 		{
@@ -449,7 +449,7 @@ class who_was_here
 		{
 			$this->db->sql_return_on_error(true);
 			$sql = 'DELETE FROM ' . $this->LFWWH_TABLE . '
-					WHERE wwh_lastpage <= ' . (int)$prune_timestamp;
+					WHERE wwh_lastpage <= ' . (int) $prune_timestamp;
 			$result = $this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
@@ -480,7 +480,7 @@ class who_was_here
 		}
 		$user_ids_ary = $event['user_ids'];
 		$user_deleted = false;
-		
+
 		foreach ($user_ids_ary as $user_id)
 		{
 			$sql = 'SELECT 1 as found
@@ -494,22 +494,22 @@ class who_was_here
 						WHERE user_id = ' . (int) $user_id;
 				$result = $this->db->sql_query($sql);
 				$user_deleted = true;
-			}			
+			}
 		}
-		
+
 		// Delete LF-WWH's cache and insert the notification.
-		if ($user_deleted) 
+		if ($user_deleted)
 		{
 			if ($this->config['lfwwh_use_cache'])
 			{
-				$this->cache->destroy("_lf_who_was_here");	
+				$this->cache->destroy("_lf_who_was_here");
 			}
 			// $this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_who_was_here');
 			// $lang = $this->user->lang;
-		 	// if (isset($lang['USER_DELETED']))
-		 	// {
-		 		// $lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
-		 	// }
+			// if (isset($lang['USER_DELETED']))
+			// {
+				// $lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
+			// }
 			// if (isset($lang['USER_DELETE_SUCCESS']))
 			// {
 				// $lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
@@ -610,7 +610,7 @@ class who_was_here
 		$text = str_replace(array('$1', '$2', '$3'), array($this->user->lang['LFWWH_LAST1'], $this->user->lang['LFWWH_LAST2'], $this->user->lang['LFWWH_LAST3']), $text);
 		return $text;
 	}
-	
+
 	/**
 	* Returns the Explanation string for the online list:
 	* Demo:	based on users active today

@@ -1,6 +1,6 @@
 <?php
 /**
-* 
+*
 * LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
@@ -27,7 +27,7 @@ class acp_who_was_here_module
 		$this->request = $request;
 		$this->template = $template;
 		$this->cache = $cache;
-	
+
 		add_form_key('lfwwh');
 		$this->tpl_name = 'acp_who_was_here';
 		$this->page_title = $this->user->lang['LFWWH_NAV_TITLE'] . ' - ' . $this->user->lang['LFWWH_NAV_CONFIG'];
@@ -74,7 +74,7 @@ class acp_who_was_here_module
 				$this->config->set('lfwwh_record_time', time());
 				$this->config->set('lfwwh_record_reset_time', time());
 			}
-			if ($delete_cache && $this->config['lfwwh_use_cache']) 
+			if ($delete_cache && $this->config['lfwwh_use_cache'])
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}

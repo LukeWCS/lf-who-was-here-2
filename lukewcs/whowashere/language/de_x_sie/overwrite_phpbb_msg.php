@@ -1,6 +1,6 @@
 <?php
 /**
-* 
+*
 * LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/

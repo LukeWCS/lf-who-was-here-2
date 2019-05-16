@@ -1,6 +1,6 @@
 <?php
 /**
-* 
+*
 * LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
@@ -122,7 +122,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_API_MODE_EXP'				=> 'Damit wird die Anzeige von WWH deaktiviert und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Foren gedacht, bei denen WWH bereits durch andere Erweiterungen (z.B. „Stat Block“) dargestellt wird.',
 	'LFWWH_CLEAR_UP'					=> 'Bei gelöschten Benutzern automatisch bereinigen',
 	'LFWWH_CLEAR_UP_EXP'				=> 'Wenn Benutzerkonten gelöscht werden, dann wird auch sofort die Tabelle und Anzeige von WWH bereinigt.',
-	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Zeige alle Template-Positionen gleichzeitig',	
+	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Zeige alle Template-Positionen gleichzeitig',
 	'LFWWH_DISP_TEMPLATE_POS_ALL_EXP'	=> 'WWH wird auf allen Positionen gleichzeitig angezeigt. Das dient nur zum Testen und sollte im Normalbetrieb deaktiviert sein.',
 	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Erzeuge ausgeblendete Informationen',
 	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'Wenn die Anzeige der Zeit oder IP auf „Bei überfahren“ eingestellt ist, werden diese Informationen zusätzlich ausgeblendet und eine Schaltfläche erzeugt, mit der diese eingeblendet werden können.',

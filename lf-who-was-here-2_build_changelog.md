@@ -1,6 +1,11 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B35:
+  * Travis CI eingerichtet.
+  * `README.md` geändert.
+  * `README_updating_a_developer_version.md` geändert.
+  * PHP_CodeSniffer Fehler behoben.
 * B34:
   * Sprachdatei `overwrite_who_was_here.php` umbenannt in `overwrite_phpbb_msg.php`.
   * In den deutschen Sprachdateien die amerikanischen Anführungszeichen durch deutsche ersetzt.

@@ -1,6 +1,6 @@
 <?php
 /**
-* 
+*
 * LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
@@ -27,7 +27,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : '1');
-		
+
 		$data = array();
 		// Add configs
 		$data[] = array('config.add', array('lfwwh_admin_mode'				, '0'));
@@ -74,28 +74,61 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('permission.permission_set', array('NEWLY_REGISTERED'	, 'u_lfwwh_show_users', 'group', false));
 		$data[] = array('permission.permission_set', array('GUESTS'				, 'u_lfwwh_show_stats', 'group'));
 		// Set permission roles
-		if ($this->role_exists('ROLE_USER_STANDARD'))	$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role'));
-		if ($this->role_exists('ROLE_USER_STANDARD'))	$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_users', 'role'));
-		if ($this->role_exists('ROLE_USER_LIMITED'))	$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_stats', 'role'));
-		if ($this->role_exists('ROLE_USER_LIMITED'))	$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_users', 'role'));
-		if ($this->role_exists('ROLE_USER_FULL'))		$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_stats', 'role'));
-		if ($this->role_exists('ROLE_USER_FULL'))		$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_users', 'role'));
-		if ($this->role_exists('ROLE_USER_NOPM'))		$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_stats', 'role'));
-		if ($this->role_exists('ROLE_USER_NOPM'))		$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_users', 'role'));
-		if ($this->role_exists('ROLE_USER_NOAVATAR'))	$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_stats', 'role'));
-		if ($this->role_exists('ROLE_USER_NOAVATAR'))	$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_users', 'role'));
-		if ($this->role_exists('ROLE_USER_NEW_MEMBER'))	$data[] = array('permission.permission_set', array('ROLE_USER_NEW_MEMBER'	, 'u_lfwwh_show_users', 'role', false));
+		if ($this->role_exists('ROLE_USER_STANDARD'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_STANDARD'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_users', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_LIMITED'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_stats', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_LIMITED'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_users', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_FULL'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_stats', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_FULL'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_users', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_NOPM'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_stats', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_NOPM'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_users', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_NOAVATAR'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_stats', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_NOAVATAR'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_users', 'role'));
+		}
+		if ($this->role_exists('ROLE_USER_NEW_MEMBER'))
+		{
+			$data[] = array('permission.permission_set', array('ROLE_USER_NEW_MEMBER'	, 'u_lfwwh_show_users', 'role', false));
+		}
 		// Custom functions
 		$data[] = array('custom', array(array($this, 'import_wwh_table')));
 		// Add ACP modules
 		$data[] = array('module.add', array(
-			'acp', 
-			'ACP_CAT_DOT_MODS', 
+			'acp',
+			'ACP_CAT_DOT_MODS',
 			'LFWWH_NAV_TITLE'
 		));
 		$data[] = array('module.add', array(
-			'acp', 
-			'LFWWH_NAV_TITLE', 
+			'acp',
+			'LFWWH_NAV_TITLE',
 			array(
 				'module_basename'	=> '\lukewcs\whowashere\acp\acp_who_was_here_module',
 				'module_langname'	=> 'LFWWH_NAV_CONFIG',
@@ -104,7 +137,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		)));
 		// Set current version
 		$data[] = array('config.add', array('lfwwh_version'				, '2.0.0'));
-		
+
 		return $data;
 	}
 
@@ -114,21 +147,21 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 			// Remove configs
 			// Remove permissions
 			array('permission.remove', array('u_lfwwh_show_users')),
-			array('permission.remove', array('u_lfwwh_show_stats')),			
+			array('permission.remove', array('u_lfwwh_show_stats')),
 		));
-	} 
-	
+	}
+
 	public function import_wwh_table()
-	{	
-		if ($this->db_tools->sql_table_exists($this->table_prefix . 'wwh') && $this->db_tools->sql_table_exists($this->table_prefix . 'lfwwh')) 
+	{
+		if ($this->db_tools->sql_table_exists($this->table_prefix . 'wwh') && $this->db_tools->sql_table_exists($this->table_prefix . 'lfwwh'))
 		{
 			$sql = 'INSERT INTO ' . $this->table_prefix . 'lfwwh' . ' (user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage)
 					SELECT user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage 
 					FROM ' . $this->table_prefix . 'wwh';
-			$result = $this->db->sql_query($sql);	
+			$result = $this->db->sql_query($sql);
 		}
 	}
-	
+
 	private function role_exists($role)
 	{
 		$sql = 'SELECT role_id
@@ -137,7 +170,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$result = $this->db->sql_query_limit($sql, 1);
 		$role_id = $this->db->sql_fetchfield('role_id');
 		$this->db->sql_freeresult($result);
-		
+
 		return $role_id;
-	}	
+	}
 }
