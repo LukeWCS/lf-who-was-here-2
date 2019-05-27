@@ -428,7 +428,7 @@ class who_was_here
 	public function prune()
 	{
 		$timestamp = time();
-		if ($this->config['lfwwh_time_mode'])
+		if ($this->config['lfwwh_time_mode'] == 1)	// today
 		{
 			/* OLD function
 			$prune_timestamp = gmmktime(0, 0, 0, gmdate('m', $timestamp), gmdate('d', $timestamp), gmdate('Y', $timestamp));
@@ -436,16 +436,21 @@ class who_was_here
 			$prune_timestamp -= ($this->config['board_dst'] * 3600);*/
 
 			// Correct Time Zone. https://www.phpbb.com/community/viewtopic.php?f=456&t=2297986&start=30#p14022491
-			$timezone = new \DateTimeZone($this->config['board_timezone']);
-			$prune_timestamp = $this->user->get_timestamp_from_format('Y-m-d H:i:s', date('Y', $timestamp) . '-' . date('m', $timestamp) . '-' . date('d', $timestamp) . ' 00:00:00', $timezone);
-			$prune_timestamp = ($prune_timestamp < $timestamp - 86400) ? $prune_timestamp + 86400 : (($prune_timestamp > $timestamp) ? $prune_timestamp - 86400 : $prune_timestamp);
+			// $timezone = new \DateTimeZone($this->config['board_timezone']);
+			// $prune_timestamp = $this->user->get_timestamp_from_format('Y-m-d H:i:s', date('Y', $timestamp) . '-' . date('m', $timestamp) . '-' . date('d', $timestamp) . ' 00:00:00', $timezone);
+			// $prune_timestamp = ($prune_timestamp < $timestamp - 86400) ? $prune_timestamp + 86400 : (($prune_timestamp > $timestamp) ? $prune_timestamp - 86400 : $prune_timestamp);
+
+			$prune_time_obj = date_create(null, timezone_open($this->config['board_timezone']));
+			date_timestamp_set($prune_time_obj, $timestamp);
+			date_time_set($prune_time_obj, 0, 0, 0);
+			$prune_timestamp = date_timestamp_get($prune_time_obj);
 		}
-		else
+		else	// period of time
 		{
 			$prune_timestamp = $timestamp - ((3600 * $this->config['lfwwh_period_of_time_h']) + (60 * $this->config['lfwwh_period_of_time_m']) + $this->config['lfwwh_period_of_time_s']);
 		}
 
-		if ((!isset($this->config['lfwwh_last_clean']) || ($this->config['lfwwh_last_clean'] != $prune_timestamp)) || !$this->config['lfwwh_time_mode'])
+		if ((!isset($this->config['lfwwh_last_clean']) || ($this->config['lfwwh_last_clean'] != $prune_timestamp)) || $this->config['lfwwh_time_mode'] == 0)
 		{
 			$this->db->sql_return_on_error(true);
 			$sql = 'DELETE FROM ' . $this->LFWWH_TABLE . '
@@ -459,7 +464,7 @@ class who_was_here
 				return false;
 			}
 
-			if ($this->config['lfwwh_time_mode'])
+			if ($this->config['lfwwh_time_mode'] == 1)	// today
 			{
 				$this->config->set('lfwwh_last_clean', $prune_timestamp);
 			}
@@ -497,37 +502,22 @@ class who_was_here
 			}
 		}
 
-		// Delete LF-WWH's cache and insert the notification.
+		// Clears the LF WWH cache and inserts the notification.
 		if ($user_deleted)
 		{
 			if ($this->config['lfwwh_use_cache'])
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}
-			// $this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_who_was_here');
-			// $lang = $this->user->lang;
-			// if (isset($lang['USER_DELETED']))
-			// {
-				// $lang['USER_DELETED'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
-			// }
-			// if (isset($lang['USER_DELETE_SUCCESS']))
-			// {
-				// $lang['USER_DELETE_SUCCESS'] .= '<br><br>' . $this->user->lang['LFWWH_MSG_CLEANED_UP'];
-			// }
-			// $this->user->lang = $lang;
 			$this->user->add_lang_ext('lukewcs/whowashere', 'overwrite_phpbb_msg');
 		}
 	}
 
 	/**
-	* Adds permissions if the full rights system is active. (LukeWCS)
+	* Adds permissions. (LukeWCS)
 	*/
 	public function add_permissions($event)
 	{
-		// if (!$this->config['lfwwh_use_permissions'])
-		// {
-			// return;
-		// }
 		$permissions = $event['permissions'];
 		$permissions['u_lfwwh_show_users'] = array('lang' => 'ACL_U_LFWWH_SHOW_USERS', 'cat' => 'profile');
 		$permissions['u_lfwwh_show_stats'] = array('lang' => 'ACL_U_LFWWH_SHOW_STATS', 'cat' => 'profile');
@@ -618,11 +608,11 @@ class who_was_here
 	*/
 	private function get_explanation_string($mode)
 	{
-		if ($mode)
+		if ($mode == 1)	// today
 		{
 			return $this->user->lang['LFWWH_EXP'];
 		}
-		else
+		else	// period of time
 		{
 			$explanation = $this->user->lang['LFWWH_EXP_TIME'];
 			$explanation .= $this->user->lang('LFWWH_HOURS', (int) $this->config['lfwwh_period_of_time_h']);
@@ -652,11 +642,11 @@ class who_was_here
 		{
 			return '';
 		}
-		if ($mode)
+		if ($mode == 1)	// today
 		{
 			return sprintf($this->user->lang['LFWWH_RECORD_DAY'], $this->config['lfwwh_record_ips'], $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
 		}
-		else
+		else	// period of time
 		{
 			$record_time2 = $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
 			return sprintf($this->user->lang['LFWWH_RECORD_TIME'], $this->config['lfwwh_record_ips'], $this->user->format_date($record_time2, $this->config['lfwwh_record_time_format']), $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));

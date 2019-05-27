@@ -27,7 +27,7 @@ env:
   global:
     - EXTNAME="lukewcs/whowashere"      # Extension name
     - SNIFF="1"                         # Code sniffer switch
-    - IMAGE_ICC="1"                     # ICC profile sniffer switch
+    - IMAGE_ICC="0"                     # ICC profile sniffer switch
     - EPV="1"                           # Extension pre-validator switch
     - PHPBB_BRANCH="3.2.x"              # phpBB branch
 

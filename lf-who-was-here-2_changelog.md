@@ -8,9 +8,12 @@
 * Gemäss dem Konzept von LF-WWH, dass diejenigen Einstellungen abgeblendet werden, die aktuell keine Bedeutung haben, gelten die gleichen Regeln nun auch für die Gruppenrechte. Das heisst die Gruppenrechte werden nun immer angezeigt. Sie werden jedoch abgeblendet dargestellt, wenn sie aktuell keine Funktion haben. Das trifft zu, wenn entweder das phpBB Rechtesystem deaktiviert ist, oder der Administrator-Modus aktiviert ist. Damit wird ausserdem der bisherige Designfehler behoben, dass die Gruppenrechte auch dann angezeigt wurden, wenn sowohl das phpBB Rechtesystem als auch der Administrator-Modus aktiviert waren.
 * In den deutschen Sprachdateien des ACP-Moduls die amerikanischen Anführungszeichen durch deutsche ersetzt.
 * GitHub Repository für Travis CI eingerichtet mit folgenden Tests:
-  * PHP_CodeSniffer: Analysetool zur Prüfung der PHP Programmierrichtlinien nach phpBB Standard.
-  * EPV: Analysetool zur Prüfung der Vorgaben für Erweiterungen nach phpBB Standard.
+  * PHP_CodeSniffer (phpcs): Analysetool zur Prüfung der PHP Programmierrichtlinien nach phpBB Standard.
+  * Extension Pre Validator (EPV): Analysetool zur Prüfung der Vorgaben für Erweiterungen nach phpBB Standard.
 * Alle Fehler behoben, die von PHP_CodeSniffer gemeldet wurden.
+* Fix: Bei der Einstellung "Anzeige der Besucher von ... -> Heute" und bei der Zeitumstellung auf Sommerzeit, begann der nachfolgende Tag (1.4.2019) erst um 01:00. (Meldung von Wolkenbruch)
+  * Fehler 1: Die Berechnung des Lösch-Zeitstempels fand fälschlicherweise auf Basis des PHP-Datums statt. Der Fehler trat nun auf, wenn für PHP und phpBB unterschiedliche Zeitzonen definiert waren. Das hatte zur Folge, dass am nachfolgenden Tag um 00:00:00 Uhr ein Zeitstempel berechnet wurde, der zum Vortag gehörte. Dadurch wurde zu diesem Zeitpunkt keine Umschaltung auf den neuen Tag durchgeführt, dies fand erst um 01:00:01 Uhr statt. Jetzt wird für die Berechnung ein unabhängiges Zeit-Objekt mit eigener Zeitzone (von phpBB) erzeugt und auf dieser Basis wird dann der Lösch-Zeitstempel berechnet. Dadurch ist die Zeitzone von PHP nicht länger relevant.
+  * Fehler 2: Eine fehlerhafte Korrektur-Formel für den Lösch-Zeitstempel hatte zur Folge, dass um 01:00:01 Uhr der berechnete Zeitstempel einer falschen Uhrzeit (01:00:00) entsprach. Dadurch wurden am 1.4.2019 um 01:00:01 Uhr nicht nur alle Einträge aus der Besucher-Tabelle gelöscht die älter waren als 00:00:00 Uhr, sondern auch die Einträge zwischen 00:00:00 Uhr und 01:00:00 Uhr. Durch die Behebung von Fehler 1 wird diese Korrektur-Formel nicht länger benötigt und wurde entfernt.
 * Template-Änderungen: Nein
 
 #### Beta 2 (2019-04-28)

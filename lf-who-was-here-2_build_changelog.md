@@ -1,6 +1,9 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B36:
+  * Code bereinigt.
+  * Fix: Das Problem bei der Zeitumstellung in Verbindung mit unterschiedlichen Zeitzonen bei PHP und phpBB behoben. (Meldung Wolkenbruch)
 * B35:
   * Travis CI eingerichtet.
   * `README.md` geändert.

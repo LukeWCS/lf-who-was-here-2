@@ -17,4 +17,4 @@
 1. Copy the folder `lukewcs/` from the Zip archive including all subfolders and files to `ext/` from phpBB (upload).
 1. In the extension management, enable "LF who was here (2.x)".
 1. In the "GENERAL" tab use "Purge the cache".
-1. Last, you must save the settings page again: open LFWWH's settings, correct the settings if needed (especially the new ones) and save the page, with or without changes.
+1. Last, you must save the settings page again: open LF-WWH's settings, correct the settings if needed (especially the new ones) and save the page, with or without changes.

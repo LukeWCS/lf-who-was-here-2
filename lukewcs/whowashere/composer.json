@@ -29,7 +29,7 @@
 	"extra": {
 		"display-name": "LF who was here (2.x)",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.11-RC1,<3.3.0@dev"
+			"phpbb/phpbb": ">=3.1.11,<3.3.0@dev"
 		},
 		"version-check": {
 			"host": "raw.githubusercontent.com",
