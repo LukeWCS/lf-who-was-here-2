@@ -3,7 +3,6 @@
 
 #### Beta 3 (2019--)
 
-* Fix: Wenn im Kontext das Recht "Kann Statistik sehen" fehlte, wurden trotzdem die Template-Variablen für den Zeitraum-Erklärungstext und den Rekord generiert. Das wurde zwar von den Abfragen im Template abgefangen, aber konsequenterweise werden jetzt auch diese Template-Variablen effektiv als "leer" generiert, wenn das erforderliche Recht fehlt.
 * Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten eingefügt wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprach-Variablen für die Dauer des Vorgangs geändert (erweitert) werden.
 * Gemäss dem Konzept von LF-WWH, dass diejenigen Einstellungen abgeblendet werden, die aktuell keine Bedeutung haben, gelten die gleichen Regeln nun auch für die Gruppenrechte. Das heisst die Gruppenrechte werden nun immer angezeigt. Sie werden jedoch abgeblendet dargestellt, wenn sie aktuell keine Funktion haben. Das trifft zu, wenn entweder das phpBB Rechtesystem deaktiviert ist, oder der Administrator-Modus aktiviert ist. Damit wird ausserdem der bisherige Designfehler behoben, dass die Gruppenrechte auch dann angezeigt wurden, wenn sowohl das phpBB Rechtesystem als auch der Administrator-Modus aktiviert waren.
 * In den deutschen Sprachdateien des ACP-Moduls die amerikanischen Anführungszeichen durch deutsche ersetzt.
@@ -11,10 +10,18 @@
   * PHP_CodeSniffer (phpcs): Analysetool zur Prüfung der PHP Programmierrichtlinien nach phpBB Standard.
   * Extension Pre Validator (EPV): Analysetool zur Prüfung der Vorgaben für Erweiterungen nach phpBB Standard.
 * Alle Fehler behoben, die von PHP_CodeSniffer gemeldet wurden.
-* Fix: Bei der Einstellung "Anzeige der Besucher von ... -> Heute" und bei der Zeitumstellung auf Sommerzeit, begann der nachfolgende Tag (1.4.2019) erst um 01:00. (Meldung von Wolkenbruch)
-  * Fehler 1: Die Berechnung des Lösch-Zeitstempels fand fälschlicherweise auf Basis des PHP-Datums statt. Der Fehler trat nun auf, wenn für PHP und phpBB unterschiedliche Zeitzonen definiert waren. Das hatte zur Folge, dass am nachfolgenden Tag um 00:00:00 Uhr ein Zeitstempel berechnet wurde, der zum Vortag gehörte. Dadurch wurde zu diesem Zeitpunkt keine Umschaltung auf den neuen Tag durchgeführt, dies fand erst um 01:00:01 Uhr statt. Jetzt wird für die Berechnung ein unabhängiges Zeit-Objekt mit eigener Zeitzone (von phpBB) erzeugt und auf dieser Basis wird dann der Lösch-Zeitstempel berechnet. Dadurch ist die Zeitzone von PHP nicht länger relevant.
-  * Fehler 2: Eine fehlerhafte Korrektur-Formel für den Lösch-Zeitstempel hatte zur Folge, dass um 01:00:01 Uhr der berechnete Zeitstempel einer falschen Uhrzeit (01:00:00) entsprach. Dadurch wurden am 1.4.2019 um 01:00:01 Uhr nicht nur alle Einträge aus der Besucher-Tabelle gelöscht die älter waren als 00:00:00 Uhr, sondern auch die Einträge zwischen 00:00:00 Uhr und 01:00:00 Uhr. Durch die Behebung von Fehler 1 wird diese Korrektur-Formel nicht länger benötigt und wurde entfernt.
+* Kleinere Code Optimierungen.
 * Template-Änderungen: Nein
+
+Fehlerkorrekturen:
+
+* Fix: Wenn im Kontext das Recht "Kann Statistik sehen" fehlte, wurden trotzdem die Template-Variablen für den Zeitraum-Erklärungstext und den Rekord generiert. Das wurde zwar von den Abfragen im Template abgefangen, aber konsequenterweise werden jetzt auch diese Template-Variablen effektiv als "leer" generiert, wenn das erforderliche Recht fehlt.
+* Fix: Bei der Einstellung "Anzeige der Besucher von ..." -> "Heute" und bei der Zeitumstellung auf Sommerzeit, begann der nachfolgende Tag (2019-4-1) erst um 01:00 Uhr. (Meldung von Wolkenbruch)
+  * Fehler 1: Die Berechnung des Lösch-Zeitstempels fand fälschlicherweise auf Basis des PHP-Datums statt. Der Fehler bei der Zeitumstellung trat nun auf, wenn für PHP und phpBB unterschiedliche Zeitzonen definiert waren. Das hatte zur Folge, dass am nachfolgenden Tag, also am 2019-4-1 um 00:00:00 Uhr ein Zeitstempel berechnet wurde, der zum Vortag gehörte. Dadurch wurde zu diesem Zeitpunkt keine Umschaltung auf den neuen Tag durchgeführt, dies fand erst um 01:00:01 Uhr statt. Jetzt wird ein unabhängiges Zeit-Objekt mit eigener Zeitzone erzeugt, auf dessen Basis dann der Lösch-Zeitstempel berechnet wird. Dem Zeit-Objekt wird dabei die gleiche Zeitzone zugewiesen, die auch in phpBB eingestellt ist. Somit ist die Zeitzone von PHP nicht länger relevant.
+  * Fehler 2: Eine fehlerhafte Korrektur-Formel für den Lösch-Zeitstempel hatte bei unterschiedlichen Zeitzonen von PHP und phpBB zur Folge, dass um 01:00:01 Uhr der berechnete Zeitstempel einer falschen Uhrzeit (01:00:00) entsprach. Dadurch wurden am 2019-4-1 um 01:00:01 Uhr nicht nur alle Einträge aus der Besucher-Tabelle gelöscht die älter waren als 00:00:00 Uhr, sondern auch die Einträge zwischen 00:00:00 Uhr und 01:00:00 Uhr. Durch die Behebung von Fehler 1 wird diese Korrektur-Formel nicht länger benötigt und wurde entfernt.
+  * Beide Fehler hätten bei unterschiedlichen Zeitzonen von PHP und phpBB auch bei der Zeitumstellung auf Normalzeit Auswirkungen gehabt. Dabei wäre wegen Fehler 2 am 2019-10-27 schon um 23:00:01 Uhr eine Bereinigung mit falschem Zeitstempel ausgeführt worden. Am 2019-10-28 um 00:00:00 Uhr hätte jedoch keine Bereinigung und damit auch keine Umschaltung stattgefunden, da der benötigte Zeitstempel wegen beiden Fehlern falsch gewesen wäre. Am 2019-10-28 um 01:00:00 hätte dann eine weitere Bereinigung stattgefunden, die dann korrekt ausgeführt worden wäre.
+  * Bei der Zeitumstellung von Sommerzeit auf Normalzeit hätte es durch Fehler 2 auch dann eine falsche Umschaltung gegeben, wenn beide Zeitzonen (PHP und phpBB) identisch wären. Dieser Fehler hätte also alle Boards betroffen, bei denen es Sommerzeit (DST) gibt. Am 2019-10-27 um 23:00:01 Uhr wäre dann eine Bereinigung mit falschem Zeitstempel (23:00:00 Uhr) ausgeführt worden. Am 2019-10-28 um 00:00:00 Uhr hätte dann eine weitere Bereinigung stattgefunden, die auch korrekt ausgeführt worden wäre.
+* Fix: Bei der Einstellung "Anzeige der Besucher von ..." -> "Heute" wurden aufgrund eines Fehlers in der MySQL-Abfrage Besucher des aktuellen Tages mit der exakten Uhrzeit 00:00:00 noch zum Vortag gezählt und somit fälschlicherweise bei der Bereinigung (Tages-Umschaltung) gelöscht.
 
 #### Beta 2 (2019-04-28)
 
@@ -58,7 +65,7 @@
   * Variablen der Sprachdateien.
 * Automatische Datenübernahme von NV-WWH (beliebige Version) und LF-WWH 1.x (beliebige Version):
   * Dazu muss die alte WWH-Erweiterung zunächst installiert bleiben, damit bei der Installation von LF-WWH 2.x die Daten importiert werden können. Dies geschieht automatisch, sobald LF-WWH 2.x das erste Mal aktiviert wird. Dabei wird die komplette Konfiguration inklusive Besucherrekord übernommen, sowie die aktuelle Besucher-Tabelle. Die alte Erweiterung darf dabei auch aktiviert bleiben, das ist technisch vorgesehen und legitim.
-  * Die Rechte werden dabei jedoch nicht übernommen, diese müssen nach der Installation also ggf. angepasst werden, sofern das vollständige Rechtesystem von phpBB genutzt wurde. Wurde nur das vereinfachte Rechtesystem von LF-WWH genutzt ("Anzeige für Gäste:"), kann dieser Schritt entfallen.
+  * Die Rechte werden dabei jedoch nicht übernommen, diese müssen nach der Installation also ggf. angepasst werden, sofern das vollständige Rechtesystem von phpBB genutzt wurde. Wurde nur das einfache Rechtesystem von LF-WWH genutzt ("Anzeige für Gäste:"), kann dieser Schritt entfallen.
   * Die Datenübernahme hat auch den Vorteil, das damit selbst eine defekte Installation von NV-WWH quasi-aktualisiert werden kann, weil dabei nur die Daten übernommen werden, aber keine Ordner- und Datei-Strukturen.
 * Wenn Benutzerkonten gelöscht werden und infolgedessen eine Bereinigung der WWH-Tabelle und der WWH-Anzeige nötig wird, dann wird jetzt innerhalb der Lösch-Bestätigung (die von phpBB angezeigt wird) zusätzlich eine Benachrichtigung von LF-WWH eingefügt, das die WWH-Anzeige bereinigt wurde. Diese Benachrichtigung erscheint nur dann, wenn die Bereinigung auch aktiviert ist (Standard) und wenn auch tatsächlich bereinigt werden musste.
 * ACP-Modul:
@@ -97,8 +104,6 @@
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
   * Die alternative Beschriftung der Schaltfläche für phpBB 3.1 wurde jetzt durch ein Unicode-Zeichen ersetzt, das ähnlich aussieht, wie das Info-Symbol vom Awesome-Font für phpBB 3.2.
     * In den Sprachdateien die betreffende Variable entfernt.
-* Fix: Wenn bei der Einstellungskombination "Zeige Bots: > Mit den Benutzern" und "Zeige die Zeit von Bots: > Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
-* Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
 * Der neue Administrator-Modus erlaubt es, das nur Benutzer mit administrativen Rechten WWH sehen können. Dabei werden die anderen Berechtigungssysteme ausser Kraft gesetzt. Das ist z.B. hilfreich, wenn man Änderungen an den Einstellungen oder Rechten vornehmen und testen will, ohne das WWH währenddessen für alle sichtbar ist.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt.
   * In den Sprachdateien für "Administrator-Modus:" 2 neue Variablen hinzugefügt.
@@ -115,10 +120,18 @@
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -
 
+Fehlerkorrekturen:
+
+* Fix: Wenn bei der Einstellungskombination "Zeige Bots:" -> "Mit den Benutzern" und "Zeige die Zeit von Bots:" -> "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
+* Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von Kirk)
+
 ### Changelog 1.5.1 (2019-03-03)
 
-* Fix: Bei der Erstinstallation von LF-WWH kann die Migration beim Update-Schritt 1.4.0 fehlschlagen, wenn vom Admin eine der sechs Standard Benutzer-Rollen gelöscht wurde. Eine entsprechende Meldung wäre in diesem Fall z.B. "Die Berechtigungs-Rolle „ROLE_USER_NOAVATAR“ existiert unerwarteterweise nicht.". Dementsprechend wird jetzt in der Migration von 1.4.0 bei jeder Benutzer-Rolle geprüft, ob sie vorhanden ist. Wenn eine Rolle fehlt, wird sie korrekt übersprungen. Realisiert mit der Funktion `role_exists()` von combuster. (Meldung von Dr.Death)
 * Template-Änderungen: Nein
+
+Fehlerkorrekturen:
+
+* Fix: Bei der Erstinstallation von LF-WWH kann die Migration beim Update-Schritt 1.4.0 fehlschlagen, wenn vom Admin eine der sechs Standard Benutzer-Rollen gelöscht wurde. Eine entsprechende Meldung wäre in diesem Fall z.B. "Die Berechtigungs-Rolle „ROLE_USER_NOAVATAR“ existiert unerwarteterweise nicht.". Dementsprechend wird jetzt in der Migration von 1.4.0 bei jeder Benutzer-Rolle geprüft, ob sie vorhanden ist. Wenn eine Rolle fehlt, wird sie korrekt übersprungen. Realisiert mit der Funktion `role_exists()` von combuster. (Meldung von Dr.Death)
 
 ### Changelog 1.5.0 (2019-03-02)
 
@@ -169,21 +182,27 @@
 * Korrekturen und kleinere Änderungen in den Sprachdateien des ACP Moduls vorgenommen.
 * Bei phpBB 3.2 und der Einstellung "Zeige die Zeit von..." > "Bei überfahren" hat die Schaltfläche zur Anzeige der Zeiten jetzt einen Tooltip. Der Text wird dabei von der Sprachvariable `WHO_WAS_HERE_SHOW_TIME` bezogen. Bei phpBB 3.1 ändert sich nichts.
 * Im ACP Modul die Einstellungen "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" und "Intervall der Aktualisierung:" in den Bereich "Sonstiges" verschoben.
-* Fix: Bei einer bestimmten (theoretischen) Kombination der Einstellungen von phpBB und WWH konnte das Intervall der Aktualisierung mit 0 Minuten definiert werden, wodurch effektiv der Cache umgangen wurde. Das wird jetzt abgefangen und auf ein Minimum von 1 Minute korrigiert.
 * Im HTML-Teil des ACP Moduls alle Optionsfelder (Ja/Nein) auf eine einheitliche Logik gebracht mit Abfrage auf 0/1 anstelle auf false/true, passend zu den Abfragen der Auswahllisten.
 * Template-Änderungen: Nein
+
+Fehlerkorrekturen:
+
+* Fix: Bei einer bestimmten (theoretischen) Kombination der Einstellungen von phpBB und LF-WWH konnte das Intervall der Aktualisierung mit 0 Minuten definiert werden, wodurch effektiv der Cache umgangen wurde. Das wird jetzt abgefangen und auf ein Minimum von 1 Minute korrigiert.
 
 ### Changelog 1.4.1 (2018-11-22)
 
 * Da bei WWH die Zeitangaben ohnehin in der Vergangenheit liegen, ist der Text "zuletzt:" überflüssig. Dieser repetitive Text bläht vor allem in grösseren Foren die Benutzerliste unnötig auf, sofern die Zeiten angezeigt werden. Darum die Handhabung der Sprachvariable so geändert, das diese auch komplett leer sein kann.
   * In den Sprachdateien den besagten Text entfernt. Die betreffende Sprachvariable ist nach wie vor vorhanden und wird unterstützt, sie hat per Standard nur keinen Inhalt mehr.
 * Korrekturen in den Sprachdateien vorgenommen.
-* Fix: Wenn bei aktivierter Einstellung "Bei überfahren" aktuell kein Benutzer oder Bot als Besucher in der WWH Tabelle registriert war und demnach in der Benutzerliste "0 Mitglieder" stand, dann wurde trotzdem die Schaltfläche zur Anzeige der Zeiten erzeugt. Nicht direkt ein Fehler, aber unschön.
 * Template-Änderungen: Nein
+
+Fehlerkorrekturen:
+
+* Fix: Wenn bei aktivierter Einstellung "Bei überfahren" aktuell kein Benutzer oder Bot als Besucher in der WWH Tabelle registriert war und demnach in der Benutzerliste "0 Mitglieder" stand, dann wurde trotzdem die Schaltfläche zur Anzeige der Zeiten erzeugt. Nicht direkt ein Fehler, aber unschön.
 
 ### Changelog 1.4.0 (2018-10-20)
 
-* Bei der Einstellung "Zeige die Zeit von..." > "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeitsymbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet-PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouseover" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
+* Bei der Einstellung "Zeige die Zeit von ..." -> "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeitsymbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet-PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouseover" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
   * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. (Hinweis von Kirk)
@@ -192,7 +211,6 @@
   * In den Sprachdateien für "API-Modus:" 2 neue Variablen hinzugefügt.
 * Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
   * Dementsprechend in den Sprachdateien alle Erklärungen mit "Nicht relevant wenn ..." entfernt.
-* Fix: Bei der Deinstallation von NV-WWH (und somit auch bei LF-WWH) wurde `wwh_last_clean` bislang nicht aus der Datenbank entfernt, da diese Variable in den Migrationsdateien von NV-WWH nicht berücksichtigt war.
 * Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. (Wunsch von Jonson, Vorschläge von Kirk und chris1278)
   * Entsprechend für "Benutze das Berechtigungssystem von phpBB:" 2 neue Variablen in den Sprachdateien hinzugefügt. 
   * Rechte per Migrationsdatei hinzugefügt:
@@ -226,6 +244,10 @@
   * Neu: `who_was_here.js`
   * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
   * Gelöscht: -
+
+Fehlerkorrekturen:
+
+* Fix: Bei der Deinstallation von NV-WWH (und somit auch bei LF-WWH) wurde `wwh_last_clean` bislang nicht aus der Datenbank entfernt, da diese Variable in den Migrationsdateien von NV-WWH nicht berücksichtigt war.
 
 ### Changelog 1.3.3 (2018-10-06)
 

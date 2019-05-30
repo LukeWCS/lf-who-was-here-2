@@ -1,9 +1,13 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B37:
+  * Fix: Fehler in MySQL Abfrage behoben. Bei der Einstellung "Heute" wurden Einträge in der Besuchertabelle mit der Uhrzeit 00:00:00 zum Vortag gezählt.
+  * Kleinere Code Optimierungen bei `display()`.
+  * Den Code der Rechte-Steuerung beim einfachen Rechtesystem übersichtlicher gestaltet.
 * B36:
   * Code bereinigt.
-  * Fix: Das Problem bei der Zeitumstellung in Verbindung mit unterschiedlichen Zeitzonen bei PHP und phpBB behoben. (Meldung Wolkenbruch)
+  * Fix: Das Problem bei der Zeitumstellung in Verbindung mit der Einstellung "Heute" und unterschiedlichen Zeitzonen bei PHP und phpBB behoben. (Meldung Wolkenbruch)
 * B35:
   * Travis CI eingerichtet.
   * `README.md` geändert.

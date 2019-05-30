@@ -74,7 +74,7 @@ class acp_who_was_here_module
 				$this->config->set('lfwwh_record_time', time());
 				$this->config->set('lfwwh_record_reset_time', time());
 			}
-			if ($delete_cache && $this->config['lfwwh_use_cache'])
+			if ($this->config['lfwwh_use_cache'] && $delete_cache)
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}
