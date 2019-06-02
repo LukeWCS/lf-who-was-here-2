@@ -95,7 +95,7 @@ $lang = array_merge($lang, array(
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Anzeige Einstellungen 2',
 	'LFWWH_TIME_MODE'					=> 'Anzeige der Besucher von ...',
-	'LFWWH_TIME_MODE_EXP'				=> 'Anzeige der Besucher von heute (Seit 00:00 Forum Zeitzone), oder des Zeitraums der bei der nächsten Einstellung festgelegt wird.',
+	'LFWWH_TIME_MODE_EXP'				=> 'Anzeige der Besucher von heute (Seit 00:00 Forum Zeit), oder des Zeitraums der bei der nächsten Einstellung festgelegt wird.',
 	'LFWWH_TIME_MODE_1'					=> 'Heute',
 	'LFWWH_TIME_MODE_0'					=> 'Zeitraum',
 	'LFWWH_SORT_BY'						=> 'Sortiere Benutzer nach',

@@ -197,8 +197,6 @@ class who_was_here
 			}
 			else
 			{
-				// $wwh_disp_permission_total = ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 0 || $this->config['lfwwh_disp_for_guests'] == 1) && empty($this->user->data['is_bot']);
-				// $wwh_disp_permission_users = ($this->user->data['user_id'] != ANONYMOUS || $this->config['lfwwh_disp_for_guests'] == 1 || $this->config['lfwwh_disp_for_guests'] == 3) && empty($this->user->data['is_bot']);
 				if ($this->user->data['user_id'] != ANONYMOUS && empty($this->user->data['is_bot']))	// user
 				{
 					$wwh_disp_permission_total = true;
@@ -441,27 +439,15 @@ class who_was_here
 	*/
 	public function prune()
 	{
-		$timestamp = time();
 		if ($this->config['lfwwh_time_mode'] == 1)	// today
 		{
-			/* OLD function
-			$prune_timestamp = gmmktime(0, 0, 0, gmdate('m', $timestamp), gmdate('d', $timestamp), gmdate('Y', $timestamp));
-			$prune_timestamp -= ($this->config['board_timezone'] * 3600);
-			$prune_timestamp -= ($this->config['board_dst'] * 3600);*/
-
-			// Correct Time Zone. https://www.phpbb.com/community/viewtopic.php?f=456&t=2297986&start=30#p14022491
-			// $timezone = new \DateTimeZone($this->config['board_timezone']);
-			// $prune_timestamp = $this->user->get_timestamp_from_format('Y-m-d H:i:s', date('Y', $timestamp) . '-' . date('m', $timestamp) . '-' . date('d', $timestamp) . ' 00:00:00', $timezone);
-			// $prune_timestamp = ($prune_timestamp < $timestamp - 86400) ? $prune_timestamp + 86400 : (($prune_timestamp > $timestamp) ? $prune_timestamp - 86400 : $prune_timestamp);
-
-			$prune_time_obj = date_create(null, timezone_open($this->config['board_timezone']));
-			date_timestamp_set($prune_time_obj, $timestamp);
+			$prune_time_obj = date_create('now', timezone_open($this->config['board_timezone']));
 			date_time_set($prune_time_obj, 0, 0, 0);
 			$prune_timestamp = date_timestamp_get($prune_time_obj);
 		}
 		else	// period of time
 		{
-			$prune_timestamp = $timestamp - ((3600 * $this->config['lfwwh_period_of_time_h']) + (60 * $this->config['lfwwh_period_of_time_m']) + $this->config['lfwwh_period_of_time_s']);
+			$prune_timestamp = time() - ((3600 * $this->config['lfwwh_period_of_time_h']) + (60 * $this->config['lfwwh_period_of_time_m']) + $this->config['lfwwh_period_of_time_s']);
 		}
 
 		if ($this->config['lfwwh_last_clean'] != $prune_timestamp || $this->config['lfwwh_time_mode'] == 0)

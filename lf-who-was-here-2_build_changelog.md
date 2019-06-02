@@ -1,6 +1,9 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B38: (beta3)
+  * Kleinere Änderungen in den Sprachdateien.
+  * Code bereinigt.
 * B37:
   * Fix: Fehler in MySQL Abfrage behoben. Bei der Einstellung "Heute" wurden Einträge in der Besuchertabelle mit der Uhrzeit 00:00:00 zum Vortag gezählt.
   * Kleinere Code Optimierungen bei `display()`.
@@ -27,7 +30,6 @@
   * JS des Info-Buttons und des ACP-Moduls auf "camelCase" formatiert.
   * `README.md` geändert.
   * `README_updating_a_developer_version.md` geändert.
-  * `composer.json` geändert.
   * `lf-who-was-here_version.json` geändert.
 * B30:
   * Code bereinigt.
@@ -103,7 +105,6 @@
   * Unsichtbare Benutzer können sich jetzt selbst in der Benutzerliste sehen.
 * B16:
   * Autoreninfo in allen Dateien geändert.
-  * `composer.json` geändert.
 * B15:
   * Autoreninfo in allen Dateien auf ein einheitliches Format gebracht und überall dort eingefügt, wo es noch fehlte. Als Muster diente dazu "phpBB Skeleton Extension".
   * Templates: INCLUDEJS ist jetzt an eine Bedingung geknüpft und wird dadurch nur einmal ausgeführt. Relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder bei der Ext "Bridge".
