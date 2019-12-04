@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
+* LF who was here 2 - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
@@ -588,7 +588,7 @@ class who_was_here
 		{
 			return '';
 		}
-		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u': 'b') . '" style="display: none;">' . $text . '</span>';
+		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u' : 'b') . '" style="display: none;">' . $text . '</span>';
 	}
 
 	/**
@@ -622,9 +622,9 @@ class who_was_here
 			switch (substr_count($explanation, '%s'))
 			{
 				case 3:
-					return sprintf($explanation, '', $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
+					return sprintf($explanation, '', $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_AND_SEPARATOR']);
 				case 2:
-					return sprintf($explanation, '', $this->user->lang['LFWWH_WORD']);
+					return sprintf($explanation, '', $this->user->lang['LFWWH_AND_SEPARATOR']);
 				default:
 					return sprintf($explanation, '');
 			}
@@ -680,11 +680,11 @@ class who_was_here
 		switch (substr_count($total_users_string, '%s'))
 		{
 			case 4:
-				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
+				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_AND_SEPARATOR']);
 			case 3:
-				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
+				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['COMMA_SEPARATOR'], $this->user->lang['LFWWH_AND_SEPARATOR']);
 			case 2:
-				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['LFWWH_WORD']);
+				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR'], $this->user->lang['LFWWH_AND_SEPARATOR']);
 			case 1:
 				return sprintf($total_users_string, $this->user->lang['LFWWH_TOTAL_SEPARATOR']);
 			default:

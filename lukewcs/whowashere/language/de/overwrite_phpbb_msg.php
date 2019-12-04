@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
+* LF who was here 2 - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
@@ -9,9 +9,8 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de
-* Lang_ver     : 2.0.0
+* Lang_ext_ver : 2.0.0
 * Lang_author  : LukeWCS
-* Lang_tab_size: 4
 *
 */
 

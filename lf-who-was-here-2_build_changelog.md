@@ -1,6 +1,12 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B39:
+  * Kleinere Korrekturen in den Sprachdateien.
+  * 1 Sprachvariable umbenannt.
+  * `composer.json` geändert: Mindestanforderung bei PHP von 5.3.3 auf 5.6 geändert. Name von "LF who was here (2.x)" auf "LF who was here 2" gekürzt. Beta-Merkmal entfernt.
+  * Autoreninfo in allen Dateien entsprechend angepasst.
+  * Vorbereitungen auf Release. 
 * B38: (beta3)
   * Kleinere Änderungen in den Sprachdateien.
   * Code bereinigt.
@@ -169,7 +175,7 @@
   * Migration geändert.
   * In `acp_whowashere_module.php` konsequent `$this` verwendet.
   * Das Unterscheidungsmerkmal auf (2.x) geändert und konsequent überall verwendet.
-  * Weitere Sprachvariablen umbenannt.   
+  * Weitere Sprachvariablen umbenannt.
 * B4:
   * Weitere Konfig-Variablen umbenannt. Darum muss zuerst B3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Das Unterscheidungsmerkmal "(Gen 4)" an allen Stellen im ACP entfernt wo es überflüssig ist, sprich wo eine Versionsnummer sichtbar ist.

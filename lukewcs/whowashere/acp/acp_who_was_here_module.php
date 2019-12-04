@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* LF who was here (2.x) - based on "NV who was here". An extension for the phpBB Forum Software package.
+* LF who was here 2 - based on "NV who was here". An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
@@ -87,7 +87,7 @@ class acp_who_was_here_module
 			$this->config->set('lfwwh_cache_time', $load_online_time);
 		}
 		$this->template->assign_vars(array(
-			'LFWWH_CONFIG_TITLE'			=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here (2.x)'),
+			'LFWWH_CONFIG_TITLE'			=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here 2'),
 			'LFWWH_INSTALLED'				=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_version']),
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
