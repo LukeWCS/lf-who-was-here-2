@@ -375,7 +375,7 @@ class who_was_here
 		if ($users_list == '')
 		{
 			// User list is empty.
-			$users_list = $this->user->lang['NO_ONLINE_USERS'];
+			$users_list = $this->user->lang['LFWWH_NO_USERS'];
 		}
 
 		if ($this->config['lfwwh_disp_bots'] == 2)

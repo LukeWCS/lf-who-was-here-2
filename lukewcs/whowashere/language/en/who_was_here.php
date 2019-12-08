@@ -58,6 +58,7 @@ $lang = array_merge($lang, array(
 		2						=> 'In total there were <strong>%d</strong> users online',
 	),
 	'LFWWH_TOTAL_SEPARATOR'		=> ' ::',
+	'LFWWH_NO_USERS'			=> 'No registered users',
 	'LFWWH_REG_USERS' => array(
 		0						=> '0 registered',
 		1						=> '%d registered',

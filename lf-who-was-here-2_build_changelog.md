@@ -1,10 +1,13 @@
 
 ### Builds 2.0.0 (2019--)
 
+* B40:
+  * Der Text "0 Mitglieder" wird nicht mehr vom phpBB Sprachpaket bezogen.
+  * 1 Sprachvariable hinzugefügt.
 * B39:
   * Kleinere Korrekturen in den Sprachdateien.
   * 1 Sprachvariable umbenannt.
-  * `composer.json` geändert: Mindestanforderung bei PHP von 5.3.3 auf 5.6 geändert. Name von "LF who was here (2.x)" auf "LF who was here 2" gekürzt. Beta-Merkmal entfernt.
+  * `composer.json` geändert: Mindestanforderung bei PHP geändert. Ext Name gekürzt. Beta-Merkmal entfernt.
   * Autoreninfo in allen Dateien entsprechend angepasst.
   * Vorbereitungen auf Release. 
 * B38: (beta3)

@@ -58,7 +58,6 @@ $lang = array_merge($lang, array(
 	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only users with administrative rights can see the WWH display. Helpful if WWH should not be visible to others at short notice.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Use the permission system of phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: "PERMISSIONS" » Group permissions » [user group] » User permissions » Advanced Permissions » Profile".',
-	'LFWWH_SECTION_DISP_1'				=> 'Display settings 1',
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Display for guests',
 	'LFWWH_DISP_FOR_GUESTS_EXP'			=> 'Determines what guests can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for guests.',
 	'LFWWH_DISP_FOR_GUESTS_1'			=> 'Statistics and members',
@@ -67,6 +66,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_FOR_GUESTS_2'			=> 'Nothing',
 
 	// config section 2
+	'LFWWH_SECTION_DISP_1'				=> 'Display settings 1',
 	'LFWWH_DISP_REG_USERS'				=> 'Show visible users (number)',
 	'LFWWH_DISP_REG_USERS_EXP'			=> 'The number of visible users is displayed.',
 	'LFWWH_DISP_HIDDEN'					=> 'Show invisible users (number and names)',

@@ -1,5 +1,15 @@
 
-### Changelog 2.0.0 (2019--)
+### Changelog 2.0.0
+
+#### Release (2019-12-)
+
+* Name von "LF who was here (2.x)" auf "LF who was here 2" geändert und Autoreninfo in allen Dateien angepasst.
+* Mindestanforderung bei PHP von 5.3.3 auf 5.6 geändert.
+* Kleinere Korrekturen in den Sprachdateien.
+* Sprachvariable `LFWWH_WORD` in `LFWWH_AND_SEPARATOR` umbenannt.
+* Der Text "0 Mitglieder" wird nicht länger aus dem phpBB Sprachpaket bezogen, sondern kann unabhängig definiert werden.
+  * Sprachvariable `LFWWH_NO_USERS` hinzugefügt.
+* Template-Änderungen: Nein
 
 #### Beta 3 (2019-06-02)
 
