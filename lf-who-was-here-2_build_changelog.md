@@ -1,14 +1,23 @@
 
-### Builds 2.0.0 (2019--)
+### Builds 2.0.0
 
+* B41:
+  * `README.md` geändert.
+  * `composer.json` geändert: Version hat ab jetzt den Zusatz RC1.
+  * Eine unnötige Twig Bedingung aus allen Templates entfernt.
+  * Wenn alle Templates gleichzeitig aktiviert werden, dann wird jetzt auch die zugehörige Position angezeigt.
+  * 1 Sprachvariable hinzugefügt.
 * B40:
   * Der Text "0 Mitglieder" wird nicht mehr vom phpBB Sprachpaket bezogen.
   * 1 Sprachvariable hinzugefügt.
+  * `README.md` geändert.
 * B39:
   * Kleinere Korrekturen in den Sprachdateien.
   * 1 Sprachvariable umbenannt.
   * `composer.json` geändert: Mindestanforderung bei PHP geändert. Ext Name gekürzt. Beta-Merkmal entfernt.
   * Autoreninfo in allen Dateien entsprechend angepasst.
+  * `README.md` geändert.
+  * `README_updating_a_developer_version.md` geändert.
   * Vorbereitungen auf Release. 
 * B38: (beta3)
   * Kleinere Änderungen in den Sprachdateien.
@@ -19,6 +28,7 @@
   * Den Code der Rechte-Steuerung beim einfachen Rechtesystem übersichtlicher gestaltet.
 * B36:
   * Code bereinigt.
+  * `composer.json` geändert: Mindestanforderung bei phpBB korrigiert.
   * Fix: Das Problem bei der Zeitumstellung in Verbindung mit der Einstellung "Heute" und unterschiedlichen Zeitzonen bei PHP und phpBB behoben. (Meldung Wolkenbruch)
 * B35:
   * Travis CI eingerichtet.
@@ -33,7 +43,7 @@
   * Gruppenrechte werden jetzt immer angezeigt und je nach Situation nur abgeblendet.
 * B32:
   * Fix: Bei fehlendem Statistik-Recht wurden trotzdem die Template-Variablen `LFWWH_EXP` und `LFWWH_RECORD` erzeugt.
-  * `composer.json` geändert, Mindestanforderung korrigiert.
+  * `composer.json` geändert: Mindestanforderung bei phpBB geändert.
   * Methode zum Überschreiben der Sprach-Variablen `USER_DELETED` und `USER_DELETE_SUCCESS` umgestellt auf eine Sprachdatei mit zusätzlichem Code.
 * B31: (beta2)
   * JS des Info-Buttons und des ACP-Moduls auf "camelCase" formatiert.

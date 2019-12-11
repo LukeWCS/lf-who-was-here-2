@@ -180,6 +180,10 @@ class who_was_here
 	public function display()
 	{
 		$this->user->add_lang_ext('lukewcs/whowashere', 'who_was_here');
+		if ($this->config['lfwwh_disp_template_pos_all'])
+		{
+			$this->user->add_lang_ext('lukewcs/whowashere', 'info_acp_who_was_here');
+		}
 		$is_min_phpbb32 = phpbb_version_compare($this->config['version'], '3.2.0', '>=');
 
 		// Set display permission variables
@@ -432,6 +436,14 @@ class who_was_here
 			'LFWWH_POS'			=> ($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos'],
 			'LFWWH_API_MODE'	=> $this->config['lfwwh_api_mode'],
 		));
+		if ($this->config['lfwwh_disp_template_pos_all'])
+		{
+			$this->template->assign_vars(array(
+				'LFWWH_POS_EXP_1'	=> '<span class="lfwwh_pos_exp">' . sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_0']) . '</span>',
+				'LFWWH_POS_EXP_2'	=> '<span class="lfwwh_pos_exp">' . sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_1']) . '</span>',
+				'LFWWH_POS_EXP_4'	=> '<span class="lfwwh_pos_exp">' . sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_2']) . '</span>',
+			));
+		}
 	}
 
 	/**

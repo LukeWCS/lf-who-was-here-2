@@ -1,10 +1,11 @@
 <div class="stat-block whowashere-list">
 	<h3>{{ lang('LFWWH_TITLE') }}</h3>
 	<p>
+		{{ lfwwh_pos_exp }}
 		{% if LFWWH_TOTAL %}
 			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
 			{% if LFWWH_RECORD %}{{ LFWWH_RECORD }}<br />{% endif %}
-			{{ (LFWWH_LIST || LFWWH_BOTS) ? '<br />' }}
+			{{ LFWWH_LIST ? '<br />' }}
 		{% endif %}
 		{% if LFWWH_LIST %}{{ LFWWH_LIST }}<br />{% endif %}
 		{% if LFWWH_BOTS %}{{ LFWWH_BOTS }}<br />{% endif %}

@@ -11,7 +11,7 @@ Extension for phpBB 3.2 - Shows a visitor statistic of the current day or a free
 1. In the extension management, enable "LF who was here 2".
 
 ### Upgrade of an old WWH extension (NV-WWH or LF-WWH 1):
-1. Leave the old WWH extension installed and active. A short-term parallel operation with LFWWH 2 is technically intended and legitimate.
+1. Leave the old WWH extension installed and active. A short-term parallel operation with LF-WWH 2 is technically intended and legitimate.
 1. Download and extract the Zip archive of the [GitHub release](https://github.com/LukeWCS/lf-who-was-here-2/releases).
 1. Copy the folder `lukewcs/` from the Zip archive including all subfolders and files to `ext/` from phpBB (upload).
 1. In the extension management, enable "LF who was here 2". This will also automatically perform a data transfer.

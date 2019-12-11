@@ -5,3 +5,10 @@
 	user-select: none;
 	cursor: pointer;
 }
+.lfwwh_pos_exp {
+	color: white;
+	background-color: black;
+	border: 1px solid white;
+	padding: 2px;
+	font-size: smaller;
+}

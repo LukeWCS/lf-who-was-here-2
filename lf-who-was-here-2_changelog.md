@@ -1,15 +1,20 @@
 
 ### Changelog 2.0.0
 
-#### Release (2019-12-)
+#### RC 1 (2019-12-)
 
 * Name von "LF who was here (2.x)" auf "LF who was here 2" geändert und Autoreninfo in allen Dateien angepasst.
 * Mindestanforderung bei PHP von 5.3.3 auf 5.6 geändert.
 * Kleinere Korrekturen in den Sprachdateien.
 * Sprachvariable `LFWWH_WORD` in `LFWWH_AND_SEPARATOR` umbenannt.
-* Der Text "0 Mitglieder" wird nicht länger aus dem phpBB Sprachpaket bezogen, sondern kann unabhängig definiert werden.
+* Der Text für "keine Mitglieder" wird nicht länger über die Variable `NO_ONLINE_USERS` aus dem phpBB Sprachpaket geladen, sondern kann unabhängig definiert werden.
   * Sprachvariable `LFWWH_NO_USERS` hinzugefügt.
-* Template-Änderungen: Nein
+* Die Twig Bedingung `|| LFWWH_BOTS` wird nicht benötigt und wurde aus allen Template Dateien (insgesamt 5) entfernt.
+* Wenn der Testmodus "Zeige alle Template-Positionen gleichzeitig:" aktiviert ist, dann werden jetzt bei allen Templates die zugehörige Position angezeigt, wodurch ein Template zweifelsfrei identifiziert werden kann. 
+  * Dazu waren ausserdem Änderungen in 4 Template Dateien notwendig.
+  * Sprachvariable `LFWWH_POS_EXP` hinzugefügt.
+* Template-Änderungen: Ja
+* Sprachdatei-Änderungen: Ja
 
 #### Beta 3 (2019-06-02)
 
@@ -22,6 +27,7 @@
 * Alle Fehler behoben, die von PHP_CodeSniffer gemeldet wurden.
 * Kleinere Code Optimierungen.
 * Template-Änderungen: Nein
+* Sprachdatei-Änderungen: Ja
 
 Fehlerkorrekturen:
 
@@ -62,6 +68,7 @@ Fehlerkorrekturen:
   * Info-Schaltfläche: Globale Variablen und Funktion in einem Objekt zusammengefasst sowie Direktive `use strict` gesetzt.
   * ACP-Modul: Funktionen in einem Objekt zusammengefasst sowie Direktive `use strict` gesetzt.
 * Template-Änderungen: Nein
+* Sprachdatei-Änderungen: Ja
 
 #### Beta 1 (2019-04-14)
 
@@ -126,10 +133,8 @@ Fehlerkorrekturen:
   * In den Sprachdateien für "Erzeuge ausgeblendete Informationen:" 2 neue Variablen hinzugefügt.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
-  * Neu: `overall_header_head_append.html`, `who_was_here.css`
-  * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
-  * Gelöscht: -
-
+* Sprachdatei-Änderungen: Ja
+ 
 Fehlerkorrekturen:
 
 * Fix: Wenn bei der Einstellungskombination "Zeige Bots:" -> "Mit den Benutzern" und "Zeige die Zeit von Bots:" -> "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
@@ -183,9 +188,6 @@ Fehlerkorrekturen:
 * In `composer.json` bei `homepage` statt dem phpbb.de-Forenthema die GitHub Adresse hinterlegt, da dies eher einer Homepage entspricht.
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
-  * Neu: `who_was_here.html`
-  * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
-  * Gelöscht: -
 
 ### Changelog 1.4.2 (2019-02-08)
 
@@ -251,9 +253,6 @@ Fehlerkorrekturen:
     * Das gilt ebenso für die Schaltfläche "Standard" von "Einstellungen zurücksetzen:".
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die neue Template Bedingung `&& !WHO_WAS_HERE_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
-  * Neu: `who_was_here.js`
-  * Geändert: `index_body_birthday_block_before.html`, `index_body_stat_blocks_after.html`, `index_body_stat_blocks_before.html`
-  * Gelöscht: -
 
 Fehlerkorrekturen:
 
@@ -305,9 +304,6 @@ Fehlerkorrekturen:
 * Weitere Dateibereinigung vorgenommen: 4 x index.html entfernt.
 * Ab dieser Version ist die Versionsprüfung im ACP eingerichtet. Alle Zugriffe finden diesbezüglich auf GitHub und über HTTPS statt.
 * Template-Änderungen: Ja
-  * Neu: `index_body_birthday_block_before.html`
-  * Geändert: -
-  * Gelöscht: -
 
 ### Changelog 1.3.1 (2018-09-18)
 
@@ -340,6 +336,3 @@ Fehlerkorrekturen:
   * Im ACP Modul die Einstellungen um den Punkt "Position der Anzeige:" erweitert, mit dem die oben genannte Funktion gesteuert werden kann.
   * In den Sprachdateien für "Position der Anzeige:" entsprechende Variablen hinzugefügt.
 * Template-Änderungen: Ja
-  * Neu: `index_body_stat_blocks_after.html`
-  * Geändert: `index_body_stat_blocks_before.html`
-  * Gelöscht: -
