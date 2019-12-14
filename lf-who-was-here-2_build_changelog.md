@@ -1,6 +1,8 @@
 
 ### Builds 2.0.0
 
+* B42: (RC1)
+  * `composer.json` aktualisiert.
 * B41:
   * `README.md` geändert.
   * `composer.json` geändert: Version hat ab jetzt den Zusatz RC1.

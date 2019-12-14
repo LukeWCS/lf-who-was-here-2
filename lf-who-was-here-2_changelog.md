@@ -1,17 +1,17 @@
 
 ### Changelog 2.0.0
 
-#### RC 1 (2019-12-)
+#### RC 1 (2019-12-14)
 
 * Name von "LF who was here (2.x)" auf "LF who was here 2" geändert und Autoreninfo in allen Dateien angepasst.
-* Mindestanforderung bei PHP von 5.3.3 auf 5.6 geändert.
+* Mindestanforderung bei PHP von 5.3.3 auf 5.6.0 geändert.
 * Kleinere Korrekturen in den Sprachdateien.
 * Sprachvariable `LFWWH_WORD` in `LFWWH_AND_SEPARATOR` umbenannt.
 * Der Text für "keine Mitglieder" wird nicht länger über die Variable `NO_ONLINE_USERS` aus dem phpBB Sprachpaket geladen, sondern kann unabhängig definiert werden.
   * Sprachvariable `LFWWH_NO_USERS` hinzugefügt.
 * Die Twig Bedingung `|| LFWWH_BOTS` wird nicht benötigt und wurde aus allen Template Dateien (insgesamt 5) entfernt.
 * Wenn der Testmodus "Zeige alle Template-Positionen gleichzeitig:" aktiviert ist, dann werden jetzt bei allen Templates die zugehörige Position angezeigt, wodurch ein Template zweifelsfrei identifiziert werden kann. 
-  * Dazu waren ausserdem Änderungen in 4 Template Dateien notwendig.
+  * Dazu waren ausserdem Änderungen in 4 Template Dateien und 1 CSS Datei notwendig.
   * Sprachvariable `LFWWH_POS_EXP` hinzugefügt.
 * Template-Änderungen: Ja
 * Sprachdatei-Änderungen: Ja
