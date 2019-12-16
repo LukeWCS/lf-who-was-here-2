@@ -1,6 +1,9 @@
 
 ### Builds 2.0.0
 
+* B43:
+  * Fix: Problematik bei der Aktualisierung behoben, `display()` wird im Listener jetzt über ein anderes Event getriggert.
+  * Fix: Designschwäche der Info-Buttons (Icons) bezüglich Textfarbe behoben. CSS geändert.
 * B42: (RC1)
   * `composer.json` aktualisiert.
 * B41:

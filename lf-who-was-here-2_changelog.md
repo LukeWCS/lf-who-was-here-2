@@ -1,6 +1,18 @@
 
 ### Changelog 2.0.0
 
+#### RC 2 (2019-12-)
+
+* Template-Änderungen: Ja
+* Sprachdatei-Änderungen: Nein
+
+Fehlerkorrekturen:
+
+* Fix: Bedingt durch die Reihenfolge bei der Ausführung von Events, wurde beim Aufruf der Index-Seite nicht zwingend der tatsächliche Status angezeigt, da immer zuerst das Event für die Anzeige und dann erst das Event für die Aktualisierung ausgeführt wurde. Dadurch waren die Statistik, die Uhrzeiten und die Benutzerliste nicht aktuell. Wurde die Seite aktualisiert, also erneut geladen, wurde der korrekte Status angezeigt. Das war eher eine Designschwäche als ein echter Fehler und trat in der Praxis nur in Erscheinung, wenn der Cache deaktiviert war. 
+  * Im Listener wird für die Anzeige jetzt ein anderer Event verwendet. Um dabei potentielle Performance-Verluste zu vermeiden, wird die Funktion für die Anzeige nur dann ausgeführt, wenn sie auch tatsächlich benötigt wird, also wenn die Index-Seite aufgerufen wird.
+* Fix: Bei manchen Styles konnte es vorkommen, dass das Info-Symbol (Awesome-Font) nicht wie beabsichtigt die Textfarbe bekam, sondern eine Farbe die über die CSS-Klasse `.icon` definiert wurde. Je nach Farbwahl war dann das Icon praktisch nicht mehr vom Hintergrund zu unterscheiden.
+  * CSS geändert.
+
 #### RC 1 (2019-12-14)
 
 * Name von "LF who was here (2.x)" auf "LF who was here 2" geändert und Autoreninfo in allen Dateien angepasst.

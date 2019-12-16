@@ -4,6 +4,7 @@
 	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
+	color: inherit;
 }
 .lfwwh_pos_exp {
 	color: white;

@@ -179,6 +179,10 @@ class who_was_here
 	*/
 	public function display()
 	{
+		if ($this->user->page['page_name'] != 'index.php')
+		{
+			return;
+		}
 		$this->user->add_lang_ext('lukewcs/whowashere', 'who_was_here');
 		if ($this->config['lfwwh_disp_template_pos_all'])
 		{

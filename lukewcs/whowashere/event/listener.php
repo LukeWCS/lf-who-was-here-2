@@ -17,20 +17,20 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class listener implements EventSubscriberInterface
 {
 	// @lukewcs.whowashere.core
-	protected $who_was_here_core;
+	protected $wwh;
 
 	public function __construct(
-		$who_was_here_core
+		\lukewcs\whowashere\core\who_was_here $wwh
 	)
 	{
-		$this->wwh = $who_was_here_core;
+		$this->wwh = $wwh;
 	}
 
 	static public function getSubscribedEvents()
 	{
 		return array(
 			'core.page_header_after'		=> 'update_session',
-			'core.index_modify_page_title'	=> 'display',
+			'core.page_footer'				=> 'display',
 			'core.permissions'				=> 'add_permissions',
 			'core.delete_user_after'		=> 'clear_up',
 		);
