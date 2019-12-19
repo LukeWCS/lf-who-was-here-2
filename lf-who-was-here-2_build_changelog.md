@@ -1,8 +1,13 @@
 
 ### Builds 2.0.0
 
+* B44:
+  * Kleinere Korrekturen in den Sprachdateien.
+  * `README_updating_a_developer_version.md` geändert.
+  * Die Twig Variable für die Anzeige der Template Position umbenannt, da diese auch für andere Informationen dienen kann.
+  * Kleinere Code Änderungen.
 * B43:
-  * Fix: Problematik bei der Aktualisierung behoben, `display()` wird im Listener jetzt über ein anderes Event getriggert.
+  * Fix: Problematik bei der Aktualisierung der Anzeige behoben, `display()` wird im Listener jetzt über ein anderes Event getriggert.
   * Fix: Designschwäche der Info-Buttons (Icons) bezüglich Textfarbe behoben. CSS geändert.
 * B42: (RC1)
   * `composer.json` aktualisiert.

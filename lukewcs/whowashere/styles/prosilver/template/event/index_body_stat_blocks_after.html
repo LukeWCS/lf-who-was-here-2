@@ -1,4 +1,4 @@
 {% if (LFWWH_TOTAL || LFWWH_LIST) && !LFWWH_API_MODE && LFWWH_POS b-and 2 %}
-	{% if LFWWH_POS == 7 %}{% set lfwwh_pos_exp = LFWWH_POS_EXP_2 ~ '<br />' %}{% endif %}
+	{% if LFWWH_POS == 7 %}{% set lfwwh_debug_msg = LFWWH_POS_EXP_2 ~ '<br />' %}{% endif %}
 	{% INCLUDE '@lukewcs_whowashere/who_was_here.html' %}
 {% endif %}

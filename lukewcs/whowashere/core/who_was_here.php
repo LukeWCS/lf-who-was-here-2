@@ -32,6 +32,12 @@ class who_was_here
 	/** @var \phpbb\db\driver\driver_interface */
 	protected $db;
 
+	/** @var string table_prefix */
+	protected $table_prefix;
+
+	/* @var string phpEx */
+	protected $php_ext;
+
 	/**
 	* Constructor
 	*
@@ -42,6 +48,7 @@ class who_was_here
 	* @param \phpbb\cache\driver\driver_interface	$cache				An interface that all cache drivers must implement
 	* @param \phpbb\db\driver\driver_interface		$db					Interface driver_interface
 	* @param string									$table_prefix		Tables prefix
+	* @param string									$php_ext			PHP extension
 	*
 	*/
 
@@ -52,7 +59,8 @@ class who_was_here
 		\phpbb\auth\auth $auth,
 		\phpbb\cache\driver\driver_interface $cache,
 		\phpbb\db\driver\driver_interface $db,
-		$table_prefix
+		$table_prefix,
+		$php_ext
 	)
 	{
 		$this->template = $template;
@@ -62,6 +70,7 @@ class who_was_here
 		$this->cache = $cache;
 		$this->db = $db;
 		$this->LFWWH_TABLE = $table_prefix . 'lfwwh';
+		$this->php_ext = $php_ext;
 	}
 
 	/**
@@ -179,7 +188,7 @@ class who_was_here
 	*/
 	public function display()
 	{
-		if ($this->user->page['page_name'] != 'index.php')
+		if ($this->user->page['page_name'] != 'index.' . $this->php_ext)
 		{
 			return;
 		}
@@ -443,9 +452,9 @@ class who_was_here
 		if ($this->config['lfwwh_disp_template_pos_all'])
 		{
 			$this->template->assign_vars(array(
-				'LFWWH_POS_EXP_1'	=> '<span class="lfwwh_pos_exp">' . sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_0']) . '</span>',
-				'LFWWH_POS_EXP_2'	=> '<span class="lfwwh_pos_exp">' . sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_1']) . '</span>',
-				'LFWWH_POS_EXP_4'	=> '<span class="lfwwh_pos_exp">' . sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_2']) . '</span>',
+				'LFWWH_POS_EXP_1'	=> $this->get_debug_span(sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_0'])),
+				'LFWWH_POS_EXP_2'	=> $this->get_debug_span(sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_1'])),
+				'LFWWH_POS_EXP_4'	=> $this->get_debug_span(sprintf($this->user->lang['LFWWH_POS_EXP'], $this->user->lang['LFWWH_DISP_TEMPLATE_POS_2'])),
 			));
 		}
 	}
@@ -605,6 +614,14 @@ class who_was_here
 			return '';
 		}
 		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u' : 'b') . '" style="display: none;">' . $text . '</span>';
+	}
+
+	/**
+	* Returns a string encapsulated in <span> tags for debug text. (LukeWCS)
+	*/
+	private function get_debug_span($text)
+	{
+		return '<span class="lfwwh_debug">' . $text . '</span>';
 	}
 
 	/**

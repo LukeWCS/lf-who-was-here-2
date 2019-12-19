@@ -29,7 +29,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : '1');
 
 		$data = array();
-		// Add configs
+		// config
 		$data[] = array('config.add', array('lfwwh_admin_mode'				, '0'));
 		$data[] = array('config.add', array('lfwwh_api_mode'				, (isset($this->config['wwh_api_mode']))				? $this->config['wwh_api_mode']					: '0'));
 		$data[] = array('config.add', array('lfwwh_cache_time'				, (isset($this->config['wwh_cache_time']))				? $this->config['wwh_cache_time']				: $load_online_time));
@@ -61,10 +61,9 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('config.add', array('lfwwh_use_cache'				, '1'));
 		$data[] = array('config.add', array('lfwwh_use_online_time'			, (isset($this->config['wwh_use_online_time']))			? $this->config['wwh_use_online_time']			: '1'));
 		$data[] = array('config.add', array('lfwwh_use_permissions'			, (isset($this->config['wwh_use_permissions']))			? $this->config['wwh_use_permissions']			: '0'));
-		// Add permissions
+		// permissions
 		$data[] = array('permission.add', array('u_lfwwh_show_stats'));
 		$data[] = array('permission.add', array('u_lfwwh_show_users'));
-		// Set permissions
 		$data[] = array('permission.permission_set', array('ADMINISTRATORS'		, 'u_lfwwh_show_stats', 'group'));
 		$data[] = array('permission.permission_set', array('ADMINISTRATORS'		, 'u_lfwwh_show_users', 'group'));
 		$data[] = array('permission.permission_set', array('GLOBAL_MODERATORS'	, 'u_lfwwh_show_stats', 'group'));
@@ -73,7 +72,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = array('permission.permission_set', array('REGISTERED'			, 'u_lfwwh_show_users', 'group'));
 		$data[] = array('permission.permission_set', array('NEWLY_REGISTERED'	, 'u_lfwwh_show_users', 'group', false));
 		$data[] = array('permission.permission_set', array('GUESTS'				, 'u_lfwwh_show_stats', 'group'));
-		// Set permission roles
+		// permission roles
 		if ($this->role_exists('ROLE_USER_STANDARD'))
 		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role'));
@@ -118,9 +117,9 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_NEW_MEMBER'	, 'u_lfwwh_show_users', 'role', false));
 		}
-		// Custom functions
+		// custom functions
 		$data[] = array('custom', array(array($this, 'import_wwh_table')));
-		// Add ACP modules
+		// ACP modules
 		$data[] = array('module.add', array(
 			'acp',
 			'ACP_CAT_DOT_MODS',
@@ -135,7 +134,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 				'module_mode'		=> 'overview',
 				'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',
 		)));
-		// Set current version
+		// current version
 		$data[] = array('config.add', array('lfwwh_version'				, '2.0.0'));
 
 		return $data;
@@ -144,8 +143,6 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 	public function revert_data()
 	{
 		return(array(
-			// Remove configs
-			// Remove permissions
 			array('permission.remove', array('u_lfwwh_show_users')),
 			array('permission.remove', array('u_lfwwh_show_stats')),
 		));

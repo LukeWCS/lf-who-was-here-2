@@ -57,7 +57,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_ADMIN_MODE'					=> 'Administrator mode',
 	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only users with administrative rights can see the WWH display. Helpful if WWH should not be visible to others at short notice.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Use the permission system of phpBB',
-	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: "PERMISSIONS" » Group permissions » [user group] » User permissions » Advanced Permissions » Profile".',
+	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: “PERMISSIONS » Group permissions » [user group] » User permissions » Advanced Permissions » Profile”.',
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Display for guests',
 	'LFWWH_DISP_FOR_GUESTS_EXP'			=> 'Determines what guests can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for guests.',
 	'LFWWH_DISP_FOR_GUESTS_1'			=> 'Statistics and members',
@@ -118,7 +118,7 @@ $lang = array_merge($lang, array(
 	// config section 4
 	'LFWWH_SECTION_OTHERS'				=> 'Others',
 	'LFWWH_API_MODE'					=> 'API mode',
-	'LFWWH_API_MODE_EXP'				=> 'This deactivates the display of WWH and only creates the template variables. This mode is for forums where WWH is already represented by other extensions (such as "Stat Block").',
+	'LFWWH_API_MODE_EXP'				=> 'This deactivates the display of WWH and only creates the template variables. This mode is for forums where WWH is already represented by other extensions (such as “Stat Block”).',
 	'LFWWH_CLEAR_UP'					=> 'Automatically clean up deleted users',
 	'LFWWH_CLEAR_UP_EXP'				=> 'If user accounts are deleted, the table and display of WWH are also immediately cleared.',
 	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Show all template positions at the same time',
