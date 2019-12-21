@@ -1,6 +1,8 @@
 
 ### Builds 2.0.0
 
+* B45:
+  * Fix: Durch eine Änderung in B43 wurde im Portal das WWH Modul nicht mehr angezeigt. (Meldung Kirk)
 * B44:
   * Kleinere Korrekturen in den Sprachdateien.
   * `README_updating_a_developer_version.md` geändert.

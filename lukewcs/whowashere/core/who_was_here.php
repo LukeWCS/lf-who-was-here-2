@@ -188,7 +188,8 @@ class who_was_here
 	*/
 	public function display()
 	{
-		if ($this->user->page['page_name'] != 'index.' . $this->php_ext)
+		$page_name = $this->user->page['page_name'];
+		if ($page_name != 'index.' . $this->php_ext && $page_name != 'app.' . $this->php_ext . '/portal')
 		{
 			return;
 		}
