@@ -1,6 +1,8 @@
 
 ### Builds 2.0.0
 
+* B46:
+  * Fix: Die Änderung bei B45 funktionierte nicht, wenn die Startseite per `.htaccess` auf das Portal umgebogen wurde. (Meldung Kirk)
 * B45:
   * Fix: Durch eine Änderung in B43 wurde im Portal das WWH Modul nicht mehr angezeigt. (Meldung Kirk)
 * B44:
