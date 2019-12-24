@@ -1,6 +1,8 @@
 
 ### Builds 2.0.0
 
+* B47: (RC2)
+  * `composer.json` aktualisiert.
 * B46:
   * Fix: Die Änderung bei B45 funktionierte nicht, wenn die Startseite per `.htaccess` auf das Portal umgebogen wurde. (Meldung Kirk)
 * B45:
