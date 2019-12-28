@@ -447,7 +447,7 @@ class who_was_here
 			'LFWWH_RECORD'		=> ($wwh_disp_permission_total) ? $this->get_record_string($this->config['lfwwh_record'], $this->config['lfwwh_time_mode']) : '',
 			'LFWWH_LIST'		=> ($wwh_disp_permission_users) ? sprintf($this->user->lang['LFWWH_USERS_PREFIX'], $wwh_button_users) . ' ' . $users_list : '',
 			'LFWWH_BOTS'		=> ($wwh_disp_permission_users && $bots_list) ? sprintf($this->user->lang['LFWWH_BOTS_PREFIX'], $wwh_button_bots) . ' ' . $bots_list : '',
-			'LFWWH_POS'			=> ($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos'],
+			'LFWWH_POS'			=> ($this->config['lfwwh_disp_template_pos_all']) ? 7 : pow(2, $this->config['lfwwh_disp_template_pos']),
 			'LFWWH_API_MODE'	=> $this->config['lfwwh_api_mode'],
 		));
 		if ($this->config['lfwwh_disp_template_pos_all'])

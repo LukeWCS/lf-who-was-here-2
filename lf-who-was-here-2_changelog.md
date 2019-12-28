@@ -1,6 +1,12 @@
 
 ### Changelog 2.0.0
 
+#### Release (2020--)
+
+* Durch eine kleine Änderung ist der Code jetzt kompatibel zu PHP 5.3-5.5: Potenz-Operator `**` durch `pow()` ersetzt.
+* Template-Änderungen: Nein
+* Sprachdatei-Änderungen: Nein
+
 #### RC 2 (2019-12-24)
 
 * Die Twig Variable `lfwwh_pos_exp` in `lfwwh_debug_msg` umbenannt, da zukünftig noch andere Debug Informationen denkbar sind.

@@ -1,6 +1,9 @@
 
 ### Builds 2.0.0
 
+* B48: (CDB Validation Release)
+  * Kompatibilität zu PHP <5.6.
+  * `composer.json` aktualisiert: auf Release 2.0.0 umgestellt.
 * B47: (RC2)
   * `composer.json` aktualisiert.
 * B46:
