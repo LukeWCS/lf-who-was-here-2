@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here? [%s]',
-	'LFWWH_INSTALLED' 					=> 'Installed version: %s &bull; Discussion: <a href="https://www.phpbb.com/community/viewtopic.php?f=456&t=2506381">Topic on phpbb.com</a>',
+	'LFWWH_INSTALLED' 					=> 'Installed version: %1$s &bull; CDB: %2$s',
 
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
@@ -106,7 +106,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_SORT_BY_4'					=> 'User-ID ascending',
 	'LFWWH_SORT_BY_5'					=> 'User-ID descending',
 	'LFWWH_RECORD'						=> 'Visitor record',
-	'LFWWH_RECORD_EXP'					=> 'Show and save the visitor record.',
+	'LFWWH_RECORD_EXP'					=> 'Show and update the visitor record.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Date format for the visitor record',
 	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_TEMPLATE_POS'			=> 'Position of the display',
@@ -146,5 +146,5 @@ $lang = array_merge($lang, array(
 
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
-	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.', // \n is the beginning of a new line
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.',
 ));

@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Wer war da? [%s]',
-	'LFWWH_INSTALLED' 					=> 'Installierte Version: %s &bull; Diskussion: <a href="https://www.phpbb.de/community/viewtopic.php?f=149&t=241976">Thema auf phpbb.de</a>',
+	'LFWWH_INSTALLED' 					=> 'Installierte Version: %1$s &bull; CDB: %2$s',
 
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Berechtigungen',
@@ -106,7 +106,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_SORT_BY_4'					=> 'Benutzer-ID aufsteigend',
 	'LFWWH_SORT_BY_5'					=> 'Benutzer-ID absteigend',
 	'LFWWH_RECORD'						=> 'Besucherrekord',
-	'LFWWH_RECORD_EXP'					=> 'Zeige und speichere den Besucherrekord.',
+	'LFWWH_RECORD_EXP'					=> 'Zeige und aktualisiere den Besucherrekord.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Datums-Format für den Besucherrekord',
 	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>.',
 	'LFWWH_DISP_TEMPLATE_POS'			=> 'Position der Anzeige',
@@ -146,5 +146,5 @@ $lang = array_merge($lang, array(
 
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt.', // \n is the beginning of a new line
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt.',
 ));

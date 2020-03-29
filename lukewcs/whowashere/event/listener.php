@@ -16,7 +16,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	// @lukewcs.whowashere.core
 	protected $wwh;
 
 	public function __construct(

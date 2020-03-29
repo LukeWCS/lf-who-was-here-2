@@ -1,7 +1,11 @@
 
 ### Builds 2.0.0
 
-* B48: (CDB Validation Release)
+* B49: (CDB Validation Release 2)
+  * Alle bei der Validierung festgestellten Fehler behoben.
+  * Kleinere Änderungen in den Sprachdateien.
+  * Im Repo Root `LICENSE.md` in `LICENSE` umbenannt da es sich nicht um Markdown handelt und somit das Suffix falsch war. Ausserdem Datei aktualisiert und Inhalt von Skeleton Extension übernommen.
+* B48: (CDB Validation Release 1)
   * Kompatibilität zu PHP <5.6.
   * `composer.json` aktualisiert: auf Release 2.0.0 umgestellt.
 * B47: (RC2)

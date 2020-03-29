@@ -12,16 +12,19 @@
 
 namespace lukewcs\whowashere\acp;
 
-/**
-* @package acp
-*/
 class acp_who_was_here_module
 {
-	var $u_action;
+	protected $user;
+	protected $config;
+	protected $request;
+	protected $template;
+	protected $cache;
+	public $u_action;
 
 	public function main($id, $mode)
 	{
 		global $user, $config, $request, $template, $cache;
+
 		$this->user = $user;
 		$this->config = $config;
 		$this->request = $request;
@@ -88,7 +91,7 @@ class acp_who_was_here_module
 		}
 		$this->template->assign_vars(array(
 			'LFWWH_CONFIG_TITLE'			=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here 2'),
-			'LFWWH_INSTALLED'				=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_version']),
+			'LFWWH_INSTALLED'				=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_version'], '<a href="https://www.phpbb.com/customise/db/extension/lf_who_was_here_2/">LF who was here 2</a>'),
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],

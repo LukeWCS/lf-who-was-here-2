@@ -15,4 +15,4 @@ services:
             - '@cache.driver'
             - '@dbal.conn'
             - '%core.table_prefix%'
-            - '%core.php_ext%' 
+            - '%core.php_ext%'

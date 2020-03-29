@@ -76,41 +76,26 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		if ($this->role_exists('ROLE_USER_STANDARD'))
 		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role'));
-		}
-		if ($this->role_exists('ROLE_USER_STANDARD'))
-		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_STANDARD'		, 'u_lfwwh_show_users', 'role'));
 		}
 		if ($this->role_exists('ROLE_USER_LIMITED'))
 		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_stats', 'role'));
-		}
-		if ($this->role_exists('ROLE_USER_LIMITED'))
-		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_LIMITED'		, 'u_lfwwh_show_users', 'role'));
 		}
 		if ($this->role_exists('ROLE_USER_FULL'))
 		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_stats', 'role'));
-		}
-		if ($this->role_exists('ROLE_USER_FULL'))
-		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_FULL'			, 'u_lfwwh_show_users', 'role'));
 		}
 		if ($this->role_exists('ROLE_USER_NOPM'))
 		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_stats', 'role'));
-		}
-		if ($this->role_exists('ROLE_USER_NOPM'))
-		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_NOPM'			, 'u_lfwwh_show_users', 'role'));
 		}
 		if ($this->role_exists('ROLE_USER_NOAVATAR'))
 		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_stats', 'role'));
-		}
-		if ($this->role_exists('ROLE_USER_NOAVATAR'))
-		{
 			$data[] = array('permission.permission_set', array('ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_users', 'role'));
 		}
 		if ($this->role_exists('ROLE_USER_NEW_MEMBER'))
@@ -152,10 +137,17 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 	{
 		if ($this->db_tools->sql_table_exists($this->table_prefix . 'wwh') && $this->db_tools->sql_table_exists($this->table_prefix . 'lfwwh'))
 		{
+			$limit = 100;
+			$offset = 0;
 			$sql = 'INSERT INTO ' . $this->table_prefix . 'lfwwh' . ' (user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage)
-					SELECT user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage 
+					SELECT user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage
 					FROM ' . $this->table_prefix . 'wwh';
-			$result = $this->db->sql_query($sql);
+			$result = $this->db->sql_query_limit($sql, $limit, $offset);
+			while ($this->db->sql_affectedrows($result) == $limit)
+			{
+				$offset += $limit;
+				$result = $this->db->sql_query_limit($sql, $limit, $offset);
+			}
 		}
 	}
 

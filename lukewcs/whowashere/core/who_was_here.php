@@ -14,43 +14,15 @@ namespace lukewcs\whowashere\core;
 
 class who_was_here
 {
-	/** @var \phpbb\template\template */
 	protected $template;
-
-	/** @var \phpbb\config\config */
 	protected $config;
-
-	/** @var \phpbb\user */
 	protected $user;
-
-	/** @var \phpbb\auth */
 	protected $auth;
-
-	/** @var \phpbb\cache\driver\driver_interface */
 	protected $cache;
-
-	/** @var \phpbb\db\driver\driver_interface */
 	protected $db;
-
-	/** @var string table_prefix */
+	protected $LFWWH_TABLE;
 	protected $table_prefix;
-
-	/* @var string phpEx */
 	protected $php_ext;
-
-	/**
-	* Constructor
-	*
-	* @param \phpbb\template\template				$template			Interface template class
-	* @param \phpbb\config\config					$config				Configuration container class
-	* @param \phpbb\user							$user				Base user class
-	* @param \phpbb\auth\auth						$auth				Permission/Auth class
-	* @param \phpbb\cache\driver\driver_interface	$cache				An interface that all cache drivers must implement
-	* @param \phpbb\db\driver\driver_interface		$db					Interface driver_interface
-	* @param string									$table_prefix		Tables prefix
-	* @param string									$php_ext			PHP extension
-	*
-	*/
 
 	public function __construct(
 		\phpbb\template\template $template,
@@ -255,7 +227,7 @@ class who_was_here
 			'ids_bot'		=> array(),
 		);
 
-		$wwh_username_colour = $wwh_username = $wwh_username_full = $users_list = $bots_list = '';
+		$wwh_username_full = $users_list = $bots_list = '';
 
 		// Load cache who_was_here
 		if ($this->config['lfwwh_use_cache'])
@@ -519,11 +491,12 @@ class who_was_here
 					WHERE user_id = ' . (int) $user_id;
 			$result = $this->db->sql_query($sql);
 			$found = (int) $this->db->sql_fetchfield('found');
+			$this->db->sql_freeresult($result);
 			if ($found)
 			{
 				$sql = 'DELETE FROM ' . $this->LFWWH_TABLE . '
 						WHERE user_id = ' . (int) $user_id;
-				$result = $this->db->sql_query($sql);
+				$this->db->sql_query($sql);
 				$user_deleted = true;
 			}
 		}

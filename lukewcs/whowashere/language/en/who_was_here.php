@@ -46,7 +46,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'LFWWH_TITLE'				=> 'Who was here',
 	'LFWWH_LAST1'				=> 'last at',
-	'LFWWH_LAST2'				=> 'o\'clock',
+	'LFWWH_LAST2'				=> 'o’clock',
 	'LFWWH_LAST3'				=> 'last on',
 	'LFWWH_USERS_PREFIX'		=> 'Registered users%s:',
 	'LFWWH_BOTS_PREFIX'			=> 'Bots%s:',
