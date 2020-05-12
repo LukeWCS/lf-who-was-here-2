@@ -1,6 +1,11 @@
 
 ### Builds 2.0.0
 
+* B50:
+  * Automatische Korrektur von CDB in `composer.json` übernommen.
+  * Kleinere Änderungen in den Sprachdateien.
+  * `.gitattributes` geändert: `LICENSE` auf ignorieren gesetzt, damit das beim Download nicht mehr enthalten ist und auch von EPV (Travis CI) ignoriert wird.
+  * Im Listener zwei Meldungen von VariableAnalysis behoben.
 * B49: (CDB Validation Release 2)
   * Alle bei der Validierung festgestellten Fehler behoben.
   * Kleinere Änderungen in den Sprachdateien.

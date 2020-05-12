@@ -36,7 +36,8 @@
 		"version-check": {
 			"host": "www.phpbb.com",
 			"directory": "/customise/db/extension/lf_who_was_here_2",
-			"filename": "version_check"
+			"filename": "version_check",
+			"ssl": true
 		}
 	}
 }
