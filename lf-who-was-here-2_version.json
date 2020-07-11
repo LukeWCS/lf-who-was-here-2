@@ -1,9 +1,9 @@
 {
 	"unstable": {
 		"2.0": {
-			"current": "2.0.0-RC2",
-			"download": "",
-			"announcement": "https://github.com/LukeWCS/lf-who-was-here-2/releases",
+			"current": "2.0.0",
+			"download": "https://www.phpbb.com/customise/db/download/178081",
+			"announcement": "https://www.phpbb.com/customise/db/extension/lf_who_was_here_2/",
 			"eol": null,
 			"security": false
 		}

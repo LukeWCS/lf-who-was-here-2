@@ -35,12 +35,12 @@ class listener implements EventSubscriberInterface
 		);
 	}
 
-	public function update_session()
+	public function update_session($event)
 	{
 		$this->wwh->update_session();
 	}
 
-	public function display()
+	public function display($event)
 	{
 		$this->wwh->display();
 	}

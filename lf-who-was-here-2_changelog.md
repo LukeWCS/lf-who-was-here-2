@@ -1,9 +1,9 @@
 
 ### Changelog 2.0.0
 
-#### Release (2020--)
+#### Release (2020-03-29) - CDB (2020-07-06)
 
-* Durch eine kleine Änderung ist der Code jetzt kompatibel zu PHP 5.3-5.5: Potenz-Operator `**` durch `pow()` ersetzt.
+* Durch eine kleine Änderung ist der Code jetzt auch kompatibel zu PHP 5.3 - 5.5: Potenz-Operator `**` durch `pow()` ersetzt.
 * Template-Änderungen: Nein
 * Sprachdatei-Änderungen: Nein
 

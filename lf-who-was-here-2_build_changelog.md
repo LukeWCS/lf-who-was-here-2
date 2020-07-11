@@ -1,15 +1,19 @@
 
 ### Builds 2.0.0
 
+* B51:
+  * Einen Teil der Änderungen von B50 soweit rückgängig gemacht, dass die GitHub Version 2.0.0-b51 exakt der offiziellen CDB Version 2.0.0 entspricht. Die Änderungen von B50 werden zu einem späteren Zeitpunkt wieder eingefügt.
+  * Datei für Versionsprüfung so geändert, dass auch bei Betas und RCs die offizielle Version von CDB gemeldet wird inklusive direkter Download-Möglichkeit von CDB. Bei einem der nächsten Updates wird diese Datei dann vom Repository entfernt.
+  * Alle Dateien und Ordner für den Dienst "Travis CI" entfernt und den Dienst deaktiviert. Ich setze stattdessen bereits seit 2019 "phpBB Ext Check" ein, was zum einen deutlich umfangreicher prüft als Travis CI (nach phpBB Standard) und zum anderen erheblich übersichtlichere Ergebnisse (Status und Logs) liefert.
 * B50:
   * Automatische Korrektur von CDB in `composer.json` übernommen.
   * Kleinere Änderungen in den Sprachdateien.
-  * `.gitattributes` geändert: `LICENSE` auf ignorieren gesetzt, damit das beim Download nicht mehr enthalten ist und auch von EPV (Travis CI) ignoriert wird.
-  * Im Listener zwei Meldungen von VariableAnalysis behoben.
+  * `.gitattributes` geändert: `LICENSE` auf ignorieren gesetzt, damit das beim Download nicht mehr enthalten ist.
+  * Von VariableAnalysis gemeldete Fehler behoben.
 * B49: (CDB Validation Release 2)
   * Alle bei der Validierung festgestellten Fehler behoben.
   * Kleinere Änderungen in den Sprachdateien.
-  * Im Repo Root `LICENSE.md` in `LICENSE` umbenannt da es sich nicht um Markdown handelt und somit das Suffix falsch war. Ausserdem Datei aktualisiert und Inhalt von Skeleton Extension übernommen.
+  * Im Repository Root `LICENSE.md` in `LICENSE` umbenannt da es sich nicht um Markdown handelt und somit das Suffix falsch war. Ausserdem Datei aktualisiert und Inhalt von Skeleton Extension übernommen.
 * B48: (CDB Validation Release 1)
   * Kompatibilität zu PHP <5.6.
   * `composer.json` aktualisiert: auf Release 2.0.0 umgestellt.
@@ -233,3 +237,7 @@
   * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
 * B1:
   * Initial Release, kompletter Umbau auf `lukewcs/whowashere`.
+
+---zurückgehalten b51---
+  * In den Sprachdateien für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
+  * Erneut von VariableAnalysis gemeldete Fehler behoben. Diese Fehler werden erst seit VA 2.8.2 korrekt erkannt, nachdem ich einen Bugreport für VA 2.8.1 eingereicht hatte.
