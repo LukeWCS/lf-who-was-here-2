@@ -1,5 +1,6 @@
 * text=auto
 * text eol=lf
+.github/ export-ignore
 .editorconfig export-ignore
 .gitattributes export-ignore
 lf-who-was-here-2_build_changelog.md export-ignore

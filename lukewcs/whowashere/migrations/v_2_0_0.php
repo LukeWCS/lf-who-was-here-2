@@ -19,7 +19,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		return isset($this->config['lfwwh_version']) && version_compare($this->config['lfwwh_version'], '2.0.0', '>=');
 	}
 
-	static public function depends_on()
+	public static function depends_on()
 	{
 		return array('\lukewcs\whowashere\migrations\s_2_0_0_initial_schema');
 	}

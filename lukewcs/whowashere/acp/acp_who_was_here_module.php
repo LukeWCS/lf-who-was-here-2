@@ -21,7 +21,7 @@ class acp_who_was_here_module
 	protected $cache;
 	public $u_action;
 
-	public function main($id, $mode)
+	public function main()
 	{
 		global $user, $config, $request, $template, $cache;
 

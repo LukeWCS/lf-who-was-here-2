@@ -19,7 +19,7 @@ class s_2_0_0_initial_schema extends \phpbb\db\migration\migration
 		return $this->db_tools->sql_table_exists($this->table_prefix . 'lfwwh');
 	}
 
-	static public function depends_on()
+	public static function depends_on()
 	{
 		return array('\phpbb\db\migration\data\v31x\v3111');
 	}

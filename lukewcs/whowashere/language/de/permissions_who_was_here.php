@@ -27,8 +27,11 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
+global $phpbb_container;
+
 $t1 = $t2 = '';
-if (!$GLOBALS['config']['lfwwh_use_permissions'] || $GLOBALS['config']['lfwwh_admin_mode'])
+$config = $phpbb_container->get('config');
+if (!$config['lfwwh_use_permissions'] || $config['lfwwh_admin_mode'])
 {
 	$t1 = '<span style="opacity: 0.5;">';
 	$t2 = '</span>';

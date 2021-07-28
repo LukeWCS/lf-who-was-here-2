@@ -118,7 +118,7 @@ $lang = array_merge($lang, array(
 	// config section 4
 	'LFWWH_SECTION_OTHERS'				=> 'Sonstiges',
 	'LFWWH_API_MODE'					=> 'API-Modus',
-	'LFWWH_API_MODE_EXP'				=> 'Damit wird die Anzeige von WWH deaktiviert und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Foren gedacht, bei denen WWH bereits durch andere Erweiterungen (z.B. „Stat Block“) dargestellt wird.',
+	'LFWWH_API_MODE_EXP'				=> 'Damit wird die Anzeige von WWH deaktiviert und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Foren gedacht, bei denen WWH bereits durch andere Erweiterungen (z.B. „Statistics Block“) dargestellt wird.',
 	'LFWWH_CLEAR_UP'					=> 'Bei gelöschten Benutzern automatisch bereinigen',
 	'LFWWH_CLEAR_UP_EXP'				=> 'Wenn Benutzerkonten gelöscht werden, dann wird auch sofort die Tabelle und Anzeige von WWH bereinigt.',
 	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Zeige alle Template-Positionen gleichzeitig',

@@ -1,3 +1,8 @@
+* B52:
+  * In den Sprachdateien für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
+  * Kleinere Änderungen in den Sprachdateien.
+  * Aufgrund des aktuellen phpBB Ext Check Berichts mehrere Fehler behoben.
+  * Github Actions eingerichtet. 
 
 ### Builds 2.0.0
 
@@ -237,7 +242,3 @@
   * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
 * B1:
   * Initial Release, kompletter Umbau auf `lukewcs/whowashere`.
-
----zurückgehalten b51---
-  * In den Sprachdateien für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
-  * Erneut von VariableAnalysis gemeldete Fehler behoben. Diese Fehler werden erst seit VA 2.8.2 korrekt erkannt, nachdem ich einen Bugreport für VA 2.8.1 eingereicht hatte.
