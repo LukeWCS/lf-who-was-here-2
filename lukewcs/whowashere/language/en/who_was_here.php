@@ -24,7 +24,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -42,62 +42,61 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” … „ “
 //
-
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	'LFWWH_TITLE'				=> 'Who was here',
 	'LFWWH_LAST1'				=> 'last at',
 	'LFWWH_LAST2'				=> 'o’clock',
 	'LFWWH_LAST3'				=> 'last on',
-	'LFWWH_USERS_PREFIX'		=> 'Registered users%s:',
-	'LFWWH_BOTS_PREFIX'			=> 'Bots%s:',
+	'LFWWH_USERS_PREFIX'		=> 'Registered users',
+	'LFWWH_BOTS_PREFIX'			=> 'Bots',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Show hidden info',
 	'LFWWH_POS_EXP'				=> 'Position: %s',
 
-	'LFWWH_TOTAL' => array(
+	'LFWWH_TOTAL' => [
 		0						=> 'In total there were <strong>0</strong> users online',
 		1						=> 'In total there was <strong>%d</strong> user online',
 		2						=> 'In total there were <strong>%d</strong> users online',
-	),
+	],
 	'LFWWH_TOTAL_SEPARATOR'		=> ' ::',
 	'LFWWH_NO_USERS'			=> 'No registered users',
-	'LFWWH_REG_USERS' => array(
+	'LFWWH_REG_USERS' => [
 		0						=> '0 registered',
 		1						=> '%d registered',
 		2						=> '%d registered',
-	),
-	'LFWWH_HIDDEN' => array(
+	],
+	'LFWWH_HIDDEN' => [
 		0						=> '0 hidden',
 		1						=> '%d hidden',
 		2						=> '%d hidden',
-	),
-	'LFWWH_BOTS' => array(
+	],
+	'LFWWH_BOTS' => [
 		0						=> '0 bots',
 		1						=> '%d bot',
 		2						=> '%d bots',
-	),
-	'LFWWH_GUESTS' => array(
+	],
+	'LFWWH_GUESTS' => [
 		0						=> '0 guests',
 		1						=> '%d guest',
 		2						=> '%d guests',
-	),
+	],
 	'LFWWH_AND_SEPARATOR'		=> ' and',
 	'LFWWH_EXP'					=> 'based on users active today',
 	'LFWWH_EXP_TIME'			=> 'based on users active over the past ',
-	'LFWWH_HOURS' => array(
+	'LFWWH_HOURS' => [
 		0						=> '',
 		1						=> '%%s %1$s hour',
 		2						=> '%%s %1$s hours',
-	),
-	'LFWWH_MINUTES' => array(
+	],
+	'LFWWH_MINUTES' => [
 		0						=> '',
 		1						=> '%%s %1$s minute',
 		2						=> '%%s %1$s minutes',
-	),
-	'LFWWH_SECONDS' => array(
+	],
+	'LFWWH_SECONDS' => [
 		0						=> '',
 		1						=> '%%s %1$s second',
 		2						=> '%%s %1$s seconds',
-	),
+	],
 	'LFWWH_RECORD_DAY'			=> 'Most users ever online was <strong>%1$s</strong> on %2$s',
 	'LFWWH_RECORD_TIME'			=> 'Most users ever online was <strong>%1$s</strong> between %2$s and %3$s',
-));
+]);

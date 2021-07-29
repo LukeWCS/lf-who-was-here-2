@@ -24,7 +24,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -42,15 +42,14 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” … „ “
 //
-
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	// navigation
 	'LFWWH_NAV_TITLE'					=> 'Wer war da? (2.x)',
 	'LFWWH_NAV_CONFIG'					=> 'Einstellungen',
 
 	// config head
-	'LFWWH_CONFIG_TITLE'				=> 'Wer war da? [%s]',
-	'LFWWH_INSTALLED' 					=> 'Installierte Version: %1$s &bull; CDB: %2$s',
+	'LFWWH_CONFIG_TITLE'				=> 'Wer war da?',
+	'LFWWH_CONFIG_DESC' 				=> 'Hier können die Einstellungen für die Erweiterung „%1$s“ (v%2$s) geändert werden.',
 
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Berechtigungen',
@@ -60,10 +59,12 @@ $lang = array_merge($lang, array(
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Ermöglicht es, für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: „BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Profil“.',
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Anzeige für Gäste',
 	'LFWWH_DISP_FOR_GUESTS_EXP'			=> 'Legt fest, was Gäste sehen können. „Statistik“ zeigt nur die anonymen Zahlen und „Nichts“ schaltet die WWH-Anzeige für Gäste komplett aus.',
-	'LFWWH_DISP_FOR_GUESTS_1'			=> 'Statistik und Mitglieder',
-	'LFWWH_DISP_FOR_GUESTS_3'			=> 'Mitglieder',
-	'LFWWH_DISP_FOR_GUESTS_0'			=> 'Statistik',
-	'LFWWH_DISP_FOR_GUESTS_2'			=> 'Nichts',
+	'LFWWH_DISP_FOR_BOTS'				=> 'Anzeige für Bots',
+	'LFWWH_DISP_FOR_BOTS_EXP'			=> 'Legt fest, was Bots sehen können. „Statistik“ zeigt nur die anonymen Zahlen und „Nichts“ schaltet die WWH-Anzeige für Bots komplett aus.',
+	'LFWWH_DISP_PERM_1'					=> 'Statistik und Mitglieder',
+	'LFWWH_DISP_PERM_3'					=> 'Mitglieder',
+	'LFWWH_DISP_PERM_0'					=> 'Statistik',
+	'LFWWH_DISP_PERM_2'					=> 'Nichts',
 
 	// config section 2
 	'LFWWH_SECTION_DISP_1'				=> 'Anzeige Einstellungen 1',
@@ -81,15 +82,15 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_GUESTS'					=> 'Zeige Gäste (Anzahl)',
 	'LFWWH_DISP_GUESTS_EXP'				=> 'Die Anzahl der Gäste wird angezeigt.',
 	'LFWWH_DISP_TIME'					=> 'Zeige die Zeit von Benutzern',
-	'LFWWH_DISP_TIME_EXP'				=> '„Bei überfahren“ zeigt zusätzlich ein Info-Symbol an, mit dem die Zeiten auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Allen Benutzern zeigen oder niemandem, keine spezielle Funktion für Administratoren.)',
-	'LFWWH_DISP_TIME_1'					=> 'Hinter dem Namen',
-	'LFWWH_DISP_TIME_2'					=> 'Bei überfahren',
-	'LFWWH_DISP_TIME_0'					=> 'Nein',
+	'LFWWH_DISP_TIME_EXP'				=> '„Als Tooltip“ zeigt zusätzlich ein Info-Symbol an, mit dem die Zeiten auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Allen Benutzern zeigen oder niemandem, keine spezielle Funktion für Administratoren.)',
 	'LFWWH_DISP_TIME_BOTS'				=> 'Zeige die Zeit von Bots',
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>. Spezielle Platzhalter: $1 = „%1$s“, $2 = „%2$s“, $3 = „%3$s“.',
 	'LFWWH_DISP_IP'						=> 'Zeige die Benutzer-IP',
-	'LFWWH_DISP_IP_EXP'					=> '„Bei überfahren“ zeigt zusätzlich ein Info-Symbol an, mit dem die IPs auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Nur für Benutzer mit administrativen Rechten, wie bei „Wer ist online?“.)',
+	'LFWWH_DISP_IP_EXP'					=> '„Als Tooltip“ zeigt zusätzlich ein Info-Symbol an, mit dem die IPs auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Nur für Benutzer mit administrativen Rechten, wie bei „Wer ist online?“.)',
+	'LFWWH_DISP_MODE_1'					=> 'Hinter dem Namen',
+	'LFWWH_DISP_MODE_2'					=> 'Als Tooltip',
+	'LFWWH_DISP_MODE_0'					=> 'Nein',
 
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Anzeige Einstellungen 2',
@@ -124,7 +125,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Zeige alle Template-Positionen gleichzeitig',
 	'LFWWH_DISP_TEMPLATE_POS_ALL_EXP'	=> 'WWH wird auf allen Positionen gleichzeitig angezeigt. Das dient nur zum Testen und sollte im Normalbetrieb deaktiviert sein.',
 	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Erzeuge ausgeblendete Informationen',
-	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'Wenn die Anzeige der Zeit oder IP auf „Bei überfahren“ eingestellt ist, werden diese Informationen zusätzlich ausgeblendet und es wird eine Schaltfläche erzeugt, mit der diese eingeblendet werden können.',
+	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'Wenn die Anzeige der Zeit oder IP auf „Als Tooltip“ eingestellt ist, werden diese Informationen zusätzlich ausgeblendet und es wird eine Schaltfläche erzeugt, mit der diese eingeblendet werden können.',
 
 	// config section 5
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Serverlast',
@@ -147,4 +148,4 @@ $lang = array_merge($lang, array(
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt.',
-));
+]);

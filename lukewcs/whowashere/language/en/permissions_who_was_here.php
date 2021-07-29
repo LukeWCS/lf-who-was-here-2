@@ -24,17 +24,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
-}
-
-global $phpbb_container;
-
-$t1 = $t2 = '';
-$config = $phpbb_container->get('config');
-if (!$config['lfwwh_use_permissions'] || $config['lfwwh_admin_mode'])
-{
-	$t1 = '<span style="opacity: 0.5;">';
-	$t2 = '</span>';
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -52,8 +42,15 @@ if (!$config['lfwwh_use_permissions'] || $config['lfwwh_admin_mode'])
 // Some characters you may want to copy&paste:
 // ’ « » “ ” … „ “
 //
+$lang = array_merge($lang, [
+	'ACL_U_LFWWH_SHOW_STATS'	=> 'Who was here (2.x): Can view statistics',
+	'ACL_U_LFWWH_SHOW_USERS'	=> 'Who was here (2.x): Can view members',
+]);
 
-$lang = array_merge($lang, array(
-	'ACL_U_LFWWH_SHOW_STATS'	=> $t1 . 'Who was here (2.x): Can view statistics' . $t2,
-	'ACL_U_LFWWH_SHOW_USERS'	=> $t1 . 'Who was here (2.x): Can view members' . $t2,
-));
+/**
+* DO NOT CHANGE
+*/
+$lang = array_merge($lang, [
+	'ACL_U_LFWWH_SHOW_STATS_OFF' => '<span style="opacity: 0.5;">' . $lang['ACL_U_LFWWH_SHOW_STATS'] . '</span>',
+	'ACL_U_LFWWH_SHOW_USERS_OFF' => '<span style="opacity: 0.5;">' . $lang['ACL_U_LFWWH_SHOW_USERS'] . '</span>',
+]);

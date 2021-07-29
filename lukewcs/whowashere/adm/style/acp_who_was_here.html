@@ -13,7 +13,7 @@
 <a name="maincontent"></a>
 
 <h1>{{ LFWWH_CONFIG_TITLE }}</h1>
-<p>{{ LFWWH_INSTALLED }}</p>
+<p>{{ LFWWH_CONFIG_DESC }}</p>
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
@@ -36,10 +36,21 @@
 			<dt><label>{{ lang('LFWWH_DISP_FOR_GUESTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_FOR_GUESTS_EXP') }}</span></dt>
 			<dd>
 				<select name="lfwwh_disp_for_guests">
-					<option id="lfwwh_disp_for_guests_1" value="1" {% if LFWWH_DISP_FOR_GUESTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_FOR_GUESTS_1') }}</option>
-					<option id="lfwwh_disp_for_guests_3" value="3" {% if LFWWH_DISP_FOR_GUESTS == 3 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_FOR_GUESTS_3') }}</option>
-					<option id="lfwwh_disp_for_guests_0" value="0" {% if LFWWH_DISP_FOR_GUESTS == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_FOR_GUESTS_0') }}</option>
-					<option id="lfwwh_disp_for_guests_2" value="2" {% if LFWWH_DISP_FOR_GUESTS == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_FOR_GUESTS_2') }}</option>
+					<option id="lfwwh_disp_for_guests_1" value="1" {% if LFWWH_DISP_FOR_GUESTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_1') }}</option>
+					<option id="lfwwh_disp_for_guests_3" value="3" {% if LFWWH_DISP_FOR_GUESTS == 3 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_3') }}</option>
+					<option id="lfwwh_disp_for_guests_0" value="0" {% if LFWWH_DISP_FOR_GUESTS == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_0') }}</option>
+					<option id="lfwwh_disp_for_guests_2" value="2" {% if LFWWH_DISP_FOR_GUESTS == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_2') }}</option>
+				</select>
+			</dd>
+		</dl>
+		<dl id="lfwwh_opt_disp_for_bots">
+			<dt><label>{{ lang('LFWWH_DISP_FOR_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_FOR_BOTS_EXP') }}</span></dt>
+			<dd>
+				<select name="lfwwh_disp_for_bots">
+					<option id="lfwwh_disp_for_bots_1" value="1" {% if LFWWH_DISP_FOR_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_1') }}</option>
+					<option id="lfwwh_disp_for_bots_3" value="3" {% if LFWWH_DISP_FOR_BOTS == 3 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_3') }}</option>
+					<option id="lfwwh_disp_for_bots_0" value="0" {% if LFWWH_DISP_FOR_BOTS == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_0') }}</option>
+					<option id="lfwwh_disp_for_bots_2" value="2" {% if LFWWH_DISP_FOR_BOTS == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_2') }}</option>
 				</select>
 			</dd>
 		</dl>
@@ -89,9 +100,9 @@
 			<dt><label>{{ lang('LFWWH_DISP_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span></dt>
 			<dd>
 				<select name="lfwwh_disp_time" onchange="lfwwhACP.setState()">
-					<option id="lfwwh_disp_time_1" value="1" {% if LFWWH_DISP_TIME == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_1') }}</option>
-					<option id="lfwwh_disp_time_2" value="2" {% if LFWWH_DISP_TIME == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_2') }}</option>
-					<option id="lfwwh_disp_time_0" value="0" {% if LFWWH_DISP_TIME == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_0') }}</option>
+					<option id="lfwwh_disp_time_1" value="1" {% if LFWWH_DISP_TIME == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_1') }}</option>
+					<option id="lfwwh_disp_time_2" value="2" {% if LFWWH_DISP_TIME == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_2') }}</option>
+					<option id="lfwwh_disp_time_0" value="0" {% if LFWWH_DISP_TIME == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_0') }}</option>
 				</select>
 			</dd>
 		</dl>
@@ -99,9 +110,9 @@
 			<dt><label>{{ lang('LFWWH_DISP_TIME_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span></dt>
 			<dd>
 				<select name="lfwwh_disp_time_bots" onchange="lfwwhACP.setState()">
-					<option id="lfwwh_disp_time_bots_1" value="1" {% if LFWWH_DISP_TIME_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_1') }}</option>
-					<option id="lfwwh_disp_time_bots_2" value="2" {% if LFWWH_DISP_TIME_BOTS == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_2') }}</option>
-					<option id="lfwwh_disp_time_bots_0" value="0" {% if LFWWH_DISP_TIME_BOTS == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_0') }}</option>
+					<option id="lfwwh_disp_time_bots_1" value="1" {% if LFWWH_DISP_TIME_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_1') }}</option>
+					<option id="lfwwh_disp_time_bots_2" value="2" {% if LFWWH_DISP_TIME_BOTS == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_2') }}</option>
+					<option id="lfwwh_disp_time_bots_0" value="0" {% if LFWWH_DISP_TIME_BOTS == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_0') }}</option>
 				</select>
 			</dd>
 		</dl>
@@ -115,9 +126,9 @@
 			<dt><label>{{ lang('LFWWH_DISP_IP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_IP_EXP') }}</span></dt>
 			<dd>
 				<select name="lfwwh_disp_ip" onchange="lfwwhACP.setState()">
-					<option id="lfwwh_disp_ip_1" value="1" {% if LFWWH_DISP_IP == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_1') }}</option>
-					<option id="lfwwh_disp_ip_2" value="2" {% if LFWWH_DISP_IP == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_2') }}</option>
-					<option id="lfwwh_disp_ip_0" value="0" {% if LFWWH_DISP_IP == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TIME_0') }}</option>
+					<option id="lfwwh_disp_ip_1" value="1" {% if LFWWH_DISP_IP == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_1') }}</option>
+					<option id="lfwwh_disp_ip_2" value="2" {% if LFWWH_DISP_IP == 2 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_2') }}</option>
+					<option id="lfwwh_disp_ip_0" value="0" {% if LFWWH_DISP_IP == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_0') }}</option>
 				</select>
 			</dd>
 		</dl>

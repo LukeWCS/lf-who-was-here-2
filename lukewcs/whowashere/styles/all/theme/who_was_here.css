@@ -9,7 +9,13 @@
 .lfwwh_debug {
 	color: white;
 	background-color: black;
-	border: 1px solid white;
-	padding: 2px;
+	border: 1px solid red;
+	padding: 3px;
 	font-size: smaller;
+}
+.lfwwh_time {
+	color: inherit;
+}
+.lfwwh_ip {
+	color: inherit;
 }

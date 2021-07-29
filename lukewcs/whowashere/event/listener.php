@@ -27,12 +27,12 @@ class listener implements EventSubscriberInterface
 
 	public static function getSubscribedEvents()
 	{
-		return array(
+		return [
 			'core.page_header_after'		=> 'update_session',
 			'core.page_footer'				=> 'display',
 			'core.permissions'				=> 'add_permissions',
 			'core.delete_user_after'		=> 'clear_up',
-		);
+		];
 	}
 
 	public function update_session()

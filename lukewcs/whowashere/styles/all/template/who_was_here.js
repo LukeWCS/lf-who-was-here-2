@@ -16,26 +16,14 @@ var lfwwhIndex = {};
 lfwwhIndex.isShowUsersInfo = false;
 lfwwhIndex.isShowBotsInfo = false;
 lfwwhIndex.ShowHide = function (group) {
-	var i = 0;
-
 	if (group == 0) {
 		lfwwhIndex.isShowUsersInfo = !lfwwhIndex.isShowUsersInfo;
-		var spanInfoElements = document.getElementsByClassName('lfwwh_info_u');
-		var spanButtons = document.getElementsByClassName('lfwwh_button_users');
-		var styleDisplay = ((lfwwhIndex.isShowUsersInfo) ? '' : 'none');
-		var styleOpacity = ((lfwwhIndex.isShowUsersInfo) ? '1.0' : '0.5');
+		$('.lfwwh_info_u').css('display', (lfwwhIndex.isShowUsersInfo ? '' : 'none'));
+		$('.lfwwh_button_users').css('opacity', (lfwwhIndex.isShowUsersInfo ? '1.0' : '0.5'));
 	}
 	if (group == 1) {
 		lfwwhIndex.isShowBotsInfo = !lfwwhIndex.isShowBotsInfo;
-		var spanInfoElements = document.getElementsByClassName('lfwwh_info_b');
-		var spanButtons = document.getElementsByClassName('lfwwh_button_bots');
-		var styleDisplay = ((lfwwhIndex.isShowBotsInfo) ? '' : 'none');
-		var styleOpacity = ((lfwwhIndex.isShowBotsInfo) ? '1.0' : '0.5');
-	}
-	for (i = 0; i < spanInfoElements.length; i ++) {
-		spanInfoElements[i].style.display = styleDisplay;
-	}
-	for (i = 0; i < spanButtons.length; i ++) {
-		spanButtons[i].style.opacity = styleOpacity;
+		$('.lfwwh_info_b').css('display', (lfwwhIndex.isShowBotsInfo ? '' : 'none'));
+		$('.lfwwh_button_bots').css('opacity', (lfwwhIndex.isShowBotsInfo ? '1.0' : '0.5'));
 	}
 };

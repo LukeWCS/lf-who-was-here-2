@@ -1,0 +1,27 @@
+<div class="stat-block whowashere-list">
+	<h3>{{ lang('LFWWH_TITLE') }}</h3>
+	<p>
+		{% if lfwwh_debug_msg %}
+			<span class="lfwwh_debug">{{ lfwwh_debug_msg }}</span><br />
+		{% endif %}
+		{% if LFWWH_TOTAL %}
+			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
+			{% if LFWWH_RECORD %}
+				{{ LFWWH_RECORD }}<br />
+			{% endif %}
+			{{ LFWWH_USERS ? '<br />' }}
+		{% endif %}
+		{% if LFWWH_USERS %}
+			{{ lang('LFWWH_USERS_PREFIX') }}: {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_button('users', 0) ~ ' ' : '' }}{{ LFWWH_USERS }}<br />
+		{% endif %}
+		{% if LFWWH_BOTS %}
+			{{ lang('LFWWH_BOTS_PREFIX') }}: {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_button('bots', 1) ~ ' ' : '' }}{{ LFWWH_BOTS }}<br />
+		{% endif %}
+	</p>
+</div>
+
+{% macro lfwwh_button(class, group) %}
+{% spaceless %}
+	<span class="lfwwh_button_{{ class }} icon fa-info-circle" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide({{ group }})"></span>
+{% endspaceless %}
+{% endmacro %}

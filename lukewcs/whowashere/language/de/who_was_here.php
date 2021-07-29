@@ -24,7 +24,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -42,62 +42,61 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” … „ “
 //
-
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	'LFWWH_TITLE'				=> 'Wer war da?',
 	'LFWWH_LAST1'				=> 'zuletzt um',
 	'LFWWH_LAST2'				=> 'Uhr',
 	'LFWWH_LAST3'				=> 'zuletzt am',
-	'LFWWH_USERS_PREFIX'		=> 'Mitglieder%s:',
-	'LFWWH_BOTS_PREFIX'			=> 'Bots%s:',
+	'LFWWH_USERS_PREFIX'		=> 'Mitglieder',
+	'LFWWH_BOTS_PREFIX'			=> 'Bots',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Infos',
 	'LFWWH_POS_EXP'				=> 'Position: %s',
 
-	'LFWWH_TOTAL' => array(
+	'LFWWH_TOTAL' => [
 		0						=> 'Insgesamt waren <strong>0</strong> Besucher online',
 		1						=> 'Insgesamt war <strong>%d</strong> Besucher online',
 		2						=> 'Insgesamt waren <strong>%d</strong> Besucher online',
-	),
+	],
 	'LFWWH_TOTAL_SEPARATOR'		=> ' ::',
 	'LFWWH_NO_USERS'			=> '0 Mitglieder',
-	'LFWWH_REG_USERS' => array(
+	'LFWWH_REG_USERS' => [
 		0						=> '0 sichtbare Mitglieder',
 		1						=> '%d sichtbares Mitglied',
 		2						=> '%d sichtbare Mitglieder',
-	),
-	'LFWWH_HIDDEN' => array(
+	],
+	'LFWWH_HIDDEN' => [
 		0						=> '0 unsichtbare Mitglieder',
 		1						=> '%d unsichtbares Mitglied',
 		2						=> '%d unsichtbare Mitglieder',
-	),
-	'LFWWH_BOTS' => array(
+	],
+	'LFWWH_BOTS' => [
 		0						=> '0 Bots',
 		1						=> '%d Bot',
 		2						=> '%d Bots',
-	),
-	'LFWWH_GUESTS' => array(
+	],
+	'LFWWH_GUESTS' => [
 		0						=> '0 Gäste',
 		1						=> '%d Gast',
 		2						=> '%d Gäste',
-	),
+	],
 	'LFWWH_AND_SEPARATOR'		=> ' und',
 	'LFWWH_EXP'					=> 'basierend auf den heutigen Besuchern',
 	'LFWWH_EXP_TIME'			=> 'basierend auf den Besuchern der letzten ',
-	'LFWWH_HOURS' => array(
+	'LFWWH_HOURS' => [
 		0						=> '',
 		1						=> '%%s %1$s Stunde',
 		2						=> '%%s %1$s Stunden',
-	),
-	'LFWWH_MINUTES' => array(
+	],
+	'LFWWH_MINUTES' => [
 		0						=> '',
 		1						=> '%%s %1$s Minute',
 		2						=> '%%s %1$s Minuten',
-	),
-	'LFWWH_SECONDS' => array(
+	],
+	'LFWWH_SECONDS' => [
 		0						=> '',
 		1						=> '%%s %1$s Sekunde',
 		2						=> '%%s %1$s Sekunden',
-	),
+	],
 	'LFWWH_RECORD_DAY'			=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die am %2$s online waren.',
 	'LFWWH_RECORD_TIME'			=> 'Der Besucherrekord liegt bei <strong>%1$s</strong> Besuchern, die zwischen %2$s und %3$s online waren.',
-));
+]);

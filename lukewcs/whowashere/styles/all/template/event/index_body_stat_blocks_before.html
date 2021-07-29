@@ -1,0 +1,6 @@
+{% if (LFWWH_TOTAL || LFWWH_USERS) && !LFWWH_API_MODE && LFWWH_POS b-and 1 %}
+	{% if LFWWH_POS == 7 %}
+		{% set lfwwh_debug_msg = LFWWH_POS_EXP_1 %}
+	{% endif %}
+	{% INCLUDE '@lukewcs_whowashere/who_was_here.html' %}
+{% endif %}

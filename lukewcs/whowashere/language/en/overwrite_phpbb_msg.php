@@ -24,7 +24,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 $t1 = isset($lang['USER_DELETED']) ? $lang['USER_DELETED'] . '<br /><br />' : '';
@@ -45,8 +45,7 @@ $t2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br 
 // Some characters you may want to copy&paste:
 // ’ « » “ ” … „ “
 //
-
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	'USER_DELETED'			=> $t1 . 'Who was here: Display has been cleaned up.',
 	'USER_DELETE_SUCCESS'	=> $t2 . 'Who was here: Display has been cleaned up.',
-));
+]);

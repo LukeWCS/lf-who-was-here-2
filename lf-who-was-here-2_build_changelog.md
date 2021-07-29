@@ -1,3 +1,25 @@
+* B53
+  * Mindestvoraussetzungen jetzt phpBB 3.2 und PHP 5.6.
+  * ACP: Im einfachen Rechtesystem neue Option für die Bots hinzugefügt.
+  * ACP: Konfig-Titel und Konfig-Beschreibung werden jetzt anders dargestellt. Ausserdem CDB Link entfernt.
+  * ACP: Für die Anzeige von Ext-Name und Ext-Version wird jetzt der ExtManager benutzt.
+  * ACP: Javascript weitestgehend durch jQuery ersetzt.
+  * Code: Letzte Validierungs-Kritik von kasimi bei 2.0.0 berücksichtigt.
+  * Code: Array-Definitionen auf kurze Notation umgestellt, dadurch inkompatibel zu PHP 5.3.
+  * Code: Wie ursprünglich schon mal verwendet, den neuen Power Operator anstelle `pow()` notiert, dadurch inkompatibel zu PHP <5.6.
+  * Code: Ext auf Funktions-Basis von phpBB 3.2 gestellt, dadurch inkompatibel zu phpBB 3.1. Betrifft u.a. das Sprach-Objekt.
+  * Code: Sonderanpassungen für phpBB 3.1 entfernt. Betrifft primär die Index-Anzeige.
+  * Template: Weitgehend HTML vom Core ins Template verlagert. Dabei Möglichkeiten von Twig genutzt, z.B. Makros.
+  * Template: Ordner `prosilver` entfernt und alles in `all` organisiert.
+  * Template: Primäres Event Template für `INCLUDECSS` (auch `INCLUDEJS`) ist nicht mehr `overall_header_head_append.html` sondern `index_body_markforums_before.html`, dadurch inkompatibel zu phpBB 3.1
+  * Template: Javascript weitestgehend durch jQuery ersetzt.
+  * Template: CSS Klassen für Zeit und IP hinzugefügt.
+  * Migration: Ext-Version aus DB Config entfernt, in der Migration werden jetzt andere Merkmale verwendet.
+  * Sprachdatei: Speziellen PHP Code aus der Permissions Sprachdatei entfernt und Prozedur anders realisiert. Änderung in B52 hinfällig.
+  * Sprachdatei: Mehrere Sprachvariablen umbenannt.
+  * Sprachdatei: Mehrere Text Änderungen in den Sprachdateien.
+  * Github: `README.md` angepasst.
+
 * B52:
   * In den Sprachdateien für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
   * Kleinere Änderungen in den Sprachdateien.

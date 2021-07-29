@@ -3,14 +3,14 @@
 	"type": "phpbb-extension",
 	"description": "Shows a visitor statistic of the current day or a freely selectable period. It lists both visitors and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.",
 	"homepage": "https://github.com/LukeWCS/lf-who-was-here-2",
-	"version": "2.0.0",
-	"time": "2020-03-29",
+	"version": "2.1.0",
+	"time": "2021-07-24",
 	"license": "GPL-2.0-only",
 	"authors": [
 		{
 			"name": "LukeWCS",
 			"homepage": "https://www.wcsaga.org",
-			"role": "Developer (adapting for 3.2 and improvements)"
+			"role": "Developer (adapting for 3.2+ and improvements)"
 		},
 		{
 			"name": "Anvar",
@@ -24,14 +24,14 @@
 		}
 	],
 	"require": {
-		"php": ">=5.3.3",
-		"phpbb/phpbb": ">=3.1.11,<3.4.0@dev",
+		"php": ">=5.6.0",
+		"phpbb/phpbb": ">=3.2.0,<3.4.0@dev",
 		"composer/installers": "~1.0.0"
 	},
 	"extra": {
 		"display-name": "LF who was here 2",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.11,<3.4.0@dev"
+			"phpbb/phpbb": ">=3.2.0,<3.4.0@dev"
 		},
 		"version-check": {
 			"host": "www.phpbb.com",

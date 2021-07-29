@@ -15,59 +15,99 @@ lfwwhACP.setState = function () {
 	const enabledOpacity = "1.0";
 	const disabledOpacity = "0.35";
 
-	document.getElementById("lfwwh_opt_use_permissions").style.opacity = (document.getElementById("lfwwh_admin_mode_0").checked) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_disp_for_guests").style.opacity = (document.getElementById("lfwwh_use_permissions_0").checked && document.getElementById("lfwwh_admin_mode_0").checked) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_disp_bots_only_admin").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_disp_time_bots").style.opacity = (!document.getElementById("lfwwh_disp_bots_0").selected) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_disp_time_format").style.opacity = (!document.getElementById("lfwwh_disp_time_0").selected || (!document.getElementById("lfwwh_disp_time_bots_0").selected && !document.getElementById("lfwwh_disp_bots_0").selected)) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_period_of_time").style.opacity = (document.getElementById("lfwwh_time_mode_0").selected) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_record_time_format").style.opacity = (document.getElementById("lfwwh_record_1").checked) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_disp_template_pos").style.opacity = (document.getElementById("lfwwh_disp_template_pos_all_0").checked) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_use_online_time").style.opacity = (document.getElementById("lfwwh_use_cache_1").checked) ? enabledOpacity : disabledOpacity;
-	document.getElementById("lfwwh_opt_cache_time").style.opacity = (document.getElementById("lfwwh_use_cache_1").checked && document.getElementById("lfwwh_use_online_time_0").checked) ? enabledOpacity : disabledOpacity;
+	$('#lfwwh_opt_use_permissions').css('opacity', (
+			$('#lfwwh_admin_mode_0').prop('checked')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_disp_for_guests').css('opacity', (
+			$('#lfwwh_admin_mode_0').prop('checked') &&
+			$('#lfwwh_use_permissions_0').prop('checked')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_disp_for_bots').css('opacity', (
+			$('#lfwwh_admin_mode_0').prop('checked') &&
+			$('#lfwwh_use_permissions_0').prop('checked')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_disp_bots_only_admin').css('opacity', (
+			!$('#lfwwh_disp_bots_0').prop('selected')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_disp_time_bots').css('opacity', (
+			!$('#lfwwh_disp_bots_0').prop('selected')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_disp_time_format').css('opacity', (
+			(
+				!$('#lfwwh_disp_bots_0').prop('selected') &&
+				!$('#lfwwh_disp_time_bots_0').prop('selected')
+			) ||
+			!$('#lfwwh_disp_time_0').prop('selected')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_period_of_time').css('opacity', (
+			$('#lfwwh_time_mode_0').prop('selected')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_record_time_format').css('opacity', (
+			$('#lfwwh_record_1').prop('checked')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_disp_template_pos').css('opacity', (
+			$('#lfwwh_disp_template_pos_all_0').prop('checked')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_use_online_time').css('opacity', (
+			$('#lfwwh_use_cache_1').prop('checked')
+		) ? enabledOpacity : disabledOpacity
+	);
+	$('#lfwwh_opt_cache_time').css('opacity', (
+			$('#lfwwh_use_cache_1').prop('checked') &&
+			$('#lfwwh_use_online_time_0').prop('checked')
+		) ? enabledOpacity : disabledOpacity
+	);
 };
 
 lfwwhACP.setDefaults = function () {
-	document.getElementById("lfwwh_admin_mode_0").checked = true;
-	document.getElementById("lfwwh_use_permissions_0").checked = true;
-	document.getElementById("lfwwh_disp_for_guests_0").selected = true;
-	document.getElementById("lfwwh_disp_reg_users_1").checked = true;
-	document.getElementById("lfwwh_disp_hidden_1").checked = true;
-	document.getElementById("lfwwh_disp_bots_1").selected = true;
-	document.getElementById("lfwwh_disp_bots_only_admin_0").checked = true;
-	document.getElementById("lfwwh_disp_guests_1").checked = true;
-	document.getElementById("lfwwh_disp_time_1").selected = true;
-	document.getElementById("lfwwh_disp_time_bots_1").selected = true;
-	document.getElementById("lfwwh_disp_time_format").value = "$1 G:i";
-	document.getElementById("lfwwh_disp_ip_1").selected = true;
-	document.getElementById("lfwwh_time_mode_1").selected = true;
-	document.getElementById("lfwwh_period_of_time_h").value = 24;
-	document.getElementById("lfwwh_period_of_time_m").value = 0;
-	document.getElementById("lfwwh_period_of_time_s").value = 0;
-	document.getElementById("lfwwh_sort_by_3").selected = true;
-	document.getElementById("lfwwh_record_1").checked = true;
-	document.getElementById("lfwwh_record_time_format").value = "D j. M Y";
-	document.getElementById("lfwwh_disp_template_pos_0").selected = true;
-	document.getElementById("lfwwh_api_mode_0").checked = true;
-	document.getElementById("lfwwh_clear_up_1").checked = true;
-	document.getElementById("lfwwh_disp_template_pos_all_0").checked = true;
-	document.getElementById("lfwwh_create_hidden_info_1").checked = true;
-	document.getElementById("lfwwh_use_cache_1").checked = true;
-	document.getElementById("lfwwh_use_online_time_1").checked = true;
-	document.getElementById("lfwwh_cache_time").value = lfwwhACP.tpl.CacheTimeMax;
+	$('#lfwwh_admin_mode_0').prop('checked', true);
+	$('#lfwwh_use_permissions_0').prop('checked', true);
+	$('#lfwwh_disp_for_guests_0').prop('selected', true);
+	$('#lfwwh_disp_for_bots_2').prop('selected', true);
+	$('#lfwwh_disp_reg_users_1').prop('checked', true);
+	$('#lfwwh_disp_hidden_1').prop('checked', true);
+	$('#lfwwh_disp_bots_1').prop('selected', true);
+	$('#lfwwh_disp_bots_only_admin_0').prop('checked', true);
+	$('#lfwwh_disp_guests_1').prop('checked', true);
+	$('#lfwwh_disp_time_1').prop('selected', true);
+	$('#lfwwh_disp_time_bots_1').prop('selected', true);
+	$('#lfwwh_disp_time_format').prop('value', '$1 G:i');
+	$('#lfwwh_disp_ip_1').prop('selected', true);
+	$('#lfwwh_time_mode_1').prop('selected', true);
+	$('#lfwwh_period_of_time_h').prop('value', 24);
+	$('#lfwwh_period_of_time_m').prop('value', 0);
+	$('#lfwwh_period_of_time_s').prop('value', 0);
+	$('#lfwwh_sort_by_3').prop('selected', true);
+	$('#lfwwh_record_1').prop('checked', true);
+	$('#lfwwh_record_time_format').prop('value', 'D j. M Y');
+	$('#lfwwh_disp_template_pos_0').prop('selected', true);
+	$('#lfwwh_api_mode_0').prop('checked', true);
+	$('#lfwwh_clear_up_1').prop('checked', true);
+	$('#lfwwh_disp_template_pos_all_0').prop('checked', true);
+	$('#lfwwh_create_hidden_info_1').prop('checked', true);
+	$('#lfwwh_use_cache_1').prop('checked', true);
+	$('#lfwwh_use_online_time_1').prop('checked', true);
+	$('#lfwwh_cache_time').prop('value', lfwwhACP.tpl.CacheTimeMax);
 	lfwwhACP.setState();
 };
 
 lfwwhACP.confirmRecordReset = function () {
-	var resetConfirm = confirm(lfwwhACP.lang.MsgConfirmRecordReset);
-
-	if (!resetConfirm)	{
-		document.getElementById("lfwwh_record_reset_0").checked = true;
+	if (!confirm(lfwwhACP.lang.MsgConfirmRecordReset))	{
+		$('#lfwwh_record_reset_0').prop('checked', true);
 	}
 };
 
 lfwwhACP.customFormReset = function () {
-	document.getElementById("lfwwh_form").reset();
+	$('#lfwwh_form').trigger("reset");
 	lfwwhACP.setState();
 };
 

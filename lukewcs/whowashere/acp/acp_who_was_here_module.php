@@ -23,13 +23,17 @@ class acp_who_was_here_module
 
 	public function main()
 	{
-		global $user, $config, $request, $template, $cache;
+		global $user, $config, $request, $template, $cache, $phpbb_container;
 
 		$this->user = $user;
 		$this->config = $config;
 		$this->request = $request;
 		$this->template = $template;
 		$this->cache = $cache;
+		$this->ext_manager = $phpbb_container->get('ext.manager');
+		$this->md_manager = $this->ext_manager->create_extension_metadata_manager('lukewcs/whowashere');
+		$ext_display_name = $this->md_manager->get_metadata('display-name');
+		$ext_display_ver = $this->md_manager->get_metadata('version');
 
 		add_form_key('lfwwh');
 		$this->tpl_name = 'acp_who_was_here';
@@ -47,6 +51,7 @@ class acp_who_was_here_module
 			$this->config->set('lfwwh_admin_mode'				, $this->request->variable('lfwwh_admin_mode', 0));
 			$this->config->set('lfwwh_use_permissions'			, $this->request->variable('lfwwh_use_permissions', 0));
 			$this->config->set('lfwwh_disp_for_guests'			, $this->request->variable('lfwwh_disp_for_guests', 0));
+			$this->config->set('lfwwh_disp_for_bots'			, $this->request->variable('lfwwh_disp_for_bots', 0));
 			$this->config->set('lfwwh_disp_reg_users'			, $this->request->variable('lfwwh_disp_reg_users', 0));
 			$this->config->set('lfwwh_disp_hidden'				, $this->request->variable('lfwwh_disp_hidden', 0));
 			$this->config->set('lfwwh_disp_bots'				, $this->request->variable('lfwwh_disp_bots', 0));
@@ -89,12 +94,13 @@ class acp_who_was_here_module
 		{
 			$this->config->set('lfwwh_cache_time', $load_online_time);
 		}
-		$this->template->assign_vars(array(
+		$this->template->assign_vars([
 			'LFWWH_CONFIG_TITLE'			=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here 2'),
-			'LFWWH_INSTALLED'				=> sprintf($this->user->lang['LFWWH_INSTALLED'], $this->config['lfwwh_version'], '<a href="https://www.phpbb.com/customise/db/extension/lf_who_was_here_2/">LF who was here 2</a>'),
+			'LFWWH_CONFIG_DESC'				=> sprintf($this->user->lang['LFWWH_CONFIG_DESC'], $ext_display_name, $ext_display_ver),
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],
+			'LFWWH_DISP_FOR_BOTS'			=> $this->config['lfwwh_disp_for_bots'],
 			'LFWWH_DISP_REG_USERS'			=> $this->config['lfwwh_disp_reg_users'],
 			'LFWWH_DISP_HIDDEN'				=> $this->config['lfwwh_disp_hidden'],
 			'LFWWH_DISP_BOTS'				=> $this->config['lfwwh_disp_bots'],
@@ -123,6 +129,6 @@ class acp_who_was_here_module
 			'LFWWH_CACHE_TIME_MAX'			=> $load_online_time,
 			'LFWWH_RECORD_RESET_TIME'		=> ($this->config['lfwwh_record_reset_time'] != 1) ? sprintf($this->user->lang['LFWWH_RECORD_RESET_TIME_HINT'], $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
 			'U_ACTION'						=> $this->u_action,
-		));
+		]);
 	}
 }

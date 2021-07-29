@@ -16,16 +16,16 @@ class acp_who_was_here_info
 {
 	public function module()
 	{
-		return array(
+		return [
 			'filename'	=> '\lukewcs\whowashere\acp\acp_who_was_here_module',
 			'title'		=> 'LFWWH_NAV_TITLE',
-			'modes'		=> array(
-				'settings'	=> array(
+			'modes'		=> [
+				'settings'	=> [
 					'title'	=> 'LFWWH_NAV_CONFIG',
 					'auth'	=> 'ext_lukewcs/whowashere && acl_a_board',
-					'cat'	=> array('ACP_BOARD_CONFIGURATION')
-				),
-			),
-		);
+					'cat'	=> ['ACP_BOARD_CONFIGURATION']
+				],
+			],
+		];
 	}
 }

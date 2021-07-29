@@ -16,3 +16,4 @@ services:
             - '@dbal.conn'
             - '%core.table_prefix%'
             - '%core.php_ext%'
+            - '@language'

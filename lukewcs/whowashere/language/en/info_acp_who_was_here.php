@@ -24,7 +24,7 @@ if (!defined('IN_PHPBB'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+	$lang = [];
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -42,15 +42,14 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste:
 // ’ « » “ ” … „ “
 //
-
-$lang = array_merge($lang, array(
+$lang = array_merge($lang, [
 	// navigation
 	'LFWWH_NAV_TITLE'					=> 'Who was here? (2.x)',
 	'LFWWH_NAV_CONFIG'					=> 'Settings',
 
 	// config head
-	'LFWWH_CONFIG_TITLE'				=> 'Who was here? [%s]',
-	'LFWWH_INSTALLED' 					=> 'Installed version: %1$s &bull; CDB: %2$s',
+	'LFWWH_CONFIG_TITLE'				=> 'Who was here?',
+	'LFWWH_CONFIG_DESC' 				=> 'The settings for the extension “%1$s” (v%2$s) can be changed here.',
 
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
@@ -60,10 +59,12 @@ $lang = array_merge($lang, array(
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: “PERMISSIONS » Group permissions » [user group] » User permissions » Advanced Permissions » Profile”.',
 	'LFWWH_DISP_FOR_GUESTS'				=> 'Display for guests',
 	'LFWWH_DISP_FOR_GUESTS_EXP'			=> 'Determines what guests can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for guests.',
-	'LFWWH_DISP_FOR_GUESTS_1'			=> 'Statistics and members',
-	'LFWWH_DISP_FOR_GUESTS_3'			=> 'Members',
-	'LFWWH_DISP_FOR_GUESTS_0'			=> 'Statistics',
-	'LFWWH_DISP_FOR_GUESTS_2'			=> 'Nothing',
+	'LFWWH_DISP_FOR_BOTS'				=> 'Display for bots',
+	'LFWWH_DISP_FOR_BOTS_EXP'			=> 'Determines what bots can see. “Statistics” shows only the anonymous numbers and “Nothing” completely turns off the WWH display for bots.',
+	'LFWWH_DISP_PERM_1'					=> 'Statistics and members',
+	'LFWWH_DISP_PERM_3'					=> 'Members',
+	'LFWWH_DISP_PERM_0'					=> 'Statistics',
+	'LFWWH_DISP_PERM_2'					=> 'Nothing',
 
 	// config section 2
 	'LFWWH_SECTION_DISP_1'				=> 'Display settings 1',
@@ -81,20 +82,20 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_GUESTS'					=> 'Show guests (number)',
 	'LFWWH_DISP_GUESTS_EXP'				=> 'The number of guests is displayed.',
 	'LFWWH_DISP_TIME'					=> 'Show time of users',
-	'LFWWH_DISP_TIME_EXP'				=> '“On hover” also displays a info symbol with which the times can also be displayed directly. Helpful for smartphones and tablet computers. (All user see it or none, no special function for Admins.)',
-	'LFWWH_DISP_TIME_1'					=> 'Behind the name',
-	'LFWWH_DISP_TIME_2'					=> 'On hover',
-	'LFWWH_DISP_TIME_0'					=> 'No',
+	'LFWWH_DISP_TIME_EXP'				=> '“As a tooltip” also displays a info symbol with which the times can also be displayed directly. Helpful for smartphones and tablet computers. (All user see it or none, no special function for Admins.)',
 	'LFWWH_DISP_TIME_BOTS'				=> 'Show time of bots',
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Time format',
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>. Special placeholder: $1 = “%1$s”, $2 = “%2$s”, $3 = “%3$s”.',
 	'LFWWH_DISP_IP'						=> 'Show user IP',
-	'LFWWH_DISP_IP_EXP'					=> '“On hover” also displays a info symbol with which the IPs can also be displayed directly. Helpful for smartphones and tablet computers. (Just for the users with administrative permissions, as with “Who is online”.)',
+	'LFWWH_DISP_IP_EXP'					=> '“As a tooltip” also displays a info symbol with which the IPs can also be displayed directly. Helpful for smartphones and tablet computers. (Just for the users with administrative permissions, as with “Who is online”.)',
+	'LFWWH_DISP_MODE_1'					=> 'Behind the name',
+	'LFWWH_DISP_MODE_2'					=> 'As a tooltip',
+	'LFWWH_DISP_MODE_0'					=> 'No',
 
 	// config section 3
 	'LFWWH_SECTION_DISP_2'				=> 'Display settings 2',
 	'LFWWH_TIME_MODE'					=> 'Display of the visitors of ...',
-	'LFWWH_TIME_MODE_EXP'				=> 'Display of today\'s visitors (since 00:00 forum time), or the time period set at the next setting.',
+	'LFWWH_TIME_MODE_EXP'				=> 'Display of today’s visitors (since 00:00 forum time), or the time period set at the next setting.',
 	'LFWWH_TIME_MODE_1'					=> 'Today',
 	'LFWWH_TIME_MODE_0'					=> 'Period of time',
 	'LFWWH_SORT_BY'						=> 'Sort users by',
@@ -124,7 +125,7 @@ $lang = array_merge($lang, array(
 	'LFWWH_DISP_TEMPLATE_POS_ALL'		=> 'Show all template positions at the same time',
 	'LFWWH_DISP_TEMPLATE_POS_ALL_EXP'	=> 'WWH is displayed on all positions at the same time. This is only for testing and should be disabled during normal operation.',
 	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Create hidden information',
-	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'If the display of the time or IP is set to “On hover”, this information is also hidden and a button is created, with which they can be displayed.',
+	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'If the display of the time or IP is set to “As a tooltip”, this information is also hidden and a button is created, with which they can be displayed.',
 
 	// config section 5
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Load settings',
@@ -147,4 +148,4 @@ $lang = array_merge($lang, array(
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.',
-));
+]);
