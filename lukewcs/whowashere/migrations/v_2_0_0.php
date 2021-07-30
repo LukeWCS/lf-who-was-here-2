@@ -16,8 +16,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		// return isset($this->config['lfwwh_version']) && version_compare($this->config['lfwwh_version'], '2.0.0', '>=');
-		return isset($this->config['lfwwh_use_permissions']);
+		return isset($this->config['lfwwh_version']) && version_compare($this->config['lfwwh_version'], '2.0.0', '>=');
 	}
 
 	public static function depends_on()
@@ -142,12 +141,10 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 			$sql = 'INSERT INTO ' . $this->table_prefix . 'lfwwh' . ' (user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage)
 					SELECT user_id, username, username_clean, user_colour, user_ip, user_type, viewonline, wwh_lastpage
 					FROM ' . $this->table_prefix . 'wwh';
-			// $result = $this->db->sql_query_limit($sql, $limit, $offset);
 			$this->db->sql_query_limit($sql, $limit, $offset);
 			while ($this->db->sql_affectedrows() == $limit)
 			{
 				$offset += $limit;
-				// $result = $this->db->sql_query_limit($sql, $limit, $offset);
 				$this->db->sql_query_limit($sql, $limit, $offset);
 			}
 		}

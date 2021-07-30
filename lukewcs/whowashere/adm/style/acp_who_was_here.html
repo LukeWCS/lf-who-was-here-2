@@ -12,28 +12,37 @@
 {% INCLUDE 'overall_header.html' %}
 <a name="maincontent"></a>
 
-<h1>{{ LFWWH_CONFIG_TITLE }}</h1>
+<h1>{{ lang('LFWWH_CONFIG_TITLE') }}</h1>
 <p>{{ LFWWH_CONFIG_DESC }}</p>
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_PERMISSIONS') }}</legend>
 		<dl id="lfwwh_opt_admin_mode">
-			<dt><label>{{ lang('LFWWH_ADMIN_MODE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_ADMIN_MODE_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_ADMIN_MODE') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_ADMIN_MODE_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_admin_mode" id="lfwwh_admin_mode_1" value="1" onchange="lfwwhACP.setState()" {% if LFWWH_ADMIN_MODE == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_admin_mode" id="lfwwh_admin_mode_0" value="0" onchange="lfwwhACP.setState()" {% if LFWWH_ADMIN_MODE == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_use_permissions">
-			<dt><label>{{ lang('LFWWH_USE_PERMISSIONS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_USE_PERMISSIONS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_USE_PERMISSIONS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_USE_PERMISSIONS_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_use_permissions" id="lfwwh_use_permissions_1" value="1" onchange="lfwwhACP.setState()" {% if LFWWH_USE_PERMISSIONS == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_use_permissions" id="lfwwh_use_permissions_0" value="0" onchange="lfwwhACP.setState()" {% if LFWWH_USE_PERMISSIONS == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_for_guests">
-			<dt><label>{{ lang('LFWWH_DISP_FOR_GUESTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_FOR_GUESTS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_FOR_GUESTS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_FOR_GUESTS_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_disp_for_guests">
 					<option id="lfwwh_disp_for_guests_1" value="1" {% if LFWWH_DISP_FOR_GUESTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_1') }}</option>
@@ -44,7 +53,10 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_for_bots">
-			<dt><label>{{ lang('LFWWH_DISP_FOR_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_FOR_BOTS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_FOR_BOTS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_FOR_BOTS_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_disp_for_bots">
 					<option id="lfwwh_disp_for_bots_1" value="1" {% if LFWWH_DISP_FOR_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_PERM_1') }}</option>
@@ -59,21 +71,30 @@
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_1') }}</legend>
 		<dl id="lfwwh_opt_disp_reg_users">
-			<dt><label>{{ lang('LFWWH_DISP_REG_USERS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_REG_USERS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_REG_USERS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_REG_USERS_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_disp_reg_users" id="lfwwh_disp_reg_users_1" value="1" {% if LFWWH_DISP_REG_USERS == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_disp_reg_users" id="lfwwh_disp_reg_users_0" value="0" {% if LFWWH_DISP_REG_USERS == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_hidden">
-			<dt><label>{{ lang('LFWWH_DISP_HIDDEN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_HIDDEN_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_HIDDEN') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_HIDDEN_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_disp_hidden" id="lfwwh_disp_hidden_1" value="1" {% if LFWWH_DISP_HIDDEN == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_disp_hidden" id="lfwwh_disp_hidden_0" value="0" {% if LFWWH_DISP_HIDDEN == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_bots">
-			<dt><label>{{ lang('LFWWH_DISP_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_BOTS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_BOTS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_BOTS_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_disp_bots" onchange="lfwwhACP.setState()">
 					<option id="lfwwh_disp_bots_1" value="1" {% if LFWWH_DISP_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_BOTS_1') }}</option>
@@ -83,21 +104,30 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_bots_only_admin">
-			<dt><label>{{ lang('LFWWH_DISP_BOTS_ONLY_ADMIN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_BOTS_ONLY_ADMIN_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_BOTS_ONLY_ADMIN') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_BOTS_ONLY_ADMIN_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_disp_bots_only_admin" id="lfwwh_disp_bots_only_admin_1" value="1" {% if LFWWH_DISP_BOTS_ONLY_ADMIN == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_disp_bots_only_admin" id="lfwwh_disp_bots_only_admin_0" value="0" {% if LFWWH_DISP_BOTS_ONLY_ADMIN == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_guests">
-			<dt><label>{{ lang('LFWWH_DISP_GUESTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_GUESTS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_GUESTS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_GUESTS_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_disp_guests" id="lfwwh_disp_guests_1" value="1" {% if LFWWH_DISP_GUESTS == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_disp_guests" id="lfwwh_disp_guests_0" value="0" {% if LFWWH_DISP_GUESTS == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time">
-			<dt><label>{{ lang('LFWWH_DISP_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_TIME') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_disp_time" onchange="lfwwhACP.setState()">
 					<option id="lfwwh_disp_time_1" value="1" {% if LFWWH_DISP_TIME == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_1') }}</option>
@@ -107,7 +137,10 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time_bots">
-			<dt><label>{{ lang('LFWWH_DISP_TIME_BOTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_TIME_BOTS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_disp_time_bots" onchange="lfwwhACP.setState()">
 					<option id="lfwwh_disp_time_bots_1" value="1" {% if LFWWH_DISP_TIME_BOTS == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_1') }}</option>
@@ -117,13 +150,19 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time_format">
-			<dt><label>{{ lang('LFWWH_DISP_TIME_FORMAT') }}{{ lang('COLON') }}</label><br /><span>{{ LFWWH_DISP_TIME_FORMAT_EXP }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_TIME_FORMAT') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_TIME_FORMAT_EXP', lang('LFWWH_LAST1'), lang('LFWWH_LAST2'), lang('LFWWH_LAST3')) }}</span>
+			</dt>
 			<dd>
 				<input type="text" name="lfwwh_disp_time_format" id="lfwwh_disp_time_format" size="12" value="{{ LFWWH_DISP_TIME_FORMAT }}" />
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_ip">
-			<dt><label>{{ lang('LFWWH_DISP_IP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_IP_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_IP') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_IP_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_disp_ip" onchange="lfwwhACP.setState()">
 					<option id="lfwwh_disp_ip_1" value="1" {% if LFWWH_DISP_IP == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_MODE_1') }}</option>
@@ -137,7 +176,10 @@
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_2') }}</legend>
 		<dl id="lfwwh_opt_time_mode">
-			<dt><label>{{ lang('LFWWH_TIME_MODE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_TIME_MODE_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_TIME_MODE') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_TIME_MODE_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_time_mode" onchange="lfwwhACP.setState()">
 					<option id="lfwwh_time_mode_1" value="1" {% if LFWWH_TIME_MODE == 1 %}selected="selected"{% endif %}>{{ lang('LFWWH_TIME_MODE_1') }}</option>
@@ -146,7 +188,9 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_period_of_time">
-			<dt><label>{{ lang('LFWWH_TIME_MODE_0') }}{{ lang('COLON') }}</label></dt>
+			<dt>
+				<label>{{ lang('LFWWH_TIME_MODE_0') }}{{ lang('COLON') }}</label>
+			</dt>
 			<dd>
 				<input type="number" name="lfwwh_period_of_time_h" id="lfwwh_period_of_time_h" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_H }}" /> {{ lang('HOURS') }}
 			</dd>
@@ -158,7 +202,10 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_sort_by">
-			<dt><label>{{ lang('LFWWH_SORT_BY') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_SORT_BY_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_SORT_BY') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_SORT_BY_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_sort_by">
 					<option id="lfwwh_sort_by_0" value="0" {% if LFWWH_SORT_BY == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_SORT_BY_0') }}</option>
@@ -171,20 +218,29 @@
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_record">
-			<dt><label>{{ lang('LFWWH_RECORD') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_RECORD_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_RECORD') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_RECORD_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_record" id="lfwwh_record_1" value="1" onchange="lfwwhACP.setState()" {% if LFWWH_RECORD == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_record" id="lfwwh_record_0" value="0" onchange="lfwwhACP.setState()" {% if LFWWH_RECORD == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_record_time_format">
-			<dt><label>{{ lang('LFWWH_RECORD_TIME_FORMAT') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_RECORD_TIME_FORMAT_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_RECORD_TIME_FORMAT') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_RECORD_TIME_FORMAT_EXP') }}</span>
+			</dt>
 			<dd>
 				<input type="text" name="lfwwh_record_time_format" id="lfwwh_record_time_format" size="12" value="{{ LFWWH_RECORD_TIME_FORMAT }}" />
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_template_pos">
-			<dt><label>{{ lang('LFWWH_DISP_TEMPLATE_POS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TEMPLATE_POS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_TEMPLATE_POS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_TEMPLATE_POS_EXP') }}</span>
+			</dt>
 			<dd>
 				<select name="lfwwh_disp_template_pos">
 					<option id="lfwwh_disp_template_pos_0" value="0" {% if LFWWH_DISP_TEMPLATE_POS == 0 %}selected="selected"{% endif %}>{{ lang('LFWWH_DISP_TEMPLATE_POS_0') }}</option>
@@ -198,28 +254,40 @@
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_OTHERS') }}</legend>
 		<dl id="lfwwh_opt_api_mode">
-			<dt><label>{{ lang('LFWWH_API_MODE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_API_MODE_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_API_MODE') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_API_MODE_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_api_mode" id="lfwwh_api_mode_1" value="1" {% if LFWWH_API_MODE == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_api_mode" id="lfwwh_api_mode_0" value="0" {% if LFWWH_API_MODE == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_clear_up">
-			<dt><label>{{ lang('LFWWH_CLEAR_UP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_CLEAR_UP_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_CLEAR_UP') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_CLEAR_UP_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_clear_up" id="lfwwh_clear_up_1" value="1" {% if LFWWH_CLEAR_UP == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_clear_up" id="lfwwh_clear_up_0" value="0" {% if LFWWH_CLEAR_UP == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_template_pos_all">
-			<dt><label>{{ lang('LFWWH_DISP_TEMPLATE_POS_ALL') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DISP_TEMPLATE_POS_ALL_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DISP_TEMPLATE_POS_ALL') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DISP_TEMPLATE_POS_ALL_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_disp_template_pos_all" id="lfwwh_disp_template_pos_all_1" value="1" onchange="lfwwhACP.setState()" {% if LFWWH_DISP_TEMPLATE_POS_ALL == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_disp_template_pos_all" id="lfwwh_disp_template_pos_all_0" value="0" onchange="lfwwhACP.setState()" {% if LFWWH_DISP_TEMPLATE_POS_ALL == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_create_hidden_info">
-			<dt><label>{{ lang('LFWWH_CREATE_HIDDEN_INFO') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_CREATE_HIDDEN_INFO_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_CREATE_HIDDEN_INFO') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_CREATE_HIDDEN_INFO_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_1" value="1" {% if LFWWH_CREATE_HIDDEN_INFO == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_create_hidden_info" id="lfwwh_create_hidden_info_0" value="0" {% if LFWWH_CREATE_HIDDEN_INFO == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
@@ -230,21 +298,30 @@
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_LOAD_SETTINGS') }}</legend>
 		<dl id="lfwwh_opt_use_cache">
-			<dt><label>{{ lang('LFWWH_USE_CACHE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_USE_CACHE_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_USE_CACHE') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_USE_CACHE_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_use_cache" id="lfwwh_use_cache_1" value="1" onchange="lfwwhACP.setState()" {% if LFWWH_USE_CACHE == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_use_cache" id="lfwwh_use_cache_0" value="0" onchange="lfwwhACP.setState()" {% if LFWWH_USE_CACHE == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_use_online_time">
-			<dt><label>{{ lang('LFWWH_USE_ONLINE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_USE_ONLINE_TIME_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_USE_ONLINE_TIME') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_USE_ONLINE_TIME_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_use_online_time" id="lfwwh_use_online_time_1" value="1" onchange="lfwwhACP.setState()" {% if LFWWH_USE_ONLINE_TIME == 1 %}checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_use_online_time" id="lfwwh_use_online_time_0" value="0" onchange="lfwwhACP.setState()" {% if LFWWH_USE_ONLINE_TIME == 0 %}checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_cache_time">
-			<dt><label>{{ lang('LFWWH_CACHE_TIME') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_CACHE_TIME_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_CACHE_TIME') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_CACHE_TIME_EXP') }}</span>
+			</dt>
 			<dd>
 				<input type="number" name="lfwwh_cache_time" id="lfwwh_cache_time" min="1" max="{{ LFWWH_CACHE_TIME_MAX }}" value="{{ LFWWH_CACHE_TIME }}" /> {{ lang('MINUTES') }}
 			</dd>
@@ -254,13 +331,19 @@
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_RESET') }}</legend>
 		<dl id="lfwwh_opt_defaults">
-			<dt><label>{{ lang('LFWWH_DEFAULTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_DEFAULTS_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_DEFAULTS') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_DEFAULTS_EXP') }}</span>
+			</dt>
 			<dd>
 				<input class="button2" type="button" id="lfwwh_defaults" name="lfwwh_defaults" value="{{ lang('LFWWH_BUTTON_DEFAULTS') }}" onclick="lfwwhACP.setDefaults()" />
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_record_reset">
-			<dt><label>{{ lang('LFWWH_RECORD_RESET') }}{{ lang('COLON') }}</label><br /><span>{{ lang('LFWWH_RECORD_RESET_EXP') }}</span></dt>
+			<dt>
+				<label>{{ lang('LFWWH_RECORD_RESET') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('LFWWH_RECORD_RESET_EXP') }}</span>
+			</dt>
 			<dd>
 				<label><input type="radio" class="radio" name="lfwwh_record_reset" id="lfwwh_record_reset_1" value="1" onchange="lfwwhACP.confirmRecordReset()" /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="lfwwh_record_reset" id="lfwwh_record_reset_0" value="0" checked="checked" /> {{ lang('NO') }}</label>

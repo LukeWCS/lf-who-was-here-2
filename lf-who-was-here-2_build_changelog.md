@@ -1,3 +1,9 @@
+* B54
+  * Migration: Deaktivierten Code entfernt.
+  * ACP: 3.1-Artefakte übersehen in `acp_who_was_here_module.php`. Mehrere Änderungen. (Meldung Kirk)
+  * ACP: Überflüssige Template Variable `LFWWH_CONFIG_TITLE` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt.
+  * ACP: Überflüssige Template Variable `LFWWH_DISP_TIME_FORMAT_EXP` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt und zusammengesetzt.
+  * ACP: `acp_who_was_here.html` überarbeitet.
 * B53
   * Mindestvoraussetzungen jetzt phpBB 3.2 und PHP 5.6.
   * ACP: Im einfachen Rechtesystem neue Option für die Bots hinzugefügt.
@@ -19,7 +25,6 @@
   * Sprachdatei: Mehrere Sprachvariablen umbenannt.
   * Sprachdatei: Mehrere Text Änderungen in den Sprachdateien.
   * Github: `README.md` angepasst.
-
 * B52:
   * In den Sprachdateien für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
   * Kleinere Änderungen in den Sprachdateien.

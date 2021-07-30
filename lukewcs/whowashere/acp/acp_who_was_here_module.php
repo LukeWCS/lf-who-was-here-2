@@ -19,6 +19,9 @@ class acp_who_was_here_module
 	protected $request;
 	protected $template;
 	protected $cache;
+	protected $language;
+	protected $ext_manager;
+	protected $md_manager;
 	public $u_action;
 
 	public function main()
@@ -30,20 +33,23 @@ class acp_who_was_here_module
 		$this->request = $request;
 		$this->template = $template;
 		$this->cache = $cache;
+		$this->language = $phpbb_container->get('language');
 		$this->ext_manager = $phpbb_container->get('ext.manager');
 		$this->md_manager = $this->ext_manager->create_extension_metadata_manager('lukewcs/whowashere');
+
 		$ext_display_name = $this->md_manager->get_metadata('display-name');
 		$ext_display_ver = $this->md_manager->get_metadata('version');
 
-		add_form_key('lfwwh');
-		$this->tpl_name = 'acp_who_was_here';
-		$this->page_title = $this->user->lang['LFWWH_NAV_TITLE'] . ' - ' . $this->user->lang['LFWWH_NAV_CONFIG'];
-		$submit = $this->request->is_set_post('submit');
-		$this->user->add_lang_ext('lukewcs/whowashere', 'who_was_here');
+		$this->language->add_lang('who_was_here', 'lukewcs/whowashere');
 
-		if ($submit)
+		$this->tpl_name = 'acp_who_was_here';
+		$this->page_title = $this->language->lang('LFWWH_NAV_TITLE') . ' - ' . $this->language->lang('LFWWH_NAV_CONFIG');
+
+		add_form_key('lukewcs_whowashere');
+
+		if ($this->request->is_set_post('submit'))
 		{
-			if (!check_form_key('lfwwh'))
+			if (!check_form_key('lukewcs_whowashere'))
 			{
 				trigger_error('FORM_INVALID');
 			}
@@ -86,7 +92,7 @@ class acp_who_was_here_module
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}
-			trigger_error($this->user->lang['LFWWH_MSG_SAVED_SETTINGS'] . adm_back_link($this->u_action));
+			trigger_error($this->language->lang('LFWWH_MSG_SAVED_SETTINGS') . adm_back_link($this->u_action));
 		}
 
 		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1);
@@ -95,8 +101,7 @@ class acp_who_was_here_module
 			$this->config->set('lfwwh_cache_time', $load_online_time);
 		}
 		$this->template->assign_vars([
-			'LFWWH_CONFIG_TITLE'			=> sprintf($this->user->lang['LFWWH_CONFIG_TITLE'], 'LF who was here 2'),
-			'LFWWH_CONFIG_DESC'				=> sprintf($this->user->lang['LFWWH_CONFIG_DESC'], $ext_display_name, $ext_display_ver),
+			'LFWWH_CONFIG_DESC'				=> sprintf($this->language->lang('LFWWH_CONFIG_DESC'), $ext_display_name, $ext_display_ver),
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],
@@ -109,7 +114,6 @@ class acp_who_was_here_module
 			'LFWWH_DISP_TIME'				=> $this->config['lfwwh_disp_time'],
 			'LFWWH_DISP_TIME_BOTS'			=> $this->config['lfwwh_disp_time_bots'],
 			'LFWWH_DISP_TIME_FORMAT'		=> $this->config['lfwwh_disp_time_format'],
-			'LFWWH_DISP_TIME_FORMAT_EXP'	=> sprintf($this->user->lang['LFWWH_DISP_TIME_FORMAT_EXP'], $this->user->lang['LFWWH_LAST1'], $this->user->lang['LFWWH_LAST2'], $this->user->lang['LFWWH_LAST3']),
 			'LFWWH_DISP_IP'					=> $this->config['lfwwh_disp_ip'],
 			'LFWWH_TIME_MODE'				=> $this->config['lfwwh_time_mode'],
 			'LFWWH_PERIOD_OF_TIME_H'		=> $this->config['lfwwh_period_of_time_h'],
@@ -127,7 +131,7 @@ class acp_who_was_here_module
 			'LFWWH_USE_ONLINE_TIME'			=> $this->config['lfwwh_use_online_time'],
 			'LFWWH_CACHE_TIME'				=> $this->config['lfwwh_cache_time'],
 			'LFWWH_CACHE_TIME_MAX'			=> $load_online_time,
-			'LFWWH_RECORD_RESET_TIME'		=> ($this->config['lfwwh_record_reset_time'] != 1) ? sprintf($this->user->lang['LFWWH_RECORD_RESET_TIME_HINT'], $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
+			'LFWWH_RECORD_RESET_TIME'		=> ($this->config['lfwwh_record_reset_time'] != 1) ? sprintf($this->language->lang('LFWWH_RECORD_RESET_TIME_HINT'), $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
 			'U_ACTION'						=> $this->u_action,
 		]);
 	}

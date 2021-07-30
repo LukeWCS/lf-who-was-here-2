@@ -16,7 +16,6 @@ class v_2_1_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		// return isset($this->config['lfwwh_version']) && version_compare($this->config['lfwwh_version'], '2.1.0', '>=');
 		return isset($this->config['lfwwh_disp_for_bots']);
 	}
 
