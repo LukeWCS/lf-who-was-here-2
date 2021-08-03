@@ -1,10 +1,13 @@
-* B54
+* B55:
+  * Code: Ext kann nur noch aktiviert werden, wenn die Mindestvoraussetzungen erfüllt sind. Realisiert mit `ext.php`.
+  * Migration: 2.1.0 setzt jetzt phpBB 3.2 voraus.
+* B54:
   * Migration: Deaktivierten Code entfernt.
   * ACP: 3.1-Artefakte übersehen in `acp_who_was_here_module.php`. Mehrere Änderungen. (Meldung Kirk)
   * ACP: Überflüssige Template Variable `LFWWH_CONFIG_TITLE` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt.
   * ACP: Überflüssige Template Variable `LFWWH_DISP_TIME_FORMAT_EXP` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt und zusammengesetzt.
   * ACP: `acp_who_was_here.html` überarbeitet.
-* B53
+* B53:
   * Mindestvoraussetzungen jetzt phpBB 3.2 und PHP 5.6.
   * ACP: Im einfachen Rechtesystem neue Option für die Bots hinzugefügt.
   * ACP: Konfig-Titel und Konfig-Beschreibung werden jetzt anders dargestellt. Ausserdem CDB Link entfernt.
@@ -26,10 +29,10 @@
   * Sprachdatei: Mehrere Text Änderungen in den Sprachdateien.
   * Github: `README.md` angepasst.
 * B52:
-  * In den Sprachdateien für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
-  * Kleinere Änderungen in den Sprachdateien.
-  * Aufgrund des aktuellen phpBB Ext Check Berichts mehrere Fehler behoben.
-  * Github Actions eingerichtet. 
+  * Sprachdatei: In der Datei für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
+  * Sprachdatei: Kleinere Änderungen in den Sprachdateien.
+  * Code: Aufgrund des aktuellen phpBB Ext Check Berichts mehrere Fehler behoben.
+  * Github: Github Actions eingerichtet. 
 
 ### Builds 2.0.0
 
