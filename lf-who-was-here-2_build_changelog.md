@@ -1,3 +1,7 @@
+* B56:
+  * ACP: Unterhalb jeder Einstellungsgruppe mit Ausnahme der letzten die Standardfunktion "Nach oben" eingebaut.
+  * Sprachdatei: Version im Kommentarblock auf 2.1.0 geändert.
+  * Composer: Version um `-dev` erweitert.
 * B55:
   * Code: Ext kann nur noch aktiviert werden, wenn die Mindestvoraussetzungen erfüllt sind. Realisiert mit `ext.php`.
   * Migration: 2.1.0 setzt jetzt phpBB 3.2 voraus.

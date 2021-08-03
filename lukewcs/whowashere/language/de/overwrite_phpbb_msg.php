@@ -9,7 +9,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Lang_iso     : de
-* Lang_ext_ver : 2.0.0
+* Lang_ext_ver : 2.1.0
 * Lang_author  : LukeWCS
 *
 */
