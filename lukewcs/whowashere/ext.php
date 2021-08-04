@@ -16,9 +16,8 @@ class ext extends \phpbb\extension\base
 {
 	public function is_enableable()
 	{
-		$config = $this->container->get('config');
-		$valid_phpbb = phpbb_version_compare($config['version'], '3.2.0', '>=') && phpbb_version_compare($config['version'], '3.4.0', '<');
-		$valid_php = phpbb_version_compare(phpversion(), '5.6.0', '>=') && phpbb_version_compare(phpversion(), '9.0.0', '<');
+		$valid_phpbb = phpbb_version_compare(PHPBB_VERSION, '3.2.0', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.4.0', '<');
+		$valid_php = phpbb_version_compare(PHP_VERSION, '5.6.0', '>=') && phpbb_version_compare(PHP_VERSION, '9.0.0', '<');
 		return $valid_phpbb && $valid_php;
 	}
 }

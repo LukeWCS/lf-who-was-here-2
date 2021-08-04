@@ -1,3 +1,5 @@
+* B57:
+  * Code: `ext.php` weiter reduziert.
 * B56:
   * ACP: Unterhalb jeder Einstellungsgruppe mit Ausnahme der letzten die Standardfunktion "Nach oben" eingebaut.
   * Sprachdatei: Version im Kommentarblock auf 2.1.0 geändert.
@@ -27,7 +29,7 @@
   * Template: Primäres Event Template für `INCLUDECSS` (auch `INCLUDEJS`) ist nicht mehr `overall_header_head_append.html` sondern `index_body_markforums_before.html`, dadurch inkompatibel zu phpBB 3.1
   * Template: Javascript weitestgehend durch jQuery ersetzt.
   * Template: CSS Klassen für Zeit und IP hinzugefügt.
-  * Migration: Ext-Version aus DB Config entfernt, in der Migration werden jetzt andere Merkmale verwendet.
+  * Migration: Ext-Version aus DB Config entfernt, in der Migration werden jetzt andere Prüfmerkmale verwendet.
   * Sprachdatei: Speziellen PHP Code aus der Permissions Sprachdatei entfernt und Prozedur anders realisiert. Änderung in B52 hinfällig.
   * Sprachdatei: Mehrere Sprachvariablen umbenannt.
   * Sprachdatei: Mehrere Text Änderungen in den Sprachdateien.

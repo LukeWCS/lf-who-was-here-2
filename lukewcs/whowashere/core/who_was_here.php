@@ -182,12 +182,12 @@ class who_was_here
 		}
 		else
 		{
-			if ($this->config['lfwwh_use_permissions'])
+			if ($this->config['lfwwh_use_permissions'])	// use phpBB permissions
 			{
 				$wwh_disp_permission_total = $this->auth->acl_gets('u_lfwwh_show_stats');
 				$wwh_disp_permission_users = $this->auth->acl_gets('u_lfwwh_show_users');
 			}
-			else
+			else	// use simple permissions
 			{
 				if ($this->user->data['user_id'] != ANONYMOUS && empty($this->user->data['is_bot']))	// user
 				{
