@@ -1,24 +1,30 @@
+* B58:
+  * Code: Neue Hilfsfunktion für die Darstellung des Rekord Datums eingebaut.
+  * ACP-Template: Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt.
+  * ACP-Modul: 2 neue Template Variablen für die Datumsformat-Demo hinzugefügt.
+  * ACP-Modul: Datum Hilfsfunktionen aus dem Core für die Datumsformat-Demo eingefügt.
+  * Sprachdatei: 1 Sprachvariable für die Datumsformat-Demo hinzugefügt.
 * B57:
   * Code: `ext.php` weiter reduziert.
 * B56:
-  * ACP: Unterhalb jeder Einstellungsgruppe mit Ausnahme der letzten die Standardfunktion "Nach oben" eingebaut.
+  * ACP-Template: Unterhalb jeder Einstellungsgruppe mit Ausnahme der letzten die Standardfunktion "Nach oben" eingebaut.
   * Sprachdatei: Version im Kommentarblock auf 2.1.0 geändert.
   * Composer: Version um `-dev` erweitert.
 * B55:
-  * Code: Ext kann nur noch aktiviert werden, wenn die Mindestvoraussetzungen erfüllt sind. Realisiert mit `ext.php`.
+  * Code: Ext kann nur noch aktiviert werden, wenn die Versionen von phpBB und PHP innerhalb gültiger Bereiche liegen. Realisiert mit `ext.php`.
   * Migration: 2.1.0 setzt jetzt phpBB 3.2 voraus.
+  * Composer: Maximalversion von PHP definiert.  
 * B54:
   * Migration: Deaktivierten Code entfernt.
-  * ACP: 3.1-Artefakte übersehen in `acp_who_was_here_module.php`. Mehrere Änderungen. (Meldung Kirk)
-  * ACP: Überflüssige Template Variable `LFWWH_CONFIG_TITLE` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt.
-  * ACP: Überflüssige Template Variable `LFWWH_DISP_TIME_FORMAT_EXP` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt und zusammengesetzt.
-  * ACP: `acp_who_was_here.html` überarbeitet.
+  * ACP-Modul: 3.1-Artefakte übersehen in `acp_who_was_here_module.php`. Mehrere Änderungen. (Meldung Kirk)
+  * ACP-Modul: Überflüssige Template Variable `LFWWH_CONFIG_TITLE` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt.
+  * ACP-Modul: Überflüssige Template Variable `LFWWH_DISP_TIME_FORMAT_EXP` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt und zusammengesetzt.
+  * ACP-Template: `acp_who_was_here.html` überarbeitet.
 * B53:
-  * Mindestvoraussetzungen jetzt phpBB 3.2 und PHP 5.6.
-  * ACP: Im einfachen Rechtesystem neue Option für die Bots hinzugefügt.
-  * ACP: Konfig-Titel und Konfig-Beschreibung werden jetzt anders dargestellt. Ausserdem CDB Link entfernt.
-  * ACP: Für die Anzeige von Ext-Name und Ext-Version wird jetzt der ExtManager benutzt.
-  * ACP: Javascript weitestgehend durch jQuery ersetzt.
+  * ACP-Template: Im einfachen Rechtesystem neue Option für die Bots hinzugefügt.
+  * ACP-Template: Konfig-Titel und Konfig-Beschreibung werden jetzt anders dargestellt. Ausserdem CDB Link entfernt.
+  * ACP-Template: Für die Anzeige von Ext-Name und Ext-Version wird jetzt der ExtManager benutzt.
+  * ACP-Template: Javascript weitestgehend durch jQuery ersetzt.
   * Code: Letzte Validierungs-Kritik von kasimi bei 2.0.0 berücksichtigt.
   * Code: Array-Definitionen auf kurze Notation umgestellt, dadurch inkompatibel zu PHP 5.3.
   * Code: Wie ursprünglich schon mal verwendet, den neuen Power Operator anstelle `pow()` notiert, dadurch inkompatibel zu PHP <5.6.
@@ -33,6 +39,8 @@
   * Sprachdatei: Speziellen PHP Code aus der Permissions Sprachdatei entfernt und Prozedur anders realisiert. Änderung in B52 hinfällig.
   * Sprachdatei: Mehrere Sprachvariablen umbenannt.
   * Sprachdatei: Mehrere Text Änderungen in den Sprachdateien.
+  * Composer: Mindestvoraussetzungen auf phpBB 3.2 und PHP 5.6 geändert.
+  * Composer: Version auf 2.1.0 geändert.
   * Github: `README.md` angepasst.
 * B52:
   * Sprachdatei: In der Datei für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.

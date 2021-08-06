@@ -157,6 +157,7 @@
 			</dt>
 			<dd>
 				<input type="text" name="lfwwh_disp_time_format" id="lfwwh_disp_time_format" size="12" value="{{ LFWWH_DISP_TIME_FORMAT }}" />
+				{{ LFWWH_DISP_TIME_FORMAT_DEMO }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_ip">
@@ -194,13 +195,16 @@
 				<label>{{ lang('LFWWH_TIME_MODE_0') }}{{ lang('COLON') }}</label>
 			</dt>
 			<dd>
-				<input type="number" name="lfwwh_period_of_time_h" id="lfwwh_period_of_time_h" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_H }}" /> {{ lang('HOURS') }}
+				<input type="number" name="lfwwh_period_of_time_h" id="lfwwh_period_of_time_h" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_H }}" />
+				{{ lang('HOURS') }}
 			</dd>
 			<dd>
-				<input type="number" name="lfwwh_period_of_time_m" id="lfwwh_period_of_time_m" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_M }}" /> {{ lang('MINUTES') }}
+				<input type="number" name="lfwwh_period_of_time_m" id="lfwwh_period_of_time_m" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_M }}" />
+				{{ lang('MINUTES') }}
 			</dd>
 			<dd>
-				<input type="number" name="lfwwh_period_of_time_s" id="lfwwh_period_of_time_s" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_S }}" /> {{ lang('SECONDS') }}
+				<input type="number" name="lfwwh_period_of_time_s" id="lfwwh_period_of_time_s" min="0" max="99999" value="{{ LFWWH_PERIOD_OF_TIME_S }}" />
+				{{ lang('SECONDS') }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_sort_by">
@@ -236,6 +240,7 @@
 			</dt>
 			<dd>
 				<input type="text" name="lfwwh_record_time_format" id="lfwwh_record_time_format" size="12" value="{{ LFWWH_RECORD_TIME_FORMAT }}" />
+				{{ LFWWH_RECORD_TIME_FORMAT_DEMO }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_template_pos">

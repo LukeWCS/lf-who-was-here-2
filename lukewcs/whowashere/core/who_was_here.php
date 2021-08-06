@@ -256,7 +256,7 @@ class who_was_here
 			if ($row['user_id'] != ANONYMOUS)
 			{
 				$wwh_username_full = get_username_string((($row['user_type'] == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
-				$time = $this->get_formatted_time_string($row['wwh_lastpage']);
+				$time = $this->get_formatted_time($row['wwh_lastpage']);
 				$ip = (($wwh_disp_permission_ip) ? $this->language->lang('IP') . ': ' . $row['user_ip'] : '');
 				$time_disp = $this->get_class_span('time', $time);
 				$ip_disp = $this->get_class_span('ip', $ip);
@@ -593,13 +593,21 @@ class who_was_here
 	}
 
 	/**
-	* Returns a formated date string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
+	* Returns a formated time string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
 	*/
-	private function get_formatted_time_string($timestamp)
+	private function get_formatted_time($timestamp)
 	{
 		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
 		$text = str_replace(['$1', '$2', '$3'], [$this->language->lang('LFWWH_LAST1'), $this->language->lang('LFWWH_LAST2'), $this->language->lang('LFWWH_LAST3')], $text);
 		return $text;
+	}
+
+	/**
+	* Returns a formated record time string. (LukeWCS)
+	*/
+	private function get_formatted_record_time($timestamp)
+	{
+		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);
 	}
 
 	/**
@@ -645,12 +653,12 @@ class who_was_here
 		}
 		if ($mode == 1)	// today
 		{
-			return sprintf($this->language->lang('LFWWH_RECORD_DAY'), $this->config['lfwwh_record_ips'], $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
+			return sprintf($this->language->lang('LFWWH_RECORD_DAY'), $this->config['lfwwh_record_ips'], $this->get_formatted_record_time($this->config['lfwwh_record_time']));
 		}
 		else	// period of time
 		{
 			$record_time2 = $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
-			return sprintf($this->language->lang('LFWWH_RECORD_TIME'), $this->config['lfwwh_record_ips'], $this->user->format_date($record_time2, $this->config['lfwwh_record_time_format']), $this->user->format_date($this->config['lfwwh_record_time'], $this->config['lfwwh_record_time_format']));
+			return sprintf($this->language->lang('LFWWH_RECORD_TIME'), $this->config['lfwwh_record_ips'], $this->get_formatted_record_time($record_time2), $this->get_formatted_record_time($this->config['lfwwh_record_time']));
 		}
 	}
 

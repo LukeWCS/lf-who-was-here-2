@@ -86,6 +86,7 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_TIME_BOTS'				=> 'Zeige die Zeit von Bots',
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
 	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>. Spezielle Platzhalter: $1 = „%1$s“, $2 = „%2$s“, $3 = „%3$s“.',
+	'LFWWH_DISP_TIME_FORMAT_DEMO'		=> 'Aktuelle Anzeige: %s',
 	'LFWWH_DISP_IP'						=> 'Zeige die Benutzer-IP',
 	'LFWWH_DISP_IP_EXP'					=> '„Als Tooltip“ zeigt zusätzlich ein Info-Symbol an, mit dem die IPs auch direkt eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs. (Nur für Benutzer mit administrativen Rechten, wie bei „Wer ist online?“.)',
 	'LFWWH_DISP_MODE_1'					=> 'Hinter dem Namen',

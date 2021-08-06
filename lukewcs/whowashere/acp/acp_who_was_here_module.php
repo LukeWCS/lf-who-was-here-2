@@ -114,6 +114,7 @@ class acp_who_was_here_module
 			'LFWWH_DISP_TIME'				=> $this->config['lfwwh_disp_time'],
 			'LFWWH_DISP_TIME_BOTS'			=> $this->config['lfwwh_disp_time_bots'],
 			'LFWWH_DISP_TIME_FORMAT'		=> $this->config['lfwwh_disp_time_format'],
+			'LFWWH_DISP_TIME_FORMAT_DEMO'	=> sprintf($this->language->lang('LFWWH_DISP_TIME_FORMAT_DEMO'), $this->get_formatted_time(time())),
 			'LFWWH_DISP_IP'					=> $this->config['lfwwh_disp_ip'],
 			'LFWWH_TIME_MODE'				=> $this->config['lfwwh_time_mode'],
 			'LFWWH_PERIOD_OF_TIME_H'		=> $this->config['lfwwh_period_of_time_h'],
@@ -122,6 +123,7 @@ class acp_who_was_here_module
 			'LFWWH_SORT_BY'					=> $this->config['lfwwh_sort_by'],
 			'LFWWH_RECORD'					=> $this->config['lfwwh_record'],
 			'LFWWH_RECORD_TIME_FORMAT'		=> $this->config['lfwwh_record_time_format'],
+			'LFWWH_RECORD_TIME_FORMAT_DEMO'	=> sprintf($this->language->lang('LFWWH_DISP_TIME_FORMAT_DEMO'), $this->get_formatted_record_time(time())),
 			'LFWWH_DISP_TEMPLATE_POS'		=> $this->config['lfwwh_disp_template_pos'],
 			'LFWWH_API_MODE'				=> $this->config['lfwwh_api_mode'],
 			'LFWWH_CLEAR_UP'				=> $this->config['lfwwh_clear_up'],
@@ -134,5 +136,17 @@ class acp_who_was_here_module
 			'LFWWH_RECORD_RESET_TIME'		=> ($this->config['lfwwh_record_reset_time'] != 1) ? sprintf($this->language->lang('LFWWH_RECORD_RESET_TIME_HINT'), $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
 			'U_ACTION'						=> $this->u_action,
 		]);
+	}
+
+	private function get_formatted_time($timestamp)
+	{
+		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
+		$text = str_replace(['$1', '$2', '$3'], [$this->language->lang('LFWWH_LAST1'), $this->language->lang('LFWWH_LAST2'), $this->language->lang('LFWWH_LAST3')], $text);
+		return $text;
+	}
+
+	private function get_formatted_record_time($timestamp)
+	{
+		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);
 	}
 }
