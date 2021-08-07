@@ -46,11 +46,3 @@ $lang = array_merge($lang, [
 	'ACL_U_LFWWH_SHOW_STATS'	=> 'Who was here (2.x): Can view statistics',
 	'ACL_U_LFWWH_SHOW_USERS'	=> 'Who was here (2.x): Can view members',
 ]);
-
-/**
-* DO NOT CHANGE
-*/
-$lang = array_merge($lang, [
-	'ACL_U_LFWWH_SHOW_STATS_OFF' => '<span style="opacity: 0.5;">' . $lang['ACL_U_LFWWH_SHOW_STATS'] . '</span>',
-	'ACL_U_LFWWH_SHOW_USERS_OFF' => '<span style="opacity: 0.5;">' . $lang['ACL_U_LFWWH_SHOW_USERS'] . '</span>',
-]);

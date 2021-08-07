@@ -26,14 +26,14 @@ class acp_who_was_here_module
 
 	public function main()
 	{
-		global $user, $config, $request, $template, $cache, $phpbb_container;
+		global $user, $config, $request, $template, $cache, $language, $phpbb_container;
 
 		$this->user = $user;
 		$this->config = $config;
 		$this->request = $request;
 		$this->template = $template;
 		$this->cache = $cache;
-		$this->language = $phpbb_container->get('language');
+		$this->language = $language; // needs phpBB >=3.2.6
 		$this->ext_manager = $phpbb_container->get('ext.manager');
 		$this->md_manager = $this->ext_manager->create_extension_metadata_manager('lukewcs/whowashere');
 

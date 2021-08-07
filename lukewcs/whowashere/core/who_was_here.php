@@ -79,12 +79,6 @@ class who_was_here
 			$result = $this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
-			if ((bool) $result === false)
-			{
-				// database does not exist yet...
-				return;
-			}
-
 			$sql_affectedrows = (int) $this->db->sql_affectedrows();
 			if ($sql_affectedrows != 1)
 			{
@@ -124,18 +118,10 @@ class who_was_here
 			{
 				return;
 			}
-			$this->db->sql_return_on_error(true);
 			$sql = 'SELECT user_id
 					FROM ' . $this->lfwwh_table . "
 					WHERE user_ip = '" . $this->db->sql_escape($this->user->ip) . "'";
 			$result = $this->db->sql_query_limit($sql, 1);
-			$this->db->sql_return_on_error(false);
-
-			if ((bool) $result === false)
-			{
-				// database does not exist yet...
-				return;
-			}
 
 			$user_logged = (int) $this->db->sql_fetchfield('user_id');
 			$this->db->sql_freeresult($result);
@@ -442,12 +428,6 @@ class who_was_here
 			$result = $this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
-			if ((bool) $result === false)
-			{
-				// database does not exist yet...
-				return false;
-			}
-
 			if ($this->config['lfwwh_time_mode'] == 1)	// today
 			{
 				$this->config->set('lfwwh_last_clean', $prune_timestamp);
@@ -504,16 +484,15 @@ class who_was_here
 	public function add_permissions($event)
 	{
 		$permissions = $event['permissions'];
+		$lang_show_users = $this->language->lang('ACL_U_LFWWH_SHOW_USERS');	// needs phpBB >=3.2.10
+		$lang_show_stats = $this->language->lang('ACL_U_LFWWH_SHOW_STATS');	// needs phpBB >=3.2.10
 		if (!$this->config['lfwwh_use_permissions'] || $this->config['lfwwh_admin_mode'])
 		{
-			$permissions['u_lfwwh_show_users'] = ['lang' => 'ACL_U_LFWWH_SHOW_USERS_OFF', 'cat' => 'profile'];
-			$permissions['u_lfwwh_show_stats'] = ['lang' => 'ACL_U_LFWWH_SHOW_STATS_OFF', 'cat' => 'profile'];
+			$lang_show_users = '<span style="opacity: 0.5;">' . $lang_show_users . '</span>';
+			$lang_show_stats = '<span style="opacity: 0.5;">' . $lang_show_stats . '</span>';
 		}
-		else
-		{
-			$permissions['u_lfwwh_show_users'] = ['lang' => 'ACL_U_LFWWH_SHOW_USERS', 'cat' => 'profile'];
-			$permissions['u_lfwwh_show_stats'] = ['lang' => 'ACL_U_LFWWH_SHOW_STATS', 'cat' => 'profile'];
-		}
+		$permissions['u_lfwwh_show_users'] = ['lang' => $lang_show_users, 'cat' => 'profile'];
+		$permissions['u_lfwwh_show_stats'] = ['lang' => $lang_show_stats, 'cat' => 'profile'];
 		$event['permissions'] = $permissions;
 	}
 

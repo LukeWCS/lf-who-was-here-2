@@ -25,13 +25,13 @@
 	],
 	"require": {
 		"php": ">=5.6.0,<9.0.0",
-		"phpbb/phpbb": ">=3.2.0,<3.4.0@dev",
+		"phpbb/phpbb": ">=3.2.10,<3.4.0@dev",
 		"composer/installers": "~1.0.0"
 	},
 	"extra": {
 		"display-name": "LF who was here 2",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.2.0,<3.4.0@dev"
+			"phpbb/phpbb": ">=3.2.10,<3.4.0@dev"
 		},
 		"version-check": {
 			"host": "www.phpbb.com",

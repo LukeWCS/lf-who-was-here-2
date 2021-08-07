@@ -1,3 +1,8 @@
+* B59:
+  * Code: Noch offene Punkte zur Validierung von 2.0.0 wurden vollständig geklärt und entsprechend umgesetzt. Dadurch erhöht sich die Mindestversion bei phpBB.
+  * Code: Bei `ext.php` Mindestvoraussetzung auf phpBB 3.2.10 geändert.
+  * ACP-Modul: Sonderanpassung für phpBB 3.2.6 entfernt, da nicht länger relevant.
+  * Composer: Mindestvoraussetzung auf phpBB 3.2.10 geändert.
 * B58:
   * Code: Neue Hilfsfunktion für die Darstellung des Rekord Datums eingebaut.
   * ACP-Template: Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt.
@@ -25,7 +30,7 @@
   * ACP-Template: Konfig-Titel und Konfig-Beschreibung werden jetzt anders dargestellt. Ausserdem CDB Link entfernt.
   * ACP-Template: Für die Anzeige von Ext-Name und Ext-Version wird jetzt der ExtManager benutzt.
   * ACP-Template: Javascript weitestgehend durch jQuery ersetzt.
-  * Code: Letzte Validierungs-Kritik von kasimi bei 2.0.0 berücksichtigt.
+  * Code: Validierungs-Kritik von kasimi zu 2.0.0 weitestgehend berücksichtigt.
   * Code: Array-Definitionen auf kurze Notation umgestellt, dadurch inkompatibel zu PHP 5.3.
   * Code: Wie ursprünglich schon mal verwendet, den neuen Power Operator anstelle `pow()` notiert, dadurch inkompatibel zu PHP <5.6.
   * Code: Ext auf Funktions-Basis von phpBB 3.2 gestellt, dadurch inkompatibel zu phpBB 3.1. Betrifft u.a. das Sprach-Objekt.
