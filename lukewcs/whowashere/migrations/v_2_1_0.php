@@ -21,10 +21,7 @@ class v_2_1_0 extends \phpbb\db\migration\migration
 
 	public static function depends_on()
 	{
-		return [
-			'\lukewcs\whowashere\migrations\v_2_0_0',
-			'\phpbb\db\migration\data\v320\v320'
-		];
+		return ['\lukewcs\whowashere\migrations\v_2_0_0'];
 	}
 
 	public function update_data()

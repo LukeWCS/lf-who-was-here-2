@@ -1,7 +1,12 @@
+* B60:
+  * Migration: Bei 2.1.0 die Voraussetzung phpBB 3.2.0 zu prüfen ist wenig sinnvoll und ab B59 ohnehin überflüssig. Änderung in B55 hinfällig.
+  * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts. Fehlermeldungen wurden verursacht durch die Validierungs-Bereinigung in B59.
+  * Github: Mindestvoraussetzungen in `README.md` angepasst.
+  * Github: Da LFWWH2 seit Juli 2020 offiziell zur CDB gehört, ist die Versionsprüfung-Datei `lf-who-was-here-2_version.json` nicht länger relevant und wurde entfernt.
 * B59:
   * Code: Noch offene Punkte zur Validierung von 2.0.0 wurden vollständig geklärt und entsprechend umgesetzt. Dadurch erhöht sich die Mindestversion bei phpBB.
   * Code: Bei `ext.php` Mindestvoraussetzung auf phpBB 3.2.10 geändert.
-  * ACP-Modul: Sonderanpassung für phpBB 3.2.6 entfernt, da nicht länger relevant.
+  * ACP-Modul: Sonderanpassung für phpBB <3.2.6 entfernt, da nicht länger relevant.
   * Composer: Mindestvoraussetzung auf phpBB 3.2.10 geändert.
 * B58:
   * Code: Neue Hilfsfunktion für die Darstellung des Rekord Datums eingebaut.
@@ -17,7 +22,7 @@
   * Composer: Version um `-dev` erweitert.
 * B55:
   * Code: Ext kann nur noch aktiviert werden, wenn die Versionen von phpBB und PHP innerhalb gültiger Bereiche liegen. Realisiert mit `ext.php`.
-  * Migration: 2.1.0 setzt jetzt phpBB 3.2 voraus.
+  * Migration: 2.1.0 setzt jetzt phpBB 3.2.0 voraus.
   * Composer: Maximalversion von PHP definiert.  
 * B54:
   * Migration: Deaktivierten Code entfernt.
@@ -50,7 +55,7 @@
 * B52:
   * Sprachdatei: In der Datei für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
   * Sprachdatei: Kleinere Änderungen in den Sprachdateien.
-  * Code: Aufgrund des aktuellen phpBB Ext Check Berichts mehrere Fehler behoben.
+  * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts.
   * Github: Github Actions eingerichtet. 
 
 ### Builds 2.0.0

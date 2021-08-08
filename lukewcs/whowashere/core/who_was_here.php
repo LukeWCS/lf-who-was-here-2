@@ -425,7 +425,7 @@ class who_was_here
 			$this->db->sql_return_on_error(true);
 			$sql = 'DELETE FROM ' . $this->lfwwh_table . '
 					WHERE wwh_lastpage < ' . (int) $prune_timestamp;
-			$result = $this->db->sql_query($sql);
+			$this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
 			if ($this->config['lfwwh_time_mode'] == 1)	// today
@@ -467,7 +467,7 @@ class who_was_here
 			}
 		}
 
-		// Clears the LF WWH cache and inserts the notification.
+		// Clears the cache and inserts the notification.
 		if ($user_deleted)
 		{
 			if ($this->config['lfwwh_use_cache'])
