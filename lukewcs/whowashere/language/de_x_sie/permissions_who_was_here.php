@@ -8,10 +8,6 @@
 * @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
-* Lang_iso     : de_x_sie
-* Lang_ext_ver : 2.1.0
-* Lang_author  : LukeWCS
-*
 */
 
 /**

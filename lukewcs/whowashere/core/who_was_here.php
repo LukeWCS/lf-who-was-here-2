@@ -467,7 +467,7 @@ class who_was_here
 			}
 		}
 
-		// Clears the cache and inserts the notification.
+		// Clears the WWH cache and inserts the notification.
 		if ($user_deleted)
 		{
 			if ($this->config['lfwwh_use_cache'])

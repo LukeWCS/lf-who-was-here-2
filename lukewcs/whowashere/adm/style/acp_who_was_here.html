@@ -13,7 +13,7 @@
 <a id="maincontent"></a>
 
 <h1>{{ lang('LFWWH_CONFIG_TITLE') }}</h1>
-<p>{{ LFWWH_CONFIG_DESC }}</p>
+<p>{{ lang('LFWWH_CONFIG_DESC', LFWWH_EXT_NAME, LFWWH_EXT_VER) }}</p>
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
@@ -366,6 +366,11 @@
 		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
 		<input class="button2" type="button" id="form_reset" name="form_reset" value="{{ lang('RESET') }}" onclick="lfwwhACP.customFormReset()" />
 	</p>
+	
+	<p id="lfwwh_acp_copyright">
+		{{ LFWWH_EXT_NAME }} &copy; LukeWCS<br />
+		{{ lang('LFWWH_LANG_DESC') }} {{ lang('LFWWH_LANG_EXT_VER') }} &bull; {{ lang('LFWWH_LANG_AUTHOR') }}
+	</p>
 {{ S_FORM_TOKEN }}
 </form>
 
@@ -378,4 +383,5 @@
 </script>
 
 {% INCLUDEJS 'acp_who_was_here.js' %}
+{% INCLUDECSS 'acp_who_was_here.css' %}
 {% INCLUDE 'overall_footer.html' %}

@@ -101,7 +101,8 @@ class acp_who_was_here_module
 			$this->config->set('lfwwh_cache_time', $load_online_time);
 		}
 		$this->template->assign_vars([
-			'LFWWH_CONFIG_DESC'				=> sprintf($this->language->lang('LFWWH_CONFIG_DESC'), $ext_display_name, $ext_display_ver),
+			'LFWWH_EXT_NAME'				=> $ext_display_name,
+			'LFWWH_EXT_VER'					=> $ext_display_ver,
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],

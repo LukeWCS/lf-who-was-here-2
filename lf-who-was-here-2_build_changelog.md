@@ -1,6 +1,14 @@
+* B61:
+  * ACP-Modul: Überflüssige Template Variable `LFWWH_CONFIG_DESC` entfernt, das wird jetzt direkt im Template erledigt.
+  * ACP-Modul: Zwei neue Template Variablen hinzugefügt, die den Ext-Namen und die Ext-Version enthalten.
+  * ACP-Template: Die Konfig-Beschreibung wird jetzt direkt per Twig aus der Sprachdatei geholt und mit den beiden neuen Template Variablen zusammengesetzt.
+  * ACP-Template: Es gibt jetzt einen Footer der die Autoren-Info des Übersetzers enthält.
+  * Sprachdatei: 3 Sprach-Variablen für die Autoren-Info des Übersetzers hinzugefügt.  
+  * Sprachdatei: Aus jeder Sprachdatei die Autoren-Info des Übersetzers im Kommentar-Block entfernt.
+  * Erste Fassung des offiziellen Changelogs.
 * B60:
   * Migration: Bei 2.1.0 die Voraussetzung phpBB 3.2.0 zu prüfen ist wenig sinnvoll und ab B59 ohnehin überflüssig. Änderung in B55 hinfällig.
-  * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts. Fehlermeldungen wurden verursacht durch die Validierungs-Bereinigung in B59.
+  * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts. Gemeldete Fehler hängen mit der Validierungs-Bereinigung in B59 zusammen.
   * Github: Mindestvoraussetzungen in `README.md` angepasst.
   * Github: Da LFWWH2 seit Juli 2020 offiziell zur CDB gehört, ist die Versionsprüfung-Datei `lf-who-was-here-2_version.json` nicht länger relevant und wurde entfernt.
 * B59:
