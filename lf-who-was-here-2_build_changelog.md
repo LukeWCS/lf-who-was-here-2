@@ -1,3 +1,6 @@
+* B62:
+  * Sprachdatei: Kleinere Änderungen.
+  * Release Changelog überarbeitet.
 * B61:
   * ACP-Modul: Überflüssige Template Variable `LFWWH_CONFIG_DESC` entfernt, das wird jetzt direkt im Template erledigt.
   * ACP-Modul: Zwei neue Template Variablen hinzugefügt, die den Ext-Namen und die Ext-Version enthalten.
@@ -5,7 +8,7 @@
   * ACP-Template: Es gibt jetzt einen Footer der die Autoren-Info des Übersetzers enthält.
   * Sprachdatei: 3 Sprach-Variablen für die Autoren-Info des Übersetzers hinzugefügt.  
   * Sprachdatei: Aus jeder Sprachdatei die Autoren-Info des Übersetzers im Kommentar-Block entfernt.
-  * Erste Fassung des offiziellen Changelogs.
+  * Erste Fassung des Release Changelogs.
 * B60:
   * Migration: Bei 2.1.0 die Voraussetzung phpBB 3.2.0 zu prüfen ist wenig sinnvoll und ab B59 ohnehin überflüssig. Änderung in B55 hinfällig.
   * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts. Gemeldete Fehler hängen mit der Validierungs-Bereinigung in B59 zusammen.
@@ -62,7 +65,7 @@
   * Github: `README.md` angepasst.
 * B52:
   * Sprachdatei: In der Datei für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
-  * Sprachdatei: Kleinere Änderungen in den Sprachdateien.
+  * Sprachdatei: Kleinere Änderungen.
   * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts.
   * Github: Github Actions eingerichtet. 
 

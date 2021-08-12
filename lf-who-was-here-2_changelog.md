@@ -6,33 +6,30 @@
   * phpBB ab 3.2.10 (vorher 3.1.11) bis einschliesslich phpBB 3.3.
   * PHP 5.6 (vorher 5.3) bis einschliesslich PHP 8.
 * Die Erweiterung wurde auf die Funktionsbasis von phpBB 3.2 gestellt, wodurch sie jetzt inkompatibel mit phpBB 3.1 ist.
-  * Alte phpBB Funktionen die bereits seit phpBB 3.2 als DEPRECATED eingestuft sind, werden nicht länger genutzt. Stattdessen werden Funktionen genutzt die bei phpBB 3.2 eingeführt wurden und auch bei 3.3. noch gültig sind.
+  * Alte phpBB Funktionen die bereits seit phpBB 3.2 als DEPRECATED eingestuft sind, werden nicht mehr verwendet. Stattdessen werden Funktionen genutzt die bei phpBB 3.2 eingeführt wurden und auch bei 3.3. noch gültig sind.
   * Sonderanpassungen die noch für phpBB 3.1 nötig waren, wurden entfernt.
 * Die Erweiterung kann nur noch aktiviert und installiert werden, wenn die Voraussetzungen bei phpBB und PHP erfüllt sind. Dabei wird sowohl die Mindestversion als auch die Maximalversion berücksichtigt.
-* Änderungen im APC-Modul (Einstellungen):
+* Änderungen bei den Einstellungen (ACP).
   * Das einfache Rechtesystem hat zusätzlich eine Option für die Bots. Diese Einstellung hat noch gefehlt, um LFWWH bei Bedarf komplett auf das Verhalten von NVWWH einstellen zu können.
   * Der tatsächliche Name der Erweiterung ist nicht mehr Teil des Titels, sondern der Beschreibung unterhalb des Titels.
   * Die Beschreibung unterhalb des Titels wurde neu gestaltet. Unter anderem wurde der CDB Link entfernt.
-  * Unterhalb jeder Einstellungsgruppe gibt es die phpBB Standardfunktion "Nach oben".
-  * Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt. Das erspart nach einer Änderung den Wechsel zum Frontend (Forenindex).
-  * Es wurde ein Footer hinzugefügt, der jetzt die Autoren-Info des Übersetzers anzeigt.
-  * Zusätzliche Information für Ext Coder und Style Designer:
-    * PHP: Überflüssige Template Variablen entfernt. Deren Inhalte werden jetzt direkt direkt im Template per Twig aus der Sprachdatei geholt zusammengesetzt.
-    * Template: Pures Javascript weitestgehend durch jQuery ersetzt.
-* Änderungen im Frontend Template (Forenindex):
-  * Der HTML Code wurde weitestgehend von PHP ins Template verlagert. So kann jetzt z.B. das HTML des Buttons und der Debug-Meldung angepasst werden, sowie die Zeilen für Benutzer und Bots besser angepasst werden.
-  * Die Schaltfläche für das Einblenden der zusätzlichen Informationen (Zeit, IP), befindet sich jetzt hinter dem Doppelpunkt.
-  * Es gibt 2 neue Template Variablen.
-  * Die Position des Buttons wird nicht mehr über eine Sprachvariable geregelt, sondern direkt im Template.
+  * Unterhalb jeder Einstellungsgruppe die phpBB Standardfunktion "Nach oben" hinzugefügt.
+  * Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt. Das erspart nach einer Änderung den Wechsel zum Forenindex (Frontend).
+  * Es wurde ein Footer hinzugefügt, der jetzt die Autoren-Info des Sprachpaket-Übersetzers anzeigt.
+  * Javascript weitestgehend durch jQuery ersetzt.
+* Änderungen im Forenindex (Frontend).
+  * Der HTML Code wurde weitestgehend von PHP ins Template verlagert. So kann jetzt z.B. das HTML des Buttons und der Debug-Meldung geändert werden, sowie die Zeilen für Benutzer und Bots besser angepasst werden.
+  * Die Position der Schaltfläche für das Einblenden der zusätzlichen Informationen (Zeit, IP) wird nicht mehr über eine Sprachvariable geregelt, sondern direkt im Template.
+  * Es gibt 4 neue Template Variablen.
   * CSS Klassen für Zeit und IP hinzugefügt.
-  * Pures Javascript weitestgehend durch jQuery ersetzt.
   * Der Ordner `prosilver` wurde entfernt und alles innerhalb `all` angelegt. Das ermöglicht einfachere Anpassungen von prosilver selbst, da dessen Ordner bei Updates nicht länger von Änderungen betroffen ist.
-* Änderungen bei den Sprachdateien:
-  * Zusätzlichen PHP Code aus der Datei `permissions_who_was_here.php` entfernt. Die nötige Prozedur zur Änderung der Sprach-Variablen ist jetzt anders gelöst.
+  * Javascript weitestgehend durch jQuery ersetzt.
+* Änderungen bei den Sprachdateien.
+  * Zusätzlichen PHP Code aus der Datei `permissions_who_was_here.php` entfernt. Die nötige Prozedur zur Änderung der Sprach-Variablen wird jetzt direkt im Core erledigt.
   * Mehrere Sprach-Variablen umbenannt.
   * Mehrere Sprach-Variablen hinzugefügt.
   * Kleinere Text-Änderungen.
-  * Die bisherige Autoren-Info des Übersetzers wurde aus dem Kommentar-Block entfernt.
+  * Die bisherige Autoren-Info des Sprachpaket-Übersetzers aus dem Kommentar-Block entfernt.
 
 ### Changelog 2.0.0
 

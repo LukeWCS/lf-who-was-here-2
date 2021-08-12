@@ -45,7 +45,7 @@ $lang = array_merge($lang, [
 	'LFWWH_LAST3'				=> 'zuletzt am',
 	'LFWWH_USERS_PREFIX'		=> 'Mitglieder',
 	'LFWWH_BOTS_PREFIX'			=> 'Bots',
-	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Infos',
+	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Informationen',
 	'LFWWH_POS_EXP'				=> 'Position: %s',
 
 	'LFWWH_TOTAL' => [
