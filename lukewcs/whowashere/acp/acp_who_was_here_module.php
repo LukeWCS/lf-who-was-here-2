@@ -39,6 +39,9 @@ class acp_who_was_here_module
 
 		$ext_display_name = $this->md_manager->get_metadata('display-name');
 		$ext_display_ver = $this->md_manager->get_metadata('version');
+		$ext_lang_min_ver = $this->md_manager->get_metadata()['extra']['lang-min-ver'];
+		$lang_ver = ($this->language->lang('LFWWH_LANG_EXT_VER') !== 'LFWWH_LANG_EXT_VER') ? $this->language->lang('LFWWH_LANG_EXT_VER') : '0.0.0';
+		$notes = '';
 
 		$this->language->add_lang('who_was_here', 'lukewcs/whowashere');
 
@@ -95,14 +98,21 @@ class acp_who_was_here_module
 			trigger_error($this->language->lang('LFWWH_MSG_SAVED_SETTINGS') . adm_back_link($this->u_action));
 		}
 
+		if (!phpbb_version_compare($lang_ver, $ext_lang_min_ver, '>='))
+		{
+			$this->add_note($notes, $this->language->lang('LFWWH_MSG_LANGUAGEPACK_OUTDATED'));
+		}
+
 		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1);
 		if ($this->config['lfwwh_cache_time'] > $load_online_time)
 		{
 			$this->config->set('lfwwh_cache_time', $load_online_time);
 		}
+
 		$this->template->assign_vars([
 			'LFWWH_EXT_NAME'				=> $ext_display_name,
 			'LFWWH_EXT_VER'					=> $ext_display_ver,
+			'LFWWH_NOTES'					=> $notes,
 			'LFWWH_ADMIN_MODE'				=> $this->config['lfwwh_admin_mode'],
 			'LFWWH_USE_PERMISSIONS'			=> $this->config['lfwwh_use_permissions'],
 			'LFWWH_DISP_FOR_GUESTS'			=> $this->config['lfwwh_disp_for_guests'],
@@ -149,5 +159,10 @@ class acp_who_was_here_module
 	private function get_formatted_record_time($timestamp)
 	{
 		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);
+	}
+
+	private function add_note(&$notes, $msg)
+	{
+		$notes .= (($notes != '') ? "\n" : "") . sprintf('<p>%s</p>', $msg);
 	}
 }

@@ -30,6 +30,7 @@
 	},
 	"extra": {
 		"display-name": "LF who was here 2",
+		"lang-min-ver": "2.1.0",
 		"soft-require": {
 			"phpbb/phpbb": ">=3.2.10,<3.4.0@dev"
 		},

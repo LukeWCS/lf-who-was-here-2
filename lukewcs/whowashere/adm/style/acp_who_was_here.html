@@ -16,6 +16,13 @@
 <p>{{ lang('LFWWH_CONFIG_DESC', LFWWH_EXT_NAME, LFWWH_EXT_VER) }}</p>
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
+
+	{% if LFWWH_NOTES %}
+	<div class="errorbox notice">
+		{{ LFWWH_NOTES }}
+	</div>
+	{% endif %}
+
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_PERMISSIONS') }}</legend>
 		<dl id="lfwwh_opt_admin_mode">

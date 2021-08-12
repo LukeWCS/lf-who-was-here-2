@@ -11,21 +11,19 @@
 * Die Erweiterung kann nur noch aktiviert und installiert werden, wenn die Voraussetzungen bei phpBB und PHP erfüllt sind. Dabei wird sowohl die Mindestversion als auch die Maximalversion berücksichtigt.
 * Änderungen bei den Einstellungen (ACP).
   * Das einfache Rechtesystem hat zusätzlich eine Option für die Bots. Diese Einstellung hat noch gefehlt, um LFWWH bei Bedarf komplett auf das Verhalten von NVWWH einstellen zu können.
+  * Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt. Das erspart nach einer Änderung den Wechsel zum Forenindex (Frontend).
+  * Unterhalb des Titels wird jetzt ein Hinweis angezeigt, wenn das Sprachpaket veraltet ist.
+  * Es wurde ein Footer hinzugefügt, der jetzt die Autoren-Info des Sprachpaket-Übersetzers anzeigt.
   * Der tatsächliche Name der Erweiterung ist nicht mehr Teil des Titels, sondern der Beschreibung unterhalb des Titels.
   * Die Beschreibung unterhalb des Titels wurde neu gestaltet. Unter anderem wurde der CDB Link entfernt.
   * Unterhalb jeder Einstellungsgruppe die phpBB Standardfunktion "Nach oben" hinzugefügt.
-  * Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt. Das erspart nach einer Änderung den Wechsel zum Forenindex (Frontend).
-  * Es wurde ein Footer hinzugefügt, der jetzt die Autoren-Info des Sprachpaket-Übersetzers anzeigt.
-  * Javascript weitestgehend durch jQuery ersetzt.
 * Änderungen im Forenindex (Frontend).
   * Der HTML Code wurde weitestgehend von PHP ins Template verlagert. So kann jetzt z.B. das HTML des Buttons und der Debug-Meldung geändert werden, sowie die Zeilen für Benutzer und Bots besser angepasst werden.
   * Die Position der Schaltfläche für das Einblenden der zusätzlichen Informationen (Zeit, IP) wird nicht mehr über eine Sprachvariable geregelt, sondern direkt im Template.
   * Es gibt 4 neue Template Variablen.
-  * CSS Klassen für Zeit und IP hinzugefügt.
+  * CSS Klassen für Zeit und IP hinzugefügt, damit diese Informationen per Style Template angepasst werden können. (Wunsch von Kirk)
   * Der Ordner `prosilver` wurde entfernt und alles innerhalb `all` angelegt. Das ermöglicht einfachere Anpassungen von prosilver selbst, da dessen Ordner bei Updates nicht länger von Änderungen betroffen ist.
-  * Javascript weitestgehend durch jQuery ersetzt.
 * Änderungen bei den Sprachdateien.
-  * Zusätzlichen PHP Code aus der Datei `permissions_who_was_here.php` entfernt. Die nötige Prozedur zur Änderung der Sprach-Variablen wird jetzt direkt im Core erledigt.
   * Mehrere Sprach-Variablen umbenannt.
   * Mehrere Sprach-Variablen hinzugefügt.
   * Kleinere Text-Änderungen.

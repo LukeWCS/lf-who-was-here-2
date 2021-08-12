@@ -150,4 +150,5 @@ $lang = array_merge($lang, [
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.',
+	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Hinweis: Das Sprachpaket dieser Erweiterung ist nicht mehr aktuell.',
 ]);

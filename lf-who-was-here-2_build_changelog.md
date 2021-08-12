@@ -1,3 +1,9 @@
+* B63:
+  * ACP-Modul: Versionsprüfung für Sprachpaket eingebaut.
+  * ACP-Modul: 1 Template-Variable für Sprachpaket-Versionsprüfung hinzugefügt.
+  * ACP-Template: Funktion eingebaut mit der Hinweise angezeigt werden können. Style entspricht den Warnungen (blauer Kasten) des Ext Managers.
+  * Sprachdatei: 1 Sprachvariable für den Hinweis auf veraltetes Sprachpaket hinzugefügt.
+  * Composer: Neue Eigenschaft `extra.lang-min-ver` hinzugefügt, mit der die Mindestversion des Sprachpakets definiert werden kann.
 * B62:
   * Sprachdatei: Kleinere Änderungen.
   * Release Changelog überarbeitet.
