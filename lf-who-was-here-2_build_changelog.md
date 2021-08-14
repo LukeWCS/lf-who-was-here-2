@@ -1,7 +1,10 @@
+* B65:
+  * Code: Die "strict" Direktive war nur zum testen gedacht und wurde wieder deaktiviert.
 * B64:
   * Code: Es werden jetzt Neuerungen von PHP 7 genutzt, damit ist PHP 5 nicht länger relevant.
   * Composer: Voraussetzungen bei PHP geändert.
   * Code: In `ext.php` Voraussetzungen bei PHP geändert.
+  * Release Changelog angepasst.
 * B63:
   * ACP-Modul: Versionsprüfung für Sprachpaket eingebaut.
   * ACP-Modul: 1 Template-Variable für Sprachpaket-Versionsprüfung hinzugefügt.
