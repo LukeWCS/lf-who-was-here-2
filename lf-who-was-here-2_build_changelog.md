@@ -1,9 +1,14 @@
+* B64:
+  * Code: Es werden jetzt Neuerungen von PHP 7 genutzt, damit ist PHP 5 nicht länger relevant.
+  * Composer: Voraussetzungen bei PHP geändert.
+  * Code: In `ext.php` Voraussetzungen bei PHP geändert.
 * B63:
   * ACP-Modul: Versionsprüfung für Sprachpaket eingebaut.
   * ACP-Modul: 1 Template-Variable für Sprachpaket-Versionsprüfung hinzugefügt.
   * ACP-Template: Funktion eingebaut mit der Hinweise angezeigt werden können. Style entspricht den Warnungen (blauer Kasten) des Ext Managers.
   * Sprachdatei: 1 Sprachvariable für den Hinweis auf veraltetes Sprachpaket hinzugefügt.
   * Composer: Neue Eigenschaft `extra.lang-min-ver` hinzugefügt, mit der die Mindestversion des Sprachpakets definiert werden kann.
+  * Release Changelog angepasst.
 * B62:
   * Sprachdatei: Kleinere Änderungen.
   * Release Changelog überarbeitet.

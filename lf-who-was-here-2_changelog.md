@@ -11,21 +11,21 @@
 * Die Erweiterung kann nur noch aktiviert und installiert werden, wenn die Voraussetzungen bei phpBB und PHP erfüllt sind. Dabei wird sowohl die Mindestversion als auch die Maximalversion berücksichtigt.
 * Änderungen bei den Einstellungen (ACP).
   * Das einfache Rechtesystem hat zusätzlich eine Option für die Bots. Diese Einstellung hat noch gefehlt, um LFWWH bei Bedarf komplett auf das Verhalten von NVWWH einstellen zu können.
-  * Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt. Das erspart nach einer Änderung den Wechsel zum Forenindex (Frontend).
-  * Unterhalb des Titels wird jetzt ein Hinweis angezeigt, wenn das Sprachpaket veraltet ist.
-  * Es wurde ein Footer hinzugefügt, der jetzt die Autoren-Info des Sprachpaket-Übersetzers anzeigt.
+  * Bei Datumsformat-Feldern wird dahinter deren aktuelle Ausgabe als Demo dargestellt.
+  * Unterhalb des Titels wird ein Hinweis angezeigt, wenn das Sprachpaket veraltet ist.
+  * Es wurde ein Footer hinzugefügt, der die Autoren-Info des Sprachpaket-Übersetzers anzeigt.
   * Der tatsächliche Name der Erweiterung ist nicht mehr Teil des Titels, sondern der Beschreibung unterhalb des Titels.
   * Die Beschreibung unterhalb des Titels wurde neu gestaltet. Unter anderem wurde der CDB Link entfernt.
   * Unterhalb jeder Einstellungsgruppe die phpBB Standardfunktion "Nach oben" hinzugefügt.
 * Änderungen im Forenindex (Frontend).
-  * Der HTML Code wurde weitestgehend von PHP ins Template verlagert. So kann jetzt z.B. das HTML des Buttons und der Debug-Meldung geändert werden, sowie die Zeilen für Benutzer und Bots besser angepasst werden.
+  * Der HTML Code wurde weitestgehend von PHP ins Template verlagert. So kann z.B. das HTML des Buttons und der Debug-Meldung geändert werden, sowie die Zeilen für Benutzer und Bots besser angepasst werden.
   * Die Position der Schaltfläche für das Einblenden der zusätzlichen Informationen (Zeit, IP) wird nicht mehr über eine Sprachvariable geregelt, sondern direkt im Template.
   * Es gibt 4 neue Template Variablen.
   * CSS Klassen für Zeit und IP hinzugefügt, damit diese Informationen per Style Template angepasst werden können. (Wunsch von Kirk)
   * Der Ordner `prosilver` wurde entfernt und alles innerhalb `all` angelegt. Das ermöglicht einfachere Anpassungen von prosilver selbst, da dessen Ordner bei Updates nicht länger von Änderungen betroffen ist.
 * Änderungen bei den Sprachdateien.
-  * Mehrere Sprach-Variablen umbenannt.
-  * Mehrere Sprach-Variablen hinzugefügt.
+  * Mehrere Sprachvariablen umbenannt.
+  * Mehrere Sprachvariablen hinzugefügt.
   * Kleinere Text-Änderungen.
   * Die bisherige Autoren-Info des Sprachpaket-Übersetzers aus dem Kommentar-Block entfernt.
 
@@ -68,7 +68,7 @@ Fehlerkorrekturen:
 
 #### Beta 3 (2019-06-02)
 
-* Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten eingefügt wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprach-Variablen für die Dauer des Vorgangs geändert (erweitert) werden.
+* Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten eingefügt wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprachvariablen für die Dauer des Vorgangs geändert (erweitert) werden.
 * Gemäss dem Konzept von LF-WWH, dass diejenigen Einstellungen abgeblendet werden, die aktuell keine Bedeutung haben, gelten die gleichen Regeln nun auch für die Gruppenrechte. Das heisst die Gruppenrechte werden nun immer angezeigt. Sie werden jedoch abgeblendet dargestellt, wenn sie aktuell keine Funktion haben. Das trifft zu, wenn entweder das phpBB Rechtesystem deaktiviert ist, oder der Administrator-Modus aktiviert ist. Damit wird ausserdem der bisherige Designfehler behoben, dass die Gruppenrechte auch dann angezeigt wurden, wenn sowohl das phpBB Rechtesystem als auch der Administrator-Modus aktiviert waren.
 * In den deutschen Sprachdateien des ACP-Moduls die amerikanischen Anführungszeichen durch deutsche ersetzt.
 * GitHub Repository für Travis CI eingerichtet mit folgenden Tests:
@@ -91,13 +91,13 @@ Fehlerkorrekturen:
 
 #### Beta 2 (2019-04-28)
 
-* Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
-  * Zusätzlich gibt es die Sprach-Variable `LFWWH_LAST3` für "zuletzt am" die mit `$3` angesprochen werden kann.
+* Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprachvariablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
+  * Zusätzlich gibt es die Sprachvariable `LFWWH_LAST3` für "zuletzt am" die mit `$3` angesprochen werden kann.
   * Im ACP-Modul wird entsprechend bei "Zeit-Format:" im Erklärungstext auf die Platzhalter `$1`, $2` und $3` hingewiesen.
     * Den Erklärungstext in der Sprachdatei so gestaltet, das bei diesem die aktuellen Inhalte der Platzhalter dynamisch aus der Sprachdatei eingefügt werden.
   * Bei "Zeit-Format:" wird jetzt bei einer Neuinstallation der Platzhalter `$1` eingetragen, wodurch per Standard auch wieder "zuletzt um" angezeigt wird. Das betrifft auch die Schaltfläche "Standard" im ACP-Modul.
 * Sprachdateien:
-  * Ab dieser Version hat die Sprach-Variable `LFWWH_LAST1` wieder den ursprünglichen Standardinhalt. Erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit ab dieser Version nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter eingefügt werden können.
+  * Ab dieser Version hat die Sprachvariable `LFWWH_LAST1` wieder den ursprünglichen Standardinhalt. Erstmals hat auch `LFWWH_LAST2` einen Standardinhalt. Diese Änderungen geschahen, da diese Variablen bei der Anzeige der Benutzer-Zeit ab dieser Version nicht mehr generell verwendet werden, sondern bei Bedarf über Platzhalter eingefügt werden können.
   * In `who_was_here.php` die Variable `LFWWH_RECORD` in `LFWWH_RECORD_DAY` umbenannt, da es sonst Überschneidungen mit `info_acp_who_was_here.php` gäbe, in der diese Variable ebenfalls benutzt wurde.
   * Kleinere Korrekturen.
   * Umbenennung einiger Variablen.
@@ -108,7 +108,7 @@ Fehlerkorrekturen:
   * Im ACP-Modul entsprechend eine neue Einstellung hinzugefügt, per Standard ist der Schalter aktiviert. Die Statistik-Zeile wird also wie gehabt komplett angezeigt.
   * In den Sprachdateien für "Zeige sichtbare Benutzer (Anzahl):" 2 neue Variablen hinzugefügt.
   * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es nur um die Anzahl oder um Anzahl plus Namen geht.
-  * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprach-Variable verlagert, damit dieser Trenner gezielt gesteuert werden kann.
+  * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprachvariable verlagert, damit dieser Trenner gezielt gesteuert werden kann.
 * Die Funktion die das HTML für die Info-Schaltflächen (Benutzer und Bots) generiert, komplett überarbeitet. (basiert auf einem Vorschlag von Kirk)
   * Es wird kein Button mehr erzeugt, sondern lediglich ein `<span>` Container der auf das Maus-Event `onclick` reagiert. Dadurch entfiel auch die bisherige Verschachtelung eines Button-Containers und eines Label-Containers.
   * Dadurch entfallen ausserdem spezielle Style-Anpassungen für `<button>`, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
@@ -165,7 +165,7 @@ Fehlerkorrekturen:
 * Die Anzeige der IP ist nicht mehr an die Anzeige der Zeit gekoppelt, sondern kann jetzt völlig unabhängig (wie die Anzeige der Zeit) eingestellt werden. (basiert auf einem Wunsch von Wolkenbruch)
   * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als Tooltip) im Core-Skript von Grund auf neu geschrieben und optimiert.
   * Der Schalter "Zeige die Benutzer-IP:" hat jetzt nicht mehr die Optionsfelder "Ja/Nein" als Auswahlmöglichkeit, sondern eine Auswahlliste mit den gleichen 3 Optionen wie bei "Zeige die Zeit...".
-  * Sprach-Variable entsprechend angepasst.
+  * Sprachvariable entsprechend angepasst.
 * WWH-Anzeige:
   * Für die Schaltfläche zur Anzeige von Zeit und/oder IP wird nicht mehr das Zeit-Symbol verwendet, sondern das Info-Symbol.
   * Für die Schaltfläche kann jetzt ein separater Tooltip in den Sprachdateien definiert werden. Bisher wurde als Tooltip die alternative Beschriftung für phpBB 3.1 verwendet.
@@ -369,13 +369,13 @@ Fehlerkorrekturen:
 
 ### Changelog 1.3.0 (2018-09-16)
 
-* 2 neue Sprach-Variablen für "Benutzer" und "Bots" hinzugefügt und im Core entsprechend referenziert, damit diese unabhängig von den Sprachpaketen des Forums angepasst werden können. Das war insofern notwendig, da WWH 1.2.2 "Benutzer" statt "Mitglieder" angezeigt hat und dies in den Sprachdateien von WWH nicht geändert werden konnte.
+* 2 neue Sprachvariablen für "Benutzer" und "Bots" hinzugefügt und im Core entsprechend referenziert, damit diese unabhängig von den Sprachpaketen des Forums angepasst werden können. Das war insofern notwendig, da WWH 1.2.2 "Benutzer" statt "Mitglieder" angezeigt hat und dies in den Sprachdateien von WWH nicht geändert werden konnte.
 * Eine Funktion eingebaut, mit der optional die komplette Benutzerliste (also Benutzer und Bots) für Gäste und Bots unterdrückt werden kann. Somit kann erreicht werden, das sich "Wer war da?" identisch zu "Wer ist online?" von phpBB 3.2 verhält, diese Informationen also nur noch angemeldeten Benutzern zur Verfügung stehen. Per Standard verhält sich diese Funktion wie WWH 1.2.2, die Benutzerliste wird Gästen also angezeigt.
   * Im ACP Modul die Einstellungen um den Punkt "Zeige die Benutzerliste auch Gästen:" erweitert, mit dem die oben genannte Funktion aktiviert/deaktiviert werden kann.
   * In den Sprachdateien für "Zeige die Benutzerliste auch Gästen:" entsprechende Variablen hinzugefügt.
 * In der Migration entsprechende Ergänzungen vorgenommen, damit ein direktes Update des original WWH auf meinen Fork möglich wird und die nötigen Anpassungen (neue Datenbank Einträge) automatisch vorgenommen werden.
 * Im ACP Modul bei den Einstellungen einen Link zum zugehörigen Thema auf phpbb.de eingefügt. Den ursprünglichen Link zum Support-Thema auf bb3.mobi dahinter gesetzt.
-* Eine weitere Sprach-Variable hinzugefügt und im ACP Modul entsprechend referenziert, damit der Titel der Einstellungen-Seite unabhängig vom Titel der Navigation definiert werden kann. Das ermöglicht es, in Klammern den tatsächlichen Anzeige-Name der Erweiterung darzustellen, damit diese im Bereich "Erweiterungen verwalten" zweifelsfrei zugeordnet werden kann, unabhängig vom jeweiligen Sprachpaket.
+* Eine weitere Sprachvariable hinzugefügt und im ACP Modul entsprechend referenziert, damit der Titel der Einstellungen-Seite unabhängig vom Titel der Navigation definiert werden kann. Das ermöglicht es, in Klammern den tatsächlichen Anzeige-Name der Erweiterung darzustellen, damit diese im Bereich "Erweiterungen verwalten" zweifelsfrei zugeordnet werden kann, unabhängig vom jeweiligen Sprachpaket.
 * Anzeige-Name von "Nv who was here" auf "LF who was here" geändert.
 * Statt dem Namen der Erweiterung steht bei der Beschreibung in der Erweiterungs-Verwaltung nun genau das, was man hier eigentlich auch erwarten würde, also eine kurze Beschreibung.
 * Kosmetische Korrekturen im ACP Modul und in den Sprachdateien vorgenommen.

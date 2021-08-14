@@ -10,6 +10,8 @@
 *
 */
 
+declare(strict_types=1);
+
 namespace lukewcs\whowashere\acp;
 
 class acp_who_was_here_module
@@ -149,19 +151,19 @@ class acp_who_was_here_module
 		]);
 	}
 
-	private function get_formatted_time($timestamp)
+	private function get_formatted_time(int $timestamp): string
 	{
 		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
 		$text = str_replace(['$1', '$2', '$3'], [$this->language->lang('LFWWH_LAST1'), $this->language->lang('LFWWH_LAST2'), $this->language->lang('LFWWH_LAST3')], $text);
 		return $text;
 	}
 
-	private function get_formatted_record_time($timestamp)
+	private function get_formatted_record_time(int $timestamp): string
 	{
 		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);
 	}
 
-	private function add_note(&$notes, $msg)
+	private function add_note(string &$notes, $msg)
 	{
 		$notes .= (($notes != '') ? "\n" : "") . sprintf('<p>%s</p>', $msg);
 	}

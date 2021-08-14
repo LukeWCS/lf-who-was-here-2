@@ -31,36 +31,37 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data = [];
 		// config
 		$data[] = ['config.add', ['lfwwh_admin_mode'			, '0']];
-		$data[] = ['config.add', ['lfwwh_api_mode'				, (isset($this->config['wwh_api_mode']))				? $this->config['wwh_api_mode']					: '0']];
-		$data[] = ['config.add', ['lfwwh_cache_time'			, (isset($this->config['wwh_cache_time']))				? $this->config['wwh_cache_time']				: $load_online_time]];
-		$data[] = ['config.add', ['lfwwh_clear_up'				, (isset($this->config['wwh_clear_up']))				? $this->config['wwh_clear_up']					: '1']];
+		$data[] = ['config.add', ['lfwwh_api_mode'				, $this->config['wwh_api_mode']					?? '0']];
+		$data[] = ['config.add', ['lfwwh_cache_time'			, $this->config['wwh_cache_time']				?? $load_online_time]];
+		$data[] = ['config.add', ['lfwwh_clear_up'				, $this->config['wwh_clear_up']					?? '1']];
 		$data[] = ['config.add', ['lfwwh_create_hidden_info'	, '1']];
-		$data[] = ['config.add', ['lfwwh_period_of_time_h'		, (isset($this->config['wwh_del_time_h']))				? $this->config['wwh_del_time_h']				: '24']];
-		$data[] = ['config.add', ['lfwwh_period_of_time_m'		, (isset($this->config['wwh_del_time_m']))				? $this->config['wwh_del_time_m']				: '0']];
-		$data[] = ['config.add', ['lfwwh_period_of_time_s'		, (isset($this->config['wwh_del_time_s']))				? $this->config['wwh_del_time_s']				: '0']];
-		$data[] = ['config.add', ['lfwwh_disp_bots'				, (isset($this->config['wwh_disp_bots']))				? $this->config['wwh_disp_bots']				: '1']];
-		$data[] = ['config.add', ['lfwwh_disp_bots_only_admin'	, (isset($this->config['wwh_disp_bots_only_admin']))	? $this->config['wwh_disp_bots_only_admin']		: '0']];
-		$data[] = ['config.add', ['lfwwh_disp_for_guests'		, (isset($this->config['wwh_disp_for_guests']))			? $this->config['wwh_disp_for_guests']			: '0']];
-		$data[] = ['config.add', ['lfwwh_disp_guests'			, (isset($this->config['wwh_disp_guests']))				? $this->config['wwh_disp_guests']				: '1']];
-		$data[] = ['config.add', ['lfwwh_disp_hidden'			, (isset($this->config['wwh_disp_hidden']))				? $this->config['wwh_disp_hidden']				: '1']];
-		$data[] = ['config.add', ['lfwwh_disp_ip'				, (isset($this->config['wwh_disp_ip']))					? $this->config['wwh_disp_ip']					: '1']];
+		$data[] = ['config.add', ['lfwwh_period_of_time_h'		, $this->config['wwh_del_time_h']				?? '24']];
+		$data[] = ['config.add', ['lfwwh_period_of_time_m'		, $this->config['wwh_del_time_m']				?? '0']];
+		$data[] = ['config.add', ['lfwwh_period_of_time_s'		, $this->config['wwh_del_time_s']				?? '0']];
+		$data[] = ['config.add', ['lfwwh_disp_bots'				, $this->config['wwh_disp_bots']				?? '1']];
+		$data[] = ['config.add', ['lfwwh_disp_bots_only_admin'	, $this->config['wwh_disp_bots_only_admin']		?? '0']];
+		$data[] = ['config.add', ['lfwwh_disp_for_guests'		, $this->config['wwh_disp_for_guests']			?? '0']];
+		$data[] = ['config.add', ['lfwwh_disp_guests'			, $this->config['wwh_disp_guests']				?? '1']];
+		$data[] = ['config.add', ['lfwwh_disp_hidden'			, $this->config['wwh_disp_hidden']				?? '1']];
+		$data[] = ['config.add', ['lfwwh_disp_ip'				, $this->config['wwh_disp_ip']					?? '1']];
 		$data[] = ['config.add', ['lfwwh_disp_reg_users'		, '1']];
-		$data[] = ['config.add', ['lfwwh_disp_template_pos'		, (isset($this->config['wwh_disp_template_pos']))		? $this->config['wwh_disp_template_pos']		: '0']];
-		$data[] = ['config.add', ['lfwwh_disp_template_pos_all'	, (isset($this->config['wwh_disp_template_pos_all']))	? $this->config['wwh_disp_template_pos_all']	: '0']];
-		$data[] = ['config.add', ['lfwwh_disp_time'				, (isset($this->config['wwh_disp_time']))				? $this->config['wwh_disp_time']				: '1']];
-		$data[] = ['config.add', ['lfwwh_disp_time_bots'		, (isset($this->config['wwh_disp_time_bots']))			? $this->config['wwh_disp_time_bots']			: '1']];
-		$data[] = ['config.add', ['lfwwh_disp_time_format'		, (isset($this->config['wwh_disp_time_format']))		? $this->config['wwh_disp_time_format']			: '$1 G:i']];
-		$data[] = ['config.add', ['lfwwh_last_clean'			, (isset($this->config['wwh_last_clean']))				? $this->config['wwh_last_clean']				: '0']];
-		$data[] = ['config.add', ['lfwwh_time_mode'				, (isset($this->config['wwh_version']))					? $this->config['wwh_version']					: '1']];
-		$data[] = ['config.add', ['lfwwh_record'				, (isset($this->config['wwh_record']))					? $this->config['wwh_record']					: '1']];
-		$data[] = ['config.add', ['lfwwh_record_ips'			, (isset($this->config['wwh_record_ips']))				? $this->config['wwh_record_ips']				: '1', true]];
-		$data[] = ['config.add', ['lfwwh_record_time'			, (isset($this->config['wwh_record_time']))				? $this->config['wwh_record_time']				: time(), true]];
-		$data[] = ['config.add', ['lfwwh_record_time_format'	, (isset($this->config['wwh_record_timestamp']))		? $this->config['wwh_record_timestamp']			: 'D j. M Y']];
-		$data[] = ['config.add', ['lfwwh_record_reset_time'		, (isset($this->config['wwh_reset_time']))				? $this->config['wwh_reset_time']				: '1']];
-		$data[] = ['config.add', ['lfwwh_sort_by'				, (isset($this->config['wwh_sort_by']))					? $this->config['wwh_sort_by']					: '3']];
+		$data[] = ['config.add', ['lfwwh_disp_template_pos'		, $this->config['wwh_disp_template_pos']		?? '0']];
+		$data[] = ['config.add', ['lfwwh_disp_template_pos_all'	, $this->config['wwh_disp_template_pos_all']	?? '0']];
+		$data[] = ['config.add', ['lfwwh_disp_time'				, $this->config['wwh_disp_time']				?? '1']];
+		$data[] = ['config.add', ['lfwwh_disp_time_bots'		, $this->config['wwh_disp_time_bots']			?? '1']];
+		$data[] = ['config.add', ['lfwwh_disp_time_format'		, $this->config['wwh_disp_time_format']			?? '$1 G:i']];
+		$data[] = ['config.add', ['lfwwh_last_clean'			, $this->config['wwh_last_clean']				?? '0']];
+		$data[] = ['config.add', ['lfwwh_time_mode'				, $this->config['wwh_version']					?? '1']];
+		$data[] = ['config.add', ['lfwwh_record'				, $this->config['wwh_record']					?? '1']];
+		$data[] = ['config.add', ['lfwwh_record_ips'			, $this->config['wwh_record_ips']				?? '1', true]];
+		$data[] = ['config.add', ['lfwwh_record_time'			, $this->config['wwh_record_time']				?? time(), true]];
+		$data[] = ['config.add', ['lfwwh_record_time_format'	, $this->config['wwh_record_timestamp']			?? 'D j. M Y']];
+		$data[] = ['config.add', ['lfwwh_record_reset_time'		, $this->config['wwh_reset_time']				?? '1']];
+		$data[] = ['config.add', ['lfwwh_sort_by'				, $this->config['wwh_sort_by']					?? '3']];
 		$data[] = ['config.add', ['lfwwh_use_cache'				, '1']];
-		$data[] = ['config.add', ['lfwwh_use_online_time'		, (isset($this->config['wwh_use_online_time']))			? $this->config['wwh_use_online_time']			: '1']];
-		$data[] = ['config.add', ['lfwwh_use_permissions'		, (isset($this->config['wwh_use_permissions']))			? $this->config['wwh_use_permissions']			: '0']];
+		$data[] = ['config.add', ['lfwwh_use_online_time'		, $this->config['wwh_use_online_time']			?? '1']];
+		$data[] = ['config.add', ['lfwwh_use_permissions'		, $this->config['wwh_use_permissions']			?? '0']];
+		$data[] = ['config.add', ['lfwwh_version'				, '2.0.0']];
 		// permissions
 		$data[] = ['permission.add'				, ['u_lfwwh_show_stats']];
 		$data[] = ['permission.add'				, ['u_lfwwh_show_users']];
@@ -118,8 +119,6 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 				'module_mode'		=> 'overview',
 				'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',
 		]]];
-		// current version
-		$data[] = ['config.add', ['lfwwh_version'				, '2.0.0']];
 
 		return $data;
 	}
@@ -150,7 +149,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		}
 	}
 
-	private function role_exists($role)
+	private function role_exists(string $role): bool
 	{
 		$sql = 'SELECT role_id
 				FROM ' . ACL_ROLES_TABLE . "
