@@ -14,11 +14,6 @@ namespace lukewcs\whowashere\migrations;
 
 class v_2_1_0 extends \phpbb\db\migration\migration
 {
-	public function effectively_installed()
-	{
-		return isset($this->config['lfwwh_disp_for_bots']);
-	}
-
 	public static function depends_on()
 	{
 		return ['\lukewcs\whowashere\migrations\v_2_0_0'];
@@ -26,11 +21,9 @@ class v_2_1_0 extends \phpbb\db\migration\migration
 
 	public function update_data()
 	{
-		$data = [];
-		// config
-		$data[] = ['config.add', ['lfwwh_disp_for_bots', '2']];
-		$data[] = ['config.remove', ['lfwwh_version']];
-
-		return $data;
+		return [
+			['config.add', ['lfwwh_disp_for_bots', '2']],
+			['config.remove', ['lfwwh_version']],
+		];
 	}
 }

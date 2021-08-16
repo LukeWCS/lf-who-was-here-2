@@ -1,3 +1,6 @@
+* B66:
+  * Migration: Bei 2.0.0 und 2.1.0 `effectively_installed()` entfernt, da das schon vom MigrationTool geregelt wird.
+  * ACP-Modul: Da von ExtManager nur der MetadataManager benötigt wird, beide Objekt-Referenzen in einer Zeile zusammengefasst.
 * B65:
   * Code: Die "strict" Direktive war nur zum testen gedacht und wurde wieder deaktiviert.
 * B64:

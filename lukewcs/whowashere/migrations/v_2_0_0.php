@@ -14,11 +14,6 @@ namespace lukewcs\whowashere\migrations;
 
 class v_2_0_0 extends \phpbb\db\migration\migration
 {
-	public function effectively_installed()
-	{
-		return isset($this->config['lfwwh_version']) && version_compare($this->config['lfwwh_version'], '2.0.0', '>=');
-	}
-
 	public static function depends_on()
 	{
 		return ['\lukewcs\whowashere\migrations\s_2_0_0_initial_schema'];
@@ -27,7 +22,6 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : '1');
-
 		$data = [];
 		// config
 		$data[] = ['config.add', ['lfwwh_admin_mode'			, '0']];
@@ -118,7 +112,8 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 				'module_langname'	=> 'LFWWH_NAV_CONFIG',
 				'module_mode'		=> 'overview',
 				'module_auth'		=> 'ext_lukewcs/whowashere && acl_a_board',
-		]]];
+			]
+		]];
 
 		return $data;
 	}

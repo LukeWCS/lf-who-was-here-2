@@ -22,7 +22,6 @@ class acp_who_was_here_module
 	protected $template;
 	protected $cache;
 	protected $language;
-	protected $ext_manager;
 	protected $md_manager;
 	public $u_action;
 
@@ -36,8 +35,7 @@ class acp_who_was_here_module
 		$this->template = $template;
 		$this->cache = $cache;
 		$this->language = $language; // needs phpBB >=3.2.6
-		$this->ext_manager = $phpbb_container->get('ext.manager');
-		$this->md_manager = $this->ext_manager->create_extension_metadata_manager('lukewcs/whowashere');
+		$this->md_manager = $phpbb_container->get('ext.manager')->create_extension_metadata_manager('lukewcs/whowashere');
 
 		$ext_display_name = $this->md_manager->get_metadata('display-name');
 		$ext_display_ver = $this->md_manager->get_metadata('version');

@@ -29,20 +29,27 @@ class s_2_0_0_initial_schema extends \phpbb\db\migration\migration
 		return [
 			'add_tables' => [
 				$this->table_prefix . 'lfwwh' => [
-					'COLUMNS'		=> [
-						'wwh_id'			=> ['UINT'			, null, 'auto_increment'],
-						'user_id'			=> ['UINT'			, 0],
+					'COLUMNS' => [
+						'wwh_id'			=> ['UINT'		, null, 'auto_increment'],
+						'user_id'			=> ['UINT'		, 0],
 						'username'			=> ['VCHAR'		, ''],
 						'username_clean'	=> ['VCHAR'		, ''],
-						'user_colour'		=> ['VCHAR:6'		, ''],
-						'user_ip'			=> ['VCHAR:40'		, '127.0.0.1'],
-						'user_type'			=> ['UINT:2'		, 1],
-						'viewonline'		=> ['UINT:1'		, 1],
+						'user_colour'		=> ['VCHAR:6'	, ''],
+						'user_ip'			=> ['VCHAR:40'	, '127.0.0.1'],
+						'user_type'			=> ['UINT:2'	, 1],
+						'viewonline'		=> ['UINT:1'	, 1],
 						'wwh_lastpage'		=> ['TIMESTAMP'	, 0],
 					],
-					'PRIMARY_KEY'	=> ['wwh_id', 'user_id', 'user_ip'],
-					'KEYS'			=> [
-						'user_id'			=> ['INDEX', 'user_id'],
+					'PRIMARY_KEY' => [
+						'wwh_id',
+						'user_id',
+						'user_ip',
+					],
+					'KEYS' => [
+						'user_id' => [
+							'INDEX',
+							'user_id',
+						],
 					],
 				],
 			],
