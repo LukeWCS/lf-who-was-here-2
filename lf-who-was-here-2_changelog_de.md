@@ -1,17 +1,17 @@
 ### Changelog 2.1.0
 
-#### Release (ausstehend) - CDB (ausstehend)
+#### 2.1.0 Release (2021-08-18) - CDB (ausstehend)
 
 * Die Voraussetzungen haben sich geändert:
-  * phpBB ab 3.2.10 (vorher 3.1.11) bis einschliesslich phpBB 3.3.
-  * PHP 5.6 (vorher 5.3) bis einschliesslich PHP 8.
+  * phpBB 3.2.10 (vorher 3.1.11) bis einschliesslich phpBB 3.3.
+  * PHP 7.0 (vorher 5.3) bis einschliesslich PHP 8.
 * Die Erweiterung wurde auf die Funktionsbasis von phpBB 3.2 gestellt, wodurch sie jetzt inkompatibel mit phpBB 3.1 ist.
   * Alte phpBB Funktionen die bereits seit phpBB 3.2 als DEPRECATED eingestuft sind, werden nicht mehr verwendet. Stattdessen werden Funktionen genutzt die bei phpBB 3.2 eingeführt wurden und auch bei 3.3. noch gültig sind.
   * Sonderanpassungen die noch für phpBB 3.1 nötig waren, wurden entfernt.
 * Die Erweiterung kann nur noch aktiviert und installiert werden, wenn die Voraussetzungen bei phpBB und PHP erfüllt sind. Dabei wird sowohl die Mindestversion als auch die Maximalversion berücksichtigt.
 * Änderungen bei den Einstellungen (ACP).
-  * Das einfache Rechtesystem hat zusätzlich eine Option für die Bots. Diese Einstellung hat noch gefehlt, um LFWWH bei Bedarf komplett auf das Verhalten von NVWWH einstellen zu können.
-  * Bei Datumsformat-Feldern wird dahinter deren aktuelle Ausgabe als Demo dargestellt.
+  * Das einfache Berechtigung-System hat zusätzlich eine Option für die Bots. Diese Einstellung hat noch gefehlt, um LFWWH bei Bedarf komplett auf das Verhalten von NVWWH einstellen zu können.
+  * Bei Datumsformat-Feldern wird dahinter deren aktuelle Anzeige als Demo dargestellt.
   * Unterhalb des Titels wird ein Hinweis angezeigt, wenn das Sprachpaket veraltet ist.
   * Es wurde ein Footer hinzugefügt, der die Autoren-Info des Sprachpaket-Übersetzers anzeigt.
   * Der tatsächliche Name der Erweiterung ist nicht mehr Teil des Titels, sondern der Beschreibung unterhalb des Titels.
@@ -22,22 +22,24 @@
   * Die Position der Schaltfläche für das Einblenden der zusätzlichen Informationen (Zeit, IP) wird nicht mehr über eine Sprachvariable geregelt, sondern direkt im Template.
   * Es gibt 4 neue Template Variablen.
   * CSS Klassen für Zeit und IP hinzugefügt, damit diese Informationen per Style Template angepasst werden können. (Wunsch von Kirk)
-  * Der Ordner `prosilver` wurde entfernt und alles innerhalb `all` angelegt. Das ermöglicht einfachere Anpassungen von prosilver selbst, da dessen Ordner bei Updates nicht länger von Änderungen betroffen ist.
+  * Der Ordner `prosilver` wurde entfernt und alles nach `all` verschoben. Das ermöglicht einfachere Anpassungen von prosilver selbst, da dessen Ordner bei Updates nicht länger von Änderungen betroffen ist.
 * Änderungen bei den Sprachdateien.
   * Mehrere Sprachvariablen umbenannt.
   * Mehrere Sprachvariablen hinzugefügt.
   * Kleinere Text-Änderungen.
   * Die bisherige Autoren-Info des Sprachpaket-Übersetzers aus dem Kommentar-Block entfernt.
+* Sonstiges:
+  * Javascript weitestgehend auf jQuery umgestellt.
 
 ### Changelog 2.0.0
 
-#### Release (2020-03-29) - CDB (2020-07-06)
+#### 2.0.0 Release (2020-03-29) - CDB (2020-07-06)
 
 * Durch eine kleine Änderung ist der Code jetzt auch kompatibel zu PHP 5.3 - 5.5: Potenz-Operator `**` durch `pow()` ersetzt.
 * Template-Änderungen: Nein
 * Sprachdatei-Änderungen: Nein
 
-#### RC 2 (2019-12-24)
+#### 2.0.0 RC 2 (2019-12-24)
 
 * Die Twig Variable `lfwwh_pos_exp` in `lfwwh_debug_msg` umbenannt, da zukünftig noch andere Debug-Informationen denkbar sind.
   * CSS Klasse `.lfwwh_pos_exp` in `.lfwwh_debug` umbenannt.
@@ -51,7 +53,7 @@ Fehlerkorrekturen:
 * Fix: Bei manchen Styles konnte es vorkommen, dass das Info-Symbol (Awesome-Font) nicht wie beabsichtigt die Textfarbe bekam, sondern eine Farbe die über die CSS-Klasse `.icon` definiert wurde. Je nach Farbwahl war dann das Icon praktisch nicht mehr vom Hintergrund zu unterscheiden.
   * CSS geändert.
 
-#### RC 1 (2019-12-14)
+#### 2.0.0 RC 1 (2019-12-14)
 
 * Name von "LF who was here (2.x)" auf "LF who was here 2" geändert und Autoreninfo in allen Dateien angepasst.
 * Mindestanforderung bei PHP von 5.3.3 auf 5.6.0 geändert.
@@ -66,7 +68,7 @@ Fehlerkorrekturen:
 * Template-Änderungen: Ja
 * Sprachdatei-Änderungen: Ja
 
-#### Beta 3 (2019-06-02)
+#### 2.0.0 Beta 3 (2019-06-02)
 
 * Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten eingefügt wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprachvariablen für die Dauer des Vorgangs geändert (erweitert) werden.
 * Gemäss dem Konzept von LF-WWH, dass diejenigen Einstellungen abgeblendet werden, die aktuell keine Bedeutung haben, gelten die gleichen Regeln nun auch für die Gruppenrechte. Das heisst die Gruppenrechte werden nun immer angezeigt. Sie werden jedoch abgeblendet dargestellt, wenn sie aktuell keine Funktion haben. Das trifft zu, wenn entweder das phpBB Rechtesystem deaktiviert ist, oder der Administrator-Modus aktiviert ist. Damit wird ausserdem der bisherige Designfehler behoben, dass die Gruppenrechte auch dann angezeigt wurden, wenn sowohl das phpBB Rechtesystem als auch der Administrator-Modus aktiviert waren.
@@ -89,7 +91,7 @@ Fehlerkorrekturen:
   * Bei der Zeitumstellung von Sommerzeit auf Normalzeit hätte es durch Fehler 2 auch dann eine falsche Umschaltung gegeben, wenn beide Zeitzonen (PHP und phpBB) identisch wären. Dieser Fehler hätte also alle Boards betroffen, bei denen es Sommerzeit (DST) gibt. Am 2019-10-27 um 23:00:01 Uhr wäre dann eine Bereinigung mit falschem Zeitstempel (23:00:00 Uhr) ausgeführt worden. Am 2019-10-28 um 00:00:00 Uhr hätte dann eine weitere Bereinigung stattgefunden, die auch korrekt ausgeführt worden wäre.
 * Fix: Bei der Einstellung "Anzeige der Besucher von ..." -> "Heute" wurden aufgrund eines Fehlers in der MySQL-Abfrage Besucher des aktuellen Tages mit der exakten Uhrzeit 00:00:00 noch dem Vortag zugeordnet und somit fälschlicherweise bei der Tages-Umschaltung gelöscht.
 
-#### Beta 2 (2019-04-28)
+#### 2.0.0 Beta 2 (2019-04-28)
 
 * Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprachvariablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
   * Zusätzlich gibt es die Sprachvariable `LFWWH_LAST3` für "zuletzt am" die mit `$3` angesprochen werden kann.
@@ -120,7 +122,7 @@ Fehlerkorrekturen:
 * Template-Änderungen: Nein
 * Sprachdatei-Änderungen: Ja
 
-#### Beta 1 (2019-04-14)
+#### 2.0.0 Beta 1 (2019-04-14)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
   * Ordner der Erweiterung ("lukewcs\whowashere").

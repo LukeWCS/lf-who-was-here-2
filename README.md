@@ -3,7 +3,7 @@ Extension for phpBB - Shows a visitor statistic of the current day or a freely s
 
 ### Minimum requirements
 * phpBB 3.2.10
-* PHP 5.6.0
+* PHP 7.0.0
 
 [![Build Status](https://github.com/LukeWCS/lf-who-was-here-2/workflows/Tests/badge.svg)](https://github.com/LukeWCS/lf-who-was-here-2/actions)
 

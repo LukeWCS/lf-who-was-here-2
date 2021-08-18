@@ -1,3 +1,9 @@
+### Builds 2.1.0
+
+* B67: (CDB Validation Release 1)
+  * Composer: Version auf 2.1.0 Release gesetzt.
+  * Github: Mindestvoraussetzungen in `README.md` angepasst.
+  * Github: Beide Changelogs vom Export ausgeschlossen.
 * B66:
   * Migration: Bei 2.0.0 und 2.1.0 `effectively_installed()` entfernt, da das schon vom MigrationTool geregelt wird.
   * ACP-Modul: Da von ExtManager nur der MetadataManager benötigt wird, beide Objekt-Referenzen in einer Zeile zusammengefasst.
