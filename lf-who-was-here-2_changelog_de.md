@@ -1,10 +1,8 @@
-### Changelog 2.1.0
-
-#### 2.1.0 Release (2021-08-18) - CDB (ausstehend)
+#### 2.1.0 Release (2021-08-18) - CDB (2021-09-12)
 
 * Die Voraussetzungen haben sich geändert:
   * phpBB 3.2.10 (vorher 3.1.11) bis einschliesslich phpBB 3.3.
-  * PHP 7.0 (vorher 5.3) bis einschliesslich PHP 8.
+  * PHP 7.0 (vorher 5.3) bis einschliesslich PHP 8.0.
 * Die Erweiterung wurde auf die Funktionsbasis von phpBB 3.2 gestellt, wodurch sie jetzt inkompatibel mit phpBB 3.1 ist.
   * Alte phpBB Funktionen die bereits seit phpBB 3.2 als DEPRECATED eingestuft sind, werden nicht mehr verwendet. Stattdessen werden Funktionen genutzt die bei phpBB 3.2 eingeführt wurden und auch bei 3.3. noch gültig sind.
   * Sonderanpassungen die noch für phpBB 3.1 nötig waren, wurden entfernt.
@@ -30,8 +28,6 @@
   * Die bisherige Autoren-Info des Sprachpaket-Übersetzers aus dem Kommentar-Block entfernt.
 * Sonstiges:
   * Javascript weitestgehend auf jQuery umgestellt.
-
-### Changelog 2.0.0
 
 #### 2.0.0 Release (2020-03-29) - CDB (2020-07-06)
 

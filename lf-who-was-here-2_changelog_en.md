@@ -1,10 +1,8 @@
-### Changelog 2.1.0
-
-#### 2.1.0 Release (2021-08-18) - CDB (pending)
+#### 2.1.0 Release (2021-08-18) - CDB (2021-09-12)
 
 * The requirements have changed:
   * phpBB 3.2.10 (previously 3.1.11) up to and including phpBB 3.3.
-  * PHP 7.0 (previously 5.3) up to and including PHP 8.
+  * PHP 7.0 (previously 5.3) up to and including PHP 8.0.
 * The extension was put on the functional basis of phpBB 3.2, which means that it is now incompatible with phpBB 3.1.
   * Old phpBB functions that have been classified as DEPRECATED since phpBB 3.2 are no longer used. Instead, functions are used that were introduced in phpBB 3.2 and also in 3.3. are still valid.
   * Special adjustments that were still necessary for phpBB 3.1 have been removed.

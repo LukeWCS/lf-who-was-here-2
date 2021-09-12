@@ -1,11 +1,11 @@
 ## LF who was here 2
 Extension for phpBB - Shows a visitor statistic of the current day or a freely selectable period. It lists both members and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.
 
-### Minimum requirements
-* phpBB 3.2.10
-* PHP 7.0.0
-
 [![Build Status](https://github.com/LukeWCS/lf-who-was-here-2/workflows/Tests/badge.svg)](https://github.com/LukeWCS/lf-who-was-here-2/actions)
+
+### Requirements
+* phpBB 3.2.10 up to and including phpBB 3.3
+* PHP 7.0 up to and including PHP 8.0
 
 ### Installation / Update of LF-WWH 2
 1. Download and extract the Zip archive of the [GitHub release](https://github.com/LukeWCS/lf-who-was-here-2/releases).
