@@ -1,3 +1,33 @@
+* B69:
+  * Migration: Mehrere Config-Variablen umbenannt.
+  * Migration: Die Bedeutung der einzelnen Config-Werte für die Berechtigungen bei "Anzeige für Gäste:" und "Anzeige für Bots:" geändert.
+  * Migration: Das ACP Modul das bei S_2_0_0 im "manuellen" Modus angelegt wurde, wurde entfernt und im "automatischen" Modus neu hinzugefügt.
+  * Code: Validierungs-Kritik von kasimi zu 2.1.0 komplett berücksichtigt, Empfehlungen ebenfalls.
+  * Code: In `ext.php` Maximalversion bei PHP auf 8.0 präzisiert.
+  * Code: Es werden keine Template-Variablen mehr für die Positions-Erklärungen generiert.
+  * Code: An die geänderte DB Config angepasst.
+  * Code: Etliche kleine Optimierungen.
+  * Composer: Voraussetzungen bei PHP geändert.
+  * Composer: Homepage Link auf CDB Bereich von LFWWH geändert.
+  * Composer: Version auf 2.1.1 geändert.
+  * ACP-Template: Die Option "Zeige die Bot-Namen nur bei administrativen Rechten:" in den Abschnitt "Berechtigungen" verschoben.
+  * ACP-Template: Die oben genannte Option an die Abblend-Funktion gekoppelt.
+  * ACP-Template: Bei allen Optionstiteln die bisherigen 2 Twig Variablen durch Verkettung auf 1 Variable reduziert. (Hinweis chris1278)
+  * ACP-Template: Bei der "Nach oben" Funktion wurde noch die alte phpBB Syntax statt Twig verwendet. (Meldung chris1278)
+  * ACP-Template: Bei allen Optionen die Twig Kontrollstrukturen `{% if ... %}...{% endif %}` durch eine Twig Variable und einen verkürzten Ternary Operator ersetzt.
+  * ACP-Template: Alle IDs und Sprach-Variablen der Auswahllisten haben als Suffix nicht länger den numerischen Config-Wert aus der DB, sondern Bezeichnungen.
+  * ACP-Template: jQuery an die geänderten IDs angepasst.
+  * ACP-Info: Nach Doku definiert. (Hinweis chris1278)
+  * ACP-Modul: Fehlermeldung bei ungültigem Formular wird jetzt rot dargestellt statt grün. In der Doku wurde das falsch gezeigt. Ausserdem Back-Link hinzugefügt.
+  * ACP-Modul: Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket hat.
+  * ACP-Modul: Template-Variablen umbenannt, und umbenannte Config-Variablen übernommen.
+  * ACP-Modul: Code Optimierungen.
+  * Frontend-Template: Die Positions-Erklärungen werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
+  * Frontend-Template: Die Twig Variable für die Anzeige der Template Position umbenannt.
+  * Frontend-Template: Kleinere Änderungen beim Twig Code.
+  * Sprachdatei: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Date geändert.
+  * Sprachdatei: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
+
 ### Builds 2.1.0
 * B68: 
   * Github: Voraussetzungen in `README.md` angepasst.
@@ -20,16 +50,16 @@
   * ACP-Modul: Versionsprüfung für Sprachpaket eingebaut.
   * ACP-Modul: 1 Template-Variable für Sprachpaket-Versionsprüfung hinzugefügt.
   * ACP-Template: Funktion eingebaut mit der Hinweise angezeigt werden können. Style entspricht den Warnungen (blauer Kasten) des Ext Managers.
-  * Sprachdatei: 1 Sprachvariable für den Hinweis auf veraltetes Sprachpaket hinzugefügt.
+  * Sprachdatei: 1 Sprach-Variable für den Hinweis auf veraltetes Sprachpaket hinzugefügt.
   * Composer: Neue Eigenschaft `extra.lang-min-ver` hinzugefügt, mit der die Mindestversion des Sprachpakets definiert werden kann.
   * Release Changelog angepasst.
 * B62:
   * Sprachdatei: Kleinere Änderungen.
   * Release Changelog überarbeitet.
 * B61:
-  * ACP-Modul: Überflüssige Template Variable `LFWWH_CONFIG_DESC` entfernt, das wird jetzt direkt im Template erledigt.
-  * ACP-Modul: Zwei neue Template Variablen hinzugefügt, die den Ext-Namen und die Ext-Version enthalten.
-  * ACP-Template: Die Konfig-Beschreibung wird jetzt direkt per Twig aus der Sprachdatei geholt und mit den beiden neuen Template Variablen zusammengesetzt.
+  * ACP-Modul: Überflüssige Template-Variable `LFWWH_CONFIG_DESC` entfernt, das wird jetzt direkt im Template erledigt.
+  * ACP-Modul: Zwei neue Template-Variablen hinzugefügt, die den Ext-Namen und die Ext-Version enthalten.
+  * ACP-Template: Die Konfig-Beschreibung wird jetzt direkt per Twig aus der Sprachdatei geholt und mit den beiden neuen Template-Variablen zusammengesetzt.
   * ACP-Template: Es gibt jetzt einen Footer der die Autoren-Info des Übersetzers enthält.
   * Sprachdatei: 3 Sprach-Variablen für die Autoren-Info des Übersetzers hinzugefügt.  
   * Sprachdatei: Aus jeder Sprachdatei die Autoren-Info des Übersetzers im Kommentar-Block entfernt.
@@ -47,9 +77,9 @@
 * B58:
   * Code: Neue Hilfsfunktion für die Darstellung des Rekord Datums eingebaut.
   * ACP-Template: Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt.
-  * ACP-Modul: 2 neue Template Variablen für die Datumsformat-Demo hinzugefügt.
+  * ACP-Modul: 2 neue Template-Variablen für die Datumsformat-Demo hinzugefügt.
   * ACP-Modul: Datum Hilfsfunktionen aus dem Core für die Datumsformat-Demo eingefügt.
-  * Sprachdatei: 1 Sprachvariable für die Datumsformat-Demo hinzugefügt.
+  * Sprachdatei: 1 Sprach-Variable für die Datumsformat-Demo hinzugefügt.
 * B57:
   * Code: `ext.php` weiter reduziert.
 * B56:
@@ -63,8 +93,8 @@
 * B54:
   * Migration: Deaktivierten Code entfernt.
   * ACP-Modul: 3.1-Artefakte übersehen in `acp_who_was_here_module.php`. Mehrere Änderungen. (Meldung Kirk)
-  * ACP-Modul: Überflüssige Template Variable `LFWWH_CONFIG_TITLE` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt.
-  * ACP-Modul: Überflüssige Template Variable `LFWWH_DISP_TIME_FORMAT_EXP` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt und zusammengesetzt.
+  * ACP-Modul: Überflüssige Template-Variable `LFWWH_CONFIG_TITLE` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt.
+  * ACP-Modul: Überflüssige Template-Variable `LFWWH_DISP_TIME_FORMAT_EXP` entfernt. Deren Inhalt wird jetzt direkt per Twig aus der Sprachdatei geholt und zusammengesetzt.
   * ACP-Template: `acp_who_was_here.html` überarbeitet.
 * B53:
   * ACP-Template: Im einfachen Rechtesystem neue Option für die Bots hinzugefügt.
@@ -76,14 +106,14 @@
   * Code: Wie ursprünglich schon mal verwendet, den neuen Power Operator anstelle `pow()` notiert, dadurch inkompatibel zu PHP <5.6.
   * Code: Ext auf Funktions-Basis von phpBB 3.2 gestellt, dadurch inkompatibel zu phpBB 3.1. Betrifft u.a. das Sprach-Objekt.
   * Code: Sonderanpassungen für phpBB 3.1 entfernt. Betrifft primär die Index-Anzeige.
-  * Template: Weitgehend HTML vom Core ins Template verlagert. Dabei Möglichkeiten von Twig genutzt, z.B. Makros.
-  * Template: Ordner `prosilver` entfernt und alles in `all` organisiert.
-  * Template: Primäres Event Template für `INCLUDECSS` (auch `INCLUDEJS`) ist nicht mehr `overall_header_head_append.html` sondern `index_body_markforums_before.html`, dadurch inkompatibel zu phpBB 3.1
-  * Template: Javascript weitestgehend durch jQuery ersetzt.
-  * Template: CSS Klassen für Zeit und IP hinzugefügt.
+  * Frontend-Template: Weitgehend HTML vom Core ins Template verlagert. Dabei Möglichkeiten von Twig genutzt, z.B. Makros.
+  * Frontend-Template: Ordner `prosilver` entfernt und alles in `all` organisiert.
+  * Frontend-Template: Primäres Event Template für `INCLUDECSS` (auch `INCLUDEJS`) ist nicht mehr `overall_header_head_append.html` sondern `index_body_markforums_before.html`, dadurch inkompatibel zu phpBB 3.1
+  * Frontend-Template: Javascript weitestgehend durch jQuery ersetzt.
+  * Frontend-Template: CSS Klassen für Zeit und IP hinzugefügt.
   * Migration: Ext-Version aus DB Config entfernt, in der Migration werden jetzt andere Prüfmerkmale verwendet.
   * Sprachdatei: Speziellen PHP Code aus der Permissions Sprachdatei entfernt und Prozedur anders realisiert. Änderung in B52 hinfällig.
-  * Sprachdatei: Mehrere Sprachvariablen umbenannt.
+  * Sprachdatei: Mehrere Sprach-Variablen umbenannt.
   * Sprachdatei: Mehrere Text Änderungen in den Sprachdateien.
   * Composer: Mindestvoraussetzungen auf phpBB 3.2 und PHP 5.6 geändert.
   * Composer: Version auf 2.1.0 geändert.
@@ -133,14 +163,14 @@
   * `composer.json` geändert: Version hat ab jetzt den Zusatz RC1.
   * Eine unnötige Twig Bedingung aus allen Templates entfernt.
   * Wenn alle Templates gleichzeitig aktiviert werden, dann wird jetzt auch die zugehörige Position angezeigt.
-  * 1 Sprachvariable hinzugefügt.
+  * 1 Sprach-Variable hinzugefügt.
 * B40:
   * Der Text "0 Mitglieder" wird nicht mehr vom phpBB Sprachpaket bezogen.
-  * 1 Sprachvariable hinzugefügt.
+  * 1 Sprach-Variable hinzugefügt.
   * `README.md` geändert.
 * B39:
   * Kleinere Korrekturen in den Sprachdateien.
-  * 1 Sprachvariable umbenannt.
+  * 1 Sprach-Variable umbenannt.
   * `composer.json` geändert: Mindestanforderung bei PHP geändert. Ext Name gekürzt. Beta-Merkmal entfernt.
   * Autoreninfo in allen Dateien entsprechend angepasst.
   * `README.md` geändert.
@@ -222,7 +252,7 @@
   * Den phpBB 3.1 Ersatztext für das Info-Symbol (Awesome-Font) durch ein Unicode-Zeichen ersetzt.
   * `composer.json` aktualisiert.
   * CSS von `prosilver` nach `all` verschoben.
-  * 1 Sprachvariable umbenannt, 1 gelöscht.
+  * 1 Sprach-Variable umbenannt, 1 gelöscht.
   * 1 Konfig-Variable umbenannt.
   * Migration geändert.
 * B21:
@@ -272,11 +302,11 @@
   * Code bez. Rechte verbessert und Rechte-Zuweisungen im Code an einer Stelle zusammengefasst.
   * Migration geändert: Neue Konfig-Variable `lfwwh_admin_mode`.
 * B12:
-  * Logik für die Anzeige der Info Schaltfläche weiter verbessert.
-  * Fix: Tooltip der Info Schaltfläche bei Firefox. (Meldung Kirk)
+  * Logik für die Anzeige des Info Buttons weiter verbessert.
+  * Fix: Tooltip des Info Buttons bei Firefox. (Meldung Kirk)
   * Code bereinigt.
 * B11:
-  * Fix: Die Info Schaltfläche wurde in einer bestimmten Situation angezeigt, obwohl sie nicht benötigt wurde.
+  * Fix: Der Info Button wurde in einer bestimmten Situation angezeigt, obwohl er nicht benötigt wurde.
   * Code für die Anzeige von Zeit und IP optimiert. Diese ignoriert jetzt Gäste, wodurch etliche unnötige Abfragen entfallen.
 * B10:
   * B9 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
@@ -315,7 +345,7 @@
   * Migration geändert.
   * In `acp_whowashere_module.php` konsequent `$this` verwendet.
   * Das Unterscheidungsmerkmal auf (2.x) geändert und konsequent überall verwendet.
-  * Weitere Sprachvariablen umbenannt.
+  * Weitere Sprach-Variablen umbenannt.
 * B4:
   * Weitere Konfig-Variablen umbenannt. Darum muss zuerst B3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Das Unterscheidungsmerkmal "(Gen 4)" an allen Stellen im ACP entfernt wo es überflüssig ist, sprich wo eine Versionsnummer sichtbar ist.
@@ -323,7 +353,7 @@
   * Hinweis für `lfwwh_record_reset_time` eingebaut.
 * B3: 
   * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Konfig-Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
-  * Im ACP-Modul eine weitere Template Variable umbenannt.
+  * Im ACP-Modul eine weitere Template-Variable umbenannt.
 * B2: 
   * B1 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Weitere Konfig-Variablen umbenannt.

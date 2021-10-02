@@ -10,20 +10,21 @@
 *
 */
 
-namespace lukewcs\whowashere\acp;
+namespace lukewcs\whowashere\migrations;
 
-class acp_who_was_here_info
+class s_2_1_1 extends \phpbb\db\migration\migration
 {
-	public function module()
+	public static function depends_on()
+	{
+		return ['\lukewcs\whowashere\migrations\s_2_0_0_initial_schema'];
+	}
+
+	public function update_schema()
 	{
 		return [
-			'filename'	=> '\lukewcs\whowashere\acp\acp_who_was_here_module',
-			'title'		=> 'LFWWH_NAV_TITLE',
-			'modes'		=> [
-				'settings'	=> [
-					'title'	=> 'LFWWH_NAV_CONFIG',
-					'auth'	=> 'ext_lukewcs/whowashere && acl_a_board',
-					'cat'	=> ['LFWWH_NAV_TITLE'],
+			'change_columns' => [
+				$this->table_prefix . 'lfwwh' => [
+					'wwh_id'	=> array('UINT:10', null, 'auto_increment'),
 				],
 			],
 		];

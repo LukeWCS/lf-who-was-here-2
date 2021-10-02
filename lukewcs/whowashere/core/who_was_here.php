@@ -10,12 +10,33 @@
 *
 */
 
-// declare(strict_types=1);
-
 namespace lukewcs\whowashere\core;
 
 class who_was_here
 {
+	const PERM_NOTHING			= 0;
+	const PERM_STATS			= 1;
+	const PERM_USERS			= 2;
+	const PERM_STATS_USERS		= 3;
+
+	const BOTS_DISABLED			= 0;
+	const BOTS_WITH_USERS		= 1;
+	const BOTS_OWN_LINE			= 2;
+
+	const DISP_DISABLED			= 0;
+	const DISP_BEHIND_NAME		= 1;
+	const DISP_AS_TOOLTIP		= 2;
+
+	const TIME_MODE_PERIOD		= 0;
+	const TIME_MODE_TODAY		= 1;
+
+	const SORT_BY_NAME_AZ		= 0;
+	const SORT_BY_NAME_ZA		= 1;
+	const SORT_BY_VISIT_ASC		= 2;
+	const SORT_BY_VISIT_DESC	= 3;
+	const SORT_BY_ID_ASC		= 4;
+	const SORT_BY_ID_DESC		= 5;
+
 	protected $template;
 	protected $config;
 	protected $user;
@@ -51,38 +72,38 @@ class who_was_here
 	}
 
 	/* DB config
-		(bool)		'lfwwh_admin_mode'
-		(bool)		'lfwwh_api_mode'
-		(int)		'lfwwh_cache_time'
-		(bool)		'lfwwh_clear_up'
-		(bool)		'lfwwh_create_hidden_info'
-		(int)		'lfwwh_disp_bots'
-		(bool)		'lfwwh_disp_bots_only_admin'
-		(int)		'lfwwh_disp_for_bots'
-		(int)		'lfwwh_disp_for_guests'
-		(bool)		'lfwwh_disp_guests'
-		(bool)		'lfwwh_disp_hidden'
-		(int)		'lfwwh_disp_ip'
-		(bool)		'lfwwh_disp_reg_users'
-		(int)		'lfwwh_disp_template_pos'
-		(bool)		'lfwwh_disp_template_pos_all'
-		(int)		'lfwwh_disp_time'
-		(int)		'lfwwh_disp_time_bots'
-		(string)	'lfwwh_disp_time_format'
-		(int)		'lfwwh_last_clean'
-		(int)		'lfwwh_period_of_time_h'
-		(int)		'lfwwh_period_of_time_m'
-		(int)		'lfwwh_period_of_time_s'
-		(bool)		'lfwwh_record'
-		(int)		'lfwwh_record_ips'
-		(int)		'lfwwh_record_reset_time'
-		(int)		'lfwwh_record_time'
-		(string)	'lfwwh_record_time_format'
-		(int)		'lfwwh_sort_by'
-		(int)		'lfwwh_time_mode'
-		(bool)		'lfwwh_use_cache'
-		(bool)		'lfwwh_use_online_time'
-		(bool)		'lfwwh_use_permissions'
+		'lfwwh_admin_mode'				(bool)
+		'lfwwh_api_mode'				(bool)
+		'lfwwh_cache_time'				(int)
+		'lfwwh_clear_up'				(bool)
+		'lfwwh_create_hidden_info'		(bool)
+		'lfwwh_disp_bots'				(int)
+		'lfwwh_disp_guests'				(bool)
+		'lfwwh_disp_hidden'				(bool)
+		'lfwwh_disp_ip'					(int)
+		'lfwwh_disp_reg_users'			(bool)
+		'lfwwh_disp_time_bots'			(int)
+		'lfwwh_disp_time_format'		(string)
+		'lfwwh_disp_time_users'			(int)
+		'lfwwh_last_clean'				(int)
+		'lfwwh_period_of_time_h'		(int)
+		'lfwwh_period_of_time_m'		(int)
+		'lfwwh_period_of_time_s'		(int)
+		'lfwwh_perm_bots_only_admin'	(bool)
+		'lfwwh_perm_for_bots'			(int)
+		'lfwwh_perm_for_guests'			(int)
+		'lfwwh_record'					(bool)
+		'lfwwh_record_ips'				(int)
+		'lfwwh_record_reset_time'		(int)
+		'lfwwh_record_time'				(int)
+		'lfwwh_record_time_format'		(string)
+		'lfwwh_sort_by'					(int)
+		'lfwwh_template_pos'			(int)
+		'lfwwh_template_pos_all'		(bool)
+		'lfwwh_time_mode'				(int)
+		'lfwwh_use_cache'				(bool)
+		'lfwwh_use_online_time'			(bool)
+		'lfwwh_use_permissions'			(bool)
 	*/
 
 	/**
@@ -113,7 +134,7 @@ class who_was_here
 					WHERE user_id = ' . (int) $this->user->data['user_id'] . "
 					OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
 					AND user_id = " . ANONYMOUS . ')';
-			$result = $this->db->sql_query($sql);
+			$this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
 			$sql_affectedrows = (int) $this->db->sql_affectedrows();
@@ -191,8 +212,9 @@ class who_was_here
 		{
 			return;
 		}
+
 		$this->language->add_lang('who_was_here', 'lukewcs/whowashere');
-		if ($this->config['lfwwh_disp_template_pos_all'])
+		if ($this->config['lfwwh_template_pos_all'])
 		{
 			$this->language->add_lang('info_acp_who_was_here', 'lukewcs/whowashere');
 		}
@@ -205,31 +227,39 @@ class who_was_here
 		}
 		else
 		{
-			if ($this->config['lfwwh_use_permissions'])	// use phpBB permissions
+			if ($this->config['lfwwh_use_permissions']) // use phpBB permissions
 			{
 				$wwh_disp_permission_total = $this->auth->acl_gets('u_lfwwh_show_stats');
 				$wwh_disp_permission_users = $this->auth->acl_gets('u_lfwwh_show_users');
 			}
-			else	// use simple permissions
+			else // use simple permissions
 			{
-				if ($this->user->data['user_id'] != ANONYMOUS && empty($this->user->data['is_bot']))	// user
+				if ($this->user->data['user_id'] != ANONYMOUS && empty($this->user->data['is_bot'])) // user
 				{
 					$wwh_disp_permission_total = true;
 					$wwh_disp_permission_users = true;
 				}
-				else if ($this->user->data['is_bot'])	// bot
+				else if ($this->user->data['is_bot']) // bot
 				{
-					$wwh_disp_permission_total = $this->config['lfwwh_disp_for_bots'] == 0 || $this->config['lfwwh_disp_for_bots'] == 1;
-					$wwh_disp_permission_users = $this->config['lfwwh_disp_for_bots'] == 1 || $this->config['lfwwh_disp_for_bots'] == 3;
+					$wwh_disp_permission_total =
+						$this->config['lfwwh_perm_for_bots'] == self::PERM_STATS
+						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS;
+					$wwh_disp_permission_users =
+						$this->config['lfwwh_perm_for_bots'] == self::PERM_USERS
+						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS;
 				}
-				else	// guest
+				else // guest
 				{
-					$wwh_disp_permission_total = $this->config['lfwwh_disp_for_guests'] == 0 || $this->config['lfwwh_disp_for_guests'] == 1;
-					$wwh_disp_permission_users = $this->config['lfwwh_disp_for_guests'] == 1 || $this->config['lfwwh_disp_for_guests'] == 3;
+					$wwh_disp_permission_total =
+						$this->config['lfwwh_perm_for_guests'] == self::PERM_STATS
+						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS;
+					$wwh_disp_permission_users =
+						$this->config['lfwwh_perm_for_guests'] == self::PERM_USERS
+						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS;
 				}
 			}
 		}
-		$wwh_disp_permission_bots = ($this->config['lfwwh_disp_bots_only_admin'] && $this->auth->acl_get('a_')) || $this->config['lfwwh_disp_bots_only_admin'] == 0;
+		$wwh_disp_permission_bots = ($this->config['lfwwh_perm_bots_only_admin'] && $this->auth->acl_get('a_')) || $this->config['lfwwh_perm_bots_only_admin'] == 0;
 		$wwh_disp_permission_ip = $this->config['lfwwh_disp_ip'] && $this->auth->acl_get('a_');
 		$wwh_disp_permission_hidden = $this->config['lfwwh_disp_hidden'] && $this->auth->acl_get('u_viewonline');
 
@@ -286,10 +316,14 @@ class who_was_here
 				$ip_disp = $this->get_class_span('ip', $ip);
 				$disp_info = '';
 				$hover_info = '';
-				$show_time_disp = ($this->config['lfwwh_disp_time'] == 1 && $user_type != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] > 0 && $this->config['lfwwh_disp_time_bots'] == 1 && $user_type == USER_IGNORE);
-				$show_time_hover = ($this->config['lfwwh_disp_time'] == 2 && $user_type != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] > 0 && $this->config['lfwwh_disp_time_bots'] == 2 && $user_type == USER_IGNORE);
-				$show_ip_disp = $ip && $this->config['lfwwh_disp_ip'] == 1;
-				$show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == 2;
+				$show_time_disp =
+					($this->config['lfwwh_disp_time_users'] == self::DISP_BEHIND_NAME && $user_type != USER_IGNORE)
+					|| ($this->config['lfwwh_disp_bots'] > self::BOTS_DISABLED && $this->config['lfwwh_disp_time_bots'] == self::DISP_BEHIND_NAME && $user_type == USER_IGNORE);
+				$show_time_hover =
+					($this->config['lfwwh_disp_time_users'] == self::DISP_AS_TOOLTIP && $user_type != USER_IGNORE)
+					|| ($this->config['lfwwh_disp_bots'] > self::BOTS_DISABLED && $this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP && $user_type == USER_IGNORE);
+				$show_ip_disp = $ip && $this->config['lfwwh_disp_ip'] == self::DISP_BEHIND_NAME;
+				$show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == self::DISP_AS_TOOLTIP;
 
 				if ($show_time_disp || $show_time_hover || $show_ip_disp || $show_ip_hover)
 				{
@@ -332,14 +366,23 @@ class who_was_here
 					}
 					if (!$show_button_users)
 					{
-						if ((($this->config['lfwwh_disp_time'] == 2 && $user_type != USER_IGNORE) || ($this->config['lfwwh_disp_bots'] == 1 && $this->config['lfwwh_disp_time_bots'] == 2 && $user_type == USER_IGNORE) || $show_ip_hover) && $hover_info)
+						if ((
+								($this->config['lfwwh_disp_time_users'] == self::DISP_AS_TOOLTIP && $user_type != USER_IGNORE)
+								|| ($this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS && $this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP && $user_type == USER_IGNORE)
+								|| $show_ip_hover
+							)
+							&& $hover_info
+						)
 						{
 							$show_button_users = true;
 						}
 					}
 					if (!$show_button_bots)
 					{
-						if ($this->config['lfwwh_disp_bots'] == 2 && ($this->config['lfwwh_disp_time_bots'] == 2 || $show_ip_hover) && $user_type == USER_IGNORE && $hover_info)
+						if (
+							$this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE && ($this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP
+							|| $show_ip_hover) && $user_type == USER_IGNORE && $hover_info
+						)
 						{
 							$show_button_bots = true;
 						}
@@ -351,7 +394,7 @@ class who_was_here
 			{
 				if (($row['user_id'] != ANONYMOUS) && ($this->config['lfwwh_disp_bots'] && $wwh_disp_permission_bots || ($user_type != USER_IGNORE)))
 				{
-					if ($this->config['lfwwh_disp_bots'] == 2 && $user_type == USER_IGNORE)
+					if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE && $user_type == USER_IGNORE)
 					{
 						$bots_list .= $this->language->lang('COMMA_SEPARATOR') . '<span' . $hover_info . '>' . $wwh_username_full . '</span>' . $disp_info;
 					}
@@ -395,7 +438,7 @@ class who_was_here
 			// User list is empty.
 			$users_list = $this->language->lang('LFWWH_NO_USERS');
 		}
-		if ($this->config['lfwwh_disp_bots'] == 2)
+		if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE)
 		{
 			$bots_list = utf8_substr($bots_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
 		}
@@ -429,17 +472,9 @@ class who_was_here
 			'LFWWH_USERS_SHOW_BUTTON'	=> $show_button_users,
 			'LFWWH_BOTS'				=> ($wwh_disp_permission_users && $bots_list) ? $bots_list : '',
 			'LFWWH_BOTS_SHOW_BUTTON'	=> $show_button_bots,
-			'LFWWH_POS'					=> ($this->config['lfwwh_disp_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_disp_template_pos'],
+			'LFWWH_POS'					=> ($this->config['lfwwh_template_pos_all']) ? 7 : 2 ** $this->config['lfwwh_template_pos'],
 			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'],
 		]);
-		if ($this->config['lfwwh_disp_template_pos_all'])
-		{
-			$this->template->assign_vars([
-				'LFWWH_POS_EXP_1'	=> sprintf($this->language->lang('LFWWH_POS_EXP'), $this->language->lang('LFWWH_DISP_TEMPLATE_POS_0')),
-				'LFWWH_POS_EXP_2'	=> sprintf($this->language->lang('LFWWH_POS_EXP'), $this->language->lang('LFWWH_DISP_TEMPLATE_POS_1')),
-				'LFWWH_POS_EXP_4'	=> sprintf($this->language->lang('LFWWH_POS_EXP'), $this->language->lang('LFWWH_DISP_TEMPLATE_POS_2')),
-			]);
-		}
 	}
 
 	/**
@@ -447,13 +482,13 @@ class who_was_here
 	*/
 	public function prune()
 	{
-		if ($this->config['lfwwh_time_mode'] == 1)	// today
+		if ($this->config['lfwwh_time_mode'] == SELF::TIME_MODE_TODAY)
 		{
 			$prune_time_obj = date_create('now', timezone_open($this->config['board_timezone']));
 			date_time_set($prune_time_obj, 0, 0, 0);
 			$prune_timestamp = date_timestamp_get($prune_time_obj);
 		}
-		else	// period of time
+		else // period of time
 		{
 			$prune_timestamp = time() - ((3600 * $this->config['lfwwh_period_of_time_h']) + (60 * $this->config['lfwwh_period_of_time_m']) + $this->config['lfwwh_period_of_time_s']);
 		}
@@ -466,7 +501,7 @@ class who_was_here
 			$this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
-			if ($this->config['lfwwh_time_mode'] == 1)	// today
+			if ($this->config['lfwwh_time_mode'] == SELF::TIME_MODE_TODAY)
 			{
 				$this->config->set('lfwwh_last_clean', $prune_timestamp);
 			}
@@ -522,8 +557,8 @@ class who_was_here
 	public function add_permissions($event)
 	{
 		$permissions = $event['permissions'];
-		$lang_show_users = $this->language->lang('ACL_U_LFWWH_SHOW_USERS');	// needs phpBB >=3.2.10
-		$lang_show_stats = $this->language->lang('ACL_U_LFWWH_SHOW_STATS');	// needs phpBB >=3.2.10
+		$lang_show_users = $this->language->lang('ACL_U_LFWWH_SHOW_USERS'); // needs phpBB >=3.2.10
+		$lang_show_stats = $this->language->lang('ACL_U_LFWWH_SHOW_STATS'); // needs phpBB >=3.2.10
 		if (!$this->config['lfwwh_use_permissions'] || $this->config['lfwwh_admin_mode'])
 		{
 			$lang_show_users = '<span style="opacity: 0.5;">' . $lang_show_users . '</span>';
@@ -541,16 +576,16 @@ class who_was_here
 	{
 		switch ($this->config['lfwwh_sort_by'])
 		{
-			case 0:
-			case 1:
+			case SELF::SORT_BY_NAME_AZ:
+			case SELF::SORT_BY_NAME_ZA:
 				$sql_order_by = 'username_clean';
 			break;
-			case 4:
-			case 5:
+			case SELF::SORT_BY_ID_ASC:
+			case SELF::SORT_BY_ID_DESC:
 				$sql_order_by = 'user_id';
 			break;
-			case 2:
-			case 3:
+			case SELF::SORT_BY_VISIT_ASC:
+			case SELF::SORT_BY_VISIT_DESC:
 			default:
 				$sql_order_by = 'wwh_lastpage';
 			break;
@@ -598,7 +633,7 @@ class who_was_here
 		{
 			return '';
 		}
-		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == 1) ? 'u' : 'b') . '" style="display: none;">' . $text . '</span>';
+		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? 'u' : 'b') . '" style="display: none;">' . $text . '</span>';
 	}
 
 	/**
@@ -634,11 +669,11 @@ class who_was_here
 	*/
 	private function get_explanation_string(int $mode): string
 	{
-		if ($mode == 1)	// today
+		if ($mode == 1) // today
 		{
 			return $this->language->lang('LFWWH_EXP');
 		}
-		else	// period of time
+		else // period of time
 		{
 			$explanation = $this->language->lang('LFWWH_EXP_TIME');
 			$explanation .= $this->language->lang('LFWWH_HOURS', (int) $this->config['lfwwh_period_of_time_h']);
@@ -668,11 +703,11 @@ class who_was_here
 		{
 			return '';
 		}
-		if ($mode == 1)	// today
+		if ($mode == 1) // today
 		{
 			return sprintf($this->language->lang('LFWWH_RECORD_DAY'), $this->config['lfwwh_record_ips'], $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));
 		}
-		else	// period of time
+		else // period of time
 		{
 			$record_time_start = (int) $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
 			return sprintf($this->language->lang('LFWWH_RECORD_TIME'), $this->config['lfwwh_record_ips'], $this->get_formatted_record_time($record_time_start), $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));

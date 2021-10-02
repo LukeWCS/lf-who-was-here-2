@@ -22,8 +22,8 @@ class v_2_1_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			['config.add', ['lfwwh_disp_for_bots', '2']],
-			['config.remove', ['lfwwh_version']],
+			['config.add'		, ['lfwwh_disp_for_bots', '2']],
+			['config.remove'	, ['lfwwh_version']],
 		];
 	}
 }

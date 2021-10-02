@@ -95,7 +95,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		}
 		if ($this->role_exists('ROLE_USER_NEW_MEMBER'))
 		{
-			$data[] = ['permission.permission_set', ['ROLE_USER_NEW_MEMBER'	, 'u_lfwwh_show_users', 'role', false]];
+			$data[] = ['permission.permission_set', ['ROLE_USER_NEW_MEMBER'		, 'u_lfwwh_show_users', 'role', false]];
 		}
 		// custom functions
 		$data[] = ['custom', [[$this, 'import_wwh_table']]];
