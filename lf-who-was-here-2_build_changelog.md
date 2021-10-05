@@ -1,3 +1,16 @@
+* B70:
+  * Code: Die Sprachdatei für die Einstellungen wird jetzt manuell geladen, siehe weiter unten bei Sprachdateien:".
+  * ACP-Modul: An die aufgeteilten Sprachdateien angepasst.
+  * Frontend-Template: Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
+  * Frontend-Template: Für den Positions-Hinweis werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprachvariable im Frontend wird nicht mehr benötigt.
+  * Frontend-Template: Der Positions-Hinweis wird nicht mehr in den Sekundär-Templates, sondern im Primär-Template zusammengesetzt.
+  * Frontend-Template: Die Variable mit der redundante `INCLUDE..` Anweisungen verhindert wird, in `INCLUDED_LFWHOWASHERE` umbenannt.
+  * Sprachdateien: Die ACP Variablen sind jetzt bedarfsgerecht auf verschiedene Dateien aufgeteilt. Somit werden die Variablen der Einstellungen nicht mehr unnötig überall geladen.
+  * Sprachdateien: 1 Sprachdatei hinzugefügt.
+  * Sprachdateien: 1 Sprachdatei umbenannt.
+  * Sprachdateien: 1 Sprach-Variable gelöscht.
+  * Github: In `.gitattributes` war noch die alte Versionsprüfung-Datei eingetragen und wurde entfernt.
+
 * B69:
   * Migration: Mehrere Config-Variablen umbenannt.
   * Migration: Die Bedeutung der einzelnen Config-Werte für die Berechtigungen bei "Anzeige für Gäste:" und "Anzeige für Bots:" geändert.
@@ -25,8 +38,8 @@
   * Frontend-Template: Die Positions-Erklärungen werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
   * Frontend-Template: Die Twig Variable für die Anzeige der Template Position umbenannt.
   * Frontend-Template: Kleinere Änderungen beim Twig Code.
-  * Sprachdatei: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Date geändert.
-  * Sprachdatei: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
+  * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Date geändert.
+  * Sprachdateien: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
 
 ### Builds 2.1.0
 * B68: 
@@ -50,19 +63,19 @@
   * ACP-Modul: Versionsprüfung für Sprachpaket eingebaut.
   * ACP-Modul: 1 Template-Variable für Sprachpaket-Versionsprüfung hinzugefügt.
   * ACP-Template: Funktion eingebaut mit der Hinweise angezeigt werden können. Style entspricht den Warnungen (blauer Kasten) des Ext Managers.
-  * Sprachdatei: 1 Sprach-Variable für den Hinweis auf veraltetes Sprachpaket hinzugefügt.
+  * Sprachdateien: 1 Sprach-Variable für den Hinweis auf veraltetes Sprachpaket hinzugefügt.
   * Composer: Neue Eigenschaft `extra.lang-min-ver` hinzugefügt, mit der die Mindestversion des Sprachpakets definiert werden kann.
   * Release Changelog angepasst.
 * B62:
-  * Sprachdatei: Kleinere Änderungen.
+  * Sprachdateien: Kleinere Änderungen.
   * Release Changelog überarbeitet.
 * B61:
   * ACP-Modul: Überflüssige Template-Variable `LFWWH_CONFIG_DESC` entfernt, das wird jetzt direkt im Template erledigt.
   * ACP-Modul: Zwei neue Template-Variablen hinzugefügt, die den Ext-Namen und die Ext-Version enthalten.
   * ACP-Template: Die Konfig-Beschreibung wird jetzt direkt per Twig aus der Sprachdatei geholt und mit den beiden neuen Template-Variablen zusammengesetzt.
   * ACP-Template: Es gibt jetzt einen Footer der die Autoren-Info des Übersetzers enthält.
-  * Sprachdatei: 3 Sprach-Variablen für die Autoren-Info des Übersetzers hinzugefügt.  
-  * Sprachdatei: Aus jeder Sprachdatei die Autoren-Info des Übersetzers im Kommentar-Block entfernt.
+  * Sprachdateien: 3 Sprach-Variablen für die Autoren-Info des Übersetzers hinzugefügt.  
+  * Sprachdateien: Aus jeder Sprachdatei die Autoren-Info des Übersetzers im Kommentar-Block entfernt.
   * Erste Fassung des Release Changelogs.
 * B60:
   * Migration: Bei 2.1.0 die Voraussetzung phpBB 3.2.0 zu prüfen ist wenig sinnvoll und ab B59 ohnehin überflüssig. Änderung in B55 hinfällig.
@@ -79,12 +92,12 @@
   * ACP-Template: Bei Datumsformat-Feldern wird dahinter jetzt deren aktuelle Ausgabe als Demo dargestellt.
   * ACP-Modul: 2 neue Template-Variablen für die Datumsformat-Demo hinzugefügt.
   * ACP-Modul: Datum Hilfsfunktionen aus dem Core für die Datumsformat-Demo eingefügt.
-  * Sprachdatei: 1 Sprach-Variable für die Datumsformat-Demo hinzugefügt.
+  * Sprachdateien: 1 Sprach-Variable für die Datumsformat-Demo hinzugefügt.
 * B57:
   * Code: `ext.php` weiter reduziert.
 * B56:
   * ACP-Template: Unterhalb jeder Einstellungsgruppe mit Ausnahme der letzten die Standardfunktion "Nach oben" eingebaut.
-  * Sprachdatei: Version im Kommentarblock auf 2.1.0 geändert.
+  * Sprachdateien: Version im Kommentarblock auf 2.1.0 geändert.
   * Composer: Version um `-dev` erweitert.
 * B55:
   * Code: Ext kann nur noch aktiviert werden, wenn die Versionen von phpBB und PHP innerhalb gültiger Bereiche liegen. Realisiert mit `ext.php`.
@@ -112,15 +125,15 @@
   * Frontend-Template: Javascript weitestgehend durch jQuery ersetzt.
   * Frontend-Template: CSS Klassen für Zeit und IP hinzugefügt.
   * Migration: Ext-Version aus DB Config entfernt, in der Migration werden jetzt andere Prüfmerkmale verwendet.
-  * Sprachdatei: Speziellen PHP Code aus der Permissions Sprachdatei entfernt und Prozedur anders realisiert. Änderung in B52 hinfällig.
-  * Sprachdatei: Mehrere Sprach-Variablen umbenannt.
-  * Sprachdatei: Mehrere Text Änderungen in den Sprachdateien.
+  * Sprachdateien: Speziellen PHP Code aus der Permissions Sprachdatei entfernt und Prozedur anders realisiert. Änderung in B52 hinfällig.
+  * Sprachdateien: Mehrere Sprach-Variablen umbenannt.
+  * Sprachdateien: Mehrere Text Änderungen in den Sprachdateien.
   * Composer: Mindestvoraussetzungen auf phpBB 3.2 und PHP 5.6 geändert.
   * Composer: Version auf 2.1.0 geändert.
   * Github: `README.md` angepasst.
 * B52:
-  * Sprachdatei: In der Datei für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
-  * Sprachdatei: Kleinere Änderungen.
+  * Sprachdateien: In der Datei für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
+  * Sprachdateien: Kleinere Änderungen.
   * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts.
   * Github: Github Actions eingerichtet. 
 
@@ -203,13 +216,13 @@
   * `composer.json` geändert: Mindestanforderung bei phpBB geändert.
   * Methode zum Überschreiben der Sprach-Variablen `USER_DELETED` und `USER_DELETE_SUCCESS` umgestellt auf eine Sprachdatei mit zusätzlichem Code.
 * B31: (beta2)
-  * JS des Info-Buttons und des ACP-Moduls auf "camelCase" formatiert.
+  * JS des Info-Buttons und des ACP-Templates auf "CamelCase" formatiert.
   * `README.md` geändert.
   * `README_updating_a_developer_version.md` geändert.
   * `lf-who-was-here_version.json` geändert.
 * B30:
   * Code bereinigt.
-  * JS des Info-Buttons und des ACP-Moduls auf Objekte umgestellt. Direktive `use strict` gesetzt.
+  * JS des Info-Buttons und des ACP-Templates auf Objekte umgestellt. Direktive `use strict` gesetzt.
 * B29:
   * Code bereinigt.
   * CSS bereinigt.
@@ -229,11 +242,11 @@
   * Sprachdateien korrigiert.
   * 3 Sprach-Variablen umbenannt.
   * 1 Sprach-Variable hinzugefügt.
-  * Im ACP-Modul 3 Template-Variablen umbenannt.
+  * Im ACP-Template 3 Template-Variablen umbenannt.
   * Migration geändert: neuer Standard bei `lfwwh_disp_time_format`.
 * B25: (beta1)
-  * ACP-Modul: Unnötiges `onchange` Ereignis bei `lfwwh_create_hidden_info` entfernt.
-  * ACP-Modul: Eingabefelder für Zeitraum (H, M, S) auf Zahlen umgestellt mit Unter/Obergrenze.
+  * ACP-Template: Unnötiges `onchange` Ereignis bei `lfwwh_create_hidden_info` entfernt.
+  * ACP-Template: Eingabefelder für Zeitraum (H, M, S) auf Zahlen umgestellt mit Unter/Obergrenze.
   * Fix: Bei der Umbenennung der Sprachdateien in B18 wurde die Funktion `display()` übersehen.
 * B24:
   * `INCLUDEJS` und `INCLUDECSS` werden jetzt über `overall_header_head_append` im Style `all` ausgeführt. Nötig für phpBB 3.1.
@@ -244,7 +257,7 @@
   * B22 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Dienstname erneut geändert `lukewcs.whowashere.core_who_was_here` -> `lukewcs.whowashere.core`.
   * Das Ausblenden von Infos kann jetzt deaktiviert werden.
-  * Neuer Schalter im ACP-Modul.
+  * Neuer Schalter im ACP-Template.
   * Sprachdateien geändert.
   * Migration geändert: Neue Konfig-Variable `lfwwh_create_hidden_info`.
 * B22:
@@ -284,7 +297,7 @@
 * B15:
   * Autoreninfo in allen Dateien auf ein einheitliches Format gebracht und überall dort eingefügt, wo es noch fehlte. Als Muster diente dazu "phpBB Skeleton Extension".
   * Templates: INCLUDEJS ist jetzt an eine Bedingung geknüpft und wird dadurch nur einmal ausgeführt. Relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder bei der Ext "Bridge".
-  * Mehrere Texte in den Sprachdateien für das ACP-Modul geändert. Stichworte "Administrator" und "administrative Rechte".
+  * Mehrere Texte in den Sprachdateien für das ACP-Template geändert. Stichworte "Administrator" und "administrative Rechte".
   * Code bereinigt in Hinsicht auf die Veröffentlichung des 2.0 Zweiges.
   * Build Changelog vom normalen Changelog abgetrennt.
   * Build Changelog und normales Changelog werden ab jetzt mit dem Suffix .md (Markdown) geführt, wodurch diese Dateien bei GitHub direkt interpretiert werden. Das Format entsprach ja bereits Markdown.
@@ -326,8 +339,8 @@
 * B7:
   * B6 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Vorschlag von Kirk eingebaut bez. Cache Deaktivierung.
-  * Neuer Schalter im ACP-Modul.
-  * Neuer Abschnitt im ACP-Modul, Optionen verschoben.
+  * Neuer Schalter im ACP-Template.
+  * Neuer Abschnitt im ACP-Template, Optionen verschoben.
   * Sprachdateien geändert.
   * Migration geändert: Neue Konfig-Variable `lfwwh_use_cache`.
 * B6:
@@ -353,12 +366,12 @@
   * Hinweis für `lfwwh_record_reset_time` eingebaut.
 * B3: 
   * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Konfig-Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
-  * Im ACP-Modul eine weitere Template-Variable umbenannt.
+  * Im ACP-Template eine weitere Template-Variable umbenannt.
 * B2: 
   * B1 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
   * Weitere Konfig-Variablen umbenannt.
   * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Meldung Kirk)
   * Die Bereinigungs-Benachrichtigung eingebaut. @Kirk: Da wäre ein Test in 3.1.12 sinnvoll.
-  * Die Informationszeile im ACP-Modul über die Sprachdatei frei gestaltbar gemacht.
+  * Die Informationszeile im ACP-Template über die Sprachdatei frei gestaltbar gemacht.
 * B1:
   * Initial Release, kompletter Umbau auf `lukewcs/whowashere`.

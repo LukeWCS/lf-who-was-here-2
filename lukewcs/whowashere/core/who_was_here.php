@@ -216,7 +216,7 @@ class who_was_here
 		$this->language->add_lang('who_was_here', 'lukewcs/whowashere');
 		if ($this->config['lfwwh_template_pos_all'])
 		{
-			$this->language->add_lang('info_acp_who_was_here', 'lukewcs/whowashere');
+			$this->language->add_lang('acp_who_was_here', 'lukewcs/whowashere');
 		}
 
 		// Set display permission variables
@@ -266,7 +266,7 @@ class who_was_here
 		if (!$this->prune())
 		{
 			// Error while purging the list, database is missing :-O
-			$this->language->add_lang('info_acp_who_was_here', 'lukewcs/whowashere');
+			$this->language->add_lang('acp_who_was_here', 'lukewcs/whowashere');
 			return;
 		}
 
@@ -547,7 +547,7 @@ class who_was_here
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}
-			$this->language->add_lang('overwrite_phpbb_msg', 'lukewcs/whowashere');
+			$this->language->add_lang('acp_overwrite_phpbb_msg', 'lukewcs/whowashere');
 		}
 	}
 

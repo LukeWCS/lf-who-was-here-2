@@ -46,8 +46,6 @@ $lang = array_merge($lang, [
 	'LFWWH_USERS_PREFIX'		=> 'Mitglieder',
 	'LFWWH_BOTS_PREFIX'			=> 'Bots',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Informationen',
-	'LFWWH_POS_EXP'				=> 'Position: %s',
-
 	'LFWWH_TOTAL' => [
 		0						=> 'Insgesamt waren <strong>0</strong> Besucher online',
 		1						=> 'Insgesamt war <strong>%d</strong> Besucher online',

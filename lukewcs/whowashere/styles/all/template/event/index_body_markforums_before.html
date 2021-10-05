@@ -1,5 +1,5 @@
-{% if (LFWWH_TOTAL || LFWWH_USERS) && !LFWWH_API_MODE && !definition.INCLUDED_WHO_WAS_HERE %}
+{% if (LFWWH_TOTAL || LFWWH_USERS) && !LFWWH_API_MODE && !definition.INCLUDED_LFWHOWASHERE %}
 	{% INCLUDEJS '@lukewcs_whowashere/who_was_here.js' %}
 	{% INCLUDECSS '@lukewcs_whowashere/who_was_here.css' %}
-	{% DEFINE INCLUDED_WHO_WAS_HERE = true %}
+	{% DEFINE INCLUDED_LFWHOWASHERE = true %}
 {% endif %}

@@ -2,7 +2,7 @@
 	<h3>{{ lang('LFWWH_TITLE') }}</h3>
 	<p>
 		{% if lfwwh_pos_hint %}
-			<span class="lfwwh_debug">{{ lfwwh_pos_hint }}</span><br />
+			<span class="lfwwh_debug">{{ lang('LFWWH_TEMPLATE_POS') ~ lang('COLON') ~ ' ' ~ lfwwh_pos_hint }}</span><br />
 		{% endif %}
 		{% if LFWWH_TOTAL %}
 			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
@@ -12,10 +12,10 @@
 			{{ LFWWH_USERS ? '<br />' }}
 		{% endif %}
 		{% if LFWWH_USERS %}
-			{{ lang('LFWWH_USERS_PREFIX') }}: {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_button('users', 0) ~ ' ' }}{{ LFWWH_USERS }}<br />
+			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON')}} {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_button('users', 0) ~ ' ' }}{{ LFWWH_USERS }}<br />
 		{% endif %}
 		{% if LFWWH_BOTS %}
-			{{ lang('LFWWH_BOTS_PREFIX') }}: {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_button('bots', 1) ~ ' ' }}{{ LFWWH_BOTS }}<br />
+			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON')}} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_button('bots', 1) ~ ' ' }}{{ LFWWH_BOTS }}<br />
 		{% endif %}
 	</p>
 </div>

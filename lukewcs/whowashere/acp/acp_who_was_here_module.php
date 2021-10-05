@@ -41,7 +41,7 @@ class acp_who_was_here_module
 		$lang_ver = $this->language->is_set('LFWWH_LANG_EXT_VER') ? $this->language->lang('LFWWH_LANG_EXT_VER') : '0.0.0';
 		$notes = '';
 
-		$this->language->add_lang('who_was_here', 'lukewcs/whowashere');
+		$this->language->add_lang(['acp_who_was_here', 'who_was_here'], 'lukewcs/whowashere');
 
 		$this->tpl_name = 'acp_who_was_here';
 		$this->page_title = $this->language->lang('LFWWH_NAV_TITLE') . ' - ' . $this->language->lang('LFWWH_NAV_CONFIG');
