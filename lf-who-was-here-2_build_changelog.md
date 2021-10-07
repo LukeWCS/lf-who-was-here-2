@@ -1,23 +1,25 @@
+* B71:
+  * Code: Korrekturen anhand EC Bericht vorgenommen.
+  * Frontend-Template: Farben der Positions-Hinweise geändert.
 * B70:
-  * Code: Die Sprachdatei für die Einstellungen wird jetzt manuell geladen, siehe weiter unten bei Sprachdateien:".
+  * Code: Die Sprachdatei für die Einstellungen wird jetzt manuell geladen, siehe weiter unten bei "Sprachdateien:".
   * ACP-Modul: An die aufgeteilten Sprachdateien angepasst.
   * Frontend-Template: Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
-  * Frontend-Template: Für den Positions-Hinweis werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprachvariable im Frontend wird nicht mehr benötigt.
-  * Frontend-Template: Der Positions-Hinweis wird nicht mehr in den Sekundär-Templates, sondern im Primär-Template zusammengesetzt.
-  * Frontend-Template: Die Variable mit der redundante `INCLUDE..` Anweisungen verhindert wird, in `INCLUDED_LFWHOWASHERE` umbenannt.
+  * Frontend-Template: Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprachvariable im Frontend wird nicht mehr benötigt.
+  * Frontend-Template: Die Positions-Hinweise werden nicht mehr in den Sekundär-Templates, sondern im Primär-Template zusammengesetzt.
+  * Frontend-Template: Die Variable mit der redundante `INCLUDE..` Anweisungen verhindert werden, in `INCLUDED_LFWHOWASHERE` umbenannt.
   * Sprachdateien: Die ACP Variablen sind jetzt bedarfsgerecht auf verschiedene Dateien aufgeteilt. Somit werden die Variablen der Einstellungen nicht mehr unnötig überall geladen.
   * Sprachdateien: 1 Sprachdatei hinzugefügt.
   * Sprachdateien: 1 Sprachdatei umbenannt.
   * Sprachdateien: 1 Sprach-Variable gelöscht.
   * Github: In `.gitattributes` war noch die alte Versionsprüfung-Datei eingetragen und wurde entfernt.
-
 * B69:
   * Migration: Mehrere Config-Variablen umbenannt.
   * Migration: Die Bedeutung der einzelnen Config-Werte für die Berechtigungen bei "Anzeige für Gäste:" und "Anzeige für Bots:" geändert.
   * Migration: Das ACP Modul das bei S_2_0_0 im "manuellen" Modus angelegt wurde, wurde entfernt und im "automatischen" Modus neu hinzugefügt.
   * Code: Validierungs-Kritik von kasimi zu 2.1.0 komplett berücksichtigt, Empfehlungen ebenfalls.
   * Code: In `ext.php` Maximalversion bei PHP auf 8.0 präzisiert.
-  * Code: Es werden keine Template-Variablen mehr für die Positions-Erklärungen generiert.
+  * Code: Es werden keine Template-Variablen mehr für die Positions-Hinweise generiert.
   * Code: An die geänderte DB Config angepasst.
   * Code: Etliche kleine Optimierungen.
   * Composer: Voraussetzungen bei PHP geändert.
@@ -31,14 +33,14 @@
   * ACP-Template: Alle IDs und Sprach-Variablen der Auswahllisten haben als Suffix nicht länger den numerischen Config-Wert aus der DB, sondern Bezeichnungen.
   * ACP-Template: jQuery an die geänderten IDs angepasst.
   * ACP-Info: Nach Doku definiert. (Hinweis chris1278)
-  * ACP-Modul: Fehlermeldung bei ungültigem Formular wird jetzt rot dargestellt statt grün. In der Doku wurde das falsch gezeigt. Ausserdem Back-Link hinzugefügt.
+  * ACP-Modul: Fehlermeldung bei ungültigem Formular wird jetzt rot dargestellt statt grün. In der phpBB Extension Doku wurde das falsch gezeigt. Ausserdem Back-Link hinzugefügt.
   * ACP-Modul: Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket hat.
   * ACP-Modul: Template-Variablen umbenannt, und umbenannte Config-Variablen übernommen.
   * ACP-Modul: Code Optimierungen.
-  * Frontend-Template: Die Positions-Erklärungen werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
+  * Frontend-Template: Die Positions-Hinweise werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
   * Frontend-Template: Die Twig Variable für die Anzeige der Template Position umbenannt.
   * Frontend-Template: Kleinere Änderungen beim Twig Code.
-  * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Date geändert.
+  * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Datei geändert.
   * Sprachdateien: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
 
 ### Builds 2.1.0

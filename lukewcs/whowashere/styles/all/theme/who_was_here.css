@@ -1,4 +1,5 @@
-.lfwwh_button_users, .lfwwh_button_bots {
+.lfwwh_button_users,
+.lfwwh_button_bots {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -8,9 +9,9 @@
 }
 .lfwwh_debug {
 	color: white;
-	background-color: black;
-	border: 1px solid red;
-	padding: 3px;
+	background-color: steelblue;
+	border: 1px solid skyblue;
+	padding: 2px 4px;
 	font-size: smaller;
 }
 .lfwwh_time {

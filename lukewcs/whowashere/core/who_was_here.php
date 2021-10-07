@@ -482,7 +482,7 @@ class who_was_here
 	*/
 	public function prune()
 	{
-		if ($this->config['lfwwh_time_mode'] == SELF::TIME_MODE_TODAY)
+		if ($this->config['lfwwh_time_mode'] == self::TIME_MODE_TODAY)
 		{
 			$prune_time_obj = date_create('now', timezone_open($this->config['board_timezone']));
 			date_time_set($prune_time_obj, 0, 0, 0);
@@ -501,7 +501,7 @@ class who_was_here
 			$this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
-			if ($this->config['lfwwh_time_mode'] == SELF::TIME_MODE_TODAY)
+			if ($this->config['lfwwh_time_mode'] == self::TIME_MODE_TODAY)
 			{
 				$this->config->set('lfwwh_last_clean', $prune_timestamp);
 			}
@@ -576,16 +576,16 @@ class who_was_here
 	{
 		switch ($this->config['lfwwh_sort_by'])
 		{
-			case SELF::SORT_BY_NAME_AZ:
-			case SELF::SORT_BY_NAME_ZA:
+			case self::SORT_BY_NAME_AZ:
+			case self::SORT_BY_NAME_ZA:
 				$sql_order_by = 'username_clean';
 			break;
-			case SELF::SORT_BY_ID_ASC:
-			case SELF::SORT_BY_ID_DESC:
+			case self::SORT_BY_ID_ASC:
+			case self::SORT_BY_ID_DESC:
 				$sql_order_by = 'user_id';
 			break;
-			case SELF::SORT_BY_VISIT_ASC:
-			case SELF::SORT_BY_VISIT_DESC:
+			case self::SORT_BY_VISIT_ASC:
+			case self::SORT_BY_VISIT_DESC:
 			default:
 				$sql_order_by = 'wwh_lastpage';
 			break;

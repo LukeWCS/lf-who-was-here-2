@@ -1,3 +1,23 @@
+#### 2.1.1 Release (2021--) - CDB (2021--)
+
+* Änderungen bei den Einstellungen (ACP).
+  * Die Option "Zeige die Bot-Namen nur bei administrativen Rechten:" in den Abschnitt "Berechtigungen" verschoben und an die Abblend-Funktion gekoppelt.
+  * Fehlermeldung bei ungültigem Formular wird jetzt rot dargestellt statt grün. In der phpBB Extension Doku wurde das falsch gezeigt. Ausserdem Back-Link hinzugefügt.
+  * Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket hat. 
+* Änderungen bei den Details (ACP).
+  * Homepage Link auf CDB Bereich von LFWWH geändert.
+* Änderungen im Forenindex (Frontend).
+  * Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
+  * Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprachvariable im Frontend wird nicht mehr benötigt.
+  * Die Positions-Hinweise werden nicht mehr in PHP als Template Variablen generiert, sondern direkt per Twig aus den Sprachdateien geholt und im Template zusammengesetzt.
+* Änderungen bei den Sprachdateien.
+  * ACP: Die Variablen sind jetzt bedarfsgerecht auf verschiedene Dateien aufgeteilt. Somit werden die Variablen der Einstellungen nicht mehr unnötig überall geladen.
+  * ACP: Etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Datei geändert.
+  * ACP: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
+  * Frontend: 1 Sprach-Variable gelöscht.
+* Sonstiges:
+  * Zahlreiche Code-Optimierungen.
+
 #### 2.1.0 Release (2021-08-18) - CDB (2021-09-12)
 
 * Die Voraussetzungen haben sich geändert:
