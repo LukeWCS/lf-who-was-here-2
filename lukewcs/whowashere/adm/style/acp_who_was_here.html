@@ -84,7 +84,8 @@
 			</dd>
 		</dl>
 	</fieldset>
-	<a href="#maincontent">&raquo; {{ lang('BACK_TO_TOP') }}</a><br />
+
+	{{ _self.lfwwh_buttons(1) }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_1') }}</legend>
@@ -181,7 +182,8 @@
 			</dd>
 		</dl>
 	</fieldset>
-	<a href="#maincontent">&raquo; {{ lang('BACK_TO_TOP') }}</a><br />
+
+	{{ _self.lfwwh_buttons(2) }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_2') }}</legend>
@@ -264,7 +266,8 @@
 			</dd>
 		</dl>
 	</fieldset>
-	<a href="#maincontent">&raquo; {{ lang('BACK_TO_TOP') }}</a><br />
+
+	{{ _self.lfwwh_buttons(3) }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_OTHERS') }}</legend>
@@ -309,7 +312,8 @@
 			</dd>
 		</dl>
 	</fieldset>
-	<a href="#maincontent">&raquo; {{ lang('BACK_TO_TOP') }}</a><br />
+
+	{{ _self.lfwwh_buttons(4) }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_LOAD_SETTINGS') }}</legend>
@@ -343,7 +347,8 @@
 			</dd>
 		</dl>
 	</fieldset>
-	<a href="#maincontent">&raquo; {{ lang('BACK_TO_TOP') }}</a><br />
+
+	{{ _self.lfwwh_buttons(5) }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_RESET') }}</legend>
@@ -369,12 +374,9 @@
 		</dl>
 	</fieldset>
 
-	<p class="submit-buttons">
-		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
-		<input class="button2" type="button" id="form_reset" name="form_reset" value="{{ lang('RESET') }}" onclick="lfwwhACP.customFormReset()" />
-	</p>
-	
-	<p class="lfwwh_acp_copyright">
+	{{ _self.lfwwh_buttons(6) }}
+
+	<p class="lfwwh_copyright">
 		{{ LFWWH_EXT_NAME }} &copy; LukeWCS<br />
 		{{ lang('LFWWH_LANG_DESC') }} {{ lang('LFWWH_LANG_EXT_VER') }} &bull; {{ lang('LFWWH_LANG_AUTHOR') }}
 	</p>
@@ -392,3 +394,17 @@
 {% INCLUDEJS 'acp_who_was_here.js' %}
 {% INCLUDECSS 'acp_who_was_here.css' %}
 {% INCLUDE 'overall_footer.html' %}
+
+{% macro lfwwh_buttons(id) %}
+	<div class="lfwwh_form_buttons">
+		<div class="lfwwh_col_left">
+			<a href="#maincontent">&raquo; {{ lang('BACK_TO_TOP') }}</a>
+		</div>
+		<div class="lfwwh_col_mid">
+			<input class="button1" type="submit" id="submit_{{ id }}" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="button" id="form_reset_{{ id }}" name="form_reset" value="{{ lang('RESET') }}" onclick="lfwwhACP.customFormReset()" />
+		</div>
+		<div class="lfwwh_col_right">
+		</div>
+	</div>
+{% endmacro %}

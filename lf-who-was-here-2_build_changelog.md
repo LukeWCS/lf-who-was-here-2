@@ -1,3 +1,7 @@
+* B72:
+  * ACP-Template: Die Buttons zum Speichern und Zurücksetzen sind jetzt unterhalb jeder Einstellungsgruppe vorhanden. Realisiert mit Twig Makro. (Vorschlag Kirk)
+  * ACP-Template: Die "Nach oben" Funktion in das neue Twig Makro integriert, damit das HTML für diese Funktion ebenfalls nur einmal im Template definiert werden muss.
+  * ACP-Template: Entsprechendes CSS hinzugefügt um die "Nach oben" Funktion und die Formular Buttons in einer Zeile zusammenfassen zu können.
 * B71:
   * Code: Korrekturen anhand EC Bericht vorgenommen.
   * Frontend-Template: Farben der Positions-Hinweise geändert.
