@@ -12,15 +12,15 @@
 			{{ LFWWH_USERS ? '<br />' }}
 		{% endif %}
 		{% if LFWWH_USERS %}
-			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_button('users', 0) ~ ' ' }}{{ LFWWH_USERS }}<br />
+			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_info_button('users', 0) ~ ' ' }}{{ LFWWH_USERS }}<br />
 		{% endif %}
 		{% if LFWWH_BOTS %}
-			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_button('bots', 1) ~ ' ' }}{{ LFWWH_BOTS }}<br />
+			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_info_button('bots', 1) ~ ' ' }}{{ LFWWH_BOTS }}<br />
 		{% endif %}
 	</p>
 </div>
 
-{% macro lfwwh_button(class, group) %}
+{% macro lfwwh_info_button(class, group) %}
 {% spaceless %}
 	<span class="lfwwh_button_{{ class }} icon fa-info-circle" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide({{ group }})"></span>
 {% endspaceless %}
