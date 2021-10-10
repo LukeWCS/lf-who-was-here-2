@@ -1,3 +1,5 @@
+* B74:
+  * Empfehlungen von kasimi bezüglich Migration umgesetzt.
 * B73:
   * Fix: Bei der Deinstallation von 2.1.1 wurde mehrfach "Undefined index" gemeldet. (Meldung Kirk)
   * ACP-Template: Twig Makro umbenannt.

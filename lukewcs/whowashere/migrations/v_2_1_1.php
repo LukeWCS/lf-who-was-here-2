@@ -22,12 +22,12 @@ class v_2_1_1 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			['config.add'		, ['lfwwh_perm_for_guests'		, $this->change_perm($this->config['lfwwh_disp_for_guests'])	?? '1']],
-			['config.add'		, ['lfwwh_perm_for_bots'		, $this->change_perm($this->config['lfwwh_disp_for_bots'])		?? '0']],
-			['config.add'		, ['lfwwh_perm_bots_only_admin'	, $this->config['lfwwh_disp_bots_only_admin']					?? '0']],
-			['config.add'		, ['lfwwh_disp_time_users'		, $this->config['lfwwh_disp_time']								?? '1']],
-			['config.add'		, ['lfwwh_template_pos'			, $this->config['lfwwh_disp_template_pos']						?? '0']],
-			['config.add'		, ['lfwwh_template_pos_all'		, $this->config['lfwwh_disp_template_pos_all']					?? '0']],
+			['config.add'		, ['lfwwh_perm_for_guests'		, $this->change_perm($this->config['lfwwh_disp_for_guests'])]],
+			['config.add'		, ['lfwwh_perm_for_bots'		, $this->change_perm($this->config['lfwwh_disp_for_bots'])]],
+			['config.add'		, ['lfwwh_perm_bots_only_admin'	, $this->config['lfwwh_disp_bots_only_admin']]],
+			['config.add'		, ['lfwwh_disp_time_users'		, $this->config['lfwwh_disp_time']]],
+			['config.add'		, ['lfwwh_template_pos'			, $this->config['lfwwh_disp_template_pos']]],
+			['config.add'		, ['lfwwh_template_pos_all'		, $this->config['lfwwh_disp_template_pos_all']]],
 			['config.remove'	, ['lfwwh_disp_for_guests']],
 			['config.remove'	, ['lfwwh_disp_for_bots']],
 			['config.remove'	, ['lfwwh_disp_bots_only_admin']],
@@ -61,6 +61,6 @@ class v_2_1_1 extends \phpbb\db\migration\migration
 			'2' => '0',
 			'3' => '2',
 		];
-		return $change_value[$perm_value] ?? null;
+		return $change_value[$perm_value] ?? '0';
 	}
 }
