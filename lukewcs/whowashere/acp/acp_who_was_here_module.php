@@ -34,14 +34,14 @@ class acp_who_was_here_module
 		$this->cache = $cache;
 		$this->language = $language; // needs phpBB >=3.2.6
 		$this->md_manager = $phpbb_container->get('ext.manager')->create_extension_metadata_manager('lukewcs/whowashere');
+		$notes = '';
 
 		$ext_display_name = $this->md_manager->get_metadata('display-name');
 		$ext_display_ver = $this->md_manager->get_metadata('version');
 		$ext_lang_min_ver = $this->md_manager->get_metadata()['extra']['lang-min-ver'];
-		$lang_ver = $this->language->is_set('LFWWH_LANG_EXT_VER') ? $this->language->lang('LFWWH_LANG_EXT_VER') : '0.0.0';
-		$notes = '';
 
 		$this->language->add_lang(['acp_who_was_here', 'who_was_here'], 'lukewcs/whowashere');
+		$lang_ver = $this->language->is_set('LFWWH_LANG_EXT_VER') ? $this->language->lang('LFWWH_LANG_EXT_VER') : '0.0.0';
 
 		$this->tpl_name = 'acp_who_was_here';
 		$this->page_title = $this->language->lang('LFWWH_NAV_TITLE') . ' - ' . $this->language->lang('LFWWH_NAV_CONFIG');

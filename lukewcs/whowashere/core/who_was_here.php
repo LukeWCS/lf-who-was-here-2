@@ -259,9 +259,17 @@ class who_was_here
 				}
 			}
 		}
-		$wwh_disp_permission_bots = ($this->config['lfwwh_perm_bots_only_admin'] && $this->auth->acl_get('a_')) || $this->config['lfwwh_perm_bots_only_admin'] == 0;
-		$wwh_disp_permission_ip = $this->config['lfwwh_disp_ip'] && $this->auth->acl_get('a_');
-		$wwh_disp_permission_hidden = $this->config['lfwwh_disp_hidden'] && $this->auth->acl_get('u_viewonline');
+		$wwh_disp_permission_bots = (
+				$this->config['lfwwh_perm_bots_only_admin']
+				&& $this->auth->acl_get('a_')
+			)
+			|| $this->config['lfwwh_perm_bots_only_admin'] == 0;
+		$wwh_disp_permission_ip =
+			$this->config['lfwwh_disp_ip']
+			&& $this->auth->acl_get('a_');
+		$wwh_disp_permission_hidden =
+			$this->config['lfwwh_disp_hidden']
+			&& $this->auth->acl_get('u_viewonline');
 
 		if (!$this->prune())
 		{
@@ -303,7 +311,7 @@ class who_was_here
 			$view_state = $this->view_state();
 		}
 
-		$show_button_users = $show_button_bots = false;
+		$show_button_users = $show_button_bots = 0;
 		foreach ($view_state as $row)
 		{
 			if ($row['user_id'] != ANONYMOUS)
@@ -317,13 +325,31 @@ class who_was_here
 				$disp_info = '';
 				$hover_info = '';
 				$show_time_disp =
-					($this->config['lfwwh_disp_time_users'] == self::DISP_BEHIND_NAME && $user_type != USER_IGNORE)
-					|| ($this->config['lfwwh_disp_bots'] > self::BOTS_DISABLED && $this->config['lfwwh_disp_time_bots'] == self::DISP_BEHIND_NAME && $user_type == USER_IGNORE);
+					(
+						$this->config['lfwwh_disp_time_users'] == self::DISP_BEHIND_NAME
+						&& $user_type != USER_IGNORE
+					)
+					|| (
+						$this->config['lfwwh_disp_bots'] > self::BOTS_DISABLED
+						&& $this->config['lfwwh_disp_time_bots'] == self::DISP_BEHIND_NAME
+						&& $user_type == USER_IGNORE
+					);
 				$show_time_hover =
-					($this->config['lfwwh_disp_time_users'] == self::DISP_AS_TOOLTIP && $user_type != USER_IGNORE)
-					|| ($this->config['lfwwh_disp_bots'] > self::BOTS_DISABLED && $this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP && $user_type == USER_IGNORE);
-				$show_ip_disp = $ip && $this->config['lfwwh_disp_ip'] == self::DISP_BEHIND_NAME;
-				$show_ip_hover = $ip && $this->config['lfwwh_disp_ip'] == self::DISP_AS_TOOLTIP;
+					(
+						$this->config['lfwwh_disp_time_users'] == self::DISP_AS_TOOLTIP
+						&& $user_type != USER_IGNORE
+					)
+					|| (
+						$this->config['lfwwh_disp_bots'] > self::BOTS_DISABLED
+						&& $this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP
+						&& $user_type == USER_IGNORE
+					);
+				$show_ip_disp =
+					$ip
+					&& $this->config['lfwwh_disp_ip'] == self::DISP_BEHIND_NAME;
+				$show_ip_hover =
+					$ip
+					&& $this->config['lfwwh_disp_ip'] == self::DISP_AS_TOOLTIP;
 
 				if ($show_time_disp || $show_time_hover || $show_ip_disp || $show_ip_hover)
 				{
@@ -364,27 +390,36 @@ class who_was_here
 						$disp_info = ' (' . $this->get_hidden_span($user_type, $time_disp . ' | ') . $ip_disp . ')';
 						$hover_info = ' title="' . $time . '"';
 					}
-					if (!$show_button_users)
-					{
-						if ((
-								($this->config['lfwwh_disp_time_users'] == self::DISP_AS_TOOLTIP && $user_type != USER_IGNORE)
-								|| ($this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS && $this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP && $user_type == USER_IGNORE)
-								|| $show_ip_hover
-							)
-							&& $hover_info
-						)
-						{
-							$show_button_users = true;
-						}
-					}
-					if (!$show_button_bots)
+
+					if (!$show_button_users && $hover_info)
 					{
 						if (
-							$this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE && ($this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP
-							|| $show_ip_hover) && $user_type == USER_IGNORE && $hover_info
+							(
+								$this->config['lfwwh_disp_time_users'] == self::DISP_AS_TOOLTIP
+								&& $user_type != USER_IGNORE
+							)
+							|| (
+								$this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS
+								&& $this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP
+								&& $user_type == USER_IGNORE
+							)
+							|| $show_ip_hover
 						)
 						{
-							$show_button_bots = true;
+							$show_button_users = ($this->auth->acl_get('a_') ? 3 : 1);
+						}
+					}
+					if (!$show_button_bots && $hover_info && $user_type == USER_IGNORE)
+					{
+						if (
+							$this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE
+							&& (
+								$this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP
+								|| $show_ip_hover
+							)
+						)
+						{
+							$show_button_bots = ($this->auth->acl_get('a_') ? 3 : 1);
 						}
 					}
 				}
@@ -462,7 +497,7 @@ class who_was_here
 		}
 		if (!$this->config['lfwwh_create_hidden_info'])
 		{
-			$show_button_users = $show_button_bots = false;
+			$show_button_users = $show_button_bots = 0;
 		}
 		$this->template->assign_vars([
 			'LFWWH_TOTAL'				=> ($wwh_disp_permission_total) ? $this->get_total_users_string($count) : '',

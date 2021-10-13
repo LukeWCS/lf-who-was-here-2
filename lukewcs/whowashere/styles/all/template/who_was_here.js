@@ -12,18 +12,12 @@
 'use strict';
 
 var lfwwhIndex = {};
-
-lfwwhIndex.isShowUsersInfo = false;
-lfwwhIndex.isShowBotsInfo = false;
-lfwwhIndex.ShowHide = function (group) {
-	if (group == 0) {
-		lfwwhIndex.isShowUsersInfo = !lfwwhIndex.isShowUsersInfo;
-		$('.lfwwh_info_u').css('display', (lfwwhIndex.isShowUsersInfo ? '' : 'none'));
-		$('.lfwwh_button_users').css('opacity', (lfwwhIndex.isShowUsersInfo ? '1.0' : '0.5'));
-	}
-	if (group == 1) {
-		lfwwhIndex.isShowBotsInfo = !lfwwhIndex.isShowBotsInfo;
-		$('.lfwwh_info_b').css('display', (lfwwhIndex.isShowBotsInfo ? '' : 'none'));
-		$('.lfwwh_button_bots').css('opacity', (lfwwhIndex.isShowBotsInfo ? '1.0' : '0.5'));
-	}
+lfwwhIndex.isShowInfo = {
+	'users' : false,
+	'bots' : false
+};
+lfwwhIndex.ShowHide = function (buttontype) {
+	lfwwhIndex.isShowInfo[buttontype] = !lfwwhIndex.isShowInfo[buttontype];
+	$('.lfwwh_info_' + buttontype.slice(0,1)).css('display', (lfwwhIndex.isShowInfo[buttontype] ? '' : 'none'));
+	$('.lfwwh_button_' + buttontype).css('opacity', (lfwwhIndex.isShowInfo[buttontype] ? '1.0' : '0.5'));
 };

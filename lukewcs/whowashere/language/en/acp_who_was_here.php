@@ -39,6 +39,11 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 //
 $lang = array_merge($lang, [
+	// language pack author
+	'LFWWH_LANG_DESC'					=> 'English',
+	'LFWWH_LANG_EXT_VER' 				=> '2.1.1',
+	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
+
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here?',
 	'LFWWH_CONFIG_DESC' 				=> 'The settings for the extension “%1$s” (v%2$s) can be changed here.',
@@ -65,7 +70,7 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_REG_USERS'				=> 'Show visible users (number)',
 	'LFWWH_DISP_REG_USERS_EXP'			=> 'The number of visible users is displayed.',
 	'LFWWH_DISP_HIDDEN'					=> 'Show invisible users (number and names)',
-	'LFWWH_DISP_HIDDEN_EXP'				=> 'Invisible users are also displayed in the user list. (Permission necessary, as with “Who is online”.)',
+	'LFWWH_DISP_HIDDEN_EXP'				=> 'Invisible users are also displayed in the user list. (Just for the users with administrative permissions, as with “Who is online”.)',
 	'LFWWH_DISP_BOTS'					=> 'Show bots (number and names)',
 	'LFWWH_DISP_BOTS_EXP'				=> 'Some user might wonder what bots are and fear them.',
 	'LFWWH_DISP_BOTS_WITH_USERS'		=> 'With the users',

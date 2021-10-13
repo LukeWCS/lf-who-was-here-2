@@ -1,3 +1,10 @@
+* B75:
+  * Code: Beim Button-Icon wird jetzt unterschieden zwischen Benutzern mit administrativen Rechten und normalen Benutzern.
+  * Code: Mehrere Bedingungen im Core lesbarer gestaltet.
+  * Frontend-Template: Beim Button-Icon wird jetzt für Benutzer und Gäste ein Zeit-Symbol angezeigt. Admins sehen unverändert das Info-Symbol. (Vorschlag Kirk)
+  * Frontend-Template: Javascript optimiert.
+  * Sprachdateien: Übersetzer-Infos von `info_acp_who_was_here.php` nach `acp_who_was_here.php` verschoben.
+  * ACP-Modul: An die Änderungen bei den Sprachdateien angepasst.
 * B74:
   * Empfehlungen von kasimi bezüglich Migration umgesetzt.
 * B73:
@@ -46,7 +53,7 @@
   * ACP-Info: Nach Doku definiert. (Hinweis chris1278)
   * ACP-Modul: Fehlermeldung bei ungültigem Formular wird jetzt rot dargestellt statt grün. In der phpBB Extension Doku wurde das falsch gezeigt. Ausserdem Back-Link hinzugefügt.
   * ACP-Modul: Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket hat.
-  * ACP-Modul: Template-Variablen umbenannt, und umbenannte Config-Variablen übernommen.
+  * ACP-Modul: Template-Variablen umbenannt und umbenannte Config-Variablen übernommen.
   * ACP-Modul: Code Optimierungen.
   * Frontend-Template: Die Positions-Hinweise werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
   * Frontend-Template: Die Twig Variable für die Anzeige der Template Position umbenannt.
@@ -275,7 +282,7 @@
   * Migration geändert: Neue Konfig-Variable `lfwwh_create_hidden_info`.
 * B22:
   * B21 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
-  * Den phpBB 3.1 Ersatztext für das Info-Symbol (Awesome-Font) durch ein Unicode-Zeichen ersetzt.
+  * Den phpBB 3.1 Ersatztext für das Info-Icon (Awesome-Font) durch ein Unicode-Zeichen ersetzt.
   * `composer.json` aktualisiert.
   * CSS von `prosilver` nach `all` verschoben.
   * 1 Sprach-Variable umbenannt, 1 gelöscht.

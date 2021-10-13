@@ -12,16 +12,21 @@
 			{{ LFWWH_USERS ? '<br />' }}
 		{% endif %}
 		{% if LFWWH_USERS %}
-			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_info_button('users', 0) ~ ' ' }}{{ LFWWH_USERS }}<br />
+			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_info_button('users', LFWWH_USERS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_USERS }}<br />
 		{% endif %}
 		{% if LFWWH_BOTS %}
-			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_info_button('bots', 1) ~ ' ' }}{{ LFWWH_BOTS }}<br />
+			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_info_button('bots', LFWWH_BOTS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_BOTS }}<br />
 		{% endif %}
 	</p>
 </div>
 
-{% macro lfwwh_info_button(class, group) %}
-{% spaceless %}
-	<span class="lfwwh_button_{{ class }} icon fa-info-circle" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide({{ group }})"></span>
-{% endspaceless %}
+{% macro lfwwh_info_button(buttontype, infotype) %}
+	{% if infotype == 1 %}
+		{% set icon = 'clock-o' %}
+	{% else %}
+		{% set icon = 'info-circle' %}
+	{% endif %}
+	{% spaceless %}
+		<span class="lfwwh_button_{{ buttontype }} icon fa-{{ icon }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide('{{ buttontype }}')"></span>
+	{% endspaceless %}
 {% endmacro %}

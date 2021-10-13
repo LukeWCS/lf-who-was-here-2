@@ -39,11 +39,6 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 //
 $lang = array_merge($lang, [
-	// language pack author
-	'LFWWH_LANG_DESC'					=> 'English',
-	'LFWWH_LANG_EXT_VER' 				=> '2.1.1',
-	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
-
 	// navigation
 	'LFWWH_NAV_TITLE'					=> 'Who was here? (2.x)',
 	'LFWWH_NAV_CONFIG'					=> 'Settings',
