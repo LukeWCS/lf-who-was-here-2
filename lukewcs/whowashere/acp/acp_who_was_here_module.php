@@ -114,7 +114,7 @@ class acp_who_was_here_module
 			}
 		}
 
-		$load_online_time = (($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1);
+		$load_online_time = ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1;
 		if ($this->config['lfwwh_cache_time'] > $load_online_time)
 		{
 			$this->config->set('lfwwh_cache_time', $load_online_time);

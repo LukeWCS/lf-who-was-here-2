@@ -1,5 +1,7 @@
+* B76:
+  * Code: * Die Abfrage ob im Kontext das Portal aktiv ist, wurde komplett geändert. Die Abfrage ob die Startseite per `.htaccess` auf das Portal umgebogen wurde konnte dadurch entfallen. Ausserdem wird durch diese Änderung auch die Situation berücksichtigt, bei der das Portal auf allen Seiten angezeigt wird.
 * B75:
-  * Code: Beim Button-Icon wird jetzt unterschieden zwischen Benutzern mit administrativen Rechten und normalen Benutzern.
+  * Code: Beim Button-Icon wird jetzt unterschieden zwischen Benutzern mit administrativen Rechten und normalen Benutzern und entsprechend per Template-Variable übergeben.
   * Code: Mehrere Bedingungen im Core lesbarer gestaltet.
   * Frontend-Template: Beim Button-Icon wird jetzt für Benutzer und Gäste ein Zeit-Symbol angezeigt. Admins sehen unverändert das Info-Symbol. (Vorschlag Kirk)
   * Frontend-Template: Javascript optimiert.
@@ -20,8 +22,6 @@
   * Code: Korrekturen anhand EC Bericht vorgenommen.
   * Frontend-Template: Farben der Positions-Hinweise geändert.
 * B70:
-  * Code: Die Sprachdatei für die Einstellungen wird jetzt manuell geladen, siehe weiter unten bei "Sprachdateien:".
-  * ACP-Modul: An die aufgeteilten Sprachdateien angepasst.
   * Frontend-Template: Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
   * Frontend-Template: Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprachvariable im Frontend wird nicht mehr benötigt.
   * Frontend-Template: Die Positions-Hinweise werden nicht mehr in den Sekundär-Templates, sondern im Primär-Template zusammengesetzt.
@@ -30,6 +30,8 @@
   * Sprachdateien: 1 Sprachdatei hinzugefügt.
   * Sprachdateien: 1 Sprachdatei umbenannt.
   * Sprachdateien: 1 Sprach-Variable gelöscht.
+  * Code: Durch die aufgeteilten Sprachdateien muss die Sprachdatei für die Einstellungen jetzt manuell geladen werden.
+  * ACP-Modul: An die aufgeteilten Sprachdateien angepasst.
   * Github: In `.gitattributes` war noch die alte Versionsprüfung-Datei eingetragen und wurde entfernt.
 * B69:
   * Migration: Mehrere Config-Variablen umbenannt.
@@ -45,9 +47,9 @@
   * Composer: Version auf 2.1.1 geändert.
   * ACP-Template: Die Option "Zeige die Bot-Namen nur bei administrativen Rechten:" in den Abschnitt "Berechtigungen" verschoben.
   * ACP-Template: Die oben genannte Option an die Abblend-Funktion gekoppelt.
-  * ACP-Template: Bei allen Optionstiteln die bisherigen 2 Twig Variablen durch Verkettung auf 1 Variable reduziert. (Hinweis chris1278)
+  * ACP-Template: Bei allen Optionstiteln die bisherigen 2 Twig Ausgaben durch Verkettung auf 1 Twig Ausgabe reduziert. (Hinweis chris1278)
   * ACP-Template: Bei der "Nach oben" Funktion wurde noch die alte phpBB Syntax statt Twig verwendet. (Meldung chris1278)
-  * ACP-Template: Bei allen Optionen die Twig Kontrollstrukturen `{% if ... %}...{% endif %}` durch eine Twig Variable und einen verkürzten Ternary Operator ersetzt.
+  * ACP-Template: Bei allen Optionen die Twig Anweisungen `{% if ... %}...{% endif %}` durch eine Twig Ausgabe und einen verkürzten Ternary Operator ersetzt.
   * ACP-Template: Alle IDs und Sprach-Variablen der Auswahllisten haben als Suffix nicht länger den numerischen Config-Wert aus der DB, sondern Bezeichnungen.
   * ACP-Template: jQuery an die geänderten IDs angepasst.
   * ACP-Info: Nach Doku definiert. (Hinweis chris1278)
