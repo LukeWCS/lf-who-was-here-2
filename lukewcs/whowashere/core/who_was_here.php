@@ -55,6 +55,7 @@ class who_was_here
 		\phpbb\auth\auth $auth,
 		\phpbb\cache\driver\driver_interface $cache,
 		\phpbb\db\driver\driver_interface $db,
+		\phpbb\event\dispatcher_interface $dispatcher,
 		$table_prefix,
 		$php_ext,
 		$language
@@ -66,6 +67,7 @@ class who_was_here
 		$this->auth = $auth;
 		$this->cache = $cache;
 		$this->db = $db;
+		$this->phpbb_dispatcher = $dispatcher;
 		$this->lfwwh_table = $table_prefix . 'lfwwh';
 		$this->php_ext = $php_ext;
 		$this->language = $language;
@@ -106,9 +108,7 @@ class who_was_here
 		'lfwwh_use_permissions'			(bool)
 	*/
 
-	/**
-	* Update the users session in the table.
-	*/
+	// Update the users session in the table.
 	public function update_session()
 	{
 		if ($this->user->data['user_id'] != ANONYMOUS)
@@ -202,19 +202,23 @@ class who_was_here
 		$this->db->sql_return_on_error(false);
 	}
 
-	/**
-	* Fetching the user-list and putting the stuff into the template.
-	*/
+	// Fetching the user-list and putting the stuff into the template.
 	public function display()
 	{
-		$page_name = $this->user->page['page_name'];
-		$is_index = $page_name == 'index.' . $this->php_ext;
-		$is_portal =
-			   $this->template->retrieve_var('S_LEFT_COLUMN')
-			|| $this->template->retrieve_var('S_CENTER_COLUMN')
-			|| $this->template->retrieve_var('S_RIGHT_COLUMN')
-		;
-		if (!$is_index && !$is_portal)
+		$is_index = $this->user->page['page_name'] == 'index.' . $this->php_ext;
+		$force_display = false;
+
+		/**
+		* Overriding the variables that regulate the conditions for the WWH display.
+		*
+		* @event lukewcs.whowashere.display_condition
+		* @var  bool  force_display  Forces a generation of the WWH template variables.
+		* @since 2.1.1
+		*/
+		$vars = ['force_display'];
+		extract($this->phpbb_dispatcher->trigger_event('lukewcs.whowashere.display_condition', compact($vars)));
+
+		if (!$is_index && !$force_display)
 		{
 			return;
 		}
@@ -518,9 +522,7 @@ class who_was_here
 		]);
 	}
 
-	/**
-	* Deletes the users from the list, whose visit is to old.
-	*/
+	// Deletes the users from the list, whose visit is to old.
 	public function prune()
 	{
 		if ($this->config['lfwwh_time_mode'] == self::TIME_MODE_TODAY)
@@ -552,9 +554,7 @@ class who_was_here
 		return true;
 	}
 
-	/**
-	* Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary. (LukeWCS)
-	*/
+	// Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary. (LukeWCS)
 	public function clear_up($event)
 	{
 		if (!$this->config['lfwwh_clear_up'])
@@ -592,9 +592,7 @@ class who_was_here
 		}
 	}
 
-	/**
-	* Adds permissions. (LukeWCS)
-	*/
+	// Adds permissions. (LukeWCS)
 	public function add_permissions($event)
 	{
 		$permissions = $event['permissions'];
@@ -610,9 +608,7 @@ class who_was_here
 		$event['permissions'] = $permissions;
 	}
 
-	/**
-	* Returns the users array
-	*/
+	// Returns the users array
 	private function view_state()
 	{
 		switch ($this->config['lfwwh_sort_by'])
@@ -665,9 +661,7 @@ class who_was_here
 		return $statrow;
 	}
 
-	/**
-	* Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot). (LukeWCS)
-	*/
+	// Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot). (LukeWCS)
 	private function get_hidden_span(int $user_type, string $text): string
 	{
 		if (!$this->config['lfwwh_create_hidden_info'])
@@ -677,17 +671,13 @@ class who_was_here
 		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? 'u' : 'b') . '" style="display: none;">' . $text . '</span>';
 	}
 
-	/**
-	* Returns a string encapsulated in <span> tags with a specific CSS class. (LukeWCS)
-	*/
+	// Returns a string encapsulated in <span> tags with a specific CSS class. (LukeWCS)
 	private function get_class_span(string $class, string $text): string
 	{
 		return '<span class="lfwwh_' .  $class . '">' . $text . '</span>';
 	}
 
-	/**
-	* Returns a formated time string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
-	*/
+	// Returns a formated time string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
 	private function get_formatted_time(int $timestamp): string
 	{
 		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
@@ -695,9 +685,7 @@ class who_was_here
 		return $text;
 	}
 
-	/**
-	* Returns a formated record time string. (LukeWCS)
-	*/
+	// Returns a formated record time string. (LukeWCS)
 	private function get_formatted_record_time(int $timestamp): string
 	{
 		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);

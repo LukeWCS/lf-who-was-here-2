@@ -1,5 +1,9 @@
+* B77:
+  * Code: PHP Event `lukewcs.whowashere.display_condition` eingebaut, mit dem Variablen übersteuert werden können um die Generierung der Template Variablen zu erzwingen.
+  * Code: Die bisherige Portal Abfrage wurde komplett entfernt, da diese durch das neue PHP Event nicht länger benötigt wird. Bridge Coder können nun eigene Bedingungen definieren.
+  * Code: Unnötige Block-Kommentare bei Einzeilern entfernt und auf einzeilige Kommentare umgestellt.
 * B76:
-  * Code: * Die Abfrage ob im Kontext das Portal aktiv ist, wurde komplett geändert. Die Abfrage ob die Startseite per `.htaccess` auf das Portal umgebogen wurde konnte dadurch entfallen. Ausserdem wird durch diese Änderung auch die Situation berücksichtigt, bei der das Portal auf allen Seiten angezeigt wird.
+  * Code: Die Abfrage ob im Kontext das Portal aktiv ist, wurde komplett geändert. Die Abfrage ob die Startseite per `.htaccess` auf das Portal umgebogen wurde konnte dadurch entfallen. Ausserdem wird durch diese Änderung auch die Situation berücksichtigt, bei der das Portal auf allen Seiten angezeigt wird.
 * B75:
   * Code: Beim Button-Icon wird jetzt unterschieden zwischen Benutzern mit administrativen Rechten und normalen Benutzern und entsprechend per Template-Variable übergeben.
   * Code: Mehrere Bedingungen im Core lesbarer gestaltet.

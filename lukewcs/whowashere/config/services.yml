@@ -14,6 +14,7 @@ services:
             - '@auth'
             - '@cache.driver'
             - '@dbal.conn'
+            - '@dispatcher'
             - '%core.table_prefix%'
             - '%core.php_ext%'
             - '@language'

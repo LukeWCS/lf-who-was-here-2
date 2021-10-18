@@ -1,11 +1,10 @@
 #### 2.1.1 Release (2021--) - CDB (2021--)
 
-* Die Abfrage ob im Kontext das Portal aktiv ist, wurde komplett geändert. Die Abfrage ob die Startseite per `.htaccess` auf das Portal umgebogen wurde konnte dadurch entfallen. Ausserdem wird durch diese Änderung auch die Situation berücksichtigt, bei der das Portal auf allen Seiten angezeigt wird.
 * Änderungen bei den Einstellungen (ACP).
   * Die Option "Zeige die Bot-Namen nur bei administrativen Rechten:" in den Abschnitt "Berechtigungen" verschoben und an die Abblend-Funktion gekoppelt.
   * Die Buttons zum Speichern und Zurücksetzen sind jetzt unterhalb jeder Einstellungsgruppe vorhanden. (Vorschlag von Kirk)
   * Fehlermeldung bei ungültigem Formular wird jetzt rot dargestellt statt grün. In der phpBB Extension Doku wurde das falsch gezeigt. Ausserdem Back-Link hinzugefügt.
-  * Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket hat. 
+  * Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket enthält.
 * Änderungen bei den Details (ACP).
   * Homepage Link auf den CDB Bereich von LFWWH geändert.
 * Änderungen im Forenindex (Frontend).
@@ -20,7 +19,9 @@
   * ACP: Kleinere Textänderungen.
   * Frontend: 1 Sprach-Variable gelöscht.
 * Sonstiges:
-  * Code-Optimierungen.
+  * Code: Das PHP Event `lukewcs.whowashere.display_condition` eingebaut, mit dem Variablen übersteuert werden können um die Generierung der Template Variablen zu erzwingen. Hilfreich für WWH Bridge Entwickler.
+  * Code: Die bisherige Portal Abfrage wurde komplett entfernt, da diese durch das neue PHP Event nicht länger benötigt wird.
+  * Code: Optimierungen.
 
 #### 2.1.0 Release (2021-08-18) - CDB (2021-09-12)
 
