@@ -205,7 +205,7 @@ class who_was_here
 	// Fetching the user-list and putting the stuff into the template.
 	public function display()
 	{
-		$is_index = $this->user->page['page_name'] == 'index.' . $this->php_ext;
+		$is_index = ($this->user->page['page_name'] == 'index.' . $this->php_ext);
 		$force_display = false;
 
 		/**
@@ -218,6 +218,7 @@ class who_was_here
 		$vars = ['force_display'];
 		extract($this->phpbb_dispatcher->trigger_event('lukewcs.whowashere.display_condition', compact($vars)));
 
+		$force_display = ($force_display === true);
 		if (!$is_index && !$force_display)
 		{
 			return;
@@ -251,35 +252,43 @@ class who_was_here
 				}
 				else if ($this->user->data['is_bot']) // bot
 				{
-					$wwh_disp_permission_total =
+					$wwh_disp_permission_total = (
 						$this->config['lfwwh_perm_for_bots'] == self::PERM_STATS
-						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS;
-					$wwh_disp_permission_users =
+						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
+					);
+					$wwh_disp_permission_users = (
 						$this->config['lfwwh_perm_for_bots'] == self::PERM_USERS
-						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS;
+						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
+					);
 				}
 				else // guest
 				{
-					$wwh_disp_permission_total =
+					$wwh_disp_permission_total = (
 						$this->config['lfwwh_perm_for_guests'] == self::PERM_STATS
-						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS;
-					$wwh_disp_permission_users =
+						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
+					);
+					$wwh_disp_permission_users = (
 						$this->config['lfwwh_perm_for_guests'] == self::PERM_USERS
-						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS;
+						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
+					);
 				}
 			}
 		}
 		$wwh_disp_permission_bots = (
+			(
 				$this->config['lfwwh_perm_bots_only_admin']
 				&& $this->auth->acl_get('a_')
 			)
-			|| $this->config['lfwwh_perm_bots_only_admin'] == 0;
-		$wwh_disp_permission_ip =
+			|| $this->config['lfwwh_perm_bots_only_admin'] == 0
+		);
+		$wwh_disp_permission_ip = (
 			$this->config['lfwwh_disp_ip']
-			&& $this->auth->acl_get('a_');
-		$wwh_disp_permission_hidden =
+			&& $this->auth->acl_get('a_')
+		);
+		$wwh_disp_permission_hidden = (
 			$this->config['lfwwh_disp_hidden']
-			&& $this->auth->acl_get('u_viewonline');
+			&& $this->auth->acl_get('u_viewonline')
+		);
 
 		if (!$this->prune())
 		{
@@ -515,7 +524,7 @@ class who_was_here
 			'LFWWH_RECORD'				=> $wwh_disp_permission_total ? $this->get_record_string((bool) $this->config['lfwwh_record'], (int) $this->config['lfwwh_time_mode']) : '',
 			'LFWWH_USERS'				=> $wwh_disp_permission_users ? $users_list : '',
 			'LFWWH_USERS_SHOW_BUTTON'	=> $show_button_users,
-			'LFWWH_BOTS'				=> ($wwh_disp_permission_users && $bots_list) ? $bots_list : '',
+			'LFWWH_BOTS'				=> $wwh_disp_permission_users && $bots_list ? $bots_list : '',
 			'LFWWH_BOTS_SHOW_BUTTON'	=> $show_button_bots,
 			'LFWWH_POS'					=> $this->config['lfwwh_template_pos_all'] ? 7 : 2 ** $this->config['lfwwh_template_pos'],
 			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'],

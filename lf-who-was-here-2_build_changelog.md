@@ -1,3 +1,5 @@
+* B78:
+  * Code: Bei der PHP Event Variable `$force_display` werd jetzt der Variablentyp Boolean erzwungen. Alles was nicht exakt `true` entspricht, wird als `false` betrachtet.
 * B77:
   * Code: PHP Event `lukewcs.whowashere.display_condition` eingebaut, mit dem Variablen übersteuert werden können um die Generierung der Template Variablen zu erzwingen.
   * Code: Die bisherige Portal Abfrage wurde komplett entfernt, da diese durch das neue PHP Event nicht länger benötigt wird. Bridge Coder können nun eigene Bedingungen definieren.
@@ -27,7 +29,7 @@
   * Frontend-Template: Farben der Positions-Hinweise geändert.
 * B70:
   * Frontend-Template: Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
-  * Frontend-Template: Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprachvariable im Frontend wird nicht mehr benötigt.
+  * Frontend-Template: Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprach-Variable im Frontend wird nicht mehr benötigt.
   * Frontend-Template: Die Positions-Hinweise werden nicht mehr in den Sekundär-Templates, sondern im Primär-Template zusammengesetzt.
   * Frontend-Template: Die Variable mit der redundante `INCLUDE..` Anweisungen verhindert werden, in `INCLUDED_LFWHOWASHERE` umbenannt.
   * Sprachdateien: Die ACP Variablen sind jetzt bedarfsgerecht auf verschiedene Dateien aufgeteilt. Somit werden die Variablen der Einstellungen nicht mehr unnötig überall geladen.
@@ -67,7 +69,8 @@
   * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Datei geändert.
   * Sprachdateien: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
 
-### Builds 2.1.0
+#### Builds 2.1.0
+
 * B68: 
   * Github: Voraussetzungen in `README.md` angepasst.
   * Github: Release Changelogs geändert.
@@ -163,7 +166,7 @@
   * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts.
   * Github: Github Actions eingerichtet. 
 
-### Builds 2.0.0
+#### Builds 2.0.0
 
 * B51:
   * Einen Teil der Änderungen von B50 soweit rückgängig gemacht, dass die GitHub Version 2.0.0-b51 exakt der offiziellen CDB Version 2.0.0 entspricht. Die Änderungen von B50 werden zu einem späteren Zeitpunkt wieder eingefügt.
