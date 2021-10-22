@@ -53,7 +53,7 @@ class v_2_1_1 extends \phpbb\db\migration\migration
 		];
 	}
 
-	private function change_perm(string $perm_value)
+	private function change_perm(string $old_value)
 	{
 		$change_value = [
 			'0' => '1',
@@ -61,6 +61,6 @@ class v_2_1_1 extends \phpbb\db\migration\migration
 			'2' => '0',
 			'3' => '2',
 		];
-		return $change_value[$perm_value] ?? '0';
+		return $change_value[$old_value] ?? '0';
 	}
 }

@@ -1,7 +1,10 @@
+* B79:
+  * Code: Neue Event-Variable: `force_api_mode`.
 * B78:
-  * Code: Bei der PHP Event Variable `$force_display` werd jetzt der Variablentyp Boolean erzwungen. Alles was nicht exakt `true` entspricht, wird als `false` betrachtet.
+  * Code: Bei der Event-Variable `force_display` wird jetzt der Variablentyp Boolean erzwungen. Alles was nicht exakt `true` entspricht, wird als `false` betrachtet.
 * B77:
   * Code: PHP Event `lukewcs.whowashere.display_condition` eingebaut, mit dem Variablen übersteuert werden können um die Generierung der Template Variablen zu erzwingen.
+  * Code: Neue Event-Variable: `force_display`.
   * Code: Die bisherige Portal Abfrage wurde komplett entfernt, da diese durch das neue PHP Event nicht länger benötigt wird. Bridge Coder können nun eigene Bedingungen definieren.
   * Code: Unnötige Block-Kommentare bei Einzeilern entfernt und auf einzeilige Kommentare umgestellt.
 * B76:

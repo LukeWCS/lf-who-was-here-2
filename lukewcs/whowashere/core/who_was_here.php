@@ -207,18 +207,22 @@ class who_was_here
 	{
 		$is_index = ($this->user->page['page_name'] == 'index.' . $this->php_ext);
 		$force_display = false;
+		$force_api_mode = false;
 
 		/**
 		* Overriding the variables that regulate the conditions for the WWH display.
 		*
 		* @event lukewcs.whowashere.display_condition
-		* @var  bool  force_display  Forces a generation of the WWH template variables.
+		* @var  bool  force_display   Forces a generation of the WWH template variables outside of the index page.
+		*                             Important: This variable may only be set to `true` per event, but never to `false`.
+		* @var  bool  force_api_mode  Forces the API mode so that WWH is not displayed, but only the WWH template variables are generated.
 		* @since 2.1.1
 		*/
-		$vars = ['force_display'];
+		$vars = ['force_display', 'force_api_mode'];
 		extract($this->phpbb_dispatcher->trigger_event('lukewcs.whowashere.display_condition', compact($vars)));
 
 		$force_display = ($force_display === true);
+		$force_api_mode = ($force_api_mode === true);
 		if (!$is_index && !$force_display)
 		{
 			return;
@@ -527,7 +531,7 @@ class who_was_here
 			'LFWWH_BOTS'				=> $wwh_disp_permission_users && $bots_list ? $bots_list : '',
 			'LFWWH_BOTS_SHOW_BUTTON'	=> $show_button_bots,
 			'LFWWH_POS'					=> $this->config['lfwwh_template_pos_all'] ? 7 : 2 ** $this->config['lfwwh_template_pos'],
-			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'],
+			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'] || $force_api_mode,
 		]);
 	}
 

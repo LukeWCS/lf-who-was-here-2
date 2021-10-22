@@ -1,6 +1,15 @@
 #### 2.1.1 Release (2021--) - CDB (2021--)
 
-* Das PHP Event `lukewcs.whowashere.display_condition` eingebaut, mit dem Variablen übersteuert werden können um die Generierung der Template Variablen zu erzwingen. Hilfreich für WWH Bridge Entwickler.
+Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. :-)
+
+* Das PHP Event `lukewcs.whowashere.display_condition` eingebaut, mit dem bestimmte Variablen übersteuert werden können um das Verhalten von LFWWH zu ändern. Hilfreich für WWH-Bridge-Entwickler.
+  * Die folgenden Event-Variablen werden erstmalig unterstützt:
+    * `force_display`: Erzwingt eine Generierung der WWH Template Variablen auch ausserhalb der Index-Seite. Wichtig: Per Event darf diese Variable nur auf `true` gesetzt werden, jedoch niemals auf `false`.
+	* `force_api_mode`: Erzwingt den API-Modus damit WWH nicht angezeigt wird, sondern lediglich die WWH Template Variablen erzeugt werden.
+  * Das Event wird erstmalig bei folgenden WWH-Bridge-Erweiterungen eingesetzt:
+    * "Bridge between “LF who was here” and “Statistics Block" version 2.1.1. Event-Variablen: `force_api_mode`
+	* "LF Who was here Module for Board3 Portal" version 0.0.9: Event-Variablen: `force_display`
+	* "Sidebar" version 1.2.3: Event-Variablen: `force_display`
 * Änderungen bei den Einstellungen (ACP).
   * Die Option "Zeige die Bot-Namen nur bei administrativen Rechten:" in den Abschnitt "Berechtigungen" verschoben und an die Abblend-Funktion gekoppelt.
   * Die Buttons zum Speichern und Zurücksetzen sind jetzt unterhalb jeder Einstellungsgruppe vorhanden. (Vorschlag von Kirk)
