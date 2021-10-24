@@ -1,3 +1,39 @@
+#### 2.1.1 Release (2021-10-24) - CDB (pending)
+
+Thanks again to Kirk and chris1278 for the good cooperation. :-)
+I would also like to thank kasimi for information and recommendations. :-)
+
+* The PHP event `lukewcs.whowashere.display_condition` built in, with which certain variables can be overridden to change the behavior of LFWWH. Useful for WWH bridge developers.
+  * The following event variables are supported for the first time:
+    * `force_display`: Forces a generation of the WWH template variables outside of the index page. Important: This variable may only be set to `true` per event, but never to `false`.
+    * `force_api_mode`: Forces the API mode so that WWH is not displayed, but only the WWH template variables are generated.
+  * The event is used for the first time with the following WWH bridge extensions:
+    * "LF Who was here Module for Board3 Portal" version 0.0.9: Event variables: `force_display`
+    * "Sidebar" version 1.2.3: Event variables: `force_display`
+    * "Bridge between" LF who was here "and" Statistics Block "version 2.1.1. Event variables: `force_api_mode`
+* Changes to the settings (ACP).
+  * The option "Show bot names only with administrative rights:" moved to the "Permissions" section and linked to the fade-out function.
+  * The buttons for saving and resetting are now available below each setting group. (Suggestion from Kirk)
+  * Error message when the form is invalid is now displayed in red instead of green. This was shown incorrectly in the phpBB extension documentation. Also added a back link.
+  * Fallback implemented if the existing language package does not contain a variable for the message regarding the outdated language package.
+* Changes to the details (ACP).
+  * Homepage link to the CDB area of ​​LFWWH changed.
+* Changes in the forum index (frontend).
+  * The button icon now shows a time icon for users and guests. Admins see the info symbol unchanged. (Suggestion from Kirk)
+  * Instead of a colon, the language variable `COLON` is used here as in the ACP template.
+  * Variables of the settings are now used for the position notes. The previous language variable in the front end is no longer required.
+  * The position hints are no longer generated in PHP as template variables, but taken directly from the language files via Twig and put together in the template.
+* Changes to the language files.
+  * ACP: The variables are now divided into different files as required. This means that the settings variables are no longer unnecessarily loaded everywhere.
+  * ACP: Renamed a number of language variables and changed their position in the file for some.
+  * ACP: Unnecessary redundant explanatory texts (3 in total) removed. This affects the functionality regarding hidden information.
+  * ACP: The reference to "Statistics Block" has been removed from the API mode, as StatBlock-WWH-Bridge now controls this mode itself via an event.
+  * ACP: Minor text changes.
+  * Frontend: 1 language variable deleted.
+* Miscellaneous:
+  * Code: The previous check whether the portal is active in the context has been removed. This check is now carried out directly by the B3P-WWH module and then controls the behavior of LFWWH via an event.
+  * Code: optimizations.
+
 #### 2.1.0 Release (2021-08-18) - CDB (2021-09-12)
 
 * The requirements have changed:

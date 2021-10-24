@@ -1,15 +1,16 @@
-#### 2.1.1 Release (2021--) - CDB (2021--)
+#### 2.1.1 Release (2021-10-24) - CDB (ausstehend)
 
 Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. :-)
+Ich bedanke mich ebenfalls bei kasimi für Infos und Empfehlungen. :-)
 
 * Das PHP Event `lukewcs.whowashere.display_condition` eingebaut, mit dem bestimmte Variablen übersteuert werden können um das Verhalten von LFWWH zu ändern. Hilfreich für WWH-Bridge-Entwickler.
   * Die folgenden Event-Variablen werden erstmalig unterstützt:
     * `force_display`: Erzwingt eine Generierung der WWH Template Variablen auch ausserhalb der Index-Seite. Wichtig: Per Event darf diese Variable nur auf `true` gesetzt werden, jedoch niemals auf `false`.
-	* `force_api_mode`: Erzwingt den API-Modus damit WWH nicht angezeigt wird, sondern lediglich die WWH Template Variablen erzeugt werden.
+    * `force_api_mode`: Erzwingt den API-Modus damit WWH nicht angezeigt wird, sondern lediglich die WWH Template Variablen erzeugt werden.
   * Das Event wird erstmalig bei folgenden WWH-Bridge-Erweiterungen eingesetzt:
+    * "LF Who was here Module for Board3 Portal" version 0.0.9: Event-Variablen: `force_display`
+    * "Sidebar" version 1.2.3: Event-Variablen: `force_display`
     * "Bridge between “LF who was here” and “Statistics Block" version 2.1.1. Event-Variablen: `force_api_mode`
-	* "LF Who was here Module for Board3 Portal" version 0.0.9: Event-Variablen: `force_display`
-	* "Sidebar" version 1.2.3: Event-Variablen: `force_display`
 * Änderungen bei den Einstellungen (ACP).
   * Die Option "Zeige die Bot-Namen nur bei administrativen Rechten:" in den Abschnitt "Berechtigungen" verschoben und an die Abblend-Funktion gekoppelt.
   * Die Buttons zum Speichern und Zurücksetzen sind jetzt unterhalb jeder Einstellungsgruppe vorhanden. (Vorschlag von Kirk)
@@ -25,11 +26,12 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. :-)
 * Änderungen bei den Sprachdateien.
   * ACP: Die Variablen sind jetzt bedarfsgerecht auf verschiedene Dateien aufgeteilt. Somit werden die Variablen der Einstellungen nicht mehr unnötig überall geladen.
   * ACP: Etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Datei geändert.
-  * ACP: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
+  * ACP: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bezüglich ausgeblendete Infos.
+  * ACP: Beim API-Modus wurde der Hinweis auf "Statistics Block" entfernt, da StatBlock-WWH-Bridge diesen Modus nun selbst per Event steuert.
   * ACP: Kleinere Textänderungen.
   * Frontend: 1 Sprach-Variable gelöscht.
 * Sonstiges:
-  * Code: Die bisherige Portal Abfrage wurde komplett entfernt, da diese durch das neue PHP Event nicht länger benötigt wird.
+  * Code: Die bisherige Überprüfung ob das Portal im Kontext aktiv ist wurde entfernt. Diese Überprüfung wird jetzt direkt durch das B3P-WWH-Module durchgeführt und steuert dann per Event das Verhalten von LFWWH.
   * Code: Optimierungen.
 
 #### 2.1.0 Release (2021-08-18) - CDB (2021-09-12)

@@ -1,3 +1,9 @@
+#### Builds 2.1.1
+
+* B80:
+  * Composer: Auf Release 2.1.1 gesetzt.
+  * Sprachdateien: Beim API-Modus den Hinweis auf "Statistics Block" entfernt, da StatsBlock-WWH-Bridge den neuen Event benutzt um den API-Modus selbst zu aktivieren.
+  * Github: Release Changelogs geändert.
 * B79:
   * Code: Neue Event-Variable: `force_api_mode`.
 * B78:
