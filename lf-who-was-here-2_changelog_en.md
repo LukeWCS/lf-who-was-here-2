@@ -1,7 +1,6 @@
 #### 2.1.1 Release (2021-10-24) - CDB (pending)
 
-Thanks again to Kirk and chris1278 for the good cooperation. :-)
-I would also like to thank kasimi for information and recommendations. :-)
+Thanks again to Kirk and chris1278 for the good cooperation. I would also like to thank kasimi for information and recommendations.
 
 * The PHP event `lukewcs.whowashere.display_condition` built in, with which certain variables can be overridden to change the behavior of LFWWH. Useful for WWH bridge developers.
   * The following event variables are supported for the first time:

@@ -1,8 +1,12 @@
 #### Builds 2.1.1
 
+* B81:
+  * Github: Release Changelogs geändert.
 * B80:
   * Composer: Auf Release 2.1.1 gesetzt.
   * Sprachdateien: Beim API-Modus den Hinweis auf "Statistics Block" entfernt, da StatsBlock-WWH-Bridge den neuen Event benutzt um den API-Modus selbst zu aktivieren.
+  * ACP-Template: MagicNumbers bei Ja/Nein-IDs durch Bezeichnungen ersetzt.
+  * ACP-Template: jQuery an die geänderten IDs angepasst.
   * Github: Release Changelogs geändert.
 * B79:
   * Code: Neue Event-Variable: `force_api_mode`.
