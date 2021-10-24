@@ -1,4 +1,5 @@
-#### 2.1.1 Release (2021-10-24) - CDB (pending)
+#### 2.1.1 Release
+(2021-10-24) - CDB (pending)
 
 Thanks again to Kirk and chris1278 for the good cooperation. I would also like to thank kasimi for information and recommendations.
 
@@ -33,7 +34,8 @@ Thanks again to Kirk and chris1278 for the good cooperation. I would also like t
   * Code: The previous check whether the portal is active in the context has been removed. This check is now carried out directly by the B3P-WWH module and then controls the behavior of LFWWH via an event.
   * Code: optimizations.
 
-#### 2.1.0 Release (2021-08-18) - CDB (2021-09-12)
+#### 2.1.0 Release
+(2021-08-18) - CDB (2021-09-12)
 
 * The requirements have changed:
   * phpBB 3.2.10 (previously 3.1.11) up to and including phpBB 3.3.
@@ -64,13 +66,15 @@ Thanks again to Kirk and chris1278 for the good cooperation. I would also like t
 * Others:
   * Javascript converted to jQuery as far as possible.
 
-#### 2.0.0 Release (2020-03-29) - CDB (2020-07-06)
+#### 2.0.0 Release
+(2020-03-29) - CDB (2020-07-06)
 
 * With a small change, the code is now also compatible with PHP 5.3 - 5.5: power operator `**` replaced by `pow ()`.
 * Template changes: No.
 * Language file changes: No.
 
-#### 2.0.0 RC 2 (2019-12-24)
+#### 2.0.0 RC 2
+(2019-12-24)
 
 **Important: if you want to update an existing installation of "LF who was here 2" Pre-Release, please read the following instructions: [Updating a developer version (dev, beta, RC) of "LF who was here 2"](https://github.com/LukeWCS/lf-who-was-here-2/blob/master/README_updating_a_developer_version.md)**
 
@@ -99,7 +103,8 @@ The additional archive `lf-who-was-here-2_style-templates-3-2.zip` contains temp
 * rain_forest
 * Rock'n Roll
 
-#### 2.0.0 RC 1 (2019-12-14)
+#### 2.0.0 RC 1
+(2019-12-14)
 
 **Important: if you want to update an existing installation of "LF who was here 2" Pre-Release, please read the following instructions: [Updating a developer version (dev, beta, RC) of "LF who was here 2"](https://github.com/LukeWCS/lf-who-was-here-2/blob/master/README_updating_a_developer_version.md)**
 
@@ -129,7 +134,8 @@ The additional archive `lf-who-was-here-2_style-templates-3-2.zip` contains temp
 * rain_forest
 * Rock'n Roll
 
-#### 2.0.0 Beta 3 (2019-06-02)
+#### 2.0.0 Beta 3
+(2019-06-02)
 
 **Important: if you want to update an existing installation of "LF who was here 2" Pre-Release, please read the following instructions: [Updating a developer version (dev, beta, RC) of "LF who was here 2"](https://github.com/LukeWCS/lf-who-was-here-2/blob/master/README_updating_a_developer_version.md)**
 
@@ -153,7 +159,8 @@ Bug fixes:
   * When changing from summer time to normal time, error #2 would have resulted in a wrong switch even if both time zones (PHP and phpBB) were identical. So this bug would have affected all boards that have summer time (DST). On 2019-10-27 at 23:00:01 clock then a cleanup with wrong timestamp (23:00:00) would have been executed. On 2019-10-28 at 00:00:00 clock then a further cleanup would have taken place, which would have been carried out correctly.
 * Fix: With the setting "Display of the visitors of ..." -> "Today" due to an error in the MySQL query, visitors of the current day with the exact time 00:00:00 were assigned to the previous day and at the cleanup mistakenly deleted.
 
-#### 2.0.0 Beta 2 (2019-04-28)
+#### 2.0.0 Beta 2
+(2019-04-28)
 
 **Important: if you want to update an existing installation of "LF who was here 2" Pre-Release, please read the following instructions: [Updating a developer version (dev, beta, RC) of "LF who was here 2"](https://github.com/LukeWCS/lf-who-was-here-2/blob/master/README_updating_a_developer_version.md)**
 
@@ -201,7 +208,8 @@ The additional archive `lf-who-was-here-2_style_templates_for_phpBB-3-2.zip` con
 * rain_forest
 * Rock'n Roll
 
-#### 2.0.0 Beta 1 (2019-04-14)
+#### 2.0.0 Beta 1
+(2019-04-14)
 
 * Complete conversion to an independent extension with own structures. As a result, the fork stops building on "bb3mobi\washere". This concerns the following areas:
   * Extension folder ("lukewcs\whowashere").

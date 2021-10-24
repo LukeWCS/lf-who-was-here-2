@@ -1,5 +1,7 @@
 #### Builds 2.1.1
 
+* B82:
+  * Github: Release Changelogs so angepasst, dass die einzelnen Releases per Direktlink referenziert werden können.
 * B81:
   * Github: Release Changelogs geändert.
 * B80:
