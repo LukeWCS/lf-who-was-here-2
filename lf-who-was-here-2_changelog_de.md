@@ -1,5 +1,5 @@
 #### 2.1.1 Release
-(2021-10-24) - CDB (ausstehend)
+GH (2021-10-25) / CDB (ausstehend)
 
 Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich bedanke mich ebenfalls bei kasimi für Infos und Empfehlungen.
 
@@ -35,7 +35,7 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich
   * Code: Optimierungen.
 
 #### 2.1.0 Release
-(2021-08-18) - CDB (2021-09-12)
+GH (2021-08-18) / CDB (2021-09-12)
 
 * Die Voraussetzungen haben sich geändert:
   * phpBB 3.2.10 (vorher 3.1.11) bis einschliesslich phpBB 3.3.
@@ -67,7 +67,7 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich
   * Javascript weitestgehend auf jQuery umgestellt.
 
 #### 2.0.0 Release
-(2020-03-29) - CDB (2020-07-06)
+GH (2020-03-29) / CDB (2020-07-06)
 
 * Durch eine kleine Änderung ist der Code jetzt auch kompatibel zu PHP 5.3 - 5.5: Potenz-Operator `**` durch `pow()` ersetzt.
 * Template-Änderungen: Nein

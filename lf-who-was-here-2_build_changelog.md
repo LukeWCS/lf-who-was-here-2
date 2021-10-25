@@ -1,5 +1,8 @@
 #### Builds 2.1.1
 
+* B83:
+  * Migration: Die laut EPV fehlende Funktion `revert_schema()` hinzugefügt.
+  * Github: Release Changelogs geändert.
 * B82:
   * Github: Release Changelogs so angepasst, dass die einzelnen Releases per Direktlink referenziert werden können.
 * B81:

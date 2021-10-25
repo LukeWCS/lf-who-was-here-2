@@ -24,7 +24,18 @@ class s_2_1_1 extends \phpbb\db\migration\migration
 		return [
 			'change_columns' => [
 				$this->table_prefix . 'lfwwh' => [
-					'wwh_id'	=> array('UINT:10', null, 'auto_increment'),
+					'wwh_id' => ['UINT:10', null, 'auto_increment'],
+				],
+			],
+		];
+	}
+
+	public function revert_schema()
+	{
+		return [
+			'change_columns' => [
+				$this->table_prefix . 'lfwwh' => [
+					'wwh_id' => ['UINT', null, 'auto_increment'],
 				],
 			],
 		];
