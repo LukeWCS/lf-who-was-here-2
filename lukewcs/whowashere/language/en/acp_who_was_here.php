@@ -73,8 +73,8 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_HIDDEN_EXP'				=> 'Invisible users are also displayed in the user list. (Just for the users with administrative permissions, as with “Who is online”.)',
 	'LFWWH_DISP_BOTS'					=> 'Show bots (number and names)',
 	'LFWWH_DISP_BOTS_EXP'				=> 'Some user might wonder what bots are and fear them.',
-	'LFWWH_DISP_BOTS_WITH_USERS'		=> 'With the users',
 	'LFWWH_DISP_BOTS_OWN_LINE'			=> 'On a separate line',
+	'LFWWH_DISP_BOTS_WITH_USERS'		=> 'With the users',
 	'LFWWH_DISP_BOTS_DISABLED'			=> 'No',
 	'LFWWH_DISP_GUESTS'					=> 'Show guests (number)',
 	'LFWWH_DISP_GUESTS_EXP'				=> 'The number of guests is displayed.',
@@ -86,8 +86,8 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_TIME_FORMAT_DEMO'		=> 'Current display: %s',
 	'LFWWH_DISP_IP'						=> 'Show user IP',
 	'LFWWH_DISP_IP_EXP'					=> '(Just for the users with administrative permissions, as with “Who is online”.)',
-	'LFWWH_DISP_AS_TOOLTIP'				=> 'Behind the name',
-	'LFWWH_DISP_BEHIND_NAME'			=> 'As a tooltip',
+	'LFWWH_DISP_AS_TOOLTIP'				=> 'As a tooltip',
+	'LFWWH_DISP_BEHIND_NAME'			=> 'Behind the name',
 	'LFWWH_DISP_DISABLED'				=> 'No',
 
 	// config section 3

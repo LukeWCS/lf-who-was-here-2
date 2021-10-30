@@ -1,5 +1,10 @@
 #### Builds 2.1.1
 
+* B84:
+  * Sprachdateien: Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. (Meldung Kirk)
+  * Sprachdateien: Bei manchen Sprach-Variablen die Reihenfolge in der Datei korrigiert.  
+  * Composer: Auf 2.1.1-patch1 gesetzt.
+  * Github: Release Changelogs geändert.
 * B83:
   * Migration: Die laut EPV fehlende Funktion `revert_schema()` hinzugefügt.
   * Github: Release Changelogs geändert.
@@ -84,7 +89,7 @@
   * Frontend-Template: Die Positions-Hinweise werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
   * Frontend-Template: Die Twig Variable für die Anzeige der Template Position umbenannt.
   * Frontend-Template: Kleinere Änderungen beim Twig Code.
-  * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Datei geändert.
+  * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Reihenfolge in der Datei geändert.
   * Sprachdateien: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
 
 #### Builds 2.1.0

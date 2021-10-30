@@ -25,7 +25,7 @@ Thanks again to Kirk and chris1278 for the good cooperation. I would also like t
   * The position hints are no longer generated in PHP as template variables, but taken directly from the language files via Twig and put together in the template.
 * Changes to the language files.
   * ACP: The variables are now divided into different files as required. This means that the settings variables are no longer unnecessarily loaded everywhere.
-  * ACP: Renamed a number of language variables and changed their position in the file for some.
+  * ACP: ACP: Renamed a number of language variables and changed the order in the file for some. 
   * ACP: Unnecessary redundant explanatory texts (3 in total) removed. This affects the functionality regarding hidden information.
   * ACP: The reference to "Statistics Block" has been removed from the API mode, as StatBlock-WWH-Bridge now controls this mode itself via an event.
   * ACP: Minor text changes.

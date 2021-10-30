@@ -25,7 +25,7 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich
   * Die Positions-Hinweise werden nicht mehr in PHP als Template Variablen generiert, sondern direkt per Twig aus den Sprachdateien geholt und im Template zusammengesetzt.
 * Änderungen bei den Sprachdateien.
   * ACP: Die Variablen sind jetzt bedarfsgerecht auf verschiedene Dateien aufgeteilt. Somit werden die Variablen der Einstellungen nicht mehr unnötig überall geladen.
-  * ACP: Etliche Sprach-Variablen umbenannt und bei manchen auch die Position in der Datei geändert.
+  * ACP: Etliche Sprach-Variablen umbenannt und bei manchen auch die Reihenfolge in der Datei geändert.
   * ACP: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bezüglich ausgeblendete Infos.
   * ACP: Beim API-Modus wurde der Hinweis auf "Statistics Block" entfernt, da StatBlock-WWH-Bridge diesen Modus nun selbst per Event steuert.
   * ACP: Kleinere Textänderungen.
