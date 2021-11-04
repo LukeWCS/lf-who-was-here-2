@@ -399,13 +399,13 @@
 {% macro lfwwh_form_buttons(id) %}
 	<div class="lfwwh_form_buttons">
 		<div class="lfwwh_col_left">
-			<a href="#maincontent">&raquo; {{ lang('BACK_TO_TOP') }}</a>
 		</div>
 		<div class="lfwwh_col_center">
 			<input class="button1" type="submit" id="submit_{{ id }}" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
 			<input class="button2" type="button" id="form_reset_{{ id }}" name="form_reset" value="{{ lang('RESET') }}" onclick="lfwwhACP.customFormReset()" />
 		</div>
 		<div class="lfwwh_col_right">
+			<a href="#maincontent" title="{{ lang('BACK_TO_TOP') }}" class="lfwwh_back_to_top"><span class="icon fa-chevron-circle-up"></span></a>
 		</div>
 	</div>
 {% endmacro %}

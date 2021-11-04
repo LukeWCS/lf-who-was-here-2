@@ -28,3 +28,11 @@
 	flex-basis: 25%;
 	text-align: right;
 }
+
+.lfwwh_back_to_top {
+	font-size: 1.3em;
+}
+
+.lfwwh_back_to_top:hover {
+	text-decoration: none;
+}

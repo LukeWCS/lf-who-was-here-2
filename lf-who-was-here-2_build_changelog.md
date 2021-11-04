@@ -1,5 +1,7 @@
 #### Builds 2.1.1
 
+* B85:
+  * ACP-Template: Die Nach-oben Funktion auf dieselbe Weise realisiert, wie es bei Beiträgen gemacht wird.
 * B84:
   * Sprachdateien: Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. (Meldung Kirk)
   * Sprachdateien: Bei manchen Sprach-Variablen die Reihenfolge in der Datei korrigiert.  
