@@ -36,3 +36,12 @@
 .lfwwh_back_to_top:hover {
 	text-decoration: none;
 }
+
+legend {
+	top: 0;
+	margin-left: -5px;
+	padding: 1px 5px;
+	border-radius: 5px 5px 0 0;
+	border-top: inherit;
+	background-color: inherit;
+}

@@ -1,3 +1,14 @@
+#### 2.1.1-p1 Release
+GH (2021--) / CDB (2021--)
+
+Primäre Änderungen siehe 2.1.1 Release.
+
+* Fehlerkorrekturen:
+  * Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. (Meldung Kirk)
+* Änderungen bei den Einstellungen (ACP).
+  * Die Nach-oben Funktion auf dieselbe Weise realisiert, wie es bei Beiträgen gemacht wird.
+  * Das CSS für `legend` so geändert, dass der Text einen eigenen Hintergrund hat, was Lesbarkeit und Aussehen verbessert.
+
 #### 2.1.1 Release
 GH (2021-10-25) / CDB (ausstehend)
 
