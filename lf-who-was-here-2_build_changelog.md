@@ -1,5 +1,7 @@
 #### Builds 2.1.1
 
+* B87:
+  * ACP-Template: Weitere Änderungen am `legend` CSS, wodurch die Überschrift jetzt wie ein Karteireiter aussieht.
 * B86:
   * ACP-Template: Das CSS für `legend` so geändert, dass der Text einen eigenen Hintergrund hat, was Lesbarkeit und Aussehen verbessert.
 * B85:
