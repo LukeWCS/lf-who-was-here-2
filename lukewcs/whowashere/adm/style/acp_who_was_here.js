@@ -58,6 +58,12 @@ lfwwhACP.setState = function () {
 			$('#lfwwh_template_pos_all_no').prop('checked')
 		) ? enabledOpacity : disabledOpacity
 	);
+	$('#lfwwh_opt_create_hidden_info').css('opacity', (
+			$('#lfwwh_disp_time_users_as_tooltip').prop('selected')
+			|| $('#lfwwh_disp_time_bots_as_tooltip').prop('selected')
+			|| $('#lfwwh_disp_ip_as_tooltip').prop('selected')
+		) ? enabledOpacity : disabledOpacity
+	);
 	$('#lfwwh_opt_use_online_time').css('opacity', (
 			$('#lfwwh_use_cache_yes').prop('checked')
 		) ? enabledOpacity : disabledOpacity

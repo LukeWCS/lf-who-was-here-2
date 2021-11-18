@@ -1,5 +1,7 @@
 #### Builds 2.1.1
 
+* B88:
+  * ACP-Template: Den Schalter "Erzeuge ausgeblendete Informationen:" an die Abblend-Funktion gekoppelt. Der Schalter wird nur als aktiv angezeigt, wenn mindestens eine der Tooltip-Optionen aktiv ist.
 * B87:
   * ACP-Template: Weitere Änderungen am `legend` CSS, wodurch die Überschrift jetzt wie ein Karteireiter aussieht.
 * B86:
@@ -11,7 +13,7 @@
   * Sprachdateien: Bei manchen Sprach-Variablen die Reihenfolge in der Datei korrigiert.  
   * Composer: Auf 2.1.1-patch1 gesetzt.
   * Github: Release Changelogs geändert.
-* B83:
+* B83: (CDB Validation Release 1)
   * Migration: Die laut EPV fehlende Funktion `revert_schema()` hinzugefügt.
   * Github: Release Changelogs geändert.
 * B82:
