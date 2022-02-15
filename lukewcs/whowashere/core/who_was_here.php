@@ -37,6 +37,10 @@ class who_was_here
 	const SORT_BY_ID_ASC		= 4;
 	const SORT_BY_ID_DESC		= 5;
 
+	const BUTTON_ICON_NOTHING	= 0;
+	const BUTTON_ICON_CLOCK		= 1;
+	const BUTTON_ICON_INFO		= 2;
+
 	protected $template;
 	protected $config;
 	protected $user;
@@ -429,7 +433,7 @@ class who_was_here
 							|| $show_ip_hover
 						)
 						{
-							$show_button_users = $this->auth->acl_get('a_') ? 3 : 1;
+							$show_button_users = $this->auth->acl_get('a_') ? self::BUTTON_ICON_INFO : self::BUTTON_ICON_CLOCK;
 						}
 					}
 					if (!$show_button_bots && $hover_info && $user_type == USER_IGNORE)
@@ -442,7 +446,7 @@ class who_was_here
 							)
 						)
 						{
-							$show_button_bots = $this->auth->acl_get('a_') ? 3 : 1;
+							$show_button_bots = $this->auth->acl_get('a_') ? self::BUTTON_ICON_INFO : self::BUTTON_ICON_CLOCK;
 						}
 					}
 				}

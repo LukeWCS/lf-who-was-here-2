@@ -21,10 +21,10 @@
 </div>
 
 {% macro lfwwh_info_button(buttontype, infotype) %}
-	{% if infotype == 1 %}
-		{% set icon = 'clock-o' %}
-	{% else %}
+	{% if infotype == 2 %}
 		{% set icon = 'info-circle' %}
+	{% else %}
+		{% set icon = 'clock-o' %}
 	{% endif %}
 	{% spaceless %}
 		<span class="lfwwh_button_{{ buttontype }} icon fa-{{ icon }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide('{{ buttontype }}')"></span>

@@ -385,11 +385,14 @@
 </form>
 
 <script>
-	var lfwwhACP = {};
-	lfwwhACP.tpl = {};
-	lfwwhACP.lang = {};
-	lfwwhACP.tpl.CacheTimeMax = {{ LFWWH_CACHE_TIME_MAX }};
-	lfwwhACP.lang.MsgConfirmRecordReset = '{{ lang('LFWWH_MSG_CONFIRM_RECORD_RESET')|e('js') }}';
+	var lfwwhACP = {
+		tpl: {
+			CacheTimeMax: {{ LFWWH_CACHE_TIME_MAX }}
+		},
+		lang: {
+			MsgConfirmRecordReset: '{{ lang('LFWWH_MSG_CONFIRM_RECORD_RESET')|e('js') }}'
+		}
+	};
 </script>
 
 {% INCLUDEJS 'acp_who_was_here.js' %}
