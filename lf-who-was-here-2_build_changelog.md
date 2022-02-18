@@ -1,5 +1,7 @@
-#### Builds 2.1.1-patch1
+#### Builds 2.1.1-p1
 
+* B90: (CDB Validation Release 1)
+  * Github: Release Changelogs geändert.
 * B89:
   * Code: Validierungs-Kritik berücksichtigt.
 * B88:
@@ -8,6 +10,7 @@
   * ACP-Template: Weitere Änderungen am `legend` CSS, wodurch die Überschrift jetzt wie ein Karteireiter aussieht.
 * B86:
   * ACP-Template: Das CSS für `legend` so geändert, dass der Text einen eigenen Hintergrund hat, was Lesbarkeit und Aussehen verbessert.
+  * Composer: Auf 2.1.1-p1 gesetzt.
 * B85:
   * ACP-Template: Die Nach-oben Funktion auf dieselbe Weise realisiert, wie es bei Beiträgen gemacht wird.
 * B84:

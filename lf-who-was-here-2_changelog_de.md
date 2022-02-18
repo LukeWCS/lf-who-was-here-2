@@ -1,7 +1,7 @@
-#### 2.1.1-patch1 Release
-GH (2022-02-) / CDB (2022--)
+#### 2.1.1-p1 Release
+GH (2022-02-18) / CDB (ausstehend)
 
-* Fehlerkorrekturen:
+* Fix:
   * Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. Davon betroffen waren im ACP die Einstellungen "Zeige die Zeit von Benutzern:", "Zeige die Zeit von Bots:" und "Zeige die Benutzer-IP:". (Meldung von: Kirk, warmweer [Validierung])
 * Änderungen bei den Einstellungen (ACP).
   * Den Schalter "Erzeuge ausgeblendete Informationen:" an die Abblend-Funktion gekoppelt. Der Schalter wird nur als aktiv angezeigt, wenn mindestens eine der Tooltip-Optionen aktiv ist.
@@ -9,6 +9,7 @@ GH (2022-02-) / CDB (2022--)
   * Das CSS für den Titel der Optionsgruppen so geändert dass der Text einen eigenen Hintergrund hat, was Lesbarkeit und Aussehen verbessert. Die Titel sehen jetzt so aus wie Karteireiter.
 * Sonstiges:
   * Code: Optimierungen (Validierungs-Kritik).
+  * Changelog: Da bei Google Translator die Unterstützung für `.txt` Dateien entfernt wurde, werde ich kein separates englisches Changelog mehr führen da mir der Aufwand zu hoch ist. Stattdessen wird das Changelog direkt per Google Translator verlinkt.
 
 #### 2.1.1 Release
 GH (2021-10-25) / CDB (2022-01-16)
