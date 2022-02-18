@@ -1,6 +1,8 @@
-#### Builds 2.1.1-p1
+#### Builds 2.1.2
 
-* B90: (CDB Validation Release 1)
+* B91: (CDB Validation Release 1)
+  * Beim Upload in die CDB wurde die Version 2.1.1-p1 wegen "instabiler" Versionsnummer abgelehnt und musste auf 2.1.2 geändert werden.
+* B90:
   * Github: Release Changelogs geändert.
 * B89:
   * Code: Validierungs-Kritik berücksichtigt.
