@@ -1,5 +1,5 @@
 #### 2.1.2 Release
-GH (2022-02-18) / CDB (ausstehend)
+GH (2022-02-18) / CDB (2022-04-05)
 
 * Fix:
   * Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. Davon betroffen waren im ACP die Einstellungen "Zeige die Zeit von Benutzern:", "Zeige die Zeit von Bots:" und "Zeige die Benutzer-IP:". (Meldung von: Kirk, warmweer [Validierung])
