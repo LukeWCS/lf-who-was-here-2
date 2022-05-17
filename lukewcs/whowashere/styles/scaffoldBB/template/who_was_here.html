@@ -1,0 +1,32 @@
+<section class="stat-block whowashere-list">
+	<h3 class="border-bottom text-uppercase fs-5 fw-bold">{{ lang('LFWWH_TITLE') }}</h3>
+	<p>
+		{% if lfwwh_pos_hint %}
+			<span class="lfwwh_debug">{{ lang('LFWWH_TEMPLATE_POS') ~ lang('COLON') ~ ' ' ~ lfwwh_pos_hint }}</span><br />
+		{% endif %}
+		{% if LFWWH_TOTAL %}
+			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br />
+			{% if LFWWH_RECORD %}
+				{{ LFWWH_RECORD }}<br />
+			{% endif %}
+			{{ LFWWH_USERS ? '<br />' }}
+		{% endif %}
+		{% if LFWWH_USERS %}
+			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_info_button('users', LFWWH_USERS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_USERS }}<br />
+		{% endif %}
+		{% if LFWWH_BOTS %}
+			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_info_button('bots', LFWWH_BOTS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_BOTS }}<br />
+		{% endif %}
+	</p>
+</section>
+
+{% macro lfwwh_info_button(buttontype, infotype) %}
+	{% if infotype == 2 %}
+		{% set icon = 'info-circle' %}
+	{% else %}
+		{% set icon = 'clock-o' %}
+	{% endif %}
+	{% spaceless %}
+		<span class="lfwwh_button_{{ buttontype }}  fa icon fa-{{ icon }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide('{{ buttontype }}')"></span>
+	{% endspaceless %}
+{% endmacro %}
