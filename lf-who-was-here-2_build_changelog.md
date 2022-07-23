@@ -1,5 +1,8 @@
 ### Builds 2.1.3
 
+#### b94
+* Vergessen `ext.php` anzupassen.
+
 #### b93 (CDB Validation Release 1)
 * Release
 
