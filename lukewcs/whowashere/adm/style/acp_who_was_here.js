@@ -9,9 +9,9 @@
 *
 */
 
-'use strict';
-
 lfwwhACP.setState = function () {
+	'use strict';
+
 	const enabledOpacity = "1.0";
 	const disabledOpacity = "0.35";
 
@@ -76,6 +76,8 @@ lfwwhACP.setState = function () {
 };
 
 lfwwhACP.setDefaults = function () {
+	'use strict';
+
 	$('#lfwwh_admin_mode_no'				).prop('checked'	, true);
 	$('#lfwwh_use_permissions_no'			).prop('checked'	, true);
 	$('#lfwwh_perm_for_guests_stats'		).prop('selected'	, true);
@@ -108,12 +110,16 @@ lfwwhACP.setDefaults = function () {
 };
 
 lfwwhACP.confirmRecordReset = function () {
+	'use strict';
+
 	if (!confirm(lfwwhACP.lang.MsgConfirmRecordReset))	{
 		$('#lfwwh_record_reset_no').prop('checked', true);
 	}
 };
 
 lfwwhACP.customFormReset = function () {
+	'use strict';
+
 	$('#lfwwh_form').trigger("reset");
 	lfwwhACP.setState();
 };

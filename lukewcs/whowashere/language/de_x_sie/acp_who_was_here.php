@@ -41,12 +41,12 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, [
 	// language pack author
 	'LFWWH_LANG_DESC'					=> 'Deutsch (Sie)',
-	'LFWWH_LANG_EXT_VER' 				=> '2.1.2',
+	'LFWWH_LANG_EXT_VER' 				=> '2.1.3',
 	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
 
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Wer war da?',
-	'LFWWH_CONFIG_DESC' 				=> 'Hier können die Einstellungen für die Erweiterung „%1$s“ (v%2$s) geändert werden.',
+	'LFWWH_CONFIG_DESC' 				=> 'Hier können Sie die Einstellungen für die Erweiterung <strong>%s</strong> ändern.',
 
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Berechtigungen',
@@ -143,8 +143,11 @@ $lang = array_merge($lang, [
 	'LFWWH_RECORD_RESET_EXP'			=> 'Setzt Zeit und Zähler für den Besucherrekord zurück.',
 	'LFWWH_RECORD_RESET_TIME_HINT'		=> '(Zurückgesetzt am: %s)',
 
+	// buttons
+	'LFWWH_BUTTON_SAVE_PAGE'			=> 'Seite speichern',
+
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.',
-	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Hinweis: Das Sprachpaket dieser Erweiterung ist nicht mehr aktuell.',
+	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Hinweis: Das Sprachpaket der Erweiterung <strong>%1$s</strong> ist nicht mehr aktuell. (vorhanden: %2$s / benötigt: %3$s)',
 ]);

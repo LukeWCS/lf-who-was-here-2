@@ -41,12 +41,12 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, [
 	// language pack author
 	'LFWWH_LANG_DESC'					=> 'English',
-	'LFWWH_LANG_EXT_VER' 				=> '2.1.2',
+	'LFWWH_LANG_EXT_VER' 				=> '2.1.3',
 	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
 
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here?',
-	'LFWWH_CONFIG_DESC' 				=> 'The settings for the extension “%1$s” (v%2$s) can be changed here.',
+	'LFWWH_CONFIG_DESC' 				=> 'Here you can change the settings for the <strong>%s</strong> extension.',
 
 	// config section 1
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
@@ -143,8 +143,11 @@ $lang = array_merge($lang, [
 	'LFWWH_RECORD_RESET_EXP'			=> 'Resets time and counter for the visitor record.',
 	'LFWWH_RECORD_RESET_TIME_HINT'		=> '(Reset on: %s)',
 
+	// buttons
+	'LFWWH_BUTTON_SAVE_PAGE'			=> 'Save page',
+
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.',
-	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Note: The language pack for this extension is no longer up-to-date.',
+	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Note: The language pack for the extension <strong>%1$s</strong> is no longer up-to-date. (installed: %2$s / needed: %3$s)',
 ]);

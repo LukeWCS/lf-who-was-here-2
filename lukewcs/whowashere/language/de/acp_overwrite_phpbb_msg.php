@@ -23,8 +23,8 @@ if (empty($lang) || !is_array($lang))
 	$lang = [];
 }
 
-$t1 = isset($lang['USER_DELETED']) ? $lang['USER_DELETED'] . '<br /><br />' : '';
-$t2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br /><br />' : '';
+$t1 = isset($lang['USER_DELETED']) ? $lang['USER_DELETED'] . '<br><br>' : '';
+$t2 = isset($lang['USER_DELETE_SUCCESS']) ? $lang['USER_DELETE_SUCCESS'] . '<br><br>' : '';
 
 // DEVELOPERS PLEASE NOTE
 //

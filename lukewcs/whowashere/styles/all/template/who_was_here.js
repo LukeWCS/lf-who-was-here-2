@@ -9,14 +9,14 @@
 *
 */
 
-'use strict';
-
 var lfwwhIndex = {
 	isShowInfo: {
 		'users' : false,
 		'bots' : false
 	},
 	ShowHide: function (buttontype) {
+		'use strict';
+
 		lfwwhIndex.isShowInfo[buttontype] = !lfwwhIndex.isShowInfo[buttontype];
 		$('.lfwwh_info_' + buttontype.slice(0, 1)).css('display', (lfwwhIndex.isShowInfo[buttontype] ? '' : 'none'));
 		$('.lfwwh_button_' + buttontype).css('opacity', (lfwwhIndex.isShowInfo[buttontype] ? '1.0' : '0.5'));

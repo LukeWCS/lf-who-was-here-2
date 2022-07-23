@@ -1,4 +1,18 @@
-#### 2.1.2 Release
+### 2.1.3
+GH (2022-07-23) / CDB (2022--)
+
+* PHP Maximalversion von 8.0 auf 8.1 geändert.
+* ACP Template:
+  * Der Button zum speichern der Seite ist nicht mehr mit "Absenden" beschriftet, sondern mit "Seite speichern" um deutlich zu machen, dass alle Speichern-Buttons immer die ganze Seite speichern.
+  * Kleinere Änderungen.
+* XHTML Syntax aus allen Dateien entfernt die HTML enthalten oder generieren.
+* Die aktualisierten Funktionen des Sprachpaket-Infosystems von Extension Manager Plus übernommen.
+* Code Optimierungen.
+* Sprachdateien.
+  * Neue Sprachvariable für die Button-Beschriftung.
+  * Kleinere Änderungen
+
+### 2.1.2
 GH (2022-02-18) / CDB (2022-04-05)
 
 * Fix:
@@ -11,7 +25,7 @@ GH (2022-02-18) / CDB (2022-04-05)
   * Code: Optimierungen (Validierungs-Kritik).
   * Changelog: Da bei Google Translator die Unterstützung für `.txt` Dateien entfernt wurde, werde ich kein separates englisches Changelog mehr führen da mir der Aufwand zu hoch ist. Stattdessen wird das Changelog direkt per Google Translator verlinkt.
 
-#### 2.1.1 Release
+### 2.1.1
 GH (2021-10-25) / CDB (2022-01-16)
 
 Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich bedanke mich ebenfalls bei kasimi für Infos und Empfehlungen.
@@ -47,7 +61,7 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich
   * Code: Die bisherige Überprüfung ob das Portal im Kontext aktiv ist wurde entfernt. Diese Überprüfung wird jetzt direkt durch das B3P-WWH-Module durchgeführt und steuert dann per Event das Verhalten von LFWWH.
   * Code: Optimierungen.
 
-#### 2.1.0 Release
+### 2.1.0
 GH (2021-08-18) / CDB (2021-09-12)
 
 * Die Voraussetzungen haben sich geändert:
@@ -79,14 +93,14 @@ GH (2021-08-18) / CDB (2021-09-12)
 * Sonstiges:
   * Javascript weitestgehend auf jQuery umgestellt.
 
-#### 2.0.0 Release
+### 2.0.0
 GH (2020-03-29) / CDB (2020-07-06)
 
 * Durch eine kleine Änderung ist der Code jetzt auch kompatibel zu PHP 5.3 - 5.5: Potenz-Operator `**` durch `pow()` ersetzt.
 * Template-Änderungen: Nein
 * Sprachdatei-Änderungen: Nein
 
-#### 2.0.0 RC 2
+### 2.0.0 RC 2
 (2019-12-24)
 
 * Die Twig Variable `lfwwh_pos_exp` in `lfwwh_debug_msg` umbenannt, da zukünftig noch andere Debug-Informationen denkbar sind.
@@ -101,7 +115,7 @@ Fehlerkorrekturen:
 * Fix: Bei manchen Styles konnte es vorkommen, dass das Info-Symbol (Awesome-Font) nicht wie beabsichtigt die Textfarbe bekam, sondern eine Farbe die über die CSS-Klasse `.icon` definiert wurde. Je nach Farbwahl war dann das Icon praktisch nicht mehr vom Hintergrund zu unterscheiden.
   * CSS geändert.
 
-#### 2.0.0 RC 1
+### 2.0.0 RC 1
 (2019-12-14)
 
 * Name von "LF who was here (2.x)" auf "LF who was here 2" geändert und Autoreninfo in allen Dateien angepasst.
@@ -117,7 +131,7 @@ Fehlerkorrekturen:
 * Template-Änderungen: Ja
 * Sprachdatei-Änderungen: Ja
 
-#### 2.0.0 Beta 3
+### 2.0.0 Beta 3
 (2019-06-02)
 
 * Die Methode mit der zusätzlicher Text in die Bestätigungsmeldung beim Löschen von Benutzerkonten eingefügt wurde, musste geändert werden, da diese ab phpBB 3.2 problematisch ist. Stattdessen wird jetzt eine spezielle Sprachdatei geladen, mit der die jeweils benötigten offiziellen Sprach-Variablen für die Dauer des Vorgangs geändert (erweitert) werden.
@@ -141,7 +155,7 @@ Fehlerkorrekturen:
   * Bei der Zeitumstellung von Sommerzeit auf Normalzeit hätte es durch Fehler 2 auch dann eine falsche Umschaltung gegeben, wenn beide Zeitzonen (PHP und phpBB) identisch wären. Dieser Fehler hätte also alle Boards betroffen, bei denen es Sommerzeit (DST) gibt. Am 2019-10-27 um 23:00:01 Uhr wäre dann eine Bereinigung mit falschem Zeitstempel (23:00:00 Uhr) ausgeführt worden. Am 2019-10-28 um 00:00:00 Uhr hätte dann eine weitere Bereinigung stattgefunden, die auch korrekt ausgeführt worden wäre.
 * Fix: Bei der Einstellung "Anzeige der Besucher von ..." -> "Heute" wurden aufgrund eines Fehlers in der MySQL-Abfrage Besucher des aktuellen Tages mit der exakten Uhrzeit 00:00:00 noch dem Vortag zugeordnet und somit fälschlicherweise bei der Tages-Umschaltung gelöscht.
 
-#### 2.0.0 Beta 2
+### 2.0.0 Beta 2
 (2019-04-28)
 
 * Bei der Anzeige der Zeit von Benutzern und Bots können jetzt die Inhalte der Sprach-Variablen `LFWWH_LAST1` und `LFWWH_LAST2` dynamisch über die Platzhalter `$1` und `$2` direkt im Zeitformat eingefügt werden. Das hat neben erhöhter Flexibilität auch den Vorteil, das die Einstellung für die Anzeige von "zuletzt um" regulär in der Konfiguration gespeichert wird und nicht mehr über die Sprachdatei durch setzen/löschen der Variable gesteuert werden muss.
@@ -173,7 +187,7 @@ Fehlerkorrekturen:
 * Template-Änderungen: Nein
 * Sprachdatei-Änderungen: Ja
 
-#### 2.0.0 Beta 1
+### 2.0.0 Beta 1
 (2019-04-14)
 
 * Kompletter Umbau auf eine eigenständige Erweiterung mit eigenen Strukturen. Dadurch baut der Fork nicht länger auf "bb3mobi\washere" auf. Das betrifft die folgenden Bereiche:
@@ -244,7 +258,7 @@ Fehlerkorrekturen:
 * Fix: Wenn bei der Einstellungskombination "Zeige Bots:" -> "Mit den Benutzern" und "Zeige die Zeit von Bots:" -> "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
 * Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von: Kirk)
 
-### Changelog 1.5.1
+### 1.5.1
 (2019-03-03)
 
 * Template-Änderungen: Nein
@@ -253,7 +267,7 @@ Fehlerkorrekturen:
 
 * Fix: Bei der Erstinstallation von LF-WWH kann die Migration beim Update-Schritt 1.4.0 fehlschlagen, wenn vom Admin eine der sechs Standard Benutzer-Rollen gelöscht wurde. Eine entsprechende Meldung wäre in diesem Fall z.B. "Die Berechtigungs-Rolle „ROLE_USER_NOAVATAR“ existiert unerwarteterweise nicht.". Dementsprechend wird jetzt in der Migration von 1.4.0 bei jeder Benutzer-Rolle geprüft, ob sie vorhanden ist. Wenn eine Rolle fehlt, wird sie korrekt übersprungen. Realisiert mit der Funktion `role_exists()` von combuster. (Meldung von: Dr.Death)
 
-### Changelog 1.5.0
+### 1.5.0
 (2019-03-02)
 
 **Hinweis: Wer "B3P Who was here Modul" (von Kirk) und/oder "Brücke zwischen Wwh Ext und Statblock EXT" (von chris1278) im Einsatz hat, der sollte mit dem Update von LF-WWH warten, bis die Autoren ihre jeweiligen Erweiterungen ebenfalls aktualisiert haben, da deren alten Versionen inkompatibel mit dieser Version von LF-WWH sind.**
@@ -295,7 +309,7 @@ Fehlerkorrekturen:
 * Template-Änderungen: Ja 
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
 
-### Changelog 1.4.2
+### 1.4.2
 (2019-02-08)
 
 * Korrekturen und kleinere Änderungen in den Sprachdateien des ACP Moduls vorgenommen.
@@ -308,7 +322,7 @@ Fehlerkorrekturen:
 
 * Fix: Bei einer bestimmten (theoretischen) Kombination der Einstellungen von phpBB und LF-WWH konnte das Intervall der Aktualisierung mit 0 Minuten definiert werden, wodurch effektiv der Cache umgangen wurde. Das wird jetzt abgefangen und auf ein Minimum von 1 Minute korrigiert.
 
-### Changelog 1.4.1
+### 1.4.1
 (2018-11-22)
 
 * Da bei WWH die Zeitangaben ohnehin in der Vergangenheit liegen, ist der Text "zuletzt:" überflüssig. Dieser repetitive Text bläht vor allem in grösseren Foren die Benutzerliste unnötig auf, sofern die Zeiten angezeigt werden. Darum die Handhabung der Sprach-Variable so geändert, das diese auch komplett leer sein kann.
@@ -320,7 +334,7 @@ Fehlerkorrekturen:
 
 * Fix: Wenn bei aktivierter Einstellung "Bei überfahren" aktuell kein Benutzer oder Bot als Besucher in der WWH Tabelle registriert war und demnach in der Benutzerliste "0 Mitglieder" stand, dann wurde trotzdem die Schaltfläche zur Anzeige der Zeiten erzeugt. Nicht direkt ein Fehler, aber unschön.
 
-### Changelog 1.4.0
+### 1.4.0
 (2018-10-20)
 
 * Bei der Einstellung "Zeige die Zeit von ..." -> "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeitsymbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet-PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouseover" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
@@ -367,7 +381,7 @@ Fehlerkorrekturen:
 
 * Fix: Bei der Deinstallation von NV-WWH (und somit auch bei LF-WWH) wurde `wwh_last_clean` bislang nicht aus der Datenbank entfernt, da diese Variable in den Migrationsdateien von NV-WWH nicht berücksichtigt war.
 
-### Changelog 1.3.3
+### 1.3.3
 (2018-10-06)
 
 * Im ACP Modul können Optionsfelder (Ja/Nein) jetzt auch über ihre Bezeichnungen angeklickt werden, wie dies allgemein üblich ist.
@@ -395,7 +409,7 @@ Fehlerkorrekturen:
 * Das ACP Modul nach Prüfung durch den W3C Validator überarbeitet.
 * Template-Änderungen: Nein
 
-### Changelog 1.3.2
+### 1.3.2
 (2018-09-23)
 
 * Die neue Funktion von 1.3.0 mit der die Anzeige der Benutzerliste für Gäste unterdrückt werden kann, wurde so erweitert, das die WWH Anzeige auch komplett ausgeschaltet werden kann. Gäste bekommen also nichts mehr von WWH zu sehen.
@@ -416,7 +430,7 @@ Fehlerkorrekturen:
 * Ab dieser Version ist die Versionsprüfung im ACP eingerichtet. Alle Zugriffe finden diesbezüglich auf GitHub und über HTTPS statt.
 * Template-Änderungen: Ja
 
-### Changelog 1.3.1
+### 1.3.1
 (2018-09-18)
 
 * Ausser Englisch und Deutsch alle anderen Sprachpakete entfernt, da diese im Vergleich zum englischen Sprachpaket teils gravierende Unterschiede bei den Variablen-Namen, bei der Anzahl der Variablen und der Dateistruktur selbst aufweisen. Das deutet auf mehrere unterschiedliche Versionsstände hin.
@@ -429,7 +443,7 @@ Fehlerkorrekturen:
   * Ebenso in den Sprachdateien.
 * Template-Änderungen: Nein
 
-### Changelog 1.3.0
+### 1.3.0
 (2018-09-16)
 
 * 2 neue Sprach-Variablen für "Benutzer" und "Bots" hinzugefügt und im Core entsprechend referenziert, damit diese unabhängig von den Sprachpaketen des Forums angepasst werden können. Das war insofern notwendig, da WWH 1.2.2 "Benutzer" statt "Mitglieder" angezeigt hat und dies in den Sprachdateien von WWH nicht geändert werden konnte.
