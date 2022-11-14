@@ -1,8 +1,22 @@
+### Builds 2.1.4
+
+#### b95
+* Fix: Folgende Optionen wurden im ACP-Modul bei der Funktion "Einstellungen zurücksetzen" seit 2.1.1 nicht mehr berücksichtigt:
+  * Zeige die Bot-Namen nur bei administrativen Rechten
+  * Zeige alle Template-Positionen gleichzeitig
+* ACP-Template:
+  * Alle Ja/Nein Schalter werden jetzt per Twig Makro eingebunden.
+  * Alle `onchange` und `onlick` Attribute im HTML entfernt. Diese Events werden jetzt direkt per jQuery registriert.
+  * Viele Elemente werden jetzt in jQuery über das `name` Attribut angesprochen, anstatt über das `id` Attribut. Dadurch konnten im HTML viele IDs entfernt werden, insgesamt 78.  Methode von EMP übernommen.
+  * Javscript an die oben genannten Änderungen angepasst.
+  * Für FA-Icons das Twig Makro von EMP übernommen.
+* Frontend-Template: 
+  * Für FA-Icons das Twig Makro von EMP übernommen.
+
 ### Builds 2.1.3
 
 #### b94
 * Vergessen `ext.php` anzupassen.
-
 #### b93 (CDB Validation Release 1)
 * Release
 

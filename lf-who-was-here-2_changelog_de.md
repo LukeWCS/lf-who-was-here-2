@@ -1,5 +1,5 @@
 ### 2.1.3
-GH (2022-07-23) / CDB (2022--)
+GH (2022-07-23) / CDB (2022-10-17)
 
 * PHP Maximalversion von 8.0 auf 8.1 geändert.
 * ACP Template:

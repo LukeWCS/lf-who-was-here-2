@@ -18,6 +18,7 @@ class ext extends \phpbb\extension\base
 	{
 		$valid_phpbb = phpbb_version_compare(PHPBB_VERSION, '3.2.10', '>=') && phpbb_version_compare(PHPBB_VERSION, '3.4.0', '<');
 		$valid_php = phpbb_version_compare(PHP_VERSION, '7.0.0', '>=') && phpbb_version_compare(PHP_VERSION, '8.2.0', '<');
+
 		return $valid_phpbb && $valid_php;
 	}
 }

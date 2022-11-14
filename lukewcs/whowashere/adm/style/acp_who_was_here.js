@@ -9,111 +9,155 @@
 *
 */
 
+lfwwhACP.constants = Object.freeze({
+	PermNothing		: 0,
+	PermStats		: 1,
+	PermUsers		: 2,
+	PermStatsUsers	: 3,
+
+	BotsDisabled	: 0,
+	BotsWithUsers	: 1,
+	BotsOwnLine		: 2,
+
+	DispDisabled	: 0,
+	DispBehindName	: 1,
+	DispAsTooltip	: 2,
+
+	TimeModePeriod	: 0,
+	TimeModeToday	: 1,
+
+	SortByNameAZ	: 0,
+	SortByNameZA	: 1,
+	SortByVisitAsc	: 2,
+	SortByVisitDesc	: 3,
+	SortByIdAsc		: 4,
+	SortByIdDesc	: 5,
+
+	PosTop			: 0,
+	PosBottom		: 1,
+	PosBeforeBDays	: 2,
+
+	OpacityEnabled	: '1.0',
+	OpacityDisabled	: '0.35',
+});
+
 lfwwhACP.setState = function () {
 	'use strict';
 
-	const enabledOpacity = "1.0";
-	const disabledOpacity = "0.35";
+	var c = lfwwhACP.constants;
 
+	// LFWWH_SECTION_PERMISSIONS
 	$('#lfwwh_opt_use_permissions').css('opacity', (
-			$('#lfwwh_admin_mode_no').prop('checked')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_admin_mode"]').prop('checked') == false
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_perm_for_guests').css('opacity', (
-			$('#lfwwh_admin_mode_no').prop('checked')
-			&& $('#lfwwh_use_permissions_no').prop('checked')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_admin_mode"]').prop('checked') == false
+			&& $('input[name="lfwwh_use_permissions"]').prop('checked') == false
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_perm_for_bots').css('opacity', (
-			$('#lfwwh_admin_mode_no').prop('checked')
-			&& $('#lfwwh_use_permissions_no').prop('checked')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_admin_mode"]').prop('checked') == false
+			&& $('input[name="lfwwh_use_permissions"]').prop('checked') == false
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_perm_bots_only_admin').css('opacity', (
-			$('#lfwwh_admin_mode_no').prop('checked')
-			&& !$('#lfwwh_disp_bots_disabled').prop('selected')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_admin_mode"]').prop('checked') == false
+			&& $('select[name="lfwwh_disp_bots"]').val() != c.BotsDisabled
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
+	// LFWWH_SECTION_DISP_1
 	$('#lfwwh_opt_disp_time_bots').css('opacity', (
-			!$('#lfwwh_disp_bots_disabled').prop('selected')
-		) ? enabledOpacity : disabledOpacity
+			$('select[name="lfwwh_disp_bots"]').val() != c.BotsDisabled
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_disp_time_format').css('opacity', (
 			(
-				!$('#lfwwh_disp_bots_disabled').prop('selected')
-				&& !$('#lfwwh_disp_time_bots_disabled').prop('selected')
+				$('select[name="lfwwh_disp_bots"]').val() != c.BotsDisabled
+				&& $('select[name="lfwwh_disp_time_bots"]').val() != c.DispDisabled
 			)
-			|| !$('#lfwwh_disp_time_users_disabled').prop('selected')
-		) ? enabledOpacity : disabledOpacity
+			|| $('select[name="lfwwh_disp_time_users"]').val() != c.DispDisabled
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
+	// LFWWH_SECTION_DISP_2
 	$('#lfwwh_opt_period_of_time').css('opacity', (
-			$('#lfwwh_time_mode_period').prop('selected')
-		) ? enabledOpacity : disabledOpacity
+			$('select[name="lfwwh_time_mode"]').val() == c.TimeModePeriod
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_record_time_format').css('opacity', (
-			$('#lfwwh_record_yes').prop('checked')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_record"]').prop('checked') == true
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_template_pos').css('opacity', (
-			$('#lfwwh_template_pos_all_no').prop('checked')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_template_pos_all"]').prop('checked') == false
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
+	// LFWWH_SECTION_OTHERS
 	$('#lfwwh_opt_create_hidden_info').css('opacity', (
-			$('#lfwwh_disp_time_users_as_tooltip').prop('selected')
-			|| $('#lfwwh_disp_time_bots_as_tooltip').prop('selected')
-			|| $('#lfwwh_disp_ip_as_tooltip').prop('selected')
-		) ? enabledOpacity : disabledOpacity
+			$('select[name="lfwwh_disp_time_users"]').val() == c.DispAsTooltip
+			|| $('select[name="lfwwh_disp_time_bots"]').val() == c.DispAsTooltip
+			|| $('select[name="lfwwh_disp_ip"]').val() == c.DispAsTooltip
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
+	// LFWWH_SECTION_LOAD_SETTINGS
 	$('#lfwwh_opt_use_online_time').css('opacity', (
-			$('#lfwwh_use_cache_yes').prop('checked')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_use_cache"]').prop('checked') == true
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_cache_time').css('opacity', (
-			$('#lfwwh_use_cache_yes').prop('checked')
-			&& $('#lfwwh_use_online_time_no').prop('checked')
-		) ? enabledOpacity : disabledOpacity
+			$('input[name="lfwwh_use_cache"]').prop('checked') == true
+			&& $('input[name="lfwwh_use_online_time"]').prop('checked') == false
+		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 };
 
 lfwwhACP.setDefaults = function () {
 	'use strict';
 
-	$('#lfwwh_admin_mode_no'				).prop('checked'	, true);
-	$('#lfwwh_use_permissions_no'			).prop('checked'	, true);
-	$('#lfwwh_perm_for_guests_stats'		).prop('selected'	, true);
-	$('#lfwwh_perm_for_bots_nothing'		).prop('selected'	, true);
-	$('#lfwwh_disp_reg_users_yes'			).prop('checked'	, true);
-	$('#lfwwh_disp_hidden_yes'				).prop('checked'	, true);
-	$('#lfwwh_disp_bots_with_users'			).prop('selected'	, true);
-	$('#lfwwh_disp_bots_only_admin_no'		).prop('checked'	, true);
-	$('#lfwwh_disp_guests_yes'				).prop('checked'	, true);
-	$('#lfwwh_disp_time_users_behind_name'	).prop('selected'	, true);
-	$('#lfwwh_disp_time_bots_behind_name'	).prop('selected'	, true);
-	$('#lfwwh_disp_time_format'				).prop('value'		, '$1 G:i');
-	$('#lfwwh_disp_ip_behind_name'			).prop('selected'	, true);
-	$('#lfwwh_time_mode_today'				).prop('selected'	, true);
-	$('#lfwwh_period_of_time_h'				).prop('value'		, 24);
-	$('#lfwwh_period_of_time_m'				).prop('value'		, 0);
-	$('#lfwwh_period_of_time_s'				).prop('value'		, 0);
-	$('#lfwwh_sort_by_visit_desc'			).prop('selected'	, true);
-	$('#lfwwh_record_yes'					).prop('checked'	, true);
-	$('#lfwwh_record_time_format'			).prop('value'		, 'D j. M Y');
-	$('#lfwwh_template_pos_top'				).prop('selected'	, true);
-	$('#lfwwh_api_mode_no'					).prop('checked'	, true);
-	$('#lfwwh_clear_up_yes'					).prop('checked'	, true);
-	$('#lfwwh_disp_template_pos_all_no'		).prop('checked'	, true);
-	$('#lfwwh_create_hidden_info_yes'		).prop('checked'	, true);
-	$('#lfwwh_use_cache_yes'				).prop('checked'	, true);
-	$('#lfwwh_use_online_time_yes'			).prop('checked'	, true);
-	$('#lfwwh_cache_time'					).prop('value'		, lfwwhACP.tpl.CacheTimeMax);
+	var c = lfwwhACP.constants;
+
+	// LFWWH_SECTION_PERMISSIONS
+	$('input[name="lfwwh_admin_mode"][value="0"]'			).prop('checked'	, true);
+	$('input[name="lfwwh_use_permissions"][value="0"]'		).prop('checked'	, true);
+	$('select[name="lfwwh_perm_for_guests"]'				).prop('value'		, c.PermStats);
+	$('select[name="lfwwh_perm_for_bots"]'					).prop('value'		, c.PermNothing);
+	$('input[name="lfwwh_perm_bots_only_admin"][value="0"]'	).prop('checked'	, true);
+	// LFWWH_SECTION_DISP_1
+	$('input[name="lfwwh_disp_reg_users"][value="1"]'		).prop('checked'	, true);
+	$('input[name="lfwwh_disp_hidden"][value="1"]'			).prop('checked'	, true);
+	$('select[name="lfwwh_disp_bots"]'						).prop('value'		, c.BotsWithUsers);
+	$('input[name="lfwwh_disp_guests"][value="1"]'			).prop('checked'	, true);
+	$('select[name="lfwwh_disp_time_users"]'				).prop('value'		, c.DispBehindName);
+	$('select[name="lfwwh_disp_time_bots"]'					).prop('value'		, c.DispBehindName);
+	$('input[name="lfwwh_disp_time_format"]'				).prop('value'		, '$1 G:i');
+	$('select[name="lfwwh_disp_ip"]'						).prop('value'		, c.DispBehindName);
+	// LFWWH_SECTION_DISP_2
+	$('select[name="lfwwh_time_mode"]'						).prop('value'		, c.TimeModeToday);
+	$('input[name="lfwwh_period_of_time_h"]'				).prop('value'		, 24);
+	$('input[name="lfwwh_period_of_time_m"]'				).prop('value'		, 0);
+	$('input[name="lfwwh_period_of_time_s"]'				).prop('value'		, 0);
+	$('select[name="lfwwh_sort_by"]'						).prop('value'		, c.SortByVisitDesc);
+	$('input[name="lfwwh_record"][value="1"]'				).prop('checked'	, true);
+	$('input[name="lfwwh_record_time_format"]'				).prop('value'		, 'D j. M Y');
+	$('select[name="lfwwh_template_pos"]'					).prop('value'		, c.PosTop);
+	// LFWWH_SECTION_OTHERS
+	$('input[name="lfwwh_api_mode"][value="0"]'				).prop('checked'	, true);
+	$('input[name="lfwwh_clear_up"][value="1"]'				).prop('checked'	, true);
+	$('input[name="lfwwh_template_pos_all"][value="0"]'		).prop('checked'	, true);
+	$('input[name="lfwwh_create_hidden_info"][value="1"]'	).prop('checked'	, true);
+	// LFWWH_SECTION_LOAD_SETTINGS
+	$('input[name="lfwwh_use_cache"][value="1"]'			).prop('checked'	, true);
+	$('input[name="lfwwh_use_online_time"][value="1"]'		).prop('checked'	, true);
+	$('input[name="lfwwh_cache_time"]'						).prop('value'		, lfwwhACP.tpl.CacheTimeMax);
+
 	lfwwhACP.setState();
 };
 
 lfwwhACP.confirmRecordReset = function () {
 	'use strict';
 
-	if (!confirm(lfwwhACP.lang.MsgConfirmRecordReset))	{
-		$('#lfwwh_record_reset_no').prop('checked', true);
+	if ($('input[name="lfwwh_record_reset"]').prop('checked') && !confirm(lfwwhACP.lang.MsgConfirmRecordReset))	{
+		$('input[name="lfwwh_record_reset"][value="0"]').prop('checked', true);
 	}
 };
 
@@ -121,7 +165,28 @@ lfwwhACP.customFormReset = function () {
 	'use strict';
 
 	$('#lfwwh_form').trigger("reset");
+
 	lfwwhACP.setState();
 };
 
-$(window).ready(lfwwhACP.setState);
+$(window).ready(function() {
+	'use strict';
+
+	lfwwhACP.setState();
+
+	$('input[name="lfwwh_admin_mode"]'			).on('change', lfwwhACP.setState);
+	$('input[name="lfwwh_use_permissions"]'		).on('change', lfwwhACP.setState);
+	$('select[name="lfwwh_disp_bots"]'			).on('change', lfwwhACP.setState);
+	$('select[name="lfwwh_disp_time_users"]'	).on('change', lfwwhACP.setState);
+	$('select[name="lfwwh_disp_time_bots"]'		).on('change', lfwwhACP.setState);
+	$('select[name="lfwwh_disp_ip"]'			).on('change', lfwwhACP.setState);
+	$('select[name="lfwwh_time_mode"]'			).on('change', lfwwhACP.setState);
+	$('input[name="lfwwh_record"]'				).on('change', lfwwhACP.setState);
+	$('input[name="lfwwh_template_pos_all"]'	).on('change', lfwwhACP.setState);
+	$('input[name="lfwwh_use_cache"]'			).on('change', lfwwhACP.setState);
+	$('input[name="lfwwh_use_online_time"]'		).on('change', lfwwhACP.setState);
+
+	$('input[name="form_reset"]'				).on('click', lfwwhACP.customFormReset);
+	$('input[name="lfwwh_defaults"]'			).on('click', lfwwhACP.setDefaults);
+	$('input[name="lfwwh_record_reset"]'		).on('change', lfwwhACP.confirmRecordReset);
+});
