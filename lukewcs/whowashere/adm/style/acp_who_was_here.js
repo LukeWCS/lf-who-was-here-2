@@ -63,25 +63,25 @@ lfwwhACP.setState = function () {
 	);
 	$('#lfwwh_opt_perm_bots_only_admin').css('opacity', (
 			$('input[name="lfwwh_admin_mode"]').prop('checked') == false
-			&& $('select[name="lfwwh_disp_bots"]').val() != c.BotsDisabled
+			&& $('select[name="lfwwh_disp_bots"]').prop('value') != c.BotsDisabled
 		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	// LFWWH_SECTION_DISP_1
 	$('#lfwwh_opt_disp_time_bots').css('opacity', (
-			$('select[name="lfwwh_disp_bots"]').val() != c.BotsDisabled
+			$('select[name="lfwwh_disp_bots"]').prop('value') != c.BotsDisabled
 		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_disp_time_format').css('opacity', (
 			(
-				$('select[name="lfwwh_disp_bots"]').val() != c.BotsDisabled
-				&& $('select[name="lfwwh_disp_time_bots"]').val() != c.DispDisabled
+				$('select[name="lfwwh_disp_bots"]').prop('value') != c.BotsDisabled
+				&& $('select[name="lfwwh_disp_time_bots"]').prop('value') != c.DispDisabled
 			)
-			|| $('select[name="lfwwh_disp_time_users"]').val() != c.DispDisabled
+			|| $('select[name="lfwwh_disp_time_users"]').prop('value') != c.DispDisabled
 		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	// LFWWH_SECTION_DISP_2
 	$('#lfwwh_opt_period_of_time').css('opacity', (
-			$('select[name="lfwwh_time_mode"]').val() == c.TimeModePeriod
+			$('select[name="lfwwh_time_mode"]').prop('value') == c.TimeModePeriod
 		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	$('#lfwwh_opt_record_time_format').css('opacity', (
@@ -94,9 +94,9 @@ lfwwhACP.setState = function () {
 	);
 	// LFWWH_SECTION_OTHERS
 	$('#lfwwh_opt_create_hidden_info').css('opacity', (
-			$('select[name="lfwwh_disp_time_users"]').val() == c.DispAsTooltip
-			|| $('select[name="lfwwh_disp_time_bots"]').val() == c.DispAsTooltip
-			|| $('select[name="lfwwh_disp_ip"]').val() == c.DispAsTooltip
+			$('select[name="lfwwh_disp_time_users"]').prop('value') == c.DispAsTooltip
+			|| $('select[name="lfwwh_disp_time_bots"]').prop('value') == c.DispAsTooltip
+			|| $('select[name="lfwwh_disp_ip"]').prop('value') == c.DispAsTooltip
 		) ? c.OpacityEnabled : c.OpacityDisabled
 	);
 	// LFWWH_SECTION_LOAD_SETTINGS
@@ -117,16 +117,16 @@ lfwwhACP.setDefaults = function () {
 	var c = lfwwhACP.constants;
 
 	// LFWWH_SECTION_PERMISSIONS
-	$('input[name="lfwwh_admin_mode"][value="0"]'			).prop('checked'	, true);
-	$('input[name="lfwwh_use_permissions"][value="0"]'		).prop('checked'	, true);
+	$('input[name="lfwwh_admin_mode"]'						).prop('checked'	, false);
+	$('input[name="lfwwh_use_permissions"]'					).prop('checked'	, false);
 	$('select[name="lfwwh_perm_for_guests"]'				).prop('value'		, c.PermStats);
 	$('select[name="lfwwh_perm_for_bots"]'					).prop('value'		, c.PermNothing);
-	$('input[name="lfwwh_perm_bots_only_admin"][value="0"]'	).prop('checked'	, true);
+	$('input[name="lfwwh_perm_bots_only_admin"]'			).prop('checked'	, false);
 	// LFWWH_SECTION_DISP_1
-	$('input[name="lfwwh_disp_reg_users"][value="1"]'		).prop('checked'	, true);
-	$('input[name="lfwwh_disp_hidden"][value="1"]'			).prop('checked'	, true);
+	$('input[name="lfwwh_disp_reg_users"]'					).prop('checked'	, true);
+	$('input[name="lfwwh_disp_hidden"]'						).prop('checked'	, true);
 	$('select[name="lfwwh_disp_bots"]'						).prop('value'		, c.BotsWithUsers);
-	$('input[name="lfwwh_disp_guests"][value="1"]'			).prop('checked'	, true);
+	$('input[name="lfwwh_disp_guests"]'						).prop('checked'	, true);
 	$('select[name="lfwwh_disp_time_users"]'				).prop('value'		, c.DispBehindName);
 	$('select[name="lfwwh_disp_time_bots"]'					).prop('value'		, c.DispBehindName);
 	$('input[name="lfwwh_disp_time_format"]'				).prop('value'		, '$1 G:i');
@@ -137,17 +137,17 @@ lfwwhACP.setDefaults = function () {
 	$('input[name="lfwwh_period_of_time_m"]'				).prop('value'		, 0);
 	$('input[name="lfwwh_period_of_time_s"]'				).prop('value'		, 0);
 	$('select[name="lfwwh_sort_by"]'						).prop('value'		, c.SortByVisitDesc);
-	$('input[name="lfwwh_record"][value="1"]'				).prop('checked'	, true);
+	$('input[name="lfwwh_record"]'							).prop('checked'	, true);
 	$('input[name="lfwwh_record_time_format"]'				).prop('value'		, 'D j. M Y');
 	$('select[name="lfwwh_template_pos"]'					).prop('value'		, c.PosTop);
 	// LFWWH_SECTION_OTHERS
-	$('input[name="lfwwh_api_mode"][value="0"]'				).prop('checked'	, true);
-	$('input[name="lfwwh_clear_up"][value="1"]'				).prop('checked'	, true);
-	$('input[name="lfwwh_template_pos_all"][value="0"]'		).prop('checked'	, true);
-	$('input[name="lfwwh_create_hidden_info"][value="1"]'	).prop('checked'	, true);
+	$('input[name="lfwwh_api_mode"]'						).prop('checked'	, false);
+	$('input[name="lfwwh_clear_up"]'						).prop('checked'	, true);
+	$('input[name="lfwwh_template_pos_all"]'				).prop('checked'	, false);
+	$('input[name="lfwwh_create_hidden_info"]'				).prop('checked'	, true);
 	// LFWWH_SECTION_LOAD_SETTINGS
-	$('input[name="lfwwh_use_cache"][value="1"]'			).prop('checked'	, true);
-	$('input[name="lfwwh_use_online_time"][value="1"]'		).prop('checked'	, true);
+	$('input[name="lfwwh_use_cache"]'						).prop('checked'	, true);
+	$('input[name="lfwwh_use_online_time"]'					).prop('checked'	, true);
 	$('input[name="lfwwh_cache_time"]'						).prop('value'		, lfwwhACP.tpl.CacheTimeMax);
 
 	lfwwhACP.setState();
@@ -157,7 +157,7 @@ lfwwhACP.confirmRecordReset = function () {
 	'use strict';
 
 	if ($('input[name="lfwwh_record_reset"]').prop('checked') && !confirm(lfwwhACP.lang.MsgConfirmRecordReset))	{
-		$('input[name="lfwwh_record_reset"][value="0"]').prop('checked', true);
+		$('input[name="lfwwh_record_reset"]').prop('checked', false);
 	}
 };
 

@@ -1,3 +1,14 @@
+### 2.1.4
+GH (2022--) / CDB ()
+
+* Fix: Folgende Optionen wurden im ACP-Modul bei der Funktion "Einstellungen zurücksetzen" seit 2.1.1 nicht mehr berücksichtigt:
+  * "Zeige die Bot-Namen nur bei administrativen Rechten"
+  * "Zeige alle Template-Positionen gleichzeitig"
+* ACP Template:
+  * Zahlreiche Änderungen beim Template Code. Unter anderem werden Steuerelement-Events nicht mehr im HTML definiert, sondern direkt in jQuery registriert. Des Weiteren wurden sehr viele (78) unnötige IDs im HTML entfernt. Die davon betroffenen Elemente werden jetzt in jQuery direkt über den Element-Namen angesprochen, der ohnehin immer vorhanden sein muss.
+  * Simple Ja/Nein-Einstellungen sind jetzt als Toggles realisiert. Toggle Funktionalität in angepasster Form von "Style Changer" übernommen. (Danke an Kirk)
+  * JS und CSS an die oben genannten Änderungen angepasst.
+
 ### 2.1.3
 GH (2022-07-23) / CDB (2022-10-17)
 
@@ -6,7 +17,7 @@ GH (2022-07-23) / CDB (2022-10-17)
   * Der Button zum speichern der Seite ist nicht mehr mit "Absenden" beschriftet, sondern mit "Seite speichern" um deutlich zu machen, dass alle Speichern-Buttons immer die ganze Seite speichern.
   * Kleinere Änderungen.
 * XHTML Syntax aus allen Dateien entfernt die HTML enthalten oder generieren.
-* Die aktualisierten Funktionen des Sprachpaket-Infosystems von Extension Manager Plus übernommen.
+* Die aktualisierten Funktionen des Sprachpaket-Infosystems von "Extension Manager Plus" übernommen.
 * Code Optimierungen.
 * Sprachdateien.
   * Neue Sprachvariable für die Button-Beschriftung.

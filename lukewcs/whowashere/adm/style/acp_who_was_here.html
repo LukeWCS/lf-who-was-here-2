@@ -81,7 +81,7 @@
 		</dl>
 	</fieldset>
 
-{{ _self.lfwwh_form_buttons() }}
+{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_1') }}</legend>
@@ -176,7 +176,7 @@
 		</dl>
 	</fieldset>
 
-{{ _self.lfwwh_form_buttons() }}
+{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_2') }}</legend>
@@ -259,7 +259,7 @@
 		</dl>
 	</fieldset>
 
-{{ _self.lfwwh_form_buttons() }}
+{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_OTHERS') }}</legend>
@@ -301,7 +301,7 @@
 		</dl>
 	</fieldset>
 
-{{ _self.lfwwh_form_buttons() }}
+{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_LOAD_SETTINGS') }}</legend>
@@ -334,7 +334,7 @@
 		</dl>
 	</fieldset>
 
-{{ _self.lfwwh_form_buttons() }}
+{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_RESET') }}</legend>
@@ -359,7 +359,7 @@
 		</dl>
 	</fieldset>
 
-{{ _self.lfwwh_form_buttons() }}
+{{ _self.form_buttons() }}
 
 {{ S_FORM_TOKEN }}
 </form>
@@ -385,7 +385,7 @@
 {% INCLUDEJS '@lukewcs_whowashere/acp_who_was_here.js' %}
 {% INCLUDECSS '@lukewcs_whowashere/acp_who_was_here.css' %}
 
-{% macro lfwwh_form_buttons() %}
+{% macro form_buttons() %}
 	<div class="lfwwh_form_buttons">
 		<div class="lfwwh_col_left">
 		</div>
@@ -400,10 +400,9 @@
 {% endmacro %}
 
 {% macro switch(name, checked = false) %}
-	<span class="switch">
-		<label><input type="radio" class="radio" name="{{ name }}" value="1"{{ checked ? ' checked' }}> {{ lang('YES') }}</label>
-		<label><input type="radio" class="radio" name="{{ name }}" value="0"{{ !checked ? ' checked' }}> {{ lang('NO') }}</label>
-	</span>
+	<label>
+		{{ lang('YES') }} <input type="checkbox" class="toggle" name="{{ name }}" value="1"{{ checked ? ' checked' : '' }}> {{ lang('NO') }}
+	</label>
 {% endmacro %}
 
 {% macro icon(classes, decorative = true) %}

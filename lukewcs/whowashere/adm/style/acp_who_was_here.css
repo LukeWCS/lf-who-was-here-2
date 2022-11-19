@@ -1,9 +1,4 @@
-.lfwwh_copyright {
-	margin-top: 1em;
-	text-align: center;
-	font-size: .75em;
-}
-
+input[type=button][name*="lfwwh_"],
 .lfwwh_form_buttons input[type=submit],
 .lfwwh_form_buttons input[type=button] {
 	padding: 3px 4px;
@@ -37,6 +32,12 @@
 	text-decoration: none;
 }
 
+.lfwwh_copyright {
+	margin-top: 1em;
+	text-align: center;
+	font-size: .75em;
+}
+
 legend {
 	top: 0;
 	margin-left: -11px;
@@ -47,9 +48,53 @@ legend {
 	background-color: inherit;
 }
 
+.toggle {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 35px;
+	height: 17px;
+	position: relative;
+	border-radius: 50px;
+	border: none;
+	cursor: pointer;
+	background-color: #AA0000;
+	vertical-align: middle;
+	margin-bottom: 4px;
+}
+
+.toggle:before {
+	content: "";
+	position: absolute;
+	width: 12px;
+	height: 11px;
+	background: #fff;
+	left: 20px;
+	top: 3px;
+	border-radius: 50%;
+}
+
+.toggle:hover,
+.toggle:focus {
+	background-color: #AA0000;
+	border: none;
+}
+
+.toggle:checked {
+	background-color: #3FA651;
+}
+
+.toggle:checked:before {
+	left: 3px;
+}
+
 @media (max-width: 700px) {
 	legend {
 		margin-left: -6px;
 		padding: 2px 5px;
+	}
+
+	#lfwwh_form dd {
+		margin-top: .4em;
 	}
 }
