@@ -52,7 +52,7 @@ legend {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	width: 35px;
+	width: 38px;
 	height: 17px;
 	position: relative;
 	border-radius: 50px;
@@ -60,24 +60,29 @@ legend {
 	cursor: pointer;
 	background-color: #AA0000;
 	vertical-align: middle;
-	margin-bottom: 4px;
+	margin: 2px 2px 5px 2px;
+	font-family: FontAwesome;
 }
 
 .toggle:before {
-	content: "";
 	position: absolute;
-	width: 12px;
-	height: 11px;
+	width: 14px;
+	height: 13px;
 	background: #fff;
-	left: 20px;
-	top: 3px;
+	top: 2px;
 	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 22px;
+	content: "\f00d";
 }
 
 .toggle:hover,
 .toggle:focus {
 	background-color: #AA0000;
 	border: none;
+	color: #000000;
 }
 
 .toggle:checked {
@@ -85,7 +90,8 @@ legend {
 }
 
 .toggle:checked:before {
-	left: 3px;
+	left: 2px;
+	content: "\f00c";
 }
 
 @media (max-width: 700px) {

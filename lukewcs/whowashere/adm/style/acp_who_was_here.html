@@ -386,25 +386,29 @@
 {% INCLUDECSS '@lukewcs_whowashere/acp_who_was_here.css' %}
 
 {% macro form_buttons() %}
-	<div class="lfwwh_form_buttons">
-		<div class="lfwwh_col_left">
+	<fieldset>
+		<legend>{{ lang('ACP_SUBMIT_CHANGES') }}</legend>
+		
+		<div class="lfwwh_form_buttons">
+			<div class="lfwwh_col_left">
+			</div>
+			<div class="lfwwh_col_center">
+				<input class="button1" type="submit" name="submit" value="{{ lang('LFWWH_BUTTON_SAVE_PAGE') }}">&nbsp;
+				<input class="button2" type="button" name="form_reset" value="{{ lang('RESET') }}">
+			</div>
+			<div class="lfwwh_col_right">
+				<a href="#maincontent" title="{{ lang('BACK_TO_TOP') }}" class="lfwwh_back_to_top">{{ _self.icon('fa-chevron-circle-up', false) }}</a>
+			</div>
 		</div>
-		<div class="lfwwh_col_center">
-			<input class="button1" type="submit" name="submit" value="{{ lang('LFWWH_BUTTON_SAVE_PAGE') }}">&nbsp;
-			<input class="button2" type="button" name="form_reset" value="{{ lang('RESET') }}">
-		</div>
-		<div class="lfwwh_col_right">
-			<a href="#maincontent" title="{{ lang('BACK_TO_TOP') }}" class="lfwwh_back_to_top">{{ _self.icon('fa-chevron-circle-up', false) }}</a>
-		</div>
-	</div>
-{% endmacro %}
-
-{% macro switch(name, checked = false) %}
-	<label>
-		{{ lang('YES') }} <input type="checkbox" class="toggle" name="{{ name }}" value="1"{{ checked ? ' checked' : '' }}> {{ lang('NO') }}
-	</label>
+	</fieldset>
 {% endmacro %}
 
 {% macro icon(classes, decorative = true) %}
 <span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
+{% endmacro %}
+
+{% macro switch(name, checked = false) %}
+	<label>
+		<input type="checkbox" class="toggle" name="{{ name }}" value="1"{{ checked ? ' checked' : '' }}>
+	</label>
 {% endmacro %}

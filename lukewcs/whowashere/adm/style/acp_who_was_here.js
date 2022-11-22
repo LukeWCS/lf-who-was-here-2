@@ -174,19 +174,19 @@ $(window).ready(function() {
 
 	lfwwhACP.setState();
 
-	$('input[name="lfwwh_admin_mode"]'			).on('change', lfwwhACP.setState);
-	$('input[name="lfwwh_use_permissions"]'		).on('change', lfwwhACP.setState);
-	$('select[name="lfwwh_disp_bots"]'			).on('change', lfwwhACP.setState);
-	$('select[name="lfwwh_disp_time_users"]'	).on('change', lfwwhACP.setState);
-	$('select[name="lfwwh_disp_time_bots"]'		).on('change', lfwwhACP.setState);
-	$('select[name="lfwwh_disp_ip"]'			).on('change', lfwwhACP.setState);
-	$('select[name="lfwwh_time_mode"]'			).on('change', lfwwhACP.setState);
-	$('input[name="lfwwh_record"]'				).on('change', lfwwhACP.setState);
-	$('input[name="lfwwh_template_pos_all"]'	).on('change', lfwwhACP.setState);
-	$('input[name="lfwwh_use_cache"]'			).on('change', lfwwhACP.setState);
-	$('input[name="lfwwh_use_online_time"]'		).on('change', lfwwhACP.setState);
+	$('input[name="lfwwh_admin_mode"]'			).on('change'	, lfwwhACP.setState);
+	$('input[name="lfwwh_use_permissions"]'		).on('change'	, lfwwhACP.setState);
+	$('select[name="lfwwh_disp_bots"]'			).on('change'	, lfwwhACP.setState);
+	$('select[name="lfwwh_disp_time_users"]'	).on('change'	, lfwwhACP.setState);
+	$('select[name="lfwwh_disp_time_bots"]'		).on('change'	, lfwwhACP.setState);
+	$('select[name="lfwwh_disp_ip"]'			).on('change'	, lfwwhACP.setState);
+	$('select[name="lfwwh_time_mode"]'			).on('change'	, lfwwhACP.setState);
+	$('input[name="lfwwh_record"]'				).on('change'	, lfwwhACP.setState);
+	$('input[name="lfwwh_template_pos_all"]'	).on('change'	, lfwwhACP.setState);
+	$('input[name="lfwwh_use_cache"]'			).on('change'	, lfwwhACP.setState);
+	$('input[name="lfwwh_use_online_time"]'		).on('change'	, lfwwhACP.setState);
 
-	$('input[name="form_reset"]'				).on('click', lfwwhACP.customFormReset);
-	$('input[name="lfwwh_defaults"]'			).on('click', lfwwhACP.setDefaults);
-	$('input[name="lfwwh_record_reset"]'		).on('change', lfwwhACP.confirmRecordReset);
+	$('input[name="form_reset"]'				).on('click'	, lfwwhACP.customFormReset);
+	$('input[name="lfwwh_defaults"]'			).on('click'	, lfwwhACP.setDefaults);
+	$('input[name="lfwwh_record_reset"]'		).on('change'	, lfwwhACP.confirmRecordReset);
 });

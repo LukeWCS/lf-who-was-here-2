@@ -1,5 +1,9 @@
 ### Builds 2.1.4
 
+#### b97
+* ACP-Template:
+  * Von EMP die Überarbeitung der Toggles übernommen.
+  * "Absenden" und "Zurücksetzen" sind jetzt in einer eigenen Untergruppe, die auf dieselbe Weise dargestellt wird, wie bei ACP Seiten von phpBB.
 #### b96
 * ACP-Template:
   * Toggle Funktion in angepasster Form von "Style Changer" übernommen. (Danke an Kirk)
