@@ -375,7 +375,7 @@
 			CacheTimeMax: {{ LFWWH_CACHE_TIME_MAX }}
 		},
 		lang: {
-			MsgConfirmRecordReset: '{{ lang('LFWWH_MSG_CONFIRM_RECORD_RESET')|e('js') }}'
+			MsgConfirmRecordReset: "{{ LFWWH_EXT_NAME|e('js') }} ({{ LFWWH_EXT_VER|e('js') }})\n\n{{ lang('LFWWH_MSG_CONFIRM_RECORD_RESET')|e('js') }}"
 		}
 	};
 </script>
@@ -384,6 +384,7 @@
 
 {% INCLUDEJS '@lukewcs_whowashere/acp_who_was_here.js' %}
 {% INCLUDECSS '@lukewcs_whowashere/acp_who_was_here.css' %}
+{% INCLUDECSS '@lukewcs_whowashere/acp_toggle.css' %}
 
 {% macro form_buttons() %}
 	<fieldset>
