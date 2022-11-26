@@ -1,5 +1,15 @@
 ### Builds 2.1.4
 
+#### b99
+* ACP-Modul:
+  * Optimierung der Metadata Manager Funktion, übernommen von EMP.
+  * Die überarbeitete Notes Funktion (PHP) von EMP übernommen. 
+* ACP-Template:
+  * Die überarbeitete Notes Funktion (Twig) von EMP übernommen. 
+  * Twig optimiert, um im Output unnötige Whitespaces zu eliminieren.
+* CSS:
+  * Beim Toggle CSS einen kompakten Header eingefügt mit grundlegenden Infos und um Dan Klammer zu benennen, von dessen Webseite wir den CSS Code ursprünglich haben.
+
 #### b98
 * ACP-Template:
   * Toggle CSS optimiert und in separate Datei ausgelagert.

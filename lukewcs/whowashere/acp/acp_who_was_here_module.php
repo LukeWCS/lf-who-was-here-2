@@ -34,7 +34,8 @@ class acp_who_was_here_module
 		$this->cache = $cache;
 		$this->language = $language; // needs phpBB >=3.2.6
 		$this->md_manager = $phpbb_container->get('ext.manager')->create_extension_metadata_manager('lukewcs/whowashere');
-		$notes = '';
+		$this_meta = $this->md_manager->get_metadata('all');
+		$notes = [];
 
 		$this->language->add_lang(['acp_who_was_here', 'who_was_here'], 'lukewcs/whowashere');
 
@@ -98,13 +99,16 @@ class acp_who_was_here_module
 			trigger_error($this->language->lang('LFWWH_MSG_SAVED_SETTINGS') . adm_back_link($this->u_action));
 		}
 
-		$ext_display_name	= $this->md_manager->get_metadata('display-name');
-		$ext_ver			= $this->md_manager->get_metadata('version');
+		$ext_display_name	= $this_meta['extra']['display-name'];
+		$ext_ver			= $this_meta['version'];
+		$ext_lang_min_ver	= $this_meta['extra']['lang-min-ver'];
 
-		$ext_lang_min_ver	= $this->md_manager->get_metadata()['extra']['lang-min-ver'];
 		$ext_lang_ver		= $this->get_lang_ver('LFWWH_LANG_EXT_VER');
 		$lang_outdated_msg	= $this->check_lang_ver($ext_display_name, $ext_lang_ver, $ext_lang_min_ver, 'LFWWH_MSG_LANGUAGEPACK_OUTDATED');
-		$notes				= $this->add_note($notes, $lang_outdated_msg);
+		if ($lang_outdated_msg)
+		{
+			$notes[] = $lang_outdated_msg;
+		}
 
 		$load_online_time = ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1;
 		if ($this->config['lfwwh_cache_time'] > $load_online_time)
@@ -197,15 +201,5 @@ class acp_who_was_here_module
 		}
 
 		return $lang_outdated_msg;
-	}
-
-	// Add text to submitted messages
-	private function add_note(string $messages, string $text = ''): string
-	{
-		if ($text == '')
-		{
-			return $messages;
-		}
-		return $messages . (($messages != '') ? "\n" : '') . sprintf('<p>%s</p>', $text);
 	}
 }

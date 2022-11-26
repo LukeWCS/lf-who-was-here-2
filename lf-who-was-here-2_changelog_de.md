@@ -5,10 +5,11 @@ GH (2022--) / CDB ()
   * "Zeige die Bot-Namen nur bei administrativen Rechten"
   * "Zeige alle Template-Positionen gleichzeitig"
 * ACP Template:
-  * Bei den Einstellungen werden für Ja/Nein-Optionen jetzt Toggles verwendet. Dabei wurden für Menschen mit Farbseh-Schwäche (Rot/Grün Problematik und Farbblindheit) zwei Merkmale berücksichtigt: 1) Beibehaltung der gewohnten Positionen für Ja und Nein. 2) Eindeutige Symbole für die Zustände Ja und Nein. Toggle Funktionalität in angepasster Form von "Style Changer" übernommen. (Danke an Kirk)
-  * Zahlreiche Änderungen beim Template Code. Unter anderem werden Steuerelement-Events nicht mehr im HTML definiert, sondern direkt in jQuery registriert. Des Weiteren wurden sehr viele (78) unnötige IDs im HTML entfernt. Die davon betroffenen Elemente werden jetzt in jQuery direkt über den Element-Namen angesprochen, der ohnehin immer vorhanden sein muss.
+  * Bei den Einstellungen werden für Ja/Nein-Optionen jetzt Checkboxen mit Toggle-Style verwendet. Dabei wurden für Menschen mit Farbseh-Schwäche (Rot/Grün Problematik und Farbblindheit) zwei Merkmale berücksichtigt: 1) Beibehaltung der gewohnten Positionen für Ja und Nein. 2) Eindeutige Symbole für die Zustände Ja und Nein. Toggle Funktionalität in angepasster Form von "Style Changer" übernommen. (Danke an Kirk)
+  * Zahlreiche Änderungen beim Template Code. Unter anderem werden Steuerelement-Events nicht mehr im HTML definiert, sondern direkt in jQuery registriert. Des Weiteren wurden sehr viele (78) unnötige IDs im HTML entfernt. Die jeweiligen Elemente werden jetzt in jQuery direkt über den Element-Namen angesprochen, der ohnehin vorhanden sein muss.
   * JS und CSS an die oben genannten Änderungen angepasst.
   * In der Rückfrage beim Besucherrekord Reset, wird jetzt wie bei EMP ein Titel mit Name und Version der Ext ausgegeben.
+* Mehrere Eigenschaften von "Extension Manager Plus" übernommen.
 
 ### 2.1.3
 GH (2022-07-23) / CDB (2022-10-17)

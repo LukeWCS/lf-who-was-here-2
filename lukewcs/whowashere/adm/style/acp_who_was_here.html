@@ -15,10 +15,12 @@
 <h1>{{ lang('LFWWH_CONFIG_TITLE') }}</h1>
 <p>{{ lang('LFWWH_CONFIG_DESC', LFWWH_EXT_NAME) }}</p>
 
-{% if LFWWH_NOTES %}
-<div class="errorbox notice">
-	{{ LFWWH_NOTES }}
-</div>
+{% if LFWWH_NOTES|length %}
+	<div class="errorbox notice">
+		{% for note in LFWWH_NOTES %}
+			<p>{{ note }}</p>
+		{% endfor %}
+	</div>
 {% endif %}
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
@@ -405,11 +407,13 @@
 {% endmacro %}
 
 {% macro icon(classes, decorative = true) %}
-<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
+{% spaceless %}
+	<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
+{% endspaceless %}
 {% endmacro %}
 
 {% macro switch(name, checked = false) %}
-	<label>
-		<input type="checkbox" class="toggle" name="{{ name }}" value="1"{{ checked ? ' checked' : '' }}>
-	</label>
+{% spaceless %}
+	<input type="checkbox" class="toggle" name="{{ name }}" value="1"{{ checked ? ' checked' }}>
+{% endspaceless %}
 {% endmacro %}
