@@ -185,8 +185,7 @@ $(window).ready(function() {
 	$('input[name="lfwwh_template_pos_all"]'	).on('change'	, lfwwhACP.setState);
 	$('input[name="lfwwh_use_cache"]'			).on('change'	, lfwwhACP.setState);
 	$('input[name="lfwwh_use_online_time"]'		).on('change'	, lfwwhACP.setState);
-
-	$('input[name="form_reset"]'				).on('click'	, lfwwhACP.customFormReset);
 	$('input[name="lfwwh_defaults"]'			).on('click'	, lfwwhACP.setDefaults);
 	$('input[name="lfwwh_record_reset"]'		).on('change'	, lfwwhACP.confirmRecordReset);
+	$('input[name="form_reset"]'				).on('click'	, lfwwhACP.customFormReset);
 });

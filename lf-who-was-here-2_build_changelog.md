@@ -1,5 +1,10 @@
 ### Builds 2.1.4
 
+#### b100
+* Kleinere Änderungen am ACP und Foren-Template.
+* Im Foren-Template wurde noch ein JS Event (`onclick`) übersehen. Event entfernt.
+  * jQuery entsprechend angepasst.
+
 #### b99
 * ACP-Modul:
   * Optimierung der Metadata Manager Funktion, übernommen von EMP.
@@ -36,7 +41,7 @@
   * Viele Elemente werden jetzt in jQuery über das `name` Attribut angesprochen, anstatt über das `id` Attribut. Dadurch konnten im HTML sehr viele IDs entfernt werden, insgesamt 78. Methode von EMP übernommen.
   * Javscript an die oben genannten Änderungen angepasst.
   * Für FA-Icons das Twig Makro von EMP übernommen.
-* Frontend-Template: 
+* Foren-Template: 
   * Für FA-Icons das Twig Makro von EMP übernommen.
 
 ### Builds 2.1.3
@@ -44,8 +49,9 @@
 #### b94
 * Vergessen `ext.php` anzupassen.
 
-#### b93 (CDB Validation Release 1)
+#### b93
 * Release
+* CDB Validation Release 1
 
 ### Builds 2.1.2
 
@@ -53,7 +59,9 @@
 * GitHub: Release Changelog geändert.
 * GitHub: Kleinere Änderungen im Build Changelog.
 
-#### b91 (CDB Validation Release 1)
+#### b91
+* Release
+* CDB Validation Release 1
 * Beim Upload in die CDB wurde die Version 2.1.1-p1 wegen "instabiler" Versionsnummer abgelehnt und musste auf 2.1.2 geändert werden.
 
 #### b90
@@ -83,7 +91,9 @@
 
 ### Builds 2.1.1
 
-#### b83 (CDB Validation Release 1)
+#### b83
+* Release
+* CDB Validation Release 1
 * Migration: Die laut EPV fehlende Funktion `revert_schema()` hinzugefügt.
 * GitHub: Release Changelogs geändert.
 
@@ -118,8 +128,8 @@
 #### b75
 * Code: Beim Button-Icon wird jetzt unterschieden zwischen Benutzern mit administrativen Rechten und normalen Benutzern und entsprechend per Template-Variable übergeben.
 * Code: Mehrere Bedingungen im Core lesbarer gestaltet.
-* Frontend-Template: Beim Button-Icon wird jetzt für Benutzer und Gäste ein Zeit-Symbol angezeigt. Admins sehen unverändert das Info-Symbol. (Vorschlag Kirk)
-* Frontend-Template: Javascript optimiert.
+* Foren-Template: Beim Button-Icon wird jetzt für Benutzer und Gäste ein Zeit-Symbol angezeigt. Admins sehen unverändert das Info-Symbol. (Vorschlag Kirk)
+* Foren-Template: Javascript optimiert.
 * Sprachdateien: Übersetzer-Infos von `info_acp_who_was_here.php` nach `acp_who_was_here.php` verschoben.
 * ACP-Modul: An die Änderungen bei den Sprachdateien angepasst.
 
@@ -130,7 +140,7 @@
 * Fix: Bei der Deinstallation von 2.1.1 wurde mehrfach "Undefined index" gemeldet. (Meldung Kirk)
 * ACP-Template: Twig Makro umbenannt.
 * ACP-Template: CSS Klasse umbenannt.
-* Frontend-Template: Twig Makro umbenannt.
+* Foren-Template: Twig Makro umbenannt.
 
 #### b72
 * ACP-Template: Die Buttons zum Speichern und Zurücksetzen sind jetzt unterhalb jeder Einstellungsgruppe vorhanden. Realisiert mit Twig Makro. (Vorschlag Kirk)
@@ -139,13 +149,13 @@
 
 #### b71
 * Code: Korrekturen anhand EC Bericht vorgenommen.
-* Frontend-Template: Farben der Positions-Hinweise geändert.
+* Foren-Template: Farben der Positions-Hinweise geändert.
 
 #### b70
-* Frontend-Template: Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
-* Frontend-Template: Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprach-Variable im Frontend wird nicht mehr benötigt.
-* Frontend-Template: Die Positions-Hinweise werden nicht mehr in den Sekundär-Templates, sondern im Primär-Template zusammengesetzt.
-* Frontend-Template: Die Variable mit der redundante `INCLUDE..` Anweisungen verhindert werden, in `INCLUDED_LFWHOWASHERE` umbenannt.
+* Foren-Template: Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
+* Foren-Template: Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprach-Variable im Frontend wird nicht mehr benötigt.
+* Foren-Template: Die Positions-Hinweise werden nicht mehr in den Sekundär-Templates, sondern im Primär-Template zusammengesetzt.
+* Foren-Template: Die Variable mit der redundante `INCLUDE..` Anweisungen verhindert werden, in `INCLUDED_LFWHOWASHERE` umbenannt.
 * Sprachdateien: Die ACP Variablen sind jetzt bedarfsgerecht auf verschiedene Dateien aufgeteilt. Somit werden die Variablen der Einstellungen nicht mehr unnötig überall geladen.
 * Sprachdateien: 1 Sprachdatei hinzugefügt.
 * Sprachdateien: 1 Sprachdatei umbenannt.
@@ -178,9 +188,9 @@
 * ACP-Modul: Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket hat.
 * ACP-Modul: Template-Variablen umbenannt und umbenannte Config-Variablen übernommen.
 * ACP-Modul: Code Optimierungen.
-* Frontend-Template: Die Positions-Hinweise werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
-* Frontend-Template: Die Twig Variable für die Anzeige der Template Position umbenannt.
-* Frontend-Template: Kleinere Änderungen beim Twig Code.
+* Foren-Template: Die Positions-Hinweise werden jetzt direkt per Twig aus den Sprachdateien geholt und zusammengesetzt.
+* Foren-Template: Die Twig Variable für die Anzeige der Template Position umbenannt.
+* Foren-Template: Kleinere Änderungen beim Twig Code.
 * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Reihenfolge in der Datei geändert.
 * Sprachdateien: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
 
@@ -190,7 +200,9 @@
 * GitHub: Voraussetzungen in `README.md` angepasst.
 * GitHub: Release Changelogs geändert.
 
-#### b67 (CDB Validation Release 1)
+#### b67
+* Release
+* CDB Validation Release 1
 * Composer: Version auf 2.1.0 Release gesetzt.
 * GitHub: Mindestvoraussetzungen in `README.md` angepasst.
 * GitHub: Beide Release Changelogs vom Export ausgeschlossen.
@@ -278,11 +290,11 @@
 * Code: Wie ursprünglich schon mal verwendet, den neuen Power Operator anstelle `pow()` notiert, dadurch inkompatibel zu PHP <5.6.
 * Code: Ext auf Funktions-Basis von phpBB 3.2 gestellt, dadurch inkompatibel zu phpBB 3.1. Betrifft u.a. das Sprach-Objekt.
 * Code: Sonderanpassungen für phpBB 3.1 entfernt. Betrifft primär die Index-Anzeige.
-* Frontend-Template: Weitgehend HTML vom Core ins Template verlagert. Dabei Möglichkeiten von Twig genutzt, z.B. Makros.
-* Frontend-Template: Ordner `prosilver` entfernt und alles in `all` organisiert.
-* Frontend-Template: Primäres Event Template für `INCLUDECSS` (auch `INCLUDEJS`) ist nicht mehr `overall_header_head_append.html` sondern `index_body_markforums_before.html`, dadurch inkompatibel zu phpBB 3.1
-* Frontend-Template: Javascript weitestgehend durch jQuery ersetzt.
-* Frontend-Template: CSS Klassen für Zeit und IP hinzugefügt.
+* Foren-Template: Weitgehend HTML vom Core ins Template verlagert. Dabei Möglichkeiten von Twig genutzt, z.B. Makros.
+* Foren-Template: Ordner `prosilver` entfernt und alles in `all` organisiert.
+* Foren-Template: Primäres Event Template für `INCLUDECSS` (auch `INCLUDEJS`) ist nicht mehr `overall_header_head_append.html` sondern `index_body_markforums_before.html`, dadurch inkompatibel zu phpBB 3.1
+* Foren-Template: Javascript weitestgehend durch jQuery ersetzt.
+* Foren-Template: CSS Klassen für Zeit und IP hinzugefügt.
 * Migration: Ext-Version aus DB Config entfernt, in der Migration werden jetzt andere Prüfmerkmale verwendet.
 * Sprachdateien: Speziellen PHP Code aus der Permissions Sprachdatei entfernt und Prozedur anders realisiert. Änderung in b52 hinfällig.
 * Sprachdateien: Mehrere Sprach-Variablen umbenannt.
@@ -310,16 +322,20 @@
 * `.gitattributes` geändert: `LICENSE` auf ignorieren gesetzt, damit das beim Download nicht mehr enthalten ist.
 * Von VariableAnalysis gemeldete Fehler behoben.
 
-#### b49 (CDB Validation Release 2)
+#### b49
+* CDB Validation Release 2
 * Alle bei der Validierung festgestellten Fehler behoben.
 * Kleinere Änderungen in den Sprachdateien.
 * Im Repository Root `LICENSE.md` in `LICENSE` umbenannt da es sich nicht um Markdown handelt und somit das Suffix falsch war. Ausserdem Datei aktualisiert und Inhalt von Skeleton Extension übernommen.
 
-#### b48 (CDB Validation Release 1)
+#### b48
+* Release
+* CDB Validation Release 1
 * Kompatibilität zu PHP <5.6.
 * `composer.json` aktualisiert: auf Release 2.0.0 umgestellt.
 
-#### b47 (RC2)
+#### b47
+* RC2
 * `composer.json` aktualisiert.
 
 #### b46
@@ -338,7 +354,8 @@
 * Fix: Problematik bei der Aktualisierung der Anzeige behoben, `display()` wird im Listener jetzt über ein anderes Event getriggert.
 * Fix: Designschwäche der Info-Buttons (Icons) bezüglich Textfarbe behoben. CSS geändert.
 
-#### b42 (RC1)
+#### b42
+* RC1
 * `composer.json` aktualisiert.
 
 #### b41
@@ -362,7 +379,8 @@
 * `README_updating_a_developer_version.md` geändert.
 * Vorbereitungen auf Release. 
 
-#### b38 (beta3)
+#### b38
+* Beta 3
 * Kleinere Änderungen in den Sprachdateien.
 * Code bereinigt.
 
@@ -395,7 +413,8 @@
 * `composer.json` geändert: Mindestanforderung bei phpBB geändert.
 * Methode zum Überschreiben der Sprach-Variablen `USER_DELETED` und `USER_DELETE_SUCCESS` umgestellt auf eine Sprachdatei mit zusätzlichem Code.
 
-#### b31 (beta2)
+#### b31
+* Beta 2
 * JS des Info-Buttons und des ACP-Templates auf "CamelCase" formatiert.
 * `README.md` geändert.
 * `README_updating_a_developer_version.md` geändert.
@@ -430,7 +449,8 @@
 * Im ACP-Template 3 Template-Variablen umbenannt.
 * Migration geändert: neuer Standard bei `lfwwh_disp_time_format`.
 
-#### b25 (beta1)
+#### b25
+* Beta 1
 * ACP-Template: Unnötiges `onchange` Ereignis bei `lfwwh_create_hidden_info` entfernt.
 * ACP-Template: Eingabefelder für Zeitraum (H, M, S) auf Zahlen umgestellt mit Unter/Obergrenze.
 * Fix: Bei der Umbenennung der Sprachdateien in b18 wurde die Funktion `display()` übersehen.

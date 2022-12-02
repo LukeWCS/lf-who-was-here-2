@@ -10,15 +10,24 @@
 */
 
 var lfwwhIndex = {
+
 	isShowInfo: {
 		'users' : false,
 		'bots' : false
 	},
-	ShowHide: function (buttontype) {
+
+	ShowHide: function (e) {
 		'use strict';
 
-		lfwwhIndex.isShowInfo[buttontype] = !lfwwhIndex.isShowInfo[buttontype];
-		$('.lfwwh_info_' + buttontype.slice(0, 1)).css('display', (lfwwhIndex.isShowInfo[buttontype] ? '' : 'none'));
-		$('.lfwwh_button_' + buttontype).css('opacity', (lfwwhIndex.isShowInfo[buttontype] ? '1.0' : '0.5'));
+		lfwwhIndex.isShowInfo[e.data.ButtonType] = !lfwwhIndex.isShowInfo[e.data.ButtonType];
+		$('.lfwwh_info_' + e.data.ButtonType.slice(0, 1)).css('display', (lfwwhIndex.isShowInfo[e.data.ButtonType] ? '' : 'none'));
+		$('.lfwwh_button_' + e.data.ButtonType).css('opacity', (lfwwhIndex.isShowInfo[e.data.ButtonType] ? '1.0' : '0.5'));
 	}
 };
+
+$(window).ready(function() {
+	'use strict';
+
+	$('.lfwwh_button_users'	).on('click'	, {ButtonType: 'users'}	, lfwwhIndex.ShowHide);
+	$('.lfwwh_button_bots'	).on('click'	, {ButtonType: 'bots'}	, lfwwhIndex.ShowHide);
+});

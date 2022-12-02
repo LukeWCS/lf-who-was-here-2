@@ -1,15 +1,16 @@
 ### 2.1.4
-GH (2022--) / CDB ()
+GH (2022-12-) / CDB ()
 
 * Fix: Folgende Optionen wurden im ACP-Modul bei der Funktion "Einstellungen zurücksetzen" seit 2.1.1 nicht mehr berücksichtigt:
   * "Zeige die Bot-Namen nur bei administrativen Rechten"
   * "Zeige alle Template-Positionen gleichzeitig"
 * ACP Template:
   * Bei den Einstellungen werden für Ja/Nein-Optionen jetzt Checkboxen mit Toggle-Style verwendet. Dabei wurden für Menschen mit Farbseh-Schwäche (Rot/Grün Problematik und Farbblindheit) zwei Merkmale berücksichtigt: 1) Beibehaltung der gewohnten Positionen für Ja und Nein. 2) Eindeutige Symbole für die Zustände Ja und Nein. Toggle Funktionalität in angepasster Form von "Style Changer" übernommen. (Danke an Kirk)
-  * Zahlreiche Änderungen beim Template Code. Unter anderem werden Steuerelement-Events nicht mehr im HTML definiert, sondern direkt in jQuery registriert. Des Weiteren wurden sehr viele (78) unnötige IDs im HTML entfernt. Die jeweiligen Elemente werden jetzt in jQuery direkt über den Element-Namen angesprochen, der ohnehin vorhanden sein muss.
-  * JS und CSS an die oben genannten Änderungen angepasst.
-  * In der Rückfrage beim Besucherrekord Reset, wird jetzt wie bei EMP ein Titel mit Name und Version der Ext ausgegeben.
-* Mehrere Eigenschaften von "Extension Manager Plus" übernommen.
+  * In der Rückfrage beim Besucherrekord Reset, wird jetzt wie bei "Extension Manager Plus" ein Titel mit Name und Version der Ext ausgegeben.
+* Optimierung:
+  * Code Optimierung bei Javascript, Twig und HTML. Mehrere Eigenschaften und aktuelle Entwicklungen von "Extension Manager Plus" übernommen.
+  * Javascript Events und alle unnötigen IDs (78) aus dem HTML entfernt.
+  * Javascript Events werden jetzt direkt in jQuery registriert und Elemente werden nicht mehr über die ID sondern über den Element-Namen angesprochen, der ohnehin vorhanden sein muss.
 
 ### 2.1.3
 GH (2022-07-23) / CDB (2022-10-17)

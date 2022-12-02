@@ -22,15 +22,13 @@
 
 {% macro lfwwh_info_button(buttontype, infotype) %}
 {% spaceless %}
-	{% if infotype == 2 %}
-		{% set icon = 'fa-info-circle' %}
-	{% else %}
-		{% set icon = 'fa-clock-o' %}
-	{% endif %}
-	<span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide('{{ buttontype }}')">{{ _self.icon(icon, false) }}</span>
+	{% set icon = (infotype == 2) ? 'fa-info-circle' : 'fa-clock-o' %}
+	<span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}">{{ _self.icon(icon, false) }}</span>
 {% endspaceless %}
 {% endmacro %}
 
 {% macro icon(classes, decorative = true) %}
-<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
+{% spaceless %}
+	<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
+{% endspaceless %}
 {% endmacro %}
