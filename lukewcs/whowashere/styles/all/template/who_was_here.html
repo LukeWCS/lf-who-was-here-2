@@ -2,7 +2,7 @@
 	<h3>{{ lang('LFWWH_TITLE') }}</h3>
 	<p>
 		{% if lfwwh_pos_hint %}
-			<span class="lfwwh_debug">{{ lang('LFWWH_TEMPLATE_POS') ~ lang('COLON') ~ ' ' ~ lfwwh_pos_hint }}</span><br>
+			<span class="lfwwh_pos_hint">{{ lang('LFWWH_TEMPLATE_POS') ~ lang('COLON') ~ ' ' ~ lfwwh_pos_hint }}</span><br>
 		{% endif %}
 		{% if LFWWH_TOTAL %}
 			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br>
@@ -21,12 +21,14 @@
 </div>
 
 {% macro lfwwh_info_button(buttontype, infotype) %}
-	{% if infotype == 2 %}
-		{% set icon = 'info-circle' %}
-	{% else %}
-		{% set icon = 'clock-o' %}
-	{% endif %}
-	{% spaceless %}
-		<span class="lfwwh_button_{{ buttontype }} icon fa-{{ icon }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}" onclick="lfwwhIndex.ShowHide('{{ buttontype }}')"></span>
-	{% endspaceless %}
+{% spaceless %}
+	{% set icon = (infotype == 2) ? 'fa-info-circle' : 'fa-clock-o' %}
+	<span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}">{{ _self.icon(icon, false) }}</span>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro icon(classes, decorative = true) %}
+{% spaceless %}
+	<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
+{% endspaceless %}
 {% endmacro %}
