@@ -7,13 +7,6 @@ Extension for phpBB - Shows a visitor statistic of the current day or a freely s
 * phpBB 3.2.10 up to and including phpBB 3.3
 * PHP 7.0 up to and including PHP 8.1
 
-### Installation / Update of LF-WWH 2
-1. Download and extract the Zip archive of the [GitHub release](https://github.com/LukeWCS/lf-who-was-here-2/releases).
-1. In the extension management disable "LF who was here 2", if already existing.
-1. Delete the folder `whowashere/` inside `ext/lukewcs/` from phpBB, if already existing.
-1. Copy the folder `lukewcs/` from the Zip archive including all subfolders and files to `ext/` from phpBB (upload).
-1. In the extension management, enable "LF who was here 2".
-
 ### Upgrade of an old WWH extension (NV-WWH or LF-WWH 1):
 1. Leave the old WWH extension installed and active. A short-term parallel operation with LF-WWH 2 is technically intended and legitimate.
 1. Download and extract the Zip archive of the [GitHub release](https://github.com/LukeWCS/lf-who-was-here-2/releases).
