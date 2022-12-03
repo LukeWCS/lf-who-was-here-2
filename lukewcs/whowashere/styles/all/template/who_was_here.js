@@ -10,12 +10,10 @@
 */
 
 var lfwwhIndex = {
-
 	isShowInfo: {
 		'users' : false,
 		'bots' : false
 	},
-
 	ShowHide: function (e) {
 		'use strict';
 

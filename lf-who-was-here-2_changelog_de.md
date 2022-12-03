@@ -1,5 +1,5 @@
 ### 2.1.4
-GH (2022-12-) / CDB ()
+GH (2022-12-03) / CDB ()
 
 * Fix: Folgende Optionen wurden im ACP-Modul bei der Funktion "Einstellungen zurücksetzen" seit 2.1.1 nicht mehr berücksichtigt:
   * "Zeige die Bot-Namen nur bei administrativen Rechten"
@@ -7,8 +7,9 @@ GH (2022-12-) / CDB ()
 * ACP Template:
   * Bei den Einstellungen werden für Ja/Nein-Optionen jetzt Checkboxen mit Toggle-Style verwendet. Dabei wurden für Menschen mit Farbseh-Schwäche (Rot/Grün Problematik und Farbblindheit) zwei Merkmale berücksichtigt: 1) Beibehaltung der gewohnten Positionen für Ja und Nein. 2) Eindeutige Symbole für die Zustände Ja und Nein. Toggle Funktionalität in angepasster Form von "Style Changer" übernommen. (Danke an Kirk)
   * In der Rückfrage beim Besucherrekord Reset, wird jetzt wie bei "Extension Manager Plus" ein Titel mit Name und Version der Ext ausgegeben.
+  * "Absenden" und "Zurücksetzen" sind jetzt in einer eigenen Untergruppe, die auf dieselbe Weise dargestellt wird, wie bei ACP Seiten von phpBB.
 * Optimierung:
-  * Code Optimierung bei Javascript, Twig und HTML. Mehrere Eigenschaften und aktuelle Entwicklungen von "Extension Manager Plus" übernommen.
+  * Code Optimierung bei PHP, Javascript, Twig und HTML. Mehrere Eigenschaften und aktuelle Entwicklungen von "Extension Manager Plus" übernommen.
   * Javascript Events und alle unnötigen IDs (78) aus dem HTML entfernt.
   * Javascript Events werden jetzt direkt in jQuery registriert und Elemente werden nicht mehr über die ID sondern über den Element-Namen angesprochen, der ohnehin vorhanden sein muss.
 

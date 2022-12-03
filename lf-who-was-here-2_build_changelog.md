@@ -1,5 +1,9 @@
 ### Builds 2.1.4
 
+#### b101
+* Release
+* CDB Validation Release 1
+
 #### b100
 * Kleinere Änderungen am ACP und Foren-Template.
 * Im Foren-Template wurde noch ein JS Event (`onclick`) übersehen. Event entfernt.
