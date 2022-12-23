@@ -1,5 +1,5 @@
 ### 2.1.4
-GH (2022-12-03) / CDB ()
+GH (2022-12-03) / CDB (2022-12-22)
 
 * Fix: Folgende Optionen wurden im ACP-Modul bei der Funktion "Einstellungen zurücksetzen" seit 2.1.1 nicht mehr berücksichtigt:
   * "Zeige die Bot-Namen nur bei administrativen Rechten"
