@@ -1,4 +1,15 @@
-### Builds 2.1.4
+### 2.1.5
+
+#### 2.1.5-b1
+* Fix: `PHP Warning: Undefined array key "is_bot"`
+* Ab Version 2.1.5 wird die bisherige Methode für die Benennung der einzelnen Builds aufgegeben und durch eine normale Beta Versionsnummer ersetzt, wie sie bei phpBB üblich ist. Das erleichtert auch das referenzieren einer spezifischen Beta erheblich.
+* Alle unnötigen `sprintf()` entfernt, wenn Sprachvariablen parametrisiert wurden. 
+* ACP-Template:
+  * Beim Sicherheitsschalter "Erlaube Migrationen" bekommt der Browser jetzt vor der Rückfrage per `confirm()` genug Zeit um den aktivierten Schalter darstellen zu können.
+  * Toggle Farben von EMP übernommen.
+  * Twig: `spaceless` Tag entfernt und durch `spaceless` Filter und Whitespace Modifier ersetzt.
+
+### 2.1.4
 
 #### b101
 * Release
@@ -48,7 +59,7 @@
 * Foren-Template: 
   * Für FA-Icons das Twig Makro von EMP übernommen.
 
-### Builds 2.1.3
+### 2.1.3
 
 #### b94
 * Vergessen `ext.php` anzupassen.
@@ -57,7 +68,7 @@
 * Release
 * CDB Validation Release 1
 
-### Builds 2.1.2
+### 2.1.2
 
 #### b92
 * GitHub: Release Changelog geändert.
@@ -93,7 +104,7 @@
 * Composer: Auf 2.1.1-patch1 gesetzt.
 * GitHub: Release Changelog geändert.
 
-### Builds 2.1.1
+### 2.1.1
 
 #### b83
 * Release
@@ -198,7 +209,7 @@
 * Sprachdateien: `info_acp_who_was_here.php`; etliche Sprach-Variablen umbenannt und bei manchen auch die Reihenfolge in der Datei geändert.
 * Sprachdateien: Unnötige redundante Erklärungstexte (insgesamt 3) entfernt. Das betrifft die Funktionalität bez. ausgeblendete Infos.
 
-### Builds 2.1.0
+### 2.1.0
 
 #### b68 
 * GitHub: Voraussetzungen in `README.md` angepasst.
@@ -313,7 +324,7 @@
 * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts.
 * GitHub: GitHub Actions eingerichtet. 
 
-### Builds 2.0.0
+### 2.0.0
 
 #### b51
 * Einen Teil der Änderungen von b50 soweit rückgängig gemacht, dass die GitHub Version 2.0.0-b51 exakt der offiziellen CDB Version 2.0.0 entspricht. Die Änderungen von b50 werden zu einem späteren Zeitpunkt wieder eingefügt.
@@ -593,7 +604,7 @@
 #### b4
 * Weitere Konfig-Variablen umbenannt. Darum muss zuerst b3 deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
 * Das Unterscheidungsmerkmal "(Gen 4)" an allen Stellen im ACP entfernt wo es überflüssig ist, sprich wo eine Versionsnummer sichtbar ist.
-* Javascript Bestätigung bei `lfwwh_record_reset` von alert() auf confirm() umgestellt mit zurücksetzen des Schalters bei `Cancel`. Event bei "Ja" von `onclick` auf `onchange` umgestellt.
+* Javascript Bestätigung bei `lfwwh_record_reset` von `alert()` auf `confirm()` umgestellt mit zurücksetzen des Schalters bei `Cancel`. Event bei "Ja" von `onclick` auf `onchange` umgestellt.
 * Hinweis für `lfwwh_record_reset_time` eingebaut.
 
 #### b3 

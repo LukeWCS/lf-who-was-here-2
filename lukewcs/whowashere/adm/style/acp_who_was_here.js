@@ -156,8 +156,14 @@ lfwwhACP.setDefaults = function () {
 lfwwhACP.confirmRecordReset = function () {
 	'use strict';
 
-	if ($('input[name="lfwwh_record_reset"]').prop('checked') && !confirm(lfwwhACP.lang.MsgConfirmRecordReset))	{
-		$('input[name="lfwwh_record_reset"]').prop('checked', false);
+	if ($('input[name="lfwwh_record_reset"]').prop('checked')) {
+		requestAnimationFrame( function() {
+			setTimeout( function() {
+				if (!confirm(lfwwhACP.lang.MsgConfirmRecordReset)) {
+					$('input[name="lfwwh_record_reset"]').prop('checked', false)
+				}
+			});
+		});
 	}
 };
 

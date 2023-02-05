@@ -20,15 +20,11 @@
 	</p>
 </div>
 
-{% macro lfwwh_info_button(buttontype, infotype) %}
-{% spaceless %}
-	{% set icon = (infotype == 2) ? 'fa-info-circle' : 'fa-clock-o' %}
+{% macro lfwwh_info_button(buttontype, infotype) -%}
+	{%- set icon = (infotype == 2) ? 'fa-info-circle' : 'fa-clock-o' -%}
 	<span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP') }}">{{ _self.icon(icon, false) }}</span>
-{% endspaceless %}
-{% endmacro %}
+{%- endmacro %}
 
-{% macro icon(classes, decorative = true) %}
-{% spaceless %}
+{% macro icon(classes, decorative = true) -%}
 	<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
-{% endspaceless %}
-{% endmacro %}
+{%- endmacro %}

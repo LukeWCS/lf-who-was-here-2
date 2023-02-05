@@ -391,7 +391,7 @@
 {% macro form_buttons() %}
 	<fieldset>
 		<legend>{{ lang('ACP_SUBMIT_CHANGES') }}</legend>
-		
+
 		<div class="lfwwh_form_buttons">
 			<div class="lfwwh_col_left">
 			</div>
@@ -406,14 +406,10 @@
 	</fieldset>
 {% endmacro %}
 
-{% macro icon(classes, decorative = true) %}
-{% spaceless %}
+{% macro icon(classes, decorative = true) -%}
 	<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
-{% endspaceless %}
-{% endmacro %}
+{%- endmacro %}
 
-{% macro switch(name, checked = false) %}
-{% spaceless %}
+{% macro switch(name, checked = false) -%}
 	<input type="checkbox" class="toggle" name="{{ name }}" value="1"{{ checked ? ' checked' }}>
-{% endspaceless %}
-{% endmacro %}
+{%- endmacro %}

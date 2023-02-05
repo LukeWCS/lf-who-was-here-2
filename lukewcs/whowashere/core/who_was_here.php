@@ -258,7 +258,7 @@ class who_was_here
 					$wwh_disp_permission_total = true;
 					$wwh_disp_permission_users = true;
 				}
-				else if ($this->user->data['is_bot']) // bot
+				else if (!empty($this->user->data['is_bot'])) // bot
 				{
 					$wwh_disp_permission_total = (
 						$this->config['lfwwh_perm_for_bots'] == self::PERM_STATS
@@ -751,12 +751,12 @@ class who_was_here
 		}
 		if ($mode == 1) // today
 		{
-			return sprintf($this->language->lang('LFWWH_RECORD_DAY'), $this->config['lfwwh_record_ips'], $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));
+			return $this->language->lang('LFWWH_RECORD_DAY', $this->config['lfwwh_record_ips'], $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));
 		}
 		else // period of time
 		{
 			$record_time_start = (int) $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
-			return sprintf($this->language->lang('LFWWH_RECORD_TIME'), $this->config['lfwwh_record_ips'], $this->get_formatted_record_time($record_time_start), $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));
+			return $this->language->lang('LFWWH_RECORD_TIME', $this->config['lfwwh_record_ips'], $this->get_formatted_record_time($record_time_start), $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));
 		}
 	}
 

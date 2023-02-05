@@ -1,6 +1,8 @@
-/* phpBB ACP Toggles - A CSS class that makes it easy to display checkboxes as toggles.
+/*
+   phpBB ACP Toggles - A CSS class that makes it easy to display checkboxes as toggles.
    Source     : https://danklammer.com/articles/simple-css-toggle-switch/
-   Reworked by: Kirk (adapted and optimized for phpBB), LukeWCS (optimized) */
+   Revision by: Kirk (customization and optimization), LukeWCS (optimization)
+*/
 
 .toggle {
 	-webkit-appearance: none;
@@ -31,13 +33,13 @@
 .toggle,
 .toggle:hover,
 .toggle:focus {
-	background-color: #aa0000;
+	background-color: #cccccc;
 	border: none;
 	color: #000000;
 }
 
 .toggle:checked {
-	background-color: #3fa651;
+	background-color: #3b87ab;
 }
 
 .toggle:checked:before {

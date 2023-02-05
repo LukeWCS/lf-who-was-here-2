@@ -26,6 +26,6 @@ var lfwwhIndex = {
 $(window).ready(function() {
 	'use strict';
 
-	$('.lfwwh_button_users'	).on('click'	, {ButtonType: 'users'}	, lfwwhIndex.ShowHide);
-	$('.lfwwh_button_bots'	).on('click'	, {ButtonType: 'bots'}	, lfwwhIndex.ShowHide);
+	$('.lfwwh_button_users'	).on('click', {ButtonType: 'users'}	, lfwwhIndex.ShowHide);
+	$('.lfwwh_button_bots'	).on('click', {ButtonType: 'bots'}	, lfwwhIndex.ShowHide);
 });
