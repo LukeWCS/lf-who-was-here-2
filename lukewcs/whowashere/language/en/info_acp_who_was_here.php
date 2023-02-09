@@ -40,6 +40,6 @@ if (empty($lang) || !is_array($lang))
 //
 $lang = array_merge($lang, [
 	// navigation
-	'LFWWH_NAV_TITLE'					=> 'Who was here? (2.x)',
-	'LFWWH_NAV_CONFIG'					=> 'Settings',
+	'LFWWH_NAV_TITLE'	=> 'Who was here? (2.x)',
+	'LFWWH_NAV_CONFIG'	=> 'Settings',
 ]);

@@ -18,3 +18,13 @@ services:
             - '%core.table_prefix%'
             - '%core.php_ext%'
             - '@language'
+    lukewcs.whowashere.controller.acp:
+        class: lukewcs\whowashere\controller\acp_who_was_here_controller
+        arguments:
+            - '@language'
+            - '@template'
+            - '@request'
+            - '@config'
+            - '@user'
+            - '@cache.driver'
+            - '@ext.manager' 

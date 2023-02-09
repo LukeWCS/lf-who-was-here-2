@@ -56,7 +56,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = ['config.add', ['lfwwh_use_online_time'		, $this->config['wwh_use_online_time']			?? '1']];
 		$data[] = ['config.add', ['lfwwh_use_permissions'		, $this->config['wwh_use_permissions']			?? '0']];
 		$data[] = ['config.add', ['lfwwh_version'				, '2.0.0']];
-		// permissions
+
 		$data[] = ['permission.add'				, ['u_lfwwh_show_stats']];
 		$data[] = ['permission.add'				, ['u_lfwwh_show_users']];
 		$data[] = ['permission.permission_set'	, ['ADMINISTRATORS'		, 'u_lfwwh_show_stats', 'group']];
@@ -67,7 +67,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		$data[] = ['permission.permission_set'	, ['REGISTERED'			, 'u_lfwwh_show_users', 'group']];
 		$data[] = ['permission.permission_set'	, ['NEWLY_REGISTERED'	, 'u_lfwwh_show_users', 'group', false]];
 		$data[] = ['permission.permission_set'	, ['GUESTS'				, 'u_lfwwh_show_stats', 'group']];
-		// permission roles
+
 		if ($this->role_exists('ROLE_USER_STANDARD'))
 		{
 			$data[] = ['permission.permission_set', ['ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role']];
@@ -97,9 +97,9 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 		{
 			$data[] = ['permission.permission_set', ['ROLE_USER_NEW_MEMBER'		, 'u_lfwwh_show_users', 'role', false]];
 		}
-		// custom functions
+
 		$data[] = ['custom', [[$this, 'import_wwh_table']]];
-		// ACP modules
+
 		$data[] = ['module.add', [
 			'acp',
 			'ACP_CAT_DOT_MODS',

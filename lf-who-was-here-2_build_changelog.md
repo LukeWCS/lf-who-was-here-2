@@ -1,5 +1,11 @@
 ### 2.1.5
 
+#### 2.1.5-b2
+* ACP-Modul:
+  * Umgestellt auf Controller.
+* ACP-Template:
+  * Umbenannt.
+
 #### 2.1.5-b1
 * Fix: `PHP Warning: Undefined array key "is_bot"`
 * Ab Version 2.1.5 wird die bisherige Methode für die Benennung der einzelnen Builds aufgegeben und durch eine normale Beta Versionsnummer ersetzt, wie sie bei phpBB üblich ist. Das erleichtert auch das referenzieren einer spezifischen Beta erheblich.
