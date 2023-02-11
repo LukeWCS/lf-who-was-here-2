@@ -20,16 +20,17 @@ class acp_who_was_here_controller
 	protected $config;
 	protected $user;
 	protected $cache;
+	protected $ext_manager;
 	public $u_action;
 
 	public function __construct(
-		\phpbb\language\language				$language,
-		\phpbb\template\template				$template,
-		\phpbb\request\request					$request,
-		\phpbb\config\config					$config,
-		\phpbb\user								$user,
-		\phpbb\cache\driver\driver_interface	$cache,
-		\phpbb\extension\manager				$ext_manager,
+		\phpbb\language\language $language,
+		\phpbb\template\template $template,
+		\phpbb\request\request $request,
+		\phpbb\config\config $config,
+		\phpbb\user $user,
+		\phpbb\cache\driver\driver_interface $cache,
+		\phpbb\extension\manager $ext_manager
 	)
 	{
 		$this->language		= $language;
@@ -43,13 +44,7 @@ class acp_who_was_here_controller
 
 	public function module_settings()
 	{
-		$md_manager = $this->ext_manager->create_extension_metadata_manager('lukewcs/whowashere');
-		$this_meta = $md_manager->get_metadata('all');
-		$notes = [];
-
 		$this->language->add_lang(['acp_who_was_here', 'who_was_here'], 'lukewcs/whowashere');
-
-		add_form_key('lukewcs_whowashere');
 
 		if ($this->request->is_set_post('submit'))
 		{
@@ -105,6 +100,12 @@ class acp_who_was_here_controller
 			}
 			trigger_error($this->language->lang('LFWWH_MSG_SAVED_SETTINGS') . adm_back_link($this->u_action));
 		}
+
+		add_form_key('lukewcs_whowashere');
+
+		$md_manager = $this->ext_manager->create_extension_metadata_manager('lukewcs/whowashere');
+		$this_meta = $md_manager->get_metadata('all');
+		$notes = [];
 
 		$ext_display_name	= $this_meta['extra']['display-name'];
 		$ext_ver			= $this_meta['version'];

@@ -1,5 +1,12 @@
 ### 2.1.5
 
+#### 2.1.5-b3
+* EC Fehler behoben.
+* Funktionen ohne Rückgabewert als `void` deklariert.
+* PHP Mindestversion auf 7.1 erhöht und Maximalversion auf 8.2 erhöht:
+  * `composer.json` angepasst.
+  * `ext.php` angepasst.
+
 #### 2.1.5-b2
 * ACP-Modul:
   * Umgestellt auf Controller.
