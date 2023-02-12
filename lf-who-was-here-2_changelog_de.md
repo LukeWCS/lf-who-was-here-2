@@ -1,4 +1,6 @@
 ### 2.1.5
+GH (2023-02-12) / CDB (2023--)
+
 * Fix: Auf manchen Webservern konnte es zu dem Fehler `PHP Warning: Undefined array key "is_bot"` kommen. (Meldung von: ShadeUT99)
 * ACP-Template:
   * Wurde der Sicherheitsschalter "Erlaube Migrationen" aktiviert, dann wurde durch die modale Javscript Rückfrage `confirm()` verhindert, dass der Browser den aktivierten Zustand des Schalters darstellen konnte, da die Aktualisierung der Render Engine noch gar nicht beendet war. Jetzt wartet die JS Funktion bis diese Aktualisierung abgeschlossen ist.

@@ -5,7 +5,7 @@ Extension for phpBB - Shows a visitor statistic of the current day or a freely s
 
 ### Requirements
 * phpBB 3.2.10 up to and including phpBB 3.3
-* PHP 7.0 up to and including PHP 8.1
+* PHP 7.1 up to and including PHP 8.2
 
 ### Upgrade of an old WWH extension (NV-WWH or LF-WWH 1):
 1. Leave the old WWH extension installed and active. A short-term parallel operation with LF-WWH 2 is technically intended and legitimate.
