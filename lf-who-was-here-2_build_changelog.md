@@ -21,7 +21,7 @@
 * Ab Version 2.1.5 wird die bisherige Methode für die Benennung der einzelnen Builds aufgegeben und durch eine normale Beta Versionsnummer ersetzt, wie sie bei phpBB üblich ist. Das erleichtert auch das referenzieren einer spezifischen Beta erheblich.
 * Alle unnötigen `sprintf()` entfernt, wenn Sprachvariablen parametrisiert wurden. 
 * ACP-Template:
-  * Beim Sicherheitsschalter "Erlaube Migrationen" bekommt der Browser jetzt vor der Rückfrage per `confirm()` genug Zeit um den aktivierten Schalter darstellen zu können.
+  * Beim Sicherheitsschalter "Besucherrekord zurücksetzen" bekommt der Browser jetzt vor der Rückfrage per `confirm()` genug Zeit um den aktivierten Schalter darstellen zu können.
   * Toggle Farben von EMP übernommen.
   * Twig: `spaceless` Tag entfernt und durch `spaceless` Filter und Whitespace Modifier ersetzt.
 
