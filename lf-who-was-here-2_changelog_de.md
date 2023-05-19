@@ -1,5 +1,5 @@
 ### 2.1.5
-GH (2023-02-12) / CDB (2023--)
+(2023-02-12 / CDB: 2023-04-10)
 
 * Fix: Auf manchen Webservern konnte es zu dem Fehler `PHP Warning: Undefined array key "is_bot"` kommen. (Meldung von: ShadeUT99)
 * ACP-Template:
@@ -14,7 +14,7 @@ GH (2023-02-12) / CDB (2023--)
 * PHP Mindestversion auf 7.1 erhöht und Maximalversion auf 8.2 erhöht:
 
 ### 2.1.4
-GH (2022-12-03) / CDB (2022-12-22)
+(2022-12-03 / CDB: 2022-12-22)
 
 * Fix: Folgende Optionen wurden im ACP-Modul bei der Funktion "Einstellungen zurücksetzen" seit 2.1.1 nicht mehr berücksichtigt:
   * "Zeige die Bot-Namen nur bei administrativen Rechten"
@@ -29,7 +29,7 @@ GH (2022-12-03) / CDB (2022-12-22)
   * Javascript Events werden jetzt direkt in jQuery registriert und Elemente werden nicht mehr über die ID sondern über den Element-Namen angesprochen, der ohnehin vorhanden sein muss.
 
 ### 2.1.3
-GH (2022-07-23) / CDB (2022-10-17)
+(2022-07-23 / CDB: 2022-10-17)
 
 * PHP Maximalversion von 8.0 auf 8.1 geändert.
 * ACP Template:
@@ -43,7 +43,7 @@ GH (2022-07-23) / CDB (2022-10-17)
   * Kleinere Änderungen
 
 ### 2.1.2
-GH (2022-02-18) / CDB (2022-04-05)
+(2022-02-18 / CDB: 2022-04-05)
 
 * Fix:
   * Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. Davon betroffen waren im ACP die Einstellungen "Zeige die Zeit von Benutzern:", "Zeige die Zeit von Bots:" und "Zeige die Benutzer-IP:". (Meldung von: Kirk, warmweer [Validierung])
@@ -56,7 +56,7 @@ GH (2022-02-18) / CDB (2022-04-05)
   * Changelog: Da bei Google Translator die Unterstützung für `.txt` Dateien entfernt wurde, werde ich kein separates englisches Changelog mehr führen da mir der Aufwand zu hoch ist. Stattdessen wird das Changelog direkt per Google Translator verlinkt.
 
 ### 2.1.1
-GH (2021-10-25) / CDB (2022-01-16)
+(2021-10-25 / CDB: 2022-01-16)
 
 Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich bedanke mich ebenfalls bei kasimi für Infos und Empfehlungen.
 
@@ -92,7 +92,7 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich
   * Code: Optimierungen.
 
 ### 2.1.0
-GH (2021-08-18) / CDB (2021-09-12)
+(2021-08-18 / CDB: 2021-09-12)
 
 * Die Voraussetzungen haben sich geändert:
   * phpBB 3.2.10 (vorher 3.1.11) bis einschliesslich phpBB 3.3.
@@ -124,7 +124,7 @@ GH (2021-08-18) / CDB (2021-09-12)
   * Javascript weitestgehend auf jQuery umgestellt.
 
 ### 2.0.0
-GH (2020-03-29) / CDB (2020-07-06)
+(2020-03-29 / CDB: 2020-07-06)
 
 * Durch eine kleine Änderung ist der Code jetzt auch kompatibel zu PHP 5.3 - 5.5: Potenz-Operator `**` durch `pow()` ersetzt.
 * Template-Änderungen: Nein

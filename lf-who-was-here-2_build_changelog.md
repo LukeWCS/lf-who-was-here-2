@@ -1,7 +1,7 @@
 ### 2.1.5
 
 #### 2.1.5
-* Release.
+* Release (2023-02-12)
 
 #### 2.1.5-b3
 * EC Fehler behoben.
@@ -28,7 +28,7 @@
 ### 2.1.4
 
 #### b101
-* Release
+* Release (2022-12-03)
 * CDB Validation Release 1
 
 #### b100
@@ -81,7 +81,7 @@
 * Vergessen `ext.php` anzupassen.
 
 #### b93
-* Release
+* Release (2022-07-23)
 * CDB Validation Release 1
 
 ### 2.1.2
@@ -91,7 +91,7 @@
 * GitHub: Kleinere Änderungen im Build Changelog.
 
 #### b91
-* Release
+* Release (2022-02-18)
 * CDB Validation Release 1
 * Beim Upload in die CDB wurde die Version 2.1.1-p1 wegen "instabiler" Versionsnummer abgelehnt und musste auf 2.1.2 geändert werden.
 
@@ -123,7 +123,7 @@
 ### 2.1.1
 
 #### b83
-* Release
+* Release (2021-10-25)
 * CDB Validation Release 1
 * Migration: Die laut EPV fehlende Funktion `revert_schema()` hinzugefügt.
 * GitHub: Release Changelogs geändert.
@@ -232,7 +232,7 @@
 * GitHub: Release Changelogs geändert.
 
 #### b67
-* Release
+* Release (2021-08-18)
 * CDB Validation Release 1
 * Composer: Version auf 2.1.0 Release gesetzt.
 * GitHub: Mindestvoraussetzungen in `README.md` angepasst.
@@ -360,7 +360,7 @@
 * Im Repository Root `LICENSE.md` in `LICENSE` umbenannt da es sich nicht um Markdown handelt und somit das Suffix falsch war. Ausserdem Datei aktualisiert und Inhalt von Skeleton Extension übernommen.
 
 #### b48
-* Release
+* Release (2020-03-29)
 * CDB Validation Release 1
 * Kompatibilität zu PHP <5.6.
 * `composer.json` aktualisiert: auf Release 2.0.0 umgestellt.
