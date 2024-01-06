@@ -82,7 +82,7 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_TIME_BOTS'				=> 'Zeige die Zeit von Bots',
 	'LFWWH_DISP_TIME_EXP'				=> '(Allen Benutzern zeigen oder niemandem, keine spezielle Funktion für Administratoren.)',
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Zeit-Format',
-	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>. Spezielle Platzhalter: $1 = „%1$s“, $2 = „%2$s“, $3 = „%3$s“.',
+	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax des PHP <a href="https://www.php.net/manual/datetime.format.php">Datum-Format</a>. Spezielle Platzhalter: $1 = „%1$s“, $2 = „%2$s“, $3 = „%3$s“.',
 	'LFWWH_DISP_TIME_FORMAT_DEMO'		=> 'Aktuelle Anzeige: %s',
 	'LFWWH_DISP_IP'						=> 'Zeige die Benutzer-IP',
 	'LFWWH_DISP_IP_EXP'					=> '(Nur für Benutzer mit administrativen Rechten, wie bei „Wer ist online?“.)',
@@ -107,7 +107,7 @@ $lang = array_merge($lang, [
 	'LFWWH_RECORD'						=> 'Besucherrekord',
 	'LFWWH_RECORD_EXP'					=> 'Zeige und aktualisiere den Besucherrekord.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Datums-Format für den Besucherrekord',
-	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax der PHP-Funktion <a href="http://www.php.net/date">date()</a>.',
+	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'Das Format entspricht der Syntax des PHP <a href="https://www.php.net/manual/datetime.format.php">Datum-Format</a>.',
 	'LFWWH_TEMPLATE_POS'				=> 'Position der Anzeige',
 	'LFWWH_TEMPLATE_POS_EXP'			=> 'Legt fest, wo die WWH-Anzeige im Online/Statistik-Bereich positioniert werden soll. „Oben“ ist die Position über diesem Bereich und „Unten“ entsprechend die Position darunter.',
 	'LFWWH_TEMPLATE_POS_TOP'			=> 'Oben',
@@ -148,6 +148,6 @@ $lang = array_merge($lang, [
 
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Wer war da: Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.',
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Sobald Sie die Seite mit den Einstellungen speichern, wird der Besucherrekord zurückgesetzt.',
 	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Hinweis: Das Sprachpaket der Erweiterung <strong>%1$s</strong> ist nicht mehr aktuell. (vorhanden: %2$s / benötigt: %3$s)',
 ]);

@@ -39,10 +39,11 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 //
 $lang = array_merge($lang, [
-	// navigation
-	'LFWWH_NAV_TITLE'		=> 'Who was here? (2.x)',
-	'LFWWH_NAV_CONFIG'		=> 'Settings',
+	// language pack author
+	'LFWWH_LANG_DESC'					=> 'English',
+	'LFWWH_LANG_VER' 					=> '2.1.6',
+	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
 
-	// misc
-	'LFWWH_VERSION_STRING'	=> 'v%s',
+	// messages
+	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Note: The language pack for the extension <strong>%1$s</strong> is no longer up-to-date. (installed: %2$s / needed: %3$s)',
 ]);

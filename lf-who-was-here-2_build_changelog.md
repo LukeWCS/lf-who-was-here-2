@@ -1,6 +1,36 @@
-### 2.1.5
+#### 2.1.6-b1
+* ACP-Template:
+  * HTML für PullDown Menüs (`<select`) durch das Twig Makro `select()` ersetzt.
+  * HTML `<input type="text"` durch das neue Twig Makro `text()` ersetzt.
+  * HTML `<input type="number"` durch das neue Twig Makro `number()` ersetzt.
+  * Die Sicherheitsfrage für den Rekord-Reset wird nicht mehr per JS Funktion `confirm()` erzeugt, sondern mit dem neuen Twig Makro `confirmbox()` generiert und direkt unterhalb des Schalters angezeigt.
+  * Alle Schalter für Toggle Control kompatibel gemacht.
+  * Die Absenden-Buttons werden nicht mehr nach jeder Optionsgruppe, sondern nur noch nach jeder zweiten Gruppe generiert.
+  * JS:
+    * Die Klasse `LukeWCSphpBBConfirmBox` eingefügt, mit der die neue `confirmbox()` gesteuert wird.
+	* Funktion für `confirm()` entfernt.
+	* Da Schalter jetzt auch als Radio Buttons dargestellt werden können, musste die Funktion zum Zurücksetzen auf Installationsstandard angepasst werden.
+    * Der Formular-Reset ist nicht mehr an einen Button gebunden, sondern wird per Reset-Event überwacht und so `setState` automatisch ausgeführt.
+    * Code modernisiert.
+  * CSS:
+    * Code für `confirmbox()` eingefügt.
+	* Toggle Code in bestehendes ACP CSS integriert und bisherige separate CSS Datei entfernt.
+	* Code für die Animation der Toggles vom Recent Topics Fork übernommen.
+	* Links innerhalb der Beschreibungen sind jetzt klar erkennbar.
+* ACP-Controller:
+  * Die Elemente der PullDown-Menüs werden jetzt im Controller als Arrays erzeugt und in Template-Variablen geschrieben.
+  * Aktuelle Techniken von EMP übernommen.
+* Core:
+  * Allgemeine Funktionen sind jetzt in separater Core Datei, wie bei meinen anderen Erweiterungen.
+* Sprachdateien:
+  * 1 Sprachvariable angepasst für die Sicherheitsfrage.
+  * Übersetzer Infos stehen jetzt in separater Sprachdatei, wie das auch bei meinen anderen Erweiterungen der Fall ist.
+  * 2 Sprachvariablen angepasst, bei denen ein veralteter Link auf die PHP Funktion `date()` verwies. Es wird jetzt direkt auf die Seite mit den Format-Strings verlinkt. [Vorschlag Kirk (phpBB.de)]
+* PHP Max-Version auf 8.3 erhöht:
+  * `composer.json` angepasst.
+  * `ext.php` angepasst.
 
-#### 2.1.5
+### 2.1.5
 * Release (2023-02-12)
 
 #### 2.1.5-b3

@@ -1,3 +1,22 @@
+### 2.1.6
+(2024-01- / CDB: 2024--)
+
+* Die Sicherheitsfrage für den Rekord-Reset wird nicht mehr per JS Funktion `confirm()` erzeugt, sondern mit dem neuen Twig Makro `confirmbox()` generiert und direkt unterhalb des Schalters angezeigt.
+* Die Absenden-Buttons werden nicht mehr nach jeder Optionsgruppe, sondern nur noch nach jeder zweiten Gruppe generiert.
+* Aktuelle Programmier-Techniken von EMP übernommen.
+* JS:
+  * Die Klasse `LukeWCSphpBBConfirmBox` eingefügt, mit der die neue `confirmbox()` gesteuert wird.
+  * Code modernisiert.
+* CSS:
+  * Code für die Animation der Toggles vom Recent Topics Fork übernommen.
+  * Links innerhalb der Beschreibungen sind jetzt klar als solche erkennbar.
+* Sprachdateien:
+  * Übersetzer Infos stehen jetzt in separater Sprachdatei, wie das auch bei meinen anderen Erweiterungen der Fall ist.
+  * 2 Sprachvariablen angepasst, bei denen ein veralteter Link auf die PHP Funktion `date()` verwies. Es wird jetzt direkt auf die Seite mit den Format-Strings verlinkt. [Vorschlag Kirk (phpBB.de)]
+  * Weitere Änderungen.
+* PHP Max-Version auf 8.3 erhöht.
+* Diese Erweiterung ist jetzt kompatibel mit Toggle Control. Somit können Administratoren zentral an einer Stelle entscheiden, ob für Ja/Nein Schalter Radio Buttons, Checkboxen oder Toggles verwendet werden sollen.
+
 ### 2.1.5
 (2023-02-12 / CDB: 2023-04-10)
 

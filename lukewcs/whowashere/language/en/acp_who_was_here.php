@@ -82,7 +82,7 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_TIME_BOTS'				=> 'Show time of bots',
 	'LFWWH_DISP_TIME_EXP'				=> '(All user see it or none, no special function for Admins.)',
 	'LFWWH_DISP_TIME_FORMAT'			=> 'Time format',
-	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>. Special placeholder: $1 = “%1$s”, $2 = “%2$s”, $3 = “%3$s”.',
+	'LFWWH_DISP_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP <a href="https://www.php.net/manual/datetime.format.php">date format</a>. Special placeholder: $1 = “%1$s”, $2 = “%2$s”, $3 = “%3$s”.',
 	'LFWWH_DISP_TIME_FORMAT_DEMO'		=> 'Current display: %s',
 	'LFWWH_DISP_IP'						=> 'Show user IP',
 	'LFWWH_DISP_IP_EXP'					=> '(Just for the users with administrative permissions, as with “Who is online”.)',
@@ -107,7 +107,7 @@ $lang = array_merge($lang, [
 	'LFWWH_RECORD'						=> 'Visitor record',
 	'LFWWH_RECORD_EXP'					=> 'Show and update the visitor record.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Date format for the visitor record',
-	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP function <a href="http://www.php.net/date">date()</a>.',
+	'LFWWH_RECORD_TIME_FORMAT_EXP'		=> 'The format corresponds to the syntax of the PHP <a href="https://www.php.net/manual/datetime.format.php">date format</a>.',
 	'LFWWH_TEMPLATE_POS'				=> 'Position of the display',
 	'LFWWH_TEMPLATE_POS_EXP'			=> 'Determines where to place the WWH display in the Online/Statistic section. “Top” is the position above this section and “Bottom” is the position below.',
 	'LFWWH_TEMPLATE_POS_TOP'			=> 'Top',
@@ -148,6 +148,6 @@ $lang = array_merge($lang, [
 
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
-	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Who was here: As soon as you save the page with the settings, the visitor record will be reset.',
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'As soon as you save the page with the settings, the visitor record will be reset.',
 	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Note: The language pack for the extension <strong>%1$s</strong> is no longer up-to-date. (installed: %2$s / needed: %3$s)',
 ]);

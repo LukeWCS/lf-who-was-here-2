@@ -9,19 +9,15 @@
 *
 #}
 
+{% set switch_type = TOGGLECTRL_TYPE ?? 'toggle' %}
+
 {% INCLUDE 'overall_header.html' %}
 <a id="maincontent"></a>
 
 <h1>{{ lang('LFWWH_CONFIG_TITLE') }}</h1>
-<p>{{ lang('LFWWH_CONFIG_DESC', LFWWH_EXT_NAME) }}</p>
+<p>{{ lang('LFWWH_CONFIG_DESC', LFWWH_METADATA.EXT_NAME) }}</p>
 
-{% if LFWWH_NOTES|length %}
-	<div class="errorbox notice">
-		{% for note in LFWWH_NOTES %}
-			<p>{{ note }}</p>
-		{% endfor %}
-	</div>
-{% endif %}
+{{ _self.notes(LFWWH_NOTES) }}
 
 <form id="lfwwh_form" method="post" action="{{ U_ACTION }}">
 	<fieldset>
@@ -32,7 +28,7 @@
 				<span>{{ lang('LFWWH_ADMIN_MODE_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_admin_mode', LFWWH_ADMIN_MODE) }}
+				{{ _self.switch('lfwwh_admin_mode', LFWWH_ADMIN_MODE, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_use_permissions">
@@ -41,7 +37,7 @@
 				<span>{{ lang('LFWWH_USE_PERMISSIONS_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_use_permissions', LFWWH_USE_PERMISSIONS) }}
+				{{ _self.switch('lfwwh_use_permissions', LFWWH_USE_PERMISSIONS, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_perm_for_guests">
@@ -50,12 +46,7 @@
 				<span>{{ lang('LFWWH_PERM_FOR_GUESTS_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_perm_for_guests">
-					<option value="3"{{ LFWWH_PERM_FOR_GUESTS == 3 ? ' selected' }}>{{ lang('LFWWH_PERM_STATS_USERS') }}</option>
-					<option value="2"{{ LFWWH_PERM_FOR_GUESTS == 2 ? ' selected' }}>{{ lang('LFWWH_PERM_USERS') }}</option>
-					<option value="1"{{ LFWWH_PERM_FOR_GUESTS == 1 ? ' selected' }}>{{ lang('LFWWH_PERM_STATS') }}</option>
-					<option value="0"{{ LFWWH_PERM_FOR_GUESTS == 0 ? ' selected' }}>{{ lang('LFWWH_PERM_NOTHING') }}</option>
-				</select>
+				{{ _self.select('lfwwh_perm_for_guests', LFWWH_PERM_FOR_GUESTS, LFWWH_PERM_FOR_GUESTS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_perm_for_bots">
@@ -64,12 +55,7 @@
 				<span>{{ lang('LFWWH_PERM_FOR_BOTS_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_perm_for_bots">
-					<option value="3"{{ LFWWH_PERM_FOR_BOTS == 3 ? ' selected' }}>{{ lang('LFWWH_PERM_STATS_USERS') }}</option>
-					<option value="2"{{ LFWWH_PERM_FOR_BOTS == 2 ? ' selected' }}>{{ lang('LFWWH_PERM_USERS') }}</option>
-					<option value="1"{{ LFWWH_PERM_FOR_BOTS == 1 ? ' selected' }}>{{ lang('LFWWH_PERM_STATS') }}</option>
-					<option value="0"{{ LFWWH_PERM_FOR_BOTS == 0 ? ' selected' }}>{{ lang('LFWWH_PERM_NOTHING') }}</option>
-				</select>
+				{{ _self.select('lfwwh_perm_for_bots', LFWWH_PERM_FOR_BOTS, LFWWH_PERM_FOR_BOTS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_perm_bots_only_admin">
@@ -78,12 +64,10 @@
 				<span>{{ lang('LFWWH_PERM_BOTS_ONLY_ADMIN_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_perm_bots_only_admin', LFWWH_PERM_BOTS_ONLY_ADMIN) }}
+				{{ _self.switch('lfwwh_perm_bots_only_admin', LFWWH_PERM_BOTS_ONLY_ADMIN, switch_type) }}
 			</dd>
 		</dl>
 	</fieldset>
-
-{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_DISP_1') }}</legend>
@@ -93,7 +77,7 @@
 				<span>{{ lang('LFWWH_DISP_REG_USERS_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_disp_reg_users', LFWWH_DISP_REG_USERS) }}
+				{{ _self.switch('lfwwh_disp_reg_users', LFWWH_DISP_REG_USERS, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_hidden">
@@ -102,7 +86,7 @@
 				<span>{{ lang('LFWWH_DISP_HIDDEN_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_disp_hidden', LFWWH_DISP_HIDDEN) }}
+				{{ _self.switch('lfwwh_disp_hidden', LFWWH_DISP_HIDDEN, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_bots">
@@ -111,11 +95,7 @@
 				<span>{{ lang('LFWWH_DISP_BOTS_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_disp_bots">
-					<option value="2"{{ LFWWH_DISP_BOTS == 2 ? ' selected' }}>{{ lang('LFWWH_DISP_BOTS_OWN_LINE') }}</option>
-					<option value="1"{{ LFWWH_DISP_BOTS == 1 ? ' selected' }}>{{ lang('LFWWH_DISP_BOTS_WITH_USERS') }}</option>
-					<option value="0"{{ LFWWH_DISP_BOTS == 0 ? ' selected' }}>{{ lang('LFWWH_DISP_BOTS_DISABLED') }}</option>
-				</select>
+				{{ _self.select('lfwwh_disp_bots', LFWWH_DISP_BOTS, LFWWH_DISP_BOTS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_guests">
@@ -124,7 +104,7 @@
 				<span>{{ lang('LFWWH_DISP_GUESTS_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_disp_guests', LFWWH_DISP_GUESTS) }}
+				{{ _self.switch('lfwwh_disp_guests', LFWWH_DISP_GUESTS, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time_users">
@@ -133,11 +113,7 @@
 				<span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_disp_time_users">
-					<option value="2"{{ LFWWH_DISP_TIME_USERS == 2 ? ' selected' }}>{{ lang('LFWWH_DISP_AS_TOOLTIP') }}</option>
-					<option value="1"{{ LFWWH_DISP_TIME_USERS == 1 ? ' selected' }}>{{ lang('LFWWH_DISP_BEHIND_NAME') }}</option>
-					<option value="0"{{ LFWWH_DISP_TIME_USERS == 0 ? ' selected' }}>{{ lang('LFWWH_DISP_DISABLED') }}</option>
-				</select>
+				{{ _self.select('lfwwh_disp_time_users', LFWWH_DISP_TIME_USERS, LFWWH_DISP_TIME_USERS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time_bots">
@@ -146,11 +122,7 @@
 				<span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_disp_time_bots">
-					<option value="2"{{ LFWWH_DISP_TIME_BOTS == 2 ? ' selected' }}>{{ lang('LFWWH_DISP_AS_TOOLTIP') }}</option>
-					<option value="1"{{ LFWWH_DISP_TIME_BOTS == 1 ? ' selected' }}>{{ lang('LFWWH_DISP_BEHIND_NAME') }}</option>
-					<option value="0"{{ LFWWH_DISP_TIME_BOTS == 0 ? ' selected' }}>{{ lang('LFWWH_DISP_DISABLED') }}</option>
-				</select>
+				{{ _self.select('lfwwh_disp_time_bots', LFWWH_DISP_TIME_BOTS, LFWWH_DISP_TIME_BOTS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_disp_time_format">
@@ -159,7 +131,7 @@
 				<span>{{ lang('LFWWH_DISP_TIME_FORMAT_EXP', lang('LFWWH_LAST1'), lang('LFWWH_LAST2'), lang('LFWWH_LAST3')) }}</span>
 			</dt>
 			<dd>
-				<input type="text" name="lfwwh_disp_time_format" size="12" value="{{ LFWWH_DISP_TIME_FORMAT }}">
+				{{ _self.text('lfwwh_disp_time_format', LFWWH_DISP_TIME_FORMAT, 12) }}
 				{{ LFWWH_DISP_TIME_FORMAT_DEMO }}
 			</dd>
 		</dl>
@@ -169,11 +141,7 @@
 				<span>{{ lang('LFWWH_DISP_IP_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_disp_ip">
-					<option value="2"{{ LFWWH_DISP_IP == 2 ? ' selected' }}>{{ lang('LFWWH_DISP_AS_TOOLTIP') }}</option>
-					<option value="1"{{ LFWWH_DISP_IP == 1 ? ' selected' }}>{{ lang('LFWWH_DISP_BEHIND_NAME') }}</option>
-					<option value="0"{{ LFWWH_DISP_IP == 0 ? ' selected' }}>{{ lang('LFWWH_DISP_DISABLED') }}</option>
-				</select>
+				{{ _self.select('lfwwh_disp_ip', LFWWH_DISP_IP, LFWWH_DISP_IP_OPTIONS) }}
 			</dd>
 		</dl>
 	</fieldset>
@@ -188,10 +156,7 @@
 				<span>{{ lang('LFWWH_TIME_MODE_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_time_mode">
-					<option value="1"{{ LFWWH_TIME_MODE == 1 ? ' selected' }}>{{ lang('LFWWH_TIME_MODE_TODAY') }}</option>
-					<option value="0"{{ LFWWH_TIME_MODE == 0 ? ' selected' }}>{{ lang('LFWWH_TIME_MODE_PERIOD') }}</option>
-				</select>
+				{{ _self.select('lfwwh_time_mode', LFWWH_TIME_MODE, LFWWH_TIME_MODE_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_period_of_time">
@@ -199,15 +164,15 @@
 				<label>{{ lang('LFWWH_TIME_MODE_PERIOD') ~ lang('COLON') }}</label>
 			</dt>
 			<dd>
-				<input type="number" name="lfwwh_period_of_time_h" value="{{ LFWWH_PERIOD_OF_TIME_H }}" min="0" max="99999">
+				{{ _self.number('lfwwh_period_of_time_h', LFWWH_PERIOD_OF_TIME_H, 0, 99999) }}
 				{{ lang('HOURS') }}
 			</dd>
 			<dd>
-				<input type="number" name="lfwwh_period_of_time_m" value="{{ LFWWH_PERIOD_OF_TIME_M }}" min="0" max="99999">
+				{{ _self.number('lfwwh_period_of_time_m', LFWWH_PERIOD_OF_TIME_M, 0, 99999) }}
 				{{ lang('MINUTES') }}
 			</dd>
 			<dd>
-				<input type="number" name="lfwwh_period_of_time_s" value="{{ LFWWH_PERIOD_OF_TIME_S }}" min="0" max="99999">
+				{{ _self.number('lfwwh_period_of_time_s', LFWWH_PERIOD_OF_TIME_S, 0, 99999) }}
 				{{ lang('SECONDS') }}
 			</dd>
 		</dl>
@@ -217,14 +182,7 @@
 				<span>{{ lang('LFWWH_SORT_BY_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_sort_by">
-					<option value="0"{{ LFWWH_SORT_BY == 0 ? ' selected' }}>{{ lang('LFWWH_SORT_BY_NAME_AZ') }}</option>
-					<option value="1"{{ LFWWH_SORT_BY == 1 ? ' selected' }}>{{ lang('LFWWH_SORT_BY_NAME_ZA') }}</option>
-					<option value="2"{{ LFWWH_SORT_BY == 2 ? ' selected' }}>{{ lang('LFWWH_SORT_BY_VISIT_ASC') }}</option>
-					<option value="3"{{ LFWWH_SORT_BY == 3 ? ' selected' }}>{{ lang('LFWWH_SORT_BY_VISIT_DESC') }}</option>
-					<option value="4"{{ LFWWH_SORT_BY == 4 ? ' selected' }}>{{ lang('LFWWH_SORT_BY_ID_ASC') }}</option>
-					<option value="5"{{ LFWWH_SORT_BY == 5 ? ' selected' }}>{{ lang('LFWWH_SORT_BY_ID_DESC') }}</option>
-				</select>
+				{{ _self.select('lfwwh_sort_by', LFWWH_SORT_BY, LFWWH_SORT_BY_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_record">
@@ -233,7 +191,7 @@
 				<span>{{ lang('LFWWH_RECORD_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_record', LFWWH_RECORD) }}
+				{{ _self.switch('lfwwh_record', LFWWH_RECORD, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_record_time_format">
@@ -252,16 +210,10 @@
 				<span>{{ lang('LFWWH_TEMPLATE_POS_EXP') }}</span>
 			</dt>
 			<dd>
-				<select name="lfwwh_template_pos">
-					<option value="0"{{ LFWWH_TEMPLATE_POS == 0 ? ' selected' }}>{{ lang('LFWWH_TEMPLATE_POS_TOP') }}</option>
-					<option value="2"{{ LFWWH_TEMPLATE_POS == 2 ? ' selected' }}>{{ lang('LFWWH_TEMPLATE_POS_BEFORE_BDAYS') }}</option>
-					<option value="1"{{ LFWWH_TEMPLATE_POS == 1 ? ' selected' }}>{{ lang('LFWWH_TEMPLATE_POS_BOTTOM') }}</option>
-				</select>
+				{{ _self.select('lfwwh_template_pos', LFWWH_TEMPLATE_POS, LFWWH_TEMPLATE_POS_OPTIONS) }}
 			</dd>
 		</dl>
 	</fieldset>
-
-{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_OTHERS') }}</legend>
@@ -271,7 +223,7 @@
 				<span>{{ lang('LFWWH_API_MODE_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_api_mode', LFWWH_API_MODE) }}
+				{{ _self.switch('lfwwh_api_mode', LFWWH_API_MODE, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_clear_up">
@@ -280,7 +232,7 @@
 				<span>{{ lang('LFWWH_CLEAR_UP_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_clear_up', LFWWH_CLEAR_UP) }}
+				{{ _self.switch('lfwwh_clear_up', LFWWH_CLEAR_UP, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_template_pos_all">
@@ -289,7 +241,7 @@
 				<span>{{ lang('LFWWH_TEMPLATE_POS_ALL_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_template_pos_all', LFWWH_TEMPLATE_POS_ALL) }}
+				{{ _self.switch('lfwwh_template_pos_all', LFWWH_TEMPLATE_POS_ALL, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_create_hidden_info">
@@ -298,7 +250,7 @@
 				<span>{{ lang('LFWWH_CREATE_HIDDEN_INFO_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_create_hidden_info', LFWWH_CREATE_HIDDEN_INFO) }}
+				{{ _self.switch('lfwwh_create_hidden_info', LFWWH_CREATE_HIDDEN_INFO, switch_type) }}
 			</dd>
 		</dl>
 	</fieldset>
@@ -313,7 +265,7 @@
 				<span>{{ lang('LFWWH_USE_CACHE_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_use_cache', LFWWH_USE_CACHE) }}
+				{{ _self.switch('lfwwh_use_cache', LFWWH_USE_CACHE, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_use_online_time">
@@ -322,7 +274,7 @@
 				<span>{{ lang('LFWWH_USE_ONLINE_TIME_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_use_online_time', LFWWH_USE_ONLINE_TIME) }}
+				{{ _self.switch('lfwwh_use_online_time', LFWWH_USE_ONLINE_TIME, switch_type) }}
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_cache_time">
@@ -331,12 +283,11 @@
 				<span>{{ lang('LFWWH_CACHE_TIME_EXP') }}</span>
 			</dt>
 			<dd>
-				<input type="number" name="lfwwh_cache_time" value="{{ LFWWH_CACHE_TIME }}" min="1" max="{{ LFWWH_CACHE_TIME_MAX }}"> {{ lang('MINUTES') }}
+				{{ _self.number('lfwwh_cache_time', LFWWH_CACHE_TIME, 1, LFWWH_CACHE_TIME_MAX) }}
+				{{ lang('MINUTES') }}
 			</dd>
 		</dl>
 	</fieldset>
-
-{{ _self.form_buttons() }}
 
 	<fieldset>
 		<legend>{{ lang('LFWWH_SECTION_RESET') }}</legend>
@@ -355,8 +306,9 @@
 				<span>{{ lang('LFWWH_RECORD_RESET_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.switch('lfwwh_record_reset') }}
+				{{ _self.switch('lfwwh_record_reset', false, switch_type) }}
 				{{ LFWWH_RECORD_RESET_TIME }}
+				{{ _self.confirmbox('lfwwh_record_reset', lang('LFWWH_MSG_CONFIRM_RECORD_RESET')) }}
 			</dd>
 		</dl>
 	</fieldset>
@@ -366,27 +318,20 @@
 {{ S_FORM_TOKEN }}
 </form>
 
-<p class="lfwwh_copyright">
-	{{ LFWWH_EXT_NAME }} v{{ LFWWH_EXT_VER }} &copy; LukeWCS<br>
-	{{ lang('LFWWH_LANG_DESC') }} v{{ lang('LFWWH_LANG_EXT_VER') }} &bull; {{ lang('LFWWH_LANG_AUTHOR') }}
-</p>
+{{ _self.footer(LFWWH_METADATA) }}
 
 <script>
 	var lfwwhACP = {
 		tpl: {
 			CacheTimeMax: {{ LFWWH_CACHE_TIME_MAX }}
 		},
-		lang: {
-			MsgConfirmRecordReset: "{{ LFWWH_EXT_NAME|e('js') }} ({{ LFWWH_EXT_VER|e('js') }})\n\n{{ lang('LFWWH_MSG_CONFIRM_RECORD_RESET')|e('js') }}"
-		}
 	};
 </script>
 
 {% INCLUDE 'overall_footer.html' %}
 
-{% INCLUDEJS '@lukewcs_whowashere/acp_who_was_here.js' %}
-{% INCLUDECSS '@lukewcs_whowashere/acp_who_was_here.css' %}
-{% INCLUDECSS '@lukewcs_whowashere/acp_toggle.css' %}
+{% INCLUDEJS '@lukewcs_whowashere/acp_who_was_here_settings.js' %}
+{% INCLUDECSS '@lukewcs_whowashere/acp_who_was_here_settings.css' %}
 
 {% macro form_buttons() %}
 	<fieldset>
@@ -397,7 +342,7 @@
 			</div>
 			<div class="lfwwh_col_center">
 				<input class="button1" type="submit" name="submit" value="{{ lang('LFWWH_BUTTON_SAVE_PAGE') }}">&nbsp;
-				<input class="button2" type="button" name="form_reset" value="{{ lang('RESET') }}">
+				<input class="button2" type="reset" name="form_reset" value="{{ lang('RESET') }}">
 			</div>
 			<div class="lfwwh_col_right">
 				<a href="#maincontent" title="{{ lang('BACK_TO_TOP') }}" class="lfwwh_back_to_top">{{ _self.icon('fa-chevron-circle-up', false) }}</a>
@@ -406,10 +351,59 @@
 	</fieldset>
 {% endmacro %}
 
+{% macro notes(notes) %}
+	{% if notes|length %}
+		<div class="successbox notice">
+			{% for note in notes %}
+				<p>{{ note }}</p>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endmacro %}
+
 {% macro icon(classes, decorative = true) -%}
-	<span class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' : '' }}></span>
+	<i class="icon {{ classes }}"{{ decorative ? ' aria-hidden="true"' }}></i>
 {%- endmacro %}
 
-{% macro switch(name, checked = false) -%}
-	<input type="checkbox" class="toggle" name="{{ name }}" value="1"{{ checked ? ' checked' }}>
+{% macro footer(metadata) %}
+	<p class="{{ metadata.CLASS  }}">
+		{{ metadata.EXT_NAME }} {{ metadata.EXT_VER }} &copy; LukeWCS<br>
+		{{ metadata.LANG_DESC|e('html') }} {{ metadata.LANG_VER|e('html') }} &bull; {{ metadata.LANG_AUTHOR|e('html') }}
+	</p>
+{% endmacro %}
+
+{% macro switch(name, checked = false, type = 'toggle') -%}
+	{% if type == 'toggle' || type == 'checkbox' -%}
+		<input type="checkbox"{{ type == 'toggle' ? ' class="toggle"' }} name="{{ name }}" value="1"{{ checked ? ' checked' }}>
+	{%- elseif type == 'radio' -%}
+		<label><input type="radio" class="radio" name="{{ name }}" value="1"{{ checked ? ' checked' }}> {{ lang('YES') }}</label>
+		<label><input type="radio" class="radio" name="{{ name }}" value="0"{{ !checked ? ' checked' }}> {{ lang('NO') }}</label>
+	{%- endif %}
+{%- endmacro %}
+
+{% macro select(name, value, options) -%}
+	<select name="{{ name }}">
+		{% for opt_lang_var, opt_value in options %}
+			<option value="{{ opt_value }}"{{ opt_value == value ? ' selected' }}>{{ lang(opt_lang_var) }}</option>
+		{% endfor %}
+	</select>
+{%- endmacro %}
+
+{% macro number(name, value, min, max, step = 1, placeholder = '') -%}
+	<input type="number" name="{{ name }}" value="{{ value }}" min="{{ min }}" max="{{ max }}" step="{{ step }}"{{ placeholder ? ' placeholder="' ~ placeholder ~ '"' }}>
+{%- endmacro %}
+
+{% macro text(name, value, size = 10, placeholder = '', pattern = '') -%}
+	<input type="text" name="{{ name }}" value="{{ value }}" size="{{ size }}"{{ placeholder ? ' placeholder="' ~ placeholder ~ '"' }}{{ pattern ? ' pattern="' ~ pattern ~ '"' }}>
+{%- endmacro %}
+
+{% macro confirmbox(name, message, default = false) -%}
+	<div id="{{ name }}_confirmbox" data-default="{{ default }}" style="display: none;">
+		<h2>{{ lang('CONFIRM') }}</h2>
+		<p>{{ message }}</p>
+		<p>
+			<input type="button" class="button1" name="{{ name }}_confirm_yes" value="{{ lang('YES') }}">&nbsp;
+			<input type="button" class="button2" name="{{ name }}_confirm_no" value="{{ lang('NO') }}">
+		</p>
+	</div>
 {%- endmacro %}

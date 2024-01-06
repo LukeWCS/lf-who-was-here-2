@@ -1,10 +1,4 @@
 services:
-    lukewcs.whowashere.listener:
-        class: lukewcs\whowashere\event\listener
-        arguments:
-            - '@lukewcs.whowashere.core'
-        tags:
-            - { name: event.listener }
     lukewcs.whowashere.core:
         class: lukewcs\whowashere\core\who_was_here
         arguments:
@@ -18,9 +12,22 @@ services:
             - '%core.table_prefix%'
             - '%core.php_ext%'
             - '@language'
+    lukewcs.whowashere.core.common:
+        class: lukewcs\whowashere\core\who_was_here_common
+        arguments:
+            - '@language'
+            - '@template'
+            - '@ext.manager' 
+    lukewcs.whowashere.listener:
+        class: lukewcs\whowashere\event\listener
+        arguments:
+            - '@lukewcs.whowashere.core'
+        tags:
+            - { name: event.listener }
     lukewcs.whowashere.controller.acp:
         class: lukewcs\whowashere\controller\acp_who_was_here_controller
         arguments:
+            - '@lukewcs.whowashere.core.common'
             - '@language'
             - '@template'
             - '@request'
