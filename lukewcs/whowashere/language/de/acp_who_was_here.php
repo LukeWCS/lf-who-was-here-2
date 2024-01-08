@@ -39,11 +39,6 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 //
 $lang = array_merge($lang, [
-	// language pack author
-	'LFWWH_LANG_DESC'					=> 'Deutsch (Du)',
-	'LFWWH_LANG_EXT_VER' 				=> '2.1.3',
-	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
-
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Wer war da?',
 	'LFWWH_CONFIG_DESC' 				=> 'Hier kannst du die Einstellungen für die Erweiterung <strong>%s</strong> ändern.',
@@ -149,5 +144,4 @@ $lang = array_merge($lang, [
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt.',
-	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Hinweis: Das Sprachpaket der Erweiterung <strong>%1$s</strong> ist nicht mehr aktuell. (vorhanden: %2$s / benötigt: %3$s)',
 ]);

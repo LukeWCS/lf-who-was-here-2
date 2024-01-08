@@ -13,40 +13,18 @@
 
 'use strict';
 
-
-// var lfwwhIndex = {
-	// isShowInfo: {
-		// 'users' : false,
-		// 'bots' : false
-	// },
-	// ShowHide: function (e) {
-		'use strict';
-
-		// lfwwhIndex.isShowInfo[e.data.ButtonType] = !lfwwhIndex.isShowInfo[e.data.ButtonType];
-		// $('.lfwwh_info_' + e.data.ButtonType.slice(0, 1)).css('display', (lfwwhIndex.isShowInfo[e.data.ButtonType] ? '' : 'none'));
-		// $('.lfwwh_button_' + e.data.ButtonType).css('opacity', (lfwwhIndex.isShowInfo[e.data.ButtonType] ? '1.0' : '0.5'));
-	// }
-// };
-
-let lfwwhIndex = {
-	isShowInfo: {
-		'users' : false,
-		'bots' : false
-	},
+let isShowInfo = {
+	'users':	false,
+	'bots':		false
 };
 
 function ShowHide(e) {
-	// 'use strict';
-
-	lfwwhIndex.isShowInfo[e.data.ButtonType] = !lfwwhIndex.isShowInfo[e.data.ButtonType];
-	// $('.lfwwh_info_' + e.data.ButtonType.slice(0, 1)).css('display', (lfwwhIndex.isShowInfo[e.data.ButtonType] ? '' : 'none'));
-	$('.lfwwh_info_' + e.data.ButtonType.slice(0, 1)).toggle(lfwwhIndex.isShowInfo[e.data.ButtonType]);
-	$('.lfwwh_button_' + e.data.ButtonType).css('opacity', (lfwwhIndex.isShowInfo[e.data.ButtonType] ? '1.0' : '0.5'));
+	isShowInfo[e.data.ButtonType] = !isShowInfo[e.data.ButtonType];
+	$('.lfwwh_info_' + e.data.ButtonType.slice(0, 1)).toggle(isShowInfo[e.data.ButtonType]);
+	$('.lfwwh_button_' + e.data.ButtonType).css('opacity', (isShowInfo[e.data.ButtonType] ? '1.0' : '0.5'));
 }
 
 $(window).ready(function() {
-	// 'use strict';
-
 	$('.lfwwh_button_users'	).on('click', {ButtonType: 'users'}	, ShowHide);
 	$('.lfwwh_button_bots'	).on('click', {ButtonType: 'bots'}	, ShowHide);
 });

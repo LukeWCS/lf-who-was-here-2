@@ -39,11 +39,6 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 //
 $lang = array_merge($lang, [
-	// language pack author
-	'LFWWH_LANG_DESC'					=> 'English',
-	'LFWWH_LANG_EXT_VER' 				=> '2.1.3',
-	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
-
 	// config head
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here?',
 	'LFWWH_CONFIG_DESC' 				=> 'Here you can change the settings for the <strong>%s</strong> extension.',
@@ -149,5 +144,4 @@ $lang = array_merge($lang, [
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
 	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'As soon as you save the page with the settings, the visitor record will be reset.',
-	'LFWWH_MSG_LANGUAGEPACK_OUTDATED'	=> 'Note: The language pack for the extension <strong>%1$s</strong> is no longer up-to-date. (installed: %2$s / needed: %3$s)',
 ]);

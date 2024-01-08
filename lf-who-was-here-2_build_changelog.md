@@ -1,3 +1,10 @@
+### 2.1.6
+* Release (2024-01-08)
+* JS:
+  * Code bereinigt.
+* Sprachdateien:
+  * Variablen der Übersetzer-Infos entfernt, die jetzt in separater Datei enthalten sind.
+
 #### 2.1.6-b1
 * ACP-Template:
   * HTML für PullDown Menüs (`<select`) durch das Twig Makro `select()` ersetzt.
@@ -24,7 +31,7 @@
   * Allgemeine Funktionen sind jetzt in separater Core Datei, wie bei meinen anderen Erweiterungen.
 * Sprachdateien:
   * 1 Sprachvariable angepasst für die Sicherheitsfrage.
-  * Übersetzer Infos stehen jetzt in separater Sprachdatei, wie das auch bei meinen anderen Erweiterungen der Fall ist.
+  * Übersetzer-Infos stehen jetzt in separater Sprachdatei, wie das auch bei meinen anderen Erweiterungen der Fall ist.
   * 2 Sprachvariablen angepasst, bei denen ein veralteter Link auf die PHP Funktion `date()` verwies. Es wird jetzt direkt auf die Seite mit den Format-Strings verlinkt. [Vorschlag Kirk (phpBB.de)]
 * PHP Max-Version auf 8.3 erhöht:
   * `composer.json` angepasst.
