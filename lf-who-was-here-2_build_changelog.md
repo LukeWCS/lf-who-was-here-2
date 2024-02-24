@@ -3,9 +3,9 @@
   * Für die WWH Anzeige 2 neue Rechte für Besucherrekord und Bots hinzugefügt.
   * Etliche Änderungen bezüglich der neuen Rechte und Schalter. Unter anderem mussten die Rechte für Statistik und Benutzerliste aufgeteilt werden.
   * Das einfache Rechtesystem vorläufig deaktiviert, da zuerst die phpBB Rechte Vorrang haben.
-  * Es wird eine neue Template-Variable generiert, damit die Abfragen in den Templates von WWH und den WWH-kompatiblen Exts einfach gestaltet werden können.
-  * Die phpBB Rechte werden nicht mehr im Tab "Verschiedenes" eingehängt, sondern in einem neuen eigenen Tab "Wer war da (2x.)".
-  * Wenn im Kontext die separate Bot-Liste (in einer eigenen Zeile) angezeigt werden dürfen und keine Bots im Zeitraum im Forum waren, wird trotzdem die Zeile für die Bots angezeigt, mit dem Text "0 Bots". Damit verhält sich diese Anzeige jetzt identisch zu der User-Liste.
+  * Es wird eine neue Template-Variable generiert, damit die Abfragen in den Templates von WWH und den WWH-kompatiblen Exts einfacher gestaltet werden können.
+  * Die phpBB Rechte werden nicht mehr im Tab "Profil" eingehängt, sondern in einem neuen eigenen Tab "Wer war da (2x.)".
+  * Wenn im Kontext die separate Bot-Liste (in einer eigenen Zeile) angezeigt werden darf, aber keine Bots im Zeitraum im Forum waren, wird trotzdem die Zeile für die Bots angezeigt, mit dem Text "0 Bots". Damit verhält sich diese Anzeige jetzt identisch zu der User-Liste.
 * ACP-Template:
   * Einfaches Rechtesystem von WWH:
     * Die beiden PullDown-Menüs entfernt.
