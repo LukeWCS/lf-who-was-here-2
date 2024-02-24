@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Shows a visitor statistic of the current day or a freely selectable period. It lists both visitors and bots, as well as numbers on visible members, invisible members, bots and guests. In addition, the extension offers a visitor record and is extensively adjustable.",
     "homepage": "https://www.phpbb.com/customise/db/extension/lf_who_was_here_2/",
-    "version": "2.1.6",
-    "time": "2024-01-08",
+    "version": "2.2.0-b1",
+    "time": "2024-02-24",
     "license": "GPL-2.0-only",
     "authors": [
         {
@@ -29,7 +29,7 @@
     },
     "extra": {
         "display-name": "LF who was here 2",
-        "lang-min-ver": "2.1.6",
+        "lang-min-ver": "2.2.0",
         "soft-require": {
             "phpbb/phpbb": ">=3.2.10,<3.4.0@dev"
         },

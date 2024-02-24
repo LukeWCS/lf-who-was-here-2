@@ -1,4 +1,5 @@
-{% if (LFWWH_TOTAL || LFWWH_USERS) && !LFWWH_API_MODE && LFWWH_POS b-and 1 %}
+{#% if (LFWWH_STATS || LFWWH_RECORD || LFWWH_USERS || LFWWH_BOTS) && !LFWWH_API_MODE && LFWWH_POS b-and 1 %#}
+{% if LFWWH_SHOW && !LFWWH_API_MODE && LFWWH_POS b-and 1 %}
 	{% if LFWWH_POS == 7 %}
 		{% set lfwwh_pos_hint = lang('LFWWH_TEMPLATE_POS_TOP') %}
 	{% endif %}

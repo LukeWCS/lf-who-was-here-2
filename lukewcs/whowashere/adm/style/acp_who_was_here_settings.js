@@ -15,7 +15,7 @@
 
 class LukeWCSphpBBConfirmBox {
 /*
-* phpBB ConfirmBox class for checkboxes and yes/no radio buttons - v1.4.2
+* phpBB ConfirmBox class for checkboxes and yes/no radio buttons - v1.4.3
 * @copyright (c) 2023, LukeWCS, https://www.wcsaga.org
 * @license GNU General Public License, version 2 (GPL-2.0-only)
 */
@@ -47,15 +47,15 @@ class LukeWCSphpBBConfirmBox {
 		const elementName		= e.target.name.replace(/_confirm_.*/, '');
 		const $elementObject	= $('input[name="' + elementName + '"]');
 		const $confirmBoxObject	= $('div[id="' + elementName + '_confirmbox"]');
+		const elementType		= $elementObject.attr('type');
 
 		if (e.target.name.endsWith('_confirm_no')) {
-			if ($elementObject.attr('type') == 'checkbox') {
+			if (elementType == 'checkbox') {
 				$elementObject.prop('checked', $confirmBoxObject.attr('data-default'));
-			} else if ($elementObject.attr('type') == 'radio') {
+			} else if (elementType == 'radio') {
 				$elementObject.filter('[value="' + ($confirmBoxObject.attr('data-default') ? '1' : '0') + '"]').prop('checked', true);
 			}
 		}
-
 		this.#changeBoxState($elementObject, $confirmBoxObject, null);
 	}
 
@@ -75,10 +75,10 @@ class LukeWCSphpBBConfirmBox {
 }
 
 const constants = Object.freeze({
-	PermNothing		: 0,
-	PermStats		: 1,
-	PermUsers		: 2,
-	PermStatsUsers	: 3,
+	// PermNothing		: 0,
+	// PermStats		: 1,
+	// PermUsers		: 2,
+	// PermStatsUsers	: 3,
 
 	BotsDisabled	: 0,
 	BotsWithUsers	: 1,
@@ -114,11 +114,11 @@ function setState() {
 	dimOptionGroup('lfwwh_use_permissions',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 	);
-	dimOptionGroup('lfwwh_perm_for_guests',
+	dimOptionGroup('lfwwh_perm_for_guests_stats',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 		|| $('[name="lfwwh_use_permissions"]').prop('checked')
 	);
-	dimOptionGroup('lfwwh_perm_for_bots',
+	dimOptionGroup('lfwwh_perm_for_bots_stats',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 		|| $('[name="lfwwh_use_permissions"]').prop('checked')
 	);
@@ -179,9 +179,20 @@ function setDefaults() {
 	// LFWWH_SECTION_PERMISSIONS
 	setSwitch('input[name="lfwwh_admin_mode"]',							false);
 	setSwitch('input[name="lfwwh_use_permissions"]',					false);
-	$(        'select[name="lfwwh_perm_for_guests"]').prop('value',		c.PermStats);
-	$(        'select[name="lfwwh_perm_for_bots"]').prop('value',		c.PermNothing);
-	setSwitch('input[name="lfwwh_perm_bots_only_admin"]',				false);
+
+	// $(        'select[name="lfwwh_perm_for_guests"]').prop('value',		c.PermStats);
+	setSwitch('input[name="lfwwh_perm_for_guests_stats"]',				true);
+	setSwitch('input[name="lfwwh_perm_for_guests_record"]',				true);
+	setSwitch('input[name="lfwwh_perm_for_guests_users"]',				false);
+	setSwitch('input[name="lfwwh_perm_for_guests_bots"]',				false);
+
+	// $(        'select[name="lfwwh_perm_for_bots"]').prop('value',		c.PermNothing);
+	setSwitch('input[name="lfwwh_perm_for_bots_stats"]',				false);
+	setSwitch('input[name="lfwwh_perm_for_bots_record"]',				false);
+	setSwitch('input[name="lfwwh_perm_for_bots_users"]',				false);
+	setSwitch('input[name="lfwwh_perm_for_bots_bots"]',					false);
+
+	// setSwitch('input[name="lfwwh_perm_bots_only_admin"]',				false);
 	// LFWWH_SECTION_DISP_1
 	setSwitch('input[name="lfwwh_disp_reg_users"]',						true);
 	setSwitch('input[name="lfwwh_disp_hidden"]',						true);

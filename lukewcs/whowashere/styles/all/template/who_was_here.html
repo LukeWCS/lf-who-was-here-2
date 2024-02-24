@@ -4,6 +4,8 @@
 		{% if lfwwh_pos_hint %}
 			<span class="lfwwh_pos_hint">{{ lang('LFWWH_TEMPLATE_POS') ~ lang('COLON') ~ ' ' ~ lfwwh_pos_hint }}</span><br>
 		{% endif %}
+
+{#
 		{% if LFWWH_TOTAL %}
 			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br>
 			{% if LFWWH_RECORD %}
@@ -11,9 +13,22 @@
 			{% endif %}
 			{{ LFWWH_USERS ? '<br>' }}
 		{% endif %}
+#}
+
+		{% if LFWWH_STATS %}
+			{{ LFWWH_STATS }} ({{ LFWWH_EXP }})<br>
+		{% endif %}
+
+		{% if LFWWH_RECORD %}
+			{{ LFWWH_RECORD }}<br>
+		{% endif %}
+
+		{{ (LFWWH_STATS || LFWWH_RECORD) && (LFWWH_USERS || LFWWH_BOTS) ? '<br>' }}
+
 		{% if LFWWH_USERS %}
 			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{ LFWWH_USERS_SHOW_BUTTON ? _self.lfwwh_info_button('users', LFWWH_USERS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_USERS }}<br>
 		{% endif %}
+
 		{% if LFWWH_BOTS %}
 			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.lfwwh_info_button('bots', LFWWH_BOTS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_BOTS }}<br>
 		{% endif %}

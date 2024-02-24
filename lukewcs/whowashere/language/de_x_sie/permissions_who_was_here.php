@@ -39,6 +39,13 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 //
 $lang = array_merge($lang, [
-	'ACL_U_LFWWH_SHOW_STATS'	=> 'Wer war da (2.x): Kann Statistik sehen',
-	'ACL_U_LFWWH_SHOW_USERS'	=> 'Wer war da (2.x): Kann Mitglieder sehen',
+	// 'ACL_U_LFWWH_SHOW_STATS'	=> 'Wer war da (2.x): Kann Statistik sehen',
+	// 'ACL_U_LFWWH_SHOW_RECORD'	=> 'Wer war da (2.x): Kann Besucherrekord sehen',
+	// 'ACL_U_LFWWH_SHOW_USERS'	=> 'Wer war da (2.x): Kann Mitglieder sehen',
+	// 'ACL_U_LFWWH_SHOW_BOTS'		=> 'Wer war da (2.x): Kann Bots sehen',
+	'ACL_CAT_LFWWH'				=> 'Wer war da (2.x)',
+	'ACL_U_LFWWH_SHOW_STATS'	=> 'Kann Statistik sehen',
+	'ACL_U_LFWWH_SHOW_RECORD'	=> 'Kann Besucherrekord sehen',
+	'ACL_U_LFWWH_SHOW_USERS'	=> 'Kann Mitglieder sehen',
+	'ACL_U_LFWWH_SHOW_BOTS'		=> 'Kann Bots sehen',
 ]);

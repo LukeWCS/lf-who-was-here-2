@@ -46,7 +46,11 @@
 				<span>{{ lang('LFWWH_PERM_FOR_GUESTS_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_perm_for_guests', LFWWH_PERM_FOR_GUESTS, LFWWH_PERM_FOR_GUESTS_OPTIONS) }}
+				<!-- {{ _self.select('lfwwh_perm_for_guests', LFWWH_PERM_FOR_GUESTS, LFWWH_PERM_FOR_GUESTS_OPTIONS) }}<br> -->
+				{{ _self.switch('lfwwh_perm_for_guests_stats'	, LFWWH_PERM_FOR_GUESTS b-and 1, switch_type) }} {{ lang('LFWWH_PERM_STATS') }}<br>
+				{{ _self.switch('lfwwh_perm_for_guests_record'	, LFWWH_PERM_FOR_GUESTS b-and 2, switch_type) }} {{ lang('LFWWH_PERM_RECORD') }}<br>
+				{{ _self.switch('lfwwh_perm_for_guests_users'	, LFWWH_PERM_FOR_GUESTS b-and 4, switch_type) }} {{ lang('LFWWH_PERM_USERS') }}<br>
+				{{ _self.switch('lfwwh_perm_for_guests_bots'	, LFWWH_PERM_FOR_GUESTS b-and 8, switch_type) }} {{ lang('LFWWH_PERM_BOTS') }}<br>
 			</dd>
 		</dl>
 		<dl id="lfwwh_opt_perm_for_bots">
@@ -55,18 +59,22 @@
 				<span>{{ lang('LFWWH_PERM_FOR_BOTS_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_perm_for_bots', LFWWH_PERM_FOR_BOTS, LFWWH_PERM_FOR_BOTS_OPTIONS) }}
+				<!-- {{ _self.select('lfwwh_perm_for_bots', LFWWH_PERM_FOR_BOTS, LFWWH_PERM_FOR_BOTS_OPTIONS) }}<br> -->
+				{{ _self.switch('lfwwh_perm_for_bots_stats'		, LFWWH_PERM_FOR_BOTS b-and 1, switch_type) }} {{ lang('LFWWH_PERM_STATS') }}<br>
+				{{ _self.switch('lfwwh_perm_for_bots_record'	, LFWWH_PERM_FOR_BOTS b-and 2, switch_type) }} {{ lang('LFWWH_PERM_RECORD') }}<br>
+				{{ _self.switch('lfwwh_perm_for_bots_users'		, LFWWH_PERM_FOR_BOTS b-and 4, switch_type) }} {{ lang('LFWWH_PERM_USERS') }}<br>
+				{{ _self.switch('lfwwh_perm_for_bots_bots'		, LFWWH_PERM_FOR_BOTS b-and 8, switch_type) }} {{ lang('LFWWH_PERM_BOTS') }}<br>
 			</dd>
 		</dl>
-		<dl id="lfwwh_opt_perm_bots_only_admin">
-			<dt>
-				<label>{{ lang('LFWWH_PERM_BOTS_ONLY_ADMIN') ~ lang('COLON') }}</label><br>
-				<span>{{ lang('LFWWH_PERM_BOTS_ONLY_ADMIN_EXP') }}</span>
-			</dt>
-			<dd>
-				{{ _self.switch('lfwwh_perm_bots_only_admin', LFWWH_PERM_BOTS_ONLY_ADMIN, switch_type) }}
-			</dd>
-		</dl>
+		<!-- <dl id="lfwwh_opt_perm_bots_only_admin"> -->
+			<!-- <dt> -->
+				<!-- <label>{{ lang('LFWWH_PERM_BOTS_ONLY_ADMIN') ~ lang('COLON') }}</label><br> -->
+				<!-- <span>{{ lang('LFWWH_PERM_BOTS_ONLY_ADMIN_EXP') }}</span> -->
+			<!-- </dt> -->
+			<!-- <dd> -->
+				<!-- {{ _self.switch('lfwwh_perm_bots_only_admin', LFWWH_PERM_BOTS_ONLY_ADMIN, switch_type) }} -->
+			<!-- </dd> -->
+		<!-- </dl> -->
 	</fieldset>
 
 	<fieldset>

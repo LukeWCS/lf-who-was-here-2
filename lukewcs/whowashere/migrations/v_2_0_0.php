@@ -70,32 +70,32 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 
 		if ($this->role_exists('ROLE_USER_STANDARD'))
 		{
-			$data[] = ['permission.permission_set', ['ROLE_USER_STANDARD'		, 'u_lfwwh_show_stats', 'role']];
-			$data[] = ['permission.permission_set', ['ROLE_USER_STANDARD'		, 'u_lfwwh_show_users', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_STANDARD'	, 'u_lfwwh_show_stats', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_STANDARD'	, 'u_lfwwh_show_users', 'role']];
 		}
 		if ($this->role_exists('ROLE_USER_LIMITED'))
 		{
-			$data[] = ['permission.permission_set', ['ROLE_USER_LIMITED'		, 'u_lfwwh_show_stats', 'role']];
-			$data[] = ['permission.permission_set', ['ROLE_USER_LIMITED'		, 'u_lfwwh_show_users', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_LIMITED'	, 'u_lfwwh_show_stats', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_LIMITED'	, 'u_lfwwh_show_users', 'role']];
 		}
 		if ($this->role_exists('ROLE_USER_FULL'))
 		{
-			$data[] = ['permission.permission_set', ['ROLE_USER_FULL'			, 'u_lfwwh_show_stats', 'role']];
-			$data[] = ['permission.permission_set', ['ROLE_USER_FULL'			, 'u_lfwwh_show_users', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_FULL'		, 'u_lfwwh_show_stats', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_FULL'		, 'u_lfwwh_show_users', 'role']];
 		}
 		if ($this->role_exists('ROLE_USER_NOPM'))
 		{
-			$data[] = ['permission.permission_set', ['ROLE_USER_NOPM'			, 'u_lfwwh_show_stats', 'role']];
-			$data[] = ['permission.permission_set', ['ROLE_USER_NOPM'			, 'u_lfwwh_show_users', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_NOPM'		, 'u_lfwwh_show_stats', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_NOPM'		, 'u_lfwwh_show_users', 'role']];
 		}
 		if ($this->role_exists('ROLE_USER_NOAVATAR'))
 		{
-			$data[] = ['permission.permission_set', ['ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_stats', 'role']];
-			$data[] = ['permission.permission_set', ['ROLE_USER_NOAVATAR'		, 'u_lfwwh_show_users', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_NOAVATAR'	, 'u_lfwwh_show_stats', 'role']];
+			$data[] = ['permission.permission_set', ['ROLE_USER_NOAVATAR'	, 'u_lfwwh_show_users', 'role']];
 		}
 		if ($this->role_exists('ROLE_USER_NEW_MEMBER'))
 		{
-			$data[] = ['permission.permission_set', ['ROLE_USER_NEW_MEMBER'		, 'u_lfwwh_show_users', 'role', false]];
+			$data[] = ['permission.permission_set', ['ROLE_USER_NEW_MEMBER'	, 'u_lfwwh_show_users', 'role', false]];
 		}
 
 		$data[] = ['custom', [[$this, 'import_wwh_table']]];

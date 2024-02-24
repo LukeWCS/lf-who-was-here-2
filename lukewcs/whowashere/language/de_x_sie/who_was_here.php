@@ -46,13 +46,15 @@ $lang = array_merge($lang, [
 	'LFWWH_USERS_PREFIX'		=> 'Mitglieder',
 	'LFWWH_BOTS_PREFIX'			=> 'Bots',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Zeige ausgeblendete Informationen',
-	'LFWWH_TOTAL' => [
+	'LFWWH_STATS' => [
 		0						=> 'Insgesamt waren <strong>0</strong> Besucher online',
 		1						=> 'Insgesamt war <strong>%d</strong> Besucher online',
 		2						=> 'Insgesamt waren <strong>%d</strong> Besucher online',
 	],
-	'LFWWH_TOTAL_SEPARATOR'		=> ' ::',
+	'LFWWH_STATS_SEPARATOR'		=> ' ::',
 	'LFWWH_NO_USERS'			=> '0 Mitglieder',
+	'LFWWH_NO_BOTS'				=> '0 Bots',
+	'LFWWH_NO_USERS_OR_BOTS'	=> '0 Mitglieder/Bots',
 	'LFWWH_REG_USERS' => [
 		0						=> '0 sichtbare Mitglieder',
 		1						=> '%d sichtbares Mitglied',

@@ -14,10 +14,15 @@ namespace lukewcs\whowashere\core;
 
 class who_was_here
 {
-	const PERM_NOTHING			= 0;
+	// const PERM_NOTHING			= 0;
+	// const PERM_STATS			= 1;
+	// const PERM_USERS			= 2;
+	// const PERM_STATS_USERS		= 3;
+
 	const PERM_STATS			= 1;
-	const PERM_USERS			= 2;
-	const PERM_STATS_USERS		= 3;
+	const PERM_RECORD			= 2;
+	const PERM_USERS			= 4;
+	const PERM_BOTS				= 8;
 
 	const BOTS_DISABLED			= 0;
 	const BOTS_WITH_USERS		= 1;
@@ -95,7 +100,7 @@ class who_was_here
 		'lfwwh_period_of_time_h'		(int)
 		'lfwwh_period_of_time_m'		(int)
 		'lfwwh_period_of_time_s'		(int)
-		'lfwwh_perm_bots_only_admin'	(bool)
+'lfwwh_perm_bots_only_admin'	(bool)
 		'lfwwh_perm_for_bots'			(int)
 		'lfwwh_perm_for_guests'			(int)
 		'lfwwh_record'					(bool)
@@ -241,54 +246,70 @@ class who_was_here
 		// Set display permission variables
 		if ($this->config['lfwwh_admin_mode'])
 		{
-			$wwh_disp_permission_total = $this->auth->acl_get('a_');
+			$wwh_disp_permission_stats = $this->auth->acl_get('a_');
+			$wwh_disp_permission_record = $this->auth->acl_get('a_');
 			$wwh_disp_permission_users = $this->auth->acl_get('a_');
+			$wwh_disp_permission_bots = $this->auth->acl_get('a_');
 		}
 		else
 		{
 			if ($this->config['lfwwh_use_permissions']) // use phpBB permissions
 			{
-				$wwh_disp_permission_total = $this->auth->acl_gets('u_lfwwh_show_stats');
+				$wwh_disp_permission_stats = $this->auth->acl_gets('u_lfwwh_show_stats');
+				$wwh_disp_permission_record = $this->auth->acl_gets('u_lfwwh_show_record');
 				$wwh_disp_permission_users = $this->auth->acl_gets('u_lfwwh_show_users');
+				$wwh_disp_permission_bots = $this->auth->acl_gets('u_lfwwh_show_bots');
 			}
 			else // use simple permissions
 			{
 				if ($this->user->data['user_id'] != ANONYMOUS && empty($this->user->data['is_bot'])) // user
 				{
-					$wwh_disp_permission_total = true;
+					$wwh_disp_permission_stats = true;
+					$wwh_disp_permission_record = true;
 					$wwh_disp_permission_users = true;
+					$wwh_disp_permission_bots = true;
 				}
 				else if (!empty($this->user->data['is_bot'])) // bot
 				{
-					$wwh_disp_permission_total = (
-						$this->config['lfwwh_perm_for_bots'] == self::PERM_STATS
-						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
-					);
-					$wwh_disp_permission_users = (
-						$this->config['lfwwh_perm_for_bots'] == self::PERM_USERS
-						|| $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
-					);
+					// $wwh_disp_permission_stats = (
+						// $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS
+						// || $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
+					// );
+					// $wwh_disp_permission_users = (
+						// $this->config['lfwwh_perm_for_bots'] == self::PERM_USERS
+						// || $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
+					// );
 				}
 				else // guest
 				{
-					$wwh_disp_permission_total = (
-						$this->config['lfwwh_perm_for_guests'] == self::PERM_STATS
-						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
-					);
-					$wwh_disp_permission_users = (
-						$this->config['lfwwh_perm_for_guests'] == self::PERM_USERS
-						|| $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
-					);
+					// $wwh_disp_permission_stats = (
+						// $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS
+						// || $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
+					// );
+					// $wwh_disp_permission_users = (
+						// $this->config['lfwwh_perm_for_guests'] == self::PERM_USERS
+						// || $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
+					// );
 				}
+// var_dump($this->config['lfwwh_perm_for_guests']);
+// var_dump($this->config['lfwwh_perm_for_bots']);
+// var_dump($wwh_disp_permission_stats);
+// var_dump($wwh_disp_permission_record);
+// var_dump($wwh_disp_permission_users);
+// var_dump($wwh_disp_permission_bots);
+$wwh_disp_permission_stats = false;
+$wwh_disp_permission_record = false;
+$wwh_disp_permission_users = false;
+$wwh_disp_permission_bots = false;
 			}
 		}
-		$wwh_disp_permission_bots = (
-			(
-				$this->config['lfwwh_perm_bots_only_admin']
-				&& $this->auth->acl_get('a_')
-			)
-			|| $this->config['lfwwh_perm_bots_only_admin'] == 0
-		);
+		// $wwh_disp_permission_bots = (
+			// (
+				// $this->config['lfwwh_perm_bots_only_admin']
+				// && $this->auth->acl_get('a_')
+			// )
+			// || $this->config['lfwwh_perm_bots_only_admin'] == 0
+		// );
 		$wwh_disp_permission_ip = (
 			$this->config['lfwwh_disp_ip']
 			&& $this->auth->acl_get('a_')
@@ -452,9 +473,13 @@ class who_was_here
 				}
 			}
 
-			if ($row['viewonline'] || ($user_type == USER_IGNORE))
+			if ($row['viewonline'] || $user_type == USER_IGNORE)
 			{
-				if (($row['user_id'] != ANONYMOUS) && ($this->config['lfwwh_disp_bots'] && $wwh_disp_permission_bots || ($user_type != USER_IGNORE)))
+				// if (($row['user_id'] != ANONYMOUS) && ($this->config['lfwwh_disp_bots'] && $wwh_disp_permission_bots || ($user_type != USER_IGNORE)))
+				if ($row['user_id'] != ANONYMOUS && (
+					($wwh_disp_permission_bots && $this->config['lfwwh_disp_bots'] && $user_type == USER_IGNORE)
+					|| ($wwh_disp_permission_users && $user_type != USER_IGNORE))
+				)
 				{
 					if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE && $user_type == USER_IGNORE)
 					{
@@ -494,15 +519,31 @@ class who_was_here
 			$count['count_total']++;
 		}
 
-		$users_list = utf8_substr($users_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
 		if ($users_list == '')
 		{
-			// User list is empty.
-			$users_list = $this->language->lang('LFWWH_NO_USERS');
+			if ($this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS)
+			{
+				$users_list = $this->language->lang('LFWWH_NO_USERS_OR_BOTS');
+			}
+			else
+			{
+				$users_list = $this->language->lang('LFWWH_NO_USERS');
+			}
+		}
+		else
+		{
+			$users_list = utf8_substr($users_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
 		}
 		if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE)
 		{
-			$bots_list = utf8_substr($bots_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
+			if ($bots_list == '')
+			{
+				$bots_list = $this->language->lang('LFWWH_NO_BOTS');
+			}
+			else
+			{
+				$bots_list = utf8_substr($bots_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
+			}
 		}
 		if (!$this->config['lfwwh_disp_hidden'])
 		{
@@ -526,16 +567,25 @@ class who_was_here
 		{
 			$show_button_users = $show_button_bots = 0;
 		}
+
 		$this->template->assign_vars([
-			'LFWWH_TOTAL'				=> $wwh_disp_permission_total ? $this->get_total_users_string($count) : '',
-			'LFWWH_EXP'					=> $wwh_disp_permission_total ? $this->get_explanation_string((int) $this->config['lfwwh_time_mode']) : '',
-			'LFWWH_RECORD'				=> $wwh_disp_permission_total ? $this->get_record_string((bool) $this->config['lfwwh_record'], (int) $this->config['lfwwh_time_mode']) : '',
-			'LFWWH_USERS'				=> $wwh_disp_permission_users ? $users_list : '',
+			'LFWWH_STATS'				=> $wwh_disp_permission_stats ? $this->get_total_users_string($count) : '',
+			'LFWWH_EXP'					=> $wwh_disp_permission_stats ? $this->get_explanation_string((int) $this->config['lfwwh_time_mode']) : '',
+			// 'LFWWH_RECORD'				=> $wwh_disp_permission_stats ? $this->get_record_string((bool) $this->config['lfwwh_record'], (int) $this->config['lfwwh_time_mode']) : '',
+			'LFWWH_RECORD'				=> $wwh_disp_permission_record ? $this->get_record_string((bool) $this->config['lfwwh_record'], (int) $this->config['lfwwh_time_mode']) : '',
+			'LFWWH_USERS'				=> $wwh_disp_permission_users || ($wwh_disp_permission_bots && $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? $users_list : '',
+			'LFWWH_BOTS'				=> $wwh_disp_permission_bots ? $bots_list : '',
 			'LFWWH_USERS_SHOW_BUTTON'	=> $show_button_users,
-			'LFWWH_BOTS'				=> $wwh_disp_permission_users && $bots_list ? $bots_list : '',
+			// 'LFWWH_BOTS'				=> $wwh_disp_permission_users && $bots_list ? $bots_list : '',
 			'LFWWH_BOTS_SHOW_BUTTON'	=> $show_button_bots,
 			'LFWWH_POS'					=> $this->config['lfwwh_template_pos_all'] ? 7 : 2 ** $this->config['lfwwh_template_pos'],
 			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'] || $force_api_mode,
+			'LFWWH_SHOW'				=> (
+				$wwh_disp_permission_stats
+				|| $wwh_disp_permission_record
+				|| $wwh_disp_permission_users
+				|| $wwh_disp_permission_bots
+			),
 		]);
 	}
 
@@ -613,15 +663,25 @@ class who_was_here
 	public function add_permissions($event): void
 	{
 		$permissions = $event['permissions'];
-		$lang_show_users = $this->language->lang('ACL_U_LFWWH_SHOW_USERS'); // needs phpBB >=3.2.10
-		$lang_show_stats = $this->language->lang('ACL_U_LFWWH_SHOW_STATS'); // needs phpBB >=3.2.10
+		$categories = $event['categories'];
+		$categories['lfwwh'] = 'ACL_CAT_LFWWH';
+		// needs phpBB >=3.2.10
+		$lang_show_stats	= $this->language->lang('ACL_U_LFWWH_SHOW_STATS');
+		$lang_show_record	= $this->language->lang('ACL_U_LFWWH_SHOW_RECORD');
+		$lang_show_users	= $this->language->lang('ACL_U_LFWWH_SHOW_USERS');
+		$lang_show_bots		= $this->language->lang('ACL_U_LFWWH_SHOW_BOTS');
 		if (!$this->config['lfwwh_use_permissions'] || $this->config['lfwwh_admin_mode'])
 		{
-			$lang_show_users = '<span style="opacity: 0.5;">' . $lang_show_users . '</span>';
-			$lang_show_stats = '<span style="opacity: 0.5;">' . $lang_show_stats . '</span>';
+			$lang_show_stats	= '<span style="opacity: 0.5;">' . $lang_show_stats . '</span>';
+			$lang_show_record	= '<span style="opacity: 0.5;">' . $lang_show_record . '</span>';
+			$lang_show_users	= '<span style="opacity: 0.5;">' . $lang_show_users . '</span>';
+			$lang_show_bots		= '<span style="opacity: 0.5;">' . $lang_show_bots . '</span>';
 		}
-		$permissions['u_lfwwh_show_users'] = ['lang' => $lang_show_users, 'cat' => 'profile'];
-		$permissions['u_lfwwh_show_stats'] = ['lang' => $lang_show_stats, 'cat' => 'profile'];
+		$permissions['u_lfwwh_show_stats']	= ['lang' => $lang_show_stats	, 'cat' => 'lfwwh'];
+		$permissions['u_lfwwh_show_record']	= ['lang' => $lang_show_record	, 'cat' => 'lfwwh'];
+		$permissions['u_lfwwh_show_users']	= ['lang' => $lang_show_users	, 'cat' => 'lfwwh'];
+		$permissions['u_lfwwh_show_bots']	= ['lang' => $lang_show_bots	, 'cat' => 'lfwwh'];
+		$event['categories'] = $categories;
 		$event['permissions'] = $permissions;
 	}
 
@@ -766,7 +826,7 @@ class who_was_here
 	*/
 	private function get_total_users_string(array $count): string
 	{
-		$total_users_string = $this->language->lang('LFWWH_TOTAL', $count['count_total']);
+		$total_users_string = $this->language->lang('LFWWH_STATS', $count['count_total']);
 		if ($this->config['lfwwh_disp_reg_users'])
 		{
 			$total_users_string .= '%s ' . $this->language->lang('LFWWH_REG_USERS', $count['count_reg']);
@@ -787,13 +847,13 @@ class who_was_here
 		switch (substr_count($total_users_string, '%s'))
 		{
 			case 4:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_TOTAL_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
+				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
 			case 3:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_TOTAL_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
+				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
 			case 2:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_TOTAL_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
+				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
 			case 1:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_TOTAL_SEPARATOR'));
+				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'));
 			default:
 				return $total_users_string;
 		}

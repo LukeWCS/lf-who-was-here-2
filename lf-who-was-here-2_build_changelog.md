@@ -1,3 +1,36 @@
+#### 2.2.0-b1
+* Core:
+  * Für die WWH Anzeige 2 neue Rechte für Besucherrekord und Bots hinzugefügt.
+  * Etliche Änderungen bezüglich der neuen Rechte und Schalter. Unter anderem mussten die Rechte für Statistik und Benutzerliste aufgeteilt werden.
+  * Das einfache Rechtesystem vorläufig deaktiviert, da zuerst die phpBB Rechte Vorrang haben.
+  * Es wird eine neue Template-Variable generiert, damit die Abfragen in den Templates von WWH und den WWH-kompatiblen Exts einfach gestaltet werden können.
+  * Die phpBB Rechte werden nicht mehr im Tab "Verschiedenes" eingehängt, sondern in einem neuen eigenen Tab "Wer war da (2x.)".
+  * Wenn im Kontext die separate Bot-Liste (in einer eigenen Zeile) angezeigt werden dürfen und keine Bots im Zeitraum im Forum waren, wird trotzdem die Zeile für die Bots angezeigt, mit dem Text "0 Bots". Damit verhält sich diese Anzeige jetzt identisch zu der User-Liste.
+* ACP-Template:
+  * Einfaches Rechtesystem von WWH:
+    * Die beiden PullDown-Menüs entfernt.
+	* Den Schalter "Zeige die Bot-Namen nur bei administrativen Rechten" entfernt, dieser wird durch das neue Bot Recht ersetzt.
+    * 8 neue Schalter hinzugefügt
+* ACP-Controller:
+  * Code für die bisherigen PullDown-Menüs deaktiviert.
+* Event-Templates:
+  * An die neue Template-Variable angepasst.
+* WWH-Template:
+  * Statistik aufgeteilt in Statistik und Rekord.
+* JS:
+  * Die Klasse `LukeWCSphpBBConfirmBox` auf 1.4.3 aktualisiert.
+  * An die Template Änderungen angepasst.
+  * Default Funktion an die 8 neuen Schalter angepasst.
+* Migration:
+  * Die neuen Rechte werden hinzugefügt.
+  * Die Standard Benutzer-Rollen werden angepasst.
+  * Config Variable `lfwwh_perm_bots_only_admin` wird entfernt.
+* Sprachpakete:
+  * Bei den deutschen Sprachdateien das Kürzel WWH auf WWD geändert.
+  * 4 Variablen entfernt.
+  * 2 Variablen umbenannt.
+  * 7 Variablen hinzugefügt.
+
 ### 2.1.6
 * Release (2024-01-08)
 * JS:
