@@ -49,18 +49,16 @@ $lang = array_merge($lang, [
 	'LFWWH_ADMIN_MODE_EXP'				=> 'Dieser Modus setzt alle Berechtigungssysteme außer Kraft und nur Benutzer mit administrativen Rechten können die WWD-Anzeige sehen. Hilfreich wenn WWD kurzfristig für andere nicht sichtbar sein soll.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Benutze das Berechtigungssystem von phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Ermöglicht es, für jede Benutzergruppe getrennt festlegen zu können, welchen Umfang die Anzeige haben soll. Die Rechte können wie folgt angepasst werden: „BERECHTIGUNGEN » Gruppenrechte » [Benutzergruppe] » Benutzer-Berechtigungen » Erweiterte Berechtigungen » Wer war da (2.x)“.',
+	'LFWWH_SECTION_SIMPLE_PERMISSIONS'	=> 'Vereinfachtes Berechtigungssystem',
+	'LFWWH_SIMPLE_PERMISSIONS_EXP'		=> 'Damit kann bei Gästen und Bots festgelegt werden, was diese von der WWD-Anzeige sehen dürfen. Alle anderen Gruppen sehen die WWD-Anzeige immer vollständig. Wenn differenziertere Berechtigungen benötigt werden, muss das phpBB Berechtigungssystem aktiviert werden.',
 	'LFWWH_PERM_FOR_GUESTS'				=> 'Anzeige für Gäste',
 	'LFWWH_PERM_FOR_GUESTS_EXP'			=> 'Legt fest, was Gäste sehen können. Wenn alle Schalter deaktiviert sind, wird die WWD-Anzeige für Gäste komplett ausgeschaltet.',
 	'LFWWH_PERM_FOR_BOTS'				=> 'Anzeige für Bots',
 	'LFWWH_PERM_FOR_BOTS_EXP'			=> 'Legt fest, was Bots sehen können. Wenn alle Schalter deaktiviert sind, wird die WWD-Anzeige für Bots komplett ausgeschaltet.',
-	// 'LFWWH_PERM_STATS_USERS'			=> 'Statistik und Mitglieder',
 	'LFWWH_PERM_STATS'					=> 'Statistik',
 	'LFWWH_PERM_RECORD'					=> 'Besucherrekord',
 	'LFWWH_PERM_USERS'					=> 'Mitglieder',
 	'LFWWH_PERM_BOTS'					=> 'Bots',
-	// 'LFWWH_PERM_NOTHING'				=> 'Nichts',
-	// 'LFWWH_PERM_BOTS_ONLY_ADMIN'		=> 'Zeige die Bot-Namen nur bei administrativen Rechten',
-	// 'LFWWH_PERM_BOTS_ONLY_ADMIN_EXP'	=> 'Nur Benutzer mit administrativen Rechten können die Namen der Bots sehen. Die Anzahl der Bots wird weiterhin allen angezeigt.',
 
 	// config section 2
 	'LFWWH_SECTION_DISP_1'				=> 'Anzeige Einstellungen 1',
@@ -145,5 +143,5 @@ $lang = array_merge($lang, [
 
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Wer war da: Einstellungen erfolgreich gespeichert.',
-	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt.',
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'Sobald du die Seite mit den Einstellungen speicherst, wird der Besucherrekord zurückgesetzt. Bist du sicher?',
 ]);

@@ -8,6 +8,21 @@
 
 /* SETTINGS */
 
+legend.legend_sub {
+	border: 0;
+	margin: 1em 0;
+	padding: 0;
+	display: flex;
+	white-space: nowrap;
+}
+
+legend.legend_sub:after {
+	content: "";
+	border-bottom: 1px solid #CCCCCC;
+	width: 100%;
+	margin: 0 0 .5em 1em;
+}
+
 input[type=button][name*="lfwwh_"],
 .lfwwh_form_buttons input[type=submit],
 .lfwwh_form_buttons input[type=reset],

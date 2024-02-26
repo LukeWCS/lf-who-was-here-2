@@ -5,16 +5,6 @@
 			<span class="lfwwh_pos_hint">{{ lang('LFWWH_TEMPLATE_POS') ~ lang('COLON') ~ ' ' ~ lfwwh_pos_hint }}</span><br>
 		{% endif %}
 
-{#
-		{% if LFWWH_TOTAL %}
-			{{ LFWWH_TOTAL }} ({{ LFWWH_EXP }})<br>
-			{% if LFWWH_RECORD %}
-				{{ LFWWH_RECORD }}<br>
-			{% endif %}
-			{{ LFWWH_USERS ? '<br>' }}
-		{% endif %}
-#}
-
 		{% if LFWWH_STATS %}
 			{{ LFWWH_STATS }} ({{ LFWWH_EXP }})<br>
 		{% endif %}

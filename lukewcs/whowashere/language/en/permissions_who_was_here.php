@@ -39,10 +39,6 @@ if (empty($lang) || !is_array($lang))
 // ’ « » “ ” … „ “
 //
 $lang = array_merge($lang, [
-	// 'ACL_U_LFWWH_SHOW_STATS'	=> 'Who was here (2.x): Can view statistics',
-	// 'ACL_U_LFWWH_SHOW_RECORD'	=> 'Who was here (2.x): Can view visitor record',
-	// 'ACL_U_LFWWH_SHOW_USERS'	=> 'Who was here (2.x): Can view members',
-	// 'ACL_U_LFWWH_SHOW_BOTS'		=> 'Who was here (2.x): Can view bots',
 	'ACL_CAT_LFWWH'				=> 'Who was here (2.x)',
 	'ACL_U_LFWWH_SHOW_STATS'	=> 'Can view statistics',
 	'ACL_U_LFWWH_SHOW_RECORD'	=> 'Can view visitor record',

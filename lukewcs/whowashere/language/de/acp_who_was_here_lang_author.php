@@ -41,7 +41,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, [
 	// language pack author
 	'LFWWH_LANG_DESC'					=> 'Deutsch (Du)',
-	'LFWWH_LANG_VER' 					=> '2.1.6',
+	'LFWWH_LANG_VER' 					=> '2.2.0',
 	'LFWWH_LANG_AUTHOR' 				=> 'LukeWCS',
 
 	// messages

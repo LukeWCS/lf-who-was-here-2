@@ -14,11 +14,6 @@ namespace lukewcs\whowashere\core;
 
 class who_was_here
 {
-	// const PERM_NOTHING			= 0;
-	// const PERM_STATS			= 1;
-	// const PERM_USERS			= 2;
-	// const PERM_STATS_USERS		= 3;
-
 	const PERM_STATS			= 1;
 	const PERM_RECORD			= 2;
 	const PERM_USERS			= 4;
@@ -100,7 +95,6 @@ class who_was_here
 		'lfwwh_period_of_time_h'		(int)
 		'lfwwh_period_of_time_m'		(int)
 		'lfwwh_period_of_time_s'		(int)
-'lfwwh_perm_bots_only_admin'	(bool)
 		'lfwwh_perm_for_bots'			(int)
 		'lfwwh_perm_for_guests'			(int)
 		'lfwwh_record'					(bool)
@@ -246,70 +240,45 @@ class who_was_here
 		// Set display permission variables
 		if ($this->config['lfwwh_admin_mode'])
 		{
-			$wwh_disp_permission_stats = $this->auth->acl_get('a_');
-			$wwh_disp_permission_record = $this->auth->acl_get('a_');
-			$wwh_disp_permission_users = $this->auth->acl_get('a_');
-			$wwh_disp_permission_bots = $this->auth->acl_get('a_');
+			$wwh_disp_permission_stats	= $this->auth->acl_get('a_');
+			$wwh_disp_permission_record	= $this->auth->acl_get('a_');
+			$wwh_disp_permission_users	= $this->auth->acl_get('a_');
+			$wwh_disp_permission_bots	= $this->auth->acl_get('a_');
 		}
 		else
 		{
 			if ($this->config['lfwwh_use_permissions']) // use phpBB permissions
 			{
-				$wwh_disp_permission_stats = $this->auth->acl_gets('u_lfwwh_show_stats');
-				$wwh_disp_permission_record = $this->auth->acl_gets('u_lfwwh_show_record');
-				$wwh_disp_permission_users = $this->auth->acl_gets('u_lfwwh_show_users');
-				$wwh_disp_permission_bots = $this->auth->acl_gets('u_lfwwh_show_bots');
+				$wwh_disp_permission_stats	= $this->auth->acl_gets('u_lfwwh_show_stats');
+				$wwh_disp_permission_record	= $this->auth->acl_gets('u_lfwwh_show_record');
+				$wwh_disp_permission_users	= $this->auth->acl_gets('u_lfwwh_show_users');
+				$wwh_disp_permission_bots	= $this->auth->acl_gets('u_lfwwh_show_bots');
 			}
 			else // use simple permissions
 			{
-				if ($this->user->data['user_id'] != ANONYMOUS && empty($this->user->data['is_bot'])) // user
+				if ($this->user->data['user_type'] != USER_IGNORE) // user
 				{
-					$wwh_disp_permission_stats = true;
-					$wwh_disp_permission_record = true;
-					$wwh_disp_permission_users = true;
-					$wwh_disp_permission_bots = true;
+					$wwh_disp_permission_stats	= true;
+					$wwh_disp_permission_record	= true;
+					$wwh_disp_permission_users	= true;
+					$wwh_disp_permission_bots	= true;
 				}
 				else if (!empty($this->user->data['is_bot'])) // bot
 				{
-					// $wwh_disp_permission_stats = (
-						// $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS
-						// || $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
-					// );
-					// $wwh_disp_permission_users = (
-						// $this->config['lfwwh_perm_for_bots'] == self::PERM_USERS
-						// || $this->config['lfwwh_perm_for_bots'] == self::PERM_STATS_USERS
-					// );
+					$wwh_disp_permission_stats	= $this->config['lfwwh_perm_for_bots'] & self::PERM_STATS;
+					$wwh_disp_permission_record	= $this->config['lfwwh_perm_for_bots'] & self::PERM_RECORD;
+					$wwh_disp_permission_users	= $this->config['lfwwh_perm_for_bots'] & self::PERM_USERS;
+					$wwh_disp_permission_bots	= $this->config['lfwwh_perm_for_bots'] & self::PERM_BOTS;
 				}
 				else // guest
 				{
-					// $wwh_disp_permission_stats = (
-						// $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS
-						// || $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
-					// );
-					// $wwh_disp_permission_users = (
-						// $this->config['lfwwh_perm_for_guests'] == self::PERM_USERS
-						// || $this->config['lfwwh_perm_for_guests'] == self::PERM_STATS_USERS
-					// );
+					$wwh_disp_permission_stats	= $this->config['lfwwh_perm_for_guests'] & self::PERM_STATS;
+					$wwh_disp_permission_record	= $this->config['lfwwh_perm_for_guests'] & self::PERM_RECORD;
+					$wwh_disp_permission_users	= $this->config['lfwwh_perm_for_guests'] & self::PERM_USERS;
+					$wwh_disp_permission_bots	= $this->config['lfwwh_perm_for_guests'] & self::PERM_BOTS;
 				}
-// var_dump($this->config['lfwwh_perm_for_guests']);
-// var_dump($this->config['lfwwh_perm_for_bots']);
-// var_dump($wwh_disp_permission_stats);
-// var_dump($wwh_disp_permission_record);
-// var_dump($wwh_disp_permission_users);
-// var_dump($wwh_disp_permission_bots);
-$wwh_disp_permission_stats = false;
-$wwh_disp_permission_record = false;
-$wwh_disp_permission_users = false;
-$wwh_disp_permission_bots = false;
 			}
 		}
-		// $wwh_disp_permission_bots = (
-			// (
-				// $this->config['lfwwh_perm_bots_only_admin']
-				// && $this->auth->acl_get('a_')
-			// )
-			// || $this->config['lfwwh_perm_bots_only_admin'] == 0
-		// );
 		$wwh_disp_permission_ip = (
 			$this->config['lfwwh_disp_ip']
 			&& $this->auth->acl_get('a_')
@@ -475,7 +444,6 @@ $wwh_disp_permission_bots = false;
 
 			if ($row['viewonline'] || $user_type == USER_IGNORE)
 			{
-				// if (($row['user_id'] != ANONYMOUS) && ($this->config['lfwwh_disp_bots'] && $wwh_disp_permission_bots || ($user_type != USER_IGNORE)))
 				if ($row['user_id'] != ANONYMOUS && (
 					($wwh_disp_permission_bots && $this->config['lfwwh_disp_bots'] && $user_type == USER_IGNORE)
 					|| ($wwh_disp_permission_users && $user_type != USER_IGNORE))
@@ -571,18 +539,16 @@ $wwh_disp_permission_bots = false;
 		$this->template->assign_vars([
 			'LFWWH_STATS'				=> $wwh_disp_permission_stats ? $this->get_total_users_string($count) : '',
 			'LFWWH_EXP'					=> $wwh_disp_permission_stats ? $this->get_explanation_string((int) $this->config['lfwwh_time_mode']) : '',
-			// 'LFWWH_RECORD'				=> $wwh_disp_permission_stats ? $this->get_record_string((bool) $this->config['lfwwh_record'], (int) $this->config['lfwwh_time_mode']) : '',
 			'LFWWH_RECORD'				=> $wwh_disp_permission_record ? $this->get_record_string((bool) $this->config['lfwwh_record'], (int) $this->config['lfwwh_time_mode']) : '',
 			'LFWWH_USERS'				=> $wwh_disp_permission_users || ($wwh_disp_permission_bots && $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? $users_list : '',
 			'LFWWH_BOTS'				=> $wwh_disp_permission_bots ? $bots_list : '',
 			'LFWWH_USERS_SHOW_BUTTON'	=> $show_button_users,
-			// 'LFWWH_BOTS'				=> $wwh_disp_permission_users && $bots_list ? $bots_list : '',
 			'LFWWH_BOTS_SHOW_BUTTON'	=> $show_button_bots,
 			'LFWWH_POS'					=> $this->config['lfwwh_template_pos_all'] ? 7 : 2 ** $this->config['lfwwh_template_pos'],
 			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'] || $force_api_mode,
 			'LFWWH_SHOW'				=> (
 				$wwh_disp_permission_stats
-				|| $wwh_disp_permission_record
+				|| $wwh_disp_permission_record && $this->config['lfwwh_record']
 				|| $wwh_disp_permission_users
 				|| $wwh_disp_permission_bots
 			),

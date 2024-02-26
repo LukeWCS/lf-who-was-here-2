@@ -1,3 +1,24 @@
+#### 2.2.0-b2
+* Core:
+  * Neuen Code für das einfache Rechtesystem eingefügt und System wieder aktiviert.
+* ACP-Controller:
+  * Neuen Code für die neuen Schalter eingefügt.
+* ACP-Template:
+  * Das einfache Rechtesystem in einen eigenen Abschnitt gesetzt und eine kleine Erklärung hinzugefügt.
+  * Bei 2.1.6 wurde das Abblenden von Optionsgruppen auf eine andere Methode umgestellt, jedoch nicht die dadurch unnötigen IDs im Template entfernt. Das wurde jetzt nachgeholt.
+* JS:
+  * Abblend-Funktion für den neuen Abschnitt angepasst.
+* CSS:
+  * `legend.legend_sub` von EMP übernommen.
+* Code in allen Komponenten bereinigt:
+  * Deaktivierten Code entfernt: PHP, Twig, JS.
+  * Debugs entfernt.
+* Sprachpakete:
+  * 2 Variablen hinzugefügt.
+  * Korrekturen und Änderungen.
+  * Sprachdateien bereinigt.
+  * Finale Version definiert, somit keine Meldung mehr wegen veraltetem Sprachpaket.
+
 #### 2.2.0-b1
 * Core:
   * Für die WWH Anzeige 2 neue Rechte für Besucherrekord und Bots hinzugefügt.
@@ -27,6 +48,7 @@
   * Config Variable `lfwwh_perm_bots_only_admin` wird entfernt.
 * Sprachpakete:
   * Bei den deutschen Sprachdateien das Kürzel WWH auf WWD geändert.
+  * Mehrere Änderungen an etlichen Texten.
   * 4 Variablen entfernt.
   * 2 Variablen umbenannt.
   * 7 Variablen hinzugefügt.
@@ -51,7 +73,8 @@
 	* Funktion für `confirm()` entfernt.
 	* Da Schalter jetzt auch als Radio Buttons dargestellt werden können, musste die Funktion zum Zurücksetzen auf Installationsstandard angepasst werden.
     * Der Formular-Reset ist nicht mehr an einen Button gebunden, sondern wird per Reset-Event überwacht und so `setState` automatisch ausgeführt.
-    * Code modernisiert.
+    * Funktion hinzugefügt, mit der eine Optionsgruppe anhand des Element-Namens abgeblendet werden kann. Somit keine ID im Template mehr notwendig.
+	* Code modernisiert.
   * CSS:
     * Code für `confirmbox()` eingefügt.
 	* Toggle Code in bestehendes ACP CSS integriert und bisherige separate CSS Datei entfernt.

@@ -49,18 +49,16 @@ $lang = array_merge($lang, [
 	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only users with administrative rights can see the WWH display. Helpful if WWH should not be visible to others at short notice.',
 	'LFWWH_USE_PERMISSIONS'				=> 'Use the permission system of phpBB',
 	'LFWWH_USE_PERMISSIONS_EXP'			=> 'Enables you to specify for each user group separately, to what extent the display should be made. The rights can be set as follows: “PERMISSIONS » Group permissions » [user group] » User permissions » Advanced Permissions » Who was here (2.x)”.',
+	'LFWWH_SECTION_SIMPLE_PERMISSIONS'	=> 'Simplified permission system',
+	'LFWWH_SIMPLE_PERMISSIONS_EXP'		=> 'This can be used to specify what guests and bots are allowed to see from the WWD display. All other groups always see the WWH display in full. If more granular permissions are required, the phpBB permission system must be activated.',
 	'LFWWH_PERM_FOR_GUESTS'				=> 'Display for guests',
 	'LFWWH_PERM_FOR_GUESTS_EXP'			=> 'Determines what guests can see. If all switches are disabled, the WWH display for guests will be completely turned off.',
 	'LFWWH_PERM_FOR_BOTS'				=> 'Display for bots',
 	'LFWWH_PERM_FOR_BOTS_EXP'			=> 'Determines what bots can see. If all switches are disabled, the WWH display for bots will be completely turned off.',
-	// 'LFWWH_PERM_STATS_USERS'			=> 'Statistics and members',
 	'LFWWH_PERM_STATS'					=> 'Statistics',
-	'LFWWH_PERM_RECORD'					=> 'Besucherrekord',
+	'LFWWH_PERM_RECORD'					=> 'Visitor record',
 	'LFWWH_PERM_USERS'					=> 'Members',
 	'LFWWH_PERM_BOTS'					=> 'Bots',
-	// 'LFWWH_PERM_NOTHING'				=> 'Nothing',
-	// 'LFWWH_PERM_BOTS_ONLY_ADMIN'		=> 'Show the bot names only with administrative rights',
-	// 'LFWWH_PERM_BOTS_ONLY_ADMIN_EXP'	=> 'Only users with administrative rights can see the names of the bots. The number of bots will continue to be displayed to everyone.',
 
 	// config section 2
 	'LFWWH_SECTION_DISP_1'				=> 'Display settings 1',
@@ -145,5 +143,5 @@ $lang = array_merge($lang, [
 
 	// messages
 	'LFWWH_MSG_SAVED_SETTINGS'			=> 'Who was here: Configuration updated successfully.',
-	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'As soon as you save the page with the settings, the visitor record will be reset.',
+	'LFWWH_MSG_CONFIRM_RECORD_RESET'	=> 'As soon as you save the page with the settings, the visitor record will be reset. Are you sure?',
 ]);

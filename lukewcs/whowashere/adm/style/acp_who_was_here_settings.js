@@ -75,11 +75,6 @@ class LukeWCSphpBBConfirmBox {
 }
 
 const constants = Object.freeze({
-	// PermNothing		: 0,
-	// PermStats		: 1,
-	// PermUsers		: 2,
-	// PermStatsUsers	: 3,
-
 	BotsDisabled	: 0,
 	BotsWithUsers	: 1,
 	BotsOwnLine		: 2,
@@ -114,19 +109,11 @@ function setState() {
 	dimOptionGroup('lfwwh_use_permissions',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 	);
-	dimOptionGroup('lfwwh_perm_for_guests_stats',
+	$('[class~="simple_permissions"]').css('opacity',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 		|| $('[name="lfwwh_use_permissions"]').prop('checked')
+		? c.OpacityDisabled : c.OpacityEnabled
 	);
-	dimOptionGroup('lfwwh_perm_for_bots_stats',
-		$('[name="lfwwh_admin_mode"]').prop('checked')
-		|| $('[name="lfwwh_use_permissions"]').prop('checked')
-	);
-	dimOptionGroup('lfwwh_perm_bots_only_admin',
-		$('[name="lfwwh_admin_mode"]').prop('checked')
-		|| $('[name="lfwwh_disp_bots"]').prop('value') == c.BotsDisabled
-	);
-
 	// LFWWH_SECTION_DISP_1
 	dimOptionGroup('lfwwh_disp_time_bots',
 		$('[name="lfwwh_disp_bots"]').prop('value') == c.BotsDisabled
@@ -138,7 +125,6 @@ function setState() {
 		)
 		&& $('[name="lfwwh_disp_time_users"]').prop('value') == c.DispDisabled
 	);
-
 	// LFWWH_SECTION_DISP_2
 	dimOptionGroup('lfwwh_period_of_time_h',
 		$('[name="lfwwh_time_mode"]').prop('value') != c.TimeModePeriod
@@ -149,14 +135,12 @@ function setState() {
 	dimOptionGroup('lfwwh_template_pos',
 		$('[name="lfwwh_template_pos_all"]').prop('checked')
 	);
-
 	// LFWWH_SECTION_OTHERS
 	dimOptionGroup('lfwwh_create_hidden_info',
 		$('[name="lfwwh_disp_time_users"]').prop('value') != c.DispAsTooltip
 		&& $('[name="lfwwh_disp_time_bots"]').prop('value') != c.DispAsTooltip
 		&& $('[name="lfwwh_disp_ip"]').prop('value') != c.DispAsTooltip
 	);
-
 	// LFWWH_SECTION_LOAD_SETTINGS
 	dimOptionGroup('lfwwh_use_online_time',
 		!$('[name="lfwwh_use_cache"]').prop('checked')
@@ -179,20 +163,14 @@ function setDefaults() {
 	// LFWWH_SECTION_PERMISSIONS
 	setSwitch('input[name="lfwwh_admin_mode"]',							false);
 	setSwitch('input[name="lfwwh_use_permissions"]',					false);
-
-	// $(        'select[name="lfwwh_perm_for_guests"]').prop('value',		c.PermStats);
 	setSwitch('input[name="lfwwh_perm_for_guests_stats"]',				true);
 	setSwitch('input[name="lfwwh_perm_for_guests_record"]',				true);
 	setSwitch('input[name="lfwwh_perm_for_guests_users"]',				false);
 	setSwitch('input[name="lfwwh_perm_for_guests_bots"]',				false);
-
-	// $(        'select[name="lfwwh_perm_for_bots"]').prop('value',		c.PermNothing);
 	setSwitch('input[name="lfwwh_perm_for_bots_stats"]',				false);
 	setSwitch('input[name="lfwwh_perm_for_bots_record"]',				false);
 	setSwitch('input[name="lfwwh_perm_for_bots_users"]',				false);
 	setSwitch('input[name="lfwwh_perm_for_bots_bots"]',					false);
-
-	// setSwitch('input[name="lfwwh_perm_bots_only_admin"]',				false);
 	// LFWWH_SECTION_DISP_1
 	setSwitch('input[name="lfwwh_disp_reg_users"]',						true);
 	setSwitch('input[name="lfwwh_disp_hidden"]',						true);

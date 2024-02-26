@@ -72,16 +72,6 @@ class v_2_2_0 extends \phpbb\db\migration\migration
 		return $data;
 	}
 
-// PermNothing		: 0,
-// PermStats		: 1,
-// PermUsers		: 2,
-// PermStatsUsers	: 3,
-
-// PermStats		: 1,
-// PermRecord		: 2,
-// PermUsers		: 4,
-// PermBots			: 8,
-
 	private function change_perm(string $old_value)
 	{
 		$change_value = [
