@@ -400,12 +400,21 @@
 	</select>
 {%- endmacro %}
 
-{% macro number(name, value, min, max, step = 1, placeholder = '') -%}
-	<input type="number" name="{{ name }}" value="{{ value }}" min="{{ min }}" max="{{ max }}" step="{{ step }}"{{ placeholder ? ' placeholder="' ~ placeholder ~ '"' }}>
+{% macro number(name, value, min = null, max = null, step = null, placeholder = null) -%}
+	<input type="number" name="{{ name }}" value="{{ value }}"{{
+		(min !== null ? ' min="' ~ min ~ '"') ~
+		(max !== null ? ' max="' ~ max ~ '"') ~
+		(step !== null ? ' step="' ~ step ~ '"') ~
+		(placeholder !== null ? ' placeholder="' ~ placeholder ~ '"')
+	}}>
 {%- endmacro %}
 
-{% macro text(name, value, size = 10, placeholder = '', pattern = '') -%}
-	<input type="text" name="{{ name }}" value="{{ value }}" size="{{ size }}"{{ placeholder ? ' placeholder="' ~ placeholder ~ '"' }}{{ pattern ? ' pattern="' ~ pattern ~ '"' }}>
+{% macro text(name, value, size = null, placeholder = null, pattern = null) -%}
+	<input type="text" name="{{ name }}" value="{{ value }}"{{
+		(size !== null ? ' size="' ~ size ~ '"') ~
+		(placeholder !== null ? ' placeholder="' ~ placeholder ~ '"') ~
+		(pattern !== null ? ' pattern="' ~ pattern ~ '"')
+	}}>
 {%- endmacro %}
 
 {% macro confirmbox(name, message, default = false) -%}

@@ -1,3 +1,23 @@
+### 2.2.0
+(2024-- / CDB: 2024--)
+
+* Rechtesystem:
+  * Das Recht "Statistik" wurde in die separaten Rechte "Statistik" und "Besucherrekord" aufgeteilt. Das basiert auf dem Wunsch, die WWH Anzeige auf den Rekord begrenzen zu können. [Wunsch: Joe Kolade (phpBB.de)]
+  * Dazu passend wurde das Recht "Mitglieder" in die separaten Rechte "Mitglieder" und "Bots" aufgeteilt.
+  * Da beim vereinfachten Berechtigungssystem durch die 2 neuen Rechte eine Auswahl per Dropdown nicht länger eine praktikable Möglichkeit ist, wurden die Dropdown-Menüs durch separate Schalter ersetzt. Dadurch ist das vereinfachte Berechtigungssystems auch intuitiver zu verstehen, da dieses dann die gleichen Optionen (Rechte) anzeigt und in derselben Reihenfolge, wie dies beim phpBB Berechtigungssystem der Fall ist.
+  * Die phpBB Rechte sind nicht länger im Tab "Profil" zu finden, sondern im neuen separaten Tab "Wer war da (2x.)".
+  * Das vereinfachte Berechtigungssystem in einen eigenen Abschnitt gesetzt und eine kleine Erklärung hinzugefügt.
+* JS:
+  * Die Klasse `LukeWCSphpBBConfirmBox` auf 1.4.3 aktualisiert.
+* Twig:
+  * Es wird die neue Template-Variable `LFWWH_SHOW` generiert, damit Abfragen in den Templates der WWH-kompatiblen Erweiterungen einfacher gestaltet werden können. Dadurch kann die separate Abfrage auf 4 einzelne Variablen entfallen. Diese Variable ist `true`, wenn WWH im Kontext angezeigt werden soll.
+  * Die Template Variable `LFWWH_TOTAL` wurde in `LFWWH_STATS` umbenannt, damit diese Variable zum zugehörigen Recht "Statistik" passt.
+* Sprachdateien:
+  * 4 Variablen entfernt.
+  * 2 Variablen umbenannt.
+  * 8 Variablen hinzugefügt.
+  * Mehrere Text-Änderungen in etlichen Variablen.
+
 ### 2.1.6
 (2024-01-08 / CDB: 2024--)
 
@@ -13,14 +33,14 @@
   * Links innerhalb der Beschreibungen sind jetzt klar als solche erkennbar.
 * Sprachdateien:
   * Übersetzer Infos stehen jetzt in separater Sprachdatei, wie das auch bei meinen anderen Erweiterungen der Fall ist.
-  * 2 Sprachvariablen angepasst, bei denen ein veralteter Link auf die PHP Funktion `date()` verwies. Es wird jetzt direkt auf die Seite mit den Format-Strings verlinkt. [Vorschlag Kirk (phpBB.de)]
+  * 2 Sprachvariablen angepasst, bei denen ein veralteter Link auf die PHP Funktion `date()` verwies. Es wird jetzt direkt auf die Seite mit den Format-Strings verlinkt. [Vorschlag: Kirk (phpBB.de)]
   * Weitere Änderungen.
 * PHP Max-Version auf 8.3 erhöht.
 
 ### 2.1.5
 (2023-02-12 / CDB: 2023-04-10)
 
-* Fix: Auf manchen Webservern konnte es zu dem Fehler `PHP Warning: Undefined array key "is_bot"` kommen. (Meldung von: ShadeUT99)
+* Fix: Auf manchen Webservern konnte es zu dem Fehler `PHP Warning: Undefined array key "is_bot"` kommen. [Meldung von: ShadeUT99 (phpBB.com)]
 * ACP-Template:
   * Wurde der Sicherheitsschalter "Besucherrekord zurücksetzen" aktiviert, dann wurde durch die modale Javscript Rückfrage `confirm()` verhindert, dass der Browser den aktivierten Zustand des Schalters darstellen konnte, da die Aktualisierung der Render Engine noch gar nicht beendet war. Jetzt wartet die JS Funktion bis diese Aktualisierung abgeschlossen ist.
   * Toggle Farben von "Extension Manager Plus" übernommen, also Blau/Grau statt Grün/Rot.
@@ -39,7 +59,7 @@
   * "Zeige die Bot-Namen nur bei administrativen Rechten"
   * "Zeige alle Template-Positionen gleichzeitig"
 * ACP Template:
-  * Bei den Einstellungen werden für Ja/Nein-Optionen jetzt Checkboxen mit Toggle-Style verwendet. Dabei wurden für Menschen mit Farbseh-Schwäche (Rot/Grün Problematik und Farbblindheit) zwei Merkmale berücksichtigt: 1) Beibehaltung der gewohnten Positionen für Ja und Nein. 2) Eindeutige Symbole für die Zustände Ja und Nein. Toggle Funktionalität in angepasster Form von "Style Changer" übernommen. (Danke an Kirk)
+  * Bei den Einstellungen werden für Ja/Nein-Optionen jetzt Checkboxen mit Toggle-Style verwendet. Dabei wurden für Menschen mit Farbseh-Schwäche (Rot/Grün Problematik und Farbblindheit) zwei Merkmale berücksichtigt: 1) Beibehaltung der gewohnten Positionen für Ja und Nein. 2) Eindeutige Symbole für die Zustände Ja und Nein. Toggle Funktionalität in angepasster Form von "Style Changer" übernommen. Danke an Kirk für die Toogles.
   * In der Rückfrage beim Besucherrekord Reset, wird jetzt wie bei "Extension Manager Plus" ein Titel mit Name und Version der Ext ausgegeben.
   * "Absenden" und "Zurücksetzen" sind jetzt in einer eigenen Untergruppe, die auf dieselbe Weise dargestellt wird, wie bei ACP Seiten von phpBB.
 * Optimierung:
@@ -65,7 +85,7 @@
 (2022-02-18 / CDB: 2022-04-05)
 
 * Fix:
-  * Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. Davon betroffen waren im ACP die Einstellungen "Zeige die Zeit von Benutzern:", "Zeige die Zeit von Bots:" und "Zeige die Benutzer-IP:". (Meldung von: Kirk, warmweer [Validierung])
+  * Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. Davon betroffen waren im ACP die Einstellungen "Zeige die Zeit von Benutzern:", "Zeige die Zeit von Bots:" und "Zeige die Benutzer-IP:". [Meldung: Kirk (phpBB.de), warmweer (Validierung)]
 * Änderungen bei den Einstellungen (ACP).
   * Den Schalter "Erzeuge ausgeblendete Informationen:" an die Abblend-Funktion gekoppelt. Der Schalter wird nur als aktiv angezeigt, wenn mindestens eine der Tooltip-Optionen aktiv ist.
   * Die Nach-oben Funktion auf dieselbe Weise realisiert, wie es bei Beiträgen gemacht wird.
@@ -89,13 +109,13 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich
     * "Bridge between “LF who was here” and “Statistics Block" version 2.1.1. Event-Variablen: `force_api_mode`
 * Änderungen bei den Einstellungen (ACP).
   * Die Option "Zeige die Bot-Namen nur bei administrativen Rechten:" in den Abschnitt "Berechtigungen" verschoben und an die Abblend-Funktion gekoppelt.
-  * Die Buttons zum Speichern und Zurücksetzen sind jetzt unterhalb jeder Einstellungsgruppe vorhanden. (Vorschlag von: Kirk)
+  * Die Buttons zum Speichern und Zurücksetzen sind jetzt unterhalb jeder Einstellungsgruppe vorhanden. [Vorschlag: Kirk (phpBB.de)]
   * Fehlermeldung bei ungültigem Formular wird jetzt rot dargestellt statt grün. In der phpBB Extension Doku wurde das falsch gezeigt. Ausserdem Back-Link hinzugefügt.
   * Fallback eingebaut wenn vorhandenes Sprachpaket keine Variable für die Meldung bezüglich veraltetes Sprachpaket enthält.
 * Änderungen bei den Details (ACP).
   * Homepage Link auf den CDB Bereich von LFWWH geändert.
 * Änderungen im Forenindex (Frontend).
-  * Beim Button-Icon wird jetzt für Benutzer und Gäste ein Zeit-Symbol angezeigt. Admins sehen unverändert das Info-Symbol. (Vorschlag von: Kirk)
+  * Beim Button-Icon wird jetzt für Benutzer und Gäste ein Zeit-Symbol angezeigt. Admins sehen unverändert das Info-Symbol. [Vorschlag: Kirk (phpBB.de)]
   * Statt Doppelpunkt wird hier jetzt ebenfalls wie im ACP-Template die Sprach-Variable `COLON` verwendet.
   * Für die Positions-Hinweise werden jetzt Variablen der Einstellungen verwendet. Die bisherige Sprach-Variable im Frontend wird nicht mehr benötigt.
   * Die Positions-Hinweise werden nicht mehr in PHP als Template Variablen generiert, sondern direkt per Twig aus den Sprachdateien geholt und im Template zusammengesetzt.
@@ -132,7 +152,7 @@ Ich bedanke mich erneut bei Kirk und chris1278 für die gute Zusammenarbeit. Ich
   * Der HTML Code wurde weitestgehend von PHP ins Template verlagert. So kann z.B. das HTML des Buttons und der Debug-Meldung geändert werden, sowie die Zeilen für Benutzer und Bots besser angepasst werden.
   * Die Position der Schaltfläche für das Einblenden der zusätzlichen Informationen (Zeit, IP) wird nicht mehr über eine Sprach-Variable geregelt, sondern direkt im Template.
   * Es gibt 4 neue Template Variablen.
-  * CSS Klassen für Zeit und IP hinzugefügt, damit diese Informationen per Style Template angepasst werden können. (Wunsch von: Kirk)
+  * CSS Klassen für Zeit und IP hinzugefügt, damit diese Informationen per Style Template angepasst werden können. [Wunsch: Kirk (phpBB.de)]
   * Der Ordner `prosilver` wurde entfernt und alles nach `all` verschoben. Das ermöglicht einfachere Anpassungen von prosilver selbst, da dessen Ordner bei Updates nicht länger von Änderungen betroffen ist.
 * Änderungen bei den Sprachdateien.
   * Mehrere Sprach-Variablen umbenannt.
@@ -197,7 +217,7 @@ Fehlerkorrekturen:
 Fehlerkorrekturen:
 
 * Fix: Wenn im Kontext das Recht "Kann Statistik sehen" fehlte, wurden trotzdem die Template-Variablen für den Zeitraum-Erklärungstext und den Rekord generiert. Das wurde zwar von den Abfragen im Template abgefangen, aber konsequenterweise werden jetzt auch diese Template-Variablen effektiv als "leer" generiert, wenn das erforderliche Recht fehlt.
-* Fix: Bei der Einstellung "Anzeige der Besucher von ..." -> "Heute" und bei der Zeitumstellung auf Sommerzeit, begann der nachfolgende Tag (2019-4-1) erst um 01:00 Uhr. (Meldung von: Wolkenbruch)
+* Fix: Bei der Einstellung "Anzeige der Besucher von ..." -> "Heute" und bei der Zeitumstellung auf Sommerzeit, begann der nachfolgende Tag (2019-4-1) erst um 01:00 Uhr. [Meldung: Wolkenbruch (phpBB.de)]
   * Fehler 1: Die Berechnung des Lösch-Zeitstempels fand fälschlicherweise auf Basis des PHP-Datums statt. Der Fehler bei der Zeitumstellung trat nun auf, wenn für PHP und phpBB unterschiedliche Zeitzonen definiert waren. Das hatte zur Folge, dass am nachfolgenden Tag, also am 2019-4-1 um 00:00:00 Uhr ein Zeitstempel berechnet wurde, der zum Vortag gehörte. Dadurch wurde zu diesem Zeitpunkt keine Umschaltung auf den neuen Tag durchgeführt, dies fand erst um 01:00:01 Uhr statt. Jetzt wird ein unabhängiges Zeit-Objekt mit eigener Zeitzone erzeugt, auf dessen Basis dann der Lösch-Zeitstempel berechnet wird. Dem Zeit-Objekt wird dabei die gleiche Zeitzone zugewiesen, die auch in phpBB eingestellt ist. Somit ist die Zeitzone von PHP nicht länger relevant.
   * Fehler 2: Eine fehlerhafte Korrektur-Formel für den Lösch-Zeitstempel hatte bei unterschiedlichen Zeitzonen von PHP und phpBB zur Folge, dass um 01:00:01 Uhr der berechnete Zeitstempel einer falschen Uhrzeit (01:00:00) entsprach. Dadurch wurden am 2019-4-1 um 01:00:01 Uhr nicht nur alle Einträge aus der Besucher-Tabelle gelöscht die älter waren als 00:00:00 Uhr, sondern auch die Einträge zwischen 00:00:00 Uhr und 01:00:00 Uhr. Durch die Behebung von Fehler 1 wird diese Korrektur-Formel nicht länger benötigt und wurde entfernt.
   * Beide Fehler hätten bei unterschiedlichen Zeitzonen von PHP und phpBB auch bei der Zeitumstellung von Sommerzeit auf Normalzeit Auswirkungen gehabt. Dabei wäre wegen Fehler 2 am 2019-10-27 schon um 23:00:01 Uhr eine Bereinigung mit falschem Zeitstempel (23:00:00) ausgeführt worden. Am 2019-10-28 um 00:00:00 Uhr hätte jedoch keine Bereinigung und damit auch keine Umschaltung stattgefunden, da der benötigte Zeitstempel wegen beiden Fehlern falsch gewesen wäre. Am 2019-10-28 um 01:00:00 Uhr hätte dann eine weitere Bereinigung stattgefunden, die dann korrekt ausgeführt worden wäre.
@@ -220,12 +240,12 @@ Fehlerkorrekturen:
 * ACP-Modul:
   * Die Einstellung "Datums-Format für den Besucherrekord:" hat jetzt einen eigenen Erklärungstext. Dieser wurde bisher von "Zeit-Format:" bezogen, dessen Inhalt jedoch nicht mehr für beide Einstellungen gültig ist.
     * Entsprechend in den Sprachdateien 1 neue Variable hinzugefügt.
-* Es ist jetzt möglich, in der Statistik-Zeile auch die Anzahl der sichtbaren Mitglieder abzuschalten, genau wie dies auch schon für unsichtbare Benutzer, Bots und Gäste möglich war. Somit ist jetzt konsequent jeder Teil ausser der Gesamtsumme abschaltbar. (Wunsch von: stefan-franz)
+* Es ist jetzt möglich, in der Statistik-Zeile auch die Anzahl der sichtbaren Mitglieder abzuschalten, genau wie dies auch schon für unsichtbare Benutzer, Bots und Gäste möglich war. Somit ist jetzt konsequent jeder Teil ausser der Gesamtsumme abschaltbar. [Wunsch: stefan-franz (phpBB.de)]
   * Im ACP-Modul entsprechend eine neue Einstellung hinzugefügt, per Standard ist der Schalter aktiviert. Die Statistik-Zeile wird also wie gehabt komplett angezeigt.
   * In den Sprachdateien für "Zeige sichtbare Benutzer (Anzahl):" 2 neue Variablen hinzugefügt.
   * Die Überschriften der anderen Einstellungen (unsichtbare Benutzer, Bots und Gäste) entsprechend so geändert, das auch hier sofort ersichtlich ist, ob es nur um die Anzahl oder um Anzahl plus Namen geht.
   * Damit sich die Statistik-Zeile dynamisch an jede denkbare Einstellungskombination der 4 besagten Schalter anpassen kann, wurde das Trennzeichen "::" in eine eigene Sprach-Variable verlagert, damit dieser Trenner gezielt gesteuert werden kann.
-* Die Funktion die das HTML für die Info-Schaltflächen (Benutzer und Bots) generiert, komplett überarbeitet. (basiert auf einem Vorschlag von Kirk)
+* Die Funktion die das HTML für die Info-Schaltflächen (Benutzer und Bots) generiert, komplett überarbeitet. [Vorschlag: Kirk (phpBB.de)]
   * Es wird kein Button mehr erzeugt, sondern lediglich ein `<span>` Container der auf das Maus-Event `onclick` reagiert. Dadurch entfiel auch die bisherige Verschachtelung eines Button-Containers und eines Label-Containers.
   * Dadurch entfallen ausserdem spezielle Style-Anpassungen für `<button>`, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
   * Dafür neues Klassen-CSS hinzugefügt, mit dem verhindert wird, dass bei schnellem Mehrfachklick der angrenzende Text der "Schaltfläche" markiert wird.
@@ -276,10 +296,10 @@ Fehlerkorrekturen:
   * Twig Logik bezüglich dem Schalter "Zeige alle Template-Positionen gleichzeitig:" so geändert, das die bisherige Template-Variable `LFWWH_POS_ALL` entfallen kann. Das wird jetzt über Bit-Werte in der Variable `LFWWH_POS` geregelt und im Template per Bit-Operator abgefragt.
   * Ein `INCLUDE` erfolgt nur noch einmal. Das ist relevant bei der Einstellung "Zeige alle Template-Positionen gleichzeitig:" oder beim Einsatz von Erweiterungen die WWH per Template-Variablen einbinden, wie z.B. "Brücke zwischen “LF who was here” und “Stat BLock”".
 * Alle Style-Anpassungen ausser "prosilver" wieder entfernt. Die bisherigen 10 Anpassungen für phpBB 3.2 sind als gesondertes Archiv für LF-WWH 2.0.0 verfügbar, werden jedoch bei zukünftigen Updates nicht mehr berücksichtigt.
-* Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Besucher geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen. (Wunsch von: Kirk)
+* Der Cache kann jetzt auch komplett deaktiviert werden. Dadurch wird die WWH-Anzeige quasi ohne Verzögerung aktualisiert. Diese Funktion ist nur für kleinere Foren mit wenig Besucher geeignet. Bei grösseren Foren kann eine Deaktivierung des Caches zu Performance-Problemen führen und wird nicht empfohlen. [Wunsch: Kirk (phpBB.de)]
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der der Cache bei Bedarf deaktiviert werden kann. Per Standard ist er aktiviert.
   * In den Sprachdateien für "Cache für die Besuchertabelle verwenden:" 2 neue Variablen hinzugefügt.
-* Die Anzeige der IP ist nicht mehr an die Anzeige der Zeit gekoppelt, sondern kann jetzt völlig unabhängig (wie die Anzeige der Zeit) eingestellt werden. (basiert auf einem Wunsch von Wolkenbruch)
+* Die Anzeige der IP ist nicht mehr an die Anzeige der Zeit gekoppelt, sondern kann jetzt völlig unabhängig (wie die Anzeige der Zeit) eingestellt werden. [ Wunsch: Wolkenbruch (phpBB.de)]
   * Um diese Funktion flexibler (unabhängig) gestalten zu können, wurde der entsprechende Code-Abschnitt (für die Anzeige von Zeit und IP hinter dem Namen oder als Tooltip) im Core-Skript von Grund auf neu geschrieben und optimiert.
   * Der Schalter "Zeige die Benutzer-IP:" hat jetzt nicht mehr die Optionsfelder "Ja/Nein" als Auswahlmöglichkeit, sondern eine Auswahlliste mit den gleichen 3 Optionen wie bei "Zeige die Zeit...".
   * Sprach-Variable entsprechend angepasst.
@@ -305,7 +325,7 @@ Fehlerkorrekturen:
 Fehlerkorrekturen:
 
 * Fix: Wenn bei der Einstellungskombination "Zeige Bots:" -> "Mit den Benutzern" und "Zeige die Zeit von Bots:" -> "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
-* Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. (Meldung von: Kirk)
+* Fix: Firefox zeigte für die Info-Schaltfläche keinen Tooltip. [Meldung: Kirk (phpBB.de)]
 
 ### 1.5.1
 (2019-03-03)
@@ -314,7 +334,7 @@ Fehlerkorrekturen:
 
 Fehlerkorrekturen:
 
-* Fix: Bei der Erstinstallation von LF-WWH kann die Migration beim Update-Schritt 1.4.0 fehlschlagen, wenn vom Admin eine der sechs Standard Benutzer-Rollen gelöscht wurde. Eine entsprechende Meldung wäre in diesem Fall z.B. "Die Berechtigungs-Rolle „ROLE_USER_NOAVATAR“ existiert unerwarteterweise nicht.". Dementsprechend wird jetzt in der Migration von 1.4.0 bei jeder Benutzer-Rolle geprüft, ob sie vorhanden ist. Wenn eine Rolle fehlt, wird sie korrekt übersprungen. Realisiert mit der Funktion `role_exists()` von combuster. (Meldung von: Dr.Death)
+* Fix: Bei der Erstinstallation von LF-WWH kann die Migration beim Update-Schritt 1.4.0 fehlschlagen, wenn vom Admin eine der sechs Standard Benutzer-Rollen gelöscht wurde. Eine entsprechende Meldung wäre in diesem Fall z.B. "Die Berechtigungs-Rolle „ROLE_USER_NOAVATAR“ existiert unerwarteterweise nicht.". Dementsprechend wird jetzt in der Migration von 1.4.0 bei jeder Benutzer-Rolle geprüft, ob sie vorhanden ist. Wenn eine Rolle fehlt, wird sie korrekt übersprungen. Realisiert mit der Funktion `role_exists()` von combuster. [Meldung: Dr.Death (phpBB.de)]
 
 ### 1.5.0
 (2019-03-02)
@@ -322,7 +342,7 @@ Fehlerkorrekturen:
 **Hinweis: Wer "B3P Who was here Modul" (von Kirk) und/oder "Brücke zwischen Wwh Ext und Statblock EXT" (von chris1278) im Einsatz hat, der sollte mit dem Update von LF-WWH warten, bis die Autoren ihre jeweiligen Erweiterungen ebenfalls aktualisiert haben, da deren alten Versionen inkompatibel mit dieser Version von LF-WWH sind.**
 
 * Alle HTML Templates (ACP Modul und Events) von phpBB-Syntax auf Twig-Syntax umgestellt. Dazu wurde kasimi's "Twig Converter" verwendet.
-* Eine neue Funktion ermöglicht eine automatische Bereinigung der WWH-Tabelle und des WWH-Caches wenn Benutzerkonten gelöscht wurden. Damit werden gelöschte Benutzer sofort aus der Ansicht entfernt, nicht erst nach Ablauf des eingestellten Zeitraums (Heute oder beliebiger Zeitraum). (Wunsch von: Kirk)
+* Eine neue Funktion ermöglicht eine automatische Bereinigung der WWH-Tabelle und des WWH-Caches wenn Benutzerkonten gelöscht wurden. Damit werden gelöschte Benutzer sofort aus der Ansicht entfernt, nicht erst nach Ablauf des eingestellten Zeitraums (Heute oder beliebiger Zeitraum). [Wunsch: Kirk (phpBB.de)]
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion bei Bedarf deaktiviert werden kann. Per Standard ist sie aktiviert.
   * In den Sprachdateien für "Bei gelöschten Benutzern automatisch bereinigen:" 2 neue Variablen hinzugefügt.
 * Im ACP Modul einen neuen Abschnitt eingefügt.
@@ -389,13 +409,13 @@ Fehlerkorrekturen:
 * Bei der Einstellung "Zeige die Zeit von ..." -> "Bei überfahren" wird jetzt vor der Benutzerliste eine Schaltfläche (Zeitsymbol aus Awesome-Font) eingeblendet, mit der auch Benutzer von Smartphones und Tablet-PCs die Zeiten anzeigen lassen können, die sonst nur bei "mouseover" sichtbar wären. Diese Schaltfläche gibt es auch für Mitglieder und Bots getrennt, je nachdem wie "Zeige Bots:" eingestellt wurde. Realisiert mit Javascript und etwas CSS.
   * Entsprechend in den Sprachdateien eine Erklärung bei den Einstellungen "Zeige die Zeit von ...:" hinzugefügt.
   * In den Sprachdateien die Variablen für "Mitglieder" und "Bots" so geändert, das die Schaltfläche dynamisch über `%s` eingefügt wird.
-  * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. (Hinweis von Kirk)
+  * In den Sprachdateien eine neue Variable für "zeige Zeit" als Alternative für die Schaltfläche hinzugefügt. Diese Variable wird nur bei phpBB 3.1 verwendet, da es hier noch kein Awesome-Font gibt. [Hinweis: Kirk (phpBB.de)]
 * Eine neue Funktion erlaubt es, die Anzeige von WWH abschalten zu können, so das nur die Template-Variablen erzeugt werden. Diese Funktion ist gedacht für andere Erweiterungen oder spezielle Styles die bereits WWH selber darstellen. Damit ist es z.B. auch möglich, die Anzeige auf das Portal zu begrenzen und WWH im Forum abzuschalten.
   * Entsprechend im ACP Modul eine neue Einstellung hinzugefügt, mit der dieser Modus aktiviert werden kann.
   * In den Sprachdateien für "API-Modus:" 2 neue Variablen hinzugefügt.
 * Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
   * Dementsprechend in den Sprachdateien alle Erklärungen mit "Nicht relevant wenn ..." entfernt.
-* Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. (Wunsch von: Jonson) (Vorschläge von: Kirk, chris1278)
+* Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. [Wunsch: Jonson (reyno41.bplaced.net/phpbb/)] [Vorschläge: Kirk (phpBB.de), chris1278 (phpBB.de)]
   * Entsprechend für "Benutze das Berechtigungssystem von phpBB:" 2 neue Variablen in den Sprachdateien hinzugefügt. 
   * Rechte per Migrationsdatei hinzugefügt:
     * Wer war da: Kann Statistik sehen
@@ -446,10 +466,10 @@ Fehlerkorrekturen:
   * In den Sprachdateien 3 weitere Variablen für "Einstellungen zurücksetzen:" hinzugefügt.
 * Die Einstellung "Position der Anzeige:" in den zweiten Einstellungs-Bereich verschoben, da sie hier besser passt.
 * In den Sprachdateien bei mehreren Variablen Korrekturen vorgenommen.
-* Seit WWH 1.2.2 war das Intervall der Aktualisierung (cache time) direkt vom Wert "Zeitspanne für die Online-Anzeige:" von phpBB abhängig. Das Intervall kann nun unabhängig davon eingestellt werden. Als Untergrenze gilt 1 Minute und als Obergrenze gilt immer der genannte Wert "Zeitspanne für die Online-Anzeige:". (Wunsch von: chris1278)
+* Seit WWH 1.2.2 war das Intervall der Aktualisierung (cache time) direkt vom Wert "Zeitspanne für die Online-Anzeige:" von phpBB abhängig. Das Intervall kann nun unabhängig davon eingestellt werden. Als Untergrenze gilt 1 Minute und als Obergrenze gilt immer der genannte Wert "Zeitspanne für die Online-Anzeige:". [Wunsch: chris1278 (phpBB.de)]
   * Entsprechend im ACP ein Textfeld hinzugefügt, das auf einen gültigen Wert mit den genannten Grenzen prüft.
   * In den Sprachdateien für "Intervall der Aktualisierung:" 2 neue Variablen hinzugefügt.
-* Eine zusätzliche Funktion bezüglich der Aktualisierung erlaubt die Wahl zwischen dem bisherigen Standardverhalten von WWH und der neuen Eingabemöglichkeit für das Intervall. (Vorschlag von: Kirk)
+* Eine zusätzliche Funktion bezüglich der Aktualisierung erlaubt die Wahl zwischen dem bisherigen Standardverhalten von WWH und der neuen Eingabemöglichkeit für das Intervall. [Vorschlag: Kirk (phpBB.de)]
   * Entsprechend im ACP eine neue Einstellung hinzugefügt, mit der zwischen beiden Methoden gewählt werden kann.
   * In den Sprachdateien für "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" 2 neue Variablen hinzugefügt.
 * Im ACP Modul gibt es bei den Erklärungen die das Datum-Format betreffen, in den offiziellen deutschen Sprachpaketen von phpBB noch einen Fehler. Darum statt der Board-eigenen Variable `L_BOARD_DATE_FORMAT_EXPLAIN` eine eigene eingebaut.

@@ -109,7 +109,7 @@ function setState() {
 	dimOptionGroup('lfwwh_use_permissions',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 	);
-	$('[class~="simple_permissions"]').css('opacity',
+	$('.simple_permissions').css('opacity',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 		|| $('[name="lfwwh_use_permissions"]').prop('checked')
 		? c.OpacityDisabled : c.OpacityEnabled

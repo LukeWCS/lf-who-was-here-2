@@ -23,6 +23,10 @@ legend.legend_sub:after {
 	margin: 0 0 .5em 1em;
 }
 
+.simple_permissions dd {
+	line-height: 2em;
+}
+
 input[type=button][name*="lfwwh_"],
 .lfwwh_form_buttons input[type=submit],
 .lfwwh_form_buttons input[type=reset],
