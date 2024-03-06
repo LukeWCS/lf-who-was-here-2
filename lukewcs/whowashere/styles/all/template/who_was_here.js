@@ -24,7 +24,7 @@ function ShowHide(e) {
 	$('.lfwwh_button_' + e.data.ButtonType).css('opacity', (isShowInfo[e.data.ButtonType] ? '1.0' : '0.5'));
 }
 
-$(window).ready(function() {
+$(function() {
 	$('.lfwwh_button_users'	).on('click', {ButtonType: 'users'}	, ShowHide);
 	$('.lfwwh_button_bots'	).on('click', {ButtonType: 'bots'}	, ShowHide);
 });

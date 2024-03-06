@@ -171,6 +171,7 @@ function setDefaults() {
 	setSwitch('input[name="lfwwh_perm_for_bots_record"]',				false);
 	setSwitch('input[name="lfwwh_perm_for_bots_users"]',				false);
 	setSwitch('input[name="lfwwh_perm_for_bots_bots"]',					false);
+
 	// LFWWH_SECTION_DISP_1
 	setSwitch('input[name="lfwwh_disp_reg_users"]',						true);
 	setSwitch('input[name="lfwwh_disp_hidden"]',						true);
@@ -180,6 +181,7 @@ function setDefaults() {
 	$(        'select[name="lfwwh_disp_time_bots"]').prop('value',		c.DispBehindName);
 	$(        'input[name="lfwwh_disp_time_format"]').prop('value',		'$1 G:i');
 	$(        'select[name="lfwwh_disp_ip"]').prop('value',				c.DispBehindName);
+
 	// LFWWH_SECTION_DISP_2
 	$(        'select[name="lfwwh_time_mode"]').prop('value',			c.TimeModeToday);
 	$(        'input[name="lfwwh_period_of_time_h"]').prop('value',		24);
@@ -189,11 +191,13 @@ function setDefaults() {
 	setSwitch('input[name="lfwwh_record"]',								true);
 	$(        'input[name="lfwwh_record_time_format"]').prop('value',	'D j. M Y');
 	$(        'select[name="lfwwh_template_pos"]').prop('value',		c.PosTop);
+
 	// LFWWH_SECTION_OTHERS
 	setSwitch('input[name="lfwwh_api_mode"]',							false);
 	setSwitch('input[name="lfwwh_clear_up"]',							true);
 	setSwitch('input[name="lfwwh_template_pos_all"]',					false);
 	setSwitch('input[name="lfwwh_create_hidden_info"]',					true);
+
 	// LFWWH_SECTION_LOAD_SETTINGS
 	setSwitch('input[name="lfwwh_use_cache"]',							true);
 	setSwitch('input[name="lfwwh_use_online_time"]',					true);
@@ -203,11 +207,12 @@ function setDefaults() {
 };
 
 function setSwitch(selector, checked) {
-	const $elementObject = $(selector);
+	const $elementObject	= $(selector);
+	const elementType		= $elementObject.attr('type');
 
-	if ($elementObject.attr('type') == 'checkbox') {
+	if (elementType == 'checkbox') {
 		$elementObject.prop('checked', checked);
-	} else if ($elementObject.attr('type') == 'radio') {
+	} else if (elementType == 'radio') {
 		$elementObject.filter('[value="' + (checked ? 1 : 0) + '"]').prop('checked', true);
 	}
 };
@@ -218,7 +223,7 @@ function customFormReset() {
 	});
 };
 
-$(window).ready(function() {
+$(function() {
 	$('input[name="lfwwh_admin_mode"]'			).on('change'	, setState);
 	$('input[name="lfwwh_use_permissions"]'		).on('change'	, setState);
 	$('select[name="lfwwh_disp_bots"]'			).on('change'	, setState);

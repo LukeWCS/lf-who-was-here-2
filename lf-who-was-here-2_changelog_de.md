@@ -1,17 +1,19 @@
 ### 2.2.0
-(2024-- / CDB: 2024--)
+(2024-03-06 / CDB: --)
 
+* Die Unterstützung für phpBB 3.2 wurde aufgegeben, Minimum ist jetzt phpBB 3.3.0.
 * Rechtesystem:
   * Das Recht "Statistik" wurde in die separaten Rechte "Statistik" und "Besucherrekord" aufgeteilt. Das basiert auf dem Wunsch, die WWH Anzeige auf den Rekord begrenzen zu können. [Wunsch: Joe Kolade (phpBB.de)]
   * Dazu passend wurde das Recht "Mitglieder" in die separaten Rechte "Mitglieder" und "Bots" aufgeteilt.
-  * Da beim vereinfachten Berechtigungssystem durch die 2 neuen Rechte eine Auswahl per Dropdown nicht länger eine praktikable Möglichkeit ist, wurden die Dropdown-Menüs durch separate Schalter ersetzt. Dadurch ist das vereinfachte Berechtigungssystems auch intuitiver zu verstehen, da dieses dann die gleichen Optionen (Rechte) anzeigt und in derselben Reihenfolge, wie dies beim phpBB Berechtigungssystem der Fall ist.
+  * Da beim vereinfachten Berechtigungssystem durch die 2 neuen Rechte eine Auswahl per Dropdown nicht länger eine praktikable Möglichkeit ist, wurden die Dropdown-Menüs durch separate Schalter ersetzt. Dadurch ist das vereinfachte Berechtigungssystem intuitiver zu verstehen und bietet die gleichen Optionen (Rechte) die auch in derselben Reihenfolge angezeigt werden, wie dies beim phpBB Berechtigungssystem der Fall ist.
   * Die phpBB Rechte sind nicht länger im Tab "Profil" zu finden, sondern im neuen separaten Tab "Wer war da (2x.)".
   * Das vereinfachte Berechtigungssystem in einen eigenen Abschnitt gesetzt und eine kleine Erklärung hinzugefügt.
+* Twig:
+  * Damit Abfragen in den verschiedenen Templates von WWH und der WWH-kompatiblen Erweiterungen einfacher gestaltet werden können, wird die neue Template-Variable `LFWWH_SHOW` generiert. Dadurch können kombinierte Abfragen auf die einzelnen Anzeige-Komponenten entfallen, die sich ab 2.2.0 von 2 Variablen auf 4 erhöht hätten. Diese Variable ist `true`, wenn WWH im Kontext (abhängig von Rechten und Einstellungen) angezeigt werden soll.
+  * Die Anzeigen für Statistik und Besucherrekord werden jetzt unabhängig behandelt.
+  * Die Template Variable `LFWWH_TOTAL` wurde in `LFWWH_STATS` umbenannt, damit diese Variable zum zugehörigen Recht "Statistik" passt.
 * JS:
   * Die Klasse `LukeWCSphpBBConfirmBox` auf 1.4.3 aktualisiert.
-* Twig:
-  * Es wird die neue Template-Variable `LFWWH_SHOW` generiert, damit Abfragen in den Templates der WWH-kompatiblen Erweiterungen einfacher gestaltet werden können. Dadurch kann die separate Abfrage auf 4 einzelne Variablen entfallen. Diese Variable ist `true`, wenn WWH im Kontext angezeigt werden soll.
-  * Die Template Variable `LFWWH_TOTAL` wurde in `LFWWH_STATS` umbenannt, damit diese Variable zum zugehörigen Recht "Statistik" passt.
 * Sprachdateien:
   * 4 Variablen entfernt.
   * 2 Variablen umbenannt.
@@ -19,7 +21,7 @@
   * Mehrere Text-Änderungen in etlichen Variablen.
 
 ### 2.1.6
-(2024-01-08 / CDB: 2024--)
+(2024-01-08 / CDB: 2024-02-13)
 
 * Die Sicherheitsfrage für den Rekord-Reset wird nicht mehr per JS Funktion `confirm()` erzeugt, sondern mit dem neuen Twig Makro `confirmbox()` generiert und direkt unterhalb des Schalters eingeblendet.
 * Die Absenden-Buttons werden nicht mehr nach jeder Optionsgruppe, sondern nur noch nach jeder zweiten Gruppe generiert.

@@ -1,8 +1,15 @@
+### 2.2.0
+* Release (2024-03-06)
+* CSS:
+  * Harmonisierung der Werte-Notation: Zahlen kleiner 1 werden mit 0 vor dem Komma definiert. Hex Werte werden mit Kleinbuchstaben definiert.
+* JS:
+  * Code Optimierung.
+
 #### 2.2.0-b3
 * ACP-Template:
   * Bei den Makros `number()` und `text()` werden optionale HTML Argumente nur noch dann generiert, wenn auch deren zugehörige Parameter angegeben wurden.
 * CSS:
-  * Für die Schalter des einfachen Rechtesystems eine grössere Zeilenhöhe definiert. [Vorschlag Kirk (phpBB.de)]
+  * Für die Schalter des einfachen Rechtesystems eine grössere Zeilenhöhe definiert. [Vorschlag: Kirk (phpBB.de)]
 
 #### 2.2.0-b2
 * Core:
