@@ -4,12 +4,12 @@
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
-* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @copyright (c) 2010, nickvergessen
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-(function ($) {	// IIFE start
+(function ($) {
 
 'use strict';
 
@@ -105,7 +105,7 @@ let confirmBox;
 function setState() {
 	const c = constants;
 
-	// LFWWH_SECTION_PERMISSIONS
+	/* LFWWH_SECTION_PERMISSIONS */
 	dimOptionGroup('lfwwh_use_permissions',
 		$('[name="lfwwh_admin_mode"]').prop('checked')
 	);
@@ -114,7 +114,7 @@ function setState() {
 		|| $('[name="lfwwh_use_permissions"]').prop('checked')
 		? c.OpacityDisabled : c.OpacityEnabled
 	);
-	// LFWWH_SECTION_DISP_1
+	/* LFWWH_SECTION_DISP_1 */
 	dimOptionGroup('lfwwh_disp_time_bots',
 		$('[name="lfwwh_disp_bots"]').prop('value') == c.BotsDisabled
 	);
@@ -125,7 +125,7 @@ function setState() {
 		)
 		&& $('[name="lfwwh_disp_time_users"]').prop('value') == c.DispDisabled
 	);
-	// LFWWH_SECTION_DISP_2
+	/* LFWWH_SECTION_DISP_2 */
 	dimOptionGroup('lfwwh_period_of_time_h',
 		$('[name="lfwwh_time_mode"]').prop('value') != c.TimeModePeriod
 	);
@@ -135,13 +135,13 @@ function setState() {
 	dimOptionGroup('lfwwh_template_pos',
 		$('[name="lfwwh_template_pos_all"]').prop('checked')
 	);
-	// LFWWH_SECTION_OTHERS
+	/* LFWWH_SECTION_OTHERS */
 	dimOptionGroup('lfwwh_create_hidden_info',
 		$('[name="lfwwh_disp_time_users"]').prop('value') != c.DispAsTooltip
 		&& $('[name="lfwwh_disp_time_bots"]').prop('value') != c.DispAsTooltip
 		&& $('[name="lfwwh_disp_ip"]').prop('value') != c.DispAsTooltip
 	);
-	// LFWWH_SECTION_LOAD_SETTINGS
+	/* LFWWH_SECTION_LOAD_SETTINGS */
 	dimOptionGroup('lfwwh_use_online_time',
 		!$('[name="lfwwh_use_cache"]').prop('checked')
 	);
@@ -160,7 +160,7 @@ function dimOptionGroup(elememtName, dimCondition) {
 function setDefaults() {
 	const c = constants;
 
-	// LFWWH_SECTION_PERMISSIONS
+	/* LFWWH_SECTION_PERMISSIONS */
 	setSwitch('input[name="lfwwh_admin_mode"]',							false);
 	setSwitch('input[name="lfwwh_use_permissions"]',					false);
 	setSwitch('input[name="lfwwh_perm_for_guests_stats"]',				true);
@@ -172,7 +172,7 @@ function setDefaults() {
 	setSwitch('input[name="lfwwh_perm_for_bots_users"]',				false);
 	setSwitch('input[name="lfwwh_perm_for_bots_bots"]',					false);
 
-	// LFWWH_SECTION_DISP_1
+	/* LFWWH_SECTION_DISP_1 */
 	setSwitch('input[name="lfwwh_disp_reg_users"]',						true);
 	setSwitch('input[name="lfwwh_disp_hidden"]',						true);
 	$(        'select[name="lfwwh_disp_bots"]').prop('value',			c.BotsWithUsers);
@@ -182,7 +182,7 @@ function setDefaults() {
 	$(        'input[name="lfwwh_disp_time_format"]').prop('value',		'$1 G:i');
 	$(        'select[name="lfwwh_disp_ip"]').prop('value',				c.DispBehindName);
 
-	// LFWWH_SECTION_DISP_2
+	/* LFWWH_SECTION_DISP_2 */
 	$(        'select[name="lfwwh_time_mode"]').prop('value',			c.TimeModeToday);
 	$(        'input[name="lfwwh_period_of_time_h"]').prop('value',		24);
 	$(        'input[name="lfwwh_period_of_time_m"]').prop('value',		0);
@@ -192,13 +192,13 @@ function setDefaults() {
 	$(        'input[name="lfwwh_record_time_format"]').prop('value',	'D j. M Y');
 	$(        'select[name="lfwwh_template_pos"]').prop('value',		c.PosTop);
 
-	// LFWWH_SECTION_OTHERS
+	/* LFWWH_SECTION_OTHERS */
 	setSwitch('input[name="lfwwh_api_mode"]',							false);
 	setSwitch('input[name="lfwwh_clear_up"]',							true);
 	setSwitch('input[name="lfwwh_template_pos_all"]',					false);
 	setSwitch('input[name="lfwwh_create_hidden_info"]',					true);
 
-	// LFWWH_SECTION_LOAD_SETTINGS
+	/* LFWWH_SECTION_LOAD_SETTINGS */
 	setSwitch('input[name="lfwwh_use_cache"]',							true);
 	setSwitch('input[name="lfwwh_use_online_time"]',					true);
 	$(        'input[name="lfwwh_cache_time"]').prop('value',			lfwwhACP.tpl.CacheTimeMax);
@@ -242,4 +242,4 @@ $(function() {
 	setState();
 });
 
-})(jQuery);	// IIFE end
+})(jQuery);

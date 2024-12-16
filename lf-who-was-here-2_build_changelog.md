@@ -1,3 +1,24 @@
+#### 2.2.1-b1
+* PHP:
+  * Code verwendet jetzt 7.4 Features.
+  * Code strikter gestaltet.
+* ext.php`/`composer.json` angepasst:
+  * PHP: 7.1.3-8.3.x -> 7.4.0-8.4.x
+* Core:
+  * Wie bei "Limit Multiple Replies" werden Rechte jetzt mit der Wrapper Funktion `update_subarray()` (>=phpBB 3.2.1) eingehängt, wodurch das umständliche Extrahieren und Zurückkopieren der Subarrays `$event['categories']` und `$event['permissions']` entfällt.
+* Common:
+  * Aktuelle Funktion `set_meta_template_vars()` von EMP 3.0 übernommen.
+  * Aktuelle Funktion `get_lang_ver()` von EMP 3.0 übernommen.
+  * Aktuelle Funktion `lang_ver_check_msg()` von EMP 3.0 übernommen.
+* ACP-Template:
+  * Aktuelles Makro `footer()` von EMP 3.0 übernommen.
+  * Aktuelles Makro `select()` von EMP 3.0 übernommen.
+  * Alle Aufrufe von `select()` an das aktualisierte Makro angepasst und den nicht mehr benötigten Config-Parameter entfernt.
+* ACP-Controller:
+  * Aktuelle Funktion `select_struct()` von EMP 3.0 übernommen.
+  * Generierung der Template Variablen daran angepasst.
+* Validierungs-Kritik von 2.2.0 berücksichtigt (3/4).
+
 ### 2.2.0
 * Release (2024-03-06)
 * CSS:
@@ -43,7 +64,7 @@
 * ACP-Template:
   * Einfaches Rechtesystem von WWH:
     * Die beiden PullDown-Menüs entfernt.
-	* Den Schalter "Zeige die Bot-Namen nur bei administrativen Rechten" entfernt, dieser wird durch das neue Bot Recht ersetzt.
+    * Den Schalter "Zeige die Bot-Namen nur bei administrativen Rechten" entfernt, dieser wird durch das neue Bot Recht ersetzt.
     * 8 neue Schalter hinzugefügt
 * ACP-Controller:
   * Code für die bisherigen PullDown-Menüs deaktiviert.
@@ -83,16 +104,16 @@
   * Die Absenden-Buttons werden nicht mehr nach jeder Optionsgruppe, sondern nur noch nach jeder zweiten Gruppe generiert.
   * JS:
     * Die Klasse `LukeWCSphpBBConfirmBox` eingefügt, mit der die neue `confirmbox()` gesteuert wird.
-	* Funktion für `confirm()` entfernt.
-	* Da Schalter jetzt auch als Radio Buttons dargestellt werden können, musste die Funktion zum Zurücksetzen auf Installationsstandard angepasst werden.
+    * Funktion für `confirm()` entfernt.
+    * Da Schalter jetzt auch als Radio Buttons dargestellt werden können, musste die Funktion zum Zurücksetzen auf Installationsstandard angepasst werden.
     * Der Formular-Reset ist nicht mehr an einen Button gebunden, sondern wird per Reset-Event überwacht und so `setState` automatisch ausgeführt.
     * Funktion hinzugefügt, mit der eine Optionsgruppe anhand des Element-Namens abgeblendet werden kann. Somit keine ID im Template mehr notwendig.
-	* Code modernisiert.
+    * Code modernisiert.
   * CSS:
     * Code für `confirmbox()` eingefügt.
-	* Toggle Code in bestehendes ACP CSS integriert und bisherige separate CSS Datei entfernt.
-	* Code für die Animation der Toggles vom Recent Topics Fork übernommen.
-	* Links innerhalb der Beschreibungen sind jetzt klar erkennbar.
+    * Toggle Code in bestehendes ACP CSS integriert und bisherige separate CSS Datei entfernt.
+    * Code für die Animation der Toggles vom Recent Topics Fork übernommen.
+    * Links innerhalb der Beschreibungen sind jetzt klar erkennbar.
 * ACP-Controller:
   * Die Elemente der PullDown-Menüs werden jetzt im Controller als Arrays erzeugt und in Template-Variablen geschrieben.
   * Aktuelle Techniken von EMP übernommen.

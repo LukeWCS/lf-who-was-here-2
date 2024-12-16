@@ -4,7 +4,7 @@
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
-* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @copyright (c) 2010, nickvergessen
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 #}
@@ -15,7 +15,7 @@
 <a id="maincontent"></a>
 
 <h1>{{ lang('LFWWH_CONFIG_TITLE') }}</h1>
-<p>{{ lang('LFWWH_CONFIG_DESC', LFWWH_METADATA.EXT_NAME) }}</p>
+<p>{{ lang('LFWWH_CONFIG_DESC', LFWWH_METADATA.ext_name) }}</p>
 
 {{ _self.notes(LFWWH_NOTES) }}
 
@@ -102,7 +102,7 @@
 				<span>{{ lang('LFWWH_DISP_BOTS_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_disp_bots', LFWWH_DISP_BOTS, LFWWH_DISP_BOTS_OPTIONS) }}
+				{{ _self.select('lfwwh_disp_bots', LFWWH_DISP_BOTS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl>
@@ -120,7 +120,7 @@
 				<span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_disp_time_users', LFWWH_DISP_TIME_USERS, LFWWH_DISP_TIME_USERS_OPTIONS) }}
+				{{ _self.select('lfwwh_disp_time_users', LFWWH_DISP_TIME_USERS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl>
@@ -129,7 +129,7 @@
 				<span>{{ lang('LFWWH_DISP_TIME_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_disp_time_bots', LFWWH_DISP_TIME_BOTS, LFWWH_DISP_TIME_BOTS_OPTIONS) }}
+				{{ _self.select('lfwwh_disp_time_bots', LFWWH_DISP_TIME_BOTS_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl>
@@ -148,7 +148,7 @@
 				<span>{{ lang('LFWWH_DISP_IP_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_disp_ip', LFWWH_DISP_IP, LFWWH_DISP_IP_OPTIONS) }}
+				{{ _self.select('lfwwh_disp_ip', LFWWH_DISP_IP_OPTIONS) }}
 			</dd>
 		</dl>
 	</fieldset>
@@ -164,7 +164,7 @@
 				<span>{{ lang('LFWWH_TIME_MODE_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_time_mode', LFWWH_TIME_MODE, LFWWH_TIME_MODE_OPTIONS) }}
+				{{ _self.select('lfwwh_time_mode', LFWWH_TIME_MODE_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl>
@@ -190,7 +190,7 @@
 				<span>{{ lang('LFWWH_SORT_BY_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_sort_by', LFWWH_SORT_BY, LFWWH_SORT_BY_OPTIONS) }}
+				{{ _self.select('lfwwh_sort_by', LFWWH_SORT_BY_OPTIONS) }}
 			</dd>
 		</dl>
 		<dl>
@@ -218,7 +218,7 @@
 				<span>{{ lang('LFWWH_TEMPLATE_POS_EXP') }}</span>
 			</dt>
 			<dd>
-				{{ _self.select('lfwwh_template_pos', LFWWH_TEMPLATE_POS, LFWWH_TEMPLATE_POS_OPTIONS) }}
+				{{ _self.select('lfwwh_template_pos', LFWWH_TEMPLATE_POS_OPTIONS) }}
 			</dd>
 		</dl>
 	</fieldset>
@@ -377,9 +377,12 @@
 {%- endmacro %}
 
 {% macro footer(metadata) %}
-	<p class="{{ metadata.CLASS  }}">
-		{{ metadata.EXT_NAME }} {{ metadata.EXT_VER }} &copy; LukeWCS<br>
-		{{ metadata.LANG_DESC|e('html') }} {{ metadata.LANG_VER|e('html') }} &bull; {{ metadata.LANG_AUTHOR|e('html') }}
+	<p class="{{ metadata.class  }}">
+		{{ metadata.ext_name }} {{ metadata.ext_ver }} &copy; {{ metadata.ext_copyright }}
+		{% if metadata.lang_ver is defined %}
+			<br>
+			{{ metadata.lang_desc|e('html') }} {{ metadata.lang_ver|e('html') }} &bull; {{ metadata.lang_author|e('html') }}
+		{% endif %}
 	</p>
 {% endmacro %}
 
@@ -392,10 +395,16 @@
 	{%- endif %}
 {%- endmacro %}
 
-{% macro select(name, value, options) -%}
-	<select name="{{ name }}">
-		{% for opt_lang_var, opt_value in options %}
-			<option value="{{ opt_value }}"{{ opt_value == value ? ' selected' }}>{{ lang(opt_lang_var) }}</option>
+{% macro select(name, options, multiple = null, size = null) -%}
+	<select name="{{ name }}{{ multiple ? '[]' }}"{{
+		(size !== null ? ' size="' ~ size ~ '"') ~
+		(multiple ? ' multiple')
+	}}>
+		{% for opt in options %}
+			<option value="{{ opt.value }}"{{
+				(opt.bold ? ' class="sep"') ~
+				(opt.selected ? ' selected')
+			}}>{{ lang(opt.label) }}</option>
 		{% endfor %}
 	</select>
 {%- endmacro %}

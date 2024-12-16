@@ -5,7 +5,7 @@
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
-* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @copyright (c) 2010, nickvergessen
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -14,43 +14,44 @@ namespace lukewcs\whowashere\core;
 
 class who_was_here
 {
-	const PERM_STATS			= 1;
-	const PERM_RECORD			= 2;
-	const PERM_USERS			= 4;
-	const PERM_BOTS				= 8;
+	protected const  PERM_STATS				= 1;
+	protected const  PERM_RECORD			= 2;
+	protected const  PERM_USERS				= 4;
+	protected const  PERM_BOTS				= 8;
 
-	const BOTS_DISABLED			= 0;
-	const BOTS_WITH_USERS		= 1;
-	const BOTS_OWN_LINE			= 2;
+	protected const  BOTS_DISABLED			= 0;
+	protected const  BOTS_WITH_USERS		= 1;
+	protected const  BOTS_OWN_LINE			= 2;
 
-	const DISP_DISABLED			= 0;
-	const DISP_BEHIND_NAME		= 1;
-	const DISP_AS_TOOLTIP		= 2;
+	protected const  DISP_DISABLED			= 0;
+	protected const  DISP_BEHIND_NAME		= 1;
+	protected const  DISP_AS_TOOLTIP		= 2;
 
-	const TIME_MODE_PERIOD		= 0;
-	const TIME_MODE_TODAY		= 1;
+	protected const  TIME_MODE_PERIOD		= 0;
+	protected const  TIME_MODE_TODAY		= 1;
 
-	const SORT_BY_NAME_AZ		= 0;
-	const SORT_BY_NAME_ZA		= 1;
-	const SORT_BY_VISIT_ASC		= 2;
-	const SORT_BY_VISIT_DESC	= 3;
-	const SORT_BY_ID_ASC		= 4;
-	const SORT_BY_ID_DESC		= 5;
+	protected const  SORT_BY_NAME_AZ		= 0;
+	protected const  SORT_BY_NAME_ZA		= 1;
+	protected const  SORT_BY_VISIT_ASC		= 2;
+	protected const  SORT_BY_VISIT_DESC		= 3;
+	protected const  SORT_BY_ID_ASC			= 4;
+	protected const  SORT_BY_ID_DESC		= 5;
 
-	const BUTTON_ICON_NOTHING	= 0;
-	const BUTTON_ICON_CLOCK		= 1;
-	const BUTTON_ICON_INFO		= 2;
+	protected const  BUTTON_ICON_NOTHING	= 0;
+	protected const  BUTTON_ICON_CLOCK		= 1;
+	protected const  BUTTON_ICON_INFO		= 2;
 
-	protected $template;
-	protected $config;
-	protected $user;
-	protected $auth;
-	protected $cache;
-	protected $db;
-	protected $lfwwh_table;
-	protected $table_prefix;
-	protected $php_ext;
-	protected $language;
+	protected object $template;
+	protected object $config;
+	protected object $user;
+	protected object $auth;
+	protected object $cache;
+	protected object $db;
+	protected object $language;
+	protected string $table_prefix;
+	protected string $php_ext;
+
+	protected string $lfwwh_table;
 
 	public function __construct(
 		\phpbb\template\template $template,
@@ -60,21 +61,22 @@ class who_was_here
 		\phpbb\cache\driver\driver_interface $cache,
 		\phpbb\db\driver\driver_interface $db,
 		\phpbb\event\dispatcher_interface $dispatcher,
+		\phpbb\language\language $language,
 		$table_prefix,
-		$php_ext,
-		$language
+		$php_ext
 	)
 	{
-		$this->template = $template;
-		$this->config = $config;
-		$this->user = $user;
-		$this->auth = $auth;
-		$this->cache = $cache;
-		$this->db = $db;
-		$this->phpbb_dispatcher = $dispatcher;
-		$this->lfwwh_table = $table_prefix . 'lfwwh';
-		$this->php_ext = $php_ext;
-		$this->language = $language;
+		$this->template			= $template;
+		$this->config			= $config;
+		$this->user				= $user;
+		$this->auth				= $auth;
+		$this->cache			= $cache;
+		$this->db				= $db;
+		$this->phpbb_dispatcher	= $dispatcher;
+		$this->language			= $language;
+
+		$this->lfwwh_table		= $table_prefix . 'lfwwh';
+		$this->php_ext			= $php_ext;
 	}
 
 	/* DB config
@@ -111,7 +113,9 @@ class who_was_here
 		'lfwwh_use_permissions'			(bool)
 	*/
 
-	// Update the users session in the table.
+	/*
+		Update the users session in the table.
+	*/
 	public function update_session(): void
 	{
 		if ($this->user->data['user_id'] != ANONYMOUS)
@@ -145,7 +149,7 @@ class who_was_here
 			{
 				if ($sql_affectedrows > 1)
 				{
-					// Found multiple matches, so we delete them and just add one
+					/* Found multiple matches, so we delete them and just add one */
 					$sql = 'DELETE FROM ' . $this->lfwwh_table . '
 							WHERE user_id = ' . (int) $this->user->data['user_id'] . "
 							OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
@@ -156,7 +160,7 @@ class who_was_here
 
 				if ($sql_affectedrows == 0)
 				{
-					// No entry updated. Either the user is not listed yet, or has opened two links in the same time
+					/* No entry updated. Either the user is not listed yet, or has opened two links in the same time */
 					$sql = 'SELECT 1 as found
 							FROM ' . $this->lfwwh_table . '
 							WHERE user_id = ' . (int) $this->user->data['user_id'] . "
@@ -167,7 +171,7 @@ class who_was_here
 					$this->db->sql_freeresult($result);
 					if (!$found)
 					{
-						// He wasn't listed.
+						/* He wasn't listed. */
 						$this->db->sql_query('INSERT INTO ' . $this->lfwwh_table . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
 					}
 				}
@@ -205,7 +209,9 @@ class who_was_here
 		$this->db->sql_return_on_error(false);
 	}
 
-	// Fetching the user-list and putting the stuff into the template.
+	/*
+		Fetching the user-list and putting the stuff into the template.
+	*/
 	public function display(): void
 	{
 		$is_index = ($this->user->page['page_name'] == 'index.' . $this->php_ext);
@@ -237,7 +243,7 @@ class who_was_here
 			$this->language->add_lang('acp_who_was_here', 'lukewcs/whowashere');
 		}
 
-		// Set display permission variables
+		/* Set display permission variables */
 		if ($this->config['lfwwh_admin_mode'])
 		{
 			$wwh_disp_permission_stats	= $this->auth->acl_get('a_');
@@ -247,30 +253,30 @@ class who_was_here
 		}
 		else
 		{
-			if ($this->config['lfwwh_use_permissions']) // use phpBB permissions
+			if ($this->config['lfwwh_use_permissions']) /* use phpBB permissions */
 			{
 				$wwh_disp_permission_stats	= $this->auth->acl_gets('u_lfwwh_show_stats');
 				$wwh_disp_permission_record	= $this->auth->acl_gets('u_lfwwh_show_record');
 				$wwh_disp_permission_users	= $this->auth->acl_gets('u_lfwwh_show_users');
 				$wwh_disp_permission_bots	= $this->auth->acl_gets('u_lfwwh_show_bots');
 			}
-			else // use simple permissions
+			else /* use simple permissions */
 			{
-				if ($this->user->data['user_type'] != USER_IGNORE) // user
+				if ($this->user->data['user_type'] != USER_IGNORE) /* user */
 				{
 					$wwh_disp_permission_stats	= true;
 					$wwh_disp_permission_record	= true;
 					$wwh_disp_permission_users	= true;
 					$wwh_disp_permission_bots	= true;
 				}
-				else if (!empty($this->user->data['is_bot'])) // bot
+				else if (!empty($this->user->data['is_bot'])) /* bot */
 				{
 					$wwh_disp_permission_stats	= $this->config['lfwwh_perm_for_bots'] & self::PERM_STATS;
 					$wwh_disp_permission_record	= $this->config['lfwwh_perm_for_bots'] & self::PERM_RECORD;
 					$wwh_disp_permission_users	= $this->config['lfwwh_perm_for_bots'] & self::PERM_USERS;
 					$wwh_disp_permission_bots	= $this->config['lfwwh_perm_for_bots'] & self::PERM_BOTS;
 				}
-				else // guest
+				else /* guest */
 				{
 					$wwh_disp_permission_stats	= $this->config['lfwwh_perm_for_guests'] & self::PERM_STATS;
 					$wwh_disp_permission_record	= $this->config['lfwwh_perm_for_guests'] & self::PERM_RECORD;
@@ -290,12 +296,12 @@ class who_was_here
 
 		if (!$this->prune())
 		{
-			// Error while purging the list, database is missing :-O
+			/* Error while purging the list, database is missing :-O */
 			$this->language->add_lang('acp_who_was_here', 'lukewcs/whowashere');
 			return;
 		}
 
-		// Default count total or ids
+		/* Default count total or ids */
 		$count = [
 			'count_guests'	=> 0,
 			'count_bot'		=> 0,
@@ -309,7 +315,7 @@ class who_was_here
 
 		$wwh_username_full = $users_list = $bots_list = '';
 
-		// Load cache who_was_here
+		/* Load cache who_was_here */
 		if ($this->config['lfwwh_use_cache'])
 		{
 			$load_online_time = ($this->config['load_online_time'] >= 1) ? $this->config['load_online_time'] : 1;
@@ -464,7 +470,7 @@ class who_was_here
 				$users_list .= $this->language->lang('COMMA_SEPARATOR') . '<em' . $hover_info . '>' .$wwh_username_full . '</em>' . $disp_info;
 			}
 
-			// At the end let's count them =)
+			/* At the end let's count them =) */
 			if ($row['user_id'] == ANONYMOUS)
 			{
 				$count['count_guests']++;
@@ -525,7 +531,7 @@ class who_was_here
 		{
 			$count['count_total'] -= $count['count_guests'];
 		}
-		// Need to update the record?
+		/* Need to update the record? */
 		if ($this->config['lfwwh_record_ips'] < $count['count_total'])
 		{
 			$this->config->set('lfwwh_record_ips', $count['count_total'], true);
@@ -555,7 +561,9 @@ class who_was_here
 		]);
 	}
 
-	// Deletes the users from the list, whose visit is to old.
+	/*
+		Deletes the users from the list, whose visit is to old.
+	*/
 	public function prune(): bool
 	{
 		if ($this->config['lfwwh_time_mode'] == self::TIME_MODE_TODAY)
@@ -564,7 +572,7 @@ class who_was_here
 			date_time_set($prune_time_obj, 0, 0, 0);
 			$prune_timestamp = date_timestamp_get($prune_time_obj);
 		}
-		else // period of time
+		else /* period of time */
 		{
 			$prune_timestamp = time() - ((3600 * $this->config['lfwwh_period_of_time_h']) + (60 * $this->config['lfwwh_period_of_time_m']) + $this->config['lfwwh_period_of_time_s']);
 		}
@@ -583,11 +591,13 @@ class who_was_here
 			}
 		}
 
-		// Purging was not needed or done succesfully...
+		/* Purging was not needed or done succesfully... */
 		return true;
 	}
 
-	// Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary. (LukeWCS)
+	/*
+		Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary. (LukeWCS)
+	*/
 	public function clear_up($event): void
 	{
 		if (!$this->config['lfwwh_clear_up'])
@@ -614,7 +624,7 @@ class who_was_here
 			}
 		}
 
-		// Clears the WWH cache and inserts the notification.
+		/* Clears the WWH cache and inserts the notification. */
 		if ($user_deleted)
 		{
 			if ($this->config['lfwwh_use_cache'])
@@ -625,13 +635,12 @@ class who_was_here
 		}
 	}
 
-	// Adds permissions. (LukeWCS)
+	/*
+		Adds permissions. (LukeWCS)
+	*/
 	public function add_permissions($event): void
 	{
-		$permissions = $event['permissions'];
-		$categories = $event['categories'];
-		$categories['lfwwh'] = 'ACL_CAT_LFWWH';
-		// needs phpBB >=3.2.10
+		/* needs phpBB >=3.2.10 */
 		$lang_show_stats	= $this->language->lang('ACL_U_LFWWH_SHOW_STATS');
 		$lang_show_record	= $this->language->lang('ACL_U_LFWWH_SHOW_RECORD');
 		$lang_show_users	= $this->language->lang('ACL_U_LFWWH_SHOW_USERS');
@@ -643,15 +652,17 @@ class who_was_here
 			$lang_show_users	= '<span style="opacity: 0.5;">' . $lang_show_users . '</span>';
 			$lang_show_bots		= '<span style="opacity: 0.5;">' . $lang_show_bots . '</span>';
 		}
-		$permissions['u_lfwwh_show_stats']	= ['lang' => $lang_show_stats	, 'cat' => 'lfwwh'];
-		$permissions['u_lfwwh_show_record']	= ['lang' => $lang_show_record	, 'cat' => 'lfwwh'];
-		$permissions['u_lfwwh_show_users']	= ['lang' => $lang_show_users	, 'cat' => 'lfwwh'];
-		$permissions['u_lfwwh_show_bots']	= ['lang' => $lang_show_bots	, 'cat' => 'lfwwh'];
-		$event['categories'] = $categories;
-		$event['permissions'] = $permissions;
+
+		$event->update_subarray('categories', 'lfwwh', 'ACL_CAT_LFWWH');
+		$event->update_subarray('permissions', 'u_lfwwh_show_stats'	, ['lang' => $lang_show_stats	, 'cat' => 'lfwwh']);
+		$event->update_subarray('permissions', 'u_lfwwh_show_record', ['lang' => $lang_show_record	, 'cat' => 'lfwwh']);
+		$event->update_subarray('permissions', 'u_lfwwh_show_users'	, ['lang' => $lang_show_users	, 'cat' => 'lfwwh']);
+		$event->update_subarray('permissions', 'u_lfwwh_show_bots'	, ['lang' => $lang_show_bots	, 'cat' => 'lfwwh']);
 	}
 
-	// Returns the users array
+	/*
+		Returns the users array
+	*/
 	private function view_state(): array
 	{
 		switch ($this->config['lfwwh_sort_by'])
@@ -672,7 +683,7 @@ class who_was_here
 		}
 		$sql_ordering = (($this->config['lfwwh_sort_by'] % 2) == 0) ? 'ASC' : 'DESC';
 
-		// Let's try another method, to deny duplicate appearance of usernames.
+		/* Let's try another method, to deny duplicate appearance of usernames. */
 		$user_id_ary = [];
 
 		$sql = 'SELECT user_id, username, username_clean, user_colour, user_type, viewonline, wwh_lastpage, user_ip
@@ -704,7 +715,9 @@ class who_was_here
 		return $statrow;
 	}
 
-	// Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot). (LukeWCS)
+	/*
+		Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot). (LukeWCS)
+	*/
 	private function get_hidden_span(int $user_type, string $text): string
 	{
 		if (!$this->config['lfwwh_create_hidden_info'])
@@ -714,21 +727,26 @@ class who_was_here
 		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? 'u' : 'b') . '" style="display: none;">' . $text . '</span>';
 	}
 
-	// Returns a string encapsulated in <span> tags with a specific CSS class. (LukeWCS)
+	/*
+		Returns a string encapsulated in <span> tags with a specific CSS class. (LukeWCS)
+	*/
 	private function get_class_span(string $class, string $text): string
 	{
 		return '<span class="lfwwh_' .  $class . '">' . $text . '</span>';
 	}
 
-	// Returns a formated time string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
+	/*
+		Returns a formated time string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
+	*/
 	private function get_formatted_time(int $timestamp): string
 	{
 		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
-		$text = str_replace(['$1', '$2', '$3'], [$this->language->lang('LFWWH_LAST1'), $this->language->lang('LFWWH_LAST2'), $this->language->lang('LFWWH_LAST3')], $text);
-		return $text;
+		return str_replace(['$1', '$2', '$3'], [$this->language->lang('LFWWH_LAST1'), $this->language->lang('LFWWH_LAST2'), $this->language->lang('LFWWH_LAST3')], $text);
 	}
 
-	// Returns a formated record time string. (LukeWCS)
+	/*
+		Returns a formated record time string. (LukeWCS)
+	*/
 	private function get_formatted_record_time(int $timestamp): string
 	{
 		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);
@@ -741,11 +759,11 @@ class who_was_here
 	*/
 	private function get_explanation_string(int $mode): string
 	{
-		if ($mode == 1) // today
+		if ($mode == 1) /* today */
 		{
 			return $this->language->lang('LFWWH_EXP');
 		}
-		else // period of time
+		else /* period of time */
 		{
 			$explanation = $this->language->lang('LFWWH_EXP_TIME');
 			$explanation .= $this->language->lang('LFWWH_HOURS', (int) $this->config['lfwwh_period_of_time_h']);
@@ -775,11 +793,11 @@ class who_was_here
 		{
 			return '';
 		}
-		if ($mode == 1) // today
+		if ($mode == 1) /* today */
 		{
 			return $this->language->lang('LFWWH_RECORD_DAY', $this->config['lfwwh_record_ips'], $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));
 		}
-		else // period of time
+		else /* period of time */
 		{
 			$record_time_start = (int) $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
 			return $this->language->lang('LFWWH_RECORD_TIME', $this->config['lfwwh_record_ips'], $this->get_formatted_record_time($record_time_start), $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));

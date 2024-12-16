@@ -5,7 +5,7 @@
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
-* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @copyright (c) 2010, nickvergessen
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */

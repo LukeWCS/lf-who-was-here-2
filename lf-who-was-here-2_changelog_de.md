@@ -1,3 +1,11 @@
+### 2.2.1
+(2024-12- / CDB: --)
+
+* Die Voraussetzungen haben sich geändert:
+  * PHP: 7.4.0 - 8.4.x (Bisher: 7.1.3 - 8.3.x)
+* Technik auf den Stand von EMP 3.0 gebracht, Details im Build Changelog.
+* Validierungs-Kritik von 2.2.0 berücksichtigt (3/4).
+
 ### 2.2.0
 (2024-03-06 / CDB: --)
 
@@ -10,8 +18,9 @@
   * Das vereinfachte Berechtigungssystem in einen eigenen Abschnitt gesetzt und eine kleine Erklärung hinzugefügt.
 * Twig:
   * Damit Abfragen in den verschiedenen Templates von WWH und der WWH-kompatiblen Erweiterungen einfacher gestaltet werden können, wird die neue Template-Variable `LFWWH_SHOW` generiert. Dadurch können kombinierte Abfragen auf die einzelnen Anzeige-Komponenten entfallen, die sich ab 2.2.0 von 2 Variablen auf 4 erhöht hätten. Diese Variable ist `true`, wenn WWH im Kontext (abhängig von Rechten und Einstellungen) angezeigt werden soll.
-  * Die Anzeigen für Statistik und Besucherrekord werden jetzt unabhängig behandelt.
+  * Neue Template Variable `LFWWH_RECORD` für den Besucherrekord.
   * Die Template Variable `LFWWH_TOTAL` wurde in `LFWWH_STATS` umbenannt, damit diese Variable zum zugehörigen Recht "Statistik" passt.
+  * Die Anzeigen für Statistik und Besucherrekord werden jetzt unabhängig behandelt.
 * JS:
   * Die Klasse `LukeWCSphpBBConfirmBox` auf 1.4.3 aktualisiert.
 * Sprachdateien:
@@ -25,7 +34,7 @@
 
 * Die Sicherheitsfrage für den Rekord-Reset wird nicht mehr per JS Funktion `confirm()` erzeugt, sondern mit dem neuen Twig Makro `confirmbox()` generiert und direkt unterhalb des Schalters eingeblendet.
 * Die Absenden-Buttons werden nicht mehr nach jeder Optionsgruppe, sondern nur noch nach jeder zweiten Gruppe generiert.
-* Aktuelle Programmier-Techniken von EMP und StatsPermissions übernommen.
+* Aktuelle Programmier-Techniken von ExtMgrPlus und StatsPermissions übernommen.
 * Diese Erweiterung ist jetzt kompatibel mit Toggle Control. Somit können Administratoren zentral an einer Stelle entscheiden, ob für Ja/Nein Schalter Radio Buttons, Checkboxen oder Toggles verwendet werden sollen.
 * JS:
   * Die Klasse `LukeWCSphpBBConfirmBox` eingefügt, mit der die neue `confirmbox()` gesteuert wird.

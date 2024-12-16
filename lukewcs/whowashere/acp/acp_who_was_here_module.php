@@ -5,7 +5,7 @@
 *
 * @copyright (c) 2018, LukeWCS, https://www.wcsaga.org/
 * @copyright (c) 2015, Anvar, http://phpbbguru.net
-* @copyright (c) 2013, nickvergessen, http://www.flying-bits.org/
+* @copyright (c) 2010, nickvergessen
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -18,7 +18,7 @@ class acp_who_was_here_module
 	public $tpl_name;
 	public $u_action;
 
-	public function main($id, $mode)
+	public function main()
 	{
 		global $phpbb_container;
 

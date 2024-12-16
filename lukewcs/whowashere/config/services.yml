@@ -9,9 +9,9 @@ services:
             - '@cache.driver'
             - '@dbal.conn'
             - '@dispatcher'
+            - '@language'
             - '%core.table_prefix%'
             - '%core.php_ext%'
-            - '@language'
     lukewcs.whowashere.core.common:
         class: lukewcs\whowashere\core\who_was_here_common
         arguments:
