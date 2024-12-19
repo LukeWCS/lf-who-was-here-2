@@ -14,15 +14,16 @@ namespace lukewcs\whowashere\controller;
 
 class acp_who_was_here_controller
 {
-	protected $common;
-	protected $language;
-	protected $template;
-	protected $request;
-	protected $config;
-	protected $user;
-	protected $cache;
-	protected $ext_manager;
-	public $u_action;
+	protected object $common;
+	protected object $language;
+	protected object $template;
+	protected object $request;
+	protected object $config;
+	protected object $user;
+	protected object $cache;
+	protected object $ext_manager;
+
+	public    string $u_action;
 
 	public function __construct(
 		$common,

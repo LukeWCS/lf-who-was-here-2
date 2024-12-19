@@ -1,8 +1,12 @@
+### 2.2.1
+* Release (2024-12-19)
+* Fehlende typisierte Klassen-Eigenschaften beim Controller und Listener definiert.
+
 #### 2.2.1-b1
 * PHP:
   * Code verwendet jetzt 7.4 Features.
   * Code strikter gestaltet.
-* ext.php`/`composer.json` angepasst:
+* `ext.php`/`composer.json` angepasst:
   * PHP: 7.1.3-8.3.x -> 7.4.0-8.4.x
 * Core:
   * Wie bei "Limit Multiple Replies" werden Rechte jetzt mit der Wrapper Funktion `update_subarray()` (>=phpBB 3.2.1) eingehängt, wodurch das umständliche Extrahieren und Zurückkopieren der Subarrays `$event['categories']` und `$event['permissions']` entfällt.

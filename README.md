@@ -10,4 +10,4 @@ Extension for phpBB - Shows a visitor statistic of the current day or a freely s
 ### History
 * phpBB 3.2 Extension fork (c) 2018 by LukeWCS
 * phpBB 3.1 Extension (c) 2015 by Anvar
-* phpBB 3.0 modification (c) 2010 by Joas Schilling [nickvergessen]
+* phpBB 3.0 Modification (c) 2010 by Joas Schilling [nickvergessen]

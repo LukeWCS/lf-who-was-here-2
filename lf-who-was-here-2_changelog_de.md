@@ -1,5 +1,5 @@
 ### 2.2.1
-(2024-12- / CDB: --)
+(2024-12-19 / CDB: --)
 
 * Die Voraussetzungen haben sich geändert:
   * PHP: 7.4.0 - 8.4.x (Bisher: 7.1.3 - 8.3.x)
@@ -7,7 +7,7 @@
 * Validierungs-Kritik von 2.2.0 berücksichtigt (3/4).
 
 ### 2.2.0
-(2024-03-06 / CDB: --)
+(2024-03-06 / CDB: 2024-05-13)
 
 * Die Unterstützung für phpBB 3.2 wurde aufgegeben, Minimum ist jetzt phpBB 3.3.0.
 * Rechtesystem:
