@@ -205,7 +205,7 @@ Fehlerkorrekturen:
 * Der Text für "keine Mitglieder" wird nicht länger über die Variable `NO_ONLINE_USERS` aus dem phpBB Sprachpaket geladen, sondern kann unabhängig definiert werden.
   * Sprach-Variable `LFWWH_NO_USERS` hinzugefügt.
 * Die Twig Bedingung `|| LFWWH_BOTS` wird nicht benötigt und wurde aus allen Template Dateien (insgesamt 5) entfernt.
-* Wenn der Testmodus "Zeige alle Template-Positionen gleichzeitig:" aktiviert ist, dann werden jetzt bei allen Templates die zugehörige Position angezeigt, wodurch ein Template zweifelsfrei identifiziert werden kann. 
+* Wenn der Testmodus "Zeige alle Template-Positionen gleichzeitig:" aktiviert ist, dann werden jetzt bei allen Templates die zugehörige Position angezeigt, wodurch ein Template zweifelsfrei identifiziert werden kann.
   * Dazu waren ausserdem Änderungen in 4 Template Dateien und 1 CSS Datei notwendig.
   * Sprach-Variable `LFWWH_POS_EXP` hinzugefügt.
 * Template-Änderungen: Ja
@@ -261,7 +261,7 @@ Fehlerkorrekturen:
   * Dadurch entfallen ausserdem spezielle Style-Anpassungen für `<button>`, die bisher nötig waren. Dementsprechend das bisherige Klassen-CSS für die Schaltfläche entfernt.
   * Dafür neues Klassen-CSS hinzugefügt, mit dem verhindert wird, dass bei schnellem Mehrfachklick der angrenzende Text der "Schaltfläche" markiert wird.
   * Javascript an diese Änderungen angepasst.
-* Javascript: 
+* Javascript:
   * Info-Schaltfläche: Globale Variablen und Funktion in einem Objekt zusammengefasst sowie Direktive `use strict` gesetzt.
   * ACP-Modul: Funktionen in einem Objekt zusammengefasst sowie Direktive `use strict` gesetzt.
 * Template-Änderungen: Nein
@@ -291,7 +291,7 @@ Fehlerkorrekturen:
     * Entsprechend in den Sprachdateien den bisherigen Text der Nachricht angepasst.
     * Das Optionsfeld "Ja" reagiert nicht länger auf mehrmaliges Klicken. Dadurch wird die Nachricht auch nur einmal angezeigt, solange der Schalter nicht auf "Nein" zurückgestellt wird.
   * Schon seit dem Ur-WWH ("NV who was here?" für phpBB 3.0) wurde beim Zurücksetzen des Besucherrekords das Datum des Resets in die Datenbank gespeichert, jedoch nie angezeigt oder sonst wie ausgewertet. Dieses Datum wird jetzt bei "Besucherrekord zurücksetzen" hinter "Ja/Nein" angezeigt, sofern ein Reset stattgefunden hat.
-    * In den Sprachdateien für "Zurückgesetzt am:" 1 neue Variable hinzugefügt.  
+    * In den Sprachdateien für "Zurückgesetzt am:" 1 neue Variable hinzugefügt.
   * Einen neuen Abschnitt eingefügt.
     * In den Sprachdateien für "Serverlast" 1 neue Variable hinzugefügt.
     * Die Punkte "Cache für die Besuchertabelle verwenden:", "Aktualisiere mit der Zeitspanne für die Online-Anzeige:" und "Intervall der Aktualisierung:" in den neuen Abschnitt verschoben.
@@ -329,10 +329,10 @@ Fehlerkorrekturen:
 * Eine neue Einstellung erlaubt es nun, die Generierung der Info-Schaltfläche und der ausgeblendeten Informationen (Zeit, IP) komplett deaktivieren zu können.
   * Im ACP Modul eine neue Einstellung hinzugefügt, mit der diese Funktion deaktiviert werden kann. Per Standard ist diese Funktion aktiviert.
   * In den Sprachdateien für "Erzeuge ausgeblendete Informationen:" 2 neue Variablen hinzugefügt.
-* Template-Änderungen: Ja 
+* Template-Änderungen: Ja
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !LFWWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für LF-WWH bestimmt ist.
 * Sprachdatei-Änderungen: Ja
- 
+
 Fehlerkorrekturen:
 
 * Fix: Wenn bei der Einstellungskombination "Zeige Bots:" -> "Mit den Benutzern" und "Zeige die Zeit von Bots:" -> "Bei überfahren" aktuell keine Bots in der Tabelle gelistet waren, wurde trotzdem die Schaltfläche zur Anzeige der ausgeblendeten Infos erzeugt.
@@ -386,7 +386,7 @@ Fehlerkorrekturen:
 * Im ACP Modul den Link zu Anvar's WWH-Thema auf bb3.mobi entfernt, da sich die Diskussion dort auf das inzwischen veraltete NV-WWH bezieht.
   * Die zugehörige Sprach-Variable `WWH_UPDATE_NEED` in `WWH_MOD_SUPPORT` umbenannt.
 * In `composer.json` bei `homepage` statt dem phpbb.de-Forenthema die GitHub Adresse hinterlegt, da dies eher einer Homepage entspricht.
-* Template-Änderungen: Ja 
+* Template-Änderungen: Ja
   * Hinweis für Erweiterungs-Autoren: Die Template Bedingung `&& !WWH_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
 
 ### 1.4.2
@@ -427,7 +427,7 @@ Fehlerkorrekturen:
 * Da das ACP Modul inzwischen einigermassen umfangreich ist, gibt es als kleine Hilfe nun eine Funktion die Einstellungen abblendet (schwächer darstellt) die aktuell keine Bedeutung/Wirkung haben. Somit sieht man auf einen Blick, welche Einstellungen die Anzeige gerade beeinflussen und welche nicht. Abgeblendete Einstellungen können weiterhin geändert werden. Diese Methode nutze ich im beruflichen Umfeld bei Programmen, die teilweise sehr komplexe Einstellungs-Menüs haben.
   * Dementsprechend in den Sprachdateien alle Erklärungen mit "Nicht relevant wenn ..." entfernt.
 * Es kann jetzt für jede Benutzergruppe einzeln festgelegt werden, welchen Umfang die Anzeige (Mitglieder und Statistik/Statistik/Nichts) haben soll. Dazu wird das Berechtigungssystem von phpBB benutzt. Sobald diese Funktion aktiviert ist, werden die Rechte freigeschaltet und können dann pro Gruppe festgelegt werden. Wer das nicht benötigt und wie bisher lediglich die Anzeige für die Gäste regeln möchte, der kann diesen Schalter einfach deaktiviert lassen. Danke an Kirk, der das alles bereits vorab realisiert hatte und so einen Wegweiser für mich schuf. [Wunsch: Jonson (reyno41.bplaced.net/phpbb/)] [Vorschläge: Kirk (phpBB.de), chris1278 (phpBB.de)]
-  * Entsprechend für "Benutze das Berechtigungssystem von phpBB:" 2 neue Variablen in den Sprachdateien hinzugefügt. 
+  * Entsprechend für "Benutze das Berechtigungssystem von phpBB:" 2 neue Variablen in den Sprachdateien hinzugefügt.
   * Rechte per Migrationsdatei hinzugefügt:
     * Wer war da: Kann Statistik sehen
     * Wer war da: Kann Mitglieder und Statistik sehen
@@ -454,7 +454,7 @@ Fehlerkorrekturen:
   * Bei deaktiviertem Berechtigungssystem sind Bots jetzt komplett ausgeschlossen. Diese Gruppe kann also weder die Benutzerliste noch die Statistik "sehen".
   * Bei einer Neuinstallation von LF-WWH gilt nun "Statistik" als neuer Standard, passend zu "Wer ist online?" von phpBB 3.2.
     * Das gilt ebenso für die Schaltfläche "Standard" von "Einstellungen zurücksetzen:".
-* Template-Änderungen: Ja 
+* Template-Änderungen: Ja
   * Hinweis für Erweiterungs-Autoren: Die neue Template Bedingung `&& !WHO_WAS_HERE_API_MODE` darf nicht übernommen werden, da diese ausschliesslich für WWH bestimmt ist.
 
 Fehlerkorrekturen:

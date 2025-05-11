@@ -150,7 +150,7 @@
 #### 2.1.5-b1
 * Fix: `PHP Warning: Undefined array key "is_bot"`
 * Ab Version 2.1.5 wird die bisherige Methode für die Benennung der einzelnen Builds aufgegeben und durch eine normale Beta Versionsnummer ersetzt, wie sie bei phpBB üblich ist. Das erleichtert auch das referenzieren einer spezifischen Beta erheblich.
-* Alle unnötigen `sprintf()` entfernt, wenn Sprachvariablen parametrisiert wurden. 
+* Alle unnötigen `sprintf()` entfernt, wenn Sprachvariablen parametrisiert wurden.
 * ACP-Template:
   * Beim Sicherheitsschalter "Besucherrekord zurücksetzen" bekommt der Browser jetzt vor der Rückfrage per `confirm()` genug Zeit um den aktivierten Schalter darstellen zu können.
   * Toggle Farben von EMP übernommen.
@@ -170,9 +170,9 @@
 #### b99
 * ACP-Modul:
   * Optimierung der Metadata Manager Funktion, übernommen von EMP.
-  * Die überarbeitete Notes Funktion (PHP) von EMP übernommen. 
+  * Die überarbeitete Notes Funktion (PHP) von EMP übernommen.
 * ACP-Template:
-  * Die überarbeitete Notes Funktion (Twig) von EMP übernommen. 
+  * Die überarbeitete Notes Funktion (Twig) von EMP übernommen.
   * Twig optimiert, um im Output unnötige Whitespaces zu eliminieren.
 * CSS:
   * Beim Toggle CSS einen kompakten Header eingefügt mit grundlegenden Infos und um Dan Klammer zu benennen, von dessen Webseite wir den CSS Code ursprünglich haben.
@@ -203,7 +203,7 @@
   * Viele Elemente werden jetzt in jQuery über das `name` Attribut angesprochen, anstatt über das `id` Attribut. Dadurch konnten im HTML sehr viele IDs entfernt werden, insgesamt 78. Methode von EMP übernommen.
   * Javscript an die oben genannten Änderungen angepasst.
   * Für FA-Icons das Twig Makro von EMP übernommen.
-* Foren-Template: 
+* Foren-Template:
   * Für FA-Icons das Twig Makro von EMP übernommen.
 
 ### 2.1.3
@@ -247,7 +247,7 @@
 
 #### b84
 * Fix: Im Sprachpaket `en` waren bei `acp_who_was_here.php` die Texte von 2 Sprach-Variablen vertauscht. (Meldung Kirk)
-* Sprachdateien: Bei manchen Sprach-Variablen die Reihenfolge in der Datei korrigiert.  
+* Sprachdateien: Bei manchen Sprach-Variablen die Reihenfolge in der Datei korrigiert.
 * Composer: Auf 2.1.1-patch1 gesetzt.
 * GitHub: Release Changelog geändert.
 
@@ -358,7 +358,7 @@
 
 ### 2.1.0
 
-#### b68 
+#### b68
 * GitHub: Voraussetzungen in `README.md` angepasst.
 * GitHub: Release Changelogs geändert.
 
@@ -399,7 +399,7 @@
 * ACP-Modul: Zwei neue Template-Variablen hinzugefügt, die den Ext-Namen und die Ext-Version enthalten.
 * ACP-Template: Die Konfig-Beschreibung wird jetzt direkt per Twig aus der Sprachdatei geholt und mit den beiden neuen Template-Variablen zusammengesetzt.
 * ACP-Template: Es gibt jetzt einen Footer der die Autoren-Info des Übersetzers enthält.
-* Sprachdateien: 3 Sprach-Variablen für die Autoren-Info des Übersetzers hinzugefügt.  
+* Sprachdateien: 3 Sprach-Variablen für die Autoren-Info des Übersetzers hinzugefügt.
 * Sprachdateien: Aus jeder Sprachdatei die Autoren-Info des Übersetzers im Kommentar-Block entfernt.
 * Erste Fassung des Release Changelogs.
 
@@ -433,7 +433,7 @@
 #### b55
 * Code: Ext kann nur noch aktiviert werden, wenn die Versionen von phpBB und PHP innerhalb gültiger Bereiche liegen. Realisiert mit `ext.php`.
 * Migration: 2.1.0 setzt jetzt phpBB 3.2.0 voraus.
-* Composer: Maximalversion von PHP definiert.  
+* Composer: Maximalversion von PHP definiert.
 
 #### b54
 * Migration: Deaktivierten Code entfernt.
@@ -469,7 +469,7 @@
 * Sprachdateien: In der Datei für die Rechte wird jetzt nicht mehr mit `$GLOBALS` auf die Konfiguration zugegriffen, sondern mit `$phpbb_container`.
 * Sprachdateien: Kleinere Änderungen.
 * Code: Korrekturen vorgenommen aufgrund des aktuellen phpBB Ext Check Berichts.
-* GitHub: GitHub Actions eingerichtet. 
+* GitHub: GitHub Actions eingerichtet.
 
 ### 2.0.0
 
@@ -539,7 +539,7 @@
 * Autoreninfo in allen Dateien entsprechend angepasst.
 * `README.md` geändert.
 * `README_updating_a_developer_version.md` geändert.
-* Vorbereitungen auf Release. 
+* Vorbereitungen auf Release.
 
 #### b38
 * Beta 3
@@ -754,11 +754,11 @@
 * Javascript Bestätigung bei `lfwwh_record_reset` von `alert()` auf `confirm()` umgestellt mit zurücksetzen des Schalters bei `Cancel`. Event bei "Ja" von `onclick` auf `onchange` umgestellt.
 * Hinweis für `lfwwh_record_reset_time` eingebaut.
 
-#### b3 
+#### b3
 * Fix: Wurde der Zeit-Modus auf "Heute" (Wert 1) umgeschaltet, hatte das keine Auswirkung da die falsche Konfig-Variable `lfwwh_time_of_period_mode` abgefragt wurde und somit immer "Zeitraum" (Wert 0) galt.
 * Im ACP-Template eine weitere Template-Variable umbenannt.
 
-#### b2 
+#### b2
 * B1 muss zuerst deinstalliert werden, also unbedingt "Arbeitsdaten löschen"!
 * Weitere Konfig-Variablen umbenannt.
 * Fix: "Undefined index: WWH_SAVED_SETTINGS" (Meldung Kirk)
