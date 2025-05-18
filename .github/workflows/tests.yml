@@ -1,28 +1,27 @@
 name: Tests
 
 on:
-    push:
-        branches:   # Run tests when commits are pushed to these branches in your repo
-            - main
-            - master
-            - develop
-            - dev/*
-    pull_request:   # Run tests when pull requests are made on these branches in your repo
-        branches:
-            - main
-            - master
-            - develop
-            - dev/*
+  push:
+    branches:     # Run tests when commits are pushed to these branches in your repo
+      - main
+      - master
+      - develop
+      - dev/*
+  pull_request:   # Run tests when pull requests are made on these branches in your repo
+    branches:
+      - main
+      - master
+      - develop
+      - dev/*
 
 jobs:
-    call-tests:
-        name: Extension tests
-        uses: phpbb-extensions/test-framework/.github/workflows/tests.yml@3.3.x  # Must match PHPBB_BRANCH
-        with:
-            EXTNAME: lukewcs/whowashere   # Your extension vendor/package name
-            PHPBB_BRANCH: 3.3.x  # The phpBB branch to run tests on
-            RUN_MYSQL_JOBS: 0
-            RUN_PGSQL_JOBS: 0
-            RUN_MSSQL_JOBS: 0
-            RUN_WINDOWS_JOBS: 0
-            PRIMARY_PHP_VERSION: '8.4'
+  call-tests:
+    name: Extension tests
+    uses: phpbb-extensions/test-framework/.github/workflows/tests.yml@3.3.x
+    with:
+      EXTNAME: lukewcs/whowashere   # Your extension vendor/package name
+      RUN_MYSQL_JOBS: 0
+      RUN_PGSQL_JOBS: 0
+      RUN_MSSQL_JOBS: 0
+      RUN_WINDOWS_JOBS: 0
+      PRIMARY_PHP_VERSION: '8.4'
