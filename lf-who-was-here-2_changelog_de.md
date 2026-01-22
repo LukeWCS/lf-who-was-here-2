@@ -1,5 +1,5 @@
 ### 2.2.1
-(2024-12-19 / CDB: --)
+(2024-12-19 / CDB: 2025-03-16)
 
 * Die Voraussetzungen haben sich geändert:
   * PHP: 7.4.0 - 8.4.x (Bisher: 7.1.3 - 8.3.x)
