@@ -8,60 +8,6 @@
 
 /* SETTINGS */
 
-legend.legend_sub {
-	border: 0;
-	margin: 1em 0;
-	padding: 0;
-	display: flex;
-	white-space: nowrap;
-}
-
-legend.legend_sub:after {
-	content: "";
-	border-bottom: 1px solid #cccccc;
-	width: 100%;
-	margin: 0 0 0.5em 1em;
-}
-
-.simple_permissions dd {
-	line-height: 2em;
-}
-
-input[type=button][name*="lfwwh_"],
-.lfwwh_form_buttons input[type=submit],
-.lfwwh_form_buttons input[type=reset],
-.lfwwh_form_buttons input[type=button] {
-	padding: 3px 4px;
-}
-
-.lfwwh_form_buttons {
-	display: flex;
-}
-
-.lfwwh_col_left {
-	flex-basis: 25%;
-	text-align: left;
-}
-
-.lfwwh_col_center {
-	flex-basis: 50%;
-	text-align: center;
-	font-size: 0.9em;
-}
-
-.lfwwh_col_right {
-	flex-basis: 25%;
-	text-align: right;
-}
-
-.lfwwh_back_to_top {
-	font-size: 1.3em;
-}
-
-.lfwwh_back_to_top:hover {
-	text-decoration: none;
-}
-
 legend {
 	top: 0;
 	margin-left: -11px;
@@ -70,93 +16,146 @@ legend {
 	border-top: inherit;
 	border-left: inherit;
 	background-color: inherit;
+
+	&.legend_sub {
+		border: 0;
+		margin: 1em 0;
+		padding: 0;
+		display: flex;
+		white-space: nowrap;
+
+		&:after {
+			content: "";
+			border-bottom: 1px solid #cccccc;
+			width: 100%;
+			margin: 0 0 0.5em 1em;
+		}
+	}
 }
 
-dt a:link,
-dt a:visited {
+.simple_permissions dd {
+	line-height: 2em;
+}
+
+input[type=button][name*="lfwwh_"],
+.lfwwh_form_buttons input:is([type=submit], [type=reset], [type=button]) {
+	padding: 3px 4px;
+}
+
+.lfwwh_form_buttons {
+	display: flex;
+
+	& .lfwwh_col_left {
+		flex-basis: 25%;
+		text-align: left;
+	}
+
+	& .lfwwh_col_center {
+		flex-basis: 50%;
+		text-align: center;
+		font-size: 0.9em;
+	}
+
+	& .lfwwh_col_right {
+		flex-basis: 25%;
+		text-align: right;
+	}
+}
+
+.lfwwh_back_to_top {
+	font-size: 1.3em;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+dt a:is(:link, :visited) {
 	text-decoration: underline;
 }
 
-/*
-* phpBB ACP Toggles - A CSS class that makes it easy to display checkboxes as toggles.
-* Source     : https://danklammer.com/articles/simple-css-toggle-switch/
-* Revision by: Kirk (customization and optimization), LukeWCS (optimization)
-*/
-
 .toggle {
-	-webkit-appearance: none;
-	-moz-appearance: none;
+	/* phpBB Kirk Toggles 2.0 - A CSS class that makes it easy to display checkboxes as toggles.
+	   Source     : https://danklammer.com/articles/simple-css-toggle-switch/
+	   Revision by: Kirk (customization and optimization), LukeWCS (optimization) */
+
+	/* Kirk style: */
+	/* --background-transition: ease 0.3s; */
+	/* --background-color-off: #a00; */
+	/* --background-color-on: #3fa651; */
+	/* --slider-transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s; */
+
 	appearance: none;
+	position: relative;
 	width: 38px;
 	height: 17px;
-	position: relative;
 	border-radius: 50px;
 	cursor: pointer;
 	font-family: FontAwesome;
-	transition: background-color 0.2s;
-}
+	transition: var(--background-transition, 0.2s);
 
-.toggle:before {
-	position: absolute;
-	width: 14px;
-	height: 13px;
-	background-color: #ffffff;
-	top: 2px;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	left: 22px;
-	content: "\f00d";
-	transition: 0.2s;
-}
+	&,
+	&:hover,
+	&:focus {
+		background: var(--background-color-off, #ccc);
+		border: none;
+		color: #000;
+	}
 
-.toggle,
-.toggle:hover,
-.toggle:focus {
-	background-color: #cccccc;
-	border: none;
-	color: #000000;
-}
+	&:before {
+		content: "\f00d";
+		justify-content: center;
+		position: absolute;
+		top: 2px;
+		left: 22px;
+		width: 14px;
+		height: 13px;
+		background: #fff;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		transition: var(--slider-transition, 0.2s);
+	}
 
-.toggle:checked {
-	background-color: #3b87ab;
-}
+	&:checked {
+		background: var(--background-color-on, #3b87ab);
 
-.toggle:checked:before {
-	left: 2px;
-	content: "\f00c";
+		&:before {
+			content: "\f00c";
+			left: 2px;
+		}
+	}
 }
 
 /* LukeWCSphpBBConfirmBox */
 
-div[id$="_confirmbox"] {
+div.lukewcs_confirmbox {
+	/* LukeWCSphpBBConfirmBox */
+
 	max-width: 450px;
 	border: 2px solid skyblue;
 	margin: 0.75em 0.5em;
 	padding: 0.25em 0.5em;
 	border-radius: 5px;
-	-webkit-box-shadow: 2px 2px 10px 1px rgba(121, 162, 179, 0.5);
 	box-shadow: 2px 2px 10px 1px rgba(121, 162, 179, 0.5);
+
+	& h2 {
+		margin: 0 0 0.25em 0;
+	}
+
+	& p:last-of-type {
+		text-align: center;
+		margin: 0;
+		padding: 0 4px 4px 4px;
+	}
+
+	& input[type="button"] {
+		padding: 3px 4px;
+	}
 }
 
-div[id$="_confirmbox"] h2 {
-	margin: 0 0 0.25em 0;
-}
-
-div[id$="_confirmbox"] p:nth-of-type(2) {
-	text-align: center;
-	margin: 0;
-	padding: 0 4px 4px 4px;
-}
-
-div[id$="_confirmbox"] input[type="button"] {
-	padding: 3px 4px;
-}
-
-input[type="submit"]:disabled,
-input[type="button"]:disabled,
-input.confirmbox_active {
+input:is([type="submit"], [type="button"]):disabled,
+input.lukewcs_confirmbox_active {
 	opacity: 0.5;
 	cursor: not-allowed;
 }

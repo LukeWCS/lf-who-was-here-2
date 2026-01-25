@@ -14,14 +14,12 @@ namespace lukewcs\whowashere\core;
 
 class who_was_here
 {
-	protected const  PERM_STATS				= 1;
-	protected const  PERM_RECORD			= 2;
-	protected const  PERM_USERS				= 4;
-	protected const  PERM_BOTS				= 8;
-
 	protected const  BOTS_DISABLED			= 0;
 	protected const  BOTS_WITH_USERS		= 1;
 	protected const  BOTS_OWN_LINE			= 2;
+
+	protected const  COUNT_BOTS_SEPARATELY	= 0;
+	protected const  COUNT_BOTS_WITH_USERS	= 1;
 
 	protected const  DISP_DISABLED			= 0;
 	protected const  DISP_BEHIND_NAME		= 1;
@@ -37,46 +35,31 @@ class who_was_here
 	protected const  SORT_BY_ID_ASC			= 4;
 	protected const  SORT_BY_ID_DESC		= 5;
 
+	protected const  PERM_STATS				= 1;
+	protected const  PERM_RECORD			= 2;
+	protected const  PERM_USERS				= 4;
+	protected const  PERM_BOTS				= 8;
+
 	protected const  BUTTON_ICON_NOTHING	= 0;
 	protected const  BUTTON_ICON_CLOCK		= 1;
 	protected const  BUTTON_ICON_INFO		= 2;
 
-	protected object $template;
-	protected object $config;
-	protected object $user;
-	protected object $auth;
-	protected object $cache;
-	protected object $db;
-	protected object $language;
-	protected string $table_prefix;
-	protected string $php_ext;
-
 	protected string $lfwwh_table;
 
 	public function __construct(
-		\phpbb\template\template $template,
-		\phpbb\config\config $config,
-		\phpbb\user $user,
-		\phpbb\auth\auth $auth,
-		\phpbb\cache\driver\driver_interface $cache,
-		\phpbb\db\driver\driver_interface $db,
-		\phpbb\event\dispatcher_interface $dispatcher,
-		\phpbb\language\language $language,
-		$table_prefix,
-		$php_ext
+		protected \phpbb\template\template $template,
+		protected \phpbb\config\config $config,
+		protected \phpbb\user $user,
+		protected \phpbb\auth\auth $auth,
+		protected \phpbb\cache\driver\driver_interface $cache,
+		protected \phpbb\db\driver\driver_interface $db,
+		protected \phpbb\event\dispatcher_interface $phpbb_dispatcher,
+		protected \phpbb\language\language $language,
+		protected $table_prefix,
+		protected $php_ext,
 	)
 	{
-		$this->template			= $template;
-		$this->config			= $config;
-		$this->user				= $user;
-		$this->auth				= $auth;
-		$this->cache			= $cache;
-		$this->db				= $db;
-		$this->phpbb_dispatcher	= $dispatcher;
-		$this->language			= $language;
-
-		$this->lfwwh_table		= $table_prefix . 'lfwwh';
-		$this->php_ext			= $php_ext;
+		$this->lfwwh_table = $table_prefix . 'lfwwh';
 	}
 
 	/* DB config
@@ -93,6 +76,7 @@ class who_was_here
 		'lfwwh_disp_time_bots'			(int)
 		'lfwwh_disp_time_format'		(string)
 		'lfwwh_disp_time_users'			(int)
+		'lfwwh_disp_users_bots_count'	(int)
 		'lfwwh_last_clean'				(int)
 		'lfwwh_period_of_time_h'		(int)
 		'lfwwh_period_of_time_m'		(int)
@@ -596,7 +580,7 @@ class who_was_here
 	}
 
 	/*
-		Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary. (LukeWCS)
+		Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary.
 	*/
 	public function clear_up($event): void
 	{
@@ -636,7 +620,7 @@ class who_was_here
 	}
 
 	/*
-		Adds permissions. (LukeWCS)
+		Adds permissions.
 	*/
 	public function add_permissions($event): void
 	{
@@ -716,7 +700,7 @@ class who_was_here
 	}
 
 	/*
-		Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot). (LukeWCS)
+		Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot).
 	*/
 	private function get_hidden_span(int $user_type, string $text): string
 	{
@@ -728,7 +712,7 @@ class who_was_here
 	}
 
 	/*
-		Returns a string encapsulated in <span> tags with a specific CSS class. (LukeWCS)
+		Returns a string encapsulated in <span> tags with a specific CSS class.
 	*/
 	private function get_class_span(string $class, string $text): string
 	{
@@ -736,7 +720,7 @@ class who_was_here
 	}
 
 	/*
-		Returns a formated time string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3. (LukeWCS)
+		Returns a formated time string with replaced placeholders for LFWWH_LAST1 - LFWWH_LAST3.
 	*/
 	private function get_formatted_time(int $timestamp): string
 	{
@@ -745,17 +729,17 @@ class who_was_here
 	}
 
 	/*
-		Returns a formated record time string. (LukeWCS)
+		Returns a formated record time string.
 	*/
 	private function get_formatted_record_time(int $timestamp): string
 	{
 		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);
 	}
 
-	/**
-	* Returns the Explanation string for the online list:
-	* Demo:	based on users active today
-	*		based on users active over the past 30 minutes
+	/*
+		Returns the Explanation string for the online list:
+		Demo:	based on users active today
+				based on users active over the past 30 minutes
 	*/
 	private function get_explanation_string(int $mode): string
 	{
@@ -782,10 +766,10 @@ class who_was_here
 		}
 	}
 
-	/**
-	* Returns the Record string for the online list:
-	* Demo:	Most users ever online was 1 on Mon 7. Sep 2009
-	*		Most users ever online was 1 between Mon 7. Sep 2009 and Tue 8. Sep 2009
+	/*
+		Returns the Record string for the online list:
+		Demo:	Most users ever online was 1 on Mon 7. Sep 2009
+				Most users ever online was 1 between Mon 7. Sep 2009 and Tue 8. Sep 2009
 	*/
 	private function get_record_string(bool $active, int $mode): string
 	{
@@ -799,27 +783,37 @@ class who_was_here
 		}
 		else /* period of time */
 		{
-			$record_time_start = (int) $this->config['lfwwh_record_time'] - (3600 * $this->config['lfwwh_period_of_time_h']) - (60 * $this->config['lfwwh_period_of_time_m']) - $this->config['lfwwh_period_of_time_s'];
-			return $this->language->lang('LFWWH_RECORD_TIME', $this->config['lfwwh_record_ips'], $this->get_formatted_record_time($record_time_start), $this->get_formatted_record_time((int) $this->config['lfwwh_record_time']));
+			$record_time_start = (int) $this->config['lfwwh_record_time']
+				- (3600 * $this->config['lfwwh_period_of_time_h'])
+				- (60 * $this->config['lfwwh_period_of_time_m'])
+				- $this->config['lfwwh_period_of_time_s']
+			;
+			return $this->language->lang('LFWWH_RECORD_TIME',
+				$this->config['lfwwh_record_ips'],
+				$this->get_formatted_record_time($record_time_start),
+				$this->get_formatted_record_time((int) $this->config['lfwwh_record_time'])
+			);
 		}
 	}
 
-	/**
-	* Returns the Total string for the online list:
-	* Demo:	In total there was 1 user online :: 1 registered, 0 hidden, 0 bots and 0 guests
+	/*
+		Returns the Total string for the online list:
+		Demo:	In total there was 1 user online :: 1 registered, 0 hidden, 0 bots and 0 guests
 	*/
 	private function get_total_users_string(array $count): string
 	{
 		$total_users_string = $this->language->lang('LFWWH_STATS', $count['count_total']);
 		if ($this->config['lfwwh_disp_reg_users'])
 		{
-			$total_users_string .= '%s ' . $this->language->lang('LFWWH_REG_USERS', $count['count_reg']);
+			$total_users_string .= '%s ' . $this->language->lang('LFWWH_REG_USERS',
+				$count['count_reg'] + (($this->config['lfwwh_disp_bots'] && $this->config['lfwwh_disp_users_bots_count'] == self::COUNT_BOTS_WITH_USERS) ? $count['count_bot'] : 0)
+			);
 		}
 		if ($this->config['lfwwh_disp_hidden'])
 		{
 			$total_users_string .= '%s ' . $this->language->lang('LFWWH_HIDDEN', $count['count_hidden']);
 		}
-		if ($this->config['lfwwh_disp_bots'])
+		if ($this->config['lfwwh_disp_bots'] && !$this->config['lfwwh_disp_users_bots_count'])
 		{
 			$total_users_string .= '%s ' . $this->language->lang('LFWWH_BOTS', $count['count_bot']);
 		}
@@ -831,13 +825,27 @@ class who_was_here
 		switch (substr_count($total_users_string, '%s'))
 		{
 			case 4:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
+				return sprintf($total_users_string,
+					$this->language->lang('LFWWH_STATS_SEPARATOR'),
+					$this->language->lang('COMMA_SEPARATOR'),
+					$this->language->lang('COMMA_SEPARATOR'),
+					$this->language->lang('LFWWH_AND_SEPARATOR')
+				);
 			case 3:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'), $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
+				return sprintf($total_users_string,
+					$this->language->lang('LFWWH_STATS_SEPARATOR'),
+					$this->language->lang('COMMA_SEPARATOR'),
+					$this->language->lang('LFWWH_AND_SEPARATOR')
+				);
 			case 2:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
+				return sprintf($total_users_string,
+					$this->language->lang('LFWWH_STATS_SEPARATOR'),
+					$this->language->lang('LFWWH_AND_SEPARATOR')
+				);
 			case 1:
-				return sprintf($total_users_string, $this->language->lang('LFWWH_STATS_SEPARATOR'));
+				return sprintf($total_users_string,
+					$this->language->lang('LFWWH_STATS_SEPARATOR')
+				);
 			default:
 				return $total_users_string;
 		}

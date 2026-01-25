@@ -1,3 +1,25 @@
+#### 2.3.0-b1
+* Die Anzahl der Bots kann jetzt optional zusammen mit der Anzahl der sichtbaren Benutzer angezeigt werden, wie bei "Wer ist online?". [Wunsch: open-your-eyes (phpBB.com)]
+* Optimierung und Modernisierung (aktuelle Technik von EMP 3.1 übernommen):
+  * Code Optimierung bei PHP, Twig und CSS.
+  * PHP:
+    * Nutzung von PHP 8.0 Features, unter anderem Constructor Property Promotion.
+  * Javascript:
+    * LukeWCSphpBBConfirmBox aktualisiert: 1.4.3 -> 1.5.1.
+  * CSS:
+    * Weitestgehende Umstellung der klassischen Notation auf verschachtelte Notation.
+    * Weitestgehende Nutzung der Pseudoklasse `:is()`.
+    * Kirk-Toggles aktualisiert: 1.0 -> 2.0.
+	* CSS für LukeWCSphpBBConfirmBox 1.5.1 übernommen.
+  * Twig:
+    * Makro `confirmbox()` aktualisiert, passend zu LukeWCSphpBBConfirmBox 1.5.1.
+	* Mehrere aktualisierte Makros von EMP 3.1 übernommen.
+	* Primäres Foren Template vereinfacht und Makro Code von `icon()` in `info_button()` integriert.
+* `ext.php`/`composer.json` angepasst:
+  * PHP: 7.4.0-8.4.x -> 8.0.0-8.5.x
+* Sprachpakete:
+  * 4 Variablen hinzugefügt.
+
 ### 2.2.1
 * Release (2024-12-19)
 * Fehlende typisierte Klassen-Eigenschaften beim Controller und Listener definiert.

@@ -14,39 +14,22 @@ namespace lukewcs\whowashere\controller;
 
 class acp_who_was_here_controller
 {
-	protected object $common;
-	protected object $language;
-	protected object $template;
-	protected object $request;
-	protected object $config;
-	protected object $user;
-	protected object $cache;
-	protected object $ext_manager;
-
-	public    string $u_action;
+	public string $u_action;
 
 	public function __construct(
-		$common,
-		\phpbb\language\language $language,
-		\phpbb\template\template $template,
-		\phpbb\request\request $request,
-		\phpbb\config\config $config,
-		\phpbb\user $user,
-		\phpbb\cache\driver\driver_interface $cache,
-		\phpbb\extension\manager $ext_manager
+		protected $common,
+		protected \phpbb\language\language $language,
+		protected \phpbb\template\template $template,
+		protected \phpbb\request\request $request,
+		protected \phpbb\config\config $config,
+		protected \phpbb\user $user,
+		protected \phpbb\cache\driver\driver_interface $cache,
+		protected \phpbb\extension\manager $ext_manager,
 	)
 	{
-		$this->common		= $common;
-		$this->language		= $language;
-		$this->template		= $template;
-		$this->request		= $request;
-		$this->config		= $config;
-		$this->user			= $user;
-		$this->cache		= $cache;
-		$this->ext_manager	= $ext_manager;
 	}
 
-	public function module_settings()
+	public function module_settings(): void
 	{
 		$notes = [];
 		$this->language->add_lang(['acp_who_was_here', 'acp_who_was_here_lang_author', 'who_was_here'], 'lukewcs/whowashere');
@@ -56,7 +39,7 @@ class acp_who_was_here_controller
 
 		if ($this->request->is_set_post('submit'))
 		{
-			$this->common->check_form_key_error('lukewcs_whowashere');
+			$this->common->check_form_key_('lukewcs_whowashere');
 
 			$delete_cache = ($this->request->variable('lfwwh_sort_by', 0) != $this->config['lfwwh_sort_by']);
 
@@ -81,6 +64,7 @@ class acp_who_was_here_controller
 			$this->config->set('lfwwh_disp_hidden'				, $this->request->variable('lfwwh_disp_hidden', 0));
 			$this->config->set('lfwwh_disp_bots'				, $this->request->variable('lfwwh_disp_bots', 0));
 			$this->config->set('lfwwh_disp_guests'				, $this->request->variable('lfwwh_disp_guests', 0));
+			$this->config->set('lfwwh_disp_users_bots_count'	, $this->request->variable('lfwwh_disp_users_bots_count', 0));
 			$this->config->set('lfwwh_disp_time_users'			, $this->request->variable('lfwwh_disp_time_users', 0));
 			$this->config->set('lfwwh_disp_time_bots'			, $this->request->variable('lfwwh_disp_time_bots', 0));
 			$this->config->set('lfwwh_disp_time_format'			, $this->request->variable('lfwwh_disp_time_format', ''));
@@ -153,6 +137,10 @@ class acp_who_was_here_controller
 				'LFWWH_DISP_BOTS_DISABLED'			=> 0,
 			]),
 			'LFWWH_DISP_GUESTS'						=> $this->config['lfwwh_disp_guests'],
+			'LFWWH_DISP_USERS_BOTS_COUNT_OPTIONS'	=> $this->select_struct((int) $this->config['lfwwh_disp_users_bots_count'], [
+				'LFWWH_DISP_COUNT_BOTS_WITH_USERS'	=> 1,
+				'LFWWH_DISP_COUNT_BOTS_SEPARATELY'	=> 0,
+			]),
 			'LFWWH_DISP_TIME_USERS_OPTIONS'			=> $this->select_struct((int) $this->config['lfwwh_disp_time_users'], [
 				'LFWWH_DISP_AS_TOOLTIP'				=> 2,
 				'LFWWH_DISP_BEHIND_NAME'			=> 1,
@@ -218,7 +206,7 @@ class acp_who_was_here_controller
 		add_form_key('lukewcs_whowashere');
 	}
 
-	public function set_page_url($u_action)
+	public function set_page_url($u_action): void
 	{
 		$this->u_action = $u_action;
 	}

@@ -1,3 +1,13 @@
+### 2.3.0
+(2026-- / CDB: --)
+
+WIP
+
+* Die Voraussetzungen haben sich geändert:
+  * PHP: 8.0.0 - 8.5.x (Bisher: 7.4.0 - 8.4.x)
+* Die Anzahl der Bots kann jetzt optional zusammen mit der Anzahl der sichtbaren Benutzer angezeigt werden, wie bei "Wer ist online?". [Wunsch: open-your-eyes (phpBB.com)]
+* Technik auf den Stand von EMP 3.1 gebracht, Details im Build Changelog.
+
 ### 2.2.1
 (2024-12-19 / CDB: 2025-03-16)
 
