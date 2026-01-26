@@ -1,3 +1,8 @@
+#### 2.3.0-b2
+* CSS:
+  * Code des ACP Templates optimiert und kleinen Fehler behoben.
+  * Code des primären Foren Templates optimiert. [Hinweis: Kirk (phpBB.de)]
+
 #### 2.3.0-b1
 * Die Anzahl der Bots kann jetzt optional zusammen mit der Anzahl der sichtbaren Benutzer angezeigt werden, wie bei "Wer ist online?". [Wunsch: open-your-eyes (phpBB.com)]
 * Optimierung und Modernisierung (aktuelle Technik von EMP 3.1 übernommen):
@@ -19,6 +24,8 @@
   * PHP: 7.4.0-8.4.x -> 8.0.0-8.5.x
 * Sprachpakete:
   * 4 Variablen hinzugefügt.
+* Migration:
+  * Neue Migration für die neue ACP Option hinzugefügt.
 
 ### 2.2.1
 * Release (2024-12-19)

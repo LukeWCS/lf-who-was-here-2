@@ -10,23 +10,21 @@
 */
 
 (function ($) {
+	'use strict';
 
-'use strict';
+	let isShowInfo = {
+		'users':	false,
+		'bots':		false
+	};
 
-let isShowInfo = {
-	'users':	false,
-	'bots':		false
-};
+	function ShowHide(e) {
+		isShowInfo[e.data.ButtonType] = !isShowInfo[e.data.ButtonType];
+		$('.lfwwh_info_' + e.data.ButtonType.slice(0, 1)).toggle(isShowInfo[e.data.ButtonType]);
+		$('.lfwwh_button_' + e.data.ButtonType).css('opacity', (isShowInfo[e.data.ButtonType] ? '1.0' : '0.5'));
+	}
 
-function ShowHide(e) {
-	isShowInfo[e.data.ButtonType] = !isShowInfo[e.data.ButtonType];
-	$('.lfwwh_info_' + e.data.ButtonType.slice(0, 1)).toggle(isShowInfo[e.data.ButtonType]);
-	$('.lfwwh_button_' + e.data.ButtonType).css('opacity', (isShowInfo[e.data.ButtonType] ? '1.0' : '0.5'));
-}
-
-$(function() {
-	$('.lfwwh_button_users'	).on('click', {ButtonType: 'users'}	, ShowHide);
-	$('.lfwwh_button_bots'	).on('click', {ButtonType: 'bots'}	, ShowHide);
-});
-
+	$(function() {
+		$('.lfwwh_button_users'	).on('click', {ButtonType: 'users'}	, ShowHide);
+		$('.lfwwh_button_bots'	).on('click', {ButtonType: 'bots'}	, ShowHide);
+	});
 })(jQuery);

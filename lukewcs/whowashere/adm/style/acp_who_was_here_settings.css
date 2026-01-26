@@ -33,11 +33,15 @@ legend {
 	}
 }
 
+dt a:is(:link, :visited) {
+	text-decoration: underline;
+}
+
 .simple_permissions dd {
 	line-height: 2em;
 }
 
-input[type=button][name*="lfwwh_"],
+input[type=button][name^="lfwwh_"],
 .lfwwh_form_buttons input:is([type=submit], [type=reset], [type=button]) {
 	padding: 3px 4px;
 }
@@ -60,18 +64,14 @@ input[type=button][name*="lfwwh_"],
 		flex-basis: 25%;
 		text-align: right;
 	}
-}
 
-.lfwwh_back_to_top {
-	font-size: 1.3em;
+	& .lfwwh_back_to_top {
+		font-size: 1.3em;
 
-	&:hover {
-		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
 	}
-}
-
-dt a:is(:link, :visited) {
-	text-decoration: underline;
 }
 
 .toggle {
@@ -126,8 +126,6 @@ dt a:is(:link, :visited) {
 		}
 	}
 }
-
-/* LukeWCSphpBBConfirmBox */
 
 div.lukewcs_confirmbox {
 	/* LukeWCSphpBBConfirmBox */
