@@ -75,6 +75,7 @@ class acp_who_was_here_controller
 			$this->config->set('lfwwh_period_of_time_h'			, $this->request->variable('lfwwh_period_of_time_h', 0));
 			$this->config->set('lfwwh_period_of_time_m'			, $this->request->variable('lfwwh_period_of_time_m', 0));
 			$this->config->set('lfwwh_period_of_time_s'			, $this->request->variable('lfwwh_period_of_time_s', 0));
+			$this->config->set('lfwwh_user_limit'				, $this->request->variable('lfwwh_user_limit', 0));
 			$this->config->set('lfwwh_sort_by'					, $this->request->variable('lfwwh_sort_by', 0));
 			$this->config->set('lfwwh_record'					, $this->request->variable('lfwwh_record', 0));
 			$this->config->set('lfwwh_record_time_format'		, $this->request->variable('lfwwh_record_time_format', ''));
@@ -123,20 +124,20 @@ class acp_who_was_here_controller
 			'LFWWH_NOTES'							=> $notes,
 
 			/* LFWWH_SECTION_PERMISSIONS */
-			'LFWWH_ADMIN_MODE'						=> $this->config['lfwwh_admin_mode'],
-			'LFWWH_USE_PERMISSIONS'					=> $this->config['lfwwh_use_permissions'],
-			'LFWWH_PERM_FOR_GUESTS'					=> $this->config['lfwwh_perm_for_guests'],
-			'LFWWH_PERM_FOR_BOTS'					=> $this->config['lfwwh_perm_for_bots'],
+			'LFWWH_ADMIN_MODE'						=> (bool) $this->config['lfwwh_admin_mode'],
+			'LFWWH_USE_PERMISSIONS'					=> (bool) $this->config['lfwwh_use_permissions'],
+			'LFWWH_PERM_FOR_GUESTS'					=> (int) $this->config['lfwwh_perm_for_guests'],
+			'LFWWH_PERM_FOR_BOTS'					=> (int) $this->config['lfwwh_perm_for_bots'],
 
 			/* LFWWH_SECTION_DISP_1 */
-			'LFWWH_DISP_REG_USERS'					=> $this->config['lfwwh_disp_reg_users'],
-			'LFWWH_DISP_HIDDEN'						=> $this->config['lfwwh_disp_hidden'],
+			'LFWWH_DISP_REG_USERS'					=> (bool) $this->config['lfwwh_disp_reg_users'],
+			'LFWWH_DISP_HIDDEN'						=> (bool) $this->config['lfwwh_disp_hidden'],
 			'LFWWH_DISP_BOTS_OPTIONS'				=> $this->select_struct((int) $this->config['lfwwh_disp_bots'], [
 				'LFWWH_DISP_BOTS_OWN_LINE' 			=> 2,
 				'LFWWH_DISP_BOTS_WITH_USERS'		=> 1,
 				'LFWWH_DISP_BOTS_DISABLED'			=> 0,
 			]),
-			'LFWWH_DISP_GUESTS'						=> $this->config['lfwwh_disp_guests'],
+			'LFWWH_DISP_GUESTS'						=> (bool) $this->config['lfwwh_disp_guests'],
 			'LFWWH_DISP_USERS_BOTS_COUNT_OPTIONS'	=> $this->select_struct((int) $this->config['lfwwh_disp_users_bots_count'], [
 				'LFWWH_DISP_COUNT_BOTS_WITH_USERS'	=> 1,
 				'LFWWH_DISP_COUNT_BOTS_SEPARATELY'	=> 0,
@@ -151,7 +152,7 @@ class acp_who_was_here_controller
 				'LFWWH_DISP_BEHIND_NAME'			=> 1,
 				'LFWWH_DISP_DISABLED'				=> 0,
 			]),
-			'LFWWH_DISP_TIME_FORMAT'				=> $this->config['lfwwh_disp_time_format'],
+			'LFWWH_DISP_TIME_FORMAT'				=> (string) $this->config['lfwwh_disp_time_format'],
 			'LFWWH_DISP_TIME_FORMAT_DEMO'			=> $this->language->lang('LFWWH_DISP_TIME_FORMAT_DEMO', $this->get_formatted_time(time())),
 			'LFWWH_DISP_IP_OPTIONS'					=> $this->select_struct((int) $this->config['lfwwh_disp_ip'], [
 				'LFWWH_DISP_AS_TOOLTIP'				=> 2,
@@ -164,9 +165,9 @@ class acp_who_was_here_controller
 				'LFWWH_TIME_MODE_TODAY'				=> 1,
 				'LFWWH_TIME_MODE_PERIOD'			=> 0,
 			]),
-			'LFWWH_PERIOD_OF_TIME_H'				=> $this->config['lfwwh_period_of_time_h'],
-			'LFWWH_PERIOD_OF_TIME_M'				=> $this->config['lfwwh_period_of_time_m'],
-			'LFWWH_PERIOD_OF_TIME_S'				=> $this->config['lfwwh_period_of_time_s'],
+			'LFWWH_PERIOD_OF_TIME_H'				=> (int) $this->config['lfwwh_period_of_time_h'],
+			'LFWWH_PERIOD_OF_TIME_M'				=> (int) $this->config['lfwwh_period_of_time_m'],
+			'LFWWH_PERIOD_OF_TIME_S'				=> (int) $this->config['lfwwh_period_of_time_s'],
 			'LFWWH_SORT_BY_OPTIONS'					=> $this->select_struct((int) $this->config['lfwwh_sort_by'], [
 				'LFWWH_SORT_BY_NAME_AZ'				=> 0,
 				'LFWWH_SORT_BY_NAME_ZA'				=> 1,
@@ -175,8 +176,9 @@ class acp_who_was_here_controller
 				'LFWWH_SORT_BY_ID_ASC'				=> 4,
 				'LFWWH_SORT_BY_ID_DESC'				=> 5,
 			]),
-			'LFWWH_RECORD'							=> $this->config['lfwwh_record'],
-			'LFWWH_RECORD_TIME_FORMAT'				=> $this->config['lfwwh_record_time_format'],
+			'LFWWH_USER_LIMIT'						=> (int) $this->config['lfwwh_user_limit'],
+			'LFWWH_RECORD'							=> (bool) $this->config['lfwwh_record'],
+			'LFWWH_RECORD_TIME_FORMAT'				=> (string) $this->config['lfwwh_record_time_format'],
 			'LFWWH_RECORD_TIME_FORMAT_DEMO'			=> $this->language->lang('LFWWH_DISP_TIME_FORMAT_DEMO', $this->get_formatted_record_time(time())),
 			'LFWWH_TEMPLATE_POS_OPTIONS'			=> $this->select_struct((int) $this->config['lfwwh_template_pos'], [
 				'LFWWH_TEMPLATE_POS_TOP'			=> 0,
@@ -185,19 +187,19 @@ class acp_who_was_here_controller
 			]),
 
 			/* LFWWH_SECTION_OTHERS */
-			'LFWWH_API_MODE'						=> $this->config['lfwwh_api_mode'],
-			'LFWWH_CLEAR_UP'						=> $this->config['lfwwh_clear_up'],
-			'LFWWH_TEMPLATE_POS_ALL'				=> $this->config['lfwwh_template_pos_all'],
-			'LFWWH_CREATE_HIDDEN_INFO'				=> $this->config['lfwwh_create_hidden_info'],
+			'LFWWH_API_MODE'						=> (bool) $this->config['lfwwh_api_mode'],
+			'LFWWH_CLEAR_UP'						=> (bool) $this->config['lfwwh_clear_up'],
+			'LFWWH_TEMPLATE_POS_ALL'				=> (bool) $this->config['lfwwh_template_pos_all'],
+			'LFWWH_CREATE_HIDDEN_INFO'				=> (bool) $this->config['lfwwh_create_hidden_info'],
 
 			/* LFWWH_SECTION_LOAD_SETTINGS */
-			'LFWWH_USE_CACHE'						=> $this->config['lfwwh_use_cache'],
-			'LFWWH_USE_ONLINE_TIME'					=> $this->config['lfwwh_use_online_time'],
-			'LFWWH_CACHE_TIME'						=> $this->config['lfwwh_cache_time'],
+			'LFWWH_USE_CACHE'						=> (bool) $this->config['lfwwh_use_cache'],
+			'LFWWH_USE_ONLINE_TIME'					=> (bool) $this->config['lfwwh_use_online_time'],
+			'LFWWH_CACHE_TIME'						=> (int) $this->config['lfwwh_cache_time'],
 			'LFWWH_CACHE_TIME_MAX'					=> $load_online_time,
 
 			/* LFWWH_SECTION_RESET */
-			'LFWWH_RECORD_RESET_TIME'				=> ($this->config['lfwwh_record_reset_time'] != 1) ? $this->language->lang('LFWWH_RECORD_RESET_TIME_HINT', $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
+			'LFWWH_RECORD_RESET_TIME'				=> ((int) $this->config['lfwwh_record_reset_time'] != 1) ? $this->language->lang('LFWWH_RECORD_RESET_TIME_HINT', $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
 
 			/* form elements */
 			'U_ACTION'								=> $this->u_action,
@@ -206,7 +208,7 @@ class acp_who_was_here_controller
 		add_form_key('lukewcs_whowashere');
 	}
 
-	public function set_page_url($u_action): void
+	public function set_page_url(string $u_action): void
 	{
 		$this->u_action = $u_action;
 	}
@@ -222,7 +224,7 @@ class acp_who_was_here_controller
 		return $this->user->format_date($timestamp, $this->config['lfwwh_record_time_format']);
 	}
 
-	private function select_struct($cfg_value, array $options): array
+	private function select_struct(array|int|string $cfg_value, array $options): array
 	{
 		$options_tpl = [];
 

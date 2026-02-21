@@ -34,7 +34,7 @@ class who_was_here_common
 		}
 	}
 
-	public function back_link(?string $lang_var = null): string
+	public function back_link(string|null $lang_var = null): string
 	{
 		return sprintf('<br><br><a href="%1$s">%2$s</a>',
 			/* 1 */ $this->u_action,

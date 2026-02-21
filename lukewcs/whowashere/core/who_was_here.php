@@ -297,7 +297,9 @@ class who_was_here
 			'ids_bot'		=> [],
 		];
 
-		$wwh_username_full = $users_list = $bots_list = '';
+		$wwh_username_full	= '';
+		$users_list			= '';
+		$bots_list			= '';
 
 		/* Load cache who_was_here */
 		if ($this->config['lfwwh_use_cache'])
@@ -318,7 +320,12 @@ class who_was_here
 			$view_state = $this->view_state();
 		}
 
-		$show_button_users = $show_button_bots = 0;
+		$show_button_users		= false;
+		$show_button_bots		= false;
+		$users_limit_exceeded	= false;
+		$bots_limit_exceeded	= false;
+		$users_count			= 0;
+		$bots_count				= 0;
 		foreach ($view_state as $row)
 		{
 			if ($row['user_id'] != ANONYMOUS)
@@ -441,16 +448,34 @@ class who_was_here
 				{
 					if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE && $user_type == USER_IGNORE)
 					{
+						$bots_count++;
+						if ($this->config['lfwwh_user_limit'] > 0 && $bots_count == $this->config['lfwwh_user_limit'] + 1)
+						{
+							$bots_list .= '<span class="lfwwh_hidden_all_bots" style="display: none;">';
+							$bots_limit_exceeded = true;
+						}
 						$bots_list .= $this->language->lang('COMMA_SEPARATOR') . '<span' . $hover_info . '>' . $wwh_username_full . '</span>' . $disp_info;
 					}
 					else
 					{
+						$users_count++;
+						if ($this->config['lfwwh_user_limit'] > 0 && $users_count == $this->config['lfwwh_user_limit'] + 1)
+						{
+							$users_list .= '<span class="lfwwh_hidden_all_users" style="display: none;">';
+							$users_limit_exceeded = true;
+						}
 						$users_list .= $this->language->lang('COMMA_SEPARATOR') . '<span' . $hover_info . '>' . $wwh_username_full . '</span>' . $disp_info;
 					}
 				}
 			}
 			else if ($wwh_disp_permission_hidden || $row['user_id'] == $this->user->data['user_id'])
 			{
+				$users_count++;
+				if ($this->config['lfwwh_user_limit'] > 0 && $users_count == $this->config['lfwwh_user_limit'] + 1)
+				{
+					$users_list .= '<span class="lfwwh_hidden_all_users" style="display: none;">';
+					$users_limit_exceeded = true;
+				}
 				$users_list .= $this->language->lang('COMMA_SEPARATOR') . '<em' . $hover_info . '>' .$wwh_username_full . '</em>' . $disp_info;
 			}
 
@@ -475,6 +500,16 @@ class who_was_here
 				$count['ids_hidden'][] = (int) $row['user_id'];
 			}
 			$count['count_total']++;
+		}
+
+		if ($users_limit_exceeded)
+		{
+			$users_list .= '</span>';
+		}
+
+		if ($bots_limit_exceeded)
+		{
+			$bots_list .= '</span>';
 		}
 
 		if ($users_list == '')
@@ -534,6 +569,8 @@ class who_was_here
 			'LFWWH_BOTS'				=> $wwh_disp_permission_bots ? $bots_list : '',
 			'LFWWH_USERS_SHOW_BUTTON'	=> $show_button_users,
 			'LFWWH_BOTS_SHOW_BUTTON'	=> $show_button_bots,
+			'LFWWH_USERS_ALL_BUTTON'	=> $users_limit_exceeded,
+			'LFWWH_BOTS_ALL_BUTTON'		=> $bots_limit_exceeded,
 			'LFWWH_POS'					=> $this->config['lfwwh_template_pos_all'] ? 7 : 2 ** $this->config['lfwwh_template_pos'],
 			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'] || $force_api_mode,
 			'LFWWH_SHOW'				=> (
@@ -708,7 +745,7 @@ class who_was_here
 		{
 			return '';
 		}
-		return '<span class="lfwwh_info_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? 'u' : 'b') . '" style="display: none;">' . $text . '</span>';
+		return '<span class="lfwwh_hidden_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? 'info_users' : 'info_bots') . '" style="display: none;">' . $text . '</span>';
 	}
 
 	/*

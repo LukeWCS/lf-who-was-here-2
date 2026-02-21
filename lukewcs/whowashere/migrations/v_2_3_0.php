@@ -22,7 +22,8 @@ class v_2_3_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			['config.add', ['lfwwh_disp_users_bots_count', 0]],
+			['config.add', ['lfwwh_disp_users_bots_count'	, 0]],
+			['config.add', ['lfwwh_user_limit'				, 0]],
 		];
 	}
 }

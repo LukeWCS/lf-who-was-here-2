@@ -1,3 +1,27 @@
+#### 2.3.0-b3
+* Die Anzahl der der maximal angezeigten Benutzer kann jetzt optional begrenzt werden. Benutzer die diese Grenze überschreiten, werden ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
+* Core neuen Code für User-Limit eingebaut und bestehenden Code angepasst.
+* ACP-Template:
+  * Neues Eingabefeld für User-Limit.
+* Foren-Template:
+  * Code an User-Limit angepasst und neues Makro hinzugefügt.
+* Javascript:
+  * Den Foren-Code an User-Limit angepasst.
+* ACP-Controller:
+  * Neues Eingabefeld verdrahtet.
+  * Explizite Typ-Deklaration bei Template-Variablen.
+  * Explizite Parameter-Typen bei Funktionen.
+* Common:
+  * Union Type statt `?` (explizit nullbar) bei `= null` in Funktion-Parametern.
+* Listener:
+  * Explizite Rückgabe-Typen bei Funktionen.
+* CSS:
+  * Code für Code-Darstellungen von EMP übernommen.
+* Sprachdateien:
+  * 2 Variablen hinzugefügt.
+* Migration:
+  * Migration geändert und Konfig für das User-Limit hinzugefügt.
+
 #### 2.3.0-b2
 * CSS:
   * Code des ACP Templates optimiert und kleinen Fehler behoben.
@@ -22,7 +46,7 @@
 	* Primäres Foren Template vereinfacht und Makro Code von `icon()` in `info_button()` integriert.
 * `ext.php`/`composer.json` angepasst:
   * PHP: 7.4.0-8.4.x -> 8.0.0-8.5.x
-* Sprachpakete:
+* Sprachdateien:
   * 4 Variablen hinzugefügt.
 * Migration:
   * Neue Migration für die neue ACP Option hinzugefügt.

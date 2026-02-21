@@ -204,6 +204,15 @@
 		</dl>
 		<dl>
 			<dt>
+				<label>{{ lang('LFWWH_USER_LIMIT') ~ lang('COLON') }}</label><br>
+				<span>{{ lang('LFWWH_USER_LIMIT_EXP') }}</span>
+			</dt>
+			<dd>
+				{{ _self.number('lfwwh_user_limit', LFWWH_USER_LIMIT, 0, 999) }}
+			</dd>
+		</dl>
+		<dl>
+			<dt>
 				<label>{{ lang('LFWWH_RECORD') ~ lang('COLON') }}</label><br>
 				<span>{{ lang('LFWWH_RECORD_EXP') }}</span>
 			</dt>

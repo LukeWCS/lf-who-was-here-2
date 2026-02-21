@@ -158,6 +158,12 @@ input.lukewcs_confirmbox_active {
 	cursor: not-allowed;
 }
 
+code {
+	background-color: #dddddd;
+	padding: 0 0.25em;
+	color: black;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 700px) {

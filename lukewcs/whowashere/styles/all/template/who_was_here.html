@@ -16,11 +16,19 @@
 		{{ (LFWWH_STATS || LFWWH_RECORD) && (LFWWH_USERS || LFWWH_BOTS) ? '<br>' }}
 
 		{% if LFWWH_USERS %}
-			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{ LFWWH_USERS_SHOW_BUTTON ? _self.info_button('users', LFWWH_USERS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_USERS }}<br>
+			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{
+				LFWWH_USERS_SHOW_BUTTON ? _self.info_button('info_users', LFWWH_USERS_SHOW_BUTTON) ~ ' '
+			}}{{ LFWWH_USERS }}{{
+				LFWWH_USERS_ALL_BUTTON ? ' ' ~ _self.all_button('all_users')
+			}}<br>
 		{% endif %}
 
 		{% if LFWWH_BOTS %}
-			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{ LFWWH_BOTS_SHOW_BUTTON ? _self.info_button('bots', LFWWH_BOTS_SHOW_BUTTON) ~ ' ' }}{{ LFWWH_BOTS }}<br>
+			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{
+				LFWWH_BOTS_SHOW_BUTTON ? _self.info_button('info_bots', LFWWH_BOTS_SHOW_BUTTON) ~ ' '
+			}}{{ LFWWH_BOTS }}{{
+				LFWWH_BOTS_ALL_BUTTON ? ' ' ~ _self.all_button('all_bots')
+			}}<br>
 		{% endif %}
 	</p>
 </div>
@@ -28,4 +36,8 @@
 {% macro info_button(buttontype, infotype) -%}
 	{%- set icon = (infotype == 2) ? 'fa-info-circle' : 'fa-clock-o' -%}
 	<span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;"><i class="icon {{ icon }}" title="{{ lang('LFWWH_SHOW_INFO_TOOLTIP')|e('html') }}"></i></span>
+{%- endmacro %}
+
+{% macro all_button(buttontype) -%}
+	<span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;"><i class="icon fa-expand fa-flip-horizontal" title="{{ lang('LFWWH_SHOW_ALL_TOOLTIP')|e('html') }}"></i></span>
 {%- endmacro %}
