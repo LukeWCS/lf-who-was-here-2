@@ -43,7 +43,7 @@ $lang = array_merge($lang, [
 	'LFWWH_CONFIG_TITLE'				=> 'Who was here?',
 	'LFWWH_CONFIG_DESC' 				=> 'Here you can change the settings for the <strong>%s</strong> extension.',
 
-	// config section 1
+	// config LFWWH_SECTION_PERMISSIONS
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Permissions',
 	'LFWWH_ADMIN_MODE'					=> 'Administrator mode',
 	'LFWWH_ADMIN_MODE_EXP'				=> 'This mode overrides all permissions systems and only users with administrative rights can see the WWH display. Helpful if WWH should not be visible to others at short notice.',
@@ -60,7 +60,7 @@ $lang = array_merge($lang, [
 	'LFWWH_PERM_USERS'					=> 'Members',
 	'LFWWH_PERM_BOTS'					=> 'Bots',
 
-	// config section 2
+	// config LFWWH_SECTION_DISP_1
 	'LFWWH_SECTION_DISP_1'				=> 'Display settings 1',
 	'LFWWH_DISP_REG_USERS'				=> 'Show visible users (number)',
 	'LFWWH_DISP_REG_USERS_EXP'			=> 'The number of visible users is displayed.',
@@ -89,7 +89,7 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_BEHIND_NAME'			=> 'Behind the name',
 	'LFWWH_DISP_DISABLED'				=> 'No',
 
-	// config section 3
+	// config LFWWH_SECTION_DISP_2
 	'LFWWH_SECTION_DISP_2'				=> 'Display settings 2',
 	'LFWWH_TIME_MODE'					=> 'Display of the visitors of ...',
 	'LFWWH_TIME_MODE_EXP'				=> 'Display of today’s visitors (since 00:00 forum time), or the time period set at the next setting.',
@@ -103,8 +103,10 @@ $lang = array_merge($lang, [
 	'LFWWH_SORT_BY_VISIT_DESC'			=> 'Time of visit descending',
 	'LFWWH_SORT_BY_ID_ASC'				=> 'User-ID ascending',
 	'LFWWH_SORT_BY_ID_DESC'				=> 'User-ID descending',
+	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Create hidden information',
+	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'If the display of the time or IP is set to “As a tooltip”, this information is also hidden and a button (%1$s or %2$s) is created, with which they can be displayed.',
 	'LFWWH_USER_LIMIT'					=> 'Limit the number of displayed users',
-	'LFWWH_USER_LIMIT_EXP'				=> 'If a value greater than <code>0</code> is entered, all users and bots exceeding this limit will be hidden and can be shown using a button at the end of the list.',
+	'LFWWH_USER_LIMIT_EXP'				=> 'If a value greater than <code>0</code> is entered, all users and bots exceeding this limit will be hidden and can be shown using a button (%s) at the end of the list.',
 	'LFWWH_RECORD'						=> 'Visitor record',
 	'LFWWH_RECORD_EXP'					=> 'Show and update the visitor record.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Date format for the visitor record',
@@ -115,7 +117,7 @@ $lang = array_merge($lang, [
 	'LFWWH_TEMPLATE_POS_BEFORE_BDAYS'	=> 'Before birthdays',
 	'LFWWH_TEMPLATE_POS_BOTTOM'			=> 'Bottom',
 
-	// config section 4
+	// config LFWWH_SECTION_OTHERS
 	'LFWWH_SECTION_OTHERS'				=> 'Others',
 	'LFWWH_API_MODE'					=> 'API mode',
 	'LFWWH_API_MODE_EXP'				=> 'This deactivates the display of WWH and only creates the template variables. This mode is for forums where WWH is already represented by other extensions.',
@@ -123,10 +125,8 @@ $lang = array_merge($lang, [
 	'LFWWH_CLEAR_UP_EXP'				=> 'If user accounts are deleted, the table and display of WWH are also immediately cleared.',
 	'LFWWH_TEMPLATE_POS_ALL'			=> 'Show all template positions at the same time',
 	'LFWWH_TEMPLATE_POS_ALL_EXP'		=> 'WWH is displayed on all positions at the same time. This is only for testing and should be disabled during normal operation.',
-	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Create hidden information',
-	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'If the display of the time or IP is set to “As a tooltip”, this information is also hidden and a button is created, with which they can be displayed.',
 
-	// config section 5
+	// config LFWWH_SECTION_LOAD_SETTINGS
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Load settings',
 	'LFWWH_USE_CACHE'					=> 'Use cache for the visitor table',
 	'LFWWH_USE_CACHE_EXP'				=> 'When the cache is enabled, the cached table is used when the forums index is called. As a result, new visitors are displayed only after a certain delay. If the cache is deactivated, a new MySQL query is executed each time the forum index is called, which can lead to performance problems in large forums.',
@@ -135,7 +135,7 @@ $lang = array_merge($lang, [
 	'LFWWH_CACHE_TIME'					=> 'Interval of the update',
 	'LFWWH_CACHE_TIME_EXP'				=> 'The interval determines how often the display of the statistics and user list is updated.',
 
-	// config section 6
+	// config LFWWH_SECTION_RESET
 	'LFWWH_SECTION_RESET'				=> 'Reset',
 	'LFWWH_DEFAULTS'					=> 'Reset settings',
 	'LFWWH_DEFAULTS_EXP'				=> 'Resets all settings of this page to the installation standard. (Does not affect “Reset visitor record”)',

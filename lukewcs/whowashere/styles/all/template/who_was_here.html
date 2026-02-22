@@ -17,7 +17,7 @@
 
 		{% if LFWWH_USERS %}
 			{{ lang('LFWWH_USERS_PREFIX') ~ lang('COLON') }} {{
-				LFWWH_USERS_SHOW_BUTTON ? _self.info_button('info_users', LFWWH_USERS_SHOW_BUTTON) ~ ' '
+				LFWWH_USERS_INFO_BUTTON ? _self.info_button('info_users', LFWWH_USERS_INFO_BUTTON) ~ ' '
 			}}{{ LFWWH_USERS }}{{
 				LFWWH_USERS_ALL_BUTTON ? ' ' ~ _self.all_button('all_users')
 			}}<br>
@@ -25,7 +25,7 @@
 
 		{% if LFWWH_BOTS %}
 			{{ lang('LFWWH_BOTS_PREFIX') ~ lang('COLON') }} {{
-				LFWWH_BOTS_SHOW_BUTTON ? _self.info_button('info_bots', LFWWH_BOTS_SHOW_BUTTON) ~ ' '
+				LFWWH_BOTS_INFO_BUTTON ? _self.info_button('info_bots', LFWWH_BOTS_INFO_BUTTON) ~ ' '
 			}}{{ LFWWH_BOTS }}{{
 				LFWWH_BOTS_ALL_BUTTON ? ' ' ~ _self.all_button('all_bots')
 			}}<br>
@@ -39,5 +39,5 @@
 {%- endmacro %}
 
 {% macro all_button(buttontype) -%}
-	<span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;"><i class="icon fa-expand fa-flip-horizontal" title="{{ lang('LFWWH_SHOW_ALL_TOOLTIP')|e('html') }}"></i></span>
+	<span class="lfwwh_button_{{ buttontype }}_pre">... </span><span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;"><i class="icon fa-expand fa-flip-horizontal" title="{{ lang('LFWWH_SHOW_ALL_TOOLTIP')|e('html') }}"></i></span>
 {%- endmacro %}

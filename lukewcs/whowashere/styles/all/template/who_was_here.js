@@ -23,6 +23,9 @@
 		isShown[e.data.ButtonType] = !isShown[e.data.ButtonType];
 		$('.lfwwh_hidden_' + e.data.ButtonType).toggle(isShown[e.data.ButtonType]);
 		$('.lfwwh_button_' + e.data.ButtonType).css('opacity', (isShown[e.data.ButtonType] ? '1.0' : '0.5'));
+		if (e.data.ButtonType.slice(0, 4) == 'all_') {
+			$('.lfwwh_button_' + e.data.ButtonType + '_pre').toggle(!isShown[e.data.ButtonType]);
+		}
 	}
 
 	$(function() {

@@ -43,7 +43,7 @@ $lang = array_merge($lang, [
 	'LFWWH_CONFIG_TITLE'				=> 'Wer war da?',
 	'LFWWH_CONFIG_DESC' 				=> 'Hier kannst du die Einstellungen für die Erweiterung <strong>%s</strong> ändern.',
 
-	// config section 1
+	// config LFWWH_SECTION_PERMISSIONS
 	'LFWWH_SECTION_PERMISSIONS'			=> 'Berechtigungen',
 	'LFWWH_ADMIN_MODE'					=> 'Administrator-Modus',
 	'LFWWH_ADMIN_MODE_EXP'				=> 'Dieser Modus setzt alle Berechtigungssysteme außer Kraft und nur Benutzer mit administrativen Rechten können die WWD-Anzeige sehen. Hilfreich wenn WWD kurzfristig für andere nicht sichtbar sein soll.',
@@ -60,7 +60,7 @@ $lang = array_merge($lang, [
 	'LFWWH_PERM_USERS'					=> 'Mitglieder',
 	'LFWWH_PERM_BOTS'					=> 'Bots',
 
-	// config section 2
+	// config LFWWH_SECTION_DISP_1
 	'LFWWH_SECTION_DISP_1'				=> 'Anzeige Einstellungen 1',
 	'LFWWH_DISP_REG_USERS'				=> 'Zeige sichtbare Benutzer (Anzahl)',
 	'LFWWH_DISP_REG_USERS_EXP'			=> 'Die Anzahl der sichtbaren Benutzer wird angezeigt.',
@@ -89,7 +89,7 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_BEHIND_NAME'			=> 'Hinter dem Namen',
 	'LFWWH_DISP_DISABLED'				=> 'Nein',
 
-	// config section 3
+	// config LFWWH_SECTION_DISP_2
 	'LFWWH_SECTION_DISP_2'				=> 'Anzeige Einstellungen 2',
 	'LFWWH_TIME_MODE'					=> 'Anzeige der Besucher von ...',
 	'LFWWH_TIME_MODE_EXP'				=> 'Anzeige der Besucher von heute (Seit 00:00 Forum Zeit), oder des Zeitraums der bei der nächsten Einstellung festgelegt wird.',
@@ -103,8 +103,10 @@ $lang = array_merge($lang, [
 	'LFWWH_SORT_BY_VISIT_DESC'			=> 'Zeit des Besuchs absteigend',
 	'LFWWH_SORT_BY_ID_ASC'				=> 'Benutzer-ID aufsteigend',
 	'LFWWH_SORT_BY_ID_DESC'				=> 'Benutzer-ID absteigend',
+	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Erzeuge ausgeblendete Informationen',
+	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'Wenn die Anzeige der Zeit oder IP auf „Als Tooltip“ eingestellt ist, werden diese Informationen zusätzlich ausgeblendet und es wird eine Schaltfläche (%1$s oder %2$s) erzeugt, mit der diese eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs.',
 	'LFWWH_USER_LIMIT'					=> 'Begrenze die Anzahl der angezeigten Benutzer',
-	'LFWWH_USER_LIMIT_EXP'				=> 'Wird ein Wert größer <code>0</code> eingetragen, werden alle Benutzer und Bots, die über dieser Grenze liegen, ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden.',
+	'LFWWH_USER_LIMIT_EXP'				=> 'Wird ein Wert größer <code>0</code> eingetragen, werden alle Benutzer und Bots, die über dieser Grenze liegen, ausgeblendet und können mit einer Schaltfläche (%s) am Ende der Liste eingeblendet werden.',
 	'LFWWH_RECORD'						=> 'Besucherrekord',
 	'LFWWH_RECORD_EXP'					=> 'Zeige und aktualisiere den Besucherrekord.',
 	'LFWWH_RECORD_TIME_FORMAT'			=> 'Datums-Format für den Besucherrekord',
@@ -115,7 +117,7 @@ $lang = array_merge($lang, [
 	'LFWWH_TEMPLATE_POS_BEFORE_BDAYS'	=> 'Vor Geburtstage',
 	'LFWWH_TEMPLATE_POS_BOTTOM'			=> 'Unten',
 
-	// config section 4
+	// config LFWWH_SECTION_OTHER
 	'LFWWH_SECTION_OTHERS'				=> 'Sonstiges',
 	'LFWWH_API_MODE'					=> 'API-Modus',
 	'LFWWH_API_MODE_EXP'				=> 'Damit wird die Anzeige von WWD deaktiviert und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Foren gedacht, bei denen WWD bereits durch andere Erweiterungen dargestellt wird.',
@@ -123,10 +125,8 @@ $lang = array_merge($lang, [
 	'LFWWH_CLEAR_UP_EXP'				=> 'Wenn Benutzerkonten gelöscht werden, dann wird auch sofort die Tabelle und Anzeige von WWD bereinigt.',
 	'LFWWH_TEMPLATE_POS_ALL'			=> 'Zeige alle Template-Positionen gleichzeitig',
 	'LFWWH_TEMPLATE_POS_ALL_EXP'		=> 'WWD wird auf allen Positionen gleichzeitig angezeigt. Das dient nur zum Testen und sollte im Normalbetrieb deaktiviert sein.',
-	'LFWWH_CREATE_HIDDEN_INFO'			=> 'Erzeuge ausgeblendete Informationen',
-	'LFWWH_CREATE_HIDDEN_INFO_EXP'		=> 'Wenn die Anzeige der Zeit oder IP auf „Als Tooltip“ eingestellt ist, werden diese Informationen zusätzlich ausgeblendet und es wird eine Schaltfläche erzeugt, mit der diese eingeblendet werden können. Hilfreich bei Smartphones und Tablet-PCs.',
 
-	// config section 5
+	// config LFWWH_SECTION_LOAD_SETTINGS
 	'LFWWH_SECTION_LOAD_SETTINGS'		=> 'Serverlast',
 	'LFWWH_USE_CACHE'					=> 'Cache für die Besuchertabelle verwenden',
 	'LFWWH_USE_CACHE_EXP'				=> 'Bei aktiviertem Cache wird auf die zwischengespeicherte Tabelle zurückgegriffen, wenn der Forenindex aufgerufen wird. Dadurch werden neue Besucher erst nach einer gewissen Verzögerung angezeigt. Bei deaktiviertem Cache wird bei jedem Aufruf des Forenindexes eine neue MySQL Abfrage ausgeführt, was bei großen Foren zu Performance-Problemen führen kann.',
@@ -135,7 +135,7 @@ $lang = array_merge($lang, [
 	'LFWWH_CACHE_TIME'					=> 'Intervall der Aktualisierung',
 	'LFWWH_CACHE_TIME_EXP'				=> 'Das Intervall bestimmt, wie oft die Anzeige der Statistik und Benutzerliste aktualisiert wird.',
 
-	// config section 6
+	// config LFWWH_SECTION_RESET
 	'LFWWH_SECTION_RESET'				=> 'Zurücksetzen',
 	'LFWWH_DEFAULTS'					=> 'Einstellungen zurücksetzen',
 	'LFWWH_DEFAULTS_EXP'				=> 'Setzt alle Einstellungen dieser Seite auf den Installationsstandard zurück. (Hat keine Auswirkung auf „Besucherrekord zurücksetzen“)',

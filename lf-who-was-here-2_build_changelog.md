@@ -1,11 +1,27 @@
+#### 2.3.0-b4
+* Fix: Im Core ist mir bei 2.3.0-b3 ein Fehler unterlaufen; ich hatte 2 Variablen von Integer auf Boolean geändert. Der Fehler konnte keine Auswirkung haben, da er von nachfolgendem Code quasi korrigiert wurde, wurde aber natürlich trotzdem behoben.
+* Core:
+  * Code bezüglich User-Limit etwas optimiert, wodurch ein paar Zeilen entfielen.
+  * Mehrere PHP und Template Variablen umbenannt, damit diese eindeutiger sind in Bezug auf das neue User-Limit.
+* ACP-Template:
+  * Der Schalter für "Erzeuge ausgeblendete Informationen:" wurde aus dem Abschnitt "Sonstiges" in den Abschnitt "Anzeige Einstellungen 2" verschoben, da er dort erstens besser passt und zwietens damit dieser mit der Option "Begrenze die Anzahl der angezeigten Benutzer:" gruppiert werden konnte, da beide thematisch zusammengehören.
+  * Sowohl bei "Erzeuge ausgeblendete Informationen:" als auch bei "Begrenze die Anzahl der angezeigten Benutzer:" wird in der Beschreibung jetzt direkt das FA Icon gezeigt, das im Foren-Index bei WWH als Schaltfläche dient.
+* Foren-Template:
+  * Die umbenannten 2 Template Variablen übernommen.
+  * Vor der Schaltfläche zum Einblenden aller Benutzer werden jetzt noch 3 Punkte eingefügt die ausgeblendet werden, wenn die Schaltfläche betätigt wird. So wird signalisiert, dass die Liste länger ist, als aktuell gezeigt wird.
+* Sprachdateien:
+  * Die 2 Sprachvariablen für "Erzeuge ausgeblendete Informationen:" ebenfalls verschoben.
+  * 2 Sprachvariablen so geändert, dass FA Icons in den Text eingefügt werden können.
+  
 #### 2.3.0-b3
-* Die Anzahl der der maximal angezeigten Benutzer kann jetzt optional begrenzt werden. Benutzer die diese Grenze überschreiten, werden ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
-* Core neuen Code für User-Limit eingebaut und bestehenden Code angepasst.
+* Die Anzahl der maximal angezeigten Benutzer kann jetzt optional begrenzt werden. Benutzer die diese Grenze überschreiten, werden ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
+* Core:
+  * Neuen Code für User-Limit eingebaut und bestehenden Code angepasst.
 * ACP-Template:
   * Neues Eingabefeld für User-Limit.
 * Foren-Template:
   * Code an User-Limit angepasst und neues Makro hinzugefügt.
-* Javascript:
+* JavaScript:
   * Den Foren-Code an User-Limit angepasst.
 * ACP-Controller:
   * Neues Eingabefeld verdrahtet.

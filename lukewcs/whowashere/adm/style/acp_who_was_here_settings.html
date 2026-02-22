@@ -204,8 +204,17 @@
 		</dl>
 		<dl>
 			<dt>
+				<label>{{ lang('LFWWH_CREATE_HIDDEN_INFO') ~ lang('COLON') }}</label><br>
+				<span>{{ lang('LFWWH_CREATE_HIDDEN_INFO_EXP', _self.icon('fa-info-circle'), _self.icon('fa-clock-o')) }}</span>
+			</dt>
+			<dd>
+				{{ _self.switch('lfwwh_create_hidden_info', LFWWH_CREATE_HIDDEN_INFO, switch_type) }}
+			</dd>
+		</dl>
+		<dl>
+			<dt>
 				<label>{{ lang('LFWWH_USER_LIMIT') ~ lang('COLON') }}</label><br>
-				<span>{{ lang('LFWWH_USER_LIMIT_EXP') }}</span>
+				<span>{{ lang('LFWWH_USER_LIMIT_EXP', _self.icon('fa fa-expand fa-flip-horizontal')) }}</span>
 			</dt>
 			<dd>
 				{{ _self.number('lfwwh_user_limit', LFWWH_USER_LIMIT, 0, 999) }}
@@ -269,15 +278,6 @@
 			</dt>
 			<dd>
 				{{ _self.switch('lfwwh_template_pos_all', LFWWH_TEMPLATE_POS_ALL, switch_type) }}
-			</dd>
-		</dl>
-		<dl>
-			<dt>
-				<label>{{ lang('LFWWH_CREATE_HIDDEN_INFO') ~ lang('COLON') }}</label><br>
-				<span>{{ lang('LFWWH_CREATE_HIDDEN_INFO_EXP') }}</span>
-			</dt>
-			<dd>
-				{{ _self.switch('lfwwh_create_hidden_info', LFWWH_CREATE_HIDDEN_INFO, switch_type) }}
 			</dd>
 		</dl>
 	</fieldset>
