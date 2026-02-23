@@ -1,11 +1,16 @@
+#### 2.3.0-b5
+* JavaScript:
+  * Die Funktion zum Zurücksetzen auf Standard-Einstellungen berücksichtigt jetzt auch das neue User-Limit.
+  * Den Code für den Schalter "Erzeuge ausgeblendete Informationen:" an die korrekte neue Position verschoben.
+
 #### 2.3.0-b4
-* Fix: Im Core ist mir bei 2.3.0-b3 ein Fehler unterlaufen; ich hatte 2 Variablen von Integer auf Boolean geändert. Der Fehler konnte keine Auswirkung haben, da er von nachfolgendem Code quasi korrigiert wurde, wurde aber natürlich trotzdem behoben.
+* Fix: Im Core ist mir bei 2.3.0-b3 ein Fehler unterlaufen; ich hatte 2 Variablen von Integer auf Boolean geändert. Der Fehler konnte keine Auswirkung haben, da er von nachfolgendem Code quasi korrigiert wurde. Der Fehler wurde trotzdem behoben.
 * Core:
   * Code bezüglich User-Limit etwas optimiert, wodurch ein paar Zeilen entfielen.
   * Mehrere PHP und Template Variablen umbenannt, damit diese eindeutiger sind in Bezug auf das neue User-Limit.
 * ACP-Template:
-  * Der Schalter für "Erzeuge ausgeblendete Informationen:" wurde aus dem Abschnitt "Sonstiges" in den Abschnitt "Anzeige Einstellungen 2" verschoben, da er dort erstens besser passt und zwietens damit dieser mit der Option "Begrenze die Anzahl der angezeigten Benutzer:" gruppiert werden konnte, da beide thematisch zusammengehören.
-  * Sowohl bei "Erzeuge ausgeblendete Informationen:" als auch bei "Begrenze die Anzahl der angezeigten Benutzer:" wird in der Beschreibung jetzt direkt das FA Icon gezeigt, das im Foren-Index bei WWH als Schaltfläche dient.
+  * Der Schalter für "Erzeuge ausgeblendete Informationen:" wurde aus dem Abschnitt "Sonstiges" in den Abschnitt "Anzeige Einstellungen 2" verschoben, da er dort erstens besser passt und zweitens damit dieser mit der Option "Begrenze die Anzahl der angezeigten Benutzer:" gruppiert werden konnte, da beide thematisch zusammengehören.
+  * Sowohl bei "Erzeuge ausgeblendete Informationen:" als auch bei "Begrenze die Anzahl der angezeigten Benutzer:" wird in der Beschreibung jetzt direkt das FA Icon gezeigt, das im Foren-Index bei WWH jeweils als Schaltfläche dient. Somit werden die Icons im ACP Modul erklärt.
 * Foren-Template:
   * Die umbenannten 2 Template Variablen übernommen.
   * Vor der Schaltfläche zum Einblenden aller Benutzer werden jetzt noch 3 Punkte eingefügt die ausgeblendet werden, wenn die Schaltfläche betätigt wird. So wird signalisiert, dass die Liste länger ist, als aktuell gezeigt wird.
@@ -14,7 +19,7 @@
   * 2 Sprachvariablen so geändert, dass FA Icons in den Text eingefügt werden können.
   
 #### 2.3.0-b3
-* Die Anzahl der maximal angezeigten Benutzer kann jetzt optional begrenzt werden. Benutzer die diese Grenze überschreiten, werden ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
+* Die Anzahl der maximal angezeigten Benutzer kann jetzt optional begrenzt werden. Wird diese Grenze in der Liste überschreiten, werden die übrigen Benutzer ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
 * Core:
   * Neuen Code für User-Limit eingebaut und bestehenden Code angepasst.
 * ACP-Template:

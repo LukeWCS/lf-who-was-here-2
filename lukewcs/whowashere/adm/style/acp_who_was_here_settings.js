@@ -170,48 +170,49 @@
 		const c = constants;
 
 		/* LFWWH_SECTION_PERMISSIONS */
-		setSwitch('input[name="lfwwh_admin_mode"]',								false);
-		setSwitch('input[name="lfwwh_use_permissions"]',						false);
-		setSwitch('input[name="lfwwh_perm_for_guests_stats"]',					true);
-		setSwitch('input[name="lfwwh_perm_for_guests_record"]',					true);
-		setSwitch('input[name="lfwwh_perm_for_guests_users"]',					false);
-		setSwitch('input[name="lfwwh_perm_for_guests_bots"]',					false);
-		setSwitch('input[name="lfwwh_perm_for_bots_stats"]',					false);
-		setSwitch('input[name="lfwwh_perm_for_bots_record"]',					false);
-		setSwitch('input[name="lfwwh_perm_for_bots_users"]',					false);
-		setSwitch('input[name="lfwwh_perm_for_bots_bots"]',						false);
+		setSwitch('input[name="lfwwh_admin_mode"]'							, false);
+		setSwitch('input[name="lfwwh_use_permissions"]'						, false);
+		setSwitch('input[name="lfwwh_perm_for_guests_stats"]'				, true);
+		setSwitch('input[name="lfwwh_perm_for_guests_record"]'				, true);
+		setSwitch('input[name="lfwwh_perm_for_guests_users"]'				, false);
+		setSwitch('input[name="lfwwh_perm_for_guests_bots"]'				, false);
+		setSwitch('input[name="lfwwh_perm_for_bots_stats"]'					, false);
+		setSwitch('input[name="lfwwh_perm_for_bots_record"]'				, false);
+		setSwitch('input[name="lfwwh_perm_for_bots_users"]'					, false);
+		setSwitch('input[name="lfwwh_perm_for_bots_bots"]'					, false);
 
 		/* LFWWH_SECTION_DISP_1 */
-		setSwitch('input[name="lfwwh_disp_reg_users"]',							true);
-		setSwitch('input[name="lfwwh_disp_hidden"]',							true);
-		$(        'select[name="lfwwh_disp_bots"]').prop('value',				c.BotsWithUsers);
-		setSwitch('input[name="lfwwh_disp_guests"]',							true);
-		$(        'select[name="lfwwh_disp_users_bots_count"]').prop('value',	c.CountBotsSeparately);
-		$(        'select[name="lfwwh_disp_time_users"]').prop('value',			c.DispBehindName);
-		$(        'select[name="lfwwh_disp_time_bots"]').prop('value',			c.DispBehindName);
-		$(        'input[name="lfwwh_disp_time_format"]').prop('value',			'$1 G:i');
-		$(        'select[name="lfwwh_disp_ip"]').prop('value',					c.DispBehindName);
+		setSwitch('input[name="lfwwh_disp_reg_users"]'						, true);
+		setSwitch('input[name="lfwwh_disp_hidden"]'							, true);
+		$(        'select[name="lfwwh_disp_bots"]').prop('value'			, c.BotsWithUsers);
+		setSwitch('input[name="lfwwh_disp_guests"]'							, true);
+		$(        'select[name="lfwwh_disp_users_bots_count"]').prop('value', c.CountBotsSeparately);
+		$(        'select[name="lfwwh_disp_time_users"]').prop('value'		, c.DispBehindName);
+		$(        'select[name="lfwwh_disp_time_bots"]').prop('value'		, c.DispBehindName);
+		$(        'input[name="lfwwh_disp_time_format"]').prop('value'		, '$1 G:i');
+		$(        'select[name="lfwwh_disp_ip"]').prop('value'				, c.DispBehindName);
 
 		/* LFWWH_SECTION_DISP_2 */
-		$(        'select[name="lfwwh_time_mode"]').prop('value',				c.TimeModeToday);
-		$(        'input[name="lfwwh_period_of_time_h"]').prop('value',			24);
-		$(        'input[name="lfwwh_period_of_time_m"]').prop('value',			0);
-		$(        'input[name="lfwwh_period_of_time_s"]').prop('value',			0);
-		$(        'select[name="lfwwh_sort_by"]').prop('value',					c.SortByVisitDesc);
-		setSwitch('input[name="lfwwh_record"]',									true);
-		$(        'input[name="lfwwh_record_time_format"]').prop('value',		'D j. M Y');
-		$(        'select[name="lfwwh_template_pos"]').prop('value',			c.PosTop);
+		$(        'select[name="lfwwh_time_mode"]').prop('value'			, c.TimeModeToday);
+		$(        'input[name="lfwwh_period_of_time_h"]').prop('value'		, 24);
+		$(        'input[name="lfwwh_period_of_time_m"]').prop('value'		, 0);
+		$(        'input[name="lfwwh_period_of_time_s"]').prop('value'		, 0);
+		$(        'select[name="lfwwh_sort_by"]').prop('value'				, c.SortByVisitDesc);
+		setSwitch('input[name="lfwwh_create_hidden_info"]'					, true);
+		$(        'input[name="lfwwh_user_limit"]').prop('value'			, 0);
+		setSwitch('input[name="lfwwh_record"]'								, true);
+		$(        'input[name="lfwwh_record_time_format"]').prop('value'	, 'D j. M Y');
+		$(        'select[name="lfwwh_template_pos"]').prop('value'			, c.PosTop);
 
 		/* LFWWH_SECTION_OTHERS */
-		setSwitch('input[name="lfwwh_api_mode"]',								false);
-		setSwitch('input[name="lfwwh_clear_up"]',								true);
-		setSwitch('input[name="lfwwh_template_pos_all"]',						false);
-		setSwitch('input[name="lfwwh_create_hidden_info"]',						true);
+		setSwitch('input[name="lfwwh_api_mode"]'							, false);
+		setSwitch('input[name="lfwwh_clear_up"]'							, true);
+		setSwitch('input[name="lfwwh_template_pos_all"]'					, false);
 
 		/* LFWWH_SECTION_LOAD_SETTINGS */
-		setSwitch('input[name="lfwwh_use_cache"]',								true);
-		setSwitch('input[name="lfwwh_use_online_time"]',						true);
-		$(        'input[name="lfwwh_cache_time"]').prop('value',	lfwwhACP.tpl.CacheTimeMax);
+		setSwitch('input[name="lfwwh_use_cache"]'							, true);
+		setSwitch('input[name="lfwwh_use_online_time"]'						, true);
+		$(        'input[name="lfwwh_cache_time"]').prop('value'			, lfwwhACP.tpl.CacheTimeMax);
 
 		setState();
 	};
