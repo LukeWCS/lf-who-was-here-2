@@ -1,10 +1,14 @@
+#### 2.3.0-b6
+* Fix: Durch die Optimierung bei b4 bezüglich User-Limit ist ein Problem in Verbindung mit dem Schalter "Zeige Bots (Anzahl und Namen):" entstanden, wenn dieser auf "Mit den Benutzern" eingestellt war. Dann wurden angezeigte Bots nicht als angezeigte User gezählt, was zur Folge haben konnte, dass mehr User angezeigt wurden, als eingestellt war. Dabei spielt der Zeitpunkt der Bots eine wichtige Rolle. Die Ursache für das Problem war, dass durch die Optimierung die bereits vorhandenen Zähler genutzt wurden. Aber diese zählen die reale Anzahl von User und Bots, es wird jedoch für das User-Limit die Anzahl der angezeigten User und Bots benötigt, nicht die reale. Separate Zähler wieder eingebaut.
+* Im Rahmen der Fehlerbehebung fand ich Code der mir Rätsel aufgab. Da wurden die IDs von sichtbaren und unsichtbaren Usern sowie von Bots in jeweils einem separaten Array hinzugefügt, aber diese Daten wurden nirgends verwendet. Zuerst dachte ich an eine neue Funktion, für die Anvar etwas vorbereitet, aber nie realisiert hat. Dann habe ich noch im alten WWH Mod nachgeschaut und wurde sofort fündig; diese Daten waren ursprünglich ein Teil einer Log-Funktion, die jedoch nicht aktiviert war, da diese Funktion - in Abhängigkeit von bestimmten Ländern - mit gesetzlichen Auflagen kollidieren könnte. Anvar hat diese Log Funktion bei seiner Ext-Portierung gar nicht übernommen, aber dabei hat er scheinbar die Generierung der ID Listen übersehen, die jetzt keinerlei Sinn mehr hat. Ich habe jetzt diese restlichen Code-Artefakte bezüglich Log-Funktion endgültig entfernt.
+
 #### 2.3.0-b5
 * JavaScript:
   * Die Funktion zum Zurücksetzen auf Standard-Einstellungen berücksichtigt jetzt auch das neue User-Limit.
   * Den Code für den Schalter "Erzeuge ausgeblendete Informationen:" an die korrekte neue Position verschoben.
 
 #### 2.3.0-b4
-* Fix: Im Core ist mir bei 2.3.0-b3 ein Fehler unterlaufen; ich hatte 2 Variablen von Integer auf Boolean geändert. Der Fehler konnte keine Auswirkung haben, da er von nachfolgendem Code quasi korrigiert wurde. Der Fehler wurde trotzdem behoben.
+* Fix: Im Core ist bei 2.3.0-b3 ein Fehler entstanden; es wurden fälschlicherweise 2 Variablen von Integer auf Boolean geändert. Der Fehler konnte keine Auswirkung haben, da er von nachfolgendem Code quasi korrigiert wurde. Der Fehler wurde trotzdem behoben.
 * Core:
   * Code bezüglich User-Limit etwas optimiert, wodurch ein paar Zeilen entfielen.
   * Mehrere PHP und Template Variablen umbenannt, damit diese eindeutiger sind in Bezug auf das neue User-Limit.

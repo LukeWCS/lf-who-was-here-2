@@ -285,17 +285,15 @@ class who_was_here
 			return;
 		}
 
-		/* Default count total or ids */
+		/* Default count total */
 		$count = [
 			'count_guest'	=> 0,
 			'count_bot'		=> 0,
 			'count_reg'		=> 0,
 			'count_hidden'	=> 0,
-			'count_user'	=> 0,
 			'count_total'	=> 0,
-			'ids_reg'		=> [],
-			'ids_hidden'	=> [],
-			'ids_bot'		=> [],
+			'shown_user'	=> 0,
+			'shown_bot'		=> 0,
 		];
 
 		$wwh_username_full	= '';
@@ -438,28 +436,6 @@ class who_was_here
 				}
 			}
 
-			if ($row['user_id'] == ANONYMOUS)
-			{
-				$count['count_guest']++;
-			}
-			else if ($user_type == USER_IGNORE)
-			{
-				$count['count_bot']++;
-				$count['ids_bot'][] = (int) $row['user_id'];
-			}
-			else if ($row['viewonline'] == 1)
-			{
-				$count['count_reg']++;
-				$count['ids_reg'][] = (int) $row['user_id'];
-			}
-			else
-			{
-				$count['count_hidden']++;
-				$count['ids_hidden'][] = (int) $row['user_id'];
-			}
-			$count['count_user'] = $count['count_reg'] + $count['count_hidden'];
-			$count['count_total']++;
-
 			if ($row['viewonline'] || $user_type == USER_IGNORE)
 			{
 				if ($row['user_id'] != ANONYMOUS && (
@@ -469,7 +445,8 @@ class who_was_here
 				{
 					if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE && $user_type == USER_IGNORE)
 					{
-						if ($this->config['lfwwh_user_limit'] > 0 && $count['count_bot'] == $this->config['lfwwh_user_limit'] + 1)
+						$count['shown_bot']++;
+						if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_bot'] == $this->config['lfwwh_user_limit'] + 1)
 						{
 							$bots_list .= '<span class="lfwwh_hidden_all_bots" style="display: none;">';
 							$bots_all_button = true;
@@ -478,7 +455,8 @@ class who_was_here
 					}
 					else
 					{
-						if ($this->config['lfwwh_user_limit'] > 0 && $count['count_user'] == $this->config['lfwwh_user_limit'] + 1)
+						$count['shown_user']++;
+						if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_user'] == $this->config['lfwwh_user_limit'] + 1)
 						{
 							$users_list .= '<span class="lfwwh_hidden_all_users" style="display: none;">';
 							$users_all_button = true;
@@ -489,13 +467,33 @@ class who_was_here
 			}
 			else if ($wwh_disp_permission_hidden || $row['user_id'] == $this->user->data['user_id'])
 			{
-				if ($this->config['lfwwh_user_limit'] > 0 && $count['count_user'] == $this->config['lfwwh_user_limit'] + 1)
+				$count['shown_user']++;
+				if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_user'] == $this->config['lfwwh_user_limit'] + 1)
 				{
 					$users_list .= '<span class="lfwwh_hidden_all_users" style="display: none;">';
 					$users_all_button = true;
 				}
 				$users_list .= $this->language->lang('COMMA_SEPARATOR') . '<em' . $hover_info . '>' .$wwh_username_full . '</em>' . $disp_info;
 			}
+
+			/* At the end let's count them =) */
+			if ($row['user_id'] == ANONYMOUS)
+			{
+				$count['count_guest']++;
+			}
+			else if ($user_type == USER_IGNORE)
+			{
+				$count['count_bot']++;
+			}
+			else if ($row['viewonline'] == 1)
+			{
+				$count['count_reg']++;
+			}
+			else
+			{
+				$count['count_hidden']++;
+			}
+			$count['count_total']++;
 		}
 
 		if ($users_all_button)
