@@ -39,5 +39,5 @@
 {%- endmacro %}
 
 {% macro all_button(buttontype) -%}
-	<span class="lfwwh_button_{{ buttontype }}_pre">... </span><span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;"><i class="icon fa-expand fa-flip-horizontal" title="{{ lang('LFWWH_SHOW_ALL_TOOLTIP')|e('html') }}"></i></span>
+	<span class="lfwwh_prefix_{{ buttontype }}">... </span><span class="lfwwh_button_{{ buttontype }}" style="opacity: 0.5;"><i class="icon fa-expand fa-flip-horizontal" title="{{ lang('LFWWH_SHOW_ALL_TOOLTIP')|e('html') }}"></i></span>
 {%- endmacro %}
