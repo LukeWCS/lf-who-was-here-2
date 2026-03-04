@@ -108,7 +108,7 @@ class acp_who_was_here_controller
 			trigger_error($this->language->lang('LFWWH_MSG_SAVED_SETTINGS') . adm_back_link($this->u_action));
 		}
 
-		$lang_outdated_msg	= $this->common->lang_ver_check_msg('LFWWH_LANG_VER', 'LFWWH_MSG_LANGUAGEPACK_OUTDATED');
+		$lang_outdated_msg = $this->common->lang_ver_check_msg('LFWWH_LANG_VER', 'LFWWH_MSG_LANGUAGEPACK_OUTDATED');
 		if ($lang_outdated_msg)
 		{
 			$notes[] = $lang_outdated_msg;
@@ -199,7 +199,9 @@ class acp_who_was_here_controller
 			'LFWWH_CACHE_TIME_MAX'					=> $load_online_time,
 
 			/* LFWWH_SECTION_RESET */
-			'LFWWH_RECORD_RESET_TIME'				=> ((int) $this->config['lfwwh_record_reset_time'] != 1) ? $this->language->lang('LFWWH_RECORD_RESET_TIME_HINT', $this->user->format_date($this->config['lfwwh_record_reset_time'])) : '',
+			'LFWWH_RECORD_RESET_TIME'				=> ((int) $this->config['lfwwh_record_reset_time'] != 1)
+				? $this->language->lang('LFWWH_RECORD_RESET_TIME_HINT', $this->user->format_date($this->config['lfwwh_record_reset_time']))
+				: '',
 
 			/* form elements */
 			'U_ACTION'								=> $this->u_action,
@@ -216,7 +218,11 @@ class acp_who_was_here_controller
 	private function get_formatted_time(int $timestamp): string
 	{
 		$text = $this->user->format_date($timestamp, $this->config['lfwwh_disp_time_format']);
-		return str_replace(['$1', '$2', '$3'], [$this->language->lang('LFWWH_LAST1'), $this->language->lang('LFWWH_LAST2'), $this->language->lang('LFWWH_LAST3')], $text);
+		return str_replace(['$1', '$2', '$3'], [
+			$this->language->lang('LFWWH_LAST1'),
+			$this->language->lang('LFWWH_LAST2'),
+			$this->language->lang('LFWWH_LAST3')
+		], $text);
 	}
 
 	private function get_formatted_record_time(int $timestamp): string

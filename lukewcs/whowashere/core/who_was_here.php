@@ -477,22 +477,12 @@ class who_was_here
 			}
 
 			/* At the end let's count them =) */
-			if ($row['user_id'] == ANONYMOUS)
-			{
-				$count['count_guest']++;
-			}
-			else if ($user_type == USER_IGNORE)
-			{
-				$count['count_bot']++;
-			}
-			else if ($row['viewonline'] == 1)
-			{
-				$count['count_reg']++;
-			}
-			else
-			{
-				$count['count_hidden']++;
-			}
+			$count[match (true) {
+				$row['user_id'] == ANONYMOUS	=> 'count_guest',
+				$user_type == USER_IGNORE		=> 'count_bot',
+				$row['viewonline'] == 1			=> 'count_reg',
+				default							=> 'count_hidden',
+			}]++;
 			$count['count_total']++;
 		}
 
@@ -680,22 +670,12 @@ class who_was_here
 	*/
 	private function view_state(): array
 	{
-		switch ($this->config['lfwwh_sort_by'])
-		{
-			case self::SORT_BY_NAME_AZ:
-			case self::SORT_BY_NAME_ZA:
-				$sql_order_by = 'username_clean';
-			break;
-			case self::SORT_BY_ID_ASC:
-			case self::SORT_BY_ID_DESC:
-				$sql_order_by = 'user_id';
-			break;
-			case self::SORT_BY_VISIT_ASC:
-			case self::SORT_BY_VISIT_DESC:
-			default:
-				$sql_order_by = 'wwh_lastpage';
-			break;
-		}
+		$sql_order_by = match ($this->config['lfwwh_sort_by']) {
+			self::SORT_BY_NAME_AZ	, self::SORT_BY_NAME_ZA		=> 'username_clean',
+			self::SORT_BY_ID_ASC	, self::SORT_BY_ID_DESC		=> 'user_id',
+			self::SORT_BY_VISIT_ASC	, self::SORT_BY_VISIT_DESC	=> 'wwh_lastpage',
+			default												=> 'wwh_lastpage',
+		};
 		$sql_ordering = (($this->config['lfwwh_sort_by'] % 2) == 0) ? 'ASC' : 'DESC';
 
 		/* Let's try another method, to deny duplicate appearance of usernames. */
@@ -785,15 +765,11 @@ class who_was_here
 			$explanation .= $this->language->lang('LFWWH_MINUTES', (int) $this->config['lfwwh_period_of_time_m']);
 			$explanation .= $this->language->lang('LFWWH_SECONDS', (int) $this->config['lfwwh_period_of_time_s']);
 
-			switch (substr_count($explanation, '%s'))
-			{
-				case 3:
-					return sprintf($explanation, '', $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR'));
-				case 2:
-					return sprintf($explanation, '', $this->language->lang('LFWWH_AND_SEPARATOR'));
-				default:
-					return sprintf($explanation, '');
-			}
+			return match (substr_count($explanation, '%s')) {
+				3		=> sprintf($explanation, '', $this->language->lang('COMMA_SEPARATOR'), $this->language->lang('LFWWH_AND_SEPARATOR')),
+				2		=> sprintf($explanation, '', $this->language->lang('LFWWH_AND_SEPARATOR')),
+				default	=> sprintf($explanation, ''),
+			};
 		}
 	}
 
@@ -853,32 +829,22 @@ class who_was_here
 			$total_users_string .= '%s ' . $this->language->lang('LFWWH_GUESTS', $count['count_guest']);
 		}
 
-		switch (substr_count($total_users_string, '%s'))
-		{
-			case 4:
-				return sprintf($total_users_string,
-					$this->language->lang('LFWWH_STATS_SEPARATOR'),
-					$this->language->lang('COMMA_SEPARATOR'),
-					$this->language->lang('COMMA_SEPARATOR'),
-					$this->language->lang('LFWWH_AND_SEPARATOR')
-				);
-			case 3:
-				return sprintf($total_users_string,
-					$this->language->lang('LFWWH_STATS_SEPARATOR'),
-					$this->language->lang('COMMA_SEPARATOR'),
-					$this->language->lang('LFWWH_AND_SEPARATOR')
-				);
-			case 2:
-				return sprintf($total_users_string,
-					$this->language->lang('LFWWH_STATS_SEPARATOR'),
-					$this->language->lang('LFWWH_AND_SEPARATOR')
-				);
-			case 1:
-				return sprintf($total_users_string,
-					$this->language->lang('LFWWH_STATS_SEPARATOR')
-				);
-			default:
-				return $total_users_string;
-		}
+		return match (substr_count($total_users_string, '%s')) {
+			4		=>	sprintf($total_users_string,
+							$this->language->lang('LFWWH_STATS_SEPARATOR'),
+							$this->language->lang('COMMA_SEPARATOR'),
+							$this->language->lang('COMMA_SEPARATOR'),
+							$this->language->lang('LFWWH_AND_SEPARATOR')),
+			3		=>	sprintf($total_users_string,
+							$this->language->lang('LFWWH_STATS_SEPARATOR'),
+							$this->language->lang('COMMA_SEPARATOR'),
+							$this->language->lang('LFWWH_AND_SEPARATOR')),
+			2		=>	sprintf($total_users_string,
+							$this->language->lang('LFWWH_STATS_SEPARATOR'),
+							$this->language->lang('LFWWH_AND_SEPARATOR')),
+			1		=>	sprintf($total_users_string,
+							$this->language->lang('LFWWH_STATS_SEPARATOR')),
+			default	=>	$total_users_string,
+		};
 	}
 }

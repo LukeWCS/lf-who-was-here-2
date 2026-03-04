@@ -1,3 +1,7 @@
+#### 2.3.0-b8
+* Core:
+  * Code Optimierung bei manchen Konstrukten mit `if/else if /else` und `switch` durch Ersetzen mit `match`. Dadurch in allen Fällen kompakterer Code. Vereinzelt auch schnellerer Code, aber nur bei ersetzten `if` Konstrukten und auch nur messbar, nicht fühlbar.
+
 #### 2.3.0-b7
 * Beim Button-Präfix (...) hat unbeabsichtigt das Button-CSS gegriffen, wodurch beim Hover ein Pointer-Cursor angezeigt wurde. [Hinweis: Kirk (phpBB.de)]
   * Im Foren-Template anderen Klassennamen gewählt, damit der CSS Selektor für Buttons nicht mehr greift.

@@ -11,6 +11,7 @@ WIP
   * Der Schalter für "Erzeuge ausgeblendete Informationen:" wurde aus dem Abschnitt "Sonstiges" in den Abschnitt "Anzeige Einstellungen 2" verschoben, da er dort besser passt und damit dieser mit der Option "Begrenze die Anzahl der angezeigten Benutzer:" gruppiert werden konnte, da beide thematisch zusammengehören.
   * Sowohl bei "Erzeuge ausgeblendete Informationen:" als auch bei "Begrenze die Anzahl der angezeigten Benutzer:" wird in der Beschreibung jetzt direkt das FA Icon gezeigt, das im Foren-Index bei WWH jeweils als Schaltfläche dient. Somit werden die Icons im ACP Modul erklärt.
 * Technik auf den Stand von EMP 3.1 gebracht, Details im Build Changelog.
+* Code Optimierung.
 
 ### 2.2.1
 (2024-12-19 / CDB: 2025-03-16)
