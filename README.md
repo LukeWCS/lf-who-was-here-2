@@ -5,7 +5,7 @@ Extension for phpBB - Shows a visitor statistic of the current day or a freely s
 
 ### Requirements
 * phpBB 3.3.0 - 3.3.x
-* PHP 7.4.0 - 8.4.x
+* PHP 8.0.0 - 8.5.x
 
 ### History
 * phpBB 3.2 Extension fork (c) 2018 by LukeWCS

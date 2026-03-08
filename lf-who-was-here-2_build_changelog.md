@@ -1,3 +1,6 @@
+### 2.3.0
+* Release (2026-03-08)
+
 #### 2.3.0-b8
 * Core:
   * Code Optimierung bei manchen Konstrukten mit `if/else if /else` und `switch` durch Ersetzen mit `match`. Dadurch in allen Fällen kompakterer Code. Vereinzelt auch schnellerer Code, aber nur bei ersetzten `if` Konstrukten und auch nur messbar, nicht fühlbar.
