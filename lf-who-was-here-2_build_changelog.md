@@ -1,3 +1,8 @@
+#### 2.3.1-b1
+* `ext.php`/`composer.json` angepasst:
+  * phpBB: 3.3.5 - 3.3.x (Bisher: 3.3.0 - 3.3.x)
+* Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. So soll erreicht werden, dass der Gäste-Zähler nicht mehr durch unerwünschte Bot-Zugriffe verfälscht wird.
+
 ### 2.3.0
 * Release (2026-03-08)
 
@@ -82,7 +87,7 @@
 	* Mehrere aktualisierte Makros von EMP 3.1 übernommen.
 	* Primäres Foren Template vereinfacht und Makro Code von `icon()` in `info_button()` integriert.
 * `ext.php`/`composer.json` angepasst:
-  * PHP: 7.4.0-8.4.x -> 8.0.0-8.5.x
+  * PHP: 8.0.0 - 8.5.x (Bisher: 7.4.0 - 8.4.x)
 * Sprachdateien:
   * 4 Variablen hinzugefügt.
 * Migration:

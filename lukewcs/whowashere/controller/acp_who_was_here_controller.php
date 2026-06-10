@@ -8,6 +8,9 @@
 * @copyright (c) 2010, nickvergessen
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
+* Note: This extension is 100% genuine handcraft and consists of selected
+*       natural raw materials. There was no AI involved in making it.
+*
 */
 
 namespace lukewcs\whowashere\controller;

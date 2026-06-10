@@ -1,10 +1,16 @@
+### 2.3.1
+(2026-- / CDB: --)
+
+* Die Voraussetzungen haben sich geändert:
+  * phpBB: 3.3.5 - 3.3.x (Bisher: 3.3.0 - 3.3.x)
+
 ### 2.3.0
-(2026-03-08 / CDB: --)
+(2026-03-08 / CDB: 2026-04-19)
 
 * Die Voraussetzungen haben sich geändert:
   * PHP: 8.0.0 - 8.5.x (Bisher: 7.4.0 - 8.4.x)
 * Die Anzahl der Bots kann optional zusammen mit der Anzahl der sichtbaren Benutzer angezeigt werden, wie bei "Wer ist online?". [Wunsch: open-your-eyes (phpBB.com)]
-* Die Anzahl der maximal angezeigten Benutzer kann optional begrenzt werden. Wird diese Grenze in der Liste überschreiten, werden die übrigen Benutzer ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
+* Die Anzahl der maximal angezeigten Benutzer kann optional begrenzt werden. Wird diese Grenze in der Liste überschritten, werden die übrigen Benutzer ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
 * ACP-Modul:
   * Der Schalter für "Erzeuge ausgeblendete Informationen:" wurde aus dem Abschnitt "Sonstiges" in den Abschnitt "Anzeige Einstellungen 2" verschoben, damit dieser mit der Option "Begrenze die Anzahl der angezeigten Benutzer:" gruppiert werden konnte, da beide thematisch zusammengehören.
   * Sowohl bei "Erzeuge ausgeblendete Informationen:" als auch bei "Begrenze die Anzahl der angezeigten Benutzer:" wird in der Beschreibung jetzt direkt das FA Icon gezeigt, das im Foren-Index bei WWH jeweils als Schaltfläche dient. Somit werden die Icons im ACP Modul erklärt.

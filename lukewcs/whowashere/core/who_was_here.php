@@ -8,6 +8,9 @@
 * @copyright (c) 2010, nickvergessen
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
+* Note: This extension is 100% genuine handcraft and consists of selected
+*       natural raw materials. There was no AI involved in making it.
+*
 */
 
 namespace lukewcs\whowashere\core;
@@ -108,6 +111,7 @@ class who_was_here
 			{
 				return;
 			}
+
 			$wwh_data = [
 				'user_id'			=> $this->user->data['user_id'],
 				'user_ip'			=> $this->user->ip,
@@ -123,8 +127,8 @@ class who_was_here
 			$sql = 'UPDATE ' . $this->lfwwh_table . '
 					SET ' . $this->db->sql_build_array('UPDATE', $wwh_data) . '
 					WHERE user_id = ' . (int) $this->user->data['user_id'] . "
-					OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
-					AND user_id = " . ANONYMOUS . ')';
+						OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
+						AND user_id = " . ANONYMOUS . ')';
 			$this->db->sql_query($sql);
 			$this->db->sql_return_on_error(false);
 
@@ -136,8 +140,8 @@ class who_was_here
 					/* Found multiple matches, so we delete them and just add one */
 					$sql = 'DELETE FROM ' . $this->lfwwh_table . '
 							WHERE user_id = ' . (int) $this->user->data['user_id'] . "
-							OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
-							AND user_id = " . ANONYMOUS . ')';
+								OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
+								AND user_id = " . ANONYMOUS . ')';
 					$this->db->sql_query($sql);
 					$this->db->sql_query('INSERT INTO ' . $this->lfwwh_table . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
 				}
@@ -148,8 +152,8 @@ class who_was_here
 					$sql = 'SELECT 1 as found
 							FROM ' . $this->lfwwh_table . '
 							WHERE user_id = ' . (int) $this->user->data['user_id'] . "
-							OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
-							AND user_id = " . ANONYMOUS . ')';
+								OR (user_ip = '" . $this->db->sql_escape($this->user->ip) . "'
+								AND user_id = " . ANONYMOUS . ')';
 					$result = $this->db->sql_query($sql);
 					$found = (int) $this->db->sql_fetchfield('found');
 					$this->db->sql_freeresult($result);
@@ -167,27 +171,38 @@ class who_was_here
 			{
 				return;
 			}
+
 			$sql = 'SELECT user_id
 					FROM ' . $this->lfwwh_table . "
 					WHERE user_ip = '" . $this->db->sql_escape($this->user->ip) . "'";
 			$result = $this->db->sql_query_limit($sql, 1);
-
 			$user_logged = (int) $this->db->sql_fetchfield('user_id');
 			$this->db->sql_freeresult($result);
 
 			if (!$user_logged)
 			{
-				$wwh_data = [
-					'user_id'			=> $this->user->data['user_id'],
-					'user_ip'			=> $this->user->ip,
-					'username'			=> $this->user->data['username'],
-					'username_clean'	=> $this->user->data['username_clean'],
-					'user_colour'		=> $this->user->data['user_colour'],
-					'user_type'			=> $this->user->data['user_type'],
-					'viewonline'		=> 1,
-					'wwh_lastpage'		=> time(),
-				];
-				$this->db->sql_query('INSERT INTO ' . $this->lfwwh_table . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
+				/* Check if current session exists (needed for AnubisBB) */
+				$sql = 'SELECT session_id
+						FROM ' . SESSIONS_TABLE . "
+						WHERE session_id = '" . $this->db->sql_escape($this->user->data['session_id']) . "'";
+				$result = $this->db->sql_query_limit($sql, 1);
+				$session_exists = $this->db->sql_fetchfield('session_id') !== false;
+				$this->db->sql_freeresult($result);
+
+				if ($session_exists)
+				{
+					$wwh_data = [
+						'user_id'			=> $this->user->data['user_id'],
+						'user_ip'			=> $this->user->ip,
+						'username'			=> $this->user->data['username'],
+						'username_clean'	=> $this->user->data['username_clean'],
+						'user_colour'		=> $this->user->data['user_colour'],
+						'user_type'			=> $this->user->data['user_type'],
+						'viewonline'		=> 1,
+						'wwh_lastpage'		=> time(),
+					];
+					$this->db->sql_query('INSERT INTO ' . $this->lfwwh_table . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
+				}
 			}
 		}
 		$this->db->sql_return_on_error(false);
@@ -609,6 +624,7 @@ class who_was_here
 		{
 			return;
 		}
+
 		$user_ids_ary = $event['user_ids'];
 		$user_deleted = false;
 
