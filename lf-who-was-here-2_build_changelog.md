@@ -1,13 +1,13 @@
 #### 2.3.1-b2
-* Anpassung für AnubisBB optimiert. Da laut AnubisBB Log und WWH Test Log die Anzahl der geblockten Zugriffe deutlich höher ist als die Anzahl der freigegebenen Zugriffe, wird jetzt zuerst geprüft ob die aktuelle Session von phpBB gültig ist und erst dann wird geprüft, ob der Gast bereitsin der Besuchertabelle angelegt ist. Bei b1 war es umgekehrt, was bei Gästen unnötige SQL Abfragen zur Folge hatte.
+* Anpassung für AnubisBB optimiert. Da laut AnubisBB Log und WWH Test Log die Anzahl der geblockten Zugriffe deutlich höher ist als die Anzahl der freigegebenen Zugriffe, wird jetzt zuerst geprüft ob die aktuelle Session von phpBB gültig ist und erst dann wird geprüft, ob der Gast bereits in der Besuchertabelle angelegt ist. Bei b1 war es umgekehrt, was bei Gästen unnötige SQL Abfragen zur Folge hatte.
 * Optimierung für ACP Controller:
-  * Das Formular-Element "Sortiere Benutzer nach:" wurde unnötigerweise im POST Paket zweimal abgefragt. Das wurde bisher so gemacht, weil ermittelt werden musste, ob diese Einstellung geändert wurde, damit automatisch der WWH Cache (sofern aktiv) gelöscht wird.
+  * Das Formular-Element "Sortiere Benutzer nach:" wurde unnötigerweise im POST Paket zweimal abgefragt. Das wurde bisher so gemacht, weil ermittelt werden musste, ob diese Einstellung geändert wurde, damit automatisch der WWH Cache (sofern aktiv) gelöscht werden kann. Stattdessen werden bestimmte Config Werte jetzt zwischengespeichert, damit diese verglichen werden können.
   * Beim Ändern des Formular-Elements "Cache für die Besuchertabelle verwenden:" wird jetzt ebenfalls automatisch der WWH Cache (sofern aktiv) gelöscht.
 
 #### 2.3.1-b1
 * `ext.php`/`composer.json` angepasst:
   * phpBB: 3.3.5 - 3.3.x (Bisher: 3.3.0 - 3.3.x)
-* Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. Dazu wird geprüft, ob die aktuelle Session von phpBB gültig (vorhanden) ist. So soll erreicht werden, dass der Gäste-Zähler nicht mehr durch unerwünschte Bot-Zugriffe verfälscht wird.
+* Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. Dazu wird geprüft, ob die aktuelle Session von phpBB gültig (vorhanden) ist. So soll erreicht werden, dass der Gäste-Zähler nicht mehr durch unerwünschte Bot-Zugriffe verfälscht wird. Dadurch wird ausserdem verhindert, dass die Besuchertabelle von WWH "überflutet" wird.
 
 ### 2.3.0
 * Release (2026-03-08)
