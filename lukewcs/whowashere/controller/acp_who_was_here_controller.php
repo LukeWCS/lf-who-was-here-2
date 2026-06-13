@@ -44,7 +44,10 @@ class acp_who_was_here_controller
 		{
 			$this->common->check_form_key_('lukewcs_whowashere');
 
-			$delete_cache = ($this->request->variable('lfwwh_sort_by', 0) != $this->config['lfwwh_sort_by']);
+			$config_last = [
+				'lfwwh_sort_by'		=> $this->config['lfwwh_sort_by'],
+				'lfwwh_use_cache'	=> $this->config['lfwwh_use_cache'],
+			];
 
 			/* LFWWH_SECTION_PERMISSIONS */
 			$this->config->set('lfwwh_admin_mode'				, $this->request->variable('lfwwh_admin_mode', 0));
@@ -103,11 +106,14 @@ class acp_who_was_here_controller
 				$this->config->set('lfwwh_record_reset_time', time());
 			}
 
-			/* config end */
-			if ($this->config['lfwwh_use_cache'] && $delete_cache)
+			/* Check whether the WWH cache needs to be cleared */
+			if (($this->config['lfwwh_use_cache'] && $config_last['lfwwh_sort_by'] != $this->config['lfwwh_sort_by'])
+				|| ($config_last['lfwwh_use_cache'] != $this->config['lfwwh_use_cache'])
+			)
 			{
 				$this->cache->destroy("_lf_who_was_here");
 			}
+
 			trigger_error($this->language->lang('LFWWH_MSG_SAVED_SETTINGS') . adm_back_link($this->u_action));
 		}
 

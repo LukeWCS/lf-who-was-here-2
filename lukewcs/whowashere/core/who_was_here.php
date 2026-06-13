@@ -172,6 +172,19 @@ class who_was_here
 				return;
 			}
 
+			/* Check if current session exists (needed for AnubisBB) */
+			$sql = 'SELECT session_id
+					FROM ' . SESSIONS_TABLE . "
+					WHERE session_id = '" . $this->db->sql_escape($this->user->data['session_id']) . "'";
+			$result = $this->db->sql_query_limit($sql, 1);
+			$session_exists = $this->db->sql_fetchfield('session_id') !== false;
+			$this->db->sql_freeresult($result);
+
+			if (!$session_exists)
+			{
+				return;
+			}
+
 			$sql = 'SELECT user_id
 					FROM ' . $this->lfwwh_table . "
 					WHERE user_ip = '" . $this->db->sql_escape($this->user->ip) . "'";
@@ -181,28 +194,17 @@ class who_was_here
 
 			if (!$user_logged)
 			{
-				/* Check if current session exists (needed for AnubisBB) */
-				$sql = 'SELECT session_id
-						FROM ' . SESSIONS_TABLE . "
-						WHERE session_id = '" . $this->db->sql_escape($this->user->data['session_id']) . "'";
-				$result = $this->db->sql_query_limit($sql, 1);
-				$session_exists = $this->db->sql_fetchfield('session_id') !== false;
-				$this->db->sql_freeresult($result);
-
-				if ($session_exists)
-				{
-					$wwh_data = [
-						'user_id'			=> $this->user->data['user_id'],
-						'user_ip'			=> $this->user->ip,
-						'username'			=> $this->user->data['username'],
-						'username_clean'	=> $this->user->data['username_clean'],
-						'user_colour'		=> $this->user->data['user_colour'],
-						'user_type'			=> $this->user->data['user_type'],
-						'viewonline'		=> 1,
-						'wwh_lastpage'		=> time(),
-					];
-					$this->db->sql_query('INSERT INTO ' . $this->lfwwh_table . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
-				}
+				$wwh_data = [
+					'user_id'			=> $this->user->data['user_id'],
+					'user_ip'			=> $this->user->ip,
+					'username'			=> $this->user->data['username'],
+					'username_clean'	=> $this->user->data['username_clean'],
+					'user_colour'		=> $this->user->data['user_colour'],
+					'user_type'			=> $this->user->data['user_type'],
+					'viewonline'		=> 1,
+					'wwh_lastpage'		=> time(),
+				];
+				$this->db->sql_query('INSERT INTO ' . $this->lfwwh_table . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
 			}
 		}
 		$this->db->sql_return_on_error(false);

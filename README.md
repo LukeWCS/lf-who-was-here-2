@@ -4,7 +4,7 @@ Extension for phpBB - Shows a visitor statistic of the current day or a freely s
 [![Tests](https://github.com/LukeWCS/lf-who-was-here-2/actions/workflows/tests.yml/badge.svg)](https://github.com/LukeWCS/lf-who-was-here-2/actions/workflows/tests.yml)
 
 ### Requirements
-* phpBB 3.3.0 - 3.3.x
+* phpBB 3.3.5 - 3.3.x
 * PHP 8.0.0 - 8.5.x
 
 ### History
