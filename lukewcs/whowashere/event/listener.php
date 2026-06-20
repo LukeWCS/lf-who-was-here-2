@@ -32,6 +32,7 @@ class listener implements EventSubscriberInterface
 			'core.page_footer'			=> 'display',
 			'core.permissions'			=> 'add_permissions',
 			'core.delete_user_after'	=> 'clear_up',
+			'core.session_kill_after'	=> 'set_session_flag',
 		];
 	}
 
@@ -53,5 +54,10 @@ class listener implements EventSubscriberInterface
 	public function clear_up($event): void
 	{
 		$this->wwh->clear_up($event);
+	}
+
+	public function set_session_flag($event): void
+	{
+		$this->wwh->set_session_flag($event);
 	}
 }

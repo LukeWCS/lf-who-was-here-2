@@ -1,3 +1,7 @@
+#### 2.3.1-b3
+* Fix: Version Constraint für Composer Installer in `composer.json` auf `^1.0 || ^2.0` korrigiert.
+* Anpassung für AnubisBB weiter optimiert. Anstatt per SQL Abfrage zu prüfen ob die Session gültig ist, klinkt sich WWH jetzt direkt in diejenige Funktion von phpBB ein, die für das Zerstören der Session zuständig ist. Wird diese Funktion ausgeführt, wird das direkt in einer WWH Klassen-Eigenschaft vermerkt. Somit muss WWH bei Gästen nur noch eine simple Bool Variable prüfen.
+
 #### 2.3.1-b2
 * Anpassung für AnubisBB optimiert. Da laut AnubisBB Log und WWH Test Log die Anzahl der geblockten Zugriffe deutlich höher ist als die Anzahl der freigegebenen Zugriffe, wird jetzt zuerst geprüft ob die aktuelle Session von phpBB gültig ist und erst dann wird geprüft, ob der Gast bereits in der Besuchertabelle angelegt ist. Bei b1 war es umgekehrt, was bei Gästen unnötige SQL Abfragen zur Folge hatte.
 * Optimierung für ACP Controller:

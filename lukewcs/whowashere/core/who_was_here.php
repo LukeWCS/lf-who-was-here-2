@@ -48,6 +48,7 @@ class who_was_here
 	protected const  BUTTON_ICON_INFO		= 2;
 
 	protected string $lfwwh_table;
+	protected bool   $session_killed		= false;
 
 	public function __construct(
 		protected \phpbb\template\template $template,
@@ -102,6 +103,7 @@ class who_was_here
 
 	/*
 		Update the users session in the table.
+		EVENT: core.page_header_after
 	*/
 	public function update_session(): void
 	{
@@ -167,23 +169,28 @@ class who_was_here
 		}
 		else
 		{
-			if (!$this->config['lfwwh_disp_guests'])
+			// if (!$this->config['lfwwh_disp_guests'])
+			if (!$this->config['lfwwh_disp_guests'] || $this->session_killed)
 			{
 				return;
 			}
 
 			/* Check if current session exists (needed for AnubisBB) */
-			$sql = 'SELECT session_id
-					FROM ' . SESSIONS_TABLE . "
-					WHERE session_id = '" . $this->db->sql_escape($this->user->data['session_id']) . "'";
-			$result = $this->db->sql_query_limit($sql, 1);
-			$session_exists = $this->db->sql_fetchfield('session_id') !== false;
-			$this->db->sql_freeresult($result);
+			// $sql = 'SELECT session_id
+					// FROM ' . SESSIONS_TABLE . "
+					// WHERE session_id = '" . $this->db->sql_escape($this->user->data['session_id']) . "'";
+			// $result = $this->db->sql_query_limit($sql, 1);
+			// $session_exists = $this->db->sql_fetchfield('session_id') !== false;
+			// $this->db->sql_freeresult($result);
 
-			if (!$session_exists)
-			{
-				return;
-			}
+// date_default_timezone_set('europe/berlin');
+// $log_time = date('Y-m-d H:i:s');
+// file_put_contents('wwh_log.txt', "{$log_time} US -> session: {$this->user->data['session_id']}, exists: {$session_exists}, killed: {$this->session_killed}, ip: {$this->user->ip}\n", FILE_APPEND);
+
+			// if (!$session_exists)
+			// {
+				// return;
+			// }
 
 			$sql = 'SELECT user_id
 					FROM ' . $this->lfwwh_table . "
@@ -212,6 +219,7 @@ class who_was_here
 
 	/*
 		Fetching the user-list and putting the stuff into the template.
+		EVENT: core.page_footer
 	*/
 	public function display(): void
 	{
@@ -619,6 +627,7 @@ class who_was_here
 
 	/*
 		Cleans up the table and delete the cache when user accounts have been deleted. Inserts also a notification if clean up was necessary.
+		EVENT: core.delete_user_after
 	*/
 	public function clear_up($event): void
 	{
@@ -659,7 +668,23 @@ class who_was_here
 	}
 
 	/*
+		Set a flag if the current session has been destroyed. (needed for AnubisBB)
+		EVENT: core.session_kill_after
+	*/
+
+	public function set_session_flag($event): void
+	{
+		$this->session_killed = true;
+
+// date_default_timezone_set('europe/berlin');
+// $log_time = date('Y-m-d H:i:s');
+// file_put_contents('wwh_log.txt', "{$log_time} KS -> session: {$event['session_id']}, user_id: {$event['user_id']}, new: {$event['new_session']}, ip: {$this->user->ip}\n", FILE_APPEND);
+
+	}
+
+	/*
 		Adds permissions.
+		EVENT: core.permissions
 	*/
 	public function add_permissions($event): void
 	{
