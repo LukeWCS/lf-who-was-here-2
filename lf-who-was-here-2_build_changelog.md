@@ -1,6 +1,9 @@
+#### 2.3.1-b4
+* Anpassung für AnubisBB erneut umgebaut, da in einer bestimmten Situation weiterhin ein blockierter Gast in der WWH Besuchertabelle eingetragen wurde und somit auch der Gästezähler asynchron zu den Sperren von AnubisBB war, also deutlich zu hoch. Anstatt zu prüfen ob die aktuelle Session zerstört wurde, was nicht vollständig zur Funktionsweise von AnubisBB passte, wird jetzt direkt abgefragt, ob AnubisBB den Besucher freigegeben hat. Da dies eine direkte Abhängigkeit zu AnubisBB darstellt, wurde eine automatische Erkennung in WWH eingebaut. Die spezielle neue Abfrage wird nur dann ausgeführt und berücksichtigt, wenn auch AnubisBB aktiviert ist, ansonsten verhält sich WWH wie früher, also wie <2.3.1.
+
 #### 2.3.1-b3
 * Fix: Version Constraint für Composer Installer in `composer.json` auf `^1.0 || ^2.0` korrigiert.
-* Anpassung für AnubisBB weiter optimiert. Anstatt per SQL Abfrage zu prüfen ob die Session gültig ist, klinkt sich WWH jetzt direkt in diejenige Funktion von phpBB ein, die für das Zerstören der Session zuständig ist. Wird diese Funktion ausgeführt, wird das direkt in einer WWH Klassen-Eigenschaft vermerkt. Somit muss WWH bei Gästen nur noch eine simple Bool Variable prüfen.
+* Anpassung für AnubisBB weiter optimiert. Anstatt per SQL Abfrage zu prüfen ob die Session gültig ist, hängt sich WWH jetzt direkt in diejenige Funktion von phpBB ein, mit der Sessions zerstört werden. Wird diese Funktion ausgeführt, wird das direkt in einer WWH Klassen-Eigenschaft vermerkt. Somit muss WWH bei Gästen nur noch eine simple Bool Variable prüfen.
 
 #### 2.3.1-b2
 * Anpassung für AnubisBB optimiert. Da laut AnubisBB Log und WWH Test Log die Anzahl der geblockten Zugriffe deutlich höher ist als die Anzahl der freigegebenen Zugriffe, wird jetzt zuerst geprüft ob die aktuelle Session von phpBB gültig ist und erst dann wird geprüft, ob der Gast bereits in der Besuchertabelle angelegt ist. Bei b1 war es umgekehrt, was bei Gästen unnötige SQL Abfragen zur Folge hatte.

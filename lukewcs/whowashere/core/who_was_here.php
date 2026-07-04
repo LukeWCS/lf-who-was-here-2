@@ -48,7 +48,7 @@ class who_was_here
 	protected const  BUTTON_ICON_INFO		= 2;
 
 	protected string $lfwwh_table;
-	protected bool   $session_killed		= false;
+	// protected bool   $session_killed		= false;
 
 	public function __construct(
 		protected \phpbb\template\template $template,
@@ -59,6 +59,7 @@ class who_was_here
 		protected \phpbb\db\driver\driver_interface $db,
 		protected \phpbb\event\dispatcher_interface $phpbb_dispatcher,
 		protected \phpbb\language\language $language,
+		protected \phpbb\extension\manager $ext_manager,
 		protected $table_prefix,
 		protected $php_ext,
 	)
@@ -170,7 +171,10 @@ class who_was_here
 		else
 		{
 			// if (!$this->config['lfwwh_disp_guests'])
-			if (!$this->config['lfwwh_disp_guests'] || $this->session_killed)
+			// if (!$this->config['lfwwh_disp_guests'] || $this->session_killed)
+			if (!$this->config['lfwwh_disp_guests']
+				|| ($this->ext_manager->is_enabled('neodev/anubisbb') && !($this->user->data['anubisbb_pass'] ?? false))
+			)
 			{
 				return;
 			}
@@ -183,10 +187,6 @@ class who_was_here
 			// $session_exists = $this->db->sql_fetchfield('session_id') !== false;
 			// $this->db->sql_freeresult($result);
 
-// date_default_timezone_set('europe/berlin');
-// $log_time = date('Y-m-d H:i:s');
-// file_put_contents('wwh_log.txt', "{$log_time} US -> session: {$this->user->data['session_id']}, exists: {$session_exists}, killed: {$this->session_killed}, ip: {$this->user->ip}\n", FILE_APPEND);
-
 			// if (!$session_exists)
 			// {
 				// return;
@@ -198,6 +198,16 @@ class who_was_here
 			$result = $this->db->sql_query_limit($sql, 1);
 			$user_logged = (int) $this->db->sql_fetchfield('user_id');
 			$this->db->sql_freeresult($result);
+
+// $passed = ($this->user->data['anubisbb_pass'] ?? false);
+// date_default_timezone_set('europe/berlin');
+// $log_time = date('Y-m-d H:i:s');
+// file_put_contents('wwh_log.txt', "{$log_time} US -> session: {$this->user->data['session_id']}, exists: {$session_exists}, killed: {$this->session_killed}, passed: {$passed}, user_logged: {$user_logged}, ip: {$this->user->ip}\n", FILE_APPEND);
+
+// if ($this->ext_manager->is_enabled('neodev/anubisbb') && !($this->user->data['anubisbb_pass'] ?? false))
+// {
+	// return;
+// }
 
 			if (!$user_logged)
 			{
@@ -672,15 +682,15 @@ class who_was_here
 		EVENT: core.session_kill_after
 	*/
 
-	public function set_session_flag($event): void
-	{
-		$this->session_killed = true;
+	// public function set_session_flag($event): void
+	// {
+		// $this->session_killed = true;
 
 // date_default_timezone_set('europe/berlin');
 // $log_time = date('Y-m-d H:i:s');
 // file_put_contents('wwh_log.txt', "{$log_time} KS -> session: {$event['session_id']}, user_id: {$event['user_id']}, new: {$event['new_session']}, ip: {$this->user->ip}\n", FILE_APPEND);
 
-	}
+	// }
 
 	/*
 		Adds permissions.

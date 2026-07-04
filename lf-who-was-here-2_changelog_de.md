@@ -4,7 +4,7 @@
 * Die Voraussetzungen haben sich geändert:
   * phpBB: 3.3.5 - 3.3.x (Bisher: 3.3.0 - 3.3.x)
 * Fix: In `composer.json` wurde ein falscher Version Constraint (`~1.0.0`) für `"require":` > `"composer/installers":` verwendet, was beim Aktualisieren mittels Composer dazu führen kann, dass keine gültige Version der Ext zur Verfügung steht und die Aktualisierung abgebrochen wird, wenn für Composer selber zum Beispiel eine Mindestversion von 1.10 definiert wurde. Im Zuge des Fixes wurde im Version Constraint auch gleich Composer 2 freigegeben. [Meldung: Crizzo (phpBB.de)]
-* Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. Dazu wird geprüft, ob die aktuelle Session von phpBB gültig (vorhanden) ist. So soll erreicht werden, dass der Gäste-Zähler nicht mehr durch unerwünschte Bot-Zugriffe verfälscht wird. Dadurch wird ausserdem verhindert, dass die Besuchertabelle von WWH "überflutet" wird.
+* Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. So soll erreicht werden, dass die Besuchertabelle von WWH nicht mehr durch unerwünschte Bot-Zugriffe mit massenhaft verschiedenen IPs überflutet wird. So wird ausserdem das Problem mit dem stark verfälschten Gäste-Zähler reduziert. Diese spezielle Anpassung wird automatisch aktiv, wenn auch AnubisBB vorhanden und aktiv ist. Wenn das nicht der Fall ist, verhält sich WWH wie bisher, also wie <2.3.1.
 
 ### 2.3.0
 (2026-03-08 / CDB: 2026-04-19)

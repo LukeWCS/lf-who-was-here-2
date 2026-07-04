@@ -10,6 +10,7 @@ services:
             - '@dbal.conn'
             - '@dispatcher'
             - '@language'
+            - '@ext.manager' 
             - '%core.table_prefix%'
             - '%core.php_ext%'
     lukewcs.whowashere.core.common:
