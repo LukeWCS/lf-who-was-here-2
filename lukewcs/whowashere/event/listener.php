@@ -33,6 +33,7 @@ class listener implements EventSubscriberInterface
 			'core.permissions'			=> 'add_permissions',
 			'core.delete_user_after'	=> 'clear_up',
 			// 'core.session_kill_after'	=> 'set_session_flag',
+			'anubisbb.intercept.status'	=> 'check_anubisbb',
 		];
 	}
 
@@ -60,4 +61,9 @@ class listener implements EventSubscriberInterface
 	// {
 		// $this->wwh->set_session_flag($event);
 	// }
+
+	public function check_anubisbb($event): void
+	{
+		$this->wwh->check_anubisbb($event);
+	}
 }

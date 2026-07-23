@@ -17,38 +17,39 @@ namespace lukewcs\whowashere\core;
 
 class who_was_here
 {
-	protected const  BOTS_DISABLED			= 0;
-	protected const  BOTS_WITH_USERS		= 1;
-	protected const  BOTS_OWN_LINE			= 2;
+	protected const BOTS_DISABLED			= 0;
+	protected const BOTS_WITH_USERS			= 1;
+	protected const BOTS_OWN_LINE			= 2;
 
-	protected const  COUNT_BOTS_SEPARATELY	= 0;
-	protected const  COUNT_BOTS_WITH_USERS	= 1;
+	protected const COUNT_BOTS_SEPARATELY	= 0;
+	protected const COUNT_BOTS_WITH_USERS	= 1;
 
-	protected const  DISP_DISABLED			= 0;
-	protected const  DISP_BEHIND_NAME		= 1;
-	protected const  DISP_AS_TOOLTIP		= 2;
+	protected const DISP_DISABLED			= 0;
+	protected const DISP_BEHIND_NAME		= 1;
+	protected const DISP_AS_TOOLTIP			= 2;
 
-	protected const  TIME_MODE_PERIOD		= 0;
-	protected const  TIME_MODE_TODAY		= 1;
+	protected const TIME_MODE_PERIOD		= 0;
+	protected const TIME_MODE_TODAY			= 1;
 
-	protected const  SORT_BY_NAME_AZ		= 0;
-	protected const  SORT_BY_NAME_ZA		= 1;
-	protected const  SORT_BY_VISIT_ASC		= 2;
-	protected const  SORT_BY_VISIT_DESC		= 3;
-	protected const  SORT_BY_ID_ASC			= 4;
-	protected const  SORT_BY_ID_DESC		= 5;
+	protected const SORT_BY_NAME_AZ			= 0;
+	protected const SORT_BY_NAME_ZA			= 1;
+	protected const SORT_BY_VISIT_ASC		= 2;
+	protected const SORT_BY_VISIT_DESC		= 3;
+	protected const SORT_BY_ID_ASC			= 4;
+	protected const SORT_BY_ID_DESC			= 5;
 
-	protected const  PERM_STATS				= 1;
-	protected const  PERM_RECORD			= 2;
-	protected const  PERM_USERS				= 4;
-	protected const  PERM_BOTS				= 8;
+	protected const PERM_STATS				= 1;
+	protected const PERM_RECORD				= 2;
+	protected const PERM_USERS				= 4;
+	protected const PERM_BOTS				= 8;
 
-	protected const  BUTTON_ICON_NOTHING	= 0;
-	protected const  BUTTON_ICON_CLOCK		= 1;
-	protected const  BUTTON_ICON_INFO		= 2;
+	protected const BUTTON_ICON_NOTHING		= 0;
+	protected const BUTTON_ICON_CLOCK		= 1;
+	protected const BUTTON_ICON_INFO		= 2;
 
-	protected string $lfwwh_table;
-	// protected bool   $session_killed		= false;
+	protected string		$lfwwh_table;
+	// protected bool		$session_killed		= false;
+	protected array|null	$anubisbb_data		= null;
 
 	public function __construct(
 		protected \phpbb\template\template $template,
@@ -59,7 +60,7 @@ class who_was_here
 		protected \phpbb\db\driver\driver_interface $db,
 		protected \phpbb\event\dispatcher_interface $phpbb_dispatcher,
 		protected \phpbb\language\language $language,
-		protected \phpbb\extension\manager $ext_manager,
+		// protected \phpbb\extension\manager $ext_manager,
 		protected $table_prefix,
 		protected $php_ext,
 	)
@@ -170,11 +171,19 @@ class who_was_here
 		}
 		else
 		{
+			// 2.3.0
 			// if (!$this->config['lfwwh_disp_guests'])
+
+			// b3
 			// if (!$this->config['lfwwh_disp_guests'] || $this->session_killed)
-			if (!$this->config['lfwwh_disp_guests']
-				|| ($this->ext_manager->is_enabled('neodev/anubisbb') && !($this->user->data['anubisbb_pass'] ?? false))
-			)
+
+			// b4
+			// if (!$this->config['lfwwh_disp_guests']
+				// || ($this->ext_manager->is_enabled('neodev/anubisbb') && !($this->user->data['anubisbb_pass'] ?? false))
+			// )
+
+			// b5
+			if (!$this->config['lfwwh_disp_guests'] || ($this->anubisbb_data['intercept_status'] ?? 2) != 2)
 			{
 				return;
 			}
@@ -199,12 +208,28 @@ class who_was_here
 			$user_logged = (int) $this->db->sql_fetchfield('user_id');
 			$this->db->sql_freeresult($result);
 
+// b4
 // $passed = ($this->user->data['anubisbb_pass'] ?? false);
 // date_default_timezone_set('europe/berlin');
 // $log_time = date('Y-m-d H:i:s');
 // file_put_contents('wwh_log.txt', "{$log_time} US -> session: {$this->user->data['session_id']}, exists: {$session_exists}, killed: {$this->session_killed}, passed: {$passed}, user_logged: {$user_logged}, ip: {$this->user->ip}\n", FILE_APPEND);
 
 // if ($this->ext_manager->is_enabled('neodev/anubisbb') && !($this->user->data['anubisbb_pass'] ?? false))
+// {
+	// return;
+// }
+
+// b5
+// $anubisbb_intercept_status = ($this->anubisbb_data['intercept_status'] ?? 2);
+// $anubisbb_path_bypass_status = ($this->anubisbb_data['path_bypass_status'] ?? 0);
+// $anubisbb_valid = $anubisbb_intercept_status == 2;
+
+// $time = \DateTime::createFromFormat('U.u', number_format(microtime(true), 6, '.', ''));
+// $time->setTimeZone(new \DateTimeZone('europe/berlin'));
+// $log_time = $time->format('Y-m-d H:i:s.v');
+// file_put_contents('wwh_log.txt', "{$log_time} abb_status: {$anubisbb_intercept_status}, abb_path_bypass: {$anubisbb_path_bypass_status}, abb_valid: {$anubisbb_valid}, user_logged: {$user_logged}, ip: {$this->user->ip}, session: {$this->user->data['session_id']}\n", FILE_APPEND + LOCK_EX);
+
+// if (!$anubisbb_valid)
 // {
 	// return;
 // }
@@ -685,12 +710,19 @@ class who_was_here
 	// public function set_session_flag($event): void
 	// {
 		// $this->session_killed = true;
-
-// date_default_timezone_set('europe/berlin');
-// $log_time = date('Y-m-d H:i:s');
-// file_put_contents('wwh_log.txt', "{$log_time} KS -> session: {$event['session_id']}, user_id: {$event['user_id']}, new: {$event['new_session']}, ip: {$this->user->ip}\n", FILE_APPEND);
-
 	// }
+
+	/*
+		Get intercept status of AnubisBB
+		EVENT: anubisbb.intercept.status
+	*/
+	public function check_anubisbb($event): void
+	{
+		$this->anubisbb_data = [
+			'intercept_status'		=> $event['intercept_status'],
+			'path_bypass_status'	=> $event['path_bypass_status'],
+		];
+	}
 
 	/*
 		Adds permissions.
