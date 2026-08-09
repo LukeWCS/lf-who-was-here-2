@@ -1,5 +1,12 @@
+#### 2.3.1-b6
+* Anpassung für AnubisBB:
+  * Code Optimierung beim Event Hook. Das assoziative Array mit dem Status von AnubisBB wird nicht mehr statisch gebaut, sondern dynamisch generiert durch direktes Auslesen des kompletten Event Arrays. Somit auch flexibler und zukunftssicherer.
+  * Die Änderungen bei AnubisBB 0.5.2-p3 berücksichtigt und die Abfrage des Status von Integer auf String umgestellt.
+* Code Optimierung:
+  * Eine unnötige DBAL Anweisung bei der Gäste-Behandlung entfernt.
+
 #### 2.3.1-b5
-* Anpassung für AnubisBB geändert, WWH ist nicht länger von den phpBB Session-Daten abhängig, sondern ermittelt direkt über ein Event bei AnubisBB dessen Intercept Status. Dazu wurde AnubisBB 0.5.2 um ein zweites PHP Event erweitert, mit dem Erweiterungen Entwickler zwei neue Variablen abfragen und somit den genauen Status der aktuellen Sitzung bei AnubisBB ermitteln können.
+* Anpassung für AnubisBB geändert, WWH ist nicht länger von den phpBB Session-Daten abhängig, sondern ermittelt direkt über ein neues Event bei AnubisBB dessen Intercept Status. Dazu wurde AnubisBB 0.5.2 um ein zweites PHP Event (`anubisbb.intercept.status`) erweitert, mit dem Erweiterungen Entwickler zwei neue Variablen abfragen und somit den genauen Status der aktuellen Sitzung bei AnubisBB ermitteln können.
 
 #### 2.3.1-b4
 * Anpassung für AnubisBB erneut umgebaut, da in einer bestimmten Situation weiterhin ein blockierter Gast in der WWH Besuchertabelle eingetragen wurde und somit auch der Gästezähler asynchron zu den Sperren von AnubisBB war, also deutlich zu hoch. Anstatt zu prüfen ob die aktuelle Session zerstört wurde, was nicht vollständig zur Funktionsweise von AnubisBB passte, wird jetzt direkt abgefragt, ob AnubisBB den Besucher freigegeben hat. Da dies eine direkte Abhängigkeit zu AnubisBB darstellt, wurde eine automatische Erkennung in WWH eingebaut. Die spezielle neue Abfrage wird nur dann ausgeführt und berücksichtigt, wenn auch AnubisBB aktiviert ist, ansonsten verhält sich WWH wie früher, also wie <2.3.1.

@@ -183,7 +183,10 @@ class who_was_here
 			// )
 
 			// b5
-			if (!$this->config['lfwwh_disp_guests'] || ($this->anubisbb_data['intercept_status'] ?? 2) != 2)
+			// if (!$this->config['lfwwh_disp_guests'] || ($this->anubisbb_data['intercept_status'] ?? 2) != 2)
+
+			// b6
+			if (!$this->config['lfwwh_disp_guests'] || ($this->anubisbb_data['intercept_status'] ?? 'cookie_validated') != 'cookie_validated')
 			{
 				return;
 			}
@@ -224,6 +227,11 @@ class who_was_here
 // $anubisbb_path_bypass_status = ($this->anubisbb_data['path_bypass_status'] ?? 0);
 // $anubisbb_valid = $anubisbb_intercept_status == 2;
 
+// b6
+// $anubisbb_intercept_status = ($this->anubisbb_data['intercept_status'] ?? 'cookie_validated');
+// $anubisbb_path_bypass_status = ($this->anubisbb_data['path_bypass_status'] ?? 'no_bypass');
+// $anubisbb_valid = $anubisbb_intercept_status == 'cookie_validated';
+
 // $time = \DateTime::createFromFormat('U.u', number_format(microtime(true), 6, '.', ''));
 // $time->setTimeZone(new \DateTimeZone('europe/berlin'));
 // $log_time = $time->format('Y-m-d H:i:s.v');
@@ -249,7 +257,6 @@ class who_was_here
 				$this->db->sql_query('INSERT INTO ' . $this->lfwwh_table . ' ' . $this->db->sql_build_array('INSERT', $wwh_data));
 			}
 		}
-		$this->db->sql_return_on_error(false);
 	}
 
 	/*
@@ -718,10 +725,7 @@ class who_was_here
 	*/
 	public function check_anubisbb($event): void
 	{
-		$this->anubisbb_data = [
-			'intercept_status'		=> $event['intercept_status'],
-			'path_bypass_status'	=> $event['path_bypass_status'],
-		];
+		$this->anubisbb_data = $event->get_data();
 	}
 
 	/*
