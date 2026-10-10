@@ -11,6 +11,7 @@ services:
             - '@dispatcher'
             - '@language'
             # - '@ext.manager' 
+            - '%core.root_path%'
             - '%core.table_prefix%'
             - '%core.php_ext%'
     lukewcs.whowashere.core.common:

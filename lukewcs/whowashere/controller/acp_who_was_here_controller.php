@@ -142,7 +142,8 @@ class acp_who_was_here_controller
 			'LFWWH_DISP_REG_USERS'					=> (bool) $this->config['lfwwh_disp_reg_users'],
 			'LFWWH_DISP_HIDDEN'						=> (bool) $this->config['lfwwh_disp_hidden'],
 			'LFWWH_DISP_BOTS_OPTIONS'				=> $this->select_struct((int) $this->config['lfwwh_disp_bots'], [
-				'LFWWH_DISP_BOTS_OWN_LINE' 			=> 2,
+				'LFWWH_DISP_BOTS_AI_SEPARATELY'		=> 3,
+				'LFWWH_DISP_BOTS_SEPARATELY'		=> 2,
 				'LFWWH_DISP_BOTS_WITH_USERS'		=> 1,
 				'LFWWH_DISP_BOTS_DISABLED'			=> 0,
 			]),

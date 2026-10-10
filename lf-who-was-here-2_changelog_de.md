@@ -4,7 +4,16 @@
 * Die Voraussetzungen haben sich geändert:
   * phpBB: 3.3.5 - 3.3.x (Bisher: 3.3.0 - 3.3.x)
 * Fix: In `composer.json` wurde ein falscher Version Constraint (`~1.0.0`) für `"require":` > `"composer/installers":` verwendet, was beim Aktualisieren mittels Composer dazu führen kann, dass keine gültige Version der Ext zur Verfügung steht und die Aktualisierung abgebrochen wird, wenn für Composer selber zum Beispiel eine Mindestversion von 1.10 definiert wurde. Im Zuge des Fixes wurde im Version Constraint auch gleich Composer 2 freigegeben. [Meldung: Crizzo (phpBB.de)]
-* Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. So soll erreicht werden, dass die Besuchertabelle von WWH nicht mehr durch unerwünschte Bot-Zugriffe mit massenhaft verschiedenen IPs überflutet wird. So wird ausserdem das Problem mit dem stark verfälschten Gäste-Zähler reduziert. Diese spezielle Anpassung wird automatisch aktiv, wenn auch AnubisBB vorhanden und aktiv ist. Wenn das nicht der Fall ist, verhält sich WWH wie bisher, also wie <2.3.1.
+* Neue Funktion in Bezug auf KI-Crawler die bei phpBB 3.3.18 eingeführt wurden. Statt normale Bots und KI-Bots in derselben separaten Zeile zu zeigen, können diese jetzt optional auf zwei separate Zeilen aufgeteilt werden. Bei den KI-Crawlern gelten dieselben Einstellungen wie bisher bei den Bots. Das heisst, auch hier stehen optional die Buttons für "Zeige ausgeblendete Informationen" sowie "Zeige alle Benutzer" zur Verfügung, abhängig von den Einstellungen. Für die KI-Crawler wurden folgende Änderungen vorgenommen:
+  * In den Einstellungen wurde die Option "Zeige Bots (Anzahl und Namen):" in "Zeige Bots und KI-Crawler (Anzahl und Namen):" umbenannt.
+  * Änderungen beim zugehörigen PullDown-Menü der Option:
+    * Der Eintrag "In einer eigenen Zeile" wurde in "Zusammen in einer separaten Zeile" umbenannt.
+	* Der Eintrag "Getrennt in zwei separaten Zeilen" wurde hinzugefügt.
+* Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. So soll erreicht werden, dass die Besuchertabelle von WWH nicht mehr durch unerwünschte Bot-Zugriffe mit massenhaft verschiedenen IPs überflutet wird. So wird ausserdem das Problem mit dem stark verfälschten Gäste-Zähler reduziert. Diese spezielle Anpassung wird automatisch aktiv, wenn auch AnubisBB vorhanden und aktiv ist. Wenn das nicht der Fall ist, verhält sich WWH wie bisher, also wie 2.3.0 oder kleiner.
+* Sprachdateien:
+  * 2 Variablen hinzugefügt.
+  * 2 Variablen geändert.
+  * 1 Variable umbenannt.
 
 ### 2.3.0
 (2026-03-08 / CDB: 2026-04-19)

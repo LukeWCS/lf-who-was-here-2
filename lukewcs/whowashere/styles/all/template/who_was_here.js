@@ -18,8 +18,10 @@
 	let isShown = {
 		'info_users':	false,
 		'info_bots':	false,
+		'info_bots_ai':	false,
 		'all_users':	false,
 		'all_bots':		false,
+		'all_bots_ai':	false,
 	};
 
 	function ShowHide(e) {
@@ -32,9 +34,11 @@
 	}
 
 	$(function() {
-		$('.lfwwh_button_info_users').on('click', {ButtonType: 'info_users'}, ShowHide);
-		$('.lfwwh_button_info_bots'	).on('click', {ButtonType: 'info_bots'}	, ShowHide);
-		$('.lfwwh_button_all_users'	).on('click', {ButtonType: 'all_users'}	, ShowHide);
-		$('.lfwwh_button_all_bots'	).on('click', {ButtonType: 'all_bots'}	, ShowHide);
+		$('.lfwwh_button_info_users'	).on('click', {ButtonType: 'info_users'}	, ShowHide);
+		$('.lfwwh_button_info_bots'		).on('click', {ButtonType: 'info_bots'}		, ShowHide);
+		$('.lfwwh_button_info_bots_ai'	).on('click', {ButtonType: 'info_bots_ai'}	, ShowHide);
+		$('.lfwwh_button_all_users'		).on('click', {ButtonType: 'all_users'}		, ShowHide);
+		$('.lfwwh_button_all_bots'		).on('click', {ButtonType: 'all_bots'}		, ShowHide);
+		$('.lfwwh_button_all_bots_ai'	).on('click', {ButtonType: 'all_bots_ai'}	, ShowHide);
 	});
 })(jQuery);

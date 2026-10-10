@@ -30,6 +30,14 @@
 				LFWWH_BOTS_ALL_BUTTON ? ' ' ~ _self.all_button('all_bots')
 			}}<br>
 		{% endif %}
+
+		{% if LFWWH_BOTS_AI %}
+			{{ lang('LFWWH_BOTS_AI_PREFIX') ~ lang('COLON') }} {{
+				LFWWH_BOTS_AI_INFO_BUTTON ? _self.info_button('info_bots_ai', LFWWH_BOTS_AI_INFO_BUTTON) ~ ' '
+			}}{{ LFWWH_BOTS_AI }}{{
+				LFWWH_BOTS_AI_ALL_BUTTON ? ' ' ~ _self.all_button('all_bots_ai')
+			}}<br>
+		{% endif %}
 	</p>
 </div>
 

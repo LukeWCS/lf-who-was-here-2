@@ -1,3 +1,19 @@
+#### 2.3.1-b7
+* Code Bereinigung bezüglich AnubisBB Anpassung:
+  * Der deaktivierte Code für die Methode von b3 komplett entfernt, da sich diese ohnehin als mangelhaft herausgestellt hat und definitiv nicht mehr in Frage kommt.
+* Neue Funktion in Bezug auf KI-Crawler die bei phpBB 3.3.18 eingeführt wurden. Statt normale Bots und KI-Bots in derselben separaten Zeile zu zeigen, können diese jetzt optional auf zwei separate Zeilen aufgeteilt werden. Bei den KI-Crawlern gelten dieselben Einstellungen wie bisher bei den Bots. Das heisst, auch hier stehen optional die Buttons für "Zeige ausgeblendete Informationen" sowie "Zeige alle Benutzer" zur Verfügung, abhängig von den Einstellungen. Für die KI-Crawler wurden folgende Änderungen vorgenommen:
+  * In den Einstellungen wurde die Option "Zeige Bots (Anzahl und Namen):" in "Zeige Bots und KI-Crawler (Anzahl und Namen):" umbenannt.
+  * Änderungen beim zugehörigen PullDown-Menü der Option:
+    * Der Eintrag "In einer eigenen Zeile" wurde in "Zusammen in einer separaten Zeile" umbenannt.
+	* Der Eintrag "Getrennt in zwei separaten Zeilen" wurde hinzugefügt.
+  * Änderungen im WWH Foren Template:
+    * Unterhalb der Bots-Zeile eine separate KI-Crawler-Zeile eingebaut, mit denselben Funktionen und Eigenschaften wie für die normalen Bots.
+	* Das JavasScript für die Info- und Alle-Buttons wurde für die KI-Crawler erweitert.
+* Sprachdateien:
+  * 2 Variablen hinzugefügt.
+  * 2 Variablen geändert.
+  * 1 Variable umbenannt.
+  
 #### 2.3.1-b6
 * Anpassung für AnubisBB:
   * Code Optimierung beim Event Hook. Das assoziative Array mit dem Status von AnubisBB wird nicht mehr statisch gebaut, sondern dynamisch generiert durch direktes Auslesen des kompletten Event Arrays. Somit auch flexibler und zukunftssicherer.

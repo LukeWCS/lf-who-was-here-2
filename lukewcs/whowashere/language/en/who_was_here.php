@@ -48,6 +48,7 @@ $lang = array_merge($lang, [
 	'LFWWH_LAST3'				=> 'last on',
 	'LFWWH_USERS_PREFIX'		=> 'Registered users',
 	'LFWWH_BOTS_PREFIX'			=> 'Bots',
+	'LFWWH_BOTS_AI_PREFIX'		=> 'AI Crawlers',
 	'LFWWH_SHOW_INFO_TOOLTIP'	=> 'Show hidden information',
 	'LFWWH_SHOW_ALL_TOOLTIP'	=> 'Show all users',
 	'LFWWH_STATS' => [

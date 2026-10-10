@@ -19,7 +19,8 @@ class who_was_here
 {
 	protected const BOTS_DISABLED			= 0;
 	protected const BOTS_WITH_USERS			= 1;
-	protected const BOTS_OWN_LINE			= 2;
+	protected const BOTS_SEPARATELY			= 2;
+	protected const BOTS_AI_SEPARATELY		= 3;
 
 	protected const COUNT_BOTS_SEPARATELY	= 0;
 	protected const COUNT_BOTS_WITH_USERS	= 1;
@@ -48,7 +49,6 @@ class who_was_here
 	protected const BUTTON_ICON_INFO		= 2;
 
 	protected string		$lfwwh_table;
-	// protected bool		$session_killed		= false;
 	protected array|null	$anubisbb_data		= null;
 
 	public function __construct(
@@ -61,6 +61,7 @@ class who_was_here
 		protected \phpbb\event\dispatcher_interface $phpbb_dispatcher,
 		protected \phpbb\language\language $language,
 		// protected \phpbb\extension\manager $ext_manager,
+		protected $phpbb_root_path,
 		protected $table_prefix,
 		protected $php_ext,
 	)
@@ -174,9 +175,6 @@ class who_was_here
 			// 2.3.0
 			// if (!$this->config['lfwwh_disp_guests'])
 
-			// b3
-			// if (!$this->config['lfwwh_disp_guests'] || $this->session_killed)
-
 			// b4
 			// if (!$this->config['lfwwh_disp_guests']
 				// || ($this->ext_manager->is_enabled('neodev/anubisbb') && !($this->user->data['anubisbb_pass'] ?? false))
@@ -215,7 +213,7 @@ class who_was_here
 // $passed = ($this->user->data['anubisbb_pass'] ?? false);
 // date_default_timezone_set('europe/berlin');
 // $log_time = date('Y-m-d H:i:s');
-// file_put_contents('wwh_log.txt', "{$log_time} US -> session: {$this->user->data['session_id']}, exists: {$session_exists}, killed: {$this->session_killed}, passed: {$passed}, user_logged: {$user_logged}, ip: {$this->user->ip}\n", FILE_APPEND);
+// file_put_contents('wwh_log.txt', "{$log_time} US -> session: {$this->user->data['session_id']}, exists: {$session_exists}, passed: {$passed}, user_logged: {$user_logged}, ip: {$this->user->ip}\n", FILE_APPEND);
 
 // if ($this->ext_manager->is_enabled('neodev/anubisbb') && !($this->user->data['anubisbb_pass'] ?? false))
 // {
@@ -265,9 +263,9 @@ class who_was_here
 	*/
 	public function display(): void
 	{
-		$is_index = ($this->user->page['page_name'] == 'index.' . $this->php_ext);
-		$force_display = false;
-		$force_api_mode = false;
+		$is_index		= ($this->user->page['page_name'] == 'index.' . $this->php_ext);
+		$force_display	= false;
+		$force_api_mode	= false;
 
 		/**
 		* Overriding the variables that regulate the conditions for the WWH display.
@@ -281,8 +279,8 @@ class who_was_here
 		$vars = ['force_display', 'force_api_mode'];
 		extract($this->phpbb_dispatcher->trigger_event('lukewcs.whowashere.display_condition', compact($vars)));
 
-		$force_display = ($force_display === true);
-		$force_api_mode = ($force_api_mode === true);
+		$force_display	= ($force_display === true);
+		$force_api_mode	= ($force_api_mode === true);
 		if (!$is_index && !$force_display)
 		{
 			return;
@@ -361,11 +359,13 @@ class who_was_here
 			'count_total'	=> 0,
 			'shown_user'	=> 0,
 			'shown_bot'		=> 0,
+			'shown_bot_ai'	=> 0,
 		];
 
 		$wwh_username_full	= '';
 		$users_list			= '';
 		$bots_list			= '';
+		$bots_ai_list		= '';
 
 		/* Load cache who_was_here */
 		if ($this->config['lfwwh_use_cache'])
@@ -386,22 +386,62 @@ class who_was_here
 			$view_state = $this->view_state();
 		}
 
-		$users_info_button	= 0;
-		$bots_info_button	= 0;
-		$users_all_button	= false;
-		$bots_all_button	= false;
+		if ($this->config['lfwwh_disp_bots'] == self::BOTS_AI_SEPARATELY)
+		{
+// $start = microtime(true);
+			if (!function_exists('group_memberships'))
+			{
+				include($this->phpbb_root_path . 'includes/functions_user.' . $this->php_ext);
+			}
+
+			$sql = 'SELECT group_id, group_type, group_name
+					FROM ' . GROUPS_TABLE . '
+					WHERE group_type = ' . GROUP_SPECIAL . '
+						AND group_name IN ("BOTS", "AI_CRAWLERS")';
+			$result = $this->db->sql_query($sql);
+			$db_groups = $this->db->sql_fetchrowset($result);
+			$this->db->sql_freeresult($result);
+
+			$ai_group_id	= array_combine(array_column($db_groups, 'group_name'), array_column($db_groups, 'group_id'))['AI_CRAWLERS'] ?? false;
+			$ai_membership	= $ai_group_id !== false ? group_memberships($ai_group_id, array_column($view_state, 'user_id')) : [];
+			$ai_bot_ids		= array_column($ai_membership, 'user_id', 'user_id');
+
+// xdebug_var_dump($db_groups);
+// xdebug_var_dump($ai_group_id);
+// xdebug_var_dump($ai_membership);
+// xdebug_var_dump($ai_bot_ids);
+// xdebug_var_dump($view_state);
+
+// xdebug_var_dump(microtime(true) - $start);
+		}
+
+		$users_info_button		= 0;
+		$bots_info_button		= 0;
+		$bots_ai_info_button	= 0;
+		$users_all_button		= false;
+		$bots_all_button		= false;
+		$bots_ai_all_button		= false;
 		foreach ($view_state as $row)
 		{
 			if ($row['user_id'] != ANONYMOUS)
 			{
-				$user_type = (int) $row['user_type'];
-				$wwh_username_full = get_username_string((($user_type == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
-				$time = $this->get_formatted_time((int) $row['wwh_lastpage']);
-				$ip = ($wwh_disp_permission_ip ? $this->language->lang('IP') . ': ' . $row['user_ip'] : '');
-				$time_disp = $this->get_class_span('time', $time);
-				$ip_disp = $this->get_class_span('ip', $ip);
-				$disp_info = '';
-				$hover_info = '';
+				$user_type			= (int) $row['user_type'];
+				$wwh_username_full	= get_username_string((($user_type == USER_IGNORE) ? 'no_profile' : 'full'), $row['user_id'], $row['username'], $row['user_colour']);
+				$time				= $this->get_formatted_time((int) $row['wwh_lastpage']);
+				$ip					= ($wwh_disp_permission_ip ? $this->language->lang('IP') . ': ' . $row['user_ip'] : '');
+				$time_disp			= $this->get_html_span_class('time', $time);
+				$ip_disp			= $this->get_html_span_class('ip', $ip);
+				$disp_info			= '';
+				$hover_info			= '';
+				$is_ai_bot			= (bool) ($ai_bot_ids[$row['user_id']] ?? false);
+				$hidden_class_suf	= match (true) {
+					$user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS	=> 'info_users',
+					$is_ai_bot																				=> 'info_bots_ai',
+					default																					=> 'info_bots',
+				};
+// xdebug_var_dump($row['username'] . ': ' . ($is_ai_bot ? 1 : 0));
+// xdebug_var_dump($hidden_class_suf);
+
 				$show_time_disp =
 					(
 						$this->config['lfwwh_disp_time_users'] == self::DISP_BEHIND_NAME
@@ -445,27 +485,27 @@ class who_was_here
 					}
 					else if (!$show_time_disp && $show_time_hover && !$show_ip_disp && !$show_ip_hover)
 					{
-						$disp_info = $this->get_hidden_span($user_type, ' (' . $time_disp . ')');
+						$disp_info = $this->get_html_span_hidden($hidden_class_suf, ' (' . $time_disp . ')');
 						$hover_info = ' title="' . $time . '"';
 					}
 					else if (!$show_time_disp && !$show_time_hover && !$show_ip_disp && $show_ip_hover)
 					{
-						$disp_info = $this->get_hidden_span($user_type, ' (' . $ip_disp . ')');
+						$disp_info = $this->get_html_span_hidden($hidden_class_suf, ' (' . $ip_disp . ')');
 						$hover_info = ' title="' . $ip . '"';
 					}
 					else if (!$show_time_disp && $show_time_hover && !$show_ip_disp && $show_ip_hover)
 					{
-						$disp_info = $this->get_hidden_span($user_type, ' (' . $time_disp . ' | ' . $ip_disp . ')');
+						$disp_info = $this->get_html_span_hidden($hidden_class_suf, ' (' . $time_disp . ' | ' . $ip_disp . ')');
 						$hover_info = ' title="' . $time . ' | ' . $ip . '"';
 					}
 					else if ($show_time_disp && !$show_time_hover && !$show_ip_disp && $show_ip_hover)
 					{
-						$disp_info = ' (' . $time_disp . $this->get_hidden_span($user_type, ' | ' . $ip_disp ). ')';
+						$disp_info = ' (' . $time_disp . $this->get_html_span_hidden($hidden_class_suf, ' | ' . $ip_disp ). ')';
 						$hover_info = ' title="' . $ip . '"';
 					}
 					else if (!$show_time_disp && $show_time_hover && $show_ip_disp && !$show_ip_hover)
 					{
-						$disp_info = ' (' . $this->get_hidden_span($user_type, $time_disp . ' | ') . $ip_disp . ')';
+						$disp_info = ' (' . $this->get_html_span_hidden($hidden_class_suf, $time_disp . ' | ') . $ip_disp . ')';
 						$hover_info = ' title="' . $time . '"';
 					}
 
@@ -490,7 +530,7 @@ class who_was_here
 					if (!$bots_info_button && $hover_info && $user_type == USER_IGNORE)
 					{
 						if (
-							$this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE
+							$this->config['lfwwh_disp_bots'] >= self::BOTS_SEPARATELY
 							&& (
 								$this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP
 								|| $show_ip_hover
@@ -498,6 +538,19 @@ class who_was_here
 						)
 						{
 							$bots_info_button = $this->auth->acl_get('a_') ? self::BUTTON_ICON_INFO : self::BUTTON_ICON_CLOCK;
+						}
+					}
+					if (!$bots_ai_info_button && $hover_info && $user_type == USER_IGNORE)
+					{
+						if (
+							$this->config['lfwwh_disp_bots'] == self::BOTS_AI_SEPARATELY
+							&& (
+								$this->config['lfwwh_disp_time_bots'] == self::DISP_AS_TOOLTIP
+								|| $show_ip_hover
+							)
+						)
+						{
+							$bots_ai_info_button = $this->auth->acl_get('a_') ? self::BUTTON_ICON_INFO : self::BUTTON_ICON_CLOCK;
 						}
 					}
 				}
@@ -510,15 +563,29 @@ class who_was_here
 					|| ($wwh_disp_permission_users && $user_type != USER_IGNORE))
 				)
 				{
-					if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE && $user_type == USER_IGNORE)
+					if ($this->config['lfwwh_disp_bots'] >= self::BOTS_SEPARATELY && $user_type == USER_IGNORE)
 					{
-						$count['shown_bot']++;
-						if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_bot'] == $this->config['lfwwh_user_limit'] + 1)
+						if ($this->config['lfwwh_disp_bots'] == self::BOTS_AI_SEPARATELY && $is_ai_bot)
 						{
-							$bots_list .= '<span class="lfwwh_hidden_all_bots" style="display: none;">';
-							$bots_all_button = true;
+							$count['shown_bot_ai']++;
+							if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_bot_ai'] == $this->config['lfwwh_user_limit'] + 1)
+							{
+								$bots_ai_list .= '<span class="lfwwh_hidden_all_bots_ai" style="display: none;">';
+								$bots_ai_all_button = true;
+							}
+							$bots_ai_list .= $this->language->lang('COMMA_SEPARATOR') . '<span' . $hover_info . '>' . $wwh_username_full . '</span>' . $disp_info;
 						}
-						$bots_list .= $this->language->lang('COMMA_SEPARATOR') . '<span' . $hover_info . '>' . $wwh_username_full . '</span>' . $disp_info;
+						else
+						{
+							$count['shown_bot']++;
+							if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_bot'] == $this->config['lfwwh_user_limit'] + 1)
+							{
+								$bots_list .= '<span class="lfwwh_hidden_all_bots" style="display: none;">';
+								$bots_all_button = true;
+							}
+							$bots_list .= $this->language->lang('COMMA_SEPARATOR') . '<span' . $hover_info . '>' . $wwh_username_full . '</span>' . $disp_info;
+						}
+
 					}
 					else
 					{
@@ -553,14 +620,9 @@ class who_was_here
 			$count['count_total']++;
 		}
 
-		if ($users_all_button)
-		{
-			$users_list .= '</span>';
-		}
-		if ($bots_all_button)
-		{
-			$bots_list .= '</span>';
-		}
+		$users_list		.= $users_all_button	? '</span>' : '';
+		$bots_list		.= $bots_all_button		? '</span>' : '';
+		$bots_ai_list	.= $bots_ai_all_button	? '</span>' : '';
 
 		if ($users_list == '')
 		{
@@ -577,7 +639,7 @@ class who_was_here
 		{
 			$users_list = utf8_substr($users_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
 		}
-		if ($this->config['lfwwh_disp_bots'] == self::BOTS_OWN_LINE)
+		if ($this->config['lfwwh_disp_bots'] >= self::BOTS_SEPARATELY)
 		{
 			if ($bots_list == '')
 			{
@@ -586,6 +648,17 @@ class who_was_here
 			else
 			{
 				$bots_list = utf8_substr($bots_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
+			}
+		}
+		if ($this->config['lfwwh_disp_bots'] == self::BOTS_AI_SEPARATELY)
+		{
+			if ($bots_ai_list == '')
+			{
+				$bots_ai_list = $this->language->lang('LFWWH_NO_BOTS');
+			}
+			else
+			{
+				$bots_ai_list = utf8_substr($bots_ai_list, utf8_strlen($this->language->lang('COMMA_SEPARATOR')));
 			}
 		}
 		if (!$this->config['lfwwh_disp_hidden'])
@@ -618,10 +691,13 @@ class who_was_here
 			'LFWWH_RECORD'				=> $wwh_disp_permission_record ? $this->get_record_string((bool) $this->config['lfwwh_record'], (int) $this->config['lfwwh_time_mode']) : '',
 			'LFWWH_USERS'				=> $wwh_disp_permission_users || ($wwh_disp_permission_bots && $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? $users_list : '',
 			'LFWWH_BOTS'				=> $wwh_disp_permission_bots ? $bots_list : '',
+			'LFWWH_BOTS_AI'				=> $wwh_disp_permission_bots ? $bots_ai_list : '',
 			'LFWWH_USERS_INFO_BUTTON'	=> $users_info_button,
 			'LFWWH_BOTS_INFO_BUTTON'	=> $bots_info_button,
+			'LFWWH_BOTS_AI_INFO_BUTTON'	=> $bots_ai_info_button,
 			'LFWWH_USERS_ALL_BUTTON'	=> $users_all_button,
 			'LFWWH_BOTS_ALL_BUTTON'		=> $bots_all_button,
+			'LFWWH_BOTS_AI_ALL_BUTTON'	=> $bots_ai_all_button,
 			'LFWWH_POS'					=> $this->config['lfwwh_template_pos_all'] ? 7 : 2 ** $this->config['lfwwh_template_pos'],
 			'LFWWH_API_MODE'			=> $this->config['lfwwh_api_mode'] || $force_api_mode,
 			'LFWWH_SHOW'				=> (
@@ -710,20 +786,10 @@ class who_was_here
 	}
 
 	/*
-		Set a flag if the current session has been destroyed. (needed for AnubisBB)
-		EVENT: core.session_kill_after
-	*/
-
-	// public function set_session_flag($event): void
-	// {
-		// $this->session_killed = true;
-	// }
-
-	/*
 		Get intercept status of AnubisBB
 		EVENT: anubisbb.intercept.status
 	*/
-	public function check_anubisbb($event): void
+	public function get_anubisbb_status($event): void
 	{
 		$this->anubisbb_data = $event->get_data();
 	}
@@ -739,12 +805,13 @@ class who_was_here
 		$lang_show_record	= $this->language->lang('ACL_U_LFWWH_SHOW_RECORD');
 		$lang_show_users	= $this->language->lang('ACL_U_LFWWH_SHOW_USERS');
 		$lang_show_bots		= $this->language->lang('ACL_U_LFWWH_SHOW_BOTS');
+
 		if (!$this->config['lfwwh_use_permissions'] || $this->config['lfwwh_admin_mode'])
 		{
-			$lang_show_stats	= '<span style="opacity: 0.5;">' . $lang_show_stats . '</span>';
-			$lang_show_record	= '<span style="opacity: 0.5;">' . $lang_show_record . '</span>';
-			$lang_show_users	= '<span style="opacity: 0.5;">' . $lang_show_users . '</span>';
-			$lang_show_bots		= '<span style="opacity: 0.5;">' . $lang_show_bots . '</span>';
+			$lang_show_stats	= $this->get_html_span_dimmed($lang_show_stats);
+			$lang_show_record	= $this->get_html_span_dimmed($lang_show_record);
+			$lang_show_users	= $this->get_html_span_dimmed($lang_show_users);
+			$lang_show_bots		= $this->get_html_span_dimmed($lang_show_bots);
 		}
 
 		$event->update_subarray('categories', 'lfwwh', 'ACL_CAT_LFWWH');
@@ -800,23 +867,27 @@ class who_was_here
 	}
 
 	/*
-		Returns a string encapsulated in <span> tags for hidden text and set CSS class depending to the user type (user/bot).
+		Returns a string embedded in <span> tags for hidden text and set CSS class depending to the user type (user/bot/ai-crawler).
 	*/
-	private function get_hidden_span(int $user_type, string $text): string
+	private function get_html_span_hidden(string $class_suffix, string $text): string
 	{
-		if (!$this->config['lfwwh_create_hidden_info'])
-		{
-			return '';
-		}
-		return '<span class="lfwwh_hidden_' . (($user_type != USER_IGNORE || $this->config['lfwwh_disp_bots'] == self::BOTS_WITH_USERS) ? 'info_users' : 'info_bots') . '" style="display: none;">' . $text . '</span>';
+		return $this->config['lfwwh_create_hidden_info'] ? '<span class="lfwwh_hidden_' . $class_suffix . '" style="display: none;">' . $text . '</span>' : '';
 	}
 
 	/*
-		Returns a string encapsulated in <span> tags with a specific CSS class.
+		Returns a string embedded in <span> tags with a specific CSS class.
 	*/
-	private function get_class_span(string $class, string $text): string
+	private function get_html_span_class(string $class_suffix, string $text): string
 	{
-		return '<span class="lfwwh_' .  $class . '">' . $text . '</span>';
+		return '<span class="lfwwh_' .  $class_suffix . '">' . $text . '</span>';
+	}
+
+	/*
+		Returns a string embedded in <span> tags for dimmed text.
+	*/
+	private function get_html_span_dimmed(string $text): string
+	{
+		return '<span style="opacity: 0.5;">' . $text . '</span>';
 	}
 
 	/*

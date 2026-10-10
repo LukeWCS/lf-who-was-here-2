@@ -69,9 +69,10 @@ $lang = array_merge($lang, [
 	'LFWWH_DISP_REG_USERS_EXP'			=> 'Die Anzahl der sichtbaren Benutzer wird angezeigt.',
 	'LFWWH_DISP_HIDDEN'					=> 'Zeige unsichtbare Benutzer (Anzahl und Namen)',
 	'LFWWH_DISP_HIDDEN_EXP'				=> 'In der Benutzerliste werden auch unsichtbare Benutzer angezeigt. (Nur für Benutzer mit administrativen Rechten, wie bei „Wer ist online?“.)',
-	'LFWWH_DISP_BOTS'					=> 'Zeige Bots (Anzahl und Namen)',
+	'LFWWH_DISP_BOTS'					=> 'Zeige Bots und KI-Crawler (Anzahl und Namen)',
 	'LFWWH_DISP_BOTS_EXP'				=> 'Einige Benutzer werden sich fragen was Bots sind und sie fürchten.',
-	'LFWWH_DISP_BOTS_OWN_LINE'			=> 'In einer eigenen Zeile',
+	'LFWWH_DISP_BOTS_AI_SEPARATELY'		=> 'Getrennt in zwei separaten Zeilen',
+	'LFWWH_DISP_BOTS_SEPARATELY'		=> 'Zusammen in einer separaten Zeile',
 	'LFWWH_DISP_BOTS_WITH_USERS'		=> 'Mit den Benutzern',
 	'LFWWH_DISP_BOTS_DISABLED'			=> 'Nein',
 	'LFWWH_DISP_GUESTS'					=> 'Zeige Gäste (Anzahl)',
@@ -120,7 +121,7 @@ $lang = array_merge($lang, [
 	'LFWWH_TEMPLATE_POS_BEFORE_BDAYS'	=> 'Vor Geburtstage',
 	'LFWWH_TEMPLATE_POS_BOTTOM'			=> 'Unten',
 
-	// config LFWWH_SECTION_OTHER
+	// config LFWWH_SECTION_OTHERS
 	'LFWWH_SECTION_OTHERS'				=> 'Sonstiges',
 	'LFWWH_API_MODE'					=> 'API-Modus',
 	'LFWWH_API_MODE_EXP'				=> 'Damit wird die Anzeige von WWD deaktiviert und es werden lediglich die Template-Variablen erzeugt. Dieser Modus ist für Foren gedacht, bei denen WWD bereits durch andere Erweiterungen dargestellt wird.',
