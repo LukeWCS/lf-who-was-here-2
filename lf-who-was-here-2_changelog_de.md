@@ -6,7 +6,7 @@
 * Fix: In `composer.json` wurde ein falscher Version Constraint (`~1.0.0`) für `"require":` > `"composer/installers":` verwendet, was beim Aktualisieren mittels Composer dazu führen kann, dass keine gültige Version der Ext zur Verfügung steht und die Aktualisierung abgebrochen wird, wenn für Composer selber zum Beispiel eine Mindestversion von 1.10 definiert wurde. Im Zuge des Fixes wurde im Version Constraint auch gleich Composer 2 freigegeben. [Meldung: Crizzo (phpBB.de)]
 * Neue Funktion in Bezug auf KI-Crawler die bei phpBB 3.3.18 eingeführt wurden. Statt normale Bots und KI-Bots in derselben separaten Zeile zu zeigen, können diese jetzt optional auf zwei separate Zeilen aufgeteilt werden. Bei den KI-Crawlern gelten dieselben Einstellungen wie bisher bei den Bots. Das heisst, auch hier stehen optional die Buttons für "Zeige ausgeblendete Informationen" sowie "Zeige alle Benutzer" zur Verfügung, abhängig von den Einstellungen. Für die KI-Crawler wurden folgende Änderungen vorgenommen:
   * In den Einstellungen wurde die Option "Zeige Bots (Anzahl und Namen):" in "Zeige Bots und KI-Crawler (Anzahl und Namen):" umbenannt.
-  * Änderungen beim zugehörigen PullDown-Menü der Option:
+  * Änderungen beim zugehörigen Pull-Down-Menü der Option:
     * Der Eintrag "In einer eigenen Zeile" wurde in "Zusammen in einer separaten Zeile" umbenannt.
 	* Der Eintrag "Getrennt in zwei separaten Zeilen" wurde hinzugefügt.
 * Die Anzahl der maximal angezeigten Bots kann jetzt optional ebenfalls begrenzt werden, wie bereits bei der in 2.3.0 eingeführten Option für die Benutzer [Vorschlag: Kirk (phpBB.de)]
@@ -22,7 +22,7 @@
 * Die Voraussetzungen haben sich geändert:
   * PHP: 8.0.0 - 8.5.x (Bisher: 7.4.0 - 8.4.x)
 * Die Anzahl der Bots kann optional zusammen mit der Anzahl der sichtbaren Benutzer angezeigt werden, wie bei "Wer ist online?". [Wunsch: open-your-eyes (phpBB.com)]
-* Die Anzahl der maximal angezeigten Benutzer kann optional begrenzt werden. Wird diese Grenze in der Liste überschritten, werden die übrigen Benutzer ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
+* Die Anzahl der angezeigten Benutzer kann optional begrenzt werden. Wird diese Grenze in der Liste überschritten, werden die übrigen Benutzer ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
 * ACP-Modul:
   * Der Schalter für "Erzeuge ausgeblendete Informationen:" wurde aus dem Abschnitt "Sonstiges" in den Abschnitt "Anzeige Einstellungen 2" verschoben, damit dieser mit der Option "Begrenze die Anzahl der angezeigten Benutzer:" gruppiert werden konnte, da beide thematisch zusammengehören.
   * Sowohl bei "Erzeuge ausgeblendete Informationen:" als auch bei "Begrenze die Anzahl der angezeigten Benutzer:" wird in der Beschreibung jetzt direkt das FA Icon gezeigt, das im Foren-Index bei WWH jeweils als Schaltfläche dient. Somit werden die Icons im ACP Modul erklärt.

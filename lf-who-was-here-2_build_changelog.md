@@ -1,6 +1,6 @@
 #### 2.3.1-b8
-* Fix: Bei der neuen Funktion zur Trennung von Benutzer und Bots bei 2.3.1-b7, hat sich ein Fehler eingeschlichen, durch den es bei einer leeren Liste von KI Bots zu einem Fatal error und einem HTTP 500 kommt. Die dafür vorgesehene Fehlerbehandlung konnte ihren Aufgabe nicht korrekt erfüllen, weil diese mit einer Situation getestet (simuliert) wurde, die mit der Realität nichts zu tun hat. [Hinweis: chris1278 und Kirk (phpBB.de)]
-* Die Anzahl der maximal angezeigten Bots kann jetzt optional ebenfalls begrenzt werden, wie bereits bei der in 2.3.0 eingeführten Option für die Benutzer [Vorschlag: Kirk (phpBB.de)]
+* Fix: Bei der neuen Funktion zur Trennung von Benutzer und Bots bei 2.3.1-b7, hat sich ein Fehler eingeschlichen, durch den es bei einer leeren Liste von KI Bots zu einem Fatal error und einem HTTP 500 kam. Die dafür vorgesehene Fehlerbehandlung konnte ihre Aufgabe nicht korrekt erfüllen, weil diese mit einer Situation getestet (simuliert) wurde, die mit der Realität nichts zu tun hat. [Hinweis: chris1278 und Kirk (phpBB.de)]
+* Die Anzahl der angezeigten Bots kann jetzt optional ebenfalls begrenzt werden, wie bereits bei der in 2.3.0 eingeführten Option für die Benutzer [Vorschlag: Kirk (phpBB.de)]
   * ACP-Template:
     * Neues Eingabefeld für das Bot-Limit.
   * ACP-Controller:
@@ -8,7 +8,7 @@
   * JavaScript:
     * Die Funktion zum Zurücksetzen auf Standard-Einstellungen berücksichtigt das neue Bot-Limit.
 * Migration:
-  * Konfig für das Bot-Limit hinzugefügt.
+  * Konfig Variable für das Bot-Limit hinzugefügt.
   * Hinweis: Die neue Migration hat bewusst die Version 2.4.0, das ist keine Fehler. Während der Beta bleibt die WWH Version noch bei 2.3.1, damit es keine Missverständnisse gibt, aber beim Release wird die endgültige Version auf 2.4.0 gesetzt.
 * Sprachdateien:
   * 2 Variablen hinzugefügt.
@@ -16,15 +16,15 @@
 
 #### 2.3.1-b7
 * Code Bereinigung bezüglich AnubisBB Anpassung:
-  * Der deaktivierte Code für die Methode von b3 komplett entfernt, da sich diese ohnehin als mangelhaft herausgestellt hat und definitiv nicht mehr in Frage kommt.
+  * Den deaktivierten Code für die Methode von b3 komplett entfernt, da sich diese ohnehin als mangelhaft herausgestellt hat und definitiv nicht mehr in Frage kommt.
 * Neue Funktion in Bezug auf KI-Crawler die bei phpBB 3.3.18 eingeführt wurden. Statt normale Bots und KI-Bots in derselben separaten Zeile zu zeigen, können diese jetzt optional auf zwei separate Zeilen aufgeteilt werden. Bei den KI-Crawlern gelten dieselben Einstellungen wie bisher bei den Bots. Das heisst, auch hier stehen optional die Buttons für "Zeige ausgeblendete Informationen" sowie "Zeige alle Benutzer" zur Verfügung, abhängig von den Einstellungen. Für die KI-Crawler wurden folgende Änderungen vorgenommen:
   * In den Einstellungen wurde die Option "Zeige Bots (Anzahl und Namen):" in "Zeige Bots und KI-Crawler (Anzahl und Namen):" umbenannt.
-  * Änderungen beim zugehörigen PullDown-Menü der Option:
+  * Änderungen beim zugehörigen Pull-Down-Menü der Option:
     * Der Eintrag "In einer eigenen Zeile" wurde in "Zusammen in einer separaten Zeile" umbenannt.
 	* Der Eintrag "Getrennt in zwei separaten Zeilen" wurde hinzugefügt.
   * Änderungen im WWH Foren Template:
     * Unterhalb der Bots-Zeile eine separate KI-Crawler-Zeile eingebaut, mit denselben Funktionen und Eigenschaften wie für die normalen Bots.
-	* Das JavasScript für die Info- und Alle-Buttons wurde für die KI-Crawler erweitert.
+	* Das JavaScript für die Info- und Alle-Buttons wurde für die KI-Crawler erweitert.
 * Sprachdateien:
   * 2 Variablen hinzugefügt.
   * 2 Variablen geändert.
@@ -96,7 +96,7 @@
   * 2 Sprachvariablen so geändert, dass FA Icons in den Text eingefügt werden können.
   
 #### 2.3.0-b3
-* Die Anzahl der maximal angezeigten Benutzer kann jetzt optional begrenzt werden. Wird diese Grenze in der Liste überschreiten, werden die übrigen Benutzer ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
+* Die Anzahl der angezeigten Benutzer kann jetzt optional begrenzt werden. Wird diese Grenze in der Liste überschreiten, werden die übrigen Benutzer ausgeblendet und können mit einer Schaltfläche am Ende der Liste eingeblendet werden. [Basiert auf einem Vorschlag: Kirk (phpBB.de)]
 * Core:
   * Neuen Code für User-Limit eingebaut und bestehenden Code angepasst.
 * ACP-Template:
@@ -218,11 +218,11 @@
   * Wenn im Kontext die separate Bot-Liste (in einer eigenen Zeile) angezeigt werden darf, aber keine Bots im Zeitraum im Forum waren, wird trotzdem die Zeile für die Bots angezeigt, mit dem Text "0 Bots". Damit verhält sich diese Anzeige jetzt identisch zu der User-Liste.
 * ACP-Template:
   * Einfaches Rechtesystem von WWH:
-    * Die beiden PullDown-Menüs entfernt.
+    * Die beiden Pull-Down-Menüs entfernt.
     * Den Schalter "Zeige die Bot-Namen nur bei administrativen Rechten" entfernt, dieser wird durch das neue Bot Recht ersetzt.
     * 8 neue Schalter hinzugefügt
 * ACP-Controller:
-  * Code für die bisherigen PullDown-Menüs deaktiviert.
+  * Code für die bisherigen Pull-Down-Menüs deaktiviert.
 * Event-Templates:
   * An die neue Template-Variable angepasst.
 * WWH-Template:
@@ -251,7 +251,7 @@
 
 #### 2.1.6-b1
 * ACP-Template:
-  * HTML für PullDown Menüs (`<select`) durch das Twig Makro `select()` ersetzt.
+  * HTML für Pull-Down Menüs (`<select`) durch das Twig Makro `select()` ersetzt.
   * HTML `<input type="text"` durch das neue Twig Makro `text()` ersetzt.
   * HTML `<input type="number"` durch das neue Twig Makro `number()` ersetzt.
   * Die Sicherheitsfrage für den Rekord-Reset wird nicht mehr per JS Funktion `confirm()` erzeugt, sondern mit dem neuen Twig Makro `confirmbox()` generiert und direkt unterhalb des Schalters angezeigt.
@@ -270,7 +270,7 @@
     * Code für die Animation der Toggles vom Recent Topics Fork übernommen.
     * Links innerhalb der Beschreibungen sind jetzt klar erkennbar.
 * ACP-Controller:
-  * Die Elemente der PullDown-Menüs werden jetzt im Controller als Arrays erzeugt und in Template-Variablen geschrieben.
+  * Die Elemente der Pull-Down-Menüs werden jetzt im Controller als Arrays erzeugt und in Template-Variablen geschrieben.
   * Aktuelle Techniken von EMP übernommen.
 * Core:
   * Allgemeine Funktionen sind jetzt in separater Core Datei, wie bei meinen anderen Erweiterungen.
