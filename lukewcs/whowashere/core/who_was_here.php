@@ -403,15 +403,14 @@ class who_was_here
 			$this->db->sql_freeresult($result);
 
 			$ai_group_id	= array_combine(array_column($db_groups, 'group_name'), array_column($db_groups, 'group_id'))['AI_CRAWLERS'] ?? false;
-			$ai_membership	= $ai_group_id !== false ? group_memberships($ai_group_id, array_column($view_state, 'user_id')) : [];
-			$ai_bot_ids		= array_column($ai_membership, 'user_id', 'user_id');
+			$ai_membership	= $ai_group_id ? group_memberships($ai_group_id, array_column($view_state, 'user_id')) : false;
+			$ai_bot_ids		= $ai_membership ? array_column($ai_membership, 'user_id', 'user_id') : [];
 
 // xdebug_var_dump($db_groups);
 // xdebug_var_dump($ai_group_id);
 // xdebug_var_dump($ai_membership);
 // xdebug_var_dump($ai_bot_ids);
 // xdebug_var_dump($view_state);
-
 // xdebug_var_dump(microtime(true) - $start);
 		}
 
@@ -568,7 +567,7 @@ class who_was_here
 						if ($this->config['lfwwh_disp_bots'] == self::BOTS_AI_SEPARATELY && $is_ai_bot)
 						{
 							$count['shown_bot_ai']++;
-							if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_bot_ai'] == $this->config['lfwwh_user_limit'] + 1)
+							if ($this->config['lfwwh_bot_limit'] > 0 && $count['shown_bot_ai'] == $this->config['lfwwh_bot_limit'] + 1)
 							{
 								$bots_ai_list .= '<span class="lfwwh_hidden_all_bots_ai" style="display: none;">';
 								$bots_ai_all_button = true;
@@ -578,7 +577,7 @@ class who_was_here
 						else
 						{
 							$count['shown_bot']++;
-							if ($this->config['lfwwh_user_limit'] > 0 && $count['shown_bot'] == $this->config['lfwwh_user_limit'] + 1)
+							if ($this->config['lfwwh_bot_limit'] > 0 && $count['shown_bot'] == $this->config['lfwwh_bot_limit'] + 1)
 							{
 								$bots_list .= '<span class="lfwwh_hidden_all_bots" style="display: none;">';
 								$bots_all_button = true;

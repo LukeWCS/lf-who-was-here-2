@@ -82,6 +82,7 @@ class acp_who_was_here_controller
 			$this->config->set('lfwwh_period_of_time_m'			, $this->request->variable('lfwwh_period_of_time_m', 0));
 			$this->config->set('lfwwh_period_of_time_s'			, $this->request->variable('lfwwh_period_of_time_s', 0));
 			$this->config->set('lfwwh_user_limit'				, $this->request->variable('lfwwh_user_limit', 0));
+			$this->config->set('lfwwh_bot_limit'				, $this->request->variable('lfwwh_bot_limit', 0));
 			$this->config->set('lfwwh_sort_by'					, $this->request->variable('lfwwh_sort_by', 0));
 			$this->config->set('lfwwh_record'					, $this->request->variable('lfwwh_record', 0));
 			$this->config->set('lfwwh_record_time_format'		, $this->request->variable('lfwwh_record_time_format', ''));
@@ -187,6 +188,7 @@ class acp_who_was_here_controller
 				'LFWWH_SORT_BY_ID_DESC'				=> 5,
 			]),
 			'LFWWH_USER_LIMIT'						=> (int) $this->config['lfwwh_user_limit'],
+			'LFWWH_BOT_LIMIT'						=> (int) $this->config['lfwwh_bot_limit'],
 			'LFWWH_RECORD'							=> (bool) $this->config['lfwwh_record'],
 			'LFWWH_RECORD_TIME_FORMAT'				=> (string) $this->config['lfwwh_record_time_format'],
 			'LFWWH_RECORD_TIME_FORMAT_DEMO'			=> $this->language->lang('LFWWH_DISP_TIME_FORMAT_DEMO', $this->get_formatted_record_time(time())),

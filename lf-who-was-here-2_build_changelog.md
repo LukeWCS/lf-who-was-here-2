@@ -1,3 +1,19 @@
+#### 2.3.1-b8
+* Fix: Bei der neuen Funktion zur Trennung von Benutzer und Bots bei 2.3.1-b7, hat sich ein Fehler eingeschlichen, durch den es bei einer leeren Liste von KI Bots zu einem Fatal error und einem HTTP 500 kommt. Die dafür vorgesehene Fehlerbehandlung konnte ihren Aufgabe nicht korrekt erfüllen, weil diese mit einer Situation getestet (simuliert) wurde, die mit der Realität nichts zu tun hat. [Hinweis: chris1278 und Kirk (phpBB.de)]
+* Die Anzahl der maximal angezeigten Bots kann jetzt optional ebenfalls begrenzt werden, wie bereits bei der in 2.3.0 eingeführten Option für die Benutzer [Vorschlag: Kirk (phpBB.de)]
+  * ACP-Template:
+    * Neues Eingabefeld für das Bot-Limit.
+  * ACP-Controller:
+    * Neues Eingabefeld für Bot-Limit verdrahtet.
+  * JavaScript:
+    * Die Funktion zum Zurücksetzen auf Standard-Einstellungen berücksichtigt das neue Bot-Limit.
+* Migration:
+  * Konfig für das Bot-Limit hinzugefügt.
+  * Hinweis: Die neue Migration hat bewusst die Version 2.4.0, das ist keine Fehler. Während der Beta bleibt die WWH Version noch bei 2.3.1, damit es keine Missverständnisse gibt, aber beim Release wird die endgültige Version auf 2.4.0 gesetzt.
+* Sprachdateien:
+  * 2 Variablen hinzugefügt.
+  * 1 Variable geändert.
+
 #### 2.3.1-b7
 * Code Bereinigung bezüglich AnubisBB Anpassung:
   * Der deaktivierte Code für die Methode von b3 komplett entfernt, da sich diese ohnehin als mangelhaft herausgestellt hat und definitiv nicht mehr in Frage kommt.
@@ -13,7 +29,8 @@
   * 2 Variablen hinzugefügt.
   * 2 Variablen geändert.
   * 1 Variable umbenannt.
-  
+* Code Optimierung.
+
 #### 2.3.1-b6
 * Anpassung für AnubisBB:
   * Code Optimierung beim Event Hook. Das assoziative Array mit dem Status von AnubisBB wird nicht mehr statisch gebaut, sondern dynamisch generiert durch direktes Auslesen des kompletten Event Arrays. Somit auch flexibler und zukunftssicherer.

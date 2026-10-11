@@ -203,6 +203,7 @@
 		$(        'select[name="lfwwh_sort_by"]').prop('value'				, c.SortByVisitDesc);
 		setSwitch('input[name="lfwwh_create_hidden_info"]'					, true);
 		$(        'input[name="lfwwh_user_limit"]').prop('value'			, 0);
+		$(        'input[name="lfwwh_bot_limit"]').prop('value'				, 0);
 		setSwitch('input[name="lfwwh_record"]'								, true);
 		$(        'input[name="lfwwh_record_time_format"]').prop('value'	, 'D j. M Y');
 		$(        'select[name="lfwwh_template_pos"]').prop('value'			, c.PosTop);

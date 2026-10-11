@@ -1,4 +1,4 @@
-### 2.3.1
+### 2.4.0
 (2026-- / CDB: --)
 
 * Die Voraussetzungen haben sich geändert:
@@ -9,10 +9,11 @@
   * Änderungen beim zugehörigen PullDown-Menü der Option:
     * Der Eintrag "In einer eigenen Zeile" wurde in "Zusammen in einer separaten Zeile" umbenannt.
 	* Der Eintrag "Getrennt in zwei separaten Zeilen" wurde hinzugefügt.
+* Die Anzahl der maximal angezeigten Bots kann jetzt optional ebenfalls begrenzt werden, wie bereits bei der in 2.3.0 eingeführten Option für die Benutzer [Vorschlag: Kirk (phpBB.de)]
 * Anpassung für AnubisBB, damit bei Gästen keine Datensätze mehr in der Besuchertabelle von WWH angelegt werden, die von AnubisBB blockiert wurden. So soll erreicht werden, dass die Besuchertabelle von WWH nicht mehr durch unerwünschte Bot-Zugriffe mit massenhaft verschiedenen IPs überflutet wird. So wird ausserdem das Problem mit dem stark verfälschten Gäste-Zähler reduziert. Diese spezielle Anpassung wird automatisch aktiv, wenn auch AnubisBB vorhanden und aktiv ist. Wenn das nicht der Fall ist, verhält sich WWH wie bisher, also wie 2.3.0 oder kleiner.
 * Sprachdateien:
-  * 2 Variablen hinzugefügt.
-  * 2 Variablen geändert.
+  * 4 Variablen hinzugefügt.
+  * 3 Variablen geändert.
   * 1 Variable umbenannt.
 
 ### 2.3.0
